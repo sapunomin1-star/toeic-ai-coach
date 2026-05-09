@@ -1,0 +1,344 @@
+"use client";
+
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import {
+  calculateAvgResponseTime,
+  calculatePart5AvgTime,
+  countMistakesBySkill,
+  countSlowQuestions,
+  getSlowestSkill,
+  getTomorrowRecommendation,
+  summarize,
+} from "@/lib/analysis";
+import { clearAllProgress, getAnswerRecords } from "@/lib/storage";
+import {
+  getTodayVocabulary,
+  getVocabularyProgress,
+} from "@/lib/vocabularyStorage";
+import type { AnswerRecord, SkillTag } from "@/types/question";
+import { SKILL_LABELS } from "@/types/question";
+import type { VocabularyItem, VocabularyProgress } from "@/types/vocabulary";
+
+function fmtMs(ms: number): string {
+  if (ms === 0) return "—";
+  const s = Math.round(ms / 1000);
+  return `${s} 秒`;
+}
+
+export default function DashboardPage() {
+  const [records, setRecords] = useState<AnswerRecord[] | null>(null);
+  const [todayVocabulary, setTodayVocabulary] = useState<VocabularyItem[]>([]);
+  const [vocabularyProgress, setVocabularyProgress] = useState<
+    VocabularyProgress[]
+  >([]);
+
+  useEffect(() => {
+    const id = window.setTimeout(() => {
+      setRecords(getAnswerRecords());
+      setTodayVocabulary(getTodayVocabulary());
+      setVocabularyProgress(getVocabularyProgress());
+    }, 0);
+    return () => window.clearTimeout(id);
+  }, []);
+
+  function handleReset() {
+    const ok = window.confirm(
+      "確定要清除所有作答紀錄嗎？包含歷史統計、錯題狀態。這個動作無法復原。"
+    );
+    if (!ok) return;
+    clearAllProgress();
+    setRecords([]);
+  }
+
+  if (records === null) {
+    return <p className="py-10 text-center text-slate-500">載入中…</p>;
+  }
+
+  const stats = summarize(records);
+  const skillMistakes = countMistakesBySkill(records);
+  const recommendation = getTomorrowRecommendation(records);
+  const avgTime = calculateAvgResponseTime(records);
+  const part5AvgTime = calculatePart5AvgTime(records);
+  const slowCount = countSlowQuestions(records);
+  const slowestSkill = getSlowestSkill(records);
+
+  const orderedSkills = (
+    Object.entries(skillMistakes) as [SkillTag, number][]
+  ).sort((a, b) => b[1] - a[1]);
+
+  const maxMistakes = Math.max(1, ...orderedSkills.map(([, n]) => n));
+  const weakestSkill = orderedSkills.find(([, n]) => n > 0)?.[0] ?? null;
+  const vocabularyProgressMap = new Map(
+    vocabularyProgress.map((item) => [item.wordId, item.status])
+  );
+  const vocabNew = todayVocabulary.filter(
+    (item) => (vocabularyProgressMap.get(item.id) ?? "new") === "new"
+  ).length;
+  const vocabSeen = todayVocabulary.filter(
+    (item) => vocabularyProgressMap.get(item.id) === "seen"
+  ).length;
+  const vocabFamiliar = todayVocabulary.filter(
+    (item) => vocabularyProgressMap.get(item.id) === "familiar"
+  ).length;
+  const vocabMastered = todayVocabulary.filter(
+    (item) => vocabularyProgressMap.get(item.id) === "mastered"
+  ).length;
+  const vocabularyAdvice =
+    vocabFamiliar > 0
+      ? `這 ${vocabFamiliar} 個字有印象但還不穩，明天再確認一次就能掌握。`
+      : vocabMastered === todayVocabulary.length && todayVocabulary.length > 0
+        ? "今日單字已完成，可以進入題目訓練。"
+        : vocabSeen + vocabNew > 0
+          ? "今天先不要追求速度，把每個單字的例句看懂。"
+          : "開始今日單字練習。";
+
+  return (
+    <div className="space-y-5">
+      <header>
+        <h1 className="text-xl font-bold">個人教練報告</h1>
+        <p className="mt-1 text-xs text-slate-500">
+          目標 500 → 700 · 每天 15–20 分鐘
+        </p>
+      </header>
+
+      {/* Today stats */}
+      <section>
+        <h2 className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
+          今日
+        </h2>
+        <div className="grid grid-cols-2 gap-3">
+          <StatCard
+            label="今日作答"
+            value={`${stats.todayTotal} 題`}
+            accent="text-indigo-600"
+          />
+          <StatCard
+            label="今日正確率"
+            value={
+              stats.todayTotal === 0
+                ? "—"
+                : `${stats.todayAccuracy}%`
+            }
+            accent={
+              stats.todayAccuracy >= 70 ? "text-emerald-600" : "text-rose-600"
+            }
+          />
+        </div>
+      </section>
+
+      {/* Cumulative stats */}
+      <section>
+        <h2 className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
+          累積
+        </h2>
+        <div className="grid grid-cols-3 gap-3">
+          <StatCard label="總作答" value={stats.total.toString()} />
+          <StatCard
+            label="正確率"
+            value={`${stats.accuracy}%`}
+            accent="text-indigo-600"
+          />
+          <StatCard
+            label="錯題數"
+            value={stats.wrong.toString()}
+            accent="text-rose-600"
+          />
+        </div>
+      </section>
+
+      <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        <h2 className="mb-3 text-sm font-semibold">今日單字進度</h2>
+        <div className="grid grid-cols-4 gap-2 text-center">
+          <StatCard label="未學" value={vocabNew.toString()} />
+          <StatCard
+            label="見過"
+            value={vocabSeen.toString()}
+            accent="text-amber-600"
+          />
+          <StatCard
+            label="有印象"
+            value={vocabFamiliar.toString()}
+            accent="text-indigo-600"
+          />
+          <StatCard
+            label="已掌握"
+            value={vocabMastered.toString()}
+            accent="text-emerald-600"
+          />
+        </div>
+        <p className="mt-3 text-sm text-slate-600">{vocabularyAdvice}</p>
+      </section>
+
+      {/* Time stats */}
+      <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        <h2 className="mb-3 text-sm font-semibold">作答速度</h2>
+        <div className="grid grid-cols-3 gap-3 text-center">
+          <div>
+            <p className="text-[10px] uppercase tracking-wider text-slate-500">
+              平均每題
+            </p>
+            <p className="mt-1 text-lg font-bold text-slate-800">
+              {fmtMs(avgTime)}
+            </p>
+          </div>
+          <div>
+            <p className="text-[10px] uppercase tracking-wider text-slate-500">
+              Part 5 均速
+            </p>
+            <p
+              className={`mt-1 text-lg font-bold ${
+                part5AvgTime > 40_000 ? "text-rose-600" : "text-slate-800"
+              }`}
+            >
+              {fmtMs(part5AvgTime)}
+            </p>
+          </div>
+          <div>
+            <p className="text-[10px] uppercase tracking-wider text-slate-500">
+              超過 40 秒
+            </p>
+            <p
+              className={`mt-1 text-lg font-bold ${
+                slowCount > 0 ? "text-amber-600" : "text-slate-800"
+              }`}
+            >
+              {slowCount} 題
+            </p>
+          </div>
+        </div>
+        {slowestSkill && (
+          <p className="mt-3 text-xs text-slate-500">
+            最慢 skill：
+            <span className="font-semibold text-slate-700">
+              {SKILL_LABELS[slowestSkill]}
+            </span>
+          </p>
+        )}
+      </section>
+
+      {/* Weakness summary */}
+      {(weakestSkill || slowestSkill) && (
+        <section className="grid grid-cols-2 gap-3">
+          {weakestSkill && (
+            <div className="rounded-2xl border border-rose-100 bg-rose-50 p-3">
+              <p className="text-[10px] uppercase tracking-wider text-rose-500">
+                最弱 Skill
+              </p>
+              <p className="mt-1 text-sm font-bold text-rose-800">
+                {SKILL_LABELS[weakestSkill]}
+              </p>
+              <p className="mt-0.5 text-xs text-rose-600">
+                {skillMistakes[weakestSkill]} 題錯
+              </p>
+            </div>
+          )}
+          {slowestSkill && (
+            <div className="rounded-2xl border border-amber-100 bg-amber-50 p-3">
+              <p className="text-[10px] uppercase tracking-wider text-amber-500">
+                最慢 Skill
+              </p>
+              <p className="mt-1 text-sm font-bold text-amber-800">
+                {SKILL_LABELS[slowestSkill]}
+              </p>
+              <p className="mt-0.5 text-xs text-amber-600">反應較慢</p>
+            </div>
+          )}
+        </section>
+      )}
+
+      {/* Tomorrow recommendation */}
+      <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        <h2 className="mb-2 text-sm font-semibold">明日建議</h2>
+        <p className="text-sm leading-relaxed text-slate-700">
+          {recommendation.message}
+        </p>
+        {recommendation.secondary && (
+          <p className="mt-1.5 text-xs text-slate-500">
+            第二優先：{recommendation.secondary.label}
+          </p>
+        )}
+      </section>
+
+      {/* Skill error chart */}
+      <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        <h2 className="mb-3 text-sm font-semibold">各 Skill 錯題分布</h2>
+        {stats.total === 0 ? (
+          <p className="text-sm text-slate-500">
+            還沒有作答紀錄，先去做今日訓練吧。
+          </p>
+        ) : (
+          <ul className="space-y-2">
+            {orderedSkills.map(([skill, count]) => (
+              <li key={skill}>
+                <div className="flex items-center justify-between text-xs">
+                  <span className="font-medium text-slate-700">
+                    {SKILL_LABELS[skill]}
+                  </span>
+                  <span className="text-slate-500">{count} 題錯</span>
+                </div>
+                <div className="mt-1 h-2 w-full overflow-hidden rounded-full bg-slate-100">
+                  <div
+                    className={`h-full ${
+                      count === 0
+                        ? "bg-slate-200"
+                        : count >= maxMistakes
+                          ? "bg-rose-500"
+                          : "bg-amber-400"
+                    }`}
+                    style={{ width: `${(count / maxMistakes) * 100}%` }}
+                  />
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+
+      <div className="grid grid-cols-2 gap-3">
+        <Link
+          href="/practice"
+          className="rounded-2xl bg-slate-900 px-4 py-3 text-center text-sm font-semibold text-white"
+        >
+          開始今日訓練
+        </Link>
+        <Link
+          href="/wrongbook"
+          className="rounded-2xl border border-slate-300 bg-white px-4 py-3 text-center text-sm font-semibold text-slate-700"
+        >
+          查看錯題本
+        </Link>
+      </div>
+
+      {records.length > 0 && (
+        <button
+          onClick={handleReset}
+          className="block w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-center text-xs font-medium text-slate-500"
+        >
+          清除所有學習紀錄
+        </button>
+      )}
+    </div>
+  );
+}
+
+function StatCard({
+  label,
+  value,
+  accent,
+}: {
+  label: string;
+  value: string;
+  accent?: string;
+}) {
+  return (
+    <div className="rounded-2xl border border-slate-200 bg-white p-3 text-center shadow-sm">
+      <p className="text-[10px] uppercase tracking-wider text-slate-500">
+        {label}
+      </p>
+      <p className={`mt-1 text-xl font-bold ${accent ?? "text-slate-900"}`}>
+        {value}
+      </p>
+    </div>
+  );
+}
