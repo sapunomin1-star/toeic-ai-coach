@@ -11,9 +11,10 @@ import {
   saveDailyPlan,
 } from "@/lib/storage";
 
-const WEAK_COUNT = 10;
-const NEW_COUNT = 10;
-const LISTENING_COUNT = 3;
+const WEAK_COUNT = 8;
+const NEW_COUNT = 7;
+const LISTENING_COUNT = 6;
+const READING_COUNT = 3;
 const REVIEW_MAX = 5;
 const ESTIMATED_SECONDS_PER_Q = 38;
 
@@ -39,7 +40,7 @@ export default function PracticePage() {
     return () => window.clearTimeout(id);
   }, []);
 
-  const totalQs = WEAK_COUNT + NEW_COUNT + LISTENING_COUNT + reviewCount;
+  const totalQs = WEAK_COUNT + NEW_COUNT + LISTENING_COUNT + READING_COUNT + reviewCount;
   const minMin = Math.max(
     15,
     Math.round((totalQs * ESTIMATED_SECONDS_PER_Q) / 60)
@@ -53,6 +54,7 @@ export default function PracticePage() {
       weakCount: WEAK_COUNT,
       newCount: NEW_COUNT,
       listeningCount: LISTENING_COUNT,
+      readingCount: READING_COUNT,
       reviewIds,
     });
     saveDailyPlan({
@@ -84,23 +86,30 @@ export default function PracticePage() {
         <TaskRow
           emoji="💪"
           title="弱點補強"
-          desc={`${WEAK_COUNT} 題 · 詞性判斷 + 被動語態（優先出題）`}
-          tag="弱點"
+          desc={`${WEAK_COUNT} 題 · 詞性判斷 + 被動語態（優先）`}
+          tag="Part 5"
           tagColor="rose"
         />
         <TaskRow
           emoji="📝"
           title="新題練習"
           desc={`${NEW_COUNT} 題 · 時態 / 介系詞 / 連接詞 / 商務單字`}
-          tag="新題"
+          tag="Part 5"
           tagColor="indigo"
         />
         <TaskRow
           emoji="🎧"
           title="Part 3 / 4 聽力"
-          desc={`${LISTENING_COUNT} 題 · main idea / inference / next action`}
+          desc={`${LISTENING_COUNT} 題 · 主旨 / 推論 / 下一步 （含 Transcript）`}
           tag="聽力"
           tagColor="violet"
+        />
+        <TaskRow
+          emoji="📄"
+          title="Part 7 短閱讀"
+          desc={`${READING_COUNT} 題 · email / notice / ad / memo 等短文`}
+          tag="閱讀"
+          tagColor="amber"
         />
         <TaskRow
           emoji="🔁"
@@ -165,6 +174,7 @@ const TAG_CLASSES: Record<TagColor, string> = {
   violet: "bg-violet-100 text-violet-700",
   amber: "bg-amber-100 text-amber-700",
 };
+// amber already included — no changes needed
 
 function TaskRow({
   emoji,

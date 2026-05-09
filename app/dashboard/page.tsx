@@ -3,9 +3,17 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
+  LISTENING_SKILLS,
+  READING_SKILLS,
   calculateAvgResponseTime,
+  calculateListeningAccuracy,
+  calculatePart5Accuracy,
   calculatePart5AvgTime,
+  calculateReadingAccuracy,
+  countListeningAttempts,
   countMistakesBySkill,
+  countPart5Attempts,
+  countReadingAttempts,
   countSlowQuestions,
   getSlowestSkill,
   getTomorrowRecommendation,
@@ -15,7 +23,9 @@ import { clearAllProgress, getAnswerRecords } from "@/lib/storage";
 import {
   getTodayVocabulary,
   getVocabularyProgress,
+  getVocabularyQuizStats,
 } from "@/lib/vocabularyStorage";
+import type { VocabularyQuizStats } from "@/lib/vocabularyStorage";
 import type { AnswerRecord, SkillTag } from "@/types/question";
 import { SKILL_LABELS } from "@/types/question";
 import type { VocabularyItem, VocabularyProgress } from "@/types/vocabulary";
@@ -32,12 +42,14 @@ export default function DashboardPage() {
   const [vocabularyProgress, setVocabularyProgress] = useState<
     VocabularyProgress[]
   >([]);
+  const [quizStats, setQuizStats] = useState<VocabularyQuizStats | null>(null);
 
   useEffect(() => {
     const id = window.setTimeout(() => {
       setRecords(getAnswerRecords());
       setTodayVocabulary(getTodayVocabulary());
       setVocabularyProgress(getVocabularyProgress());
+      setQuizStats(getVocabularyQuizStats());
     }, 0);
     return () => window.clearTimeout(id);
   }, []);
@@ -62,6 +74,13 @@ export default function DashboardPage() {
   const part5AvgTime = calculatePart5AvgTime(records);
   const slowCount = countSlowQuestions(records);
   const slowestSkill = getSlowestSkill(records);
+
+  const part5Accuracy = calculatePart5Accuracy(records);
+  const part5Total = countPart5Attempts(records);
+  const listeningAccuracy = calculateListeningAccuracy(records);
+  const listeningTotal = countListeningAttempts(records);
+  const readingAccuracy = calculateReadingAccuracy(records);
+  const readingTotal = countReadingAttempts(records);
 
   const orderedSkills = (
     Object.entries(skillMistakes) as [SkillTag, number][]
@@ -146,6 +165,142 @@ export default function DashboardPage() {
           />
         </div>
       </section>
+
+      {/* Part 5 vs Listening breakdown */}
+      {stats.total > 0 && (
+        <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+          <h2 className="mb-3 text-sm font-semibold">Part 5 vs 聽力表現</h2>
+          <div className="grid grid-cols-2 gap-3">
+            <div className="rounded-xl bg-slate-50 p-3 text-center">
+              <p className="text-[10px] uppercase tracking-wider text-slate-500">
+                Part 5 正確率
+              </p>
+              <p
+                className={`mt-1 text-xl font-bold ${
+                  part5Total === 0
+                    ? "text-slate-400"
+                    : part5Accuracy >= 70
+                      ? "text-emerald-600"
+                      : "text-rose-600"
+                }`}
+              >
+                {part5Total > 0 ? `${part5Accuracy}%` : "—"}
+              </p>
+              <p className="mt-0.5 text-xs text-slate-400">{part5Total} 題</p>
+            </div>
+            <div className="rounded-xl bg-slate-50 p-3 text-center">
+              <p className="text-[10px] uppercase tracking-wider text-slate-500">
+                聽力正確率
+              </p>
+              <p
+                className={`mt-1 text-xl font-bold ${
+                  listeningTotal === 0
+                    ? "text-slate-400"
+                    : listeningAccuracy >= 70
+                      ? "text-emerald-600"
+                      : "text-rose-600"
+                }`}
+              >
+                {listeningTotal > 0 ? `${listeningAccuracy}%` : "—"}
+              </p>
+              <p className="mt-0.5 text-xs text-slate-400">
+                {listeningTotal} 題
+              </p>
+            </div>
+          </div>
+          {listeningTotal > 0 && (
+            <ul className="mt-3 space-y-1">
+              {LISTENING_SKILLS.map((skill) => {
+                const mistakes = skillMistakes[skill];
+                return (
+                  <li
+                    key={skill}
+                    className="flex items-center justify-between text-xs"
+                  >
+                    <span className="text-slate-600">
+                      {SKILL_LABELS[skill]}
+                    </span>
+                    <span
+                      className={
+                        mistakes > 0
+                          ? "font-medium text-rose-600"
+                          : "text-slate-400"
+                      }
+                    >
+                      {mistakes > 0 ? `${mistakes} 題錯` : "✓ 無錯誤"}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </section>
+      )}
+
+      {/* Part 7 Reading stats */}
+      {readingTotal > 0 && (
+        <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+          <h2 className="mb-3 text-sm font-semibold">Part 7 閱讀表現</h2>
+          <div className="grid grid-cols-2 gap-3">
+            <div className="rounded-xl bg-slate-50 p-3 text-center">
+              <p className="text-[10px] uppercase tracking-wider text-slate-500">
+                Part 7 正確率
+              </p>
+              <p
+                className={`mt-1 text-xl font-bold ${
+                  readingAccuracy >= 70 ? "text-emerald-600" : "text-rose-600"
+                }`}
+              >
+                {readingAccuracy}%
+              </p>
+              <p className="mt-0.5 text-xs text-slate-400">{readingTotal} 題</p>
+            </div>
+            <div className="rounded-xl bg-slate-50 p-3 text-center">
+              <p className="text-[10px] uppercase tracking-wider text-slate-500">
+                閱讀錯題數
+              </p>
+              <p
+                className={`mt-1 text-xl font-bold ${
+                  skillMistakes["reading_main_idea"] +
+                    skillMistakes["reading_detail"] +
+                    skillMistakes["reading_inference"] >
+                  0
+                    ? "text-rose-600"
+                    : "text-emerald-600"
+                }`}
+              >
+                {skillMistakes["reading_main_idea"] +
+                  skillMistakes["reading_detail"] +
+                  skillMistakes["reading_inference"]}
+                題
+              </p>
+              <p className="mt-0.5 text-xs text-slate-400">累積錯誤</p>
+            </div>
+          </div>
+          <ul className="mt-3 space-y-1">
+            {READING_SKILLS.map((skill) => {
+              const mistakes = skillMistakes[skill];
+              return (
+                <li
+                  key={skill}
+                  className="flex items-center justify-between text-xs"
+                >
+                  <span className="text-slate-600">{SKILL_LABELS[skill]}</span>
+                  <span
+                    className={
+                      mistakes > 0
+                        ? "font-medium text-rose-600"
+                        : "text-slate-400"
+                    }
+                  >
+                    {mistakes > 0 ? `${mistakes} 題錯` : "✓ 無錯誤"}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      )}
 
       <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
         <h2 className="mb-3 text-sm font-semibold">今日單字進度</h2>
@@ -244,6 +399,52 @@ export default function DashboardPage() {
               <p className="mt-0.5 text-xs text-amber-600">反應較慢</p>
             </div>
           )}
+        </section>
+      )}
+
+      {/* Vocabulary quiz stats */}
+      {quizStats && (quizStats.totalCorrect + quizStats.totalWrong > 0) && (
+        <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+          <h2 className="mb-3 text-sm font-semibold">單字測驗表現</h2>
+          <div className="grid grid-cols-3 gap-3 text-center">
+            <StatCard
+              label="答對"
+              value={quizStats.totalCorrect.toString()}
+              accent="text-emerald-600"
+            />
+            <StatCard
+              label="答錯"
+              value={quizStats.totalWrong.toString()}
+              accent="text-rose-600"
+            />
+            <StatCard
+              label="正確率"
+              value={`${quizStats.accuracy}%`}
+              accent={
+                quizStats.accuracy >= 70
+                  ? "text-emerald-600"
+                  : "text-rose-600"
+              }
+            />
+          </div>
+          {quizStats.lastQuizAt && (
+            <p className="mt-2 text-xs text-slate-400">
+              最近測驗：
+              {new Date(quizStats.lastQuizAt).toLocaleDateString("zh-TW", {
+                month: "numeric",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
+            </p>
+          )}
+          <p className="mt-2 text-sm text-slate-600">
+            {quizStats.accuracy < 70
+              ? "正確率偏低，先複習 seen / familiar 單字再測驗。"
+              : quizStats.accuracy <= 85
+                ? "持續每日測驗，鞏固熟悉度。"
+                : "正確率很高！可以增加新單字量。"}
+          </p>
         </section>
       )}
 

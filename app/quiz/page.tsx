@@ -244,18 +244,26 @@ export default function QuizPage() {
         </div>
       </div>
 
+      {currentQuestion.passage && (
+        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 shadow-sm">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-amber-700">
+            Part 7 · Reading Passage
+          </p>
+          <p className="whitespace-pre-wrap text-sm leading-relaxed text-slate-800">
+            {currentQuestion.passage}
+          </p>
+        </div>
+      )}
+
       {currentQuestion.transcript && (
-        <details
-          className="rounded-2xl border border-slate-200 bg-white p-3 text-sm text-slate-700"
-          open={isAnswered}
-        >
-          <summary className="cursor-pointer text-xs font-semibold text-slate-500">
-            Transcript（請先試著從題目反推，再展開）
-          </summary>
-          <pre className="mt-2 whitespace-pre-wrap font-sans text-sm leading-relaxed">
+        <div className="rounded-2xl border border-violet-200 bg-violet-50 p-4 shadow-sm">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-violet-600">
+            {currentQuestion.part} · Transcript
+          </p>
+          <p className="whitespace-pre-wrap text-sm leading-relaxed text-slate-800">
             {currentQuestion.transcript}
-          </pre>
-        </details>
+          </p>
+        </div>
       )}
 
       <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">

@@ -251,12 +251,20 @@ export default function VocabularyPage() {
       </ul>
 
       {words.length > 0 && (
-        <Link
-          href="/dashboard"
-          className="block w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-center text-sm font-medium text-slate-600"
-        >
-          查看今日報告
-        </Link>
+        <div className="space-y-3">
+          <Link
+            href="/vocabulary-quiz"
+            className="block w-full rounded-2xl bg-indigo-600 px-5 py-4 text-center text-base font-semibold text-white shadow-sm active:scale-[0.99]"
+          >
+            開始單字小測驗 →
+          </Link>
+          <Link
+            href="/dashboard"
+            className="block w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-center text-sm font-medium text-slate-600"
+          >
+            查看今日報告
+          </Link>
+        </div>
       )}
     </div>
   );

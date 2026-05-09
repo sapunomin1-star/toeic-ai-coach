@@ -10,6 +10,18 @@ const PART5_SKILLS = new Set<SkillTag>([
   "business_vocabulary",
 ]);
 
+export const LISTENING_SKILLS: SkillTag[] = [
+  "listening_main_idea",
+  "listening_inference",
+  "listening_next_action",
+];
+
+export const READING_SKILLS: SkillTag[] = [
+  "reading_main_idea",
+  "reading_detail",
+  "reading_inference",
+];
+
 export function calculateAccuracy(records: AnswerRecord[]): number {
   if (records.length === 0) return 0;
   const correct = records.filter((r) => r.isCorrect).length;
@@ -29,6 +41,9 @@ export function countMistakesBySkill(
     "listening_main_idea",
     "listening_inference",
     "listening_next_action",
+    "reading_main_idea",
+    "reading_detail",
+    "reading_inference",
   ];
   const init = Object.fromEntries(tags.map((t) => [t, 0])) as Record<
     SkillTag,
@@ -160,6 +175,40 @@ export function getTomorrowRecommendation(
     `明天請優先練 ${primary?.label}，加強相關題型。`;
 
   return { primary, secondary, message: advice };
+}
+
+// ─── Part 5 vs Listening breakdown ────────────────────────────────────────
+
+export function calculatePart5Accuracy(records: AnswerRecord[]): number {
+  return calculateAccuracy(records.filter((r) => PART5_SKILLS.has(r.skill_tag)));
+}
+
+export function countPart5Attempts(records: AnswerRecord[]): number {
+  return records.filter((r) => PART5_SKILLS.has(r.skill_tag)).length;
+}
+
+export function calculateListeningAccuracy(records: AnswerRecord[]): number {
+  return calculateAccuracy(
+    records.filter((r) => (LISTENING_SKILLS as SkillTag[]).includes(r.skill_tag))
+  );
+}
+
+export function countListeningAttempts(records: AnswerRecord[]): number {
+  return records.filter((r) =>
+    (LISTENING_SKILLS as SkillTag[]).includes(r.skill_tag)
+  ).length;
+}
+
+export function calculateReadingAccuracy(records: AnswerRecord[]): number {
+  return calculateAccuracy(
+    records.filter((r) => (READING_SKILLS as SkillTag[]).includes(r.skill_tag))
+  );
+}
+
+export function countReadingAttempts(records: AnswerRecord[]): number {
+  return records.filter((r) =>
+    (READING_SKILLS as SkillTag[]).includes(r.skill_tag)
+  ).length;
 }
 
 export function summarize(records: AnswerRecord[]) {

@@ -27,4 +27,22 @@ export type VocabularyProgress = {
   selfCheckCount: number;
   lastSelfCheckDate: string | null; // YYYY-MM-DD
   addedAt: string;
+  quizCorrectCount?: number;
+  quizWrongCount?: number;
+  lastQuizAt?: string;
+};
+
+export type QuizQuestionType = "en-to-zh" | "zh-to-en" | "fill-blank";
+
+export type VocabularyQuizQuestion = {
+  type: QuizQuestionType;
+  wordId: string;
+  prompt: string;
+  choices: string[]; // 4 items
+  correctIndex: number; // 0–3
+  explanation: {
+    word: string;
+    meaning_zh: string;
+    example: string;
+  };
 };

@@ -23,6 +23,9 @@ const SKILL_TAGS = [
   "listening_main_idea",
   "listening_inference",
   "listening_next_action",
+  "reading_main_idea",
+  "reading_detail",
+  "reading_inference",
 ] satisfies SkillTag[];
 
 function isBrowser(): boolean {
