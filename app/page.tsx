@@ -47,7 +47,7 @@ export default function Home() {
           <PlanStep
             num="3"
             label="今日訓練"
-            desc="Part 5 × 15 題 + 聽力 × 6 題 + 錯題複習"
+            desc="Part 5 × 15 題 + 聽力 × 6 題 + 閱讀 × 3 題 + 錯題複習"
             href="/practice"
             color="slate"
           />

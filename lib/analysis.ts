@@ -7,7 +7,9 @@ const PART5_SKILLS = new Set<SkillTag>([
   "tense",
   "preposition",
   "conjunction",
+  "pronoun",
   "business_vocabulary",
+  "relative_clause",
 ]);
 
 export const LISTENING_SKILLS: SkillTag[] = [
@@ -38,6 +40,7 @@ export function countMistakesBySkill(
     "preposition",
     "conjunction",
     "business_vocabulary",
+    "relative_clause",
     "listening_main_idea",
     "listening_inference",
     "listening_next_action",

@@ -1,5 +1,121 @@
 # TOEIC AI Coach Development Log
 
+## Full Project Scan - 2026-05-22
+
+### Scope
+
+- Scanned source files under `app/`, `lib/`, `data/`, and `types/`.
+- Reviewed repository guidance files: `AGENTS.md`, `CLAUDE.md`, `README.md`, and this development log.
+- Ran framework validation, TypeScript validation, linting, production build, data integrity checks, and vocabulary quiz generation checks.
+- Updated agent documentation and removed the obsolete Claude redirect file.
+
+### Commands and Results
+
+- `npm run lint`: passed.
+- `./node_modules/.bin/tsc --noEmit`: initially failed because stale generated output contained `.next/types/cache-life.d 2.ts`, causing duplicate Next.js type declarations.
+- `npm run build`: passed. Next.js 16.2.6 compiled successfully, ran TypeScript inside the production build, generated static pages, and removed the stale duplicate `.next` type artifact.
+- `./node_modules/.bin/tsc --noEmit`: passed after the production build regenerated `.next`.
+- Data integrity script: passed.
+- Vocabulary quiz generation stress check: passed across 100 generated quizzes.
+- Production route HTTP smoke test on `http://127.0.0.1:3010`: passed.
+
+### Production Build Routes
+
+The production build generated these app routes successfully:
+
+- `/`
+- `/_not-found`
+- `/dashboard`
+- `/practice`
+- `/quiz`
+- `/vocabulary`
+- `/vocabulary-quiz`
+- `/wrongbook`
+
+HTTP smoke test status codes:
+
+- `/`: 200.
+- `/practice`: 200.
+- `/quiz`: 200.
+- `/wrongbook`: 200.
+- `/dashboard`: 200.
+- `/vocabulary`: 200.
+- `/vocabulary-quiz`: 200.
+
+### Data Integrity Results
+
+- Total questions: 426.
+- Part 5 questions: 300.
+- Part 3 questions: 33.
+- Part 4 questions: 33.
+- Part 7 questions: 60.
+- Vocabulary words: 100.
+- Duplicate question IDs: 0.
+- Duplicate vocabulary IDs: 0.
+- Questions with invalid answer keys: 0.
+- Questions with missing choices: 0.
+- Questions with missing `explanation_zh`: 0.
+- Questions with missing or empty `vocabulary`: 0.
+- Part 3 / Part 4 questions missing `transcript`: 0.
+- Part 7 questions missing `passage`: 0.
+- Vocabulary entries with missing required fields: 0.
+
+Answer distribution across all questions:
+
+- A: 69.
+- B: 151.
+- C: 135.
+- D: 71.
+
+This is not a functional bug, but future content QA should review answer balance if new questions are added.
+
+### Vocabulary Quiz Generation Results
+
+Across 100 generated quiz runs:
+
+- Expected question count: passed, 10 questions per quiz.
+- Choice count: passed, 4 choices per question.
+- Duplicate choices: none found.
+- Dash filler choices: none found.
+- Invalid `correctIndex`: none found.
+- Question type generation remained active for `en-to-zh`, `zh-to-en`, and `fill-blank`.
+
+### Bugs and Fixes
+
+1. Fixed Part 5 analytics undercounting.
+   - Problem: `lib/analysis.ts` did not include `pronoun` in `PART5_SKILLS`.
+   - Impact: pronoun questions were omitted from Part 5 accuracy and Part 5 average-time calculations.
+   - Fix: added `pronoun` to `PART5_SKILLS`.
+
+2. Fixed home-page task description drift.
+   - Problem: `app/page.tsx` described today's training as Part 5 plus listening plus wrong review, but the actual daily plan also includes Part 7 reading.
+   - Impact: user-facing description was incomplete.
+   - Fix: updated the home-page plan text to include 3 reading questions.
+
+3. Cleaned obsolete agent guide redirect.
+   - Problem: `CLAUDE.md` only redirected to `AGENTS.md`.
+   - Fix: deleted `CLAUDE.md` as requested and expanded `AGENTS.md` as the canonical coding-agent guide.
+
+### Documentation Changes
+
+- Rewrote `AGENTS.md` with:
+  - project goal and product boundaries.
+  - Next.js version warning.
+  - architecture map.
+  - data model rules.
+  - learning logic rules.
+  - QA checklist.
+  - known environment notes.
+  - change guidelines.
+  - agent role guidance.
+- Kept `DEVELOPMENT_LOG.md` as the detailed project scan and QA history.
+
+### Current Known Issues
+
+- No blocking source-code bugs found after the fixes above.
+- Standalone TypeScript can fail if stale `.next` duplicate files appear again, especially files named like `* 2.ts`. Regenerating `.next` with `npm run build` cleared the issue during this scan.
+- Answer distribution is skewed toward B and C. This does not break the app, but it is worth reviewing during future question-bank expansion.
+
 ## Project Goal
 
 - Personal TOEIC improvement tool for self-study.
@@ -72,8 +188,8 @@ Current working tree also includes uncommitted work:
 ### Current Data Status
 
 - `vocabulary.ts`: about 100 TOEIC words.
-- `questions.ts`: about 376 questions.
-  - Part 5: about 250+ questions.
+- `questions.ts`: about 426 questions.
+  - Part 5: about 300 questions.
   - Part 3: 30+ questions.
   - Part 4: 30+ questions.
   - Part 7: 60 questions.
@@ -151,13 +267,13 @@ Current working tree also includes uncommitted work:
 
 Current working tree data count:
 
-- `questions.ts` total questions: 376.
-- Part 5 questions: 250.
+- `questions.ts` total questions: 426.
+- Part 5 questions: 300.
 - Part 3 questions: 33.
 - Part 4 questions: 33.
 - Part 7 questions: 60.
 - `vocabulary.ts` words: 100.
-- Question vocabulary metadata: 376 / 376 questions have `vocabulary`.
+- Question vocabulary metadata: 426 / 426 questions have `vocabulary`.
 - Empty question vocabulary arrays: 0.
 
 Notes:
