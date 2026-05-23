@@ -518,4 +518,67 @@ Important milestone mapping:
   - `lib/analysis.ts` was fixed so `countMistakesBySkill` initializes `reading_main_idea`, `reading_detail`, and `reading_inference`.
 - Known environment note:
   - In the Codex sandbox, `npm run build` can fail with a Turbopack process/port permission error. Re-run with approved elevated permissions to verify the real build result.
+  - `data/questions.ts` at 6500+ lines / 300KB+ causes local TypeScript and ESLint to time out. Production build on Vercel completes in ~15s.
+
+## Comprehensive Project Audit — 2026-05-23
+
+### Scope
+
+Full-stack audit covering data layer, types, lib utilities, app routes, accessibility, scalability, and future product readiness. Conducted by Claude Code with multi-agent exploration.
+
+### Build Verification
+
+- `npm run lint`: passed (ESLint 9).
+- Vercel production build: passed (Next.js 16.2.6, TypeScript, 11 routes including /mock-test).
+- Data integrity: passed (no duplicate IDs, no missing fields, all Part 3/4 have transcript, all Part 6/7 have passage).
+- Routes verified: `/`, `/dashboard`, `/practice`, `/quiz`, `/wrongbook`, `/vocabulary`, `/vocabulary-quiz`, `/mock-test` — all 200 on production.
+
+### What Is Working
+
+| Feature | Status | Notes |
+|---------|--------|-------|
+| Daily Practice (Part 5/6/7/Listening) | ✅ Complete | Plan generation, quiz flow, timing |
+| Vocabulary Flashcards | ✅ Complete | 100 words, 4-stage SRS, cross-day mastery |
+| Vocabulary Quiz | ✅ Complete | 3 question types, 10 questions/quiz |
+| Wrong Book | ✅ Complete | Grouped by skill, spaced repetition |
+| Dashboard Analytics | ✅ Complete | Accuracy, timing, recommendations, Part 5/6/7 breakdown |
+| Mock Test (100Q/75min) | ✅ Complete | Preview/testing/result, timer, auto-submit, resume |
+| Part 6 Support | ✅ Complete | 16 questions (4 passages), analytics separation |
+| RAG Pipeline | ✅ Complete | Pattern library, DeepSeek/Kimi/Hy3 integration |
+| localStorage Persistence | ✅ Complete | All state local, no backend dependency |
+
+### Critical Issues Found (Not Blocking, Should Address)
+
+1. **Hardcoded WEAK_SKILL_TAGS**: `buildDailyPlan` uses static `["word_form", "passive_voice"]` instead of dynamic analysis from actual user mistakes.
+2. **No Part 1/2 in type system**: `Part` union excludes Photographs and Question-Response.
+3. **passage_group_id defined but unused**: `buildMockTestPlan` uses fragile 120-char passage hash instead.
+4. **No TOEIC score conversion table**: Mock test scores are raw only; no official scaled score mapping.
+5. **UTC/timezone mismatch in isToday()**: Stores UTC ISO but compares with local date.
+6. **Monolithic data files**: `questions.ts` (6500 lines) + `questions-generated.ts` (3000 lines) — unmaintainable at 1000+ questions.
+7. **No localStorage quota management**: Answer records grow unboundedly; silent data loss on quota exceed.
+
+### Architecture Risks for Future Expansion
+
+| Risk | Impact | Mitigation |
+|------|--------|------------|
+| No backend API | Cannot add login, cloud sync, or paid features | Would need full-stack migration |
+| localStorage-only | Data lost on cache clear; no cross-device sync | Add export/import; migrate to IndexedDB for quota |
+| All questions in JS bundle | 10K+ questions would crash build | Split to lazy-loaded chunks or API |
+| No test framework | No automated regression testing | Add Vitest or Playwright |
+| No Part 1/2 types | Cannot represent full TOEIC | Add to Part union + SkillTag + data |
+
+### Files Modified in This Audit
+
+- `DEVELOPMENT_LOG.md` — added this audit section
+- `AGENTS.md` — updated with new rules and architecture notes (see below)
+
+### Recommended Next Tasks for Codex
+
+1. Fix hardcoded WEAK_SKILL_TAGS to use dynamic weakest skill analysis
+2. Add Part 1 + Part 2 to Part union type and SKILL_LABELS
+3. Populate passage_group_id on existing Part 6/7 questions
+4. Add localStorage export/import buttons to Dashboard
+5. Add `useMemo` to dashboard derived computations
+6. Fix mock-test dynamic import antipattern (line 90)
+7. Add ARIA labels to home page emoji links and quiz choice groups
   - A stale dev server on port 3000 may return 500 if its `.next/dev` cache is stale. Production build/start has been the reliable verification path.
