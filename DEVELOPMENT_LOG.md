@@ -328,12 +328,35 @@ Timing coverage:
 - Part 5, Part 6, Part 7, Part 3, and Part 4 questions all go through the same quiz submit path, so they can all record `responseTimeMs`.
 - Current timing is per question, not full-session countdown. A future simulated TOEIC reading mode should add a separate session timer.
 
+### Part 6 Generation Run + Practice Page Update - 2026-05-23
+
+Generated 12 Part 6 questions (3 passages × 4 blanks each) via the RAG pipeline:
+
+- DeepSeek v4 Pro generated all 12 questions across 3 patterns (internal email, office memo, customer notice).
+- 2 of 3 patterns produced valid output on first attempt; the office memo pattern needed a retry.
+- All Part 6 questions validated: 4 blanks per passage (A/B/C/D), correct passage sharing, valid skill_tag (`reading_detail`), non-empty vocabulary and explanation_zh.
+
+Updated practice page descriptions:
+
+- Part 5 弱點補強: "依錯題分析自動挑選最弱文法" (was static skill list).
+- Part 5 新題練習: now lists all 8 skill types including pronoun and relative clause.
+- Part 7: changed from listing passage types to listing question types (主旨 / 細節定位 / 推論).
+- Part 3/4: cleaned up description.
+
+Current data counts:
+
+- 456 questions total.
+- Part 5: 303. Part 3: 33. Part 4: 33. **Part 6: 12**. Part 7: 75.
+
+Practice page now shows the Part 6 task row (2 題 · 段落填空 · 詞性 / 連接 / 介系詞).
+
 ### Completed Features
 
 1. **Part 6 Text Completion**
    - Added `"Part 6"` to `Part` union type in `types/question.ts`.
    - Part 6 questions share `passage` across 4 blanks (A/B/C/D), same pattern as Part 7.
-   - `buildDailyPlan` can include Part 6 questions when Part 6 data exists. Practice page hides the Part 6 task while the current bank has no Part 6 questions.
+   - `buildDailyPlan` includes Part 6 questions (2 per daily plan). Practice page shows Part 6 task row.
+   - 12 Part 6 questions generated and validated.
 
 2. **RAG Question Generation Pipeline (`pipeline/`)**
    - Independent Node.js/TypeScript pipeline (excluded from Next.js build).
