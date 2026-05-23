@@ -117,7 +117,7 @@ export default function DashboardPage() {
       <header>
         <h1 className="text-xl font-bold">個人教練報告</h1>
         <p className="mt-1 text-xs text-slate-500">
-          目標 500 → 700 · 每天 15–20 分鐘
+          依照目前弱點持續衝高分 · 每天 15–20 分鐘
         </p>
       </header>
 

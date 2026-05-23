@@ -9,7 +9,7 @@ export default function Home() {
           TOEIC Personal Coach
         </p>
         <h1 className="mt-1.5 text-2xl font-bold leading-snug">
-          目標：500 → 700
+          目標：持續衝高 TOEIC 分數
         </h1>
         <p className="mt-1.5 text-sm text-indigo-100">
           每天 15–30 分鐘。單字 → 文法 → 聽力 → 複習。
