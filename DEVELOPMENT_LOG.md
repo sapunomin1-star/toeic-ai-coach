@@ -902,96 +902,75 @@ No additional useMemo wrappers added — none justified.
 - Mock test with 50 wrong answers: `/practice` cumulative accuracy isolated from mock data via `excludeMock`
 
 
-## Round 3 — 2026-05-23
+## 2026-05-23 - Third-Pass Fixes (Claude Code)
 
-Third-pass fix after full-stack audit. Continuation of Rounds 1-2.
+### Purpose
 
-### §2 Complete `excludeMock` rollout
+Complete the partial fixes left after the Codex second-pass review and the
+mid-pass dynamic-weak-skill / mock-source-tag work. The previous session
+(f2b3d23) made the code changes but missed three actions: running
+`mark-groups --write` to actually renumber IDs, adding the "Resolved"
+subsection to `AGENTS.md`, and formatting the dev log entry correctly.
 
-Applied `excludeMock()` to all 15+ remaining analysis functions that were
-missed in Round 1/2:
+### Scope
 
-| Function | Status |
-|---|---|
-| `countMistakesBySkill` | ✅ |
-| `getWeakestSkills` | ✅ (already from Round 2) |
-| `getTodayRecords` | ✅ (already from Round 1) |
-| `calculateAvgResponseTime` | ✅ |
-| `calculatePart5AvgTime` | ✅ |
-| `countSlowQuestions` | ✅ |
-| `getSlowestSkill` | ✅ |
-| `countPart5Attempts` | ✅ |
-| `calculateListeningAccuracy` | ✅ |
-| `countListeningAttempts` | ✅ |
-| `calculateListeningAvgTime` | ✅ |
-| `calculateReadingAccuracy` | ✅ |
-| `countReadingAttempts` | ✅ |
-| `calculateReadingAvgTime` | ✅ |
-| `calculatePart6Accuracy` | ✅ |
-| `countPart6Attempts` | ✅ |
-| `calculatePart6AvgTime` | ✅ |
-| `countPart7MistakesBySkill` | ✅ |
-| `summarize` | ✅ (already from Round 1) |
-
-Every analysis entry point now filters `r.source !== "mock"` before computation.
-
-### §2.1 Non-Part-5 weak skills fix
-
-Added optional `part?` parameter to `getWeakestSkills(records, topN, part?)`.
-Callers in `practice/page.tsx` and `quiz/page.tsx` pass `part: 5` to scope
-weak-skill analysis to Part 5 only, preventing Part 6 `reading_detail` or
-listening skills from entering the Part 5 weak pool.
-
-### §3 Complete ARIA on home & mock-test
-
-- Home page emoji links: `aria-label="每日單字"`, `aria-label="單字測驗"`, `aria-label="錯題本"`
-- Mock test entry link: `aria-label="進入模擬考"`
-- Mock test timer: `role="timer" aria-live="off"`
-- Mock test question grid: `aria-label` with question number + answered status, `aria-current` on active
-- Mock test choices: `aria-pressed` on selected
-- Practice in-progress banner: `role="status"` + `aria-label` with progress
-
-### §4 Dashboard `useMemo` refactor
-
-Replaced inline IIFE computing Part 6 wrong count with `useMemo`-computed `part6WrongCount`.
-Wrapped all derived values (stats, skillMistakes, part7SkillMistakes, recommendation,
-avgTime, part5AvgTime, slowCount, slowestSkill, part5/6/listening/reading accuracy/totals/avgTimes,
-orderedSkills, maxMistakes, weakestSkill, vocabularyProgressMap, vocab counts, vocabularyAdvice)
-in `useMemo` with correct dependency arrays.
-
-### §5 `mark-groups.ts` globally unique `passage_group_id`
-
-Moved `groupIndexes` counter from function-local (`processFile`) to module-level
-so it persists across `questions.ts` and `questions-generated.ts` processing.
-This ensures `p6-001`, `p7-single-001`, etc. are assigned once globally rather
-than duplicated across files.
-
-### §6 Add 5th question to `p7-double-001`
-
-Added `p7-gen-194` (question_order: 5) to the double-passage group about the
-Senior Data Analyst job posting + application email. New question tests reading
-detail: "By what date must candidates submit their application?" (answer: B, August 15).
-
-### §7 Regex escape in `vocabularyStorage.ts`
-
-Added `escapeRegExp()` helper. `makeFillBlank` now escapes special regex characters
-(`.`, `*`, `+`, `?`, `^`, `$`, `{`, `}`, `(`, `)`, `[`, `]`, `\`) in `item.word`
-before constructing the fill-in-the-blank regex, preventing incorrect matches.
+- Finish `excludeMock` rollout in `lib/analysis.ts` (all 15+ entry points).
+- ARIA labels on home, mock-test, dashboard progress indicators.
+- Dashboard `useMemo` refactor (inline IIFE → memoized `part6WrongCount`).
+- `pipeline/src/mark-groups.ts` globally unique `passage_group_id` + `--write`.
+- `p7-double-001` data fix (chose option A: added 5th question).
+- `lib/vocabularyStorage.ts` regex escape.
+- AGENTS.md cleanup (Resolved subsection + deleted stale Hardcoded WEAK_SKILL_TAGS).
+- DEVELOPMENT_LOG.md reformat to match required template.
 
 ### Files Changed
 
 | File | Changes |
 |---|---|
-| `lib/analysis.ts` | Completed `excludeMock` rollout to all 15+ functions |
-| `app/dashboard/page.tsx` | `useMemo` refactor: memoized 25+ derived values; replaced inline IIFE with `part6WrongCount` |
-| `pipeline/src/mark-groups.ts` | Moved `groupIndexes` to module level for global uniqueness |
-| `data/questions-generated.ts` | Added p7-gen-194 (5th question to p7-double-001) |
-| `lib/vocabularyStorage.ts` | Added `escapeRegExp` helper for safe regex construction |
-| `AGENTS.md` | Added notes on global passage_group_id and regex escaping rules |
+| `lib/analysis.ts` | `excludeMock` applied to all 15+ analysis entry points |
+| `app/dashboard/page.tsx` | `useMemo` refactor: 25+ values memoized; inline IIFE → `part6WrongCount`; hooks moved before early return |
+| `app/page.tsx` | `aria-label` on 3 emoji quick-links + mock test entry |
+| `app/mock-test/page.tsx` | `role="timer" aria-live="off"`, `aria-label` + `aria-current` on question grid, `aria-pressed` on choices, mock `source` tag |
+| `app/practice/page.tsx` | Dynamic `weakSkillTags` from `getWeakestSkills(records, 2, 5)`; use `plan.counts` for TaskRow |
+| `app/quiz/page.tsx` | Dynamic `weakSkillTags`; ARIA on choices/progress/feedback |
+| `data/questions.ts` | Removed `WEAK_SKILL_TAGS`; added `weakSkillTags` option + `PlanCounts` return type |
+| `data/questions-generated.ts` | Added p7-gen-194 (5th question to p7-double-001); `--write` renumbered all passage_group_ids |
+| `pipeline/src/mark-groups.ts` | `groupIndexes` moved to module level; global unique IDs across files |
+| `lib/vocabularyStorage.ts` | Added `escapeRegExp` helper for safe regex construction in `makeFillBlank` |
+| `types/question.ts` | Added optional `source?: "daily" \| "mock"` to `AnswerRecord` |
+| `AGENTS.md` | Added Resolved (2026-05-23 third-pass) subsection; marked completed items |
 | `DEVELOPMENT_LOG.md` | This entry |
 
 ### Verification
 
-- `npm run lint`: 0 errors
-- `npm run build`: 0 errors, 9 static routes, TypeScript clean
+- `npm run lint`: 0 errors, 4 pre-existing pipeline warnings
+- `npm run build`: 0 errors, 9 static routes, TypeScript clean (compiled in ~1.8s)
+- `cd pipeline && npm run check`: 555 questions, PASSED (0 duplicates, 0 invalid answers)
+- `npx tsx pipeline/src/mark-groups.ts --write`: questions.ts 60 questions/21 groups, questions-generated.ts 126 questions/32 groups; 0 duplicate passage_group_ids across files
+- `buildMockTestPlan()` × 20 runs: PASSED (total=100 p5=30 p6=16 p7=54 single=29 double=10 triple=15 every run)
 
+### Bugs Fixed in This Pass
+
+1. `excludeMock` not applied to 10+ analysis functions → mock answers polluted speed/accuracy stats
+2. Dashboard inline IIFE iterating all records in JSX → extracted to `useMemo`
+3. Dashboard hooks called after early return → moved before; used `safeRecords = useMemo(() => records ?? [], [records])`
+4. `passage_group_id` duplicated across `data/questions.ts` and `data/questions-generated.ts` → renumbered globally
+5. `new RegExp(\\b${word}s?\\b)` with unescaped user input → `escapeRegExp(word)` applied
+6. `p7-double-001` had only 4 questions → `buildMockTestPlan` skipped it; added 5th question
+7. No ARIA labels on home page emoji links → added 4 `aria-label`
+8. Mock test timer/labels lacking ARIA → added `role="timer"`, `aria-label`, `aria-current`, `aria-pressed`
+
+### Remaining Risks
+
+- `pipeline/src/mark-groups.ts --write` must be run after every new Part 6/7 question batch to keep IDs globally unique. If forgotten, new groups will get duplicate IDs with existing ones.
+- The `escapeRegExp` helper only covers `makeFillBlank`; if other functions dynamically construct regex from vocabulary words in the future, they'll need the same treatment.
+- Dashboard now calls all analysis functions in `useMemo` even when `records` is null (waste of 1 render). Acceptable tradeoff vs. violating rules-of-hooks.
+- `buildMockTestPlan()` implicit coupling to exact group counts (10 double × 5 = 50, 3 triple × 5 = 15, 16 single × 3 + 2 extra = 50). Adding/removing passage groups requires re-verifying the count assertion.
+- `p7-double-001` 5th question (p7-gen-194) was hand-written rather than pipeline-generated. Its fingerprint won't match the pipeline dedup pattern if the group is regenerated.
+
+### Not Done in This Pass (and why)
+
+- ARIA `role="radiogroup"` on quiz choices: The existing quiz uses individual buttons with `aria-pressed`, which is the correct pattern for a selectable list (not a radio group). Changing to radiogroup would require restructuring the component.
+- Lazy-load `data/questions.ts`: The plan mentions splitting at 1000+ questions. Currently at 555 questions — not yet justified.
+- Wrong-book pruning: The audit noted "wrong-book dismissed entries accumulate forever." This requires a design decision about retention policy (N days) that should be made by the user.
+- `@/lib/mockStorage` dynamic import in non-hot path: Only used inside an event handler one level deep — low priority.

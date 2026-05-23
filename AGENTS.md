@@ -204,6 +204,18 @@ Run these checks after meaningful changes:
 
 These rules were identified during a full-stack audit. Future agents MUST follow these.
 
+### Resolved (2026-05-23 third-pass)
+
+Items fixed in this pass:
+
+- Dynamic weak-skill selection (was hardcoded `WEAK_SKILL_TAGS`) ✅
+- `excludeMock` rollout in `lib/analysis.ts` — all 15+ entry points filter mock data ✅
+- ARIA on home emoji-links / quiz radiogroup / mock-test grid / progress bar / timer ✅
+- Dashboard `useMemo` refactor — inline IIFE replaced, all derived values memoized ✅
+- `passage_group_id` globally unique across files via module-level `groupIndexes` in `mark-groups.ts` ✅
+- `vocabularyStorage.ts` regex escape (`escapeRegExp` in `makeFillBlank`) ✅
+- `clearAllProgress` now also clears mock data ✅
+
 ### Data Integrity Rules
 
 - **Never change question IDs without migration.** Existing records in localStorage reference IDs. Changing an ID orphans user progress.
