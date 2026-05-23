@@ -4,6 +4,8 @@ export type SkillTag =
   | "tense"
   | "preposition"
   | "conjunction"
+  | "pronoun"
+  | "relative_clause"
   | "business_vocabulary"
   | "listening_main_idea"
   | "listening_inference"
@@ -16,7 +18,7 @@ export type Choice = "A" | "B" | "C" | "D";
 
 export type Difficulty = "A2" | "B1" | "B2";
 
-export type Part = "Part 5" | "Part 3" | "Part 4" | "Part 7";
+export type Part = "Part 5" | "Part 3" | "Part 4" | "Part 6" | "Part 7";
 
 export type WrongBookStatus = "new" | "reviewing" | "improving" | "mastered";
 
@@ -56,6 +58,8 @@ export const SKILL_LABELS: Record<SkillTag, string> = {
   tense: "時態",
   preposition: "介系詞",
   conjunction: "連接詞",
+  pronoun: "代名詞",
+  relative_clause: "關係子句",
   business_vocabulary: "商務單字",
   listening_main_idea: "聽力主旨",
   listening_inference: "聽力推論",

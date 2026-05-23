@@ -13,6 +13,7 @@ import {
 
 const WEAK_COUNT = 8;
 const NEW_COUNT = 7;
+const PART6_COUNT = 2;
 const LISTENING_COUNT = 6;
 const READING_COUNT = 3;
 const REVIEW_MAX = 5;
@@ -40,7 +41,7 @@ export default function PracticePage() {
     return () => window.clearTimeout(id);
   }, []);
 
-  const totalQs = WEAK_COUNT + NEW_COUNT + LISTENING_COUNT + READING_COUNT + reviewCount;
+  const totalQs = WEAK_COUNT + NEW_COUNT + PART6_COUNT + LISTENING_COUNT + READING_COUNT + reviewCount;
   const minMin = Math.max(
     15,
     Math.round((totalQs * ESTIMATED_SECONDS_PER_Q) / 60)
@@ -96,6 +97,13 @@ export default function PracticePage() {
           desc={`${NEW_COUNT} 題 · 時態 / 介系詞 / 連接詞 / 商務單字`}
           tag="Part 5"
           tagColor="indigo"
+        />
+        <TaskRow
+          emoji="📋"
+          title="短文填空"
+          desc={`${PART6_COUNT} 題 · 段落填空 · 詞性 / 連接 / 介系詞`}
+          tag="Part 6"
+          tagColor="teal"
         />
         <TaskRow
           emoji="🎧"
@@ -166,15 +174,15 @@ export default function PracticePage() {
   );
 }
 
-type TagColor = "rose" | "indigo" | "violet" | "amber";
+type TagColor = "rose" | "indigo" | "violet" | "amber" | "teal";
 
 const TAG_CLASSES: Record<TagColor, string> = {
   rose: "bg-rose-100 text-rose-700",
   indigo: "bg-indigo-100 text-indigo-700",
   violet: "bg-violet-100 text-violet-700",
   amber: "bg-amber-100 text-amber-700",
+  teal: "bg-teal-100 text-teal-700",
 };
-// amber already included — no changes needed
 
 function TaskRow({
   emoji,

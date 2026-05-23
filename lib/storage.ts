@@ -19,6 +19,8 @@ const SKILL_TAGS = [
   "tense",
   "preposition",
   "conjunction",
+  "pronoun",
+  "relative_clause",
   "business_vocabulary",
   "listening_main_idea",
   "listening_inference",

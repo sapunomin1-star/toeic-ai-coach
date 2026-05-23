@@ -119,7 +119,7 @@ Across 100 generated quiz runs:
 ## Project Goal
 
 - Personal TOEIC improvement tool for self-study.
-- Target: TOEIC about 500 -> 700 in two months.
+- Target: steadily improve TOEIC score over time; do not hard-code a final score because the target may increase later.
 - Daily use target: 15-30 minutes.
 - This is not a commercial SaaS product.
 - Do not prioritize login, database, cloud sync, payment, or multi-user features.

@@ -1,0 +1,201 @@
+{
+  "patterns": [
+    {
+      "pattern_id": "p7-001",
+      "part": "Part 7",
+      "document_type": "single-passage",
+      "subtype": "email",
+      "topic": "meeting_reschedule",
+      "tone": "formal",
+      "difficulty": "A2",
+      "passage_length": "100–160 words",
+      "question_mix": { "reading_main_idea": 1, "reading_detail": 1, "reading_inference": 1 },
+      "vocabulary_themes": ["meetings", "scheduling", "agenda", "attendance"],
+      "distractor_patterns": [
+        "wrong date or time from passage",
+        "wrong reason for change",
+        "correct detail applied to wrong person",
+        "inference that contradicts passage tone"
+      ],
+      "generation_instruction": "Create an email from a manager or coordinator about a meeting being rescheduled. Include: original and new date/time, location change, agenda items mentioned, and whether remote attendance is available. Follow with 3 questions: main purpose of the email, a detail about the new arrangement, and an inference about attendance or preparation.",
+      "tags": ["email", "meeting", "reschedule", "A2", "single-passage"]
+    },
+    {
+      "pattern_id": "p7-002",
+      "part": "Part 7",
+      "document_type": "single-passage",
+      "subtype": "memo",
+      "topic": "office_closure_notice",
+      "tone": "formal",
+      "difficulty": "A2",
+      "passage_length": "100–150 words",
+      "question_mix": { "reading_main_idea": 1, "reading_detail": 1, "reading_inference": 1 },
+      "vocabulary_themes": ["facilities", "maintenance", "schedule", "alternative"],
+      "distractor_patterns": [
+        "wrong facility or location mentioned",
+        "correct detail from different section",
+        "inference not supported by stated reason"
+      ],
+      "generation_instruction": "Create a memo to all staff about a temporary office closure or facility unavailability. Include: reason, dates/duration, affected areas, alternative arrangements. Follow with 3 questions: main reason for the memo, a detail about timing, and an inference about staff impact.",
+      "tags": ["memo", "closure", "formal", "A2", "single-passage"]
+    },
+    {
+      "pattern_id": "p7-003",
+      "part": "Part 7",
+      "document_type": "single-passage",
+      "subtype": "advertisement",
+      "topic": "product_for_sale",
+      "tone": "persuasive",
+      "difficulty": "B1",
+      "passage_length": "120–180 words",
+      "question_mix": { "reading_main_idea": 1, "reading_detail": 1, "reading_inference": 1 },
+      "vocabulary_themes": ["product", "features", "pricing", "purchase"],
+      "distractor_patterns": [
+        "feature misattributed to wrong product",
+        "wrong price or discount detail",
+        "inference about seller motive not in text"
+      ],
+      "generation_instruction": "Create an advertisement for a product or service for sale. Include: product description, key features, price, contact info, condition or warranty information. Follow with 3 questions: what is being advertised, a specific detail about the product/price, and an inference about the seller's situation or target buyer.",
+      "tags": ["ad", "product", "persuasive", "B1", "single-passage"]
+    },
+    {
+      "pattern_id": "p7-004",
+      "part": "Part 7",
+      "document_type": "single-passage",
+      "subtype": "notice",
+      "topic": "community_board",
+      "tone": "neutral",
+      "difficulty": "B1",
+      "passage_length": "120–170 words",
+      "question_mix": { "reading_main_idea": 1, "reading_detail": 1, "reading_inference": 1 },
+      "vocabulary_themes": ["community", "service", "event", "registration"],
+      "distractor_patterns": [
+        "wrong event or service detail",
+        "wrong requirement or eligibility",
+        "inference not grounded in stated policy"
+      ],
+      "generation_instruction": "Create a public notice (library, community center, public facility) about an available service, space, or event. Include: what is offered, requirements or restrictions, how to apply/register, contact details. Follow with 3 questions: main purpose, a specific requirement detail, and an inference about the intended audience.",
+      "tags": ["notice", "community", "neutral", "B1", "single-passage"]
+    },
+    {
+      "pattern_id": "p7-005",
+      "part": "Part 7",
+      "document_type": "single-passage",
+      "subtype": "article",
+      "topic": "business_news",
+      "tone": "neutral",
+      "difficulty": "B1",
+      "passage_length": "150–220 words",
+      "question_mix": { "reading_main_idea": 1, "reading_detail": 1, "reading_inference": 1 },
+      "vocabulary_themes": ["acquisition", "expansion", "market", "industry"],
+      "distractor_patterns": [
+        "information from wrong company",
+        "detail from wrong time period",
+        "inference that overstates the news"
+      ],
+      "generation_instruction": "Create a short business news article about a company event (acquisition, expansion, new product launch, leadership change). Include: company names, locations, dates, financial or market context. Follow with 3 questions: main topic, a specific detail, and an inference about future implications.",
+      "tags": ["article", "business", "news", "B1", "single-passage"]
+    },
+    {
+      "pattern_id": "p7-006",
+      "part": "Part 7",
+      "document_type": "single-passage",
+      "subtype": "schedule",
+      "topic": "conference_itinerary",
+      "tone": "neutral",
+      "difficulty": "A2",
+      "passage_length": "80–120 words",
+      "question_mix": { "reading_main_idea": 1, "reading_detail": 1, "reading_inference": 1 },
+      "vocabulary_themes": ["schedule", "sessions", "speakers", "venues"],
+      "distractor_patterns": [
+        "wrong time or room from schedule",
+        "wrong speaker matched to session",
+        "inference contradicting schedule logic"
+      ],
+      "generation_instruction": "Create a conference or training day schedule/itinerary. Include: time slots, session topics, speakers, room numbers, breaks. Follow with 3 questions: overall event type, a specific session detail, and an inference about a participant's likely choice.",
+      "tags": ["schedule", "conference", "A2", "single-passage"]
+    },
+    {
+      "pattern_id": "p7-007",
+      "part": "Part 7",
+      "document_type": "single-passage",
+      "subtype": "invoice",
+      "topic": "order_confirmation",
+      "tone": "neutral",
+      "difficulty": "B1",
+      "passage_length": "100–150 words",
+      "question_mix": { "reading_main_idea": 1, "reading_detail": 1, "reading_inference": 1 },
+      "vocabulary_themes": ["order", "payment", "shipping", "items"],
+      "distractor_patterns": [
+        "wrong item or quantity from invoice",
+        "wrong payment or shipping detail",
+        "inference about customer action not in text"
+      ],
+      "generation_instruction": "Create an invoice or order confirmation document. Include: items ordered, quantities, prices, shipping address, payment method, order date. Follow with 3 questions: what the document represents, a specific line-item detail, and an inference about delivery or next steps.",
+      "tags": ["invoice", "order", "B1", "single-passage"]
+    },
+    {
+      "pattern_id": "p7-008",
+      "part": "Part 7",
+      "document_type": "double-passage",
+      "subtype": "email_reply_chain",
+      "topic": "customer_complaint",
+      "tone": "polite",
+      "difficulty": "B1",
+      "passage_length": "180–260 words across 2 texts",
+      "question_mix": { "reading_main_idea": 1, "reading_detail": 2, "reading_inference": 1, "cross_text_reference": 1 },
+      "vocabulary_themes": ["complaint", "resolution", "refund", "customer_service"],
+      "distractor_patterns": [
+        "detail from one email applied to the other",
+        "wrong person as sender of specific claim",
+        "inference that contradicts the resolution offered"
+      ],
+      "generation_instruction": "Create TWO related emails: a customer complaint email and a customer service reply. The complaint should describe a specific problem (wrong item, late delivery, defective product). The reply should offer a resolution. Follow with 4-5 questions: main issue, detail from complaint, detail from reply, and cross-reference question requiring both emails.",
+      "tags": ["email", "complaint", "double-passage", "B1", "customer_service"]
+    },
+    {
+      "pattern_id": "p7-009",
+      "part": "Part 7",
+      "document_type": "double-passage",
+      "subtype": "ad_with_email",
+      "topic": "job_posting_and_application",
+      "tone": "formal",
+      "difficulty": "B2",
+      "passage_length": "180–280 words across 2 texts",
+      "question_mix": { "reading_main_idea": 1, "reading_detail": 2, "reading_inference": 1, "cross_text_reference": 1 },
+      "vocabulary_themes": ["job", "qualifications", "application", "deadline"],
+      "distractor_patterns": [
+        "requirement from posting not addressed in application",
+        "applicant detail not in posting",
+        "wrong inference about applicant suitability"
+      ],
+      "generation_instruction": "Create TWO related texts: a job posting/advertisement and a cover letter or application email from a candidate. The posting should include: position, requirements, responsibilities, how to apply. The application should reference specific parts of the posting. Follow with 4-5 questions: position being applied for, requirement from posting, candidate qualification from application, and cross-reference about fit.",
+      "tags": ["job", "application", "double-passage", "B2"]
+    },
+    {
+      "pattern_id": "p7-010",
+      "part": "Part 7",
+      "document_type": "triple-passage",
+      "subtype": "order_issue_chain",
+      "topic": "product_order_problem",
+      "tone": "polite",
+      "difficulty": "B2",
+      "passage_length": "220–320 words across 3 texts",
+      "question_mix": { "reading_main_idea": 1, "reading_detail": 2, "reading_inference": 1, "cross_text_reference": 2 },
+      "vocabulary_themes": ["order", "shipment", "replacement", "confirmation"],
+      "distractor_patterns": [
+        "wrong document referenced for a detail",
+        "timeline inconsistency across documents",
+        "reversal of sender/receiver roles"
+      ],
+      "generation_instruction": "Create THREE related business texts about a product order issue: (1) an initial order confirmation email, (2) a follow-up complaint or inquiry about a problem, (3) the company's resolution reply. Include specific order numbers, dates, and product details. Follow with 5 questions: overall situation, detail from one text, detail from another, and 2 cross-reference questions requiring comparison.",
+      "tags": ["order", "chain", "triple-passage", "B2", "customer_service"]
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "created_at": "2026-05-23",
+    "updated_at": "2026-05-23",
+    "total_patterns": 10
+  }
+}

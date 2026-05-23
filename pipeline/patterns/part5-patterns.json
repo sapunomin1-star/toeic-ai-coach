@@ -1,0 +1,220 @@
+{
+  "patterns": [
+    {
+      "pattern_id": "p5-001",
+      "part": "Part 5",
+      "document_type": "sentence-completion",
+      "subtype": "passive_voice",
+      "topic": "office_procedures",
+      "tone": "formal",
+      "difficulty": "B1",
+      "sentence_length": "12–18 words",
+      "grammar_focus": "will be / has been / is being + past participle",
+      "vocabulary_themes": ["deadlines", "procedures", "documents", "reports"],
+      "distractor_patterns": [
+        "active voice instead of passive",
+        "wrong auxiliary verb (have vs. be)",
+        "wrong tense (present vs. future passive)",
+        "active form used as adjective"
+      ],
+      "generation_instruction": "Generate sentences about office procedures, documents being processed, or policies being implemented. Use future passive (will be + p.p.), present perfect passive (has been + p.p.), or present continuous passive (is being + p.p.). Context: internal memo, policy notice, or project update.",
+      "tags": ["passive", "future", "present_perfect", "formal", "B1", "procedures"],
+      "example_question_ids": ["p5-pv-001", "p5-pv-005"]
+    },
+    {
+      "pattern_id": "p5-002",
+      "part": "Part 5",
+      "document_type": "sentence-completion",
+      "subtype": "word_form_noun_adj",
+      "topic": "business_reports",
+      "tone": "formal",
+      "difficulty": "B1",
+      "sentence_length": "12–18 words",
+      "grammar_focus": "noun vs. adjective vs. adverb form of the same root word",
+      "vocabulary_themes": ["performance", "evaluation", "improvement", "analysis"],
+      "distractor_patterns": [
+        "noun form where adjective is needed",
+        "adverb form where adjective is needed",
+        "verb form where noun is needed",
+        "similar-sounding different word"
+      ],
+      "generation_instruction": "Generate sentences requiring the correct word form (noun/adjective/adverb from same root). Common roots: compete/competitive/competitively, impress/impressive/impressively, produce/product/productive. Context: performance review, quarterly report, market analysis.",
+      "tags": ["word_form", "noun", "adjective", "adverb", "B1", "reports"],
+      "example_question_ids": ["p5-wf-001", "p5-wf-003"]
+    },
+    {
+      "pattern_id": "p5-003",
+      "part": "Part 5",
+      "document_type": "sentence-completion",
+      "subtype": "tense_present_perfect",
+      "topic": "project_updates",
+      "tone": "semi-formal",
+      "difficulty": "B1",
+      "sentence_length": "14–20 words",
+      "grammar_focus": "present perfect vs. past simple vs. present perfect continuous",
+      "vocabulary_themes": ["deadlines", "progress", "completion", "milestones"],
+      "distractor_patterns": [
+        "simple past when present perfect is needed (no specific time)",
+        "present perfect when simple past is needed (specific time given)",
+        "present continuous instead of present perfect continuous",
+        "past perfect where present perfect is correct"
+      ],
+      "generation_instruction": "Generate sentences testing the distinction between present perfect and past simple. Use time markers: since, for, already, yet, recently, last week, in 2024. Context: project status update, team email, progress report.",
+      "tags": ["tense", "present_perfect", "past_simple", "B1", "updates"],
+      "example_question_ids": ["p5-te-001", "p5-te-005"]
+    },
+    {
+      "pattern_id": "p5-004",
+      "part": "Part 5",
+      "document_type": "sentence-completion",
+      "subtype": "preposition_time_place",
+      "topic": "scheduling_logistics",
+      "tone": "neutral",
+      "difficulty": "A2",
+      "sentence_length": "10–16 words",
+      "grammar_focus": "in / on / at for time and place; by / until for deadlines",
+      "vocabulary_themes": ["schedules", "locations", "deadlines", "events"],
+      "distractor_patterns": [
+        "in vs. on for dates",
+        "at vs. in for locations",
+        "by vs. until for deadlines",
+        "for vs. during for duration"
+      ],
+      "generation_instruction": "Generate sentences testing preposition usage for time and place. Common pairs: in June / on June 5th, at the office / in Tokyo, by Friday / until Friday. Context: meeting scheduling, event planning, office directions.",
+      "tags": ["preposition", "time", "place", "A2", "scheduling"],
+      "example_question_ids": ["p5-pr-001"]
+    },
+    {
+      "pattern_id": "p5-005",
+      "part": "Part 5",
+      "document_type": "sentence-completion",
+      "subtype": "conjunction_transition",
+      "topic": "business_logic",
+      "tone": "formal",
+      "difficulty": "B1",
+      "sentence_length": "14–20 words",
+      "grammar_focus": "although/despite, because/due to, unless/as long as, therefore/however",
+      "vocabulary_themes": ["decisions", "conditions", "results", "contrasts"],
+      "distractor_patterns": [
+        "although vs. despite (clause vs. noun phrase)",
+        "because vs. because of (clause vs. noun phrase)",
+        "however vs. therefore (contrast vs. result)",
+        "unless vs. if (negative condition vs. positive)"
+      ],
+      "generation_instruction": "Generate sentences testing logical connectors. Focus on pairs that are commonly confused: although/despite/in spite of, because/due to/owing to, unless/if/ provided that. Context: business decisions, policy conditions, project outcomes.",
+      "tags": ["conjunction", "transition", "logic", "B1", "decisions"],
+      "example_question_ids": ["p5-cj-001", "p5-cj-003"]
+    },
+    {
+      "pattern_id": "p5-006",
+      "part": "Part 5",
+      "document_type": "sentence-completion",
+      "subtype": "pronoun",
+      "topic": "business_communication",
+      "tone": "semi-formal",
+      "difficulty": "B1",
+      "sentence_length": "12–18 words",
+      "grammar_focus": "subject/object/possessive/reflexive pronouns; relative pronouns",
+      "vocabulary_themes": ["teams", "clients", "departments", "responsibilities"],
+      "distractor_patterns": [
+        "subject pronoun where object pronoun is needed",
+        "possessive adjective vs. possessive pronoun",
+        "reflexive vs. object pronoun",
+        "who vs. whom (subject vs. object of clause)"
+      ],
+      "generation_instruction": "Generate sentences testing pronoun usage in business contexts. Focus on: who/whom/whose, it/its/itself, they/them/their/themselves. Context: team communication, client interaction, department coordination.",
+      "tags": ["pronoun", "subject", "object", "possessive", "B1"],
+      "example_question_ids": ["p5-pn-001"]
+    },
+    {
+      "pattern_id": "p5-007",
+      "part": "Part 5",
+      "document_type": "sentence-completion",
+      "subtype": "relative_clause",
+      "topic": "company_information",
+      "tone": "formal",
+      "difficulty": "B1",
+      "sentence_length": "14–20 words",
+      "grammar_focus": "who/whom/which/that/whose; restrictive vs. non-restrictive clauses",
+      "vocabulary_themes": ["personnel", "products", "services", "policies"],
+      "distractor_patterns": [
+        "that in non-restrictive clause (comma requires who/which)",
+        "which for people (needs who/whom)",
+        "what as a relative pronoun (not valid in standard English)",
+        "who vs. whom (subject vs. object of relative clause)"
+      ],
+      "generation_instruction": "Generate sentences testing relative clause usage. Key patterns: non-restrictive (comma + who/which), restrictive (that/who/which), possessive (whose). Context: describing company personnel, products, services, or policies.",
+      "tags": ["relative_clause", "who", "which", "that", "B1"],
+      "example_question_ids": ["p5-rc-001", "p5-rc-005"]
+    },
+    {
+      "pattern_id": "p5-008",
+      "part": "Part 5",
+      "document_type": "sentence-completion",
+      "subtype": "business_vocabulary",
+      "topic": "corporate_operations",
+      "tone": "formal",
+      "difficulty": "B2",
+      "sentence_length": "14–20 words",
+      "grammar_focus": "advanced business vocabulary in context",
+      "vocabulary_themes": ["compliance", "negotiation", "acquisition", "implementation", "allocation"],
+      "distractor_patterns": [
+        "similar-sounding word with different meaning (affect/effect)",
+        "same prefix different root (comply/compile)",
+        "wrong collocation (make vs. do a decision)",
+        "word with wrong connotation in business context"
+      ],
+      "generation_instruction": "Generate sentences requiring advanced business vocabulary. Focus on verbs: implement, allocate, negotiate, comply, acquire, submit, authorize, consolidate. Context: corporate policy, merger, financial report, legal compliance.",
+      "tags": ["vocabulary", "business", "advanced", "B2", "operations"],
+      "example_question_ids": ["p5-bv-001", "p5-bv-003"]
+    },
+    {
+      "pattern_id": "p5-009",
+      "part": "Part 5",
+      "document_type": "sentence-completion",
+      "subtype": "tense_past_perfect",
+      "topic": "company_history",
+      "tone": "formal",
+      "difficulty": "B2",
+      "sentence_length": "14–22 words",
+      "grammar_focus": "past perfect vs. past simple; by the time + past perfect",
+      "vocabulary_themes": ["milestones", "history", "mergers", "expansion"],
+      "distractor_patterns": [
+        "past simple when past perfect is needed (earlier action)",
+        "past perfect when past simple is correct (standalone past event)",
+        "present perfect instead of past perfect (past reference point)",
+        "wrong form of past perfect (had + present instead of had + p.p.)"
+      ],
+      "generation_instruction": "Generate sentences testing past perfect tense. Use patterns: by the time X happened, Y had already happened; X had never happened before Y; after X had finished, Y started. Context: company history, project retrospectives, industry changes.",
+      "tags": ["tense", "past_perfect", "sequence", "B2", "history"],
+      "example_question_ids": ["p5-te-010"]
+    },
+    {
+      "pattern_id": "p5-010",
+      "part": "Part 5",
+      "document_type": "sentence-completion",
+      "subtype": "preposition_collocation",
+      "topic": "business_correspondence",
+      "tone": "semi-formal",
+      "difficulty": "B1",
+      "sentence_length": "12–18 words",
+      "grammar_focus": "dependent prepositions: responsible for, in charge of, capable of, interested in",
+      "vocabulary_themes": ["roles", "skills", "projects", "interests"],
+      "distractor_patterns": [
+        "wrong preposition with adjective (responsible for vs. responsible to)",
+        "wrong preposition with verb (apply for vs. apply to)",
+        "missing preposition where required",
+        "extra preposition where not needed"
+      ],
+      "generation_instruction": "Generate sentences testing preposition collocations. Focus on: adjective + preposition (capable of, responsible for, familiar with, interested in, similar to), verb + preposition (apply for, refer to, depend on, belong to). Context: job descriptions, business correspondence, proposals.",
+      "tags": ["preposition", "collocation", "B1", "correspondence"],
+      "example_question_ids": ["p5-pr-005"]
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "created_at": "2026-05-23",
+    "updated_at": "2026-05-23",
+    "total_patterns": 10
+  }
+}

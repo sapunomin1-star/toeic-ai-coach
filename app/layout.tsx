@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "TOEIC AI Coach",
-  description: "每天 15–30 分鐘，從 500 衝到 700。",
+  description: "每天 15–30 分鐘，持續衝高 TOEIC 分數。",
 };
 
 export const viewport: Viewport = {

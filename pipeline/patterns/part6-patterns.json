@@ -1,0 +1,110 @@
+{
+  "patterns": [
+    {
+      "pattern_id": "p6-001",
+      "part": "Part 6",
+      "document_type": "text-completion",
+      "subtype": "internal_email",
+      "topic": "policy_update",
+      "tone": "formal",
+      "difficulty": "B1",
+      "passage_length": "100–140 words",
+      "tested_skills": ["vocabulary_in_context", "transition_word", "preposition", "verb_form"],
+      "vocabulary_themes": ["policy", "compliance", "procedure", "deadline"],
+      "distractor_patterns": [
+        "word with wrong part of speech in context",
+        "transition word with wrong logical relationship",
+        "wrong preposition collocation",
+        "verb tense that conflicts with time markers"
+      ],
+      "generation_instruction": "Create an internal company email about a new policy or procedure change. Include specific date, department name, and clear action items. The 4 blanks should test: (A) choosing the right noun/adjective in context, (B) logical transition/connector, (C) preposition in a business collocation, (D) correct verb form for the context.",
+      "tags": ["email", "policy", "formal", "B1"]
+    },
+    {
+      "pattern_id": "p6-002",
+      "part": "Part 6",
+      "document_type": "text-completion",
+      "subtype": "office_memo",
+      "topic": "safety_procedure",
+      "tone": "formal",
+      "difficulty": "B1",
+      "passage_length": "100–140 words",
+      "tested_skills": ["vocabulary_in_context", "transition_word", "preposition", "verb_form"],
+      "vocabulary_themes": ["safety", "equipment", "compliance", "inspection"],
+      "distractor_patterns": [
+        "similar-sounding word with wrong meaning",
+        "connector that reverses intended logic",
+        "wrong preposition for equipment/location",
+        "verb agreement error with subject"
+      ],
+      "generation_instruction": "Create an office memo about a safety or facilities procedure. Include specific dates, locations, and equipment names. The 4 blanks should test: (A) vocabulary in professional context, (B) transition/logic word, (C) preposition of location/direction, (D) subject-verb agreement or tense.",
+      "tags": ["memo", "safety", "formal", "B1"]
+    },
+    {
+      "pattern_id": "p6-003",
+      "part": "Part 6",
+      "document_type": "text-completion",
+      "subtype": "customer_notice",
+      "topic": "service_change",
+      "tone": "polite",
+      "difficulty": "A2",
+      "passage_length": "90–120 words",
+      "tested_skills": ["vocabulary_in_context", "transition_word", "preposition", "verb_form"],
+      "vocabulary_themes": ["service", "schedule", "customer", "contact"],
+      "distractor_patterns": [
+        "formal vocabulary where informal is needed (or vice versa)",
+        "wrong connecting adverb",
+        "wrong preposition for time reference",
+        "wrong auxiliary verb"
+      ],
+      "generation_instruction": "Create a customer notice (posted in store/office) about a service or schedule change. Use polite, clear language. The 4 blanks should test: (A) appropriate word for customer-facing context, (B) sentence connector, (C) preposition for time or location, (D) correct auxiliary/modal verb.",
+      "tags": ["notice", "service", "polite", "A2"]
+    },
+    {
+      "pattern_id": "p6-004",
+      "part": "Part 6",
+      "document_type": "text-completion",
+      "subtype": "advertisement",
+      "topic": "product_promotion",
+      "tone": "persuasive",
+      "difficulty": "B1",
+      "passage_length": "100–140 words",
+      "tested_skills": ["vocabulary_in_context", "transition_word", "preposition", "verb_form"],
+      "vocabulary_themes": ["promotion", "discount", "product", "purchase"],
+      "distractor_patterns": [
+        "adjective instead of adverb modifying verb",
+        "wrong comparative form",
+        "transition that doesn't match persuasive flow",
+        "incorrect verb pattern (infinitive vs. gerund)"
+      ],
+      "generation_instruction": "Create a short advertisement or promotional text for a business product or service. Include price, dates, and a call to action. The 4 blanks should test: (A) persuasive adjective/adverb, (B) transition word in a list of benefits, (C) preposition in a price/location phrase, (D) verb form (infinitive vs. gerund after certain verbs).",
+      "tags": ["ad", "promotion", "persuasive", "B1"]
+    },
+    {
+      "pattern_id": "p6-005",
+      "part": "Part 6",
+      "document_type": "text-completion",
+      "subtype": "business_letter",
+      "topic": "partnership_inquiry",
+      "tone": "formal",
+      "difficulty": "B2",
+      "passage_length": "120–160 words",
+      "tested_skills": ["vocabulary_in_context", "transition_word", "preposition", "verb_form"],
+      "vocabulary_themes": ["partnership", "proposal", "collaboration", "opportunity"],
+      "distractor_patterns": [
+        "too informal for business letter context",
+        "wrong logical connector for proposal flow",
+        "incorrect preposition after formal verb",
+        "wrong tense sequence in conditional or future reference"
+      ],
+      "generation_instruction": "Create a formal business letter inquiring about a partnership or collaboration opportunity. Include company names, specific areas of interest, and a proposed next step. The 4 blanks should test: (A) formal business vocabulary, (B) logical connector in a proposal, (C) preposition in formal expression, (D) verb tense in future/conditional context.",
+      "tags": ["letter", "partnership", "formal", "B2"]
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "created_at": "2026-05-23",
+    "updated_at": "2026-05-23",
+    "total_patterns": 5
+  }
+}

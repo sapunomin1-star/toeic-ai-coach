@@ -1,0 +1,133 @@
+import type { SkillTag, Difficulty, Part, Choice } from "../types/question";
+
+// ─── Pattern types ──────────────────────────────────────────────────────────
+
+export type PatternId = string;
+
+export type QuestionMix = Partial<Record<SkillTag, number>>;
+
+export type Pattern = {
+  pattern_id: PatternId;
+  part: Part;
+  /** e.g. "single-passage", "sentence-completion" */
+  document_type: string;
+  /** e.g. "email", "passive_voice" */
+  subtype: string;
+  /** business scenario topic */
+  topic: string;
+  /** formal / informal / neutral */
+  tone: string;
+  difficulty: Difficulty;
+  /** e.g. "100-160 words" */
+  passage_length?: string;
+  /** e.g. "12-18 words" */
+  sentence_length?: string;
+  /** expected question type distribution */
+  question_mix?: QuestionMix;
+  /** grammar focus (Part 5) */
+  grammar_focus?: string;
+  /** tested skills (Part 6) */
+  tested_skills?: string[];
+  /** business vocabulary themes */
+  vocabulary_themes: string[];
+  /** common distractor strategies */
+  distractor_patterns: string[];
+  /** instruction for LLM generation */
+  generation_instruction: string;
+  /** flat tags for keyword matching */
+  tags: string[];
+  /** reference question IDs in existing bank */
+  example_question_ids?: string[];
+};
+
+export type PatternLibrary = {
+  patterns: Pattern[];
+  metadata: {
+    version: string;
+    created_at: string;
+    updated_at: string;
+    total_patterns: number;
+  };
+};
+
+// ─── Fingerprint types ──────────────────────────────────────────────────────
+
+export type FingerprintId = string;
+
+export type Fingerprint = {
+  fingerprint_id: FingerprintId;
+  pattern_id: PatternId;
+  part: Part;
+  source_url: string;
+  source_type: "public_sample" | "official_sample" | "textbook" | "other";
+  topic_summary: string;
+  named_entities: string[];
+  key_facts: string[];
+  rare_phrases?: string[];
+  generated_question_ids: string[];
+  created_at: string;
+};
+
+export type FingerprintLibrary = {
+  fingerprints: Fingerprint[];
+  metadata: {
+    version: string;
+    created_at: string;
+    total_fingerprints: number;
+  };
+};
+
+// ─── Generation types ───────────────────────────────────────────────────────
+
+/** Raw LLM output before validation */
+export type RawGeneratedQuestion = {
+  id: string;
+  part: Part;
+  question: string;
+  choices: Record<Choice, string>;
+  answer: Choice;
+  explanation_zh: string;
+  explanation_en?: string;
+  skill_tag: SkillTag;
+  difficulty: Difficulty;
+  vocabulary: string[];
+  transcript?: string;
+  passage?: string;
+};
+
+export type GenerationResult = {
+  pattern_id: PatternId;
+  questions: RawGeneratedQuestion[];
+  errors: string[];
+  warnings: string[];
+};
+
+export type PipelineConfig = {
+  part: string[];
+  count: Record<string, number>;
+  dryRun: boolean;
+  skipKimi: boolean;
+  skipHy3: boolean;
+};
+
+// ─── Validation types ───────────────────────────────────────────────────────
+
+export type ValidationResult = {
+  valid: boolean;
+  errors: string[];
+  warnings: string[];
+};
+
+// ─── Integrity check types ──────────────────────────────────────────────────
+
+export type IntegrityReport = {
+  duplicateIds: string[];
+  invalidAnswers: string[];
+  missingChoices: string[];
+  missingExplanation: string[];
+  missingVocabulary: string[];
+  missingTranscript: string[];
+  missingPassage: string[];
+  totalQuestions: number;
+  passed: boolean;
+};

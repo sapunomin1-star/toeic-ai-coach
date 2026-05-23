@@ -2,9 +2,10 @@
 
 ## Project Overview
 
-TOEIC AI Coach is a personal study app for improving TOEIC performance from
-about 500 to 700 with daily 15-30 minute practice. It is a local-first Next.js
-app, not a commercial SaaS product.
+TOEIC AI Coach is a personal study app for steadily improving TOEIC performance
+with daily 15-30 minute practice. It is a local-first Next.js app, not a
+commercial SaaS product. Do not hard-code a final target score; the user may
+raise the target over time.
 
 The app currently focuses on:
 
