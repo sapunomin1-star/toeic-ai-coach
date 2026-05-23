@@ -26,6 +26,8 @@ import {
   summarize,
 } from "@/lib/analysis";
 import { clearAllProgress, getAnswerRecords } from "@/lib/storage";
+import { getMockResults } from "@/lib/mockStorage";
+import type { MockTestResult } from "@/types/mock";
 import {
   getTodayVocabulary,
   getVocabularyProgress,
@@ -49,6 +51,7 @@ export default function DashboardPage() {
     VocabularyProgress[]
   >([]);
   const [quizStats, setQuizStats] = useState<VocabularyQuizStats | null>(null);
+  const [recentMockResult, setRecentMockResult] = useState<MockTestResult | null>(null);
 
   useEffect(() => {
     const id = window.setTimeout(() => {
@@ -56,6 +59,8 @@ export default function DashboardPage() {
       setTodayVocabulary(getTodayVocabulary());
       setVocabularyProgress(getVocabularyProgress());
       setQuizStats(getVocabularyQuizStats());
+      const mockResults = getMockResults();
+      setRecentMockResult(mockResults.at(-1) ?? null);
     }, 0);
     return () => window.clearTimeout(id);
   }, []);
@@ -549,12 +554,57 @@ export default function DashboardPage() {
         <p className="text-xs text-slate-500">
           100 題 · 75 分鐘 · Part 5/6/7 完整閱讀測驗
         </p>
+        {recentMockResult && (
+          <div className="mt-3 rounded-xl bg-slate-50 p-3">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <p className="text-xs text-slate-500">最近一次</p>
+                <p className="mt-0.5 text-xl font-bold text-slate-900">
+                  {recentMockResult.rawScore}/100
+                </p>
+              </div>
+              <div className="text-right">
+                <p className="text-xs text-slate-500">非官方估分</p>
+                <p className="mt-0.5 text-sm font-semibold text-emerald-700">
+                  {recentMockResult.scoreRange.min}-{recentMockResult.scoreRange.max}
+                </p>
+              </div>
+            </div>
+            <div className="mt-3 grid grid-cols-3 gap-2 text-center">
+              {(["Part 5", "Part 6", "Part 7"] as const).map((part) => {
+                const item = recentMockResult.partBreakdown[part];
+                const pct =
+                  item.total === 0
+                    ? 0
+                    : Math.round((item.correct / item.total) * 100);
+                return (
+                  <div key={part} className="rounded-lg bg-white p-2">
+                    <p className="text-[10px] text-slate-500">{part}</p>
+                    <p className="mt-0.5 text-sm font-bold text-slate-800">
+                      {pct}%
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+            <p className="mt-2 text-[11px] text-slate-400">
+              交卷：
+              {new Date(recentMockResult.submittedAt).toLocaleString("zh-TW", {
+                month: "numeric",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
+            </p>
+          </div>
+        )}
         <Link
           href="/mock-test"
           className="mt-3 block w-full rounded-xl bg-slate-900 px-4 py-3 text-center text-sm font-semibold text-white active:scale-[0.99]"
         >
           開始模擬考 →
         </Link>
+
       </section>
 
       <div className="grid grid-cols-2 gap-3">

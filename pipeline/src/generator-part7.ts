@@ -42,7 +42,7 @@ export async function generatePart7(
   const systemPrompt =
     "You are a TOEIC Part 7 question writer. Output ONLY a JSON array. No markdown, no explanation text.";
 
-  let userPrompt = PROMPT_TEMPLATE
+  const userPrompt = PROMPT_TEMPLATE
     .replace(/\{\{question_count\}\}/g, String(totalQuestions))
     .replace(/\{\{difficulty\}\}/g, pattern.difficulty)
     .replace(/\{\{document_type\}\}/g, pattern.document_type)

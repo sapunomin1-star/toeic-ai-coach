@@ -4586,15 +4586,19 @@ export const QUESTIONS: Question[] = [
       A: "To cancel a scheduled meeting",
       B: "To announce a change in meeting date",
       C: "To introduce a new meeting agenda",
-      D: "To request budget approval",
-    },
+      D: "To request budget approval"
+  },
     answer: "B",
     explanation_zh:
       "主旨題：Email 開頭說「the meeting has been rescheduled to Thursday, March 14」，目的是通知會議日期更改。",
     skill_tag: "reading_main_idea",
     difficulty: "A2",
-    vocabulary: ["reschedule", "agenda", "relevant", "refreshments", "remotely"],
-  },
+    vocabulary: ["reschedule", "agenda", "relevant", "refreshments", "remotely"]
+,
+  passage_group_id: "p7-single-001",
+  passage_group_type: "single",
+  question_order: 1,
+},
   {
     id: "p7-ext-002",
     part: "Part 7",
@@ -4605,15 +4609,19 @@ export const QUESTIONS: Question[] = [
       A: "Conference Room A on the third floor",
       B: "The main office",
       C: "Conference Room B on the fourth floor",
-      D: "Remotely via video call",
-    },
+      D: "Remotely via video call"
+  },
     answer: "C",
     explanation_zh:
       "細節題：Email 明確說「Conference Room B on the fourth floor」。",
     skill_tag: "reading_detail",
     difficulty: "A2",
-    vocabulary: ["conference room", "fourth floor", "department", "sales division"],
-  },
+    vocabulary: ["conference room", "fourth floor", "department", "sales division"]
+,
+  passage_group_id: "p7-single-001",
+  passage_group_type: "single",
+  question_order: 2,
+},
   {
     id: "p7-ext-003",
     part: "Part 7",
@@ -4624,15 +4632,19 @@ export const QUESTIONS: Question[] = [
       A: "They must submit a written excuse",
       B: "They can join the meeting remotely",
       C: "They will receive a separate briefing",
-      D: "They are excused from the agenda",
-    },
+      D: "They are excused from the agenda"
+  },
     answer: "B",
     explanation_zh:
       "推論題：Email 說「we can arrange for you to join remotely」，表示不能出席的人可以遠端參加。",
     skill_tag: "reading_inference",
     difficulty: "B1",
-    vocabulary: ["unable to attend", "notify", "arrange", "join remotely"],
-  },
+    vocabulary: ["unable to attend", "notify", "arrange", "join remotely"]
+,
+  passage_group_id: "p7-single-001",
+  passage_group_type: "single",
+  question_order: 3,
+},
 
   // Passage 2 — Notice: Building Maintenance
   {
@@ -4645,15 +4657,19 @@ export const QUESTIONS: Question[] = [
       A: "A new parking policy",
       B: "Emergency evacuation procedures",
       C: "Temporary service interruptions during maintenance",
-      D: "Changes to office operating hours",
-    },
+      D: "Changes to office operating hours"
+  },
     answer: "C",
     explanation_zh:
       "主旨題：公告說明「scheduled maintenance work」期間多項服務「temporarily unavailable」。",
     skill_tag: "reading_main_idea",
     difficulty: "A2",
-    vocabulary: ["tenants", "maintenance", "temporarily unavailable", "resume", "inconvenience"],
-  },
+    vocabulary: ["tenants", "maintenance", "temporarily unavailable", "resume", "inconvenience"]
+,
+  passage_group_id: "p7-single-002",
+  passage_group_type: "single",
+  question_order: 1,
+},
   {
     id: "p7-ext-005",
     part: "Part 7",
@@ -4664,15 +4680,19 @@ export const QUESTIONS: Question[] = [
       A: "Rooftop terrace access",
       B: "Underground parking entrance",
       C: "Passenger elevator service",
-      D: "Street-level building entrance",
-    },
+      D: "Street-level building entrance"
+  },
     answer: "D",
     explanation_zh:
       "細節題：公告列出受影響的三項服務，街道層入口（street-level entrance）不在其中，反而是地下停車的替代方案。",
     skill_tag: "reading_detail",
     difficulty: "B1",
-    vocabulary: ["passenger elevator", "underground parking", "street-level", "accessible"],
-  },
+    vocabulary: ["passenger elevator", "underground parking", "street-level", "accessible"]
+,
+  passage_group_id: "p7-single-002",
+  passage_group_type: "single",
+  question_order: 2,
+},
   {
     id: "p7-ext-006",
     part: "Part 7",
@@ -4683,15 +4703,19 @@ export const QUESTIONS: Question[] = [
       A: "It will be permanently closed",
       B: "It will be unavailable to tenants",
       C: "It requires a special key card",
-      D: "It will be open for emergency use only",
-    },
+      D: "It will be open for emergency use only"
+  },
     answer: "B",
     explanation_zh:
       "推論題：公告列出 rooftop terrace 為「temporarily unavailable」服務之一，因此 April 8–10 期間租客無法使用。",
     skill_tag: "reading_inference",
     difficulty: "B1",
-    vocabulary: ["rooftop terrace", "temporarily", "urgent inquiries", "extension"],
-  },
+    vocabulary: ["rooftop terrace", "temporarily", "urgent inquiries", "extension"]
+,
+  passage_group_id: "p7-single-002",
+  passage_group_type: "single",
+  question_order: 3,
+},
 
   // Passage 3 — Advertisement: Office Supply Store
   {
@@ -4704,15 +4728,19 @@ export const QUESTIONS: Question[] = [
       A: "To announce a store closure sale",
       B: "To promote the opening of a new office supply store",
       C: "To advertise online shopping only",
-      D: "To recruit store employees",
-    },
+      D: "To recruit store employees"
+  },
     answer: "B",
     explanation_zh:
       "主旨題：廣告標題是「GRAND OPENING SALE」，目的是宣傳新店開幕優惠。",
     skill_tag: "reading_main_idea",
     difficulty: "A2",
-    vocabulary: ["grand opening", "stationery", "one-stop shop", "printer cartridges", "promotion"],
-  },
+    vocabulary: ["grand opening", "stationery", "one-stop shop", "printer cartridges", "promotion"]
+,
+  passage_group_id: "p7-single-003",
+  passage_group_type: "single",
+  question_order: 1,
+},
   {
     id: "p7-ext-008",
     part: "Part 7",
@@ -4723,15 +4751,19 @@ export const QUESTIONS: Question[] = [
       A: "5%",
       B: "10%",
       C: "15%",
-      D: "20%",
-    },
+      D: "20%"
+  },
     answer: "D",
     explanation_zh:
       "細節題：廣告明確說「20% OFF all furniture items」。",
     skill_tag: "reading_detail",
     difficulty: "A2",
-    vocabulary: ["furniture", "discount", "off", "delivery", "cartridges"],
-  },
+    vocabulary: ["furniture", "discount", "off", "delivery", "cartridges"]
+,
+  passage_group_id: "p7-single-003",
+  passage_group_type: "single",
+  question_order: 2,
+},
   {
     id: "p7-ext-009",
     part: "Part 7",
@@ -4742,15 +4774,19 @@ export const QUESTIONS: Question[] = [
       A: "They must be existing loyalty members",
       B: "They can combine it with the furniture discount",
       C: "They must be making their first purchase",
-      D: "They need a membership card",
-    },
+      D: "They need a membership card"
+  },
     answer: "C",
     explanation_zh:
       "推論題：廣告說「Offer valid for new customers only」，因此使用此折扣的顧客一定是首次購物的新客戶。",
     skill_tag: "reading_inference",
     difficulty: "B1",
-    vocabulary: ["present", "additional", "valid", "combined", "promotions"],
-  },
+    vocabulary: ["present", "additional", "valid", "combined", "promotions"]
+,
+  passage_group_id: "p7-single-004",
+  passage_group_type: "single",
+  question_order: 1,
+},
 
   // Passage 4 — Memo: Leave Policy Update
   {
@@ -4763,15 +4799,19 @@ export const QUESTIONS: Question[] = [
       A: "New hiring procedures",
       B: "An update to the company's leave policy",
       C: "Changes to the HR portal system",
-      D: "New overtime pay regulations",
-    },
+      D: "New overtime pay regulations"
+  },
     answer: "B",
     explanation_zh:
       "主旨題：備忘錄主旨欄寫「Updated Leave Policy」，內容說明年假天數增加。",
     skill_tag: "reading_main_idea",
     difficulty: "A2",
-    vocabulary: ["memorandum", "entitled", "annual leave", "supervisor", "HR portal"],
-  },
+    vocabulary: ["memorandum", "entitled", "annual leave", "supervisor", "HR portal"]
+,
+  passage_group_id: "p7-single-005",
+  passage_group_type: "single",
+  question_order: 1,
+},
   {
     id: "p7-ext-011",
     part: "Part 7",
@@ -4782,15 +4822,19 @@ export const QUESTIONS: Question[] = [
       A: "10 days",
       B: "12 days",
       C: "15 days",
-      D: "20 days",
-    },
+      D: "20 days"
+  },
     answer: "C",
     explanation_zh:
       "細節題：備忘錄說「entitled to 15 days of paid annual leave per year」。",
     skill_tag: "reading_detail",
     difficulty: "A2",
-    vocabulary: ["paid leave", "entitled", "full-time", "service", "implementing"],
-  },
+    vocabulary: ["paid leave", "entitled", "full-time", "service", "implementing"]
+,
+  passage_group_id: "p7-single-005",
+  passage_group_type: "single",
+  question_order: 2,
+},
   {
     id: "p7-ext-012",
     part: "Part 7",
@@ -4801,15 +4845,19 @@ export const QUESTIONS: Question[] = [
       A: "They will now receive 15 days of annual leave",
       B: "They are not entitled to any annual leave",
       C: "The new policy will not affect them",
-      D: "They must contact HR to verify their leave balance",
-    },
+      D: "They must contact HR to verify their leave balance"
+  },
     answer: "C",
     explanation_zh:
       "推論題：備忘錄說「Part-time employees...will continue under the existing policy」，新政策不影響兼職員工。",
     skill_tag: "reading_inference",
     difficulty: "B1",
-    vocabulary: ["part-time", "existing policy", "last-minute", "advance", "approval"],
-  },
+    vocabulary: ["part-time", "existing policy", "last-minute", "advance", "approval"]
+,
+  passage_group_id: "p7-single-005",
+  passage_group_type: "single",
+  question_order: 3,
+},
 
   // Passage 5 — Schedule: Training Workshop
   {
@@ -4822,15 +4870,19 @@ export const QUESTIONS: Question[] = [
       A: "A product launch event lineup",
       B: "A quarterly employee training program",
       C: "Annual performance review sessions",
-      D: "A client meeting calendar",
-    },
+      D: "A client meeting calendar"
+  },
     answer: "B",
     explanation_zh:
       "主旨題：標題明確說「Q3 Training Program」，表示這是每季一次的員工培訓計畫。",
     skill_tag: "reading_main_idea",
     difficulty: "A2",
-    vocabulary: ["professional development", "workshop", "intranet portal", "certificate", "quarter"],
-  },
+    vocabulary: ["professional development", "workshop", "intranet portal", "certificate", "quarter"]
+,
+  passage_group_id: "p7-single-006",
+  passage_group_type: "single",
+  question_order: 1,
+},
   {
     id: "p7-ext-014",
     part: "Part 7",
@@ -4841,15 +4893,19 @@ export const QUESTIONS: Question[] = [
       A: "Business Communication",
       B: "Data Analysis Basics",
       C: "Project Management",
-      D: "Leadership and Teamwork",
-    },
+      D: "Leadership and Teamwork"
+  },
     answer: "D",
     explanation_zh:
       "細節題：時間表中 August 7 的「Leadership and Teamwork」在 Auditorium 舉行。",
     skill_tag: "reading_detail",
     difficulty: "A2",
-    vocabulary: ["auditorium", "data analysis", "leadership", "teamwork", "duration"],
-  },
+    vocabulary: ["auditorium", "data analysis", "leadership", "teamwork", "duration"]
+,
+  passage_group_id: "p7-single-006",
+  passage_group_type: "single",
+  question_order: 2,
+},
   {
     id: "p7-ext-015",
     part: "Part 7",
@@ -4860,15 +4916,19 @@ export const QUESTIONS: Question[] = [
       A: "They will not receive lunch",
       B: "Lunch will be provided for them",
       C: "They must bring their own laptop",
-      D: "The workshop requires prior experience",
-    },
+      D: "The workshop requires prior experience"
+  },
     answer: "B",
     explanation_zh:
       "推論題：備注說「Full-day workshops include lunch」，July 10 是 Full day，因此午餐會被提供。",
     skill_tag: "reading_inference",
     difficulty: "B1",
-    vocabulary: ["full day", "half day", "include", "participants", "completion"],
-  },
+    vocabulary: ["full day", "half day", "include", "participants", "completion"]
+,
+  passage_group_id: "p7-single-006",
+  passage_group_type: "single",
+  question_order: 3,
+},
 
   // Passage 6 — Invoice
   {
@@ -4881,15 +4941,19 @@ export const QUESTIONS: Question[] = [
       A: "To confirm a delivery has been completed",
       B: "To request payment for goods supplied",
       C: "To list available office furniture for sale",
-      D: "To update customer account information",
-    },
+      D: "To update customer account information"
+  },
     answer: "B",
     explanation_zh:
       "主旨題：這是一份發票（Invoice），用途是請客戶支付已供應商品的款項。",
     skill_tag: "reading_main_idea",
     difficulty: "A2",
-    vocabulary: ["invoice", "payment due", "subtotal", "tax", "bank transfer"],
-  },
+    vocabulary: ["invoice", "payment due", "subtotal", "tax", "bank transfer"]
+,
+  passage_group_id: "p7-single-007",
+  passage_group_type: "single",
+  question_order: 1,
+},
   {
     id: "p7-ext-017",
     part: "Part 7",
@@ -4900,15 +4964,19 @@ export const QUESTIONS: Question[] = [
       A: "$5,280.00",
       B: "$422.40",
       C: "$5,702.40",
-      D: "$2,400.00",
-    },
+      D: "$2,400.00"
+  },
     answer: "C",
     explanation_zh:
       "細節題：發票最後一行「TOTAL DUE: $5,702.40」即為含稅總金額。",
     skill_tag: "reading_detail",
     difficulty: "A2",
-    vocabulary: ["ergonomic", "standing desk", "cable management", "total due", "account manager"],
-  },
+    vocabulary: ["ergonomic", "standing desk", "cable management", "total due", "account manager"]
+,
+  passage_group_id: "p7-single-007",
+  passage_group_type: "single",
+  question_order: 2,
+},
   {
     id: "p7-ext-018",
     part: "Part 7",
@@ -4919,15 +4987,19 @@ export const QUESTIONS: Question[] = [
       A: "Payment has already been received",
       B: "Payment is due within 30 days of the invoice date",
       C: "Payment must be made in cash only",
-      D: "A late fee applies immediately after the due date",
-    },
+      D: "A late fee applies immediately after the due date"
+  },
     answer: "B",
     explanation_zh:
       "推論題：Invoice Date 是 September 30，Payment Due 是 October 30，相差 30 天，可推論付款條件為 Net 30。",
     skill_tag: "reading_inference",
     difficulty: "B1",
-    vocabulary: ["payment due", "invoice date", "bank transfer", "company check", "inquiries"],
-  },
+    vocabulary: ["payment due", "invoice date", "bank transfer", "company check", "inquiries"]
+,
+  passage_group_id: "p7-single-007",
+  passage_group_type: "single",
+  question_order: 3,
+},
 
   // Passage 7 — Event Announcement: Company Picnic
   {
@@ -4940,15 +5012,19 @@ export const QUESTIONS: Question[] = [
       A: "A product launch ceremony",
       B: "An annual employee social event",
       C: "A client appreciation dinner",
-      D: "A charity fundraising gala",
-    },
+      D: "A charity fundraising gala"
+  },
     answer: "B",
     explanation_zh:
       "主旨題：公告標題是「Annual Company Picnic」，這是每年一次的員工社交活動。",
     skill_tag: "reading_main_idea",
     difficulty: "A2",
-    vocabulary: ["picnic", "raffle", "pavilion", "barbecue", "Employee Engagement Committee"],
-  },
+    vocabulary: ["picnic", "raffle", "pavilion", "barbecue", "Employee Engagement Committee"]
+,
+  passage_group_id: "p7-single-008",
+  passage_group_type: "single",
+  question_order: 1,
+},
   {
     id: "p7-ext-020",
     part: "Part 7",
@@ -4959,15 +5035,19 @@ export const QUESTIONS: Question[] = [
       A: "11:00 A.M.",
       B: "2:00 P.M.",
       C: "3:00 P.M.",
-      D: "4:00 P.M.",
-    },
+      D: "4:00 P.M."
+  },
     answer: "D",
     explanation_zh:
       "細節題：公告說「live music from 2:00 P.M. to 4:00 P.M.」，因此現場音樂到 4:00 P.M. 結束。",
     skill_tag: "reading_detail",
     difficulty: "A2",
-    vocabulary: ["live music", "outdoor games", "raffle", "prizes", "register"],
-  },
+    vocabulary: ["live music", "outdoor games", "raffle", "prizes", "register"]
+,
+  passage_group_id: "p7-single-008",
+  passage_group_type: "single",
+  question_order: 2,
+},
   {
     id: "p7-ext-021",
     part: "Part 7",
@@ -4978,15 +5058,19 @@ export const QUESTIONS: Question[] = [
       A: "Only managers need to register in advance",
       B: "Registration helps organizers plan food and seating",
       C: "Attendees must pay a registration fee",
-      D: "Walk-in attendees are not permitted",
-    },
+      D: "Walk-in attendees are not permitted"
+  },
     answer: "B",
     explanation_zh:
       "推論題：公告說「register...so we can prepare sufficient food and seating」，表示登記的目的是讓主辦方知道人數，以便準備食物和座位。",
     skill_tag: "reading_inference",
     difficulty: "B1",
-    vocabulary: ["register", "sufficient", "seating", "immediate family", "portal"],
-  },
+    vocabulary: ["register", "sufficient", "seating", "immediate family", "portal"]
+,
+  passage_group_id: "p7-single-008",
+  passage_group_type: "single",
+  question_order: 3,
+},
 
   // Passage 8 — Job Posting: Marketing Coordinator
   {
@@ -4999,15 +5083,19 @@ export const QUESTIONS: Question[] = [
       A: "Senior Marketing Manager",
       B: "Marketing Coordinator",
       C: "Social Media Director",
-      D: "Communications Specialist",
-    },
+      D: "Communications Specialist"
+  },
     answer: "B",
     explanation_zh:
       "主旨題：職缺標題清楚寫明「Position: Marketing Coordinator」。",
     skill_tag: "reading_main_idea",
     difficulty: "A2",
-    vocabulary: ["marketing coordinator", "hybrid", "proficiency", "vendor", "campaign"],
-  },
+    vocabulary: ["marketing coordinator", "hybrid", "proficiency", "vendor", "campaign"]
+,
+  passage_group_id: "p7-single-009",
+  passage_group_type: "single",
+  question_order: 1,
+},
   {
     id: "p7-ext-023",
     part: "Part 7",
@@ -5018,15 +5106,19 @@ export const QUESTIONS: Question[] = [
       A: "November 15",
       B: "November 20",
       C: "November 30",
-      D: "December 1",
-    },
+      D: "December 1"
+  },
     answer: "C",
     explanation_zh:
       "細節題：職缺最後說「send your resume...by November 30」，截止日是 November 30。",
     skill_tag: "reading_detail",
     difficulty: "A2",
-    vocabulary: ["resume", "cover letter", "deadline", "bachelor's degree", "verbal communication"],
-  },
+    vocabulary: ["resume", "cover letter", "deadline", "bachelor's degree", "verbal communication"]
+,
+  passage_group_id: "p7-single-009",
+  passage_group_type: "single",
+  question_order: 2,
+},
   {
     id: "p7-ext-024",
     part: "Part 7",
@@ -5037,15 +5129,19 @@ export const QUESTIONS: Question[] = [
       A: "It requires working full-time in the office every day",
       B: "It is fully remote with no office visits required",
       C: "It involves both working in the office and from home",
-      D: "It requires frequent international travel",
-    },
+      D: "It requires frequent international travel"
+  },
     answer: "C",
     explanation_zh:
       "推論題：Location 標示為「Singapore (Hybrid)」，Hybrid 表示混合辦公模式，即部分在辦公室、部分在家工作。",
     skill_tag: "reading_inference",
     difficulty: "B1",
-    vocabulary: ["hybrid", "arrangement", "independently", "social media", "coordinating"],
-  },
+    vocabulary: ["hybrid", "arrangement", "independently", "social media", "coordinating"]
+,
+  passage_group_id: "p7-single-009",
+  passage_group_type: "single",
+  question_order: 3,
+},
 
   // Passage 9 — Reservation Confirmation: Hotel
   {
@@ -5058,15 +5154,19 @@ export const QUESTIONS: Question[] = [
       A: "A hotel billing statement",
       B: "A hotel reservation confirmation",
       C: "A room service menu",
-      D: "A hotel membership application",
-    },
+      D: "A hotel membership application"
+  },
     answer: "B",
     explanation_zh:
       "主旨題：文件標題是「RESERVATION CONFIRMATION」，是訂房確認單。",
     skill_tag: "reading_main_idea",
     difficulty: "A2",
-    vocabulary: ["reservation", "confirmation", "check-in", "check-out", "complimentary"],
-  },
+    vocabulary: ["reservation", "confirmation", "check-in", "check-out", "complimentary"]
+,
+  passage_group_id: "p7-single-010",
+  passage_group_type: "single",
+  question_order: 1,
+},
   {
     id: "p7-ext-026",
     part: "Part 7",
@@ -5077,15 +5177,19 @@ export const QUESTIONS: Question[] = [
       A: "Airport transportation",
       B: "Complimentary dinner",
       C: "Free parking",
-      D: "Spa access",
-    },
+      D: "Spa access"
+  },
     answer: "C",
     explanation_zh:
       "細節題：Includes 欄位列出「complimentary breakfast for two, free Wi-Fi, parking」，其中包含免費停車。",
     skill_tag: "reading_detail",
     difficulty: "A2",
-    vocabulary: ["amenity", "complimentary", "non-smoking", "cancellation policy", "inquiry"],
-  },
+    vocabulary: ["amenity", "complimentary", "non-smoking", "cancellation policy", "inquiry"]
+,
+  passage_group_id: "p7-single-010",
+  passage_group_type: "single",
+  question_order: 2,
+},
   {
     id: "p7-ext-027",
     part: "Part 7",
@@ -5096,15 +5200,19 @@ export const QUESTIONS: Question[] = [
       A: "It will be free of charge",
       B: "It will result in a full refund",
       C: "It will incur a charge of one night's rate",
-      D: "It requires written notice by mail",
-    },
+      D: "It requires written notice by mail"
+  },
     answer: "C",
     explanation_zh:
       "推論題：取消政策說「Cancellations after October 8 will be charged one night's fee」，October 9 在期限之後，會被收取一晚費用（$180）。",
     skill_tag: "reading_inference",
     difficulty: "B1",
-    vocabulary: ["cancellation policy", "charged", "free cancellation", "incur", "fee"],
-  },
+    vocabulary: ["cancellation policy", "charged", "free cancellation", "incur", "fee"]
+,
+  passage_group_id: "p7-single-010",
+  passage_group_type: "single",
+  question_order: 3,
+},
 
   // Passage 10 — Product Information: Scanner
   {
@@ -5117,15 +5225,19 @@ export const QUESTIONS: Question[] = [
       A: "A wireless printer",
       B: "A wireless document scanner",
       C: "A photocopier",
-      D: "A laptop computer",
-    },
+      D: "A laptop computer"
+  },
     answer: "B",
     explanation_zh:
       "主旨題：產品名稱是「ProScan X200 Wireless Document Scanner」，是無線文件掃描器。",
     skill_tag: "reading_main_idea",
     difficulty: "A2",
-    vocabulary: ["scanner", "wireless", "duplex", "ADF", "cloud integration"],
-  },
+    vocabulary: ["scanner", "wireless", "duplex", "ADF", "cloud integration"]
+,
+  passage_group_id: "p7-single-011",
+  passage_group_type: "single",
+  question_order: 1,
+},
   {
     id: "p7-ext-029",
     part: "Part 7",
@@ -5136,15 +5248,19 @@ export const QUESTIONS: Question[] = [
       A: "10 sheets",
       B: "25 sheets",
       C: "50 sheets",
-      D: "100 sheets",
-    },
+      D: "100 sheets"
+  },
     answer: "C",
     explanation_zh:
       "細節題：規格說「Automatic document feeder (ADF) capacity: 50 sheets」。",
     skill_tag: "reading_detail",
     difficulty: "A2",
-    vocabulary: ["automatic document feeder", "capacity", "duplex", "simultaneously", "power adapter"],
-  },
+    vocabulary: ["automatic document feeder", "capacity", "duplex", "simultaneously", "power adapter"]
+,
+  passage_group_id: "p7-single-011",
+  passage_group_type: "single",
+  question_order: 2,
+},
   {
     id: "p7-ext-030",
     part: "Part 7",
@@ -5155,15 +5271,19 @@ export const QUESTIONS: Question[] = [
       A: "It is available 24 hours a day",
       B: "It is only available on weekends",
       C: "It can be reached only by email",
-      D: "It is not available on weekends",
-    },
+      D: "It is not available on weekends"
+  },
     answer: "D",
     explanation_zh:
       "推論題：技術支援時間是「weekdays, 9 A.M. – 6 P.M.」，weekdays 指工作日，即週末不提供支援。",
     skill_tag: "reading_inference",
     difficulty: "B1",
-    vocabulary: ["technical support", "warranty", "weekdays", "connectivity", "compatible"],
-  },
+    vocabulary: ["technical support", "warranty", "weekdays", "connectivity", "compatible"]
+,
+  passage_group_id: "p7-single-011",
+  passage_group_type: "single",
+  question_order: 3,
+},
 
   // Passage 11 — Email: Expense Report Reminder
   {
@@ -5176,15 +5296,19 @@ export const QUESTIONS: Question[] = [
       A: "To announce a new reimbursement policy",
       B: "To remind staff about the expense report deadline",
       C: "To introduce the new Finance Portal",
-      D: "To reduce the company travel budget",
-    },
+      D: "To reduce the company travel budget"
+  },
     answer: "B",
     explanation_zh:
       "主旨題：Email 是提醒員工「all expense reports for October must be submitted no later than November 5」。",
     skill_tag: "reading_main_idea",
     difficulty: "A2",
-    vocabulary: ["expense report", "reimbursement", "submission", "receipts", "categorized"],
-  },
+    vocabulary: ["expense report", "reimbursement", "submission", "receipts", "categorized"]
+,
+  passage_group_id: "p7-single-012",
+  passage_group_type: "single",
+  question_order: 1,
+},
   {
     id: "p7-ext-032",
     part: "Part 7",
@@ -5195,15 +5319,19 @@ export const QUESTIONS: Question[] = [
       A: "It is automatically approved",
       B: "It is forwarded to senior management",
       C: "It is returned for correction",
-      D: "The employee is charged a penalty fee",
-    },
+      D: "The employee is charged a penalty fee"
+  },
     answer: "C",
     explanation_zh:
       "細節題：Email 說「Reports submitted without proper documentation will be returned for correction」。",
     skill_tag: "reading_detail",
     difficulty: "A2",
-    vocabulary: ["documentation", "returned", "correction", "delay", "approval"],
-  },
+    vocabulary: ["documentation", "returned", "correction", "delay", "approval"]
+,
+  passage_group_id: "p7-single-012",
+  passage_group_type: "single",
+  question_order: 2,
+},
   {
     id: "p7-ext-033",
     part: "Part 7",
@@ -5214,15 +5342,19 @@ export const QUESTIONS: Question[] = [
       A: "Reimbursements are made on the same day",
       B: "Reimbursements take about two weeks after approval",
       C: "Reimbursements are paid monthly regardless of submission date",
-      D: "Employees must collect reimbursements in person",
-    },
+      D: "Employees must collect reimbursements in person"
+  },
     answer: "B",
     explanation_zh:
       "推論題：「processed within 10 business days」大約是兩週，因此報銷款項在核准後約兩週發放。",
     skill_tag: "reading_inference",
     difficulty: "B1",
-    vocabulary: ["processed", "business days", "finance portal", "cooperation", "categorized"],
-  },
+    vocabulary: ["processed", "business days", "finance portal", "cooperation", "categorized"]
+,
+  passage_group_id: "p7-single-012",
+  passage_group_type: "single",
+  question_order: 3,
+},
 
   // Passage 12 — Notice: Office Relocation
   {
@@ -5235,15 +5367,19 @@ export const QUESTIONS: Question[] = [
       A: "A company merger announcement",
       B: "A change of office location",
       C: "A new contact information update",
-      D: "A new service offering",
-    },
+      D: "A new service offering"
+  },
     answer: "B",
     explanation_zh:
       "主旨題：公告標題是「OFFICE RELOCATION」，說明公司遷移到新辦公室地址。",
     skill_tag: "reading_main_idea",
     difficulty: "A2",
-    vocabulary: ["relocation", "correspondence", "onward", "commitment", "financial district"],
-  },
+    vocabulary: ["relocation", "correspondence", "onward", "commitment", "financial district"]
+,
+  passage_group_id: "p7-single-013",
+  passage_group_type: "single",
+  question_order: 1,
+},
   {
     id: "p7-ext-035",
     part: "Part 7",
@@ -5254,15 +5390,19 @@ export const QUESTIONS: Question[] = [
       A: "December 1",
       B: "November 30",
       C: "November 15",
-      D: "December 31",
-    },
+      D: "December 31"
+  },
     answer: "B",
     explanation_zh:
       "細節題：公告說「Our current office at 55 Harbor Road will close on November 30」。",
     skill_tag: "reading_detail",
     difficulty: "A2",
-    vocabulary: ["current office", "close", "Harbor Road", "Pinnacle Tower", "Marina Boulevard"],
-  },
+    vocabulary: ["current office", "close", "Harbor Road", "Pinnacle Tower", "Marina Boulevard"]
+,
+  passage_group_id: "p7-single-013",
+  passage_group_type: "single",
+  question_order: 2,
+},
   {
     id: "p7-ext-036",
     part: "Part 7",
@@ -5273,15 +5413,19 @@ export const QUESTIONS: Question[] = [
       A: "They will change to reflect the new location",
       B: "They will stay the same as before the move",
       C: "They are listed in the notice",
-      D: "Clients must call to request updated numbers",
-    },
+      D: "Clients must call to request updated numbers"
+  },
     answer: "B",
     explanation_zh:
       "推論題：公告說「All phone numbers and email addresses will remain the same」，遷移後聯絡方式不變。",
     skill_tag: "reading_inference",
     difficulty: "A2",
-    vocabulary: ["remain", "phone numbers", "email addresses", "redirect", "regarding"],
-  },
+    vocabulary: ["remain", "phone numbers", "email addresses", "redirect", "regarding"]
+,
+  passage_group_id: "p7-single-013",
+  passage_group_type: "single",
+  question_order: 3,
+},
 
   // Passage 13 — Advertisement: Language Training
   {
@@ -5294,15 +5438,19 @@ export const QUESTIONS: Question[] = [
       A: "An online English learning app",
       B: "A Business English training program",
       C: "A university degree in communications",
-      D: "A language exchange event",
-    },
+      D: "A language exchange event"
+  },
     answer: "B",
     explanation_zh:
       "主旨題：廣告標題是「BUSINESS ENGLISH TRAINING PROGRAM」，提供商務英語培訓課程。",
     skill_tag: "reading_main_idea",
     difficulty: "A2",
-    vocabulary: ["enrollment", "intensive", "negotiations", "flexible", "certificate"],
-  },
+    vocabulary: ["enrollment", "intensive", "negotiations", "flexible", "certificate"]
+,
+  passage_group_id: "p7-single-014",
+  passage_group_type: "single",
+  question_order: 1,
+},
   {
     id: "p7-ext-038",
     part: "Part 7",
@@ -5313,15 +5461,19 @@ export const QUESTIONS: Question[] = [
       A: "4 weeks",
       B: "6 weeks",
       C: "8 weeks",
-      D: "12 weeks",
-    },
+      D: "12 weeks"
+  },
     answer: "C",
     explanation_zh:
       "細節題：Program Highlights 說「8-week intensive course」。",
     skill_tag: "reading_detail",
     difficulty: "A2",
-    vocabulary: ["intensive course", "maximum participants", "intake", "registration", "highlights"],
-  },
+    vocabulary: ["intensive course", "maximum participants", "intake", "registration", "highlights"]
+,
+  passage_group_id: "p7-single-014",
+  passage_group_type: "single",
+  question_order: 2,
+},
   {
     id: "p7-ext-039",
     part: "Part 7",
@@ -5332,15 +5484,19 @@ export const QUESTIONS: Question[] = [
       A: "They would pay the full price of $450 per person",
       B: "They would likely qualify for a group discount",
       C: "They would receive free tuition for all five",
-      D: "They would need to form a separate private class",
-    },
+      D: "They would need to form a separate private class"
+  },
     answer: "B",
     explanation_zh:
       "推論題：廣告說「Group discounts available for companies enrolling 3 or more staff」，5 人超過 3 人門檻，可享團體折扣。",
     skill_tag: "reading_inference",
     difficulty: "B1",
-    vocabulary: ["group discount", "enrolling", "qualify", "fee", "executives"],
-  },
+    vocabulary: ["group discount", "enrolling", "qualify", "fee", "executives"]
+,
+  passage_group_id: "p7-single-014",
+  passage_group_type: "single",
+  question_order: 3,
+},
 
   // Passage 14 — Memo: Customer Response Guidelines
   {
@@ -5353,15 +5509,19 @@ export const QUESTIONS: Question[] = [
       A: "To announce staff promotions",
       B: "To introduce new customer response time requirements",
       C: "To remind staff of an existing policy",
-      D: "To schedule a team-building event",
-    },
+      D: "To schedule a team-building event"
+  },
     answer: "B",
     explanation_zh:
       "主旨題：備忘錄主旨是「New Customer Response Guidelines」，說明新的客戶回覆時限要求。",
     skill_tag: "reading_main_idea",
     difficulty: "A2",
-    vocabulary: ["guidelines", "initial response", "inquiries", "acknowledge", "investigate"],
-  },
+    vocabulary: ["guidelines", "initial response", "inquiries", "acknowledge", "investigate"]
+,
+  passage_group_id: "p7-single-015",
+  passage_group_type: "single",
+  question_order: 1,
+},
   {
     id: "p7-ext-041",
     part: "Part 7",
@@ -5372,15 +5532,19 @@ export const QUESTIONS: Question[] = [
       A: "Meeting Room 1",
       B: "The main conference hall",
       C: "Meeting Room 3",
-      D: "Via online video conference",
-    },
+      D: "Via online video conference"
+  },
     answer: "C",
     explanation_zh:
       "細節題：備忘錄說「Training...will be held on February 25 in Meeting Room 3 at 10:00 A.M.」。",
     skill_tag: "reading_detail",
     difficulty: "A2",
-    vocabulary: ["training", "templates", "shared drive", "guidelines", "operations manager"],
-  },
+    vocabulary: ["training", "templates", "shared drive", "guidelines", "operations manager"]
+,
+  passage_group_id: "p7-single-015",
+  passage_group_type: "single",
+  question_order: 2,
+},
   {
     id: "p7-ext-042",
     part: "Part 7",
@@ -5391,15 +5555,19 @@ export const QUESTIONS: Question[] = [
       A: "Customer service staff must work weekends to respond",
       B: "The rule does not apply on weekends",
       C: "All emails received on weekends are auto-replied",
-      D: "Customers cannot contact the company on weekends",
-    },
+      D: "Customers cannot contact the company on weekends"
+  },
     answer: "B",
     explanation_zh:
       "推論題：備忘錄說「does not include weekends or public holidays」，週末不在 24 小時回覆規定的範圍內。",
     skill_tag: "reading_inference",
     difficulty: "B1",
-    vocabulary: ["public holidays", "initial response", "contact form", "acknowledge", "complex issues"],
-  },
+    vocabulary: ["public holidays", "initial response", "contact form", "acknowledge", "complex issues"]
+,
+  passage_group_id: "p7-single-015",
+  passage_group_type: "single",
+  question_order: 3,
+},
 
   // Passage 15 — Schedule: Sales Conference
   {
@@ -5412,15 +5580,19 @@ export const QUESTIONS: Question[] = [
       A: "An employee orientation program",
       B: "A customer appreciation dinner",
       C: "A regional sales conference",
-      D: "A product launch ceremony",
-    },
+      D: "A product launch ceremony"
+  },
     answer: "C",
     explanation_zh:
       "主旨題：標題清楚說明「REGIONAL SALES CONFERENCE PROGRAM」。",
     skill_tag: "reading_main_idea",
     difficulty: "A2",
-    vocabulary: ["conference", "breakout sessions", "roadmap", "panel discussion", "networking"],
-  },
+    vocabulary: ["conference", "breakout sessions", "roadmap", "panel discussion", "networking"]
+,
+  passage_group_id: "p7-single-016",
+  passage_group_type: "single",
+  question_order: 1,
+},
   {
     id: "p7-ext-044",
     part: "Part 7",
@@ -5431,15 +5603,19 @@ export const QUESTIONS: Question[] = [
       A: "10:00 A.M.",
       B: "12:00 P.M.",
       C: "1:30 P.M.",
-      D: "3:30 P.M.",
-    },
+      D: "3:30 P.M."
+  },
     answer: "C",
     explanation_zh:
       "細節題：Day 1 時程表顯示「1:30 P.M. – Product Roadmap Presentation」。",
     skill_tag: "reading_detail",
     difficulty: "A2",
-    vocabulary: ["product roadmap", "breakout", "wrap-up", "opening remarks", "registration"],
-  },
+    vocabulary: ["product roadmap", "breakout", "wrap-up", "opening remarks", "registration"]
+,
+  passage_group_id: "p7-single-016",
+  passage_group_type: "single",
+  question_order: 2,
+},
   {
     id: "p7-ext-045",
     part: "Part 7",
@@ -5450,15 +5626,19 @@ export const QUESTIONS: Question[] = [
       A: "It is open to the general public",
       B: "It focuses on customer-related trends",
       C: "It is led by the CEO",
-      D: "It takes place on Day 1",
-    },
+      D: "It takes place on Day 1"
+  },
     answer: "B",
     explanation_zh:
       "推論題：Panel Discussion 的標題是「Customer Trends」，因此討論的焦點是與客戶相關的趨勢。",
     skill_tag: "reading_inference",
     difficulty: "B1",
-    vocabulary: ["panel discussion", "strategy", "trends", "networking", "convention center"],
-  },
+    vocabulary: ["panel discussion", "strategy", "trends", "networking", "convention center"]
+,
+  passage_group_id: "p7-single-016",
+  passage_group_type: "single",
+  question_order: 3,
+},
 
   // Passage 16 — Invoice: Printing Services
   {
@@ -5471,15 +5651,19 @@ export const QUESTIONS: Question[] = [
       A: "Holloway Marketing Agency",
       B: "PrintPro Services Ltd.",
       C: "Design Solutions Inc.",
-      D: "FastPrint Corp.",
-    },
+      D: "FastPrint Corp."
+  },
     answer: "B",
     explanation_zh:
       "主旨題：發票上方標明「Vendor: PrintPro Services Ltd.」，為出具發票方（供應商）。",
     skill_tag: "reading_main_idea",
     difficulty: "A2",
-    vocabulary: ["vendor", "brochure", "banner", "graphic design", "payment terms"],
-  },
+    vocabulary: ["vendor", "brochure", "banner", "graphic design", "payment terms"]
+,
+  passage_group_id: "p7-single-017",
+  passage_group_type: "single",
+  question_order: 1,
+},
   {
     id: "p7-ext-047",
     part: "Part 7",
@@ -5490,15 +5674,19 @@ export const QUESTIONS: Question[] = [
       A: "$75.00",
       B: "$425.00",
       C: "$480.00",
-      D: "$450.00",
-    },
+      D: "$450.00"
+  },
     answer: "D",
     explanation_zh:
       "細節題：Graphic design 6 hours × $75.00/hr = $450.00，即圖形設計服務的總費用。",
     skill_tag: "reading_detail",
     difficulty: "B1",
-    vocabulary: ["graphic design", "delivery fee", "subtotal", "tax", "invoice date"],
-  },
+    vocabulary: ["graphic design", "delivery fee", "subtotal", "tax", "invoice date"]
+,
+  passage_group_id: "p7-single-017",
+  passage_group_type: "single",
+  question_order: 2,
+},
   {
     id: "p7-ext-048",
     part: "Part 7",
@@ -5509,15 +5697,19 @@ export const QUESTIONS: Question[] = [
       A: "Payment is due on the day of delivery",
       B: "Payment is due within 30 days of the invoice date",
       C: "Payment can be made in monthly installments",
-      D: "Payment requires prior approval from management",
-    },
+      D: "Payment requires prior approval from management"
+  },
     answer: "B",
     explanation_zh:
       "推論題：Payment Terms 標示為「Net 30」，商業術語 Net 30 表示在開票日後 30 天內付清。",
     skill_tag: "reading_inference",
     difficulty: "B1",
-    vocabulary: ["net 30", "payment terms", "installments", "invoice", "vendor"],
-  },
+    vocabulary: ["net 30", "payment terms", "installments", "invoice", "vendor"]
+,
+  passage_group_id: "p7-single-017",
+  passage_group_type: "single",
+  question_order: 3,
+},
 
   // Passage 17 — Event Announcement: Charity Gala
   {
@@ -5530,15 +5722,19 @@ export const QUESTIONS: Question[] = [
       A: "To announce a business award ceremony",
       B: "To invite guests to a charity gala dinner",
       C: "To promote a new restaurant opening",
-      D: "To announce a corporate merger",
-    },
+      D: "To announce a corporate merger"
+  },
     answer: "B",
     explanation_zh:
       "主旨題：公告標題是「CHARITY GALA DINNER」，是慈善晚宴邀請函。",
     skill_tag: "reading_main_idea",
     difficulty: "A2",
-    vocabulary: ["charity", "gala", "proceeds", "underprivileged", "live auction"],
-  },
+    vocabulary: ["charity", "gala", "proceeds", "underprivileged", "live auction"]
+,
+  passage_group_id: "p7-single-018",
+  passage_group_type: "single",
+  question_order: 1,
+},
   {
     id: "p7-ext-050",
     part: "Part 7",
@@ -5549,15 +5745,19 @@ export const QUESTIONS: Question[] = [
       A: "$100",
       B: "$160",
       C: "$180",
-      D: "$1,600",
-    },
+      D: "$1,600"
+  },
     answer: "C",
     explanation_zh:
       "細節題：票價欄說「$180 per person」，單張票價為 $180。",
     skill_tag: "reading_detail",
     difficulty: "A2",
-    vocabulary: ["ticket price", "black tie", "ballroom", "keynote address", "benefit"],
-  },
+    vocabulary: ["ticket price", "black tie", "ballroom", "keynote address", "benefit"]
+,
+  passage_group_id: "p7-single-018",
+  passage_group_type: "single",
+  question_order: 2,
+},
   {
     id: "p7-ext-051",
     part: "Part 7",
@@ -5568,15 +5768,19 @@ export const QUESTIONS: Question[] = [
       A: "Tickets are available at the venue on the day of the event",
       B: "Tickets may sell out before the event",
       C: "Tickets are free for Business Association members",
-      D: "Tickets can only be purchased over the phone",
-    },
+      D: "Tickets can only be purchased over the phone"
+  },
     answer: "B",
     explanation_zh:
       "推論題：公告最後說「Tickets are limited」，表示票數有限，可能在活動前售罄。",
     skill_tag: "reading_inference",
     difficulty: "B1",
-    vocabulary: ["limited", "cordially", "proceeds", "education fund", "keynote"],
-  },
+    vocabulary: ["limited", "cordially", "proceeds", "education fund", "keynote"]
+,
+  passage_group_id: "p7-single-018",
+  passage_group_type: "single",
+  question_order: 3,
+},
 
   // Passage 18 — Job Posting: Administrative Assistant
   {
@@ -5589,15 +5793,19 @@ export const QUESTIONS: Question[] = [
       A: "Executive Secretary",
       B: "Administrative Assistant",
       C: "Office Manager",
-      D: "Corporate Affairs Director",
-    },
+      D: "Corporate Affairs Director"
+  },
     answer: "B",
     explanation_zh:
       "主旨題：職缺標題是「Position: Administrative Assistant」。",
     skill_tag: "reading_main_idea",
     difficulty: "A2",
-    vocabulary: ["administrative", "correspondence", "filing systems", "bilingual", "negotiable"],
-  },
+    vocabulary: ["administrative", "correspondence", "filing systems", "bilingual", "negotiable"]
+,
+  passage_group_id: "p7-single-019",
+  passage_group_type: "single",
+  question_order: 1,
+},
   {
     id: "p7-ext-053",
     part: "Part 7",
@@ -5608,15 +5816,19 @@ export const QUESTIONS: Question[] = [
       A: "At least 1 year",
       B: "At least 2 years",
       C: "At least 3 years",
-      D: "At least 5 years",
-    },
+      D: "At least 5 years"
+  },
     answer: "B",
     explanation_zh:
       "細節題：Requirements 說「Minimum 2 years of relevant experience」。",
     skill_tag: "reading_detail",
     difficulty: "A2",
-    vocabulary: ["minimum", "relevant experience", "proficiency", "diploma", "permanent"],
-  },
+    vocabulary: ["minimum", "relevant experience", "proficiency", "diploma", "permanent"]
+,
+  passage_group_id: "p7-single-019",
+  passage_group_type: "single",
+  question_order: 2,
+},
   {
     id: "p7-ext-054",
     part: "Part 7",
@@ -5627,15 +5839,19 @@ export const QUESTIONS: Question[] = [
       A: "They are guaranteed an interview",
       B: "They will receive a higher starting salary",
       C: "They may have an advantage over other applicants",
-      D: "They are the only candidates who will be considered",
-    },
+      D: "They are the only candidates who will be considered"
+  },
     answer: "C",
     explanation_zh:
       "推論題：職缺說「Bilingual in English and Mandarin preferred」，preferred 表示優先考慮，因此雙語能力是加分項，具備此能力的應徵者較有優勢。",
     skill_tag: "reading_inference",
     difficulty: "B1",
-    vocabulary: ["bilingual", "preferred", "organizational", "coordinate", "immediate"],
-  },
+    vocabulary: ["bilingual", "preferred", "organizational", "coordinate", "immediate"]
+,
+  passage_group_id: "p7-single-019",
+  passage_group_type: "single",
+  question_order: 3,
+},
 
   // Passage 19 — Reservation Confirmation: Flight
   {
@@ -5648,15 +5864,19 @@ export const QUESTIONS: Question[] = [
       A: "A boarding pass",
       B: "A flight booking confirmation",
       C: "A hotel reservation",
-      D: "A travel insurance certificate",
-    },
+      D: "A travel insurance certificate"
+  },
     answer: "B",
     explanation_zh:
       "主旨題：文件標題是「RESERVATION CONFIRMED」，記錄的是航班訂位確認資訊。",
     skill_tag: "reading_main_idea",
     difficulty: "A2",
-    vocabulary: ["booking reference", "departure", "baggage allowance", "carry-on", "loyalty points"],
-  },
+    vocabulary: ["booking reference", "departure", "baggage allowance", "carry-on", "loyalty points"]
+,
+  passage_group_id: "p7-single-020",
+  passage_group_type: "single",
+  question_order: 1,
+},
   {
     id: "p7-ext-056",
     part: "Part 7",
@@ -5667,15 +5887,19 @@ export const QUESTIONS: Question[] = [
       A: "8B",
       B: "5A",
       C: "10C",
-      D: "8A",
-    },
+      D: "8A"
+  },
     answer: "D",
     explanation_zh:
       "細節題：確認單上明確寫「Seat: 8A (Window)」，Ms. Tan 的座位是 8A。",
     skill_tag: "reading_detail",
     difficulty: "A2",
-    vocabulary: ["seat", "window", "vegetarian", "business class", "credited"],
-  },
+    vocabulary: ["seat", "window", "vegetarian", "business class", "credited"]
+,
+  passage_group_id: "p7-single-020",
+  passage_group_type: "single",
+  question_order: 2,
+},
   {
     id: "p7-ext-057",
     part: "Part 7",
@@ -5686,15 +5910,19 @@ export const QUESTIONS: Question[] = [
       A: "Changes can be made at any time without restriction",
       B: "Changes must be requested at least 48 hours before departure",
       C: "Changes are handled directly with the airline",
-      D: "No changes are permitted once the booking is confirmed",
-    },
+      D: "No changes are permitted once the booking is confirmed"
+  },
     answer: "B",
     explanation_zh:
       "推論題：確認單說「contact...at least 48 hours before departure」，因此更改訂位需提前至少 48 小時。",
     skill_tag: "reading_inference",
     difficulty: "B1",
-    vocabulary: ["changes", "special assistance", "departure", "baggage allowance", "credited"],
-  },
+    vocabulary: ["changes", "special assistance", "departure", "baggage allowance", "credited"]
+,
+  passage_group_id: "p7-single-020",
+  passage_group_type: "single",
+  question_order: 3,
+},
 
   // Passage 20 — Product Information: Smart Water Dispenser
   {
@@ -5707,15 +5935,19 @@ export const QUESTIONS: Question[] = [
       A: "A coffee maker",
       B: "An air purifier",
       C: "A smart water dispenser",
-      D: "A refrigerator",
-    },
+      D: "A refrigerator"
+  },
     answer: "C",
     explanation_zh:
       "主旨題：產品名稱是「AquaCool Pro – Smart Water Dispenser」，是智慧飲水機。",
     skill_tag: "reading_main_idea",
     difficulty: "A2",
-    vocabulary: ["dispenser", "sterilization", "filtration", "hygienic", "sediment"],
-  },
+    vocabulary: ["dispenser", "sterilization", "filtration", "hygienic", "sediment"]
+,
+  passage_group_id: "p7-single-021",
+  passage_group_type: "single",
+  question_order: 1,
+},
   {
     id: "p7-ext-059",
     part: "Part 7",
@@ -5726,15 +5958,19 @@ export const QUESTIONS: Question[] = [
       A: "0°C – 80°C",
       B: "4°C – 95°C",
       C: "10°C – 100°C",
-      D: "5°C – 90°C",
-    },
+      D: "5°C – 90°C"
+  },
     answer: "B",
     explanation_zh:
       "細節題：規格說「Smart touchscreen temperature control (4°C – 95°C)」。",
     skill_tag: "reading_detail",
     difficulty: "A2",
-    vocabulary: ["touchscreen", "temperature control", "UV sterilization", "chlorine", "heavy metals"],
-  },
+    vocabulary: ["touchscreen", "temperature control", "UV sterilization", "chlorine", "heavy metals"]
+,
+  passage_group_id: "p7-single-021",
+  passage_group_type: "single",
+  question_order: 2,
+},
   {
     id: "p7-ext-060",
     part: "Part 7",
@@ -5745,15 +5981,19 @@ export const QUESTIONS: Question[] = [
       A: "It must be manually turned on each time",
       B: "It increases the water heating temperature",
       C: "It activates automatically when the machine is not in use",
-      D: "It slows down the water filtration process",
-    },
+      D: "It slows down the water filtration process"
+  },
     answer: "C",
     explanation_zh:
       "推論題：功能說「Energy-saving mode: automatically reduces power when idle」，idle 表示閒置，因此節能模式在機器不使用時會自動啟動。",
     skill_tag: "reading_inference",
     difficulty: "B1",
-    vocabulary: ["energy-saving", "idle", "auto shutoff", "child lock", "warranty"],
-  },
+    vocabulary: ["energy-saving", "idle", "auto shutoff", "child lock", "warranty"]
+,
+  passage_group_id: "p7-single-021",
+  passage_group_type: "single",
+  question_order: 3,
+},
 
   // ============ Part 5 — Pronoun (25) ============
   {
@@ -6411,92 +6651,119 @@ export function buildDailyPlan(options?: {
 
 // ─── Mock Test Plan ─────────────────────────────────────────────────────────
 
-function passageHash(passage: string): string {
-  return passage.slice(0, 120).replace(/\s+/g, " ").trim();
+type PassageGroupType = NonNullable<Question["passage_group_type"]>;
+
+function getPassageGroupKey(q: Question): string | null {
+  if (!q.passage) return null;
+  return q.passage_group_id
+    ? `${q.part}:${q.passage_group_id}:${q.passage}`
+    : `${q.part}:passage:${q.passage}`;
 }
 
+function groupByPassage(questions: Question[]): Question[][] {
+  const groups = new Map<string, Question[]>();
+
+  for (const q of questions) {
+    const key = getPassageGroupKey(q);
+    if (!key) continue;
+    const group = groups.get(key) ?? [];
+    group.push(q);
+    groups.set(key, group);
+  }
+
+  return [...groups.values()].map((group) =>
+    [...group].sort(
+      (a, b) =>
+        (a.question_order ?? Number.MAX_SAFE_INTEGER) -
+        (b.question_order ?? Number.MAX_SAFE_INTEGER)
+    )
+  );
+}
+
+function selectGroupsForTotal(groups: Question[][], target: number): Question[][] | null {
+  const shuffled = shuffle(groups);
+  const sums = new Map<number, Question[][]>();
+  sums.set(0, []);
+
+  for (const group of shuffled) {
+    const snapshots = [...sums.entries()];
+    for (const [sum, selected] of snapshots) {
+      const nextSum = sum + group.length;
+      if (nextSum > target || sums.has(nextSum)) continue;
+      const nextSelected = [...selected, group];
+      if (nextSum === target) return nextSelected;
+      sums.set(nextSum, nextSelected);
+    }
+  }
+
+  return sums.get(target) ?? null;
+}
+
+function countPart(questions: Question[], part: Question["part"]): number {
+  return questions.filter((q) => q.part === part).length;
+}
+
+function assertMockPlan(plan: Question[]): void {
+  const part5 = countPart(plan, "Part 5");
+  const part6 = countPart(plan, "Part 6");
+  const part7 = countPart(plan, "Part 7");
+  const errors: string[] = [];
+
+  if (plan.length !== 100) errors.push(`總題數 ${plan.length}/100`);
+  if (part5 !== 30) errors.push(`Part 5 ${part5}/30`);
+  if (part6 !== 16) errors.push(`Part 6 ${part6}/16`);
+  if (part7 !== 54) errors.push(`Part 7 ${part7}/54`);
+
+  if (errors.length > 0) {
+    throw new Error(`Mock test plan invalid:\n${errors.map((e) => `  - ${e}`).join("\n")}`);
+  }
+}
+
+/**
+ * Build a 100-question mock test plan with strict part distribution:
+ * Part 5 = 30, Part 6 = 16, Part 7 = 54 (single=29, double=10, triple=15).
+ */
 export function buildMockTestPlan(): Question[] {
   const errors: string[] = [];
 
-  // Part 5: 30 random questions
-  const part5Pool = shuffle(getQuestionsByPart("Part 5"));
-  const part5Qs = part5Pool.slice(0, 30);
+  const part5Qs = shuffle(getQuestionsByPart("Part 5")).slice(0, 30);
   if (part5Qs.length < 30) {
     errors.push(`Part 5 只有 ${part5Qs.length}/30 題`);
   }
 
-  // Part 6: 4 groups (16 questions), group by identical passage
-  const part6All = getQuestionsByPart("Part 6");
-  const p6Groups = new Map<string, Question[]>();
-  for (const q of part6All) {
-    if (!q.passage) continue;
-    const key = passageHash(q.passage);
-    if (!p6Groups.has(key)) p6Groups.set(key, []);
-    p6Groups.get(key)!.push(q);
-  }
-  const p6GroupList = shuffle([...p6Groups.values()]);
-  const part6Qs = p6GroupList.slice(0, 4).flat();
-  if (part6Qs.length < 16) {
-    errors.push(`Part 6 只有 ${part6Qs.length}/16 題 (${p6GroupList.length} groups available, need 4)`);
-  }
-
-  // Part 7: group by identical passage
-  const part7All = getQuestionsByPart("Part 7");
-  const p7Groups = new Map<string, Question[]>();
-  for (const q of part7All) {
-    if (!q.passage) continue;
-    const key = passageHash(q.passage);
-    if (!p7Groups.has(key)) p7Groups.set(key, []);
-    p7Groups.get(key)!.push(q);
-  }
-  const p7GroupList = shuffle([...p7Groups.values()]);
-
-  // Separate single vs multi groups (for now all existing are single)
-  const singleGroups = p7GroupList.filter((g) => {
-    const q = g[0];
-    return !q.passage_group_type || q.passage_group_type === "single";
-  });
-  const doubleGroups = p7GroupList.filter(
-    (g) => g[0]?.passage_group_type === "double"
+  const p6Groups = groupByPassage(getQuestionsByPart("Part 6")).filter(
+    (group) => group.length === 4
   );
-  const tripleGroups = p7GroupList.filter(
-    (g) => g[0]?.passage_group_type === "triple"
+  const selectedP6 = shuffle(p6Groups).slice(0, 4);
+  if (selectedP6.length < 4) {
+    errors.push(`Part 6 只有 ${selectedP6.length}/4 valid groups`);
+  }
+
+  const p7Groups = groupByPassage(getQuestionsByPart("Part 7"));
+  const getType = (group: Question[]): PassageGroupType =>
+    group[0]?.passage_group_type ?? "single";
+  const singleGroups = p7Groups.filter((group) => getType(group) === "single");
+  const doubleGroups = p7Groups.filter(
+    (group) => getType(group) === "double" && group.length === 5
+  );
+  const tripleGroups = p7Groups.filter(
+    (group) => getType(group) === "triple" && group.length === 5
   );
 
-  // Pick groups to reach target question counts
-  const part7Qs: Question[] = [];
-
-  // Single: need ~29 questions
-  let singleCount = 0;
-  for (const g of singleGroups) {
-    if (singleCount >= 29) break;
-    part7Qs.push(...g);
-    singleCount += g.length;
-  }
-  if (singleCount < 29) {
-    errors.push(`Part 7 single 只有 ${singleCount}/29 題`);
+  const selectedSingles = selectGroupsForTotal(singleGroups, 29);
+  if (!selectedSingles) {
+    const available = singleGroups.reduce((sum, group) => sum + group.length, 0);
+    errors.push(`Part 7 single 無法剛好組成 29 題 (available ${available})`);
   }
 
-  // Double: need 10 questions (2 groups × 5)
-  let doubleCount = 0;
-  for (const g of doubleGroups) {
-    if (doubleCount >= 10) break;
-    part7Qs.push(...g);
-    doubleCount += g.length;
-  }
-  if (doubleCount < 10) {
-    errors.push(`Part 7 double 只有 ${doubleCount}/10 題 (need 2 groups × 5)`);
+  const selectedDoubles = shuffle(doubleGroups).slice(0, 2);
+  if (selectedDoubles.length < 2) {
+    errors.push(`Part 7 double 只有 ${selectedDoubles.length}/2 valid groups`);
   }
 
-  // Triple: need 15 questions (3 groups × 5)
-  let tripleCount = 0;
-  for (const g of tripleGroups) {
-    if (tripleCount >= 15) break;
-    part7Qs.push(...g);
-    tripleCount += g.length;
-  }
-  if (tripleCount < 15) {
-    errors.push(`Part 7 triple 只有 ${tripleCount}/15 題 (need 3 groups × 5)`);
+  const selectedTriples = shuffle(tripleGroups).slice(0, 3);
+  if (selectedTriples.length < 3) {
+    errors.push(`Part 7 triple 只有 ${selectedTriples.length}/3 valid groups`);
   }
 
   if (errors.length > 0) {
@@ -6505,5 +6772,13 @@ export function buildMockTestPlan(): Question[] {
     );
   }
 
-  return [...part5Qs, ...part6Qs, ...part7Qs];
+  const plan = [
+    ...part5Qs,
+    ...selectedP6.flat(),
+    ...(selectedSingles ?? []).flat(),
+    ...selectedDoubles.flat(),
+    ...selectedTriples.flat(),
+  ];
+  assertMockPlan(plan);
+  return plan;
 }

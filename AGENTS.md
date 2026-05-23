@@ -51,7 +51,6 @@ Do not add unless explicitly requested:
 - Payment or subscription logic.
 - Multi-user roles.
 - Notion API integration.
-- Full mock exam mode.
 - Voice audio, TTS, or generated listening audio.
 - Large architecture rewrites.
 
@@ -96,8 +95,9 @@ Important scripts:
 - Keep `pipeline/node_modules/`, `pipeline/output/`, `pipeline/dist/`, and `.env` files out of Git.
 - `pipeline/.env.example` may document variable names only; never commit real API keys.
 - Use `npm run check` inside `pipeline/` for data integrity after generated questions are inserted.
-- Generated questions must be inserted into the top-level `QUESTIONS` array in `data/questions.ts`, before `getQuestionsByPart`.
-- Do not append generated questions after helper functions or inside `buildDailyPlan`.
+- Generated questions go in `data/questions-generated.ts`, exported as `GENERATED_QUESTIONS` and spread into the `QUESTIONS` array in `data/questions.ts` before `getQuestionsByPart`.
+- Do not embed generated questions inside `buildDailyPlan`, helper functions, or after the helper function section.
+- The `questions-writer.ts` pipeline tool must insert into `data/questions-generated.ts`, not `data/questions.ts`.
 - Prompt examples should be abstract patterns, not copied TOEIC/public sample passages.
 - If using public samples, store only source notes, patterns, distractor strategies, and fingerprints; do not store reusable source text as few-shot content.
 
@@ -179,6 +179,8 @@ Run these checks after meaningful changes:
 - A stale dev server on port 3000 may show outdated behavior. Restart the dev
   server after framework or route changes.
 - Production build is the most reliable end-to-end framework validation.
+- **macOS iCloud dataless placeholders**: Files synced via iCloud may show `compressed,dataless` flag in `ls -lO`. Before running any command, verify critical files (`package.json`, `tsconfig.json`, etc.) are fully downloaded with `find . -flags +dataless`; `cat` or `head` can hang while FileProvider tries to materialize placeholders.
+- **buildMockTestPlan expects strict part distribution**: The function asserts Part 5=30, Part 6=16 (4 groups × 4), Part 7=54 (single=29, double=10, triple=15). If the question pool doesn't satisfy these constraints, the function throws. Run `cd pipeline && npx tsx src/mark-groups.ts --write` after adding Part 6/7 questions to ensure `passage_group_id` is populated.
 
 ## Change Guidelines
 
@@ -205,7 +207,8 @@ These rules were identified during a full-stack audit. Future agents MUST follow
 ### Data Integrity Rules
 
 - **Never change question IDs without migration.** Existing records in localStorage reference IDs. Changing an ID orphans user progress.
-- **Populate `passage_group_id` on all Part 6/7 questions.** The `buildMockTestPlan` function groups by passage text hash (first 120 chars) as a fallback. Proper group IDs prevent collision bugs.
+- **Populate `passage_group_id` on all Part 6/7 questions.** `buildMockTestPlan` prefers `passage_group_id` and falls back to the full passage text only when the ID is missing. Never group by a truncated passage prefix.
+- **Mock test plans must be exact.** `buildMockTestPlan()` must assert total=100, Part 5=30, Part 6=16, and Part 7=54. If valid Part 6/7 groups are insufficient, throw a clear error instead of returning a partial plan.
 - **Part 6 questions must have exactly 4 blanks per passage** labeled `____(A)____` through `____(D)____`.
 - **Do NOT embed generated questions inside `buildDailyPlan()` or helper functions.** Generated questions go in `data/questions-generated.ts`, imported and spread into the `QUESTIONS` array before `getQuestionsByPart`.
 - **Maintain answer distribution.** Target A/B/C/D each 20-30% across any new question batch.

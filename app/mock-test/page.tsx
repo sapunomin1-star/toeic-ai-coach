@@ -2,15 +2,16 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { buildMockTestPlan } from "@/data/questions";
-import { saveAnswer } from "@/lib/storage";
+import { buildMockTestPlan, getQuestionById } from "@/data/questions";
+import { saveAnswer as saveDailyAnswer } from "@/lib/storage";
 import {
   clearMockSession,
   getMockSession,
+  saveAnswer as saveMockAnswer,
   saveMockResult,
   startMockSession,
 } from "@/lib/mockStorage";
-import type { MockTestResult } from "@/types/mock";
+import type { MockPartKey, MockTestResult } from "@/types/mock";
 import type { Choice, Question } from "@/types/question";
 
 type Phase = "preview" | "testing" | "result";
@@ -23,7 +24,7 @@ function estimateScore(raw: number) {
   return { min: Math.max(5, mid - 30), max: Math.min(495, mid + 30) };
 }
 
-function partLabel(q: Question): string {
+function partLabel(q: Question): MockPartKey {
   if (q.part === "Part 5") return "Part 5";
   if (q.part === "Part 6") return "Part 6";
   return "Part 7";
@@ -41,36 +42,24 @@ export default function MockTestPage() {
 
   // Resume session
   useEffect(() => {
-    const session = getMockSession();
-    if (session && !session.submittedAt) {
-      const qs: Question[] = [];
-      for (const id of session.questionIds) {
-        const q = buildMockTestPlan().find((x) => x.id === id);
-        if (q) qs.push(q);
+    const id = window.setTimeout(() => {
+      const session = getMockSession();
+      if (session && !session.submittedAt) {
+        const qs = session.questionIds
+          .map((questionId) => getQuestionById(questionId))
+          .filter((q): q is Question => Boolean(q));
+        if (qs.length === session.questionIds.length) {
+          setQuestions(qs);
+          setAnswers(session.answers ?? {});
+          setEndTime(new Date(session.endTime).getTime());
+          setPhase("testing");
+          return;
+        }
       }
-      if (qs.length > 0) {
-        setQuestions(qs);
-        setAnswers(session.answers ?? {});
-        setEndTime(new Date(session.endTime).getTime());
-        setPhase("testing");
-        return;
-      }
-    }
-    clearMockSession();
+      clearMockSession();
+    }, 0);
+    return () => window.clearTimeout(id);
   }, []);
-
-  // Countdown
-  useEffect(() => {
-    if (phase !== "testing" || endTime === 0) return;
-    const tick = () => {
-      const r = Math.max(0, endTime - Date.now());
-      setRemainingMs(r);
-      if (r <= 0) submit();
-    };
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, [phase, endTime]);
 
   function start() {
     try {
@@ -87,25 +76,23 @@ export default function MockTestPage() {
   function pick(questionId: string, choice: Choice) {
     const next = { ...answers, [questionId]: choice };
     setAnswers(next);
-    import("@/lib/mockStorage").then((m) => m.saveAnswer(questionId, choice));
+    saveMockAnswer(questionId, choice);
   }
 
-  function confirmSubmit() {
-    if (!window.confirm("確定要交卷嗎？未作答的題目將視為空白。")) return;
-    submit();
-  }
-
-  function submit() {
+  const submit = useCallback(() => {
     if (submittedRef.current) return;
     submittedRef.current = true;
 
     let correct = 0;
-    const breakdown: Record<string, { correct: number; total: number }> = {};
+    const breakdown: MockTestResult["partBreakdown"] = {
+      "Part 5": { correct: 0, total: 0 },
+      "Part 6": { correct: 0, total: 0 },
+      "Part 7": { correct: 0, total: 0 },
+    };
     const unansweredIds = questions.map((q) => q.id).filter((id) => !answers[id]);
 
     for (const q of questions) {
       const p = partLabel(q);
-      if (!breakdown[p]) breakdown[p] = { correct: 0, total: 0 };
       breakdown[p].total++;
       if (answers[q.id] === q.answer) {
         correct++;
@@ -118,7 +105,7 @@ export default function MockTestPage() {
     for (const q of questions) {
       const ua = answers[q.id];
       if (ua && ua !== q.answer) {
-        saveAnswer({
+        saveDailyAnswer({
           questionId: q.id,
           userAnswer: ua,
           correctAnswer: q.answer,
@@ -129,6 +116,7 @@ export default function MockTestPage() {
       }
     }
 
+    const remainingAtSubmit = Math.max(0, endTime - Date.now());
     const mockResult: MockTestResult = {
       id: `mock-${Date.now()}`,
       questionIds: questions.map((q) => q.id),
@@ -140,13 +128,31 @@ export default function MockTestPage() {
       rawScore: correct,
       scoreRange: estimateScore(correct),
       partBreakdown: breakdown,
-      timeUsedMs: DURATION_MS - remainingMs,
+      timeUsedMs: DURATION_MS - remainingAtSubmit,
     };
 
     saveMockResult(mockResult);
     clearMockSession();
     setResult(mockResult);
     setPhase("result");
+  }, [answers, endTime, questions]);
+
+  // Countdown
+  useEffect(() => {
+    if (phase !== "testing" || endTime === 0) return;
+    const tick = () => {
+      const r = Math.max(0, endTime - Date.now());
+      setRemainingMs(r);
+      if (r <= 0) submit();
+    };
+    tick();
+    const id = window.setInterval(tick, 1000);
+    return () => window.clearInterval(id);
+  }, [phase, endTime, submit]);
+
+  function confirmSubmit() {
+    if (!window.confirm("確定要交卷嗎？未作答的題目將視為空白。")) return;
+    submit();
   }
 
   function fmt(ms: number) {
@@ -195,6 +201,10 @@ export default function MockTestPage() {
   if (phase === "testing") {
     const q = questions[currentIndex];
     const low = remainingMs < 5 * 60 * 1000;
+
+    if (!q) {
+      return <p className="py-10 text-center text-slate-500">找不到題目資料。</p>;
+    }
 
     return (
       <div className="flex min-h-screen flex-col">

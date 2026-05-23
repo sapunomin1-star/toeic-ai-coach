@@ -17,7 +17,7 @@ export async function generatePart6(
 ): Promise<RawGeneratedQuestion[]> {
   const systemPrompt =
     "You are a TOEIC Part 6 question writer. Output only valid JSON array with 4 question objects.";
-  let userPrompt = PROMPT_TEMPLATE.replace(
+  const userPrompt = PROMPT_TEMPLATE.replace(
     /\{\{difficulty\}\}/g,
     pattern.difficulty
   )

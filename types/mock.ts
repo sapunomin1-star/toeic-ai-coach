@@ -1,4 +1,6 @@
-import type { Choice } from "./question";
+import type { Choice } from "@/types/question";
+
+export type MockPartKey = "Part 5" | "Part 6" | "Part 7";
 
 export type MockTestSession = {
   questionIds: string[];
@@ -9,6 +11,14 @@ export type MockTestSession = {
   submittedAt?: string;
 };
 
+export type MockPartBreakdown = Record<
+  MockPartKey,
+  {
+    correct: number;
+    total: number;
+  }
+>;
+
 export type MockTestResult = {
   id: string;
   questionIds: string[];
@@ -18,7 +28,10 @@ export type MockTestResult = {
   endTime: string;
   submittedAt: string;
   rawScore: number;
-  scoreRange: { min: number; max: number };
-  partBreakdown: Record<string, { correct: number; total: number }>;
+  scoreRange: {
+    min: number;
+    max: number;
+  };
+  partBreakdown: MockPartBreakdown;
   timeUsedMs: number;
 };

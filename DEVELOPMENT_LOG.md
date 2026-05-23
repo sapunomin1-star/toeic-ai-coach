@@ -582,3 +582,58 @@ Full-stack audit covering data layer, types, lib utilities, app routes, accessib
 6. Fix mock-test dynamic import antipattern (line 90)
 7. Add ARIA labels to home page emoji links and quiz choice groups
   - A stale dev server on port 3000 may return 500 if its `.next/dev` cache is stale. Production build/start has been the reliable verification path.
+
+## Second Review Fixes — 2026-05-23
+
+### Scope
+
+Fixed six categories of issues identified during the second round of technical review.
+All fixes were verified in the local environment unless otherwise noted.
+
+### Fix 1: iCloud dataless file resolution
+
+- Problem: Multiple critical files (`package.json`, `tsconfig.json`, `node_modules/next/package.json`, etc.) were macOS iCloud dataless placeholders, causing `npm`, `tsc`, and ESLint to hang.
+- Fix: Used `brctl download` to materialize critical source files and rebuilt `node_modules` / `pipeline/node_modules` because dependency folders also contained dataless placeholders. Some iCloud-managed non-critical files may still show the dataless flag, but the required validation commands now complete.
+- Note: This is a macOS iCloud Desktop & Documents sync issue. Future development should verify file status before running commands.
+
+### Fix 2: buildMockTestPlan rewritten
+
+- Problem: The function used `passage.slice(0, 120)` hash for grouping (collision risk), didn't guarantee exact part distribution (P5=30, P6=16, P7=54), and didn't throw on insufficient pool.
+- Fix: Rewritten to:
+  - Use `passage_group_id` as primary grouping key, fallback to full passage text
+  - Part 6: pick exactly 4 groups of 4 questions (validates each group has exactly 4)
+  - Part 7: strictly separate single (29) / double (10) / triple (15) with `passage_group_type`
+  - Clear error messages when pool is insufficient
+  - Post-assertions: total=100, P5=30, P6=16, P7=54
+
+### Fix 3: mark-groups.ts made functional
+
+- Problem: The tool was a dry-run scanner that never actually wrote data. Regex was fragile against nested objects.
+- Fix: Rewritten with robust brace-depth parser. Supports `--dry-run` (default) and `--write`. Processes both `questions-generated.ts` and `questions.ts`. Assigns `passage_group_id`, `passage_group_type`, and `question_order` to all 185 Part 6/7 questions across both files. Idempotent.
+
+### Fix 4: Dashboard mock test result display
+
+- Problem: Dashboard only showed "開始模擬考 →" button, no history.
+- Fix: Added import of `getMockResults()`. Displays last mock test result including rawScore/100, scoreRange (labeled as non-official estimate), Part 5/6/7 accuracy breakdown, time used, and submission date.
+
+### Fix 5: mockStorage validation
+
+- Problem: `getMockSession()` and `getMockResults()` directly trusted `JSON.parse` output. No schema validation. Results grew unboundedly.
+- Fix: Added `validateSession()` and `validateResult()` guard functions checking: `questionIds` is `string[]`, `answers` values are only A/B/C/D, date fields are parseable, `partBreakdown` has correct structure. Filtered out invalid entries. Capped saved results at 20 entries.
+
+### Fix 6: Documentation updated
+
+- README.md: Rewrote from create-next-app template to project-specific onboarding.
+- AGENTS.md: Removed "Full mock exam mode" from Do Not Add. Updated generated-questions placement rules. Added Known Environment Notes about iCloud dataless and buildMockTestPlan constraints.
+- This file: Added this section.
+
+### Build Verification
+
+Verified after fixes:
+
+- `npm install --cache ./.npm-cache`: passed after bypassing a broken `~/.npm` cache entry. Temporary cache was removed afterward.
+- `npm run lint`: passed with 4 pre-existing pipeline warnings and 0 errors.
+- `npm run build`: passed, Next.js generated 9 app routes plus `_not-found`.
+- `vercel build --yes`: passed, output written to `.vercel/output`.
+- `cd pipeline && npm run check`: passed, 554 questions, no duplicate IDs, no invalid answers, no missing fields.
+- Runtime sanity check: `buildMockTestPlan()` returns exactly 100 questions: Part 5=30, Part 6=16, Part 7=54 with Part 7 single=29, double=10, triple=15.

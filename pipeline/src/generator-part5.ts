@@ -40,7 +40,7 @@ export async function generatePart5(
 ): Promise<RawGeneratedQuestion[]> {
   const systemPrompt =
     "You are a TOEIC Part 5 writer. Output ONLY a JSON array. No markdown, no explanation.";
-  let userPrompt = PROMPT_TEMPLATE.replace(/\{\{count\}\}/g, String(count))
+  const userPrompt = PROMPT_TEMPLATE.replace(/\{\{count\}\}/g, String(count))
     .replace(/\{\{skill_tag\}\}/g, pattern.subtype)
     .replace(/\{\{skill_label\}\}/g, pattern.subtype.replace(/_/g, " "))
     .replace(/\{\{grammar_focus\}\}/g, pattern.grammar_focus ?? "")
