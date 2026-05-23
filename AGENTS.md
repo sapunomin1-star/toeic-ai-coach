@@ -131,6 +131,8 @@ Vocabulary data must satisfy:
 - Wrong questions remain reviewable until dismissed or improved through repeated correct answers.
 - Part 6 and Part 7 use `passage`; Part 3 and Part 4 use `transcript`.
 - Part 6 questions are identified by question ID prefix `p6-` in analytics (they use `reading_detail` skill_tag).
+- Part 7 dashboard analytics must filter by `p7-` question IDs, not only by `reading_*` skill tags, because Part 6 may also use `reading_detail`.
+- Quiz timing is per question: `app/quiz/page.tsx` starts a timer when a question is shown and stores `responseTimeMs` on submit.
 
 ## QA Checklist
 

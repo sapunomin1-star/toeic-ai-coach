@@ -306,6 +306,28 @@ Security note:
 
 - `pipeline/.env` contains real local API keys and is ignored by Git. Because key-bearing environment variables were visible in local process listings during validation, rotate those keys before sharing logs or pushing from an untrusted machine.
 
+### Dashboard / Wrong Book Review - 2026-05-23
+
+Reviewed the personal coach report, wrong-book flow, and answer timing path.
+
+Findings:
+
+- `app/quiz/page.tsx` correctly records per-question answer time with `responseTimeMs` when the user submits an answer.
+- `saveAnswer()` correctly writes answer records and updates wrong-book status for wrong answers or existing wrong-book entries.
+- `getWrongBookEntries()` correctly shows non-dismissed wrong-book entries with latest wrong answer, correct answer, status, and latest answer time.
+- A simulated wrong-answer flow confirmed wrong questions appear in wrong book, and one later correct answer changes the status to `improving` while keeping the item reviewable.
+
+Fix:
+
+- Part 6 questions use `reading_detail`, so the Dashboard's Part 7 section could accidentally count future Part 6 attempts as Part 7 reading performance.
+- `calculateReadingAccuracy()`, `countReadingAttempts()`, `calculateReadingAvgTime()`, and the Part 7 skill-mistake section now filter by `p7-` question IDs.
+- Added `countPart7MistakesBySkill()` so Part 7 reading stats stay separate from Part 6 text-completion stats.
+
+Timing coverage:
+
+- Part 5, Part 6, Part 7, Part 3, and Part 4 questions all go through the same quiz submit path, so they can all record `responseTimeMs`.
+- Current timing is per question, not full-session countdown. A future simulated TOEIC reading mode should add a separate session timer.
+
 ### Completed Features
 
 1. **Part 6 Text Completion**

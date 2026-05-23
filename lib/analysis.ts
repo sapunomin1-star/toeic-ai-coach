@@ -202,6 +202,10 @@ function isPart6Record(r: { questionId: string }): boolean {
   return r.questionId.startsWith("p6-");
 }
 
+function isPart7Record(r: { questionId: string }): boolean {
+  return r.questionId.startsWith("p7-");
+}
+
 // ─── Part 5 / Part 6 / Listening breakdown ──────────────────────────────────
 
 export function calculatePart5Accuracy(records: AnswerRecord[]): number {
@@ -226,14 +230,12 @@ export function countListeningAttempts(records: AnswerRecord[]): number {
 
 export function calculateReadingAccuracy(records: AnswerRecord[]): number {
   return calculateAccuracy(
-    records.filter((r) => (READING_SKILLS as SkillTag[]).includes(r.skill_tag))
+    records.filter((r) => isPart7Record(r))
   );
 }
 
 export function countReadingAttempts(records: AnswerRecord[]): number {
-  return records.filter((r) =>
-    (READING_SKILLS as SkillTag[]).includes(r.skill_tag)
-  ).length;
+  return records.filter((r) => isPart7Record(r)).length;
 }
 
 export function calculatePart6Accuracy(records: AnswerRecord[]): number {
@@ -255,9 +257,27 @@ export function calculateListeningAvgTime(records: AnswerRecord[]): number {
 }
 
 export function calculateReadingAvgTime(records: AnswerRecord[]): number {
-  return calculateAvgResponseTime(
-    records.filter((r) => (READING_SKILLS as SkillTag[]).includes(r.skill_tag))
-  );
+  return calculateAvgResponseTime(records.filter((r) => isPart7Record(r)));
+}
+
+export function countPart7MistakesBySkill(
+  records: AnswerRecord[]
+): Record<SkillTag, number> {
+  const init = Object.fromEntries(
+    READING_SKILLS.map((skill) => [skill, 0])
+  ) as Record<SkillTag, number>;
+
+  for (const r of records) {
+    if (
+      !r.isCorrect &&
+      isPart7Record(r) &&
+      (READING_SKILLS as SkillTag[]).includes(r.skill_tag)
+    ) {
+      init[r.skill_tag] += 1;
+    }
+  }
+
+  return init;
 }
 
 export function summarize(records: AnswerRecord[]) {

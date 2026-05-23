@@ -14,6 +14,7 @@ import {
   calculatePart6AvgTime,
   calculateReadingAccuracy,
   calculateReadingAvgTime,
+  countPart7MistakesBySkill,
   countListeningAttempts,
   countMistakesBySkill,
   countPart5Attempts,
@@ -74,6 +75,7 @@ export default function DashboardPage() {
 
   const stats = summarize(records);
   const skillMistakes = countMistakesBySkill(records);
+  const part7SkillMistakes = countPart7MistakesBySkill(records);
   const recommendation = getTomorrowRecommendation(records);
   const avgTime = calculateAvgResponseTime(records);
   const part5AvgTime = calculatePart5AvgTime(records);
@@ -308,17 +310,17 @@ export default function DashboardPage() {
               </p>
               <p
                 className={`mt-1 text-xl font-bold ${
-                  skillMistakes["reading_main_idea"] +
-                    skillMistakes["reading_detail"] +
-                    skillMistakes["reading_inference"] >
+                  part7SkillMistakes["reading_main_idea"] +
+                    part7SkillMistakes["reading_detail"] +
+                    part7SkillMistakes["reading_inference"] >
                   0
                     ? "text-rose-600"
                     : "text-emerald-600"
                 }`}
               >
-                {skillMistakes["reading_main_idea"] +
-                  skillMistakes["reading_detail"] +
-                  skillMistakes["reading_inference"]}
+                {part7SkillMistakes["reading_main_idea"] +
+                  part7SkillMistakes["reading_detail"] +
+                  part7SkillMistakes["reading_inference"]}
                 題
               </p>
               <p className="mt-0.5 text-xs text-slate-400">累積錯誤</p>
@@ -326,7 +328,7 @@ export default function DashboardPage() {
           </div>
           <ul className="mt-3 space-y-1">
             {READING_SKILLS.map((skill) => {
-              const mistakes = skillMistakes[skill];
+              const mistakes = part7SkillMistakes[skill];
               return (
                 <li
                   key={skill}
