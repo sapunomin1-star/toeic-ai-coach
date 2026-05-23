@@ -82,6 +82,12 @@ export function matchDiversePatterns(
   const result: Pattern[] = [];
   const groupKeys = [...groups.keys()];
 
+  // Shuffle group keys for diversity across runs
+  for (let i = groupKeys.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [groupKeys[i], groupKeys[j]] = [groupKeys[j], groupKeys[i]];
+  }
+
   // Pick one from each group first
   for (const key of groupKeys) {
     if (result.length >= count) break;

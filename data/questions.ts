@@ -1,4 +1,6 @@
-import type { Question, SkillTag } from "@/types/question";
+import type { Question } from "@/types/question";
+import type { SkillTag } from "@/types/question";
+import { GENERATED_QUESTIONS } from "./questions-generated";
 
 export const QUESTIONS: Question[] = [
   // ============ Part 5 — Passive Voice (25) ============
@@ -6306,683 +6308,9 @@ export const QUESTIONS: Question[] = [
     skill_tag: "relative_clause",
     difficulty: "B2",
   },
-  {
-      "id": "p5-gen-001",
-      "part": "Part 5",
-      "question": "All employees are reminded that the new dress code policy _______ implemented starting next Monday.",
-      "choices": {
-          "A": "will be",
-          "B": "has",
-          "C": "is being",
-          "D": "was"
-      },
-      "answer": "A",
-      "explanation_zh": "正确答案是A，因为句子表示将来实施的政策，需用将来被动语态will be implemented。B和D缺少被动结构，C虽为被动但表示正在进行，与时间状语next Monday矛盾。",
-      "skill_tag": "passive_voice",
-      "difficulty": "B1",
-      "vocabulary": [
-          "employees",
-          "dress code",
-          "policy",
-          "implemented",
-          "reminded"
-      ]
-  },
-  {
-      "id": "p5-gen-002",
-      "part": "Part 5",
-      "question": "The annual audit report _______ reviewed by the finance team at the moment.",
-      "choices": {
-          "A": "has been",
-          "B": "is being",
-          "C": "will be",
-          "D": "was"
-      },
-      "answer": "B",
-      "explanation_zh": "正确答案是B，at the moment表示动作正在进行，需用现在进行被动语态is being reviewed。A为完成被动，C为将来被动，D为过去被动，均与时间状语不符。",
-      "skill_tag": "passive_voice",
-      "difficulty": "B1",
-      "vocabulary": [
-          "annual",
-          "audit",
-          "report",
-          "reviewed",
-          "finance"
-      ]
-  },
-  {
-      "id": "p5-gen-003",
-      "part": "Part 5",
-      "question": "Please note that the meeting agenda _______ already distributed to all department heads.",
-      "choices": {
-          "A": "has been",
-          "B": "is being",
-          "C": "will be",
-          "D": "was being"
-      },
-      "answer": "A",
-      "explanation_zh": "正确答案是A，already表示已完成动作，需用现在完成被动语态has been distributed。B表示正在进行，C表示将来，D为过去进行被动，均与already矛盾。",
-      "skill_tag": "passive_voice",
-      "difficulty": "B1",
-      "vocabulary": [
-          "meeting",
-          "agenda",
-          "distributed",
-          "department",
-          "heads"
-      ]
-  },
-  {
-      "id": "p7-gen-001",
-      "part": "Part 7",
-      "passage": "Subject: Rescheduling of Quarterly Review Meeting\n\nDear Team,\n\nThis is to inform you that the quarterly review meeting originally scheduled for Friday, March 15th at 10:00 AM has been moved. The new date is Tuesday, March 19th at 2:00 PM. The location has also been changed from Conference Room B to the Main Auditorium to accommodate more attendees. We will discuss the Q1 sales results and the upcoming marketing campaign. Remote attendance via video link is available. Please confirm your attendance by replying to this email by March 12th.\n\nBest regards,\nSarah Jenkins\nProject Coordinator",
-      "question": "What is the main purpose of this email?",
-      "choices": {
-          "A": "To announce a change in the meeting schedule and location",
-          "B": "To introduce a new project coordinator to the team",
-          "C": "To cancel the quarterly review meeting permanently",
-          "D": "To request feedback on the Q1 sales results"
-      },
-      "answer": "A",
-      "explanation_zh": "邮件的主要目的是通知团队季度评审会议改期并更换地点。选项A正确概括了这一信息。选项B错误，因为邮件中Sarah Jenkins已是项目协调员，并非新介绍。选项C错误，会议并未取消而是改期。选项D错误，邮件要求确认出席，而非反馈销售结果。",
-      "skill_tag": "reading_main_idea",
-      "difficulty": "A2",
-      "vocabulary": [
-          "reschedule",
-          "quarterly",
-          "auditorium",
-          "accommodate"
-      ]
-  },
-  {
-      "id": "p7-gen-002",
-      "part": "Part 7",
-      "passage": "Subject: Rescheduling of Quarterly Review Meeting\n\nDear Team,\n\nThis is to inform you that the quarterly review meeting originally scheduled for Friday, March 15th at 10:00 AM has been moved. The new date is Tuesday, March 19th at 2:00 PM. The location has also been changed from Conference Room B to the Main Auditorium to accommodate more attendees. We will discuss the Q1 sales results and the upcoming marketing campaign. Remote attendance via video link is available. Please confirm your attendance by replying to this email by March 12th.\n\nBest regards,\nSarah Jenkins\nProject Coordinator",
-      "question": "What is the new time for the meeting?",
-      "choices": {
-          "A": "10:00 AM on Friday, March 15th",
-          "B": "2:00 PM on Tuesday, March 19th",
-          "C": "2:00 PM on Friday, March 15th",
-          "D": "10:00 AM on Tuesday, March 19th"
-      },
-      "answer": "B",
-      "explanation_zh": "邮件明确指出新会议时间为3月19日（星期二）下午2点。选项A是原定时间。选项C将原定日期与新时间混合。选项D将原定时间与新日期混合。因此只有B正确。",
-      "skill_tag": "reading_detail",
-      "difficulty": "A2",
-      "vocabulary": [
-          "originally",
-          "moved",
-          "attendees",
-          "confirm"
-      ]
-  },
-  {
-      "id": "p7-gen-003",
-      "part": "Part 7",
-      "passage": "Subject: Rescheduling of Quarterly Review Meeting\n\nDear Team,\n\nThis is to inform you that the quarterly review meeting originally scheduled for Friday, March 15th at 10:00 AM has been moved. The new date is Tuesday, March 19th at 2:00 PM. The location has also been changed from Conference Room B to the Main Auditorium to accommodate more attendees. We will discuss the Q1 sales results and the upcoming marketing campaign. Remote attendance via video link is available. Please confirm your attendance by replying to this email by March 12th.\n\nBest regards,\nSarah Jenkins\nProject Coordinator",
-      "question": "What can be inferred about the meeting?",
-      "choices": {
-          "A": "Attendance is mandatory for all team members.",
-          "B": "The meeting will likely have more participants than originally planned.",
-          "C": "The original time was inconvenient for the project coordinator.",
-          "D": "Only in-person attendees will receive the sales results."
-      },
-      "answer": "B",
-      "explanation_zh": "邮件提到会议地点从B会议室改为大礼堂，以容纳更多参会者，这暗示参会人数可能增加。选项A错误，因为未提及强制出席。选项C错误，改期原因未说明。选项D错误，远程参会者也可通过视频链接参与讨论。因此B最合理。",
-      "skill_tag": "reading_inference",
-      "difficulty": "A2",
-      "vocabulary": [
-          "inference",
-          "participants",
-          "inconvenient",
-          "in-person"
-      ]
-  },
-  {
-      "id": "p7-gen-004",
-      "part": "Part 7",
-      "passage": "To: All Staff\nFrom: Facilities Management\nDate: June 10, 2024\nSubject: Temporary Closure of Main Office\n\nDue to urgent electrical maintenance, the main office will be closed from June 15 to June 17. During this period, all employees must work from home. The cafeteria and parking lot will also be unavailable. Please ensure you have access to remote work tools. For urgent matters, contact IT support via email. The office will reopen on June 18 at 9:00 AM.",
-      "question": "What is the main purpose of this memo?",
-      "choices": {
-          "A": "To announce a new parking policy",
-          "B": "To inform staff about a temporary office closure",
-          "C": "To schedule a meeting with IT support",
-          "D": "To remind staff about remote work tools"
-      },
-      "answer": "B",
-      "explanation_zh": "备忘录的主要目的是通知员工办公室因紧急电力维护而临时关闭。",
-      "skill_tag": "reading_main_idea",
-      "difficulty": "A2",
-      "vocabulary": [
-          "closure",
-          "maintenance",
-          "temporary",
-          "remote"
-      ]
-  },
-  {
-      "id": "p7-gen-005",
-      "part": "Part 7",
-      "passage": "To: All Staff\nFrom: Facilities Management\nDate: June 10, 2024\nSubject: Temporary Closure of Main Office\n\nDue to urgent electrical maintenance, the main office will be closed from June 15 to June 17. During this period, all employees must work from home. The cafeteria and parking lot will also be unavailable. Please ensure you have access to remote work tools. For urgent matters, contact IT support via email. The office will reopen on June 18 at 9:00 AM.",
-      "question": "How long will the office be closed?",
-      "choices": {
-          "A": "One day",
-          "B": "Two days",
-          "C": "Three days",
-          "D": "Four days"
-      },
-      "answer": "C",
-      "explanation_zh": "备忘录明确指出办公室将从6月15日关闭到6月17日，共计三天。",
-      "skill_tag": "reading_detail",
-      "difficulty": "A2",
-      "vocabulary": [
-          "closure",
-          "maintenance",
-          "temporary",
-          "remote"
-      ]
-  },
-  {
-      "id": "p7-gen-006",
-      "part": "Part 7",
-      "passage": "To: All Staff\nFrom: Facilities Management\nDate: June 10, 2024\nSubject: Temporary Closure of Main Office\n\nDue to urgent electrical maintenance, the main office will be closed from June 15 to June 17. During this period, all employees must work from home. The cafeteria and parking lot will also be unavailable. Please ensure you have access to remote work tools. For urgent matters, contact IT support via email. The office will reopen on June 18 at 9:00 AM.",
-      "question": "What can be inferred about employees during the closure?",
-      "choices": {
-          "A": "They will need to bring their own lunch",
-          "B": "They are required to work from home",
-          "C": "They can use the parking lot as usual",
-          "D": "They must visit the office for IT support"
-      },
-      "answer": "B",
-      "explanation_zh": "备忘录说所有员工必须在家办公，因此可以推断员工在关闭期间需要远程工作。",
-      "skill_tag": "reading_inference",
-      "difficulty": "A2",
-      "vocabulary": [
-          "closure",
-          "maintenance",
-          "temporary",
-          "remote"
-      ]
-  },
-  {
-      "id": "p7-gen-007",
-      "part": "Part 7",
-      "passage": "For Sale: High-Performance Laptop\n\nNearly new, only 6 months old! This powerful laptop features a 15.6-inch Full HD display, an Intel Core i7 processor, 16GB RAM, and a 512GB SSD. Perfect for professionals, gamers, and creative users. Battery life up to 10 hours. Originally purchased for $1,800, now available at the unbeatable price of $1,200. Includes original charger and protective case. 6-month warranty remains valid. Contact Alex at 555-0192 or email alex.tech@example.com. Serious inquiries only, please.",
-      "question": "What is the main purpose of this advertisement?",
-      "choices": {
-          "A": "To promote a new laptop model",
-          "B": "To sell a used laptop",
-          "C": "To offer laptop repair services",
-          "D": "To compare different laptop brands"
-      },
-      "answer": "B",
-      "explanation_zh": "广告标题为'For Sale'，内容描述了一台使用仅6个月的笔记本电脑以折扣价出售，并提供了联系方式，因此主要目的是出售二手笔记本电脑。选项A（推广新机型）、C（提供维修服务）和D（比较品牌）均不符合文章主旨。",
-      "skill_tag": "reading_main_idea",
-      "difficulty": "B1",
-      "vocabulary": [
-          "high-performance",
-          "nearly new",
-          "unbeatable price",
-          "protective case"
-      ]
-  },
-  {
-      "id": "p7-gen-008",
-      "part": "Part 7",
-      "passage": "For Sale: High-Performance Laptop\n\nNearly new, only 6 months old! This powerful laptop features a 15.6-inch Full HD display, an Intel Core i7 processor, 16GB RAM, and a 512GB SSD. Perfect for professionals, gamers, and creative users. Battery life up to 10 hours. Originally purchased for $1,800, now available at the unbeatable price of $1,200. Includes original charger and protective case. 6-month warranty remains valid. Contact Alex at 555-0192 or email alex.tech@example.com. Serious inquiries only, please.",
-      "question": "What is the discounted price of the laptop?",
-      "choices": {
-          "A": "$1,800",
-          "B": "$1,200",
-          "C": "$1,000",
-          "D": "$600"
-      },
-      "answer": "B",
-      "explanation_zh": "文中明确提到'Originally purchased for $1,800, now available at the unbeatable price of $1,200'，因此折扣价为$1,200。选项A是原价，选项C和D未在文中出现。",
-      "skill_tag": "reading_detail",
-      "difficulty": "B1",
-      "vocabulary": [
-          "originally purchased",
-          "discounted price",
-          "unbeatable",
-          "warranty"
-      ]
-  },
-  {
-      "id": "p7-gen-009",
-      "part": "Part 7",
-      "passage": "For Sale: High-Performance Laptop\n\nNearly new, only 6 months old! This powerful laptop features a 15.6-inch Full HD display, an Intel Core i7 processor, 16GB RAM, and a 512GB SSD. Perfect for professionals, gamers, and creative users. Battery life up to 10 hours. Originally purchased for $1,800, now available at the unbeatable price of $1,200. Includes original charger and protective case. 6-month warranty remains valid. Contact Alex at 555-0192 or email alex.tech@example.com. Serious inquiries only, please.",
-      "question": "What can be inferred about the seller, Alex?",
-      "choices": {
-          "A": "Alex is a professional laptop dealer.",
-          "B": "Alex likely needs to sell the laptop quickly.",
-          "C": "Alex is offering a free accessory with the laptop.",
-          "D": "Alex has no knowledge of the laptop's condition."
-      },
-      "answer": "B",
-      "explanation_zh": "卖家提供了大幅折扣（从$1,800降至$1,200），并强调'Serious inquiries only'，暗示卖家希望尽快完成交易。文中未说Alex是专业经销商（A错误），充电器和保护套已包含在内但非免费赠品（C错误），且描述详尽表明了解产品状况（D错误）。",
-      "skill_tag": "reading_inference",
-      "difficulty": "B1",
-      "vocabulary": [
-          "inferred",
-          "serious inquiries",
-          "quickly",
-          "condition"
-      ]
-  },
-  {
-      "id": "p7-gen-010",
-      "part": "Part 7",
-      "passage": "The Oakwood Community Center is pleased to announce the opening of its new Makerspace, a creative workshop area available to all residents of Oakwood. The Makerspace is equipped with 3D printers, sewing machines, and woodworking tools. Access is free, but users must complete a safety orientation session before using any equipment. Orientation sessions are held every Tuesday and Thursday at 6:00 PM and last approximately one hour. To register for an orientation, visit our website at www.oakwoodcommunity.org/makerspace or call (555) 123-4567. Please note that the Makerspace is for personal projects only; commercial use is strictly prohibited. Children under the age of 16 must be accompanied by an adult at all times.",
-      "question": "What is the main purpose of this notice?",
-      "choices": {
-          "A": "To announce a new class on 3D printing",
-          "B": "To inform residents about a new facility and its requirements",
-          "C": "To advertise a workshop for professional artists",
-          "D": "To announce a change in the community center's hours"
-      },
-      "answer": "B",
-      "explanation_zh": "通知的主要目的是向橡树谷居民介绍新推出的创客空间及其使用要求，包括安全培训、注册方式和年龄限制等。选项B最准确地概括了这一主旨。",
-      "skill_tag": "reading_main_idea",
-      "difficulty": "B1",
-      "vocabulary": [
-          "Makerspace",
-          "orientation",
-          "accompanied",
-          "prohibit"
-      ]
-  },
-  {
-      "id": "p7-gen-011",
-      "part": "Part 7",
-      "passage": "The Oakwood Community Center is pleased to announce the opening of its new Makerspace, a creative workshop area available to all residents of Oakwood. The Makerspace is equipped with 3D printers, sewing machines, and woodworking tools. Access is free, but users must complete a safety orientation session before using any equipment. Orientation sessions are held every Tuesday and Thursday at 6:00 PM and last approximately one hour. To register for an orientation, visit our website at www.oakwoodcommunity.org/makerspace or call (555) 123-4567. Please note that the Makerspace is for personal projects only; commercial use is strictly prohibited. Children under the age of 16 must be accompanied by an adult at all times.",
-      "question": "What must a person do before using the Makerspace equipment?",
-      "choices": {
-          "A": "Pay a usage fee",
-          "B": "Submit a project proposal",
-          "C": "Attend a safety orientation",
-          "D": "Become a member of the community center"
-      },
-      "answer": "C",
-      "explanation_zh": "通知明确指出：'Access is free, but users must complete a safety orientation session before using any equipment.' 因此，使用设备前必须参加安全培训。",
-      "skill_tag": "reading_detail",
-      "difficulty": "B1",
-      "vocabulary": [
-          "Makerspace",
-          "orientation",
-          "accompanied",
-          "prohibit"
-      ]
-  },
-  {
-      "id": "p7-gen-012",
-      "part": "Part 7",
-      "passage": "The Oakwood Community Center is pleased to announce the opening of its new Makerspace, a creative workshop area available to all residents of Oakwood. The Makerspace is equipped with 3D printers, sewing machines, and woodworking tools. Access is free, but users must complete a safety orientation session before using any equipment. Orientation sessions are held every Tuesday and Thursday at 6:00 PM and last approximately one hour. To register for an orientation, visit our website at www.oakwoodcommunity.org/makerspace or call (555) 123-4567. Please note that the Makerspace is for personal projects only; commercial use is strictly prohibited. Children under the age of 16 must be accompanied by an adult at all times.",
-      "question": "What can be inferred about the intended audience for this notice?",
-      "choices": {
-          "A": "The notice is aimed at professional woodworkers",
-          "B": "The notice targets only adults over 18",
-          "C": "The notice is intended for local residents of all ages",
-          "D": "The notice is for people who already own their own equipment"
-      },
-      "answer": "C",
-      "explanation_zh": "通知提到该空间面向橡树谷的所有居民（all residents），并对16岁以下儿童有成人陪同的要求，暗示适用人群包括不同年龄段的居民。选项C最符合这一推断。",
-      "skill_tag": "reading_inference",
-      "difficulty": "B1",
-      "vocabulary": [
-          "Makerspace",
-          "orientation",
-          "accompanied",
-          "prohibit"
-      ]
-  },
-  {
-      "id": "p7-gen-013",
-      "part": "Part 7",
-      "passage": "On January 15, 2024, GreenTech Solutions, a renewable energy firm based in Austin, Texas, announced its acquisition of EcoGrid Systems, a smaller competitor headquartered in Denver, Colorado. The deal, valued at $120 million, is expected to close by March 2024 pending regulatory approval. GreenTech's CEO, Sarah Chen, stated that the acquisition would strengthen the company's position in the solar energy storage market. EcoGrid's proprietary battery technology, which has been used in over 500 installations across the western United States, will be integrated into GreenTech's existing product line. Industry analysts predict that this move could increase GreenTech's annual revenue by approximately 15% within the next two years. The combined company will have a workforce of nearly 3,000 employees.",
-      "question": "What is the main topic of the article?",
-      "choices": {
-          "A": "The growth of the solar energy market in the western US",
-          "B": "GreenTech Solutions' acquisition of EcoGrid Systems",
-          "C": "The financial performance of renewable energy companies",
-          "D": "The leadership style of GreenTech's CEO Sarah Chen"
-      },
-      "answer": "B",
-      "explanation_zh": "文章主要报道了GreenTech Solutions收购EcoGrid Systems这一事件，包括交易金额、时间、目的和预期影响。选项A太宽泛，C和D偏离主题。",
-      "skill_tag": "reading_main_idea",
-      "difficulty": "B1",
-      "vocabulary": [
-          "acquisition",
-          "renewable",
-          "proprietary",
-          "integrated"
-      ]
-  },
-  {
-      "id": "p7-gen-014",
-      "part": "Part 7",
-      "passage": "On January 15, 2024, GreenTech Solutions, a renewable energy firm based in Austin, Texas, announced its acquisition of EcoGrid Systems, a smaller competitor headquartered in Denver, Colorado. The deal, valued at $120 million, is expected to close by March 2024 pending regulatory approval. GreenTech's CEO, Sarah Chen, stated that the acquisition would strengthen the company's position in the solar energy storage market. EcoGrid's proprietary battery technology, which has been used in over 500 installations across the western United States, will be integrated into GreenTech's existing product line. Industry analysts predict that this move could increase GreenTech's annual revenue by approximately 15% within the next two years. The combined company will have a workforce of nearly 3,000 employees.",
-      "question": "Where is EcoGrid Systems located?",
-      "choices": {
-          "A": "Austin, Texas",
-          "B": "Denver, Colorado",
-          "C": "The western United States",
-          "D": "A city with over 500 installations"
-      },
-      "answer": "B",
-      "explanation_zh": "文章明确提到EcoGrid Systems的总部位于科罗拉多州丹佛市。选项A是GreenTech的所在地，C是EcoGrid技术应用的区域，D错误地将安装数量与地点混淆。",
-      "skill_tag": "reading_detail",
-      "difficulty": "B1",
-      "vocabulary": [
-          "headquartered",
-          "pending",
-          "regulatory",
-          "workforce"
-      ]
-  },
-  {
-      "id": "p7-gen-015",
-      "part": "Part 7",
-      "passage": "On January 15, 2024, GreenTech Solutions, a renewable energy firm based in Austin, Texas, announced its acquisition of EcoGrid Systems, a smaller competitor headquartered in Denver, Colorado. The deal, valued at $120 million, is expected to close by March 2024 pending regulatory approval. GreenTech's CEO, Sarah Chen, stated that the acquisition would strengthen the company's position in the solar energy storage market. EcoGrid's proprietary battery technology, which has been used in over 500 installations across the western United States, will be integrated into GreenTech's existing product line. Industry analysts predict that this move could increase GreenTech's annual revenue by approximately 15% within the next two years. The combined company will have a workforce of nearly 3,000 employees.",
-      "question": "What is most likely to happen after the acquisition is completed?",
-      "choices": {
-          "A": "GreenTech will immediately close all of EcoGrid's facilities.",
-          "B": "GreenTech will incorporate EcoGrid's battery technology into its products.",
-          "C": "EcoGrid will change its name to GreenTech Solutions.",
-          "D": "GreenTech's revenue will drop due to the cost of the acquisition."
-      },
-      "answer": "B",
-      "explanation_zh": "文章指出EcoGrid的专有电池技术将被整合到GreenTech的现有产品线中。选项A和C没有依据，D与分析师预测的15%收入增长相反。",
-      "skill_tag": "reading_inference",
-      "difficulty": "B1",
-      "vocabulary": [
-          "analysts",
-          "integrated",
-          "proprietary",
-          "revenue"
-      ]
-  },
-  {
-        "id": "p6-gen-001",
-        "part": "Part 6",
-        "passage": "Dear Team,\n\nI am writing to inform you of an important ____(A)____ to our company's remote work policy, effective March 1st. All employees are now required to work from the office at least three days per week. ____(B)____, we understand that flexibility is important, so you may choose which days you come in.\n\nPlease note that this change applies ____(C)____ all full-time staff in the Marketing and Sales departments. If you have any concerns about this new arrangement, please speak with your direct supervisor. We believe this policy will improve collaboration and team communication. We thank you ____(D)____ your cooperation.",
-        "question": "____(A)____",
-        "choices": {
-              "A": "update",
-              "B": "updating",
-              "C": "updated",
-              "D": "updates"
-        },
-        "answer": "A",
-        "explanation_zh": "空白 (A) 需要一个名词作宾语，'update' 是名词，意为'更新'，符合语境。'updating' 是动名词，'updated' 是过去分词或形容词，'updates' 是动词第三人称单数或名词复数，均不符合语法要求。",
-        "skill_tag": "reading_detail",
-        "difficulty": "B1",
-        "vocabulary": [
-              "policy",
-              "effective",
-              "employees",
-              "flexibility",
-              "collaboration"
-        ]
-  },
-  {
-        "id": "p6-gen-002",
-        "part": "Part 6",
-        "passage": "Dear Team,\n\nI am writing to inform you of an important ____(A)____ to our company's remote work policy, effective March 1st. All employees are now required to work from the office at least three days per week. ____(B)____, we understand that flexibility is important, so you may choose which days you come in.\n\nPlease note that this change applies ____(C)____ all full-time staff in the Marketing and Sales departments. If you have any concerns about this new arrangement, please speak with your direct supervisor. We believe this policy will improve collaboration and team communication. We thank you ____(D)____ your cooperation.",
-        "question": "____(B)____",
-        "choices": {
-              "A": "Therefore",
-              "B": "However",
-              "C": "Moreover",
-              "D": "Consequently"
-        },
-        "answer": "B",
-        "explanation_zh": "空白 (B) 需要一个表示转折的逻辑连接词。前句提到新规定要求每周至少三天到办公室，后句说'理解灵活性很重要，你可以选择哪几天来'，这是对前句的让步和转折，因此'However'最合适。'Therefore'和'Consequently'表示因果关系，'Moreover'表示递进，均不符合逻辑。",
-        "skill_tag": "reading_detail",
-        "difficulty": "B1",
-        "vocabulary": [
-              "policy",
-              "effective",
-              "employees",
-              "flexibility",
-              "collaboration"
-        ]
-  },
-  {
-        "id": "p6-gen-003",
-        "part": "Part 6",
-        "passage": "Dear Team,\n\nI am writing to inform you of an important ____(A)____ to our company's remote work policy, effective March 1st. All employees are now required to work from the office at least three days per week. ____(B)____, we understand that flexibility is important, so you may choose which days you come in.\n\nPlease note that this change applies ____(C)____ all full-time staff in the Marketing and Sales departments. If you have any concerns about this new arrangement, please speak with your direct supervisor. We believe this policy will improve collaboration and team communication. We thank you ____(D)____ your cooperation.",
-        "question": "____(C)____",
-        "choices": {
-              "A": "on",
-              "B": "to",
-              "C": "for",
-              "D": "with"
-        },
-        "answer": "B",
-        "explanation_zh": "空白 (C) 需要一个介词与动词'applies'搭配。'applies to'是固定搭配，意思是'适用于'，符合'这项变更适用于所有全职员工'的语境。'applies on'、'applies for'、'applies with'都不是正确的商业搭配。",
-        "skill_tag": "reading_detail",
-        "difficulty": "B1",
-        "vocabulary": [
-              "policy",
-              "effective",
-              "employees",
-              "flexibility",
-              "collaboration"
-        ]
-  },
-  {
-        "id": "p6-gen-004",
-        "part": "Part 6",
-        "passage": "Dear Team,\n\nI am writing to inform you of an important ____(A)____ to our company's remote work policy, effective March 1st. All employees are now required to work from the office at least three days per week. ____(B)____, we understand that flexibility is important, so you may choose which days you come in.\n\nPlease note that this change applies ____(C)____ all full-time staff in the Marketing and Sales departments. If you have any concerns about this new arrangement, please speak with your direct supervisor. We believe this policy will improve collaboration and team communication. We thank you ____(D)____ your cooperation.",
-        "question": "____(D)____",
-        "choices": {
-              "A": "for",
-              "B": "with",
-              "C": "to",
-              "D": "by"
-        },
-        "answer": "A",
-        "explanation_zh": "空白 (D) 需要一个介词构成固定搭配。'thank you for'是标准用法，意为'感谢你的...'，符合'感谢你的合作'的语境。'thank you with'、'thank you to'、'thank you by'都不是正确的搭配。",
-        "skill_tag": "reading_detail",
-        "difficulty": "B1",
-        "vocabulary": [
-              "policy",
-              "effective",
-              "employees",
-              "flexibility",
-              "collaboration"
-        ]
-  },
-  {
-        "id": "p6-gen-005",
-        "part": "Part 6",
-        "passage": "Dear Valued Customers,\n\nWe are writing to inform you of a temporary ____(A)____ to our store hours. Starting next Monday, we will open one hour later than usual. This change is necessary due to ongoing renovation work. ____(B)____, we will extend our closing time to ensure you still have enough time to shop. The new hours will be in effect ____(C)____ December 15th to January 5th. We apologize for any inconvenience this may cause. If you ____(D)____ have any questions, please do not hesitate to contact our customer service team. We appreciate your understanding.\n\nSincerely,\nThe Management",
-        "question": "____(A)____",
-        "choices": {
-              "A": "adjustment",
-              "B": "confusion",
-              "C": "complaint",
-              "D": "delay"
-        },
-        "answer": "A",
-        "explanation_zh": "空白A需要填写一个名词，表示对营业时间的改变。'adjustment'（调整）是中性且礼貌的词汇，适合客户通知语境。'confusion'（困惑）不合逻辑，'complaint'（投诉）语气负面，'delay'（延迟）不表示整体时间的改变。",
-        "skill_tag": "reading_detail",
-        "difficulty": "A2",
-        "vocabulary": [
-              "temporary",
-              "renovation",
-              "extend",
-              "apologize",
-              "inconvenience",
-              "appreciate"
-        ]
-  },
-  {
-        "id": "p6-gen-006",
-        "part": "Part 6",
-        "passage": "Dear Valued Customers,\n\nWe are writing to inform you of a temporary ____(A)____ to our store hours. Starting next Monday, we will open one hour later than usual. This change is necessary due to ongoing renovation work. ____(B)____, we will extend our closing time to ensure you still have enough time to shop. The new hours will be in effect ____(C)____ December 15th to January 5th. We apologize for any inconvenience this may cause. If you ____(D)____ have any questions, please do not hesitate to contact our customer service team. We appreciate your understanding.\n\nSincerely,\nThe Management",
-        "question": "____(B)____",
-        "choices": {
-              "A": "Because",
-              "B": "However",
-              "C": "Therefore",
-              "D": "Meanwhile"
-        },
-        "answer": "B",
-        "explanation_zh": "空白B需要一个表示转折或对比的连接词。前文说开门时间变晚（不利），后文说延长关门时间（补偿），因此'However'（然而）最合适。'Because'（因为）表原因，'Therefore'（因此）表结果，'Meanwhile'（同时）表时间，逻辑都不符。",
-        "skill_tag": "reading_detail",
-        "difficulty": "A2",
-        "vocabulary": [
-              "temporary",
-              "renovation",
-              "extend",
-              "apologize",
-              "inconvenience",
-              "appreciate"
-        ]
-  },
-  {
-        "id": "p6-gen-007",
-        "part": "Part 6",
-        "passage": "Dear Valued Customers,\n\nWe are writing to inform you of a temporary ____(A)____ to our store hours. Starting next Monday, we will open one hour later than usual. This change is necessary due to ongoing renovation work. ____(B)____, we will extend our closing time to ensure you still have enough time to shop. The new hours will be in effect ____(C)____ December 15th to January 5th. We apologize for any inconvenience this may cause. If you ____(D)____ have any questions, please do not hesitate to contact our customer service team. We appreciate your understanding.\n\nSincerely,\nThe Management",
-        "question": "____(C)____",
-        "choices": {
-              "A": "in",
-              "B": "on",
-              "C": "from",
-              "D": "at"
-        },
-        "answer": "C",
-        "explanation_zh": "空白C需要表示时间范围的介词。'from ... to ...'是固定搭配，表示从某日到某日。'in'用于月份、年份，'on'用于具体日期，'at'用于具体时间点，都不符合'December 15th to January 5th'的结构。",
-        "skill_tag": "reading_detail",
-        "difficulty": "A2",
-        "vocabulary": [
-              "temporary",
-              "renovation",
-              "extend",
-              "apologize",
-              "inconvenience",
-              "appreciate"
-        ]
-  },
-  {
-        "id": "p6-gen-008",
-        "part": "Part 6",
-        "passage": "Dear Valued Customers,\n\nWe are writing to inform you of a temporary ____(A)____ to our store hours. Starting next Monday, we will open one hour later than usual. This change is necessary due to ongoing renovation work. ____(B)____, we will extend our closing time to ensure you still have enough time to shop. The new hours will be in effect ____(C)____ December 15th to January 5th. We apologize for any inconvenience this may cause. If you ____(D)____ have any questions, please do not hesitate to contact our customer service team. We appreciate your understanding.\n\nSincerely,\nThe Management",
-        "question": "____(D)____",
-        "choices": {
-              "A": "do",
-              "B": "did",
-              "C": "will",
-              "D": "would"
-        },
-        "answer": "A",
-        "explanation_zh": "空白D需要正确的助动词。句子是条件句'If you have any questions'，这里使用一般现在时，所以助动词应为'do'，构成'do have'表示强调。'did'是过去式，'will'表示将来，'would'表示虚拟语气，均不符合语境。",
-        "skill_tag": "reading_detail",
-        "difficulty": "A2",
-        "vocabulary": [
-              "temporary",
-              "renovation",
-              "extend",
-              "apologize",
-              "inconvenience",
-              "appreciate"
-        ]
-  },
-  {
-        "id": "p6-gen-009",
-        "part": "Part 6",
-        "passage": "Dear Team,\n\nI am writing to inform you about an important ____(A)____ to our company’s remote work policy, effective from March 1, 2024. ____(B)____, all employees working from home must submit a weekly progress report to their direct supervisor. This report should include a summary of completed tasks and any challenges encountered. In addition, we are requiring everyone to attend a brief training session ____(C)____ the new reporting system on February 25. Please note that failure to comply with these new guidelines may result in a review of your remote work arrangement. We believe these changes will improve communication and productivity. Thank you for your cooperation ____(D)____ this transition.\n\nBest regards,\nJane Smith\nHR Department",
-        "question": "____(A)____",
-        "choices": {
-              "A": "update",
-              "B": "updates",
-              "C": "updated",
-              "D": "updating"
-        },
-        "answer": "A",
-        "explanation_zh": "此处需要一个名词，与 'an important' 搭配。'update' 作为名词表示'更新'，符合语境。'updates' 是复数形式，与 'an' 不搭配；'updated' 是形容词或过去分词；'updating' 是动名词，均不合适。",
-        "skill_tag": "reading_detail",
-        "difficulty": "B1",
-        "vocabulary": [
-              "policy",
-              "remote",
-              "supervisor",
-              "compliance",
-              "productivity"
-        ]
-  },
-  {
-        "id": "p6-gen-010",
-        "part": "Part 6",
-        "passage": "Dear Team,\n\nI am writing to inform you about an important ____(A)____ to our company’s remote work policy, effective from March 1, 2024. ____(B)____, all employees working from home must submit a weekly progress report to their direct supervisor. This report should include a summary of completed tasks and any challenges encountered. In addition, we are requiring everyone to attend a brief training session ____(C)____ the new reporting system on February 25. Please note that failure to comply with these new guidelines may result in a review of your remote work arrangement. We believe these changes will improve communication and productivity. Thank you for your cooperation ____(D)____ this transition.\n\nBest regards,\nJane Smith\nHR Department",
-        "question": "____(B)____",
-        "choices": {
-              "A": "However",
-              "B": "Specifically",
-              "C": "Therefore",
-              "D": "Furthermore"
-        },
-        "answer": "B",
-        "explanation_zh": "前文提到政策更新，后文具体说明新要求。'Specifically' 表示'具体来说'，用于引出细节，符合逻辑关系。'However' 表转折，'Therefore' 表结果，'Furthermore' 表递进，均不符合此处上下文。",
-        "skill_tag": "reading_detail",
-        "difficulty": "B1",
-        "vocabulary": [
-              "policy",
-              "remote",
-              "supervisor",
-              "compliance",
-              "productivity"
-        ]
-  },
-  {
-        "id": "p6-gen-011",
-        "part": "Part 6",
-        "passage": "Dear Team,\n\nI am writing to inform you about an important ____(A)____ to our company’s remote work policy, effective from March 1, 2024. ____(B)____, all employees working from home must submit a weekly progress report to their direct supervisor. This report should include a summary of completed tasks and any challenges encountered. In addition, we are requiring everyone to attend a brief training session ____(C)____ the new reporting system on February 25. Please note that failure to comply with these new guidelines may result in a review of your remote work arrangement. We believe these changes will improve communication and productivity. Thank you for your cooperation ____(D)____ this transition.\n\nBest regards,\nJane Smith\nHR Department",
-        "question": "____(C)____",
-        "choices": {
-              "A": "for",
-              "B": "about",
-              "C": "on",
-              "D": "at"
-        },
-        "answer": "C",
-        "explanation_zh": "'a training session on something' 是固定搭配，表示'关于某主题的培训课程'。'on' 在此表示主题或内容。'for' 表示目的，'about' 虽可表示关于但不如 'on' 正式，'at' 表示地点，均不合适。",
-        "skill_tag": "reading_detail",
-        "difficulty": "B1",
-        "vocabulary": [
-              "policy",
-              "remote",
-              "supervisor",
-              "compliance",
-              "productivity"
-        ]
-  },
-  {
-        "id": "p6-gen-012",
-        "part": "Part 6",
-        "passage": "Dear Team,\n\nI am writing to inform you about an important ____(A)____ to our company’s remote work policy, effective from March 1, 2024. ____(B)____, all employees working from home must submit a weekly progress report to their direct supervisor. This report should include a summary of completed tasks and any challenges encountered. In addition, we are requiring everyone to attend a brief training session ____(C)____ the new reporting system on February 25. Please note that failure to comply with these new guidelines may result in a review of your remote work arrangement. We believe these changes will improve communication and productivity. Thank you for your cooperation ____(D)____ this transition.\n\nBest regards,\nJane Smith\nHR Department",
-        "question": "____(D)____",
-        "choices": {
-              "A": "during",
-              "B": "while",
-              "C": "through",
-              "D": "throughout"
-        },
-        "answer": "A",
-        "explanation_zh": "'cooperation during this transition' 表示'在此过渡期间的合作'。'during' 表示在某个时间段内，符合语境。'while' 是连词，后面需接从句；'through' 强调从头到尾；'throughout' 强调整个期间，但不如 'during' 常见于此类表达。",
-        "skill_tag": "reading_detail",
-        "difficulty": "B1",
-        "vocabulary": [
-              "policy",
-              "remote",
-              "supervisor",
-              "compliance",
-              "productivity"
-        ]
-  }
+  ...GENERATED_QUESTIONS,
 ];
+
 
 export function getQuestionsByPart(part: Question["part"]): Question[] {
   return QUESTIONS.filter((q) => q.part === part);
@@ -7079,4 +6407,103 @@ export function buildDailyPlan(options?: {
     .slice(0, 5);
 
   return [...weakQs, ...newQs, ...part6Qs, ...listeningQs, ...readingQs, ...reviewQs];
+}
+
+// ─── Mock Test Plan ─────────────────────────────────────────────────────────
+
+function passageHash(passage: string): string {
+  return passage.slice(0, 120).replace(/\s+/g, " ").trim();
+}
+
+export function buildMockTestPlan(): Question[] {
+  const errors: string[] = [];
+
+  // Part 5: 30 random questions
+  const part5Pool = shuffle(getQuestionsByPart("Part 5"));
+  const part5Qs = part5Pool.slice(0, 30);
+  if (part5Qs.length < 30) {
+    errors.push(`Part 5 只有 ${part5Qs.length}/30 題`);
+  }
+
+  // Part 6: 4 groups (16 questions), group by identical passage
+  const part6All = getQuestionsByPart("Part 6");
+  const p6Groups = new Map<string, Question[]>();
+  for (const q of part6All) {
+    if (!q.passage) continue;
+    const key = passageHash(q.passage);
+    if (!p6Groups.has(key)) p6Groups.set(key, []);
+    p6Groups.get(key)!.push(q);
+  }
+  const p6GroupList = shuffle([...p6Groups.values()]);
+  const part6Qs = p6GroupList.slice(0, 4).flat();
+  if (part6Qs.length < 16) {
+    errors.push(`Part 6 只有 ${part6Qs.length}/16 題 (${p6GroupList.length} groups available, need 4)`);
+  }
+
+  // Part 7: group by identical passage
+  const part7All = getQuestionsByPart("Part 7");
+  const p7Groups = new Map<string, Question[]>();
+  for (const q of part7All) {
+    if (!q.passage) continue;
+    const key = passageHash(q.passage);
+    if (!p7Groups.has(key)) p7Groups.set(key, []);
+    p7Groups.get(key)!.push(q);
+  }
+  const p7GroupList = shuffle([...p7Groups.values()]);
+
+  // Separate single vs multi groups (for now all existing are single)
+  const singleGroups = p7GroupList.filter((g) => {
+    const q = g[0];
+    return !q.passage_group_type || q.passage_group_type === "single";
+  });
+  const doubleGroups = p7GroupList.filter(
+    (g) => g[0]?.passage_group_type === "double"
+  );
+  const tripleGroups = p7GroupList.filter(
+    (g) => g[0]?.passage_group_type === "triple"
+  );
+
+  // Pick groups to reach target question counts
+  const part7Qs: Question[] = [];
+
+  // Single: need ~29 questions
+  let singleCount = 0;
+  for (const g of singleGroups) {
+    if (singleCount >= 29) break;
+    part7Qs.push(...g);
+    singleCount += g.length;
+  }
+  if (singleCount < 29) {
+    errors.push(`Part 7 single 只有 ${singleCount}/29 題`);
+  }
+
+  // Double: need 10 questions (2 groups × 5)
+  let doubleCount = 0;
+  for (const g of doubleGroups) {
+    if (doubleCount >= 10) break;
+    part7Qs.push(...g);
+    doubleCount += g.length;
+  }
+  if (doubleCount < 10) {
+    errors.push(`Part 7 double 只有 ${doubleCount}/10 題 (need 2 groups × 5)`);
+  }
+
+  // Triple: need 15 questions (3 groups × 5)
+  let tripleCount = 0;
+  for (const g of tripleGroups) {
+    if (tripleCount >= 15) break;
+    part7Qs.push(...g);
+    tripleCount += g.length;
+  }
+  if (tripleCount < 15) {
+    errors.push(`Part 7 triple 只有 ${tripleCount}/15 題 (need 3 groups × 5)`);
+  }
+
+  if (errors.length > 0) {
+    throw new Error(
+      `Mock test plan incomplete:\n${errors.map((e) => `  - ${e}`).join("\n")}`
+    );
+  }
+
+  return [...part5Qs, ...part6Qs, ...part7Qs];
 }

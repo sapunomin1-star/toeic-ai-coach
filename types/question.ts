@@ -40,6 +40,10 @@ export type Question = {
   vocabulary?: string[];
   transcript?: string;
   passage?: string;
+  passage_group_id?: string;
+  passage_group_type?: "single" | "double" | "triple";
+  passage_order?: number;
+  question_order?: number;
 };
 
 export type AnswerRecord = {

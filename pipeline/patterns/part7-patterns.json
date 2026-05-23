@@ -181,7 +181,7 @@
       "tone": "polite",
       "difficulty": "B2",
       "passage_length": "220–320 words across 3 texts",
-      "question_mix": { "reading_main_idea": 1, "reading_detail": 2, "reading_inference": 1, "cross_text_reference": 2 },
+      "question_mix": { "reading_main_idea": 1, "reading_detail": 2, "reading_inference": 1, "cross_text_reference": 1 },
       "vocabulary_themes": ["order", "shipment", "replacement", "confirmation"],
       "distractor_patterns": [
         "wrong document referenced for a detail",

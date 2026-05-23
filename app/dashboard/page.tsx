@@ -543,6 +543,20 @@ export default function DashboardPage() {
         )}
       </section>
 
+      {/* Mock test entry */}
+      <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        <h2 className="mb-2 text-sm font-semibold">模擬考</h2>
+        <p className="text-xs text-slate-500">
+          100 題 · 75 分鐘 · Part 5/6/7 完整閱讀測驗
+        </p>
+        <Link
+          href="/mock-test"
+          className="mt-3 block w-full rounded-xl bg-slate-900 px-4 py-3 text-center text-sm font-semibold text-white active:scale-[0.99]"
+        >
+          開始模擬考 →
+        </Link>
+      </section>
+
       <div className="grid grid-cols-2 gap-3">
         <Link
           href="/practice"

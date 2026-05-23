@@ -7,6 +7,10 @@ import { validateQuestion, validateQuestionGroup } from "./validator";
 import type { Pattern, RawGeneratedQuestion } from "./types";
 import type { SkillTag } from "../../types/question";
 
+const SKILL_TAG_MAP: Record<string, string> = {
+  cross_text_reference: "reading_detail",
+};
+
 const PROMPT_TEMPLATE = fs.readFileSync(
   path.resolve(__dirname, "../templates/part7-prompt.md"),
   "utf-8"
@@ -84,7 +88,18 @@ export async function generatePart7(
     raw.difficulty = pattern.difficulty;
 
     const skillIndex = i % skills.length;
-    raw.skill_tag = skills[skillIndex];
+    const mappedSkill = SKILL_TAG_MAP[skills[skillIndex]] ?? skills[skillIndex];
+    raw.skill_tag = mappedSkill;
+
+    // Set passage group metadata based on pattern type
+    if (pattern.document_type === "double-passage") {
+      (raw as Record<string, unknown>).passage_group_type = "double";
+    } else if (pattern.document_type === "triple-passage") {
+      (raw as Record<string, unknown>).passage_group_type = "triple";
+    } else {
+      (raw as Record<string, unknown>).passage_group_type = "single";
+    }
+    (raw as Record<string, unknown>).question_order = i + 1;
 
     // Optimize with Kimi
     if (!options.skipKimi && raw.explanation_zh) {

@@ -122,12 +122,15 @@ export function extractJsonArray(text: string): string {
   const fenceMatch = text.match(/```(?:json)?\s*([\s\S]*?)```/);
   if (fenceMatch) return fenceMatch[1].trim();
 
+  // Strip leading "json" or other prefix before the array
+  const stripped = text.replace(/^json\s*/i, "").trim();
+
   // Try to find bare JSON array
-  const arrayMatch = text.match(/\[\s*\{[\s\S]*\}\s*\]/);
+  const arrayMatch = stripped.match(/\[\s*\{[\s\S]*\}\s*\]/);
   if (arrayMatch) return arrayMatch[0].trim();
 
-  // Return raw text — let caller try to parse
-  return text.trim();
+  // Return stripped text — let caller try to parse
+  return stripped;
 }
 
 /** Parse JSON array from LLM response with retry logic */
