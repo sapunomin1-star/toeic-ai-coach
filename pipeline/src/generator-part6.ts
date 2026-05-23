@@ -36,7 +36,7 @@ export async function generatePart6(
       /\{\{distractor_patterns\}\}/g,
       pattern.distractor_patterns.join(", ")
     )
-    .replace(/\{\{few_shot_examples\}\}/g, PART6_EXAMPLE)
+    .replace(/\{\{few_shot_examples\}\}/g, PART6_PATTERN_EXAMPLE)
     .replace(
       /\{\{generation_instruction\}\}/g,
       pattern.generation_instruction
@@ -94,9 +94,13 @@ export async function generatePart6(
   return valid as RawGeneratedQuestion[];
 }
 
-const PART6_EXAMPLE = `Example Part 6 passage (from TOEIC practice):
-Passage: "It has come to our attention that there has been a noticeable increase in eye injuries... Effective Monday, June 8, all employees working in Zone B will be required to wear ____(A)____ goggles at all times. The goggles will be ____(B)____ by the company... ____(C)____, failure to comply with this new requirement may result in disciplinary action... ____(D)____ Your safety is our top priority."
-(A) choices: A.protect B.protection C.protectively D.protective → Answer: D (adjective needed)
-(B) choices: A.provided B.produced C.prepared D.purchased → Answer: A (supplied by company)
-(C) choices: A.In other words B.Please note C.For instance D.Similarly → Answer: B (draws attention)
-(D) choices: (sentence insertion — choose most logical next sentence)`;
+const PART6_PATTERN_EXAMPLE = `Abstract Part 6 pattern example:
+- Passage type: internal workplace notice.
+- Topic: a new safety or operations policy.
+- Length: 100-140 words.
+- Blank A: adjective or noun form selected by the following noun.
+- Blank B: verb chosen by business collocation and passive/active context.
+- Blank C: transition phrase that matches the logical relation.
+- Blank D: sentence insertion that connects the previous warning to the final reassurance.
+- Distractors: wrong word forms, plausible but wrong business verbs, transitions with the wrong logic, and a sentence that repeats keywords but breaks paragraph flow.
+Create a new original passage. Do not reuse names, dates, wording, facts, or sentence structure from any source sample.`;

@@ -7,9 +7,13 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "outDir": "dist",
-    "rootDir": ".",
+    "rootDir": "..",
+    "baseUrl": "..",
+    "paths": {
+      "@/*": ["*"]
+    },
     "resolveJsonModule": true
   },
-  "include": ["./**/*.ts", "./**/*.json"],
+  "include": ["./**/*.ts", "./**/*.json", "../data/questions.ts", "../types/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }

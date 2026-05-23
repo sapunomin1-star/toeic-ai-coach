@@ -7,11 +7,13 @@ import {
   READING_SKILLS,
   calculateAvgResponseTime,
   calculateListeningAccuracy,
+  calculateListeningAvgTime,
   calculatePart5Accuracy,
   calculatePart5AvgTime,
   calculatePart6Accuracy,
   calculatePart6AvgTime,
   calculateReadingAccuracy,
+  calculateReadingAvgTime,
   countListeningAttempts,
   countMistakesBySkill,
   countPart5Attempts,
@@ -83,9 +85,11 @@ export default function DashboardPage() {
   const part6Accuracy = calculatePart6Accuracy(records);
   const part6Total = countPart6Attempts(records);
   const part6AvgTime = calculatePart6AvgTime(records);
+  const listeningAvgTime = calculateListeningAvgTime(records);
   const listeningAccuracy = calculateListeningAccuracy(records);
   const listeningTotal = countListeningAttempts(records);
   const readingAccuracy = calculateReadingAccuracy(records);
+  const readingAvgTime = calculateReadingAvgTime(records);
   const readingTotal = countReadingAttempts(records);
 
   const orderedSkills = (
@@ -371,50 +375,36 @@ export default function DashboardPage() {
       {/* Time stats */}
       <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
         <h2 className="mb-3 text-sm font-semibold">作答速度</h2>
-        <div className="grid grid-cols-4 gap-2 text-center">
-          <div>
-            <p className="text-[10px] uppercase tracking-wider text-slate-500">
-              平均每題
-            </p>
-            <p className="mt-1 text-lg font-bold text-slate-800">
-              {fmtMs(avgTime)}
-            </p>
+        <div className="space-y-2">
+          <div className="grid grid-cols-3 gap-2 text-center">
+            <SpeedCell label="平均每題" value={fmtMs(avgTime)} />
+            <SpeedCell
+              label="Part 5"
+              value={fmtMs(part5AvgTime)}
+              warn={part5AvgTime > 40_000}
+            />
+            <SpeedCell
+              label="Part 6"
+              value={fmtMs(part6AvgTime)}
+              warn={part6AvgTime > 50_000}
+            />
           </div>
-          <div>
-            <p className="text-[10px] uppercase tracking-wider text-slate-500">
-              Part 5
-            </p>
-            <p
-              className={`mt-1 text-lg font-bold ${
-                part5AvgTime > 40_000 ? "text-rose-600" : "text-slate-800"
-              }`}
-            >
-              {fmtMs(part5AvgTime)}
-            </p>
-          </div>
-          <div>
-            <p className="text-[10px] uppercase tracking-wider text-slate-500">
-              Part 6
-            </p>
-            <p
-              className={`mt-1 text-lg font-bold ${
-                part6AvgTime > 50_000 ? "text-rose-600" : "text-slate-800"
-              }`}
-            >
-              {fmtMs(part6AvgTime)}
-            </p>
-          </div>
-          <div>
-            <p className="text-[10px] uppercase tracking-wider text-slate-500">
-              超過 40 秒
-            </p>
-            <p
-              className={`mt-1 text-lg font-bold ${
-                slowCount > 0 ? "text-amber-600" : "text-slate-800"
-              }`}
-            >
-              {slowCount} 題
-            </p>
+          <div className="grid grid-cols-3 gap-2 text-center">
+            <SpeedCell
+              label="聽力"
+              value={fmtMs(listeningAvgTime)}
+              warn={listeningAvgTime > 50_000}
+            />
+            <SpeedCell
+              label="Part 7"
+              value={fmtMs(readingAvgTime)}
+              warn={readingAvgTime > 60_000}
+            />
+            <SpeedCell
+              label="超 40 秒"
+              value={`${slowCount} 題`}
+              warn={slowCount > 0}
+            />
           </div>
         </div>
         {slowestSkill && (
@@ -593,6 +583,31 @@ function StatCard({
         {label}
       </p>
       <p className={`mt-1 text-xl font-bold ${accent ?? "text-slate-900"}`}>
+        {value}
+      </p>
+    </div>
+  );
+}
+
+function SpeedCell({
+  label,
+  value,
+  warn,
+}: {
+  label: string;
+  value: string;
+  warn?: boolean;
+}) {
+  return (
+    <div className="rounded-xl bg-slate-50 p-2">
+      <p className="text-[10px] uppercase tracking-wider text-slate-500">
+        {label}
+      </p>
+      <p
+        className={`mt-0.5 text-base font-bold ${
+          warn ? "text-rose-600" : "text-slate-800"
+        }`}
+      >
         {value}
       </p>
     </div>

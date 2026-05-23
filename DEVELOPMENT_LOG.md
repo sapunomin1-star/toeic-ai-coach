@@ -238,12 +238,80 @@ Current working tree also includes uncommitted work:
 
 ## MVP 0.4 — Part 6 + RAG Pipeline + Dashboard Expansion (2026-05-23)
 
+### Post-Claude Code Scan and Fixes - 2026-05-23
+
+Scope:
+
+- Re-reviewed the full app after Claude Code added Part 6 analytics and the RAG generation pipeline.
+- Checked app flow, `data/questions.ts`, `lib/analysis.ts`, `pipeline/`, `AGENTS.md`, and this log.
+- Ran targeted data integrity checks and pipeline TypeScript validation.
+
+Findings fixed:
+
+1. Generated questions were appended into the body of `buildDailyPlan()` instead of the top-level `QUESTIONS` array.
+   - Cause: `pipeline/src/questions-writer.ts` used the last `];` in the file as the insertion point.
+   - Fix: moved the 18 generated questions into `QUESTIONS` and changed the writer to insert before `getQuestionsByPart`.
+
+2. `countMistakesBySkill()` still missed `pronoun`.
+   - Impact: wrong pronoun answers could produce `NaN` in dashboard skill stats.
+   - Fix: added `pronoun` to the initialized skill list.
+
+3. Pipeline TypeScript imports pointed to `../types/question` from `pipeline/src`, but the real shared type file is `../../types/question`.
+   - Fix: corrected pipeline type import paths.
+
+4. `pipeline/package.json` had `npm run check` pointing to a missing `run-integrity.ts`.
+   - Fix: added `pipeline/run-integrity.ts`.
+
+5. `pipeline/node_modules/` and `pipeline/output/*.json` were tracked generated artifacts.
+   - Fix: added ignore rules and removed them from the Git index.
+
+6. `pipeline/.env.example` documented stale `HY3_*` variables while config expects OpenRouter variables.
+   - Fix: updated `.env.example` to `OPENROUTER_API_KEY`, `OPENROUTER_MODEL`, and `OPENROUTER_BASE_URL`.
+
+7. The Part 6 practice row promised 2 questions even though the current bank has 0 Part 6 questions.
+   - Fix: Practice hides the Part 6 task when no Part 6 data exists and passes `part6Count` into `buildDailyPlan`.
+
+8. The Part 6 generator prompt embedded a concrete "TOEIC practice" few-shot example.
+   - Fix: replaced it with an abstract structural pattern example to reduce source-copying risk.
+
+9. `fingerprint-check` always returned `score: 0`.
+   - Fix: return the maximum similarity score observed during fingerprint comparison.
+
+Current data integrity result:
+
+- 444 questions total.
+- Part 5: 303.
+- Part 3: 33.
+- Part 4: 33.
+- Part 6: 0.
+- Part 7: 75.
+- Vocabulary words: 100.
+- Duplicate question IDs: 0.
+- Invalid answers: 0.
+- Missing choices: 0.
+- Missing `explanation_zh`: 0.
+- Missing vocabulary arrays: 0.
+- Missing Part 3 / Part 4 transcripts: 0.
+- Missing Part 6 / Part 7 passages: 0.
+- Vocabulary quiz generation stress check: passed across 100 generated quizzes.
+
+Verification notes:
+
+- `./node_modules/.bin/tsc -p pipeline/tsconfig.json --noEmit --pretty false`: passed.
+- Targeted data integrity script: passed.
+- Vocabulary quiz generation script: passed.
+- Root `tsc`, ESLint, and Next build commands did not emit source errors during this scan but hung in the local environment and were stopped to avoid leaving background processes. Re-run after confirming no generated artifacts or nested dependencies are tracked.
+
+Security note:
+
+- `pipeline/.env` contains real local API keys and is ignored by Git. Because key-bearing environment variables were visible in local process listings during validation, rotate those keys before sharing logs or pushing from an untrusted machine.
+
 ### Completed Features
 
 1. **Part 6 Text Completion**
    - Added `"Part 6"` to `Part` union type in `types/question.ts`.
    - Part 6 questions share `passage` across 4 blanks (A/B/C/D), same pattern as Part 7.
-   - `buildDailyPlan` includes Part 6 questions. Practice page shows Part 6 task.
+   - `buildDailyPlan` can include Part 6 questions when Part 6 data exists. Practice page hides the Part 6 task while the current bank has no Part 6 questions.
 
 2. **RAG Question Generation Pipeline (`pipeline/`)**
    - Independent Node.js/TypeScript pipeline (excluded from Next.js build).
@@ -265,6 +333,8 @@ Current working tree also includes uncommitted work:
 - 444 total: Part 5=303, Part 3=33, Part 4=33, Part 6=0 (type ready), Part 7=75.
 
 ### QA: tsc passed, lint passed, Vercel build passed, all routes 200.
+
+Historical note: the original MVP 0.4 QA claim above came from the Claude Code update. The post-scan found and fixed blocking local issues listed in the section above.
 
 ### Do Not Do Yet
 
@@ -297,13 +367,14 @@ Current working tree also includes uncommitted work:
 
 Current working tree data count:
 
-- `questions.ts` total questions: 426.
-- Part 5 questions: 300.
+- `questions.ts` total questions: 444.
+- Part 5 questions: 303.
 - Part 3 questions: 33.
 - Part 4 questions: 33.
-- Part 7 questions: 60.
+- Part 6 questions: 0.
+- Part 7 questions: 75.
 - `vocabulary.ts` words: 100.
-- Question vocabulary metadata: 426 / 426 questions have `vocabulary`.
+- Question vocabulary metadata: 444 / 444 questions have `vocabulary`.
 - Empty question vocabulary arrays: 0.
 
 Notes:

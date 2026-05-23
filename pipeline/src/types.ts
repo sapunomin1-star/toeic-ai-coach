@@ -1,4 +1,4 @@
-import type { SkillTag, Difficulty, Part, Choice } from "../types/question";
+import type { SkillTag, Difficulty, Part, Choice } from "../../types/question";
 
 // ─── Pattern types ──────────────────────────────────────────────────────────
 

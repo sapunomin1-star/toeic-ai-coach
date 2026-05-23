@@ -47,9 +47,10 @@ Output a JSON array of **4 question objects** sharing the same passage:
 
 {{distractor_patterns}}
 
-## Few-shot Example
+## Abstract Pattern Example
 
-Here is a real TOEIC Part 6 passage to match in style:
+Use this as a structural pattern only. Do not copy wording, facts, names,
+dates, or sentence structure from any source sample:
 
 {{few_shot_examples}}
 

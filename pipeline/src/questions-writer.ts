@@ -9,10 +9,29 @@ const QUESTIONS_PATH = path.resolve(
   "../../data/questions.ts"
 );
 
+const QUESTIONS_EXPORT_MARKER = "\n\nexport function getQuestionsByPart";
+
+function findQuestionsArrayClose(raw: string): number {
+  const exportIdx = raw.indexOf(QUESTIONS_EXPORT_MARKER);
+  if (exportIdx === -1) {
+    throw new Error("Could not find getQuestionsByPart export marker");
+  }
+
+  const closeIdx = raw.lastIndexOf("\n];", exportIdx);
+  if (closeIdx === -1) {
+    throw new Error("Could not find closing ]; for QUESTIONS array");
+  }
+
+  return closeIdx;
+}
+
 /** Count existing question IDs in data/questions.ts by grepping id patterns */
 export function countExistingIds(prefix: string): number {
   const raw = fs.readFileSync(QUESTIONS_PATH, "utf-8");
-  const ids = raw.match(new RegExp(`id:\\s*"${prefix}\\d+"`, "g")) ?? [];
+  const ids =
+    raw.match(
+      new RegExp(`(?:"id"|id):\\s*"${prefix}\\d+"`, "g")
+    ) ?? [];
   return ids.length;
 }
 
@@ -69,11 +88,7 @@ export function appendQuestions(
 
   const raw = fs.readFileSync(QUESTIONS_PATH, "utf-8");
 
-  // Find the closing ]; of the QUESTIONS array
-  const closeIdx = raw.lastIndexOf("];");
-  if (closeIdx === -1) {
-    throw new Error("Could not find closing ]; in questions.ts");
-  }
+  const closeIdx = findQuestionsArrayClose(raw);
 
   // Build new questions TypeScript text
   const newEntries = newQuestions

@@ -6306,6 +6306,402 @@ export const QUESTIONS: Question[] = [
     skill_tag: "relative_clause",
     difficulty: "B2",
   },
+  {
+      "id": "p5-gen-001",
+      "part": "Part 5",
+      "question": "All employees are reminded that the new dress code policy _______ implemented starting next Monday.",
+      "choices": {
+          "A": "will be",
+          "B": "has",
+          "C": "is being",
+          "D": "was"
+      },
+      "answer": "A",
+      "explanation_zh": "正确答案是A，因为句子表示将来实施的政策，需用将来被动语态will be implemented。B和D缺少被动结构，C虽为被动但表示正在进行，与时间状语next Monday矛盾。",
+      "skill_tag": "passive_voice",
+      "difficulty": "B1",
+      "vocabulary": [
+          "employees",
+          "dress code",
+          "policy",
+          "implemented",
+          "reminded"
+      ]
+  },
+  {
+      "id": "p5-gen-002",
+      "part": "Part 5",
+      "question": "The annual audit report _______ reviewed by the finance team at the moment.",
+      "choices": {
+          "A": "has been",
+          "B": "is being",
+          "C": "will be",
+          "D": "was"
+      },
+      "answer": "B",
+      "explanation_zh": "正确答案是B，at the moment表示动作正在进行，需用现在进行被动语态is being reviewed。A为完成被动，C为将来被动，D为过去被动，均与时间状语不符。",
+      "skill_tag": "passive_voice",
+      "difficulty": "B1",
+      "vocabulary": [
+          "annual",
+          "audit",
+          "report",
+          "reviewed",
+          "finance"
+      ]
+  },
+  {
+      "id": "p5-gen-003",
+      "part": "Part 5",
+      "question": "Please note that the meeting agenda _______ already distributed to all department heads.",
+      "choices": {
+          "A": "has been",
+          "B": "is being",
+          "C": "will be",
+          "D": "was being"
+      },
+      "answer": "A",
+      "explanation_zh": "正确答案是A，already表示已完成动作，需用现在完成被动语态has been distributed。B表示正在进行，C表示将来，D为过去进行被动，均与already矛盾。",
+      "skill_tag": "passive_voice",
+      "difficulty": "B1",
+      "vocabulary": [
+          "meeting",
+          "agenda",
+          "distributed",
+          "department",
+          "heads"
+      ]
+  },
+  {
+      "id": "p7-gen-001",
+      "part": "Part 7",
+      "passage": "Subject: Rescheduling of Quarterly Review Meeting\n\nDear Team,\n\nThis is to inform you that the quarterly review meeting originally scheduled for Friday, March 15th at 10:00 AM has been moved. The new date is Tuesday, March 19th at 2:00 PM. The location has also been changed from Conference Room B to the Main Auditorium to accommodate more attendees. We will discuss the Q1 sales results and the upcoming marketing campaign. Remote attendance via video link is available. Please confirm your attendance by replying to this email by March 12th.\n\nBest regards,\nSarah Jenkins\nProject Coordinator",
+      "question": "What is the main purpose of this email?",
+      "choices": {
+          "A": "To announce a change in the meeting schedule and location",
+          "B": "To introduce a new project coordinator to the team",
+          "C": "To cancel the quarterly review meeting permanently",
+          "D": "To request feedback on the Q1 sales results"
+      },
+      "answer": "A",
+      "explanation_zh": "邮件的主要目的是通知团队季度评审会议改期并更换地点。选项A正确概括了这一信息。选项B错误，因为邮件中Sarah Jenkins已是项目协调员，并非新介绍。选项C错误，会议并未取消而是改期。选项D错误，邮件要求确认出席，而非反馈销售结果。",
+      "skill_tag": "reading_main_idea",
+      "difficulty": "A2",
+      "vocabulary": [
+          "reschedule",
+          "quarterly",
+          "auditorium",
+          "accommodate"
+      ]
+  },
+  {
+      "id": "p7-gen-002",
+      "part": "Part 7",
+      "passage": "Subject: Rescheduling of Quarterly Review Meeting\n\nDear Team,\n\nThis is to inform you that the quarterly review meeting originally scheduled for Friday, March 15th at 10:00 AM has been moved. The new date is Tuesday, March 19th at 2:00 PM. The location has also been changed from Conference Room B to the Main Auditorium to accommodate more attendees. We will discuss the Q1 sales results and the upcoming marketing campaign. Remote attendance via video link is available. Please confirm your attendance by replying to this email by March 12th.\n\nBest regards,\nSarah Jenkins\nProject Coordinator",
+      "question": "What is the new time for the meeting?",
+      "choices": {
+          "A": "10:00 AM on Friday, March 15th",
+          "B": "2:00 PM on Tuesday, March 19th",
+          "C": "2:00 PM on Friday, March 15th",
+          "D": "10:00 AM on Tuesday, March 19th"
+      },
+      "answer": "B",
+      "explanation_zh": "邮件明确指出新会议时间为3月19日（星期二）下午2点。选项A是原定时间。选项C将原定日期与新时间混合。选项D将原定时间与新日期混合。因此只有B正确。",
+      "skill_tag": "reading_detail",
+      "difficulty": "A2",
+      "vocabulary": [
+          "originally",
+          "moved",
+          "attendees",
+          "confirm"
+      ]
+  },
+  {
+      "id": "p7-gen-003",
+      "part": "Part 7",
+      "passage": "Subject: Rescheduling of Quarterly Review Meeting\n\nDear Team,\n\nThis is to inform you that the quarterly review meeting originally scheduled for Friday, March 15th at 10:00 AM has been moved. The new date is Tuesday, March 19th at 2:00 PM. The location has also been changed from Conference Room B to the Main Auditorium to accommodate more attendees. We will discuss the Q1 sales results and the upcoming marketing campaign. Remote attendance via video link is available. Please confirm your attendance by replying to this email by March 12th.\n\nBest regards,\nSarah Jenkins\nProject Coordinator",
+      "question": "What can be inferred about the meeting?",
+      "choices": {
+          "A": "Attendance is mandatory for all team members.",
+          "B": "The meeting will likely have more participants than originally planned.",
+          "C": "The original time was inconvenient for the project coordinator.",
+          "D": "Only in-person attendees will receive the sales results."
+      },
+      "answer": "B",
+      "explanation_zh": "邮件提到会议地点从B会议室改为大礼堂，以容纳更多参会者，这暗示参会人数可能增加。选项A错误，因为未提及强制出席。选项C错误，改期原因未说明。选项D错误，远程参会者也可通过视频链接参与讨论。因此B最合理。",
+      "skill_tag": "reading_inference",
+      "difficulty": "A2",
+      "vocabulary": [
+          "inference",
+          "participants",
+          "inconvenient",
+          "in-person"
+      ]
+  },
+  {
+      "id": "p7-gen-004",
+      "part": "Part 7",
+      "passage": "To: All Staff\nFrom: Facilities Management\nDate: June 10, 2024\nSubject: Temporary Closure of Main Office\n\nDue to urgent electrical maintenance, the main office will be closed from June 15 to June 17. During this period, all employees must work from home. The cafeteria and parking lot will also be unavailable. Please ensure you have access to remote work tools. For urgent matters, contact IT support via email. The office will reopen on June 18 at 9:00 AM.",
+      "question": "What is the main purpose of this memo?",
+      "choices": {
+          "A": "To announce a new parking policy",
+          "B": "To inform staff about a temporary office closure",
+          "C": "To schedule a meeting with IT support",
+          "D": "To remind staff about remote work tools"
+      },
+      "answer": "B",
+      "explanation_zh": "备忘录的主要目的是通知员工办公室因紧急电力维护而临时关闭。",
+      "skill_tag": "reading_main_idea",
+      "difficulty": "A2",
+      "vocabulary": [
+          "closure",
+          "maintenance",
+          "temporary",
+          "remote"
+      ]
+  },
+  {
+      "id": "p7-gen-005",
+      "part": "Part 7",
+      "passage": "To: All Staff\nFrom: Facilities Management\nDate: June 10, 2024\nSubject: Temporary Closure of Main Office\n\nDue to urgent electrical maintenance, the main office will be closed from June 15 to June 17. During this period, all employees must work from home. The cafeteria and parking lot will also be unavailable. Please ensure you have access to remote work tools. For urgent matters, contact IT support via email. The office will reopen on June 18 at 9:00 AM.",
+      "question": "How long will the office be closed?",
+      "choices": {
+          "A": "One day",
+          "B": "Two days",
+          "C": "Three days",
+          "D": "Four days"
+      },
+      "answer": "C",
+      "explanation_zh": "备忘录明确指出办公室将从6月15日关闭到6月17日，共计三天。",
+      "skill_tag": "reading_detail",
+      "difficulty": "A2",
+      "vocabulary": [
+          "closure",
+          "maintenance",
+          "temporary",
+          "remote"
+      ]
+  },
+  {
+      "id": "p7-gen-006",
+      "part": "Part 7",
+      "passage": "To: All Staff\nFrom: Facilities Management\nDate: June 10, 2024\nSubject: Temporary Closure of Main Office\n\nDue to urgent electrical maintenance, the main office will be closed from June 15 to June 17. During this period, all employees must work from home. The cafeteria and parking lot will also be unavailable. Please ensure you have access to remote work tools. For urgent matters, contact IT support via email. The office will reopen on June 18 at 9:00 AM.",
+      "question": "What can be inferred about employees during the closure?",
+      "choices": {
+          "A": "They will need to bring their own lunch",
+          "B": "They are required to work from home",
+          "C": "They can use the parking lot as usual",
+          "D": "They must visit the office for IT support"
+      },
+      "answer": "B",
+      "explanation_zh": "备忘录说所有员工必须在家办公，因此可以推断员工在关闭期间需要远程工作。",
+      "skill_tag": "reading_inference",
+      "difficulty": "A2",
+      "vocabulary": [
+          "closure",
+          "maintenance",
+          "temporary",
+          "remote"
+      ]
+  },
+  {
+      "id": "p7-gen-007",
+      "part": "Part 7",
+      "passage": "For Sale: High-Performance Laptop\n\nNearly new, only 6 months old! This powerful laptop features a 15.6-inch Full HD display, an Intel Core i7 processor, 16GB RAM, and a 512GB SSD. Perfect for professionals, gamers, and creative users. Battery life up to 10 hours. Originally purchased for $1,800, now available at the unbeatable price of $1,200. Includes original charger and protective case. 6-month warranty remains valid. Contact Alex at 555-0192 or email alex.tech@example.com. Serious inquiries only, please.",
+      "question": "What is the main purpose of this advertisement?",
+      "choices": {
+          "A": "To promote a new laptop model",
+          "B": "To sell a used laptop",
+          "C": "To offer laptop repair services",
+          "D": "To compare different laptop brands"
+      },
+      "answer": "B",
+      "explanation_zh": "广告标题为'For Sale'，内容描述了一台使用仅6个月的笔记本电脑以折扣价出售，并提供了联系方式，因此主要目的是出售二手笔记本电脑。选项A（推广新机型）、C（提供维修服务）和D（比较品牌）均不符合文章主旨。",
+      "skill_tag": "reading_main_idea",
+      "difficulty": "B1",
+      "vocabulary": [
+          "high-performance",
+          "nearly new",
+          "unbeatable price",
+          "protective case"
+      ]
+  },
+  {
+      "id": "p7-gen-008",
+      "part": "Part 7",
+      "passage": "For Sale: High-Performance Laptop\n\nNearly new, only 6 months old! This powerful laptop features a 15.6-inch Full HD display, an Intel Core i7 processor, 16GB RAM, and a 512GB SSD. Perfect for professionals, gamers, and creative users. Battery life up to 10 hours. Originally purchased for $1,800, now available at the unbeatable price of $1,200. Includes original charger and protective case. 6-month warranty remains valid. Contact Alex at 555-0192 or email alex.tech@example.com. Serious inquiries only, please.",
+      "question": "What is the discounted price of the laptop?",
+      "choices": {
+          "A": "$1,800",
+          "B": "$1,200",
+          "C": "$1,000",
+          "D": "$600"
+      },
+      "answer": "B",
+      "explanation_zh": "文中明确提到'Originally purchased for $1,800, now available at the unbeatable price of $1,200'，因此折扣价为$1,200。选项A是原价，选项C和D未在文中出现。",
+      "skill_tag": "reading_detail",
+      "difficulty": "B1",
+      "vocabulary": [
+          "originally purchased",
+          "discounted price",
+          "unbeatable",
+          "warranty"
+      ]
+  },
+  {
+      "id": "p7-gen-009",
+      "part": "Part 7",
+      "passage": "For Sale: High-Performance Laptop\n\nNearly new, only 6 months old! This powerful laptop features a 15.6-inch Full HD display, an Intel Core i7 processor, 16GB RAM, and a 512GB SSD. Perfect for professionals, gamers, and creative users. Battery life up to 10 hours. Originally purchased for $1,800, now available at the unbeatable price of $1,200. Includes original charger and protective case. 6-month warranty remains valid. Contact Alex at 555-0192 or email alex.tech@example.com. Serious inquiries only, please.",
+      "question": "What can be inferred about the seller, Alex?",
+      "choices": {
+          "A": "Alex is a professional laptop dealer.",
+          "B": "Alex likely needs to sell the laptop quickly.",
+          "C": "Alex is offering a free accessory with the laptop.",
+          "D": "Alex has no knowledge of the laptop's condition."
+      },
+      "answer": "B",
+      "explanation_zh": "卖家提供了大幅折扣（从$1,800降至$1,200），并强调'Serious inquiries only'，暗示卖家希望尽快完成交易。文中未说Alex是专业经销商（A错误），充电器和保护套已包含在内但非免费赠品（C错误），且描述详尽表明了解产品状况（D错误）。",
+      "skill_tag": "reading_inference",
+      "difficulty": "B1",
+      "vocabulary": [
+          "inferred",
+          "serious inquiries",
+          "quickly",
+          "condition"
+      ]
+  },
+  {
+      "id": "p7-gen-010",
+      "part": "Part 7",
+      "passage": "The Oakwood Community Center is pleased to announce the opening of its new Makerspace, a creative workshop area available to all residents of Oakwood. The Makerspace is equipped with 3D printers, sewing machines, and woodworking tools. Access is free, but users must complete a safety orientation session before using any equipment. Orientation sessions are held every Tuesday and Thursday at 6:00 PM and last approximately one hour. To register for an orientation, visit our website at www.oakwoodcommunity.org/makerspace or call (555) 123-4567. Please note that the Makerspace is for personal projects only; commercial use is strictly prohibited. Children under the age of 16 must be accompanied by an adult at all times.",
+      "question": "What is the main purpose of this notice?",
+      "choices": {
+          "A": "To announce a new class on 3D printing",
+          "B": "To inform residents about a new facility and its requirements",
+          "C": "To advertise a workshop for professional artists",
+          "D": "To announce a change in the community center's hours"
+      },
+      "answer": "B",
+      "explanation_zh": "通知的主要目的是向橡树谷居民介绍新推出的创客空间及其使用要求，包括安全培训、注册方式和年龄限制等。选项B最准确地概括了这一主旨。",
+      "skill_tag": "reading_main_idea",
+      "difficulty": "B1",
+      "vocabulary": [
+          "Makerspace",
+          "orientation",
+          "accompanied",
+          "prohibit"
+      ]
+  },
+  {
+      "id": "p7-gen-011",
+      "part": "Part 7",
+      "passage": "The Oakwood Community Center is pleased to announce the opening of its new Makerspace, a creative workshop area available to all residents of Oakwood. The Makerspace is equipped with 3D printers, sewing machines, and woodworking tools. Access is free, but users must complete a safety orientation session before using any equipment. Orientation sessions are held every Tuesday and Thursday at 6:00 PM and last approximately one hour. To register for an orientation, visit our website at www.oakwoodcommunity.org/makerspace or call (555) 123-4567. Please note that the Makerspace is for personal projects only; commercial use is strictly prohibited. Children under the age of 16 must be accompanied by an adult at all times.",
+      "question": "What must a person do before using the Makerspace equipment?",
+      "choices": {
+          "A": "Pay a usage fee",
+          "B": "Submit a project proposal",
+          "C": "Attend a safety orientation",
+          "D": "Become a member of the community center"
+      },
+      "answer": "C",
+      "explanation_zh": "通知明确指出：'Access is free, but users must complete a safety orientation session before using any equipment.' 因此，使用设备前必须参加安全培训。",
+      "skill_tag": "reading_detail",
+      "difficulty": "B1",
+      "vocabulary": [
+          "Makerspace",
+          "orientation",
+          "accompanied",
+          "prohibit"
+      ]
+  },
+  {
+      "id": "p7-gen-012",
+      "part": "Part 7",
+      "passage": "The Oakwood Community Center is pleased to announce the opening of its new Makerspace, a creative workshop area available to all residents of Oakwood. The Makerspace is equipped with 3D printers, sewing machines, and woodworking tools. Access is free, but users must complete a safety orientation session before using any equipment. Orientation sessions are held every Tuesday and Thursday at 6:00 PM and last approximately one hour. To register for an orientation, visit our website at www.oakwoodcommunity.org/makerspace or call (555) 123-4567. Please note that the Makerspace is for personal projects only; commercial use is strictly prohibited. Children under the age of 16 must be accompanied by an adult at all times.",
+      "question": "What can be inferred about the intended audience for this notice?",
+      "choices": {
+          "A": "The notice is aimed at professional woodworkers",
+          "B": "The notice targets only adults over 18",
+          "C": "The notice is intended for local residents of all ages",
+          "D": "The notice is for people who already own their own equipment"
+      },
+      "answer": "C",
+      "explanation_zh": "通知提到该空间面向橡树谷的所有居民（all residents），并对16岁以下儿童有成人陪同的要求，暗示适用人群包括不同年龄段的居民。选项C最符合这一推断。",
+      "skill_tag": "reading_inference",
+      "difficulty": "B1",
+      "vocabulary": [
+          "Makerspace",
+          "orientation",
+          "accompanied",
+          "prohibit"
+      ]
+  },
+  {
+      "id": "p7-gen-013",
+      "part": "Part 7",
+      "passage": "On January 15, 2024, GreenTech Solutions, a renewable energy firm based in Austin, Texas, announced its acquisition of EcoGrid Systems, a smaller competitor headquartered in Denver, Colorado. The deal, valued at $120 million, is expected to close by March 2024 pending regulatory approval. GreenTech's CEO, Sarah Chen, stated that the acquisition would strengthen the company's position in the solar energy storage market. EcoGrid's proprietary battery technology, which has been used in over 500 installations across the western United States, will be integrated into GreenTech's existing product line. Industry analysts predict that this move could increase GreenTech's annual revenue by approximately 15% within the next two years. The combined company will have a workforce of nearly 3,000 employees.",
+      "question": "What is the main topic of the article?",
+      "choices": {
+          "A": "The growth of the solar energy market in the western US",
+          "B": "GreenTech Solutions' acquisition of EcoGrid Systems",
+          "C": "The financial performance of renewable energy companies",
+          "D": "The leadership style of GreenTech's CEO Sarah Chen"
+      },
+      "answer": "B",
+      "explanation_zh": "文章主要报道了GreenTech Solutions收购EcoGrid Systems这一事件，包括交易金额、时间、目的和预期影响。选项A太宽泛，C和D偏离主题。",
+      "skill_tag": "reading_main_idea",
+      "difficulty": "B1",
+      "vocabulary": [
+          "acquisition",
+          "renewable",
+          "proprietary",
+          "integrated"
+      ]
+  },
+  {
+      "id": "p7-gen-014",
+      "part": "Part 7",
+      "passage": "On January 15, 2024, GreenTech Solutions, a renewable energy firm based in Austin, Texas, announced its acquisition of EcoGrid Systems, a smaller competitor headquartered in Denver, Colorado. The deal, valued at $120 million, is expected to close by March 2024 pending regulatory approval. GreenTech's CEO, Sarah Chen, stated that the acquisition would strengthen the company's position in the solar energy storage market. EcoGrid's proprietary battery technology, which has been used in over 500 installations across the western United States, will be integrated into GreenTech's existing product line. Industry analysts predict that this move could increase GreenTech's annual revenue by approximately 15% within the next two years. The combined company will have a workforce of nearly 3,000 employees.",
+      "question": "Where is EcoGrid Systems located?",
+      "choices": {
+          "A": "Austin, Texas",
+          "B": "Denver, Colorado",
+          "C": "The western United States",
+          "D": "A city with over 500 installations"
+      },
+      "answer": "B",
+      "explanation_zh": "文章明确提到EcoGrid Systems的总部位于科罗拉多州丹佛市。选项A是GreenTech的所在地，C是EcoGrid技术应用的区域，D错误地将安装数量与地点混淆。",
+      "skill_tag": "reading_detail",
+      "difficulty": "B1",
+      "vocabulary": [
+          "headquartered",
+          "pending",
+          "regulatory",
+          "workforce"
+      ]
+  },
+  {
+      "id": "p7-gen-015",
+      "part": "Part 7",
+      "passage": "On January 15, 2024, GreenTech Solutions, a renewable energy firm based in Austin, Texas, announced its acquisition of EcoGrid Systems, a smaller competitor headquartered in Denver, Colorado. The deal, valued at $120 million, is expected to close by March 2024 pending regulatory approval. GreenTech's CEO, Sarah Chen, stated that the acquisition would strengthen the company's position in the solar energy storage market. EcoGrid's proprietary battery technology, which has been used in over 500 installations across the western United States, will be integrated into GreenTech's existing product line. Industry analysts predict that this move could increase GreenTech's annual revenue by approximately 15% within the next two years. The combined company will have a workforce of nearly 3,000 employees.",
+      "question": "What is most likely to happen after the acquisition is completed?",
+      "choices": {
+          "A": "GreenTech will immediately close all of EcoGrid's facilities.",
+          "B": "GreenTech will incorporate EcoGrid's battery technology into its products.",
+          "C": "EcoGrid will change its name to GreenTech Solutions.",
+          "D": "GreenTech's revenue will drop due to the cost of the acquisition."
+      },
+      "answer": "B",
+      "explanation_zh": "文章指出EcoGrid的专有电池技术将被整合到GreenTech的现有产品线中。选项A和C没有依据，D与分析师预测的15%收入增长相反。",
+      "skill_tag": "reading_inference",
+      "difficulty": "B1",
+      "vocabulary": [
+          "analysts",
+          "integrated",
+          "proprietary",
+          "revenue"
+      ]
+  }
 ];
 
 export function getQuestionsByPart(part: Question["part"]): Question[] {
@@ -6334,12 +6730,14 @@ const WEAK_SKILL_TAGS: SkillTag[] = ["word_form", "passive_voice"];
 export function buildDailyPlan(options?: {
   weakCount?: number;
   newCount?: number;
+  part6Count?: number;
   listeningCount?: number;
   readingCount?: number;
   reviewIds?: string[];
 }): Question[] {
   const weakCount = options?.weakCount ?? 8;
   const newCount = options?.newCount ?? 7;
+  const part6Count = options?.part6Count ?? 2;
   const listeningCount = options?.listeningCount ?? 6;
   const readingCount = options?.readingCount ?? 3;
   const reviewIds = options?.reviewIds ?? [];
@@ -6382,7 +6780,7 @@ export function buildDailyPlan(options?: {
   const part6Pool = shuffle(
     getQuestionsByPart("Part 6").filter((q) => !reviewIdSet.has(q.id))
   );
-  const part6Qs = part6Pool.slice(0, 2);
+  const part6Qs = part6Pool.slice(0, part6Count);
 
   const readingPool = shuffle(
     getQuestionsByPart("Part 7").filter((q) => !reviewIdSet.has(q.id))
@@ -6400,401 +6798,5 @@ export function buildDailyPlan(options?: {
     .filter((q): q is Question => Boolean(q))
     .slice(0, 5);
 
-  return [...weakQs, ...newQs, ...part6Qs, ...listeningQs, ...readingQs, ...reviewQs,
-  {
-        "id": "p5-gen-001",
-        "part": "Part 5",
-        "question": "All employees are reminded that the new dress code policy _______ implemented starting next Monday.",
-        "choices": {
-              "A": "will be",
-              "B": "has",
-              "C": "is being",
-              "D": "was"
-        },
-        "answer": "A",
-        "explanation_zh": "正确答案是A，因为句子表示将来实施的政策，需用将来被动语态will be implemented。B和D缺少被动结构，C虽为被动但表示正在进行，与时间状语next Monday矛盾。",
-        "skill_tag": "passive_voice",
-        "difficulty": "B1",
-        "vocabulary": [
-              "employees",
-              "dress code",
-              "policy",
-              "implemented",
-              "reminded"
-        ]
-  },
-  {
-        "id": "p5-gen-002",
-        "part": "Part 5",
-        "question": "The annual audit report _______ reviewed by the finance team at the moment.",
-        "choices": {
-              "A": "has been",
-              "B": "is being",
-              "C": "will be",
-              "D": "was"
-        },
-        "answer": "B",
-        "explanation_zh": "正确答案是B，at the moment表示动作正在进行，需用现在进行被动语态is being reviewed。A为完成被动，C为将来被动，D为过去被动，均与时间状语不符。",
-        "skill_tag": "passive_voice",
-        "difficulty": "B1",
-        "vocabulary": [
-              "annual",
-              "audit",
-              "report",
-              "reviewed",
-              "finance"
-        ]
-  },
-  {
-        "id": "p5-gen-003",
-        "part": "Part 5",
-        "question": "Please note that the meeting agenda _______ already distributed to all department heads.",
-        "choices": {
-              "A": "has been",
-              "B": "is being",
-              "C": "will be",
-              "D": "was being"
-        },
-        "answer": "A",
-        "explanation_zh": "正确答案是A，already表示已完成动作，需用现在完成被动语态has been distributed。B表示正在进行，C表示将来，D为过去进行被动，均与already矛盾。",
-        "skill_tag": "passive_voice",
-        "difficulty": "B1",
-        "vocabulary": [
-              "meeting",
-              "agenda",
-              "distributed",
-              "department",
-              "heads"
-        ]
-  },
-  {
-        "id": "p7-gen-001",
-        "part": "Part 7",
-        "passage": "Subject: Rescheduling of Quarterly Review Meeting\n\nDear Team,\n\nThis is to inform you that the quarterly review meeting originally scheduled for Friday, March 15th at 10:00 AM has been moved. The new date is Tuesday, March 19th at 2:00 PM. The location has also been changed from Conference Room B to the Main Auditorium to accommodate more attendees. We will discuss the Q1 sales results and the upcoming marketing campaign. Remote attendance via video link is available. Please confirm your attendance by replying to this email by March 12th.\n\nBest regards,\nSarah Jenkins\nProject Coordinator",
-        "question": "What is the main purpose of this email?",
-        "choices": {
-              "A": "To announce a change in the meeting schedule and location",
-              "B": "To introduce a new project coordinator to the team",
-              "C": "To cancel the quarterly review meeting permanently",
-              "D": "To request feedback on the Q1 sales results"
-        },
-        "answer": "A",
-        "explanation_zh": "邮件的主要目的是通知团队季度评审会议改期并更换地点。选项A正确概括了这一信息。选项B错误，因为邮件中Sarah Jenkins已是项目协调员，并非新介绍。选项C错误，会议并未取消而是改期。选项D错误，邮件要求确认出席，而非反馈销售结果。",
-        "skill_tag": "reading_main_idea",
-        "difficulty": "A2",
-        "vocabulary": [
-              "reschedule",
-              "quarterly",
-              "auditorium",
-              "accommodate"
-        ]
-  },
-  {
-        "id": "p7-gen-002",
-        "part": "Part 7",
-        "passage": "Subject: Rescheduling of Quarterly Review Meeting\n\nDear Team,\n\nThis is to inform you that the quarterly review meeting originally scheduled for Friday, March 15th at 10:00 AM has been moved. The new date is Tuesday, March 19th at 2:00 PM. The location has also been changed from Conference Room B to the Main Auditorium to accommodate more attendees. We will discuss the Q1 sales results and the upcoming marketing campaign. Remote attendance via video link is available. Please confirm your attendance by replying to this email by March 12th.\n\nBest regards,\nSarah Jenkins\nProject Coordinator",
-        "question": "What is the new time for the meeting?",
-        "choices": {
-              "A": "10:00 AM on Friday, March 15th",
-              "B": "2:00 PM on Tuesday, March 19th",
-              "C": "2:00 PM on Friday, March 15th",
-              "D": "10:00 AM on Tuesday, March 19th"
-        },
-        "answer": "B",
-        "explanation_zh": "邮件明确指出新会议时间为3月19日（星期二）下午2点。选项A是原定时间。选项C将原定日期与新时间混合。选项D将原定时间与新日期混合。因此只有B正确。",
-        "skill_tag": "reading_detail",
-        "difficulty": "A2",
-        "vocabulary": [
-              "originally",
-              "moved",
-              "attendees",
-              "confirm"
-        ]
-  },
-  {
-        "id": "p7-gen-003",
-        "part": "Part 7",
-        "passage": "Subject: Rescheduling of Quarterly Review Meeting\n\nDear Team,\n\nThis is to inform you that the quarterly review meeting originally scheduled for Friday, March 15th at 10:00 AM has been moved. The new date is Tuesday, March 19th at 2:00 PM. The location has also been changed from Conference Room B to the Main Auditorium to accommodate more attendees. We will discuss the Q1 sales results and the upcoming marketing campaign. Remote attendance via video link is available. Please confirm your attendance by replying to this email by March 12th.\n\nBest regards,\nSarah Jenkins\nProject Coordinator",
-        "question": "What can be inferred about the meeting?",
-        "choices": {
-              "A": "Attendance is mandatory for all team members.",
-              "B": "The meeting will likely have more participants than originally planned.",
-              "C": "The original time was inconvenient for the project coordinator.",
-              "D": "Only in-person attendees will receive the sales results."
-        },
-        "answer": "B",
-        "explanation_zh": "邮件提到会议地点从B会议室改为大礼堂，以容纳更多参会者，这暗示参会人数可能增加。选项A错误，因为未提及强制出席。选项C错误，改期原因未说明。选项D错误，远程参会者也可通过视频链接参与讨论。因此B最合理。",
-        "skill_tag": "reading_inference",
-        "difficulty": "A2",
-        "vocabulary": [
-              "inference",
-              "participants",
-              "inconvenient",
-              "in-person"
-        ]
-  },
-  {
-        "id": "p7-gen-004",
-        "part": "Part 7",
-        "passage": "To: All Staff\nFrom: Facilities Management\nDate: June 10, 2024\nSubject: Temporary Closure of Main Office\n\nDue to urgent electrical maintenance, the main office will be closed from June 15 to June 17. During this period, all employees must work from home. The cafeteria and parking lot will also be unavailable. Please ensure you have access to remote work tools. For urgent matters, contact IT support via email. The office will reopen on June 18 at 9:00 AM.",
-        "question": "What is the main purpose of this memo?",
-        "choices": {
-              "A": "To announce a new parking policy",
-              "B": "To inform staff about a temporary office closure",
-              "C": "To schedule a meeting with IT support",
-              "D": "To remind staff about remote work tools"
-        },
-        "answer": "B",
-        "explanation_zh": "备忘录的主要目的是通知员工办公室因紧急电力维护而临时关闭。",
-        "skill_tag": "reading_main_idea",
-        "difficulty": "A2",
-        "vocabulary": [
-              "closure",
-              "maintenance",
-              "temporary",
-              "remote"
-        ]
-  },
-  {
-        "id": "p7-gen-005",
-        "part": "Part 7",
-        "passage": "To: All Staff\nFrom: Facilities Management\nDate: June 10, 2024\nSubject: Temporary Closure of Main Office\n\nDue to urgent electrical maintenance, the main office will be closed from June 15 to June 17. During this period, all employees must work from home. The cafeteria and parking lot will also be unavailable. Please ensure you have access to remote work tools. For urgent matters, contact IT support via email. The office will reopen on June 18 at 9:00 AM.",
-        "question": "How long will the office be closed?",
-        "choices": {
-              "A": "One day",
-              "B": "Two days",
-              "C": "Three days",
-              "D": "Four days"
-        },
-        "answer": "C",
-        "explanation_zh": "备忘录明确指出办公室将从6月15日关闭到6月17日，共计三天。",
-        "skill_tag": "reading_detail",
-        "difficulty": "A2",
-        "vocabulary": [
-              "closure",
-              "maintenance",
-              "temporary",
-              "remote"
-        ]
-  },
-  {
-        "id": "p7-gen-006",
-        "part": "Part 7",
-        "passage": "To: All Staff\nFrom: Facilities Management\nDate: June 10, 2024\nSubject: Temporary Closure of Main Office\n\nDue to urgent electrical maintenance, the main office will be closed from June 15 to June 17. During this period, all employees must work from home. The cafeteria and parking lot will also be unavailable. Please ensure you have access to remote work tools. For urgent matters, contact IT support via email. The office will reopen on June 18 at 9:00 AM.",
-        "question": "What can be inferred about employees during the closure?",
-        "choices": {
-              "A": "They will need to bring their own lunch",
-              "B": "They are required to work from home",
-              "C": "They can use the parking lot as usual",
-              "D": "They must visit the office for IT support"
-        },
-        "answer": "B",
-        "explanation_zh": "备忘录说所有员工必须在家办公，因此可以推断员工在关闭期间需要远程工作。",
-        "skill_tag": "reading_inference",
-        "difficulty": "A2",
-        "vocabulary": [
-              "closure",
-              "maintenance",
-              "temporary",
-              "remote"
-        ]
-  },
-  {
-        "id": "p7-gen-007",
-        "part": "Part 7",
-        "passage": "For Sale: High-Performance Laptop\n\nNearly new, only 6 months old! This powerful laptop features a 15.6-inch Full HD display, an Intel Core i7 processor, 16GB RAM, and a 512GB SSD. Perfect for professionals, gamers, and creative users. Battery life up to 10 hours. Originally purchased for $1,800, now available at the unbeatable price of $1,200. Includes original charger and protective case. 6-month warranty remains valid. Contact Alex at 555-0192 or email alex.tech@example.com. Serious inquiries only, please.",
-        "question": "What is the main purpose of this advertisement?",
-        "choices": {
-              "A": "To promote a new laptop model",
-              "B": "To sell a used laptop",
-              "C": "To offer laptop repair services",
-              "D": "To compare different laptop brands"
-        },
-        "answer": "B",
-        "explanation_zh": "广告标题为'For Sale'，内容描述了一台使用仅6个月的笔记本电脑以折扣价出售，并提供了联系方式，因此主要目的是出售二手笔记本电脑。选项A（推广新机型）、C（提供维修服务）和D（比较品牌）均不符合文章主旨。",
-        "skill_tag": "reading_main_idea",
-        "difficulty": "B1",
-        "vocabulary": [
-              "high-performance",
-              "nearly new",
-              "unbeatable price",
-              "protective case"
-        ]
-  },
-  {
-        "id": "p7-gen-008",
-        "part": "Part 7",
-        "passage": "For Sale: High-Performance Laptop\n\nNearly new, only 6 months old! This powerful laptop features a 15.6-inch Full HD display, an Intel Core i7 processor, 16GB RAM, and a 512GB SSD. Perfect for professionals, gamers, and creative users. Battery life up to 10 hours. Originally purchased for $1,800, now available at the unbeatable price of $1,200. Includes original charger and protective case. 6-month warranty remains valid. Contact Alex at 555-0192 or email alex.tech@example.com. Serious inquiries only, please.",
-        "question": "What is the discounted price of the laptop?",
-        "choices": {
-              "A": "$1,800",
-              "B": "$1,200",
-              "C": "$1,000",
-              "D": "$600"
-        },
-        "answer": "B",
-        "explanation_zh": "文中明确提到'Originally purchased for $1,800, now available at the unbeatable price of $1,200'，因此折扣价为$1,200。选项A是原价，选项C和D未在文中出现。",
-        "skill_tag": "reading_detail",
-        "difficulty": "B1",
-        "vocabulary": [
-              "originally purchased",
-              "discounted price",
-              "unbeatable",
-              "warranty"
-        ]
-  },
-  {
-        "id": "p7-gen-009",
-        "part": "Part 7",
-        "passage": "For Sale: High-Performance Laptop\n\nNearly new, only 6 months old! This powerful laptop features a 15.6-inch Full HD display, an Intel Core i7 processor, 16GB RAM, and a 512GB SSD. Perfect for professionals, gamers, and creative users. Battery life up to 10 hours. Originally purchased for $1,800, now available at the unbeatable price of $1,200. Includes original charger and protective case. 6-month warranty remains valid. Contact Alex at 555-0192 or email alex.tech@example.com. Serious inquiries only, please.",
-        "question": "What can be inferred about the seller, Alex?",
-        "choices": {
-              "A": "Alex is a professional laptop dealer.",
-              "B": "Alex likely needs to sell the laptop quickly.",
-              "C": "Alex is offering a free accessory with the laptop.",
-              "D": "Alex has no knowledge of the laptop's condition."
-        },
-        "answer": "B",
-        "explanation_zh": "卖家提供了大幅折扣（从$1,800降至$1,200），并强调'Serious inquiries only'，暗示卖家希望尽快完成交易。文中未说Alex是专业经销商（A错误），充电器和保护套已包含在内但非免费赠品（C错误），且描述详尽表明了解产品状况（D错误）。",
-        "skill_tag": "reading_inference",
-        "difficulty": "B1",
-        "vocabulary": [
-              "inferred",
-              "serious inquiries",
-              "quickly",
-              "condition"
-        ]
-  },
-  {
-        "id": "p7-gen-010",
-        "part": "Part 7",
-        "passage": "The Oakwood Community Center is pleased to announce the opening of its new Makerspace, a creative workshop area available to all residents of Oakwood. The Makerspace is equipped with 3D printers, sewing machines, and woodworking tools. Access is free, but users must complete a safety orientation session before using any equipment. Orientation sessions are held every Tuesday and Thursday at 6:00 PM and last approximately one hour. To register for an orientation, visit our website at www.oakwoodcommunity.org/makerspace or call (555) 123-4567. Please note that the Makerspace is for personal projects only; commercial use is strictly prohibited. Children under the age of 16 must be accompanied by an adult at all times.",
-        "question": "What is the main purpose of this notice?",
-        "choices": {
-              "A": "To announce a new class on 3D printing",
-              "B": "To inform residents about a new facility and its requirements",
-              "C": "To advertise a workshop for professional artists",
-              "D": "To announce a change in the community center's hours"
-        },
-        "answer": "B",
-        "explanation_zh": "通知的主要目的是向橡树谷居民介绍新推出的创客空间及其使用要求，包括安全培训、注册方式和年龄限制等。选项B最准确地概括了这一主旨。",
-        "skill_tag": "reading_main_idea",
-        "difficulty": "B1",
-        "vocabulary": [
-              "Makerspace",
-              "orientation",
-              "accompanied",
-              "prohibit"
-        ]
-  },
-  {
-        "id": "p7-gen-011",
-        "part": "Part 7",
-        "passage": "The Oakwood Community Center is pleased to announce the opening of its new Makerspace, a creative workshop area available to all residents of Oakwood. The Makerspace is equipped with 3D printers, sewing machines, and woodworking tools. Access is free, but users must complete a safety orientation session before using any equipment. Orientation sessions are held every Tuesday and Thursday at 6:00 PM and last approximately one hour. To register for an orientation, visit our website at www.oakwoodcommunity.org/makerspace or call (555) 123-4567. Please note that the Makerspace is for personal projects only; commercial use is strictly prohibited. Children under the age of 16 must be accompanied by an adult at all times.",
-        "question": "What must a person do before using the Makerspace equipment?",
-        "choices": {
-              "A": "Pay a usage fee",
-              "B": "Submit a project proposal",
-              "C": "Attend a safety orientation",
-              "D": "Become a member of the community center"
-        },
-        "answer": "C",
-        "explanation_zh": "通知明确指出：'Access is free, but users must complete a safety orientation session before using any equipment.' 因此，使用设备前必须参加安全培训。",
-        "skill_tag": "reading_detail",
-        "difficulty": "B1",
-        "vocabulary": [
-              "Makerspace",
-              "orientation",
-              "accompanied",
-              "prohibit"
-        ]
-  },
-  {
-        "id": "p7-gen-012",
-        "part": "Part 7",
-        "passage": "The Oakwood Community Center is pleased to announce the opening of its new Makerspace, a creative workshop area available to all residents of Oakwood. The Makerspace is equipped with 3D printers, sewing machines, and woodworking tools. Access is free, but users must complete a safety orientation session before using any equipment. Orientation sessions are held every Tuesday and Thursday at 6:00 PM and last approximately one hour. To register for an orientation, visit our website at www.oakwoodcommunity.org/makerspace or call (555) 123-4567. Please note that the Makerspace is for personal projects only; commercial use is strictly prohibited. Children under the age of 16 must be accompanied by an adult at all times.",
-        "question": "What can be inferred about the intended audience for this notice?",
-        "choices": {
-              "A": "The notice is aimed at professional woodworkers",
-              "B": "The notice targets only adults over 18",
-              "C": "The notice is intended for local residents of all ages",
-              "D": "The notice is for people who already own their own equipment"
-        },
-        "answer": "C",
-        "explanation_zh": "通知提到该空间面向橡树谷的所有居民（all residents），并对16岁以下儿童有成人陪同的要求，暗示适用人群包括不同年龄段的居民。选项C最符合这一推断。",
-        "skill_tag": "reading_inference",
-        "difficulty": "B1",
-        "vocabulary": [
-              "Makerspace",
-              "orientation",
-              "accompanied",
-              "prohibit"
-        ]
-  },
-  {
-        "id": "p7-gen-013",
-        "part": "Part 7",
-        "passage": "On January 15, 2024, GreenTech Solutions, a renewable energy firm based in Austin, Texas, announced its acquisition of EcoGrid Systems, a smaller competitor headquartered in Denver, Colorado. The deal, valued at $120 million, is expected to close by March 2024 pending regulatory approval. GreenTech's CEO, Sarah Chen, stated that the acquisition would strengthen the company's position in the solar energy storage market. EcoGrid's proprietary battery technology, which has been used in over 500 installations across the western United States, will be integrated into GreenTech's existing product line. Industry analysts predict that this move could increase GreenTech's annual revenue by approximately 15% within the next two years. The combined company will have a workforce of nearly 3,000 employees.",
-        "question": "What is the main topic of the article?",
-        "choices": {
-              "A": "The growth of the solar energy market in the western US",
-              "B": "GreenTech Solutions' acquisition of EcoGrid Systems",
-              "C": "The financial performance of renewable energy companies",
-              "D": "The leadership style of GreenTech's CEO Sarah Chen"
-        },
-        "answer": "B",
-        "explanation_zh": "文章主要报道了GreenTech Solutions收购EcoGrid Systems这一事件，包括交易金额、时间、目的和预期影响。选项A太宽泛，C和D偏离主题。",
-        "skill_tag": "reading_main_idea",
-        "difficulty": "B1",
-        "vocabulary": [
-              "acquisition",
-              "renewable",
-              "proprietary",
-              "integrated"
-        ]
-  },
-  {
-        "id": "p7-gen-014",
-        "part": "Part 7",
-        "passage": "On January 15, 2024, GreenTech Solutions, a renewable energy firm based in Austin, Texas, announced its acquisition of EcoGrid Systems, a smaller competitor headquartered in Denver, Colorado. The deal, valued at $120 million, is expected to close by March 2024 pending regulatory approval. GreenTech's CEO, Sarah Chen, stated that the acquisition would strengthen the company's position in the solar energy storage market. EcoGrid's proprietary battery technology, which has been used in over 500 installations across the western United States, will be integrated into GreenTech's existing product line. Industry analysts predict that this move could increase GreenTech's annual revenue by approximately 15% within the next two years. The combined company will have a workforce of nearly 3,000 employees.",
-        "question": "Where is EcoGrid Systems located?",
-        "choices": {
-              "A": "Austin, Texas",
-              "B": "Denver, Colorado",
-              "C": "The western United States",
-              "D": "A city with over 500 installations"
-        },
-        "answer": "B",
-        "explanation_zh": "文章明确提到EcoGrid Systems的总部位于科罗拉多州丹佛市。选项A是GreenTech的所在地，C是EcoGrid技术应用的区域，D错误地将安装数量与地点混淆。",
-        "skill_tag": "reading_detail",
-        "difficulty": "B1",
-        "vocabulary": [
-              "headquartered",
-              "pending",
-              "regulatory",
-              "workforce"
-        ]
-  },
-  {
-        "id": "p7-gen-015",
-        "part": "Part 7",
-        "passage": "On January 15, 2024, GreenTech Solutions, a renewable energy firm based in Austin, Texas, announced its acquisition of EcoGrid Systems, a smaller competitor headquartered in Denver, Colorado. The deal, valued at $120 million, is expected to close by March 2024 pending regulatory approval. GreenTech's CEO, Sarah Chen, stated that the acquisition would strengthen the company's position in the solar energy storage market. EcoGrid's proprietary battery technology, which has been used in over 500 installations across the western United States, will be integrated into GreenTech's existing product line. Industry analysts predict that this move could increase GreenTech's annual revenue by approximately 15% within the next two years. The combined company will have a workforce of nearly 3,000 employees.",
-        "question": "What is most likely to happen after the acquisition is completed?",
-        "choices": {
-              "A": "GreenTech will immediately close all of EcoGrid's facilities.",
-              "B": "GreenTech will incorporate EcoGrid's battery technology into its products.",
-              "C": "EcoGrid will change its name to GreenTech Solutions.",
-              "D": "GreenTech's revenue will drop due to the cost of the acquisition."
-        },
-        "answer": "B",
-        "explanation_zh": "文章指出EcoGrid的专有电池技术将被整合到GreenTech的现有产品线中。选项A和C没有依据，D与分析师预测的15%收入增长相反。",
-        "skill_tag": "reading_inference",
-        "difficulty": "B1",
-        "vocabulary": [
-              "analysts",
-              "integrated",
-              "proprietary",
-              "revenue"
-        ]
-  }];
+  return [...weakQs, ...newQs, ...part6Qs, ...listeningQs, ...readingQs, ...reviewQs];
 }

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { buildDailyPlan } from "@/data/questions";
+import { buildDailyPlan, getQuestionsByPart } from "@/data/questions";
 import {
   clearWrongPracticePlan,
   getDailyPlan,
@@ -25,6 +25,8 @@ export default function PracticePage() {
   const [hasInProgress, setHasInProgress] = useState(false);
   const [progressIndex, setProgressIndex] = useState(0);
   const [progressTotal, setProgressTotal] = useState(0);
+  const hasPart6Questions = getQuestionsByPart("Part 6").length > 0;
+  const part6Count = hasPart6Questions ? PART6_COUNT : 0;
 
   useEffect(() => {
     const id = window.setTimeout(() => {
@@ -41,7 +43,7 @@ export default function PracticePage() {
     return () => window.clearTimeout(id);
   }, []);
 
-  const totalQs = WEAK_COUNT + NEW_COUNT + PART6_COUNT + LISTENING_COUNT + READING_COUNT + reviewCount;
+  const totalQs = WEAK_COUNT + NEW_COUNT + part6Count + LISTENING_COUNT + READING_COUNT + reviewCount;
   const minMin = Math.max(
     15,
     Math.round((totalQs * ESTIMATED_SECONDS_PER_Q) / 60)
@@ -54,6 +56,7 @@ export default function PracticePage() {
     const plan = buildDailyPlan({
       weakCount: WEAK_COUNT,
       newCount: NEW_COUNT,
+      part6Count,
       listeningCount: LISTENING_COUNT,
       readingCount: READING_COUNT,
       reviewIds,
@@ -98,13 +101,15 @@ export default function PracticePage() {
           tag="Part 5"
           tagColor="indigo"
         />
-        <TaskRow
-          emoji="📋"
-          title="短文填空"
-          desc={`${PART6_COUNT} 題 · 段落填空 · 詞性 / 連接 / 介系詞`}
-          tag="Part 6"
-          tagColor="teal"
-        />
+        {part6Count > 0 && (
+          <TaskRow
+            emoji="📋"
+            title="短文填空"
+            desc={`${part6Count} 題 · 段落填空 · 詞性 / 連接 / 介系詞`}
+            tag="Part 6"
+            tagColor="teal"
+          />
+        )}
         <TaskRow
           emoji="🎧"
           title="Part 3 / 4 聽力"

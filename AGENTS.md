@@ -90,6 +90,17 @@ Important scripts:
 - `types/vocabulary.ts`: vocabulary item, progress, status, and quiz types.
 - `DEVELOPMENT_LOG.md`: project history, QA notes, data counts, and latest scan records.
 
+## Pipeline Rules
+
+- `pipeline/` is a local RAG-style question generation tool, not part of the Next.js app runtime.
+- Keep `pipeline/node_modules/`, `pipeline/output/`, `pipeline/dist/`, and `.env` files out of Git.
+- `pipeline/.env.example` may document variable names only; never commit real API keys.
+- Use `npm run check` inside `pipeline/` for data integrity after generated questions are inserted.
+- Generated questions must be inserted into the top-level `QUESTIONS` array in `data/questions.ts`, before `getQuestionsByPart`.
+- Do not append generated questions after helper functions or inside `buildDailyPlan`.
+- Prompt examples should be abstract patterns, not copied TOEIC/public sample passages.
+- If using public samples, store only source notes, patterns, distractor strategies, and fingerprints; do not store reusable source text as few-shot content.
+
 ## Data Model Rules
 
 Question data must satisfy:
@@ -128,7 +139,8 @@ Run these checks after meaningful changes:
 1. `npm run lint`
 2. `./node_modules/.bin/tsc --noEmit`
 3. `npm run build`
-4. Data integrity check for:
+4. `cd pipeline && npm run check`
+5. Data integrity check for:
    - duplicate question IDs.
    - invalid answers.
    - missing choices.
@@ -137,13 +149,13 @@ Run these checks after meaningful changes:
    - missing Part 3/4 transcripts.
    - missing Part 6/7 passages.
    - duplicate vocabulary IDs.
-5. Vocabulary quiz generation check:
+6. Vocabulary quiz generation check:
    - 10 questions when vocabulary exists.
    - 4 choices per question.
    - no duplicate choices.
    - valid `correctIndex`.
    - all three question types remain possible.
-6. Manual route smoke test when UI changes are made:
+7. Manual route smoke test when UI changes are made:
    - `/`
    - `/practice`
    - `/quiz`
@@ -157,6 +169,11 @@ Run these checks after meaningful changes:
 - `.next` is generated output. If TypeScript reports duplicate files such as
   `.next/types/cache-life.d 2.ts`, rebuild with `npm run build` or clear stale
   generated output. Do not treat that as source data corruption.
+- Root-level validation commands may hang if generated artifacts or nested
+  dependencies are accidentally tracked. Confirm `pipeline/node_modules/` and
+  `pipeline/output/` are ignored before running broad scans.
+- Rotate local pipeline API keys if they are ever printed in process listings,
+  terminal logs, or committed files.
 - A stale dev server on port 3000 may show outdated behavior. Restart the dev
   server after framework or route changes.
 - Production build is the most reliable end-to-end framework validation.

@@ -91,7 +91,7 @@ export async function generatePart5(
     // Optimize explanation with Kimi
     if (!options.skipKimi && raw.explanation_zh) {
       try {
-        const improved = await optimizeExplanation(raw);
+        const improved = await optimizeExplanation(raw as RawGeneratedQuestion);
         if (improved) raw.explanation_zh = improved;
       } catch (e) {
         // Keep original explanation

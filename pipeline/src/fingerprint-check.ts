@@ -1,4 +1,5 @@
 import type { Fingerprint, FingerprintLibrary } from "./types";
+import * as fs from "fs";
 
 /** Simple overlap-based duplicate check.
  *  Returns IDs of questions that may be too similar to existing fingerprints. */
@@ -8,6 +9,7 @@ export function checkDuplicates(
   fingerprints: Fingerprint[]
 ): { matched: boolean; matchedFingerprints: string[]; score: number } {
   const matchedFingerprints: string[] = [];
+  let maxScore = 0;
 
   for (const fp of fingerprints) {
     let score = 0;
@@ -31,6 +33,7 @@ export function checkDuplicates(
       fpWords.has(w)
     ).length;
     score += wordOverlap;
+    maxScore = Math.max(maxScore, score);
 
     // Threshold: score > 8 is suspicious
     if (score > 8) {
@@ -41,14 +44,13 @@ export function checkDuplicates(
   return {
     matched: matchedFingerprints.length > 0,
     matchedFingerprints,
-    score: 0, // max score among all fingerprints
+    score: maxScore,
   };
 }
 
 export function loadFingerprints(
   filePath: string
 ): FingerprintLibrary {
-  const fs = require("fs");
   const raw = fs.readFileSync(filePath, "utf-8");
   return JSON.parse(raw) as FingerprintLibrary;
 }

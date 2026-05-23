@@ -39,6 +39,7 @@ export function countMistakesBySkill(
     "tense",
     "preposition",
     "conjunction",
+    "pronoun",
     "business_vocabulary",
     "relative_clause",
     "listening_main_idea",
@@ -245,6 +246,18 @@ export function countPart6Attempts(records: AnswerRecord[]): number {
 
 export function calculatePart6AvgTime(records: AnswerRecord[]): number {
   return calculateAvgResponseTime(records.filter((r) => isPart6Record(r)));
+}
+
+export function calculateListeningAvgTime(records: AnswerRecord[]): number {
+  return calculateAvgResponseTime(
+    records.filter((r) => (LISTENING_SKILLS as SkillTag[]).includes(r.skill_tag))
+  );
+}
+
+export function calculateReadingAvgTime(records: AnswerRecord[]): number {
+  return calculateAvgResponseTime(
+    records.filter((r) => (READING_SKILLS as SkillTag[]).includes(r.skill_tag))
+  );
 }
 
 export function summarize(records: AnswerRecord[]) {

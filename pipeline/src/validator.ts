@@ -1,5 +1,5 @@
 import type { RawGeneratedQuestion, ValidationResult } from "./types";
-import type { Choice, SkillTag, Part, Difficulty } from "../types/question";
+import type { Choice, SkillTag, Part, Difficulty } from "../../types/question";
 
 const VALID_PARTS: Part[] = ["Part 5", "Part 3", "Part 4", "Part 6", "Part 7"];
 const VALID_CHOICES: Choice[] = ["A", "B", "C", "D"];

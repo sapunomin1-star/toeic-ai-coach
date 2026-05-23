@@ -5,7 +5,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 import { deepseek, kimi, parseGeneratedJson } from "./llm-client";
 import { validateQuestion, validateQuestionGroup } from "./validator";
 import type { Pattern, RawGeneratedQuestion } from "./types";
-import type { SkillTag } from "../types/question";
+import type { SkillTag } from "../../types/question";
 
 const PROMPT_TEMPLATE = fs.readFileSync(
   path.resolve(__dirname, "../templates/part7-prompt.md"),

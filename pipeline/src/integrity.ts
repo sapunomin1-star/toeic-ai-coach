@@ -1,4 +1,4 @@
-import type { Question } from "../types/question";
+import type { Question } from "../../types/question";
 import type { IntegrityReport } from "./types";
 
 export function runIntegrityCheck(questions: Question[]): IntegrityReport {

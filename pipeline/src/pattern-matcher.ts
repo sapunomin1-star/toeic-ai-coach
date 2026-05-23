@@ -1,5 +1,5 @@
 import type { Pattern, PatternLibrary } from "./types";
-import type { SkillTag, Difficulty, Part } from "../types/question";
+import type { SkillTag, Difficulty, Part } from "../../types/question";
 
 export type MatchCriteria = {
   part?: Part;
