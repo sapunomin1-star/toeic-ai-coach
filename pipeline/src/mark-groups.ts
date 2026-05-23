@@ -149,6 +149,13 @@ function makeGroupId(part: string, groupType: GroupType | null, index: number): 
   return `${prefix}-${String(index).padStart(3, "0")}`;
 }
 
+const groupIndexes: Record<string, number> = {
+  "Part 6": 0,
+  single: 0,
+  double: 0,
+  triple: 0,
+};
+
 function processFile(filePath: string): void {
   const raw = fs.readFileSync(filePath, "utf8");
   const blocks = findQuestionBlocks(raw);
@@ -161,12 +168,6 @@ function processFile(filePath: string): void {
     grouped.set(key, list);
   }
 
-  const groupIndexes: Record<string, number> = {
-    "Part 6": 0,
-    single: 0,
-    double: 0,
-    triple: 0,
-  };
   const replacements = new Map<number, string>();
 
   for (const [, group] of grouped) {

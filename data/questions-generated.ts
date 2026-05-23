@@ -1769,6 +1769,32 @@ export const GENERATED_QUESTIONS: Question[] = [
   question_order: 4,
 },
 {
+        "id": "p7-gen-194",
+        "part": "Part 7",
+        "passage": "Text A: Job Advertisement\n\nPosition: Senior Data Analyst\n\nLocation: Chicago, IL\n\nABC Analytics is seeking a Senior Data Analyst to join our growing team. The ideal candidate will have at least 5 years of experience in data analysis, proficiency in SQL and Python, and a strong background in statistical modeling. Responsibilities include leading data projects, presenting insights to senior management, and mentoring junior analysts. We offer a competitive salary and benefits package. To apply, please send your resume and a cover letter detailing your relevant experience to careers@abc.com by August 15.\n\nText B: Application Email\n\nSubject: Application for Senior Data Analyst Position\n\nDear Hiring Manager,\n\nI am writing to apply for the Senior Data Analyst position at ABC Analytics, as advertised on your company website. I have a Master's degree in Statistics and over 6 years of experience in data analysis, including 3 years as a team lead. In my current role at XYZ Corp, I use SQL and Python daily to analyze large datasets and have presented findings to executive leadership. I have also mentored three junior analysts. I am excited about the opportunity to contribute to ABC Analytics and have attached my resume for your review. I look forward to hearing from you.\n\nSincerely,\nJane Doe",
+        "question": "By what date must candidates submit their application?",
+        "choices": {
+              "A": "August 1",
+              "B": "August 15",
+              "C": "September 1",
+              "D": "August 30"
+        },
+        "answer": "B",
+        "explanation_zh": "招聘广告最后一句明确写道\"by August 15\"，这是申请的截止日期。",
+        "skill_tag": "reading_detail",
+        "difficulty": "B2",
+        "vocabulary": [
+              "deadline",
+              "submit",
+              "application",
+              "candidate"
+        ]
+,
+  passage_group_id: "p7-double-001",
+  passage_group_type: "double",
+  question_order: 5,
+},
+{
         "id": "p7-gen-059",
         "part": "Part 7",
         "passage": "Email 1\nFrom: Sarah Jenkins <sarah.jenkins@email.com>\nTo: Customer Service <support@greenleafonline.com>\nSubject: Incorrect item received\n\nDear GreenLeaf Customer Service,\n\nI am writing to express my disappointment with my recent order (Order #GL-8842). I ordered a set of four bamboo kitchen storage jars, but I received a set of plastic containers instead. The packaging slip inside the box lists the correct item, so I believe the warehouse made an error. I have attached photos of the items received and the packing slip for your reference. I would appreciate it if you could arrange for the correct item to be sent to me as soon as possible. Please also advise on how to return the incorrect items at your cost. I look forward to your prompt response.\n\nSincerely,\nSarah Jenkins\n\nEmail 2\nFrom: David Chen <david.chen@greenleafonline.com>\nTo: Sarah Jenkins <sarah.jenkins@email.com>\nSubject: Re: Incorrect item received\n\nDear Ms. Jenkins,\n\nThank you for contacting us regarding your order. I sincerely apologize for the error. I have reviewed your order and the photos you provided. It appears that our packing team mistakenly selected the wrong product from the shelf. I have already initiated a replacement shipment for the correct bamboo kitchen storage jars, which will arrive within 3-5 business days. Additionally, I have arranged for a prepaid return label for the plastic containers. You can drop off the package at any authorized shipping location. As a gesture of goodwill, we have also applied a 10% discount to your next purchase. Please do not hesitate to contact me if you have any further questions.\n\nBest regards,\nDavid Chen\nCustomer Service Manager\nGreenLeaf Online",

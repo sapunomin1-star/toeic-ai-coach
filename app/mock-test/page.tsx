@@ -112,6 +112,7 @@ export default function MockTestPage() {
           isCorrect: false,
           skill_tag: q.skill_tag,
           answeredAt: now,
+          source: "mock",
         });
       }
     }
@@ -209,7 +210,7 @@ export default function MockTestPage() {
     return (
       <div className="flex min-h-screen flex-col">
         {/* Timer */}
-        <div className={`sticky top-0 z-10 border-b px-3 py-2 text-center font-mono text-lg font-bold ${low ? "border-rose-200 bg-rose-50 text-rose-700" : "border-slate-200 bg-white text-slate-800"}`}>
+        <div role="timer" aria-live="off" className={`sticky top-0 z-10 border-b px-3 py-2 text-center font-mono text-lg font-bold ${low ? "border-rose-200 bg-rose-50 text-rose-700" : "border-slate-200 bg-white text-slate-800"}`}>
           {low && "⚠ "}{fmt(remainingMs)}
         </div>
 
@@ -221,6 +222,8 @@ export default function MockTestPage() {
               const cur = i === currentIndex;
               return (
                 <button key={qq.id} onClick={() => setCurrentIndex(i)}
+                  aria-label={`第 ${i + 1} 題${done ? "（已答）" : ""}`}
+                  aria-current={cur ? "true" : undefined}
                   className={`flex h-7 w-7 items-center justify-center rounded text-[10px] font-medium ${cur ? "bg-slate-900 text-white" : done ? "bg-emerald-100 text-emerald-700" : "bg-slate-100 text-slate-500"}`}>
                   {i + 1}
                 </button>
@@ -248,6 +251,7 @@ export default function MockTestPage() {
               const sel = answers[q.id] === c;
               return (
                 <button key={c} onClick={() => pick(q.id, c)}
+                  aria-pressed={sel}
                   className={`block w-full rounded-xl border px-4 py-3 text-left text-sm ${sel ? "border-indigo-300 bg-indigo-50 text-indigo-900" : "border-slate-200 bg-white text-slate-700"}`}>
                   <span className="font-bold">{c}.</span> {q.choices[c]}
                 </button>

@@ -277,8 +277,12 @@ function placeCorrect(
   return { choices: choices.slice(0, 4), correctIndex: pos };
 }
 
+function escapeRegExp(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 function makeFillBlank(item: VocabularyItem): string | null {
-  const regex = new RegExp(`\\b${item.word}s?\\b`, "i");
+  const regex = new RegExp(`\\b${escapeRegExp(item.word)}s?\\b`, "i");
   if (!regex.test(item.example)) return null;
   return item.example.replace(regex, "______");
 }

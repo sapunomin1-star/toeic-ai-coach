@@ -54,6 +54,7 @@ export type AnswerRecord = {
   skill_tag: SkillTag;
   answeredAt: string;
   responseTimeMs?: number;
+  source?: "daily" | "mock";
 };
 
 export const SKILL_LABELS: Record<SkillTag, string> = {

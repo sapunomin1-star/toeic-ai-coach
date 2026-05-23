@@ -637,3 +637,361 @@ Verified after fixes:
 - `vercel build --yes`: passed, output written to `.vercel/output`.
 - `cd pipeline && npm run check`: passed, 554 questions, no duplicate IDs, no invalid answers, no missing fields.
 - Runtime sanity check: `buildMockTestPlan()` returns exactly 100 questions: Part 5=30, Part 6=16, Part 7=54 with Part 7 single=29, double=10, triple=15.
+
+## 2026-05-23 - Codex Second-Pass Review
+
+### Purpose
+
+Independent second-pass review of the project after the Claude Code first-round
+architecture audit and the subsequent "Second Review Fixes" pass. The goal was
+not to redesign, but to verify Claude Code's claims, confirm the project really
+builds and lints, hunt for bugs the prior reports missed, and check whether
+documentation is honest about current state.
+
+### Reviewed Files
+
+- `TOEIC-AI-Coach-Audit-Report-2026-05-23.md` (the prompt that drove the prior
+  fix pass — not a report from Claude Code).
+- `README.md`, `AGENTS.md`, `DEVELOPMENT_LOG.md`.
+- `app/` (all route `page.tsx` and `layout.tsx`).
+- `lib/analysis.ts`, `lib/storage.ts`, `lib/mockStorage.ts`, `lib/vocabularyStorage.ts`.
+- `data/questions.ts` (helper functions, `buildDailyPlan`, `buildMockTestPlan`,
+  `groupByPassage`, `selectGroupsForTotal`, `assertMockPlan`).
+- `data/questions-generated.ts` (structural scan only; 269 KB).
+- `types/question.ts`, `types/mock.ts`.
+- `pipeline/src/mark-groups.ts`, `pipeline/package.json`, `pipeline/run-integrity.ts`.
+- `eslint.config.mjs`, `tsconfig.json`, `package.json`.
+
+### Verification Result
+
+- No source files in the project tree show the `compressed,dataless` flag from
+  iCloud (`find . -flags +dataless` returned empty after excluding
+  `node_modules`, `.next`, `.git`, `.vercel`).
+- `node_modules/next/` is materialized and functional.
+- `npm run lint` succeeded: 0 errors, 4 pre-existing warnings (unused vars in
+  `pipeline/`). Pipeline files are excluded from `tsconfig.json` but not from
+  ESLint; that's intentional given pipeline still runs through `tsx`.
+- `npm run build` succeeded: Next.js 16.2.6, TypeScript pass, 9 app routes plus
+  `_not-found` prerendered as static.
+- `cd pipeline && npm run check` succeeded: 554 questions, 0 duplicate IDs, 0
+  invalid answers, 0 missing fields.
+- `npx tsx src/mark-groups.ts` (dry-run) runs cleanly on both
+  `data/questions.ts` (60 Part 7 questions in 21 groups) and
+  `data/questions-generated.ts` (16 Part 6 + 109 Part 7 in 32 groups). The tool
+  is idempotent — running dry-run twice does not change file hashes.
+- Runtime sanity for `buildMockTestPlan()` across 20 randomized runs:
+  always returns 100 questions, Part 5=30, Part 6=16 (4 distinct passage
+  groups), Part 7=54 with single=29, double=10, triple=15.
+- Question id uniqueness across both data files: 554 unique IDs, 0 cross-file
+  duplicates.
+
+### Bugs Found
+
+1. **`clearAllProgress()` does not clear mock test results.** The Dashboard's
+   "清除所有學習紀錄" button copy promises to wipe history, but
+   `lib/storage.ts:clearAllProgress` only removed answer records, daily plan,
+   wrong status, and wrong-practice plan. Mock session and mock results in
+   `toeic_mock_session_v1` / `toeic_mock_results_v1` were left behind. **Fixed
+   this pass.**
+
+2. **Part 7 double group `p7-double-001` has only 4 questions.** TOEIC doubles
+   are 5 questions per group; `buildMockTestPlan` filters
+   `doubleGroups.filter(g => g.length === 5)`, so this group is silently
+   skipped. There are still 9 valid double groups (need 2), so mock tests work,
+   but this entry is dead data until a 5th question is added or it is removed.
+   *Not fixed* — requires question-bank decision.
+
+3. **`passage_group_id` is locally unique per file, not globally.**
+   `pipeline/src/mark-groups.ts` resets its group-index counter when it
+   processes the next file, so `p7-single-001` exists independently in both
+   `data/questions.ts` and `data/questions-generated.ts`. Today, this is masked
+   because `getPassageGroupKey` includes the full passage text in the grouping
+   key, but any future code that treats `passage_group_id` as a global handle
+   (e.g., joining wrongbook entries to a passage) will silently merge unrelated
+   passages. *Not fixed* — needs a small mark-groups change that namespaces
+   indexes across both files.
+
+4. **Missing ARIA on emoji-only links and quiz option groups.** The
+   "Accessibility Rules" section in `AGENTS.md` (added by the previous audit)
+   calls these out, but they were not actually applied: `app/page.tsx` still
+   has `📚 / ✏️ / 📖` links with no `aria-label`; `app/quiz/page.tsx` choice
+   buttons do not form a `role="radiogroup"`. *Not fixed.*
+
+5. **Dashboard inline IIFE iterates `records` on every render** (in the Part 6
+   error-count caption around `app/dashboard/page.tsx:251-262`). The audit rule
+   "No inline IIFEs that iterate all records in JSX" was added but the existing
+   IIFE was not refactored. Not a correctness bug; pure performance smell.
+   *Not fixed.*
+
+6. **Hardcoded `WEAK_SKILL_TAGS = ["word_form", "passive_voice"]`** in
+   `data/questions.ts:6576`. The first-round audit explicitly flagged this as
+   "should be derived from `getWeakestSkills(records)` instead of being
+   static". The recommendation is in `AGENTS.md` but the code is unchanged. As
+   a result, "弱點補強" in today's plan only ever surfaces those two skills,
+   even if the user's actual weakest area is `tense` or `preposition`. *Not
+   fixed* — needs a small Practice-page change to pass real weak tags into
+   `buildDailyPlan`.
+
+7. **`isToday()` parses ISO/UTC strings but compares to local-date parts.** In
+   `lib/analysis.ts:119-127`, near midnight in non-UTC timezones, records
+   recorded just before local midnight may be classified into yesterday or
+   today inconsistently with how the user perceives the day. *Not fixed*;
+   noted in the first audit.
+
+8. **Mock-test wrong answers inflate the Dashboard's "today" stats.**
+   `app/mock-test/page.tsx:104-117` writes each wrong mock answer with
+   `answeredAt: now` through `saveDailyAnswer`. Correct mock answers
+   intentionally do *not* write, per project policy. The side effect is that
+   on a day the user only practices the mock test, "今日作答" shows only the
+   wrong count and "今日正確率" goes to 0 %. This is a tension between two
+   constraints, not a clean bug, but it's worth a UX decision. *Not fixed.*
+
+9. **`vocabularyStorage.makeFillBlank()` interpolates the raw vocabulary word
+   into a regex** (`lib/vocabularyStorage.ts:281`). Today's vocabulary list is
+   plain alphanumeric, so it is safe, but it's a latent injection if a future
+   entry contains `.`, `(`, `+`, etc. *Not fixed.*
+
+10. **`pipeline/src/mark-groups.ts` regex for stripping existing group fields
+    is fragile.** `removeExistingGroupFields` matches up to the next `,` or
+    `\n` and then "fixes" the trailing comma with `.replace(/,\s*}/g, "\n  }")`.
+    The brace-depth parser used to find blocks is solid, but this re-emit step
+    is the most likely future source of corrupted question objects if it ever
+    runs against unusual formatting. Currently idempotent on the existing
+    files. *Not fixed.*
+
+### Fixes Made
+
+- `lib/storage.ts`: `clearAllProgress()` now also calls
+  `clearAllMockData()` (imported from `lib/mockStorage`) so the Dashboard
+  reset button truly wipes mock session and mock results.
+
+### Build Result (Post-Fix)
+
+- `npm run lint`: passed (0 errors, 4 pre-existing pipeline warnings).
+- `npm run build`: passed, Next.js 16.2.6 produced 9 static app routes plus
+  `_not-found`. Compile time 2.1 s, TypeScript 2.0 s.
+- `cd pipeline && npm run check`: passed, 554 questions, integrity report
+  green.
+- `npx tsx pipeline/src/mark-groups.ts` (dry-run): file hashes unchanged.
+- Runtime sanity for `buildMockTestPlan()` over 20 runs: distribution
+  100/30/16/54 with Part 7 single=29 double=10 triple=15 every run.
+
+### Remaining Risks
+
+- The hardcoded weak-skill list (#6 above) makes the "弱點補強" task name
+  misleading until real analysis feeds in.
+- `data/questions.ts` is 6 784 lines and `data/questions-generated.ts` is
+  3 340 lines. Both are loaded synchronously and live inside the JS bundle.
+  Vercel build still completes in ~2 s today, but at ≥ 1 000 questions per
+  part, the first-load JS will grow noticeably and editor tooling will start
+  to lag. The split-by-part recommendation from the first audit still stands.
+- Mock-test wrong-answer pollution (#8) is going to confuse the Dashboard once
+  the user actually starts using both the daily plan and the mock test in the
+  same day.
+- `passage_group_id` is not globally unique (#3). Safe today, fragile for
+  future analytics or "go to passage" navigation.
+
+### Recommended Next Steps
+
+1. Wire `getWeakestSkills(records)` into the Practice page so
+   `buildDailyPlan({ ... })` receives real weak tags. Remove the static
+   `WEAK_SKILL_TAGS` constant.
+2. Patch `pipeline/src/mark-groups.ts` to keep its index counters across files
+   so `passage_group_id` becomes globally unique.
+3. Add the 5th question to `p7-double-001` (or remove the group from the
+   bank) so all Part 7 doubles satisfy the `length === 5` invariant.
+4. Add `aria-label` to the emoji-only home links and wrap quiz choices in
+   `role="radiogroup"` / `role="radio"` to honor the rules already documented
+   in `AGENTS.md`.
+5. Refactor the Dashboard Part 6 IIFE into a `useMemo` (or a pure helper at
+   module scope) before the questions bank gets bigger.
+6. Decide the mock-test ↔ Dashboard interaction: either flag mock answers in
+   `AnswerRecord` (e.g., `source?: "mock"`) and exclude them from "today"
+   stats, or stop persisting any mock answer to the daily store and only
+   write to the wrongbook status.
+7. Escape `item.word` before constructing the fill-blank regex in
+   `lib/vocabularyStorage.ts`.
+
+## 2026-05-23 — Round 2: Bug fixes + ARIA + useMemo
+
+### Context
+
+Round 1 delivered roadmap #1 (dynamic weak-skill selection) and #2 (mock source
+tagging) but both were MVP-level implementations with gaps. This round patches
+3 bugs discovered during code review and completes #4 (ARIA) and #5 (useMemo).
+
+### Bug 1: Dynamic weak skills unfiltered by Part
+
+**Symptom:** When user mistakes concentrated in reading/listening skills,
+`getWeakestSkills(records, 2)` returned non-Part-5 skills, causing
+`buildDailyPlan`'s `part5Pool.filter(q => weakSkillTags.includes(q.skill_tag))`
+to produce 0 weak questions — silently empty "弱點補強" row.
+
+**Fix:** Added optional `part` parameter to `getWeakestSkills`. When provided,
+records are pre-filtered by `questionId.startsWith(\`p${part}-\`)` before
+counting. Callers in `app/practice/page.tsx` and `app/quiz/page.tsx` now pass
+`part: 5`.
+
+### Bug 2: totalQs computed from constants, not actual plan output
+
+**Symptom:** New users with no wrong answers got `weakSkillTags = []`, yielding
+0 weak questions, but the Dashboard landing page still showed "8 題" for weak
+skill row and calculated totalQs as `8 + 7 + 2 + 6 + 3 + N` — over-reporting
+by ~5 minutes.
+
+**Fix:** `buildDailyPlan` now returns `{ questions: Question[]; counts: PlanCounts }`
+instead of `Question[]`. `PlanCounts` is a new exported type with actual item
+counts. `practice/page.tsx` uses `plan.counts` for all TaskRow descriptions and
+totalQs calculation, making `buildDailyPlan` the single source of truth.
+
+### Bug 3: Mock answer records polluted cumulative analysis
+
+**Symptom:** After completing a 100-question mock test with 50 wrong answers,
+cumulative accuracy, `countMistakesBySkill`, `calculatePart5Accuracy`, and
+`getWeakestSkills` all included mock data, causing accuracy to tank and weakest
+skill to be dominated by mock errors (triggering Bug 1 again). Previous fix
+only blocked `getTodayRecords`.
+
+**Fix:** Added `excludeMock()` helper in `lib/analysis.ts` that filters
+`records.filter(r => r.source !== "mock")`. Applied at entry points:
+`summarize`, `calculatePart5Accuracy`, `countMistakesBySkill`,
+`getWeakestSkills`, and `getTodayRecords`. Mock test result page uses its own
+inline calculation (unaffected).
+
+### #4 ARIA
+
+**Quiz page** (`app/quiz/page.tsx`):
+- Answer choice buttons: `aria-pressed` reflects selected state before submit
+- Feedback div: `role="status"` + `aria-live="polite"` for screen reader announcement
+- Progress bar: `role="progressbar"` + `aria-valuenow/min/max` + `aria-label`
+- Progress counter and score spans: `aria-label` with descriptive text
+
+**Practice page** (`app/practice/page.tsx`):
+- In-progress banner: `role="status"` + `aria-label` with progress details
+- All action buttons already had visible text labels (no change needed)
+
+### #5 useMemo
+
+After analysis of both `app/practice/page.tsx` and `app/quiz/page.tsx`:
+- `currentQuestion` in quiz was already memoized via `useMemo`
+- All other render computations (`progress`, `total`, `isAnswered`, `isCorrect`,
+  `counts`, `totalQs`) are O(1) arithmetic/booleans — useMemo overhead exceeds
+  benefit
+- Heavy computations (`buildDailyPlan`, `getWeakestSkills`) run in event handlers,
+  not render
+
+No additional useMemo wrappers added — none justified.
+
+### Files Changed
+
+| File | Changes |
+|---|---|
+| `types/question.ts` | (Round 1) Added `source?` field to `AnswerRecord` |
+| `data/questions.ts` | Removed `WEAK_SKILL_TAGS`; added `weakSkillTags` option; changed return type to include `PlanCounts` |
+| `lib/analysis.ts` | Added `excludeMock` helper; applied to 5 entry points; added `part` param to `getWeakestSkills` |
+| `app/practice/page.tsx` | Pass `part: 5` to `getWeakestSkills`; use `plan.counts` for TaskRow + totalQs; `role="status"` on in-progress banner |
+| `app/quiz/page.tsx` | Pass `part: 5` to `getWeakestSkills`; ARIA on choices/progress/feedback; use `plan.questions` |
+| `app/mock-test/page.tsx` | (Round 1) Tag mock answers with `source: "mock"` |
+| `DEVELOPMENT_LOG.md` | This entry |
+
+### Verification
+
+- `npm run lint`: 0 errors (4 pre-existing pipeline warnings)
+- `npm run build`: 0 errors, 9 static routes, TypeScript clean
+- New user first visit `/practice`: weak row shows actual count or fallback 8; totalQs matches plan counts
+- Mock test with 50 wrong answers: `/practice` cumulative accuracy isolated from mock data via `excludeMock`
+
+
+## Round 3 — 2026-05-23
+
+Third-pass fix after full-stack audit. Continuation of Rounds 1-2.
+
+### §2 Complete `excludeMock` rollout
+
+Applied `excludeMock()` to all 15+ remaining analysis functions that were
+missed in Round 1/2:
+
+| Function | Status |
+|---|---|
+| `countMistakesBySkill` | ✅ |
+| `getWeakestSkills` | ✅ (already from Round 2) |
+| `getTodayRecords` | ✅ (already from Round 1) |
+| `calculateAvgResponseTime` | ✅ |
+| `calculatePart5AvgTime` | ✅ |
+| `countSlowQuestions` | ✅ |
+| `getSlowestSkill` | ✅ |
+| `countPart5Attempts` | ✅ |
+| `calculateListeningAccuracy` | ✅ |
+| `countListeningAttempts` | ✅ |
+| `calculateListeningAvgTime` | ✅ |
+| `calculateReadingAccuracy` | ✅ |
+| `countReadingAttempts` | ✅ |
+| `calculateReadingAvgTime` | ✅ |
+| `calculatePart6Accuracy` | ✅ |
+| `countPart6Attempts` | ✅ |
+| `calculatePart6AvgTime` | ✅ |
+| `countPart7MistakesBySkill` | ✅ |
+| `summarize` | ✅ (already from Round 1) |
+
+Every analysis entry point now filters `r.source !== "mock"` before computation.
+
+### §2.1 Non-Part-5 weak skills fix
+
+Added optional `part?` parameter to `getWeakestSkills(records, topN, part?)`.
+Callers in `practice/page.tsx` and `quiz/page.tsx` pass `part: 5` to scope
+weak-skill analysis to Part 5 only, preventing Part 6 `reading_detail` or
+listening skills from entering the Part 5 weak pool.
+
+### §3 Complete ARIA on home & mock-test
+
+- Home page emoji links: `aria-label="每日單字"`, `aria-label="單字測驗"`, `aria-label="錯題本"`
+- Mock test entry link: `aria-label="進入模擬考"`
+- Mock test timer: `role="timer" aria-live="off"`
+- Mock test question grid: `aria-label` with question number + answered status, `aria-current` on active
+- Mock test choices: `aria-pressed` on selected
+- Practice in-progress banner: `role="status"` + `aria-label` with progress
+
+### §4 Dashboard `useMemo` refactor
+
+Replaced inline IIFE computing Part 6 wrong count with `useMemo`-computed `part6WrongCount`.
+Wrapped all derived values (stats, skillMistakes, part7SkillMistakes, recommendation,
+avgTime, part5AvgTime, slowCount, slowestSkill, part5/6/listening/reading accuracy/totals/avgTimes,
+orderedSkills, maxMistakes, weakestSkill, vocabularyProgressMap, vocab counts, vocabularyAdvice)
+in `useMemo` with correct dependency arrays.
+
+### §5 `mark-groups.ts` globally unique `passage_group_id`
+
+Moved `groupIndexes` counter from function-local (`processFile`) to module-level
+so it persists across `questions.ts` and `questions-generated.ts` processing.
+This ensures `p6-001`, `p7-single-001`, etc. are assigned once globally rather
+than duplicated across files.
+
+### §6 Add 5th question to `p7-double-001`
+
+Added `p7-gen-194` (question_order: 5) to the double-passage group about the
+Senior Data Analyst job posting + application email. New question tests reading
+detail: "By what date must candidates submit their application?" (answer: B, August 15).
+
+### §7 Regex escape in `vocabularyStorage.ts`
+
+Added `escapeRegExp()` helper. `makeFillBlank` now escapes special regex characters
+(`.`, `*`, `+`, `?`, `^`, `$`, `{`, `}`, `(`, `)`, `[`, `]`, `\`) in `item.word`
+before constructing the fill-in-the-blank regex, preventing incorrect matches.
+
+### Files Changed
+
+| File | Changes |
+|---|---|
+| `lib/analysis.ts` | Completed `excludeMock` rollout to all 15+ functions |
+| `app/dashboard/page.tsx` | `useMemo` refactor: memoized 25+ derived values; replaced inline IIFE with `part6WrongCount` |
+| `pipeline/src/mark-groups.ts` | Moved `groupIndexes` to module level for global uniqueness |
+| `data/questions-generated.ts` | Added p7-gen-194 (5th question to p7-double-001) |
+| `lib/vocabularyStorage.ts` | Added `escapeRegExp` helper for safe regex construction |
+| `AGENTS.md` | Added notes on global passage_group_id and regex escaping rules |
+| `DEVELOPMENT_LOG.md` | This entry |
+
+### Verification
+
+- `npm run lint`: 0 errors
+- `npm run build`: 0 errors, 9 static routes, TypeScript clean
+

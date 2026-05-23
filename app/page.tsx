@@ -65,6 +65,7 @@ export default function Home() {
       <div className="grid grid-cols-3 gap-3">
         <Link
           href="/vocabulary"
+          aria-label="每日單字"
           className="rounded-2xl border border-indigo-100 bg-white px-3 py-4 text-center shadow-sm active:scale-[0.99]"
         >
           <p className="text-2xl">📚</p>
@@ -72,6 +73,7 @@ export default function Home() {
         </Link>
         <Link
           href="/vocabulary-quiz"
+          aria-label="單字測驗"
           className="rounded-2xl border border-violet-100 bg-white px-3 py-4 text-center shadow-sm active:scale-[0.99]"
         >
           <p className="text-2xl">✏️</p>
@@ -79,6 +81,7 @@ export default function Home() {
         </Link>
         <Link
           href="/wrongbook"
+          aria-label="錯題本"
           className="rounded-2xl border border-slate-200 bg-white px-3 py-4 text-center shadow-sm active:scale-[0.99]"
         >
           <p className="text-2xl">📖</p>
@@ -103,6 +106,7 @@ export default function Home() {
           </div>
           <Link
             href="/mock-test"
+            aria-label="進入模擬考"
             className="rounded-xl bg-white px-4 py-2 text-xs font-bold text-slate-900 active:scale-[0.98]"
           >
             進入 →

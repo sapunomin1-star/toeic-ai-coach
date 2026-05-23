@@ -207,7 +207,8 @@ These rules were identified during a full-stack audit. Future agents MUST follow
 ### Data Integrity Rules
 
 - **Never change question IDs without migration.** Existing records in localStorage reference IDs. Changing an ID orphans user progress.
-- **Populate `passage_group_id` on all Part 6/7 questions.** `buildMockTestPlan` prefers `passage_group_id` and falls back to the full passage text only when the ID is missing. Never group by a truncated passage prefix.
+- **Populate `passage_group_id` on all Part 6/7 questions.** `buildMockTestPlan` prefers `passage_group_id` and falls back to the full passage text only when the ID is missing. Never group by a truncated passage prefix. **`passage_group_id` must be globally unique across all files.** `pipeline/src/mark-groups.ts` uses a module-level `groupIndexes` counter that persists across all target files — do not move it back inside `processFile()`.
+- **Escape regex special characters in user data before constructing `RegExp`.** `lib/vocabularyStorage.ts` `makeFillBlank` uses `escapeRegExp(item.word)` to prevent `.`, `+`, and other metacharacters from causing incorrect matches.
 - **Mock test plans must be exact.** `buildMockTestPlan()` must assert total=100, Part 5=30, Part 6=16, and Part 7=54. If valid Part 6/7 groups are insufficient, throw a clear error instead of returning a partial plan.
 - **Part 6 questions must have exactly 4 blanks per passage** labeled `____(A)____` through `____(D)____`.
 - **Do NOT embed generated questions inside `buildDailyPlan()` or helper functions.** Generated questions go in `data/questions-generated.ts`, imported and spread into the `QUESTIONS` array before `getQuestionsByPart`.

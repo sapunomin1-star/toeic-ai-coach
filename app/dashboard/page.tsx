@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   LISTENING_SKILLS,
   READING_SKILLS,
@@ -74,60 +74,98 @@ export default function DashboardPage() {
     setRecords([]);
   }
 
+  const safeRecords = useMemo(() => records ?? [], [records]);
+
+  const stats = useMemo(() => summarize(safeRecords), [safeRecords]);
+  const skillMistakes = useMemo(() => countMistakesBySkill(safeRecords), [safeRecords]);
+  const part7SkillMistakes = useMemo(() => countPart7MistakesBySkill(safeRecords), [safeRecords]);
+  const recommendation = useMemo(() => getTomorrowRecommendation(safeRecords), [safeRecords]);
+  const avgTime = useMemo(() => calculateAvgResponseTime(safeRecords), [safeRecords]);
+  const part5AvgTime = useMemo(() => calculatePart5AvgTime(safeRecords), [safeRecords]);
+  const slowCount = useMemo(() => countSlowQuestions(safeRecords), [safeRecords]);
+  const slowestSkill = useMemo(() => getSlowestSkill(safeRecords), [safeRecords]);
+
+  const part5Accuracy = useMemo(() => calculatePart5Accuracy(safeRecords), [safeRecords]);
+  const part5Total = useMemo(() => countPart5Attempts(safeRecords), [safeRecords]);
+  const part6Accuracy = useMemo(() => calculatePart6Accuracy(safeRecords), [safeRecords]);
+  const part6Total = useMemo(() => countPart6Attempts(safeRecords), [safeRecords]);
+  const part6AvgTime = useMemo(() => calculatePart6AvgTime(safeRecords), [safeRecords]);
+  const listeningAvgTime = useMemo(() => calculateListeningAvgTime(safeRecords), [safeRecords]);
+  const listeningAccuracy = useMemo(() => calculateListeningAccuracy(safeRecords), [safeRecords]);
+  const listeningTotal = useMemo(() => countListeningAttempts(safeRecords), [safeRecords]);
+  const readingAccuracy = useMemo(() => calculateReadingAccuracy(safeRecords), [safeRecords]);
+  const readingAvgTime = useMemo(() => calculateReadingAvgTime(safeRecords), [safeRecords]);
+  const readingTotal = useMemo(() => countReadingAttempts(safeRecords), [safeRecords]);
+
+  const part6WrongCount = useMemo(() => {
+    let w = 0;
+    for (const r of safeRecords) {
+      if (!r.isCorrect && r.questionId.startsWith("p6-")) w++;
+    }
+    return w;
+  }, [safeRecords]);
+
+  const orderedSkills = useMemo(
+    () =>
+      (Object.entries(skillMistakes) as [SkillTag, number][]).sort(
+        (a, b) => b[1] - a[1]
+      ),
+    [skillMistakes]
+  );
+
+  const maxMistakes = useMemo(
+    () => Math.max(1, ...orderedSkills.map(([, n]) => n)),
+    [orderedSkills]
+  );
+  const weakestSkill = useMemo(
+    () => orderedSkills.find(([, n]) => n > 0)?.[0] ?? null,
+    [orderedSkills]
+  );
+  const vocabularyProgressMap = useMemo(
+    () => new Map(vocabularyProgress.map((item) => [item.wordId, item.status])),
+    [vocabularyProgress]
+  );
+  const vocabNew = useMemo(
+    () =>
+      todayVocabulary.filter(
+        (item) => (vocabularyProgressMap.get(item.id) ?? "new") === "new"
+      ).length,
+    [todayVocabulary, vocabularyProgressMap]
+  );
+  const vocabSeen = useMemo(
+    () =>
+      todayVocabulary.filter(
+        (item) => vocabularyProgressMap.get(item.id) === "seen"
+      ).length,
+    [todayVocabulary, vocabularyProgressMap]
+  );
+  const vocabFamiliar = useMemo(
+    () =>
+      todayVocabulary.filter(
+        (item) => vocabularyProgressMap.get(item.id) === "familiar"
+      ).length,
+    [todayVocabulary, vocabularyProgressMap]
+  );
+  const vocabMastered = useMemo(
+    () =>
+      todayVocabulary.filter(
+        (item) => vocabularyProgressMap.get(item.id) === "mastered"
+      ).length,
+    [todayVocabulary, vocabularyProgressMap]
+  );
+  const vocabularyAdvice = useMemo(() => {
+    if (vocabFamiliar > 0)
+      return `這 ${vocabFamiliar} 個字有印象但還不穩，明天再確認一次就能掌握。`;
+    if (vocabMastered === todayVocabulary.length && todayVocabulary.length > 0)
+      return "今日單字已完成，可以進入題目訓練。";
+    if (vocabSeen + vocabNew > 0)
+      return "今天先不要追求速度，把每個單字的例句看懂。";
+    return "開始今日單字練習。";
+  }, [vocabFamiliar, vocabMastered, vocabSeen, vocabNew, todayVocabulary.length]);
+
   if (records === null) {
     return <p className="py-10 text-center text-slate-500">載入中…</p>;
   }
-
-  const stats = summarize(records);
-  const skillMistakes = countMistakesBySkill(records);
-  const part7SkillMistakes = countPart7MistakesBySkill(records);
-  const recommendation = getTomorrowRecommendation(records);
-  const avgTime = calculateAvgResponseTime(records);
-  const part5AvgTime = calculatePart5AvgTime(records);
-  const slowCount = countSlowQuestions(records);
-  const slowestSkill = getSlowestSkill(records);
-
-  const part5Accuracy = calculatePart5Accuracy(records);
-  const part5Total = countPart5Attempts(records);
-  const part6Accuracy = calculatePart6Accuracy(records);
-  const part6Total = countPart6Attempts(records);
-  const part6AvgTime = calculatePart6AvgTime(records);
-  const listeningAvgTime = calculateListeningAvgTime(records);
-  const listeningAccuracy = calculateListeningAccuracy(records);
-  const listeningTotal = countListeningAttempts(records);
-  const readingAccuracy = calculateReadingAccuracy(records);
-  const readingAvgTime = calculateReadingAvgTime(records);
-  const readingTotal = countReadingAttempts(records);
-
-  const orderedSkills = (
-    Object.entries(skillMistakes) as [SkillTag, number][]
-  ).sort((a, b) => b[1] - a[1]);
-
-  const maxMistakes = Math.max(1, ...orderedSkills.map(([, n]) => n));
-  const weakestSkill = orderedSkills.find(([, n]) => n > 0)?.[0] ?? null;
-  const vocabularyProgressMap = new Map(
-    vocabularyProgress.map((item) => [item.wordId, item.status])
-  );
-  const vocabNew = todayVocabulary.filter(
-    (item) => (vocabularyProgressMap.get(item.id) ?? "new") === "new"
-  ).length;
-  const vocabSeen = todayVocabulary.filter(
-    (item) => vocabularyProgressMap.get(item.id) === "seen"
-  ).length;
-  const vocabFamiliar = todayVocabulary.filter(
-    (item) => vocabularyProgressMap.get(item.id) === "familiar"
-  ).length;
-  const vocabMastered = todayVocabulary.filter(
-    (item) => vocabularyProgressMap.get(item.id) === "mastered"
-  ).length;
-  const vocabularyAdvice =
-    vocabFamiliar > 0
-      ? `這 ${vocabFamiliar} 個字有印象但還不穩，明天再確認一次就能掌握。`
-      : vocabMastered === todayVocabulary.length && todayVocabulary.length > 0
-        ? "今日單字已完成，可以進入題目訓練。"
-        : vocabSeen + vocabNew > 0
-          ? "今天先不要追求速度，把每個單字的例句看懂。"
-          : "開始今日單字練習。";
 
   return (
     <div className="space-y-5">
@@ -247,18 +285,9 @@ export default function DashboardPage() {
             <div className="mt-3 rounded-xl bg-teal-50 p-3">
               <p className="text-xs font-medium text-teal-700">
                 Part 6 段落填空 · 均速 {fmtMs(part6AvgTime)} · {part6Total} 題
-                {(() => {
-                  const wrong = (() => {
-                    let w = 0;
-                    for (const r of records) {
-                      if (!r.isCorrect && r.questionId.startsWith("p6-")) w++;
-                    }
-                    return w;
-                  })();
-                  return wrong > 0
-                    ? ` · 錯 ${wrong} 題`
-                    : " · 全對！";
-                })()}
+                {part6WrongCount > 0
+                  ? ` · 錯 ${part6WrongCount} 題`
+                  : " · 全對！"}
               </p>
             </div>
           )}

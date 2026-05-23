@@ -4,6 +4,7 @@ import type {
   SkillTag,
   WrongBookStatus,
 } from "@/types/question";
+import { clearAllMockData } from "@/lib/mockStorage";
 
 const ANSWER_KEY = "toeic_answer_records_v1";
 const DAILY_PLAN_KEY = "toeic_daily_plan_v1";
@@ -105,6 +106,7 @@ export function clearAllProgress(): void {
     localStorage.removeItem(DAILY_PLAN_KEY);
     localStorage.removeItem(WRONG_STATUS_KEY);
     localStorage.removeItem(WRONG_PRACTICE_PLAN_KEY);
+    clearAllMockData();
   } catch (e) {
     console.warn("[storage] Failed to clear all progress:", e);
   }

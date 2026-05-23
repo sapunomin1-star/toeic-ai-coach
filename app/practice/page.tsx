@@ -4,12 +4,15 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { buildDailyPlan, getQuestionsByPart } from "@/data/questions";
+import type { PlanCounts } from "@/data/questions";
 import {
   clearWrongPracticePlan,
+  getAnswerRecords,
   getDailyPlan,
   getReviewableIds,
   saveDailyPlan,
 } from "@/lib/storage";
+import { getWeakestSkills } from "@/lib/analysis";
 
 const WEAK_COUNT = 8;
 const NEW_COUNT = 7;
@@ -25,6 +28,7 @@ export default function PracticePage() {
   const [hasInProgress, setHasInProgress] = useState(false);
   const [progressIndex, setProgressIndex] = useState(0);
   const [progressTotal, setProgressTotal] = useState(0);
+  const [planCounts, setPlanCounts] = useState<PlanCounts | null>(null);
   const hasPart6Questions = getQuestionsByPart("Part 6").length > 0;
   const part6Count = hasPart6Questions ? PART6_COUNT : 0;
 
@@ -43,7 +47,16 @@ export default function PracticePage() {
     return () => window.clearTimeout(id);
   }, []);
 
-  const totalQs = WEAK_COUNT + NEW_COUNT + part6Count + LISTENING_COUNT + READING_COUNT + reviewCount;
+  const counts = planCounts ?? {
+    weak: WEAK_COUNT,
+    new: NEW_COUNT,
+    part6: part6Count,
+    listening: LISTENING_COUNT,
+    reading: READING_COUNT,
+    review: reviewCount,
+  };
+  const totalQs =
+    counts.weak + counts.new + counts.part6 + counts.listening + counts.reading + counts.review;
   const minMin = Math.max(
     15,
     Math.round((totalQs * ESTIMATED_SECONDS_PER_Q) / 60)
@@ -53,6 +66,7 @@ export default function PracticePage() {
   function startNewPlan() {
     clearWrongPracticePlan();
     const reviewIds = getReviewableIds().slice(0, REVIEW_MAX);
+    const weakSkillTags = getWeakestSkills(getAnswerRecords(), 2, 5).map((w) => w.skill);
     const plan = buildDailyPlan({
       weakCount: WEAK_COUNT,
       newCount: NEW_COUNT,
@@ -60,9 +74,11 @@ export default function PracticePage() {
       listeningCount: LISTENING_COUNT,
       readingCount: READING_COUNT,
       reviewIds,
+      weakSkillTags,
     });
+    setPlanCounts(plan.counts);
     saveDailyPlan({
-      questionIds: plan.map((q) => q.id),
+      questionIds: plan.questions.map((q) => q.id),
       createdAt: new Date().toISOString(),
       cursor: 0,
     });
@@ -90,22 +106,22 @@ export default function PracticePage() {
         <TaskRow
           emoji="💪"
           title="弱點補強"
-          desc={`${WEAK_COUNT} 題 · 依錯題分析自動挑選最弱文法`}
+          desc={`${counts.weak} 題 · 依錯题分析自動挑選最弱文法`}
           tag="Part 5"
           tagColor="rose"
         />
         <TaskRow
           emoji="📝"
           title="新題練習"
-          desc={`${NEW_COUNT} 題 · 被動 / 詞性 / 時態 / 介系詞 / 連接詞 / 代名詞 / 關係子句 / 商務單字`}
+          desc={`${counts.new} 題 · 被動 / 詞性 / 時態 / 介系詞 / 連接詞 / 代名詞 / 關係子句 / 商務單字`}
           tag="Part 5"
           tagColor="indigo"
         />
-        {part6Count > 0 && (
+        {counts.part6 > 0 && (
           <TaskRow
             emoji="📋"
             title="短文填空"
-            desc={`${part6Count} 題 · 段落填空 · 詞性 / 連接 / 介系詞`}
+            desc={`${counts.part6} 題 · 段落填空 · 詞性 / 連接 / 介系詞`}
             tag="Part 6"
             tagColor="teal"
           />
@@ -113,14 +129,14 @@ export default function PracticePage() {
         <TaskRow
           emoji="🎧"
           title="Part 3 / 4 聽力"
-          desc={`${LISTENING_COUNT} 題 · 主旨 / 推論 / 下一步行動`}
+          desc={`${counts.listening} 題 · 主旨 / 推論 / 下一步行動`}
           tag="聽力"
           tagColor="violet"
         />
         <TaskRow
           emoji="📄"
           title="Part 7 閱讀測驗"
-          desc={`${READING_COUNT} 題 · 主旨 / 細節定位 / 推論（含短文 passage）`}
+          desc={`${counts.reading} 題 · 主旨 / 細節定位 / 推論（含短文 passage）`}
           tag="閱讀"
           tagColor="amber"
         />
@@ -128,18 +144,22 @@ export default function PracticePage() {
           emoji="🔁"
           title="錯題複習"
           desc={
-            reviewCount === 0
+            counts.review === 0
               ? "目前沒有待複習的錯題"
-              : `${reviewCount} 題（復習中 / 待加強）`
+              : `${counts.review} 題（復習中 / 待加強）`
           }
-          tag={reviewCount > 0 ? `${reviewCount} 題` : "無"}
+          tag={counts.review > 0 ? `${counts.review} 題` : "無"}
           tagColor="amber"
-          dim={reviewCount === 0}
+          dim={counts.review === 0}
         />
       </ul>
 
       {hasInProgress && (
-        <div className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900">
+        <div
+          role="status"
+          aria-label={`未完成訓練進度：第 ${progressIndex} 題，共 ${progressTotal} 題`}
+          className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900"
+        >
           你有未完成的訓練（進度 {progressIndex} / {progressTotal}）。
         </div>
       )}

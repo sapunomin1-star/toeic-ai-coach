@@ -7,12 +7,14 @@ import { buildDailyPlan, getQuestionById } from "@/data/questions";
 import {
   clearDailyPlan,
   clearWrongPracticePlan,
+  getAnswerRecords,
   getQuizPlan,
   getReviewableIds,
   saveAnswer,
   saveDailyPlan,
   saveQuizPlan,
 } from "@/lib/storage";
+import { getWeakestSkills } from "@/lib/analysis";
 import type { Choice, Question } from "@/types/question";
 import { SKILL_LABELS } from "@/types/question";
 import type { QuizPlanSource } from "@/lib/storage";
@@ -124,9 +126,10 @@ export default function QuizPage() {
 
   function startFreshPlan() {
     const reviewIds = getReviewableIds().slice(0, 5);
-    const plan = buildDailyPlan({ reviewIds });
+    const weakSkillTags = getWeakestSkills(getAnswerRecords(), 2, 5).map((w) => w.skill);
+    const plan = buildDailyPlan({ reviewIds, weakSkillTags });
     saveDailyPlan({
-      questionIds: plan.map((q) => q.id),
+      questionIds: plan.questions.map((q) => q.id),
       createdAt: new Date().toISOString(),
       cursor: 0,
     });
@@ -215,14 +218,21 @@ export default function QuizPage() {
     <div className="space-y-4">
       <div>
         <div className="flex items-center justify-between text-xs text-slate-500">
-          <span>
+          <span aria-label={`第 ${cursor + 1} 題，共 ${total} 題`}>
             {cursor + 1} / {total}
           </span>
-          <span>
+          <span aria-label={`已答對 ${sessionStats.correct} 題，共 ${sessionStats.total} 題`}>
             正確 {sessionStats.correct} / {sessionStats.total}
           </span>
         </div>
-        <div className="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-slate-200">
+        <div
+          className="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-slate-200"
+          role="progressbar"
+          aria-valuenow={Math.round(progress)}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-label={`答題進度 ${Math.round(progress)}%`}
+        >
           <div
             className="h-full bg-indigo-500 transition-all"
             style={{ width: `${progress}%` }}
@@ -300,6 +310,7 @@ export default function QuizPage() {
                 disabled={isAnswered}
                 onClick={() => setSelected(c)}
                 className={classes}
+                aria-pressed={isAnswered ? undefined : isSelected}
               >
                 <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold text-slate-700">
                   {c}
@@ -313,6 +324,8 @@ export default function QuizPage() {
 
       {isAnswered && (
         <div
+          role="status"
+          aria-live="polite"
           className={`rounded-2xl border p-4 shadow-sm ${
             isCorrect
               ? "border-emerald-200 bg-emerald-50"

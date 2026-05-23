@@ -6573,7 +6573,14 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-const WEAK_SKILL_TAGS: SkillTag[] = ["word_form", "passive_voice"];
+export type PlanCounts = {
+  weak: number;
+  new: number;
+  part6: number;
+  listening: number;
+  reading: number;
+  review: number;
+};
 
 export function buildDailyPlan(options?: {
   weakCount?: number;
@@ -6582,13 +6589,15 @@ export function buildDailyPlan(options?: {
   listeningCount?: number;
   readingCount?: number;
   reviewIds?: string[];
-}): Question[] {
+  weakSkillTags?: SkillTag[];
+}): { questions: Question[]; counts: PlanCounts } {
   const weakCount = options?.weakCount ?? 8;
   const newCount = options?.newCount ?? 7;
   const part6Count = options?.part6Count ?? 2;
   const listeningCount = options?.listeningCount ?? 6;
   const readingCount = options?.readingCount ?? 3;
   const reviewIds = options?.reviewIds ?? [];
+  const weakSkillTags = options?.weakSkillTags ?? ["word_form", "passive_voice"];
   const reviewIdSet = new Set(reviewIds);
 
   const part5Pool = getQuestionsByPart("Part 5").filter(
@@ -6596,7 +6605,7 @@ export function buildDailyPlan(options?: {
   );
 
   const weakPool = shuffle(
-    part5Pool.filter((q) => WEAK_SKILL_TAGS.includes(q.skill_tag))
+    part5Pool.filter((q) => weakSkillTags.includes(q.skill_tag))
   );
   const weakQs = weakPool.slice(0, weakCount);
 
@@ -6646,7 +6655,17 @@ export function buildDailyPlan(options?: {
     .filter((q): q is Question => Boolean(q))
     .slice(0, 5);
 
-  return [...weakQs, ...newQs, ...part6Qs, ...listeningQs, ...readingQs, ...reviewQs];
+  return {
+    questions: [...weakQs, ...newQs, ...part6Qs, ...listeningQs, ...readingQs, ...reviewQs],
+    counts: {
+      weak: weakQs.length,
+      new: newQs.length,
+      part6: part6Qs.length,
+      listening: listeningQs.length,
+      reading: readingQs.length,
+      review: reviewQs.length,
+    },
+  };
 }
 
 // ─── Mock Test Plan ─────────────────────────────────────────────────────────
