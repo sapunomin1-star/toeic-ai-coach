@@ -144,6 +144,8 @@ const SKILL_ADVICE: Partial<Record<SkillTag, string>> = {
     "明天請優先練連接詞，注意 although/despite 後面的結構差異，以及 unless/as long as 的條件句。",
   business_vocabulary:
     "明天請優先練商務單字，重點記憶 comply/implement/allocate/submit/collaborate 等核心動詞。",
+  reading_detail:
+    "明天請多練 Part 6 段落填空與 Part 7 細節題，注意文章中的上下文線索和關鍵資訊定位。",
 };
 
 export type Recommendation = {
@@ -177,10 +179,29 @@ export function getTomorrowRecommendation(
     (primary && SKILL_ADVICE[primary.skill]) ??
     `明天請優先練 ${primary?.label}，加強相關題型。`;
 
-  return { primary, secondary, message: advice };
+  // If primary weakness is reading_detail, add Part 6-specific suggestion
+  const part6Mistakes = records.filter(
+    (r) => !r.isCorrect && isPart6Record(r)
+  ).length;
+  const part6Total = records.filter((r) => isPart6Record(r)).length;
+  let part6Note = "";
+  if (part6Total > 0 && part6Mistakes > 0) {
+    const pct = Math.round((part6Mistakes / part6Total) * 100);
+    if (pct >= 50) {
+      part6Note = ` Part 6 段落填空目前錯 ${part6Mistakes}/${part6Total} 題，明天建議專注練上下文詞性判斷和連接詞。`;
+    }
+  }
+
+  return { primary, secondary, message: advice + part6Note };
 }
 
-// ─── Part 5 vs Listening breakdown ────────────────────────────────────────
+// ─── Part 6 detection ─────────────────────────────────────────────────────
+
+function isPart6Record(r: { questionId: string }): boolean {
+  return r.questionId.startsWith("p6-");
+}
+
+// ─── Part 5 / Part 6 / Listening breakdown ──────────────────────────────────
 
 export function calculatePart5Accuracy(records: AnswerRecord[]): number {
   return calculateAccuracy(records.filter((r) => PART5_SKILLS.has(r.skill_tag)));
@@ -212,6 +233,18 @@ export function countReadingAttempts(records: AnswerRecord[]): number {
   return records.filter((r) =>
     (READING_SKILLS as SkillTag[]).includes(r.skill_tag)
   ).length;
+}
+
+export function calculatePart6Accuracy(records: AnswerRecord[]): number {
+  return calculateAccuracy(records.filter((r) => isPart6Record(r)));
+}
+
+export function countPart6Attempts(records: AnswerRecord[]): number {
+  return records.filter((r) => isPart6Record(r)).length;
+}
+
+export function calculatePart6AvgTime(records: AnswerRecord[]): number {
+  return calculateAvgResponseTime(records.filter((r) => isPart6Record(r)));
 }
 
 export function summarize(records: AnswerRecord[]) {

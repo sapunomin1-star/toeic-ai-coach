@@ -11,6 +11,7 @@ The app currently focuses on:
 
 - Daily task overview and practice planning.
 - TOEIC Part 5 grammar and vocabulary questions.
+- TOEIC Part 6 text completion (passage with blanks).
 - TOEIC Part 3 and Part 4 transcript-based listening practice.
 - TOEIC Part 7 short reading practice.
 - Wrong-book review with simple spaced repetition status.
@@ -76,13 +77,14 @@ Important scripts:
 - `app/practice/page.tsx`: today's practice plan and quiz launch.
 - `app/quiz/page.tsx`: quiz runner, answer feedback, response-time recording, passage/transcript display, and plan cursor updates.
 - `app/wrongbook/page.tsx`: wrong-book grouping, removal, and wrong-question practice launch.
-- `app/dashboard/page.tsx`: study analytics, recommendations, vocabulary progress, and reading/listening/Part 5 breakdowns.
+- `app/dashboard/page.tsx`: study analytics, recommendations, vocabulary progress, and Part 5/6/listening/reading breakdowns.
 - `app/vocabulary/page.tsx`: daily vocabulary flashcard flow.
 - `app/vocabulary-quiz/page.tsx`: vocabulary quiz UI and result persistence.
 - `data/questions.ts`: TOEIC question bank plus question selection helpers.
 - `data/vocabulary.ts`: TOEIC vocabulary bank.
 - `lib/storage.ts`: answer records, wrong-book status, daily plans, wrong-practice plans.
-- `lib/analysis.ts`: accuracy, mistake, timing, recommendation, Part 5/listening/reading analytics.
+- `lib/analysis.ts`: accuracy, mistake, timing, recommendation, Part 5/6/listening/reading analytics.
+- `pipeline/`: RAG question generation pipeline (excluded from Next.js build).
 - `lib/vocabularyStorage.ts`: vocabulary progress, daily vocabulary selection, quiz generation, quiz result stats.
 - `types/question.ts`: question, answer, skill, part, and wrong-book types.
 - `types/vocabulary.ts`: vocabulary item, progress, status, and quiz types.
@@ -93,14 +95,15 @@ Important scripts:
 Question data must satisfy:
 
 - Every question has a unique `id`.
-- `part` is one of `Part 5`, `Part 3`, `Part 4`, or `Part 7`.
+- `part` is one of `Part 5`, `Part 3`, `Part 4`, `Part 6`, or `Part 7`.
 - `choices` must include non-empty `A`, `B`, `C`, and `D`.
 - `answer` must be one of `A`, `B`, `C`, or `D`.
 - `skill_tag` must match `SkillTag` in `types/question.ts`.
 - `explanation_zh` must be present and useful.
 - `vocabulary` should be a non-empty array for every question.
 - Part 3 and Part 4 questions must include `transcript`.
-- Part 7 questions must include `passage`.
+- Part 6 and Part 7 questions must include `passage`.
+- Part 6 questions must have 4 blanks labeled `____(A)____` through `____(D)____` in the passage.
 
 Vocabulary data must satisfy:
 
@@ -115,7 +118,8 @@ Vocabulary data must satisfy:
 - Vocabulary `mastered` requires cross-day active confirmation through the flashcard flow.
 - Vocabulary quiz results may promote `new` or `seen` words to `familiar`, but not to `mastered`.
 - Wrong questions remain reviewable until dismissed or improved through repeated correct answers.
-- Part 7 uses `passage`; Part 3 and Part 4 use `transcript`.
+- Part 6 and Part 7 use `passage`; Part 3 and Part 4 use `transcript`.
+- Part 6 questions are identified by question ID prefix `p6-` in analytics (they use `reading_detail` skill_tag).
 
 ## QA Checklist
 
@@ -131,7 +135,7 @@ Run these checks after meaningful changes:
    - missing `explanation_zh`.
    - missing vocabulary arrays.
    - missing Part 3/4 transcripts.
-   - missing Part 7 passages.
+   - missing Part 6/7 passages.
    - duplicate vocabulary IDs.
 5. Vocabulary quiz generation check:
    - 10 questions when vocabulary exists.
@@ -170,7 +174,9 @@ Run these checks after meaningful changes:
 ## Agent Role Guidance
 
 - Codex: best for QA scans, bug fixes, targeted refactors, route checks, and medium-sized implementation tasks.
-- Claude Code: historically referenced for larger implementation work, but this repository now uses `AGENTS.md` as the canonical agent guide.
-- DeepSeek or content-generation tools: best for drafting new TOEIC questions, vocabulary entries, explanations, and first-pass content reviews.
+- Claude Code: best for larger implementation work and project integration.
+- DeepSeek v4 Pro: primary model for TOEIC question generation (Part 5/6/7).
+- Kimi 2.6: Chinese explanation (explanation_zh) optimization and review.
+- Hy3 Preview (via OpenRouter): QA review of generated questions (answer correctness, distractor quality).
 
 `AGENTS.md` is the source of truth for future coding-agent instructions in this repository.

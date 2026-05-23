@@ -9,10 +9,13 @@ import {
   calculateListeningAccuracy,
   calculatePart5Accuracy,
   calculatePart5AvgTime,
+  calculatePart6Accuracy,
+  calculatePart6AvgTime,
   calculateReadingAccuracy,
   countListeningAttempts,
   countMistakesBySkill,
   countPart5Attempts,
+  countPart6Attempts,
   countReadingAttempts,
   countSlowQuestions,
   getSlowestSkill,
@@ -77,6 +80,9 @@ export default function DashboardPage() {
 
   const part5Accuracy = calculatePart5Accuracy(records);
   const part5Total = countPart5Attempts(records);
+  const part6Accuracy = calculatePart6Accuracy(records);
+  const part6Total = countPart6Attempts(records);
+  const part6AvgTime = calculatePart6AvgTime(records);
   const listeningAccuracy = calculateListeningAccuracy(records);
   const listeningTotal = countListeningAttempts(records);
   const readingAccuracy = calculateReadingAccuracy(records);
@@ -166,14 +172,14 @@ export default function DashboardPage() {
         </div>
       </section>
 
-      {/* Part 5 vs Listening breakdown */}
+      {/* Part 5 / Part 6 / Listening breakdown */}
       {stats.total > 0 && (
         <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-          <h2 className="mb-3 text-sm font-semibold">Part 5 vs 聽力表現</h2>
-          <div className="grid grid-cols-2 gap-3">
+          <h2 className="mb-3 text-sm font-semibold">Part 5 / Part 6 / 聽力表現</h2>
+          <div className="grid grid-cols-3 gap-2">
             <div className="rounded-xl bg-slate-50 p-3 text-center">
               <p className="text-[10px] uppercase tracking-wider text-slate-500">
-                Part 5 正確率
+                Part 5
               </p>
               <p
                 className={`mt-1 text-xl font-bold ${
@@ -190,7 +196,24 @@ export default function DashboardPage() {
             </div>
             <div className="rounded-xl bg-slate-50 p-3 text-center">
               <p className="text-[10px] uppercase tracking-wider text-slate-500">
-                聽力正確率
+                Part 6
+              </p>
+              <p
+                className={`mt-1 text-xl font-bold ${
+                  part6Total === 0
+                    ? "text-slate-400"
+                    : part6Accuracy >= 70
+                      ? "text-emerald-600"
+                      : "text-rose-600"
+                }`}
+              >
+                {part6Total > 0 ? `${part6Accuracy}%` : "—"}
+              </p>
+              <p className="mt-0.5 text-xs text-slate-400">{part6Total} 題</p>
+            </div>
+            <div className="rounded-xl bg-slate-50 p-3 text-center">
+              <p className="text-[10px] uppercase tracking-wider text-slate-500">
+                聽力
               </p>
               <p
                 className={`mt-1 text-xl font-bold ${
@@ -208,6 +231,26 @@ export default function DashboardPage() {
               </p>
             </div>
           </div>
+          {/* Part 6 error detail */}
+          {part6Total > 0 && (
+            <div className="mt-3 rounded-xl bg-teal-50 p-3">
+              <p className="text-xs font-medium text-teal-700">
+                Part 6 段落填空 · 均速 {fmtMs(part6AvgTime)} · {part6Total} 題
+                {(() => {
+                  const wrong = (() => {
+                    let w = 0;
+                    for (const r of records) {
+                      if (!r.isCorrect && r.questionId.startsWith("p6-")) w++;
+                    }
+                    return w;
+                  })();
+                  return wrong > 0
+                    ? ` · 錯 ${wrong} 題`
+                    : " · 全對！";
+                })()}
+              </p>
+            </div>
+          )}
           {listeningTotal > 0 && (
             <ul className="mt-3 space-y-1">
               {LISTENING_SKILLS.map((skill) => {
@@ -328,7 +371,7 @@ export default function DashboardPage() {
       {/* Time stats */}
       <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
         <h2 className="mb-3 text-sm font-semibold">作答速度</h2>
-        <div className="grid grid-cols-3 gap-3 text-center">
+        <div className="grid grid-cols-4 gap-2 text-center">
           <div>
             <p className="text-[10px] uppercase tracking-wider text-slate-500">
               平均每題
@@ -339,7 +382,7 @@ export default function DashboardPage() {
           </div>
           <div>
             <p className="text-[10px] uppercase tracking-wider text-slate-500">
-              Part 5 均速
+              Part 5
             </p>
             <p
               className={`mt-1 text-lg font-bold ${
@@ -347,6 +390,18 @@ export default function DashboardPage() {
               }`}
             >
               {fmtMs(part5AvgTime)}
+            </p>
+          </div>
+          <div>
+            <p className="text-[10px] uppercase tracking-wider text-slate-500">
+              Part 6
+            </p>
+            <p
+              className={`mt-1 text-lg font-bold ${
+                part6AvgTime > 50_000 ? "text-rose-600" : "text-slate-800"
+              }`}
+            >
+              {fmtMs(part6AvgTime)}
             </p>
           </div>
           <div>

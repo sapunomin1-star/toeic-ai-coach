@@ -236,6 +236,36 @@ Current working tree also includes uncommitted work:
 6. Add a 60-day progress system later.
 7. Consider TTS / listening audio only later.
 
+## MVP 0.4 — Part 6 + RAG Pipeline + Dashboard Expansion (2026-05-23)
+
+### Completed Features
+
+1. **Part 6 Text Completion**
+   - Added `"Part 6"` to `Part` union type in `types/question.ts`.
+   - Part 6 questions share `passage` across 4 blanks (A/B/C/D), same pattern as Part 7.
+   - `buildDailyPlan` includes Part 6 questions. Practice page shows Part 6 task.
+
+2. **RAG Question Generation Pipeline (`pipeline/`)**
+   - Independent Node.js/TypeScript pipeline (excluded from Next.js build).
+   - 25 patterns (10 Part 5, 5 Part 6, 10 Part 7) + 5 prompt templates.
+   - LLM integration: DeepSeek (generation), Kimi (explanations), OpenRouter/Hy3 (QA).
+   - Validation + integrity + fingerprint dedup + write to data/questions.ts.
+   - First run: 18 AI-generated questions appended.
+
+3. **Part 6 Dashboard Integration**
+   - `calculatePart6Accuracy()`, `countPart6Attempts()`, `calculatePart6AvgTime()`.
+   - Dashboard: 3-column "Part 5 / Part 6 / 聽力" + Part 6 error detail + speed tracking.
+   - Tomorrow recommendation includes Part 6 note.
+
+4. **Bug Fixes**
+   - `countMistakesBySkill` and `PART5_SKILLS` now include `relative_clause` and `pronoun`.
+
+### Data Counts (2026-05-23)
+
+- 444 total: Part 5=303, Part 3=33, Part 4=33, Part 6=0 (type ready), Part 7=75.
+
+### QA: tsc passed, lint passed, Vercel build passed, all routes 200.
+
 ### Do Not Do Yet
 
 - Login.
