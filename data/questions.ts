@@ -6701,6 +6701,286 @@ export const QUESTIONS: Question[] = [
           "proprietary",
           "revenue"
       ]
+  },
+  {
+        "id": "p6-gen-001",
+        "part": "Part 6",
+        "passage": "Dear Team,\n\nI am writing to inform you of an important ____(A)____ to our company's remote work policy, effective March 1st. All employees are now required to work from the office at least three days per week. ____(B)____, we understand that flexibility is important, so you may choose which days you come in.\n\nPlease note that this change applies ____(C)____ all full-time staff in the Marketing and Sales departments. If you have any concerns about this new arrangement, please speak with your direct supervisor. We believe this policy will improve collaboration and team communication. We thank you ____(D)____ your cooperation.",
+        "question": "____(A)____",
+        "choices": {
+              "A": "update",
+              "B": "updating",
+              "C": "updated",
+              "D": "updates"
+        },
+        "answer": "A",
+        "explanation_zh": "空白 (A) 需要一个名词作宾语，'update' 是名词，意为'更新'，符合语境。'updating' 是动名词，'updated' 是过去分词或形容词，'updates' 是动词第三人称单数或名词复数，均不符合语法要求。",
+        "skill_tag": "reading_detail",
+        "difficulty": "B1",
+        "vocabulary": [
+              "policy",
+              "effective",
+              "employees",
+              "flexibility",
+              "collaboration"
+        ]
+  },
+  {
+        "id": "p6-gen-002",
+        "part": "Part 6",
+        "passage": "Dear Team,\n\nI am writing to inform you of an important ____(A)____ to our company's remote work policy, effective March 1st. All employees are now required to work from the office at least three days per week. ____(B)____, we understand that flexibility is important, so you may choose which days you come in.\n\nPlease note that this change applies ____(C)____ all full-time staff in the Marketing and Sales departments. If you have any concerns about this new arrangement, please speak with your direct supervisor. We believe this policy will improve collaboration and team communication. We thank you ____(D)____ your cooperation.",
+        "question": "____(B)____",
+        "choices": {
+              "A": "Therefore",
+              "B": "However",
+              "C": "Moreover",
+              "D": "Consequently"
+        },
+        "answer": "B",
+        "explanation_zh": "空白 (B) 需要一个表示转折的逻辑连接词。前句提到新规定要求每周至少三天到办公室，后句说'理解灵活性很重要，你可以选择哪几天来'，这是对前句的让步和转折，因此'However'最合适。'Therefore'和'Consequently'表示因果关系，'Moreover'表示递进，均不符合逻辑。",
+        "skill_tag": "reading_detail",
+        "difficulty": "B1",
+        "vocabulary": [
+              "policy",
+              "effective",
+              "employees",
+              "flexibility",
+              "collaboration"
+        ]
+  },
+  {
+        "id": "p6-gen-003",
+        "part": "Part 6",
+        "passage": "Dear Team,\n\nI am writing to inform you of an important ____(A)____ to our company's remote work policy, effective March 1st. All employees are now required to work from the office at least three days per week. ____(B)____, we understand that flexibility is important, so you may choose which days you come in.\n\nPlease note that this change applies ____(C)____ all full-time staff in the Marketing and Sales departments. If you have any concerns about this new arrangement, please speak with your direct supervisor. We believe this policy will improve collaboration and team communication. We thank you ____(D)____ your cooperation.",
+        "question": "____(C)____",
+        "choices": {
+              "A": "on",
+              "B": "to",
+              "C": "for",
+              "D": "with"
+        },
+        "answer": "B",
+        "explanation_zh": "空白 (C) 需要一个介词与动词'applies'搭配。'applies to'是固定搭配，意思是'适用于'，符合'这项变更适用于所有全职员工'的语境。'applies on'、'applies for'、'applies with'都不是正确的商业搭配。",
+        "skill_tag": "reading_detail",
+        "difficulty": "B1",
+        "vocabulary": [
+              "policy",
+              "effective",
+              "employees",
+              "flexibility",
+              "collaboration"
+        ]
+  },
+  {
+        "id": "p6-gen-004",
+        "part": "Part 6",
+        "passage": "Dear Team,\n\nI am writing to inform you of an important ____(A)____ to our company's remote work policy, effective March 1st. All employees are now required to work from the office at least three days per week. ____(B)____, we understand that flexibility is important, so you may choose which days you come in.\n\nPlease note that this change applies ____(C)____ all full-time staff in the Marketing and Sales departments. If you have any concerns about this new arrangement, please speak with your direct supervisor. We believe this policy will improve collaboration and team communication. We thank you ____(D)____ your cooperation.",
+        "question": "____(D)____",
+        "choices": {
+              "A": "for",
+              "B": "with",
+              "C": "to",
+              "D": "by"
+        },
+        "answer": "A",
+        "explanation_zh": "空白 (D) 需要一个介词构成固定搭配。'thank you for'是标准用法，意为'感谢你的...'，符合'感谢你的合作'的语境。'thank you with'、'thank you to'、'thank you by'都不是正确的搭配。",
+        "skill_tag": "reading_detail",
+        "difficulty": "B1",
+        "vocabulary": [
+              "policy",
+              "effective",
+              "employees",
+              "flexibility",
+              "collaboration"
+        ]
+  },
+  {
+        "id": "p6-gen-005",
+        "part": "Part 6",
+        "passage": "Dear Valued Customers,\n\nWe are writing to inform you of a temporary ____(A)____ to our store hours. Starting next Monday, we will open one hour later than usual. This change is necessary due to ongoing renovation work. ____(B)____, we will extend our closing time to ensure you still have enough time to shop. The new hours will be in effect ____(C)____ December 15th to January 5th. We apologize for any inconvenience this may cause. If you ____(D)____ have any questions, please do not hesitate to contact our customer service team. We appreciate your understanding.\n\nSincerely,\nThe Management",
+        "question": "____(A)____",
+        "choices": {
+              "A": "adjustment",
+              "B": "confusion",
+              "C": "complaint",
+              "D": "delay"
+        },
+        "answer": "A",
+        "explanation_zh": "空白A需要填写一个名词，表示对营业时间的改变。'adjustment'（调整）是中性且礼貌的词汇，适合客户通知语境。'confusion'（困惑）不合逻辑，'complaint'（投诉）语气负面，'delay'（延迟）不表示整体时间的改变。",
+        "skill_tag": "reading_detail",
+        "difficulty": "A2",
+        "vocabulary": [
+              "temporary",
+              "renovation",
+              "extend",
+              "apologize",
+              "inconvenience",
+              "appreciate"
+        ]
+  },
+  {
+        "id": "p6-gen-006",
+        "part": "Part 6",
+        "passage": "Dear Valued Customers,\n\nWe are writing to inform you of a temporary ____(A)____ to our store hours. Starting next Monday, we will open one hour later than usual. This change is necessary due to ongoing renovation work. ____(B)____, we will extend our closing time to ensure you still have enough time to shop. The new hours will be in effect ____(C)____ December 15th to January 5th. We apologize for any inconvenience this may cause. If you ____(D)____ have any questions, please do not hesitate to contact our customer service team. We appreciate your understanding.\n\nSincerely,\nThe Management",
+        "question": "____(B)____",
+        "choices": {
+              "A": "Because",
+              "B": "However",
+              "C": "Therefore",
+              "D": "Meanwhile"
+        },
+        "answer": "B",
+        "explanation_zh": "空白B需要一个表示转折或对比的连接词。前文说开门时间变晚（不利），后文说延长关门时间（补偿），因此'However'（然而）最合适。'Because'（因为）表原因，'Therefore'（因此）表结果，'Meanwhile'（同时）表时间，逻辑都不符。",
+        "skill_tag": "reading_detail",
+        "difficulty": "A2",
+        "vocabulary": [
+              "temporary",
+              "renovation",
+              "extend",
+              "apologize",
+              "inconvenience",
+              "appreciate"
+        ]
+  },
+  {
+        "id": "p6-gen-007",
+        "part": "Part 6",
+        "passage": "Dear Valued Customers,\n\nWe are writing to inform you of a temporary ____(A)____ to our store hours. Starting next Monday, we will open one hour later than usual. This change is necessary due to ongoing renovation work. ____(B)____, we will extend our closing time to ensure you still have enough time to shop. The new hours will be in effect ____(C)____ December 15th to January 5th. We apologize for any inconvenience this may cause. If you ____(D)____ have any questions, please do not hesitate to contact our customer service team. We appreciate your understanding.\n\nSincerely,\nThe Management",
+        "question": "____(C)____",
+        "choices": {
+              "A": "in",
+              "B": "on",
+              "C": "from",
+              "D": "at"
+        },
+        "answer": "C",
+        "explanation_zh": "空白C需要表示时间范围的介词。'from ... to ...'是固定搭配，表示从某日到某日。'in'用于月份、年份，'on'用于具体日期，'at'用于具体时间点，都不符合'December 15th to January 5th'的结构。",
+        "skill_tag": "reading_detail",
+        "difficulty": "A2",
+        "vocabulary": [
+              "temporary",
+              "renovation",
+              "extend",
+              "apologize",
+              "inconvenience",
+              "appreciate"
+        ]
+  },
+  {
+        "id": "p6-gen-008",
+        "part": "Part 6",
+        "passage": "Dear Valued Customers,\n\nWe are writing to inform you of a temporary ____(A)____ to our store hours. Starting next Monday, we will open one hour later than usual. This change is necessary due to ongoing renovation work. ____(B)____, we will extend our closing time to ensure you still have enough time to shop. The new hours will be in effect ____(C)____ December 15th to January 5th. We apologize for any inconvenience this may cause. If you ____(D)____ have any questions, please do not hesitate to contact our customer service team. We appreciate your understanding.\n\nSincerely,\nThe Management",
+        "question": "____(D)____",
+        "choices": {
+              "A": "do",
+              "B": "did",
+              "C": "will",
+              "D": "would"
+        },
+        "answer": "A",
+        "explanation_zh": "空白D需要正确的助动词。句子是条件句'If you have any questions'，这里使用一般现在时，所以助动词应为'do'，构成'do have'表示强调。'did'是过去式，'will'表示将来，'would'表示虚拟语气，均不符合语境。",
+        "skill_tag": "reading_detail",
+        "difficulty": "A2",
+        "vocabulary": [
+              "temporary",
+              "renovation",
+              "extend",
+              "apologize",
+              "inconvenience",
+              "appreciate"
+        ]
+  },
+  {
+        "id": "p6-gen-009",
+        "part": "Part 6",
+        "passage": "Dear Team,\n\nI am writing to inform you about an important ____(A)____ to our company’s remote work policy, effective from March 1, 2024. ____(B)____, all employees working from home must submit a weekly progress report to their direct supervisor. This report should include a summary of completed tasks and any challenges encountered. In addition, we are requiring everyone to attend a brief training session ____(C)____ the new reporting system on February 25. Please note that failure to comply with these new guidelines may result in a review of your remote work arrangement. We believe these changes will improve communication and productivity. Thank you for your cooperation ____(D)____ this transition.\n\nBest regards,\nJane Smith\nHR Department",
+        "question": "____(A)____",
+        "choices": {
+              "A": "update",
+              "B": "updates",
+              "C": "updated",
+              "D": "updating"
+        },
+        "answer": "A",
+        "explanation_zh": "此处需要一个名词，与 'an important' 搭配。'update' 作为名词表示'更新'，符合语境。'updates' 是复数形式，与 'an' 不搭配；'updated' 是形容词或过去分词；'updating' 是动名词，均不合适。",
+        "skill_tag": "reading_detail",
+        "difficulty": "B1",
+        "vocabulary": [
+              "policy",
+              "remote",
+              "supervisor",
+              "compliance",
+              "productivity"
+        ]
+  },
+  {
+        "id": "p6-gen-010",
+        "part": "Part 6",
+        "passage": "Dear Team,\n\nI am writing to inform you about an important ____(A)____ to our company’s remote work policy, effective from March 1, 2024. ____(B)____, all employees working from home must submit a weekly progress report to their direct supervisor. This report should include a summary of completed tasks and any challenges encountered. In addition, we are requiring everyone to attend a brief training session ____(C)____ the new reporting system on February 25. Please note that failure to comply with these new guidelines may result in a review of your remote work arrangement. We believe these changes will improve communication and productivity. Thank you for your cooperation ____(D)____ this transition.\n\nBest regards,\nJane Smith\nHR Department",
+        "question": "____(B)____",
+        "choices": {
+              "A": "However",
+              "B": "Specifically",
+              "C": "Therefore",
+              "D": "Furthermore"
+        },
+        "answer": "B",
+        "explanation_zh": "前文提到政策更新，后文具体说明新要求。'Specifically' 表示'具体来说'，用于引出细节，符合逻辑关系。'However' 表转折，'Therefore' 表结果，'Furthermore' 表递进，均不符合此处上下文。",
+        "skill_tag": "reading_detail",
+        "difficulty": "B1",
+        "vocabulary": [
+              "policy",
+              "remote",
+              "supervisor",
+              "compliance",
+              "productivity"
+        ]
+  },
+  {
+        "id": "p6-gen-011",
+        "part": "Part 6",
+        "passage": "Dear Team,\n\nI am writing to inform you about an important ____(A)____ to our company’s remote work policy, effective from March 1, 2024. ____(B)____, all employees working from home must submit a weekly progress report to their direct supervisor. This report should include a summary of completed tasks and any challenges encountered. In addition, we are requiring everyone to attend a brief training session ____(C)____ the new reporting system on February 25. Please note that failure to comply with these new guidelines may result in a review of your remote work arrangement. We believe these changes will improve communication and productivity. Thank you for your cooperation ____(D)____ this transition.\n\nBest regards,\nJane Smith\nHR Department",
+        "question": "____(C)____",
+        "choices": {
+              "A": "for",
+              "B": "about",
+              "C": "on",
+              "D": "at"
+        },
+        "answer": "C",
+        "explanation_zh": "'a training session on something' 是固定搭配，表示'关于某主题的培训课程'。'on' 在此表示主题或内容。'for' 表示目的，'about' 虽可表示关于但不如 'on' 正式，'at' 表示地点，均不合适。",
+        "skill_tag": "reading_detail",
+        "difficulty": "B1",
+        "vocabulary": [
+              "policy",
+              "remote",
+              "supervisor",
+              "compliance",
+              "productivity"
+        ]
+  },
+  {
+        "id": "p6-gen-012",
+        "part": "Part 6",
+        "passage": "Dear Team,\n\nI am writing to inform you about an important ____(A)____ to our company’s remote work policy, effective from March 1, 2024. ____(B)____, all employees working from home must submit a weekly progress report to their direct supervisor. This report should include a summary of completed tasks and any challenges encountered. In addition, we are requiring everyone to attend a brief training session ____(C)____ the new reporting system on February 25. Please note that failure to comply with these new guidelines may result in a review of your remote work arrangement. We believe these changes will improve communication and productivity. Thank you for your cooperation ____(D)____ this transition.\n\nBest regards,\nJane Smith\nHR Department",
+        "question": "____(D)____",
+        "choices": {
+              "A": "during",
+              "B": "while",
+              "C": "through",
+              "D": "throughout"
+        },
+        "answer": "A",
+        "explanation_zh": "'cooperation during this transition' 表示'在此过渡期间的合作'。'during' 表示在某个时间段内，符合语境。'while' 是连词，后面需接从句；'through' 强调从头到尾；'throughout' 强调整个期间，但不如 'during' 常见于此类表达。",
+        "skill_tag": "reading_detail",
+        "difficulty": "B1",
+        "vocabulary": [
+              "policy",
+              "remote",
+              "supervisor",
+              "compliance",
+              "productivity"
+        ]
   }
 ];
 

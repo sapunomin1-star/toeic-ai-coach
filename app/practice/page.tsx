@@ -90,14 +90,14 @@ export default function PracticePage() {
         <TaskRow
           emoji="💪"
           title="弱點補強"
-          desc={`${WEAK_COUNT} 題 · 詞性判斷 + 被動語態（優先）`}
+          desc={`${WEAK_COUNT} 題 · 依錯題分析自動挑選最弱文法`}
           tag="Part 5"
           tagColor="rose"
         />
         <TaskRow
           emoji="📝"
           title="新題練習"
-          desc={`${NEW_COUNT} 題 · 時態 / 介系詞 / 連接詞 / 商務單字`}
+          desc={`${NEW_COUNT} 題 · 被動 / 詞性 / 時態 / 介系詞 / 連接詞 / 代名詞 / 關係子句 / 商務單字`}
           tag="Part 5"
           tagColor="indigo"
         />
@@ -113,14 +113,14 @@ export default function PracticePage() {
         <TaskRow
           emoji="🎧"
           title="Part 3 / 4 聽力"
-          desc={`${LISTENING_COUNT} 題 · 主旨 / 推論 / 下一步 （含 Transcript）`}
+          desc={`${LISTENING_COUNT} 題 · 主旨 / 推論 / 下一步行動`}
           tag="聽力"
           tagColor="violet"
         />
         <TaskRow
           emoji="📄"
-          title="Part 7 短閱讀"
-          desc={`${READING_COUNT} 題 · email / notice / ad / memo 等短文`}
+          title="Part 7 閱讀測驗"
+          desc={`${READING_COUNT} 題 · 主旨 / 細節定位 / 推論（含短文 passage）`}
           tag="閱讀"
           tagColor="amber"
         />
