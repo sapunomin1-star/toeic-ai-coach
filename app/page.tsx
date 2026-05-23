@@ -92,6 +92,23 @@ export default function Home() {
       >
         查看個人教練報告 →
       </Link>
+
+      {/* Mock test entry */}
+      <section className="rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 p-4 text-white shadow-md">
+        <div className="flex items-center justify-between">
+          <div>
+            <p className="text-xs uppercase tracking-widest text-slate-400">Mock Test</p>
+            <p className="mt-1 text-sm font-bold">模擬考</p>
+            <p className="mt-0.5 text-xs text-slate-400">100 題 · 75 分鐘 · 完整 Reading</p>
+          </div>
+          <Link
+            href="/mock-test"
+            className="rounded-xl bg-white px-4 py-2 text-xs font-bold text-slate-900 active:scale-[0.98]"
+          >
+            進入 →
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }
