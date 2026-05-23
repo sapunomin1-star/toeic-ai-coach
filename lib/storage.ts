@@ -47,12 +47,23 @@ function readJSON<T>(key: string, fallback: T): T {
   }
 }
 
-function writeJSON<T>(key: string, value: T): void {
-  if (!isBrowser()) return;
+function writeJSON<T>(key: string, value: T): boolean {
+  if (!isBrowser()) return true;
   try {
     localStorage.setItem(key, JSON.stringify(value));
+    return true;
   } catch (e) {
     console.warn(`[storage] Failed to write "${key}":`, e);
+    if (
+      e instanceof DOMException &&
+      (e.name === "QuotaExceededError" || e.code === 22)
+    ) {
+      alert(
+        "儲存空間已滿，請匯出學習資料後清除舊紀錄。\n\n" +
+          "請至 Dashboard → 清除所有學習紀錄"
+      );
+    }
+    return false;
   }
 }
 
@@ -112,12 +123,64 @@ export function clearAllProgress(): void {
   }
 }
 
+// ─── Backup / Restore ────────────────────────────────────────────────────────
+
+export const BACKUP_KEYS = [
+  ANSWER_KEY,
+  DAILY_PLAN_KEY,
+  WRONG_STATUS_KEY,
+  WRONG_PRACTICE_PLAN_KEY,
+  "toeic_vocabulary_progress_v1",
+  "toeic_mock_results_v1",
+] as const;
+
+export function exportAllData(): string | null {
+  if (!isBrowser()) return null;
+  try {
+    const snapshot: Record<string, unknown> = {};
+    for (const key of BACKUP_KEYS) {
+      const raw = localStorage.getItem(key);
+      snapshot[key] = raw ? JSON.parse(raw) : null;
+    }
+    snapshot._exportedAt = new Date().toISOString();
+    return JSON.stringify(snapshot, null, 2);
+  } catch (e) {
+    console.warn("[storage] Failed to export data:", e);
+    return null;
+  }
+}
+
+export function importAllData(json: string): boolean {
+  if (!isBrowser()) return false;
+  try {
+    const snapshot = JSON.parse(json);
+    if (typeof snapshot !== "object" || !snapshot._exportedAt) {
+      alert("匯入失敗：檔案格式不符。");
+      return false;
+    }
+    let count = 0;
+    for (const key of BACKUP_KEYS) {
+      if (snapshot[key] !== undefined) {
+        localStorage.setItem(key, JSON.stringify(snapshot[key]));
+        count++;
+      }
+    }
+    alert(`已匯入 ${count} 筆資料。請重新整理頁面。`);
+    return true;
+  } catch (e) {
+    console.warn("[storage] Failed to import data:", e);
+    alert("匯入失敗：無法解析檔案。");
+    return false;
+  }
+}
+
 // ─── Wrong-book status (spaced repetition) ────────────────────────────────
 
 export type WrongStatusEntry = {
   status: WrongBookStatus;
   consecutiveCorrect: number;
   dismissed?: boolean;
+  dismissedAt?: string;
 };
 
 export type WrongStatusMap = Record<string, WrongStatusEntry>;
@@ -160,8 +223,46 @@ export function removeSingleWrong(questionId: string): void {
     consecutiveCorrect: 0,
   };
   entry.dismissed = true;
+  entry.dismissedAt = new Date().toISOString();
   map[questionId] = entry;
-  writeJSON(WRONG_STATUS_KEY, map);
+  writeJSON(WRONG_STATUS_KEY, pruneDismissed(map));
+}
+
+// ─── Pruning ─────────────────────────────────────────────────────────────────
+
+const MAX_DISMISSED_AGE_MS = 90 * 24 * 60 * 60 * 1000; // 90 days
+const MAX_STATUS_ENTRIES = 500;
+
+function pruneDismissed(map: WrongStatusMap): WrongStatusMap {
+  const now = Date.now();
+  const keys = Object.keys(map);
+  if (keys.length <= MAX_STATUS_ENTRIES) {
+    // Only prune by age
+    for (const key of keys) {
+      const entry = map[key];
+      if (
+        entry.dismissed &&
+        entry.dismissedAt &&
+        now - new Date(entry.dismissedAt).getTime() > MAX_DISMISSED_AGE_MS
+      ) {
+        delete map[key];
+      }
+    }
+    return map;
+  }
+  // Over cap: remove oldest dismissed first, then drop excess
+  const sorted = keys
+    .map((k) => ({ k, e: map[k] }))
+    .sort((a, b) => {
+      const aDismissed = a.e.dismissed ? 1 : 0;
+      const bDismissed = b.e.dismissed ? 1 : 0;
+      if (aDismissed !== bDismissed) return aDismissed - bDismissed; // dismissed first
+      return 0; // stable
+    });
+  for (const { k } of sorted.slice(MAX_STATUS_ENTRIES)) {
+    delete map[k];
+  }
+  return map;
 }
 
 export function clearWrongAnswers(): void {

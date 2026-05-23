@@ -215,6 +215,10 @@ Items fixed in this pass:
 - `passage_group_id` globally unique across files via module-level `groupIndexes` in `mark-groups.ts` ✅
 - `vocabularyStorage.ts` regex escape (`escapeRegExp` in `makeFillBlank`) ✅
 - `clearAllProgress` now also clears mock data ✅
+- localStorage `QuotaExceededError` protection with user-facing alert ✅
+- Data export/import (backup/restore) via Dashboard ✅
+- Wrong-book dismissed entries pruned (90-day age limit, 500-entry cap) ✅
+- `getTomorrowRecommendation` Part 6 stats now exclude mock data ✅
 
 ### Data Integrity Rules
 
@@ -245,7 +249,7 @@ Items fixed in this pass:
 - **Never change localStorage key names without migration.** Current keys: `toeic_answer_records_v1`, `toeic_daily_plan_v1`, `toeic_wrong_status_v1`, `toeic_wrong_practice_plan_v1`, `toeic_vocabulary_progress_v1`, `toeic_mock_session_v1`, `toeic_mock_results_v1`.
 - **Always catch QuotaExceededError.** localStorage is limited to 5-10MB. Silent failure = data loss.
 - **Mock test answers do NOT go to `toeic_answer_records_v1`** unless the user actually answered AND got it wrong. Null answers stay in mock session only.
-- **Wrong-book dismissed entries accumulate forever.** Consider pruning entries older than N days with `dismissed: true`.
+- **Wrong-book dismissed entries are pruned.** Entries with `dismissed: true` are removed after 90 days. Status map is capped at 500 entries, with dismissed entries evicted first.
 
 ### Testing Rules
 

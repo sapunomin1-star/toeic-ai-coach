@@ -25,7 +25,7 @@ import {
   getTomorrowRecommendation,
   summarize,
 } from "@/lib/analysis";
-import { clearAllProgress, getAnswerRecords } from "@/lib/storage";
+import { clearAllProgress, exportAllData, importAllData, getAnswerRecords } from "@/lib/storage";
 import { getMockResults } from "@/lib/mockStorage";
 import type { MockTestResult } from "@/types/mock";
 import {
@@ -72,6 +72,39 @@ export default function DashboardPage() {
     if (!ok) return;
     clearAllProgress();
     setRecords([]);
+  }
+
+  function handleExport() {
+    const json = exportAllData();
+    if (!json) {
+      alert("匯出失敗，請稍後再試。");
+      return;
+    }
+    const blob = new Blob([json], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `toeic-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function handleImport() {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = ".json";
+    input.onchange = () => {
+      const file = input.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (typeof reader.result === "string") {
+          importAllData(reader.result);
+        }
+      };
+      reader.readAsText(file);
+    };
+    input.click();
   }
 
   const safeRecords = useMemo(() => records ?? [], [records]);
@@ -650,6 +683,26 @@ export default function DashboardPage() {
           查看錯題本
         </Link>
       </div>
+
+      {/* Backup */}
+      <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        <h2 className="mb-2 text-sm font-semibold">資料備份</h2>
+        <p className="text-xs text-slate-500">匯出學習紀錄為 JSON 檔案，可匯入到其他裝置。</p>
+        <div className="mt-3 grid grid-cols-2 gap-3">
+          <button
+            onClick={handleExport}
+            className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-xs font-medium text-slate-700 active:bg-slate-50"
+          >
+            匯出備份
+          </button>
+          <button
+            onClick={handleImport}
+            className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-xs font-medium text-slate-700 active:bg-slate-50"
+          >
+            匯入備份
+          </button>
+        </div>
+      </section>
 
       {records.length > 0 && (
         <button

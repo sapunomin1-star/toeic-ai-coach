@@ -974,3 +974,50 @@ subsection to `AGENTS.md`, and formatting the dev log entry correctly.
 - Lazy-load `data/questions.ts`: The plan mentions splitting at 1000+ questions. Currently at 555 questions — not yet justified.
 - Wrong-book pruning: The audit noted "wrong-book dismissed entries accumulate forever." This requires a design decision about retention policy (N days) that should be made by the user.
 - `@/lib/mockStorage` dynamic import in non-hot path: Only used inside an event handler one level deep — low priority.
+
+## 2026-05-23 - Opus 4.7 Suggested Improvements
+
+### Purpose
+
+After the third-pass fixes, Claude Opus 4.7 (via OpenRouter) reviewed the
+codebase and suggested three additional improvements. All three were
+implemented.
+
+### Improvements
+
+1. **localStorage QuotaExceededError protection** (`lib/storage.ts`):
+   `writeJSON` now catches `DOMException` (QuotaExceededError / code 22) and
+   shows a user-facing alert directing them to Dashboard → clear records.
+   Return type changed from `void` to `boolean` so callers can handle failure.
+
+2. **Data export/import (backup/restore)** (`lib/storage.ts` +
+   `app/dashboard/page.tsx`): Added `exportAllData()` and `importAllData()`
+   functions covering all 6 localStorage keys. Dashboard now has a "資料備份"
+   section with export (JSON download) and import (file picker) buttons.
+
+3. **Wrong-book dismissed pruning** (`lib/storage.ts`): Added `dismissedAt`
+   timestamp to `WrongStatusEntry`. `removeSingleWrong` now sets `dismissedAt`
+   and calls `pruneDismissed()`. Pruning removes dismissed entries older than
+   90 days, and caps the status map at 500 entries (oldest dismissed evicted
+   first).
+
+4. **`getTomorrowRecommendation` excludeMock fix** (`lib/analysis.ts`):
+   The Part 6 mistake count in the recommendation text was using raw
+   `records` instead of `excludeMock(records)`. Fixed — the last remaining
+   function that wasn't filtering mock data.
+
+### Files Changed
+
+| File | Changes |
+|---|---|
+| `lib/storage.ts` | QuotaExceededError catch in writeJSON; exportAllData/importAllData; dismissedAt + pruneDismissed |
+| `app/dashboard/page.tsx` | Export/import UI (handlers + buttons) |
+| `lib/analysis.ts` | excludeMock in getTomorrowRecommendation Part 6 stats |
+| `AGENTS.md` | Updated Resolved section + localStorage pruning rule |
+| `DEVELOPMENT_LOG.md` | This entry |
+
+### Verification
+
+- `npm run lint`: 0 errors, 4 pre-existing pipeline warnings
+- `npm run build`: 9 static routes, TypeScript clean
+- `cd pipeline && npm run check`: 555 questions, PASSED

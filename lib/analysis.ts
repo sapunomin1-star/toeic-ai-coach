@@ -193,10 +193,11 @@ export function getTomorrowRecommendation(
     `明天請優先練 ${primary?.label}，加強相關題型。`;
 
   // If primary weakness is reading_detail, add Part 6-specific suggestion
-  const part6Mistakes = records.filter(
+  const dailyRecords = excludeMock(records);
+  const part6Mistakes = dailyRecords.filter(
     (r) => !r.isCorrect && isPart6Record(r)
   ).length;
-  const part6Total = records.filter((r) => isPart6Record(r)).length;
+  const part6Total = dailyRecords.filter((r) => isPart6Record(r)).length;
   let part6Note = "";
   if (part6Total > 0 && part6Mistakes > 0) {
     const pct = Math.round((part6Mistakes / part6Total) * 100);
