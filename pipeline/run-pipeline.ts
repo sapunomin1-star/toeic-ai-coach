@@ -15,6 +15,8 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 import { checkConfig } from "./src/config";
 import { matchDiversePatterns } from "./src/pattern-matcher";
+import { generatePart1 } from "./src/generator-part1";
+import { generatePart2 } from "./src/generator-part2";
 import { generatePart5 } from "./src/generator-part5";
 import { generatePart6 } from "./src/generator-part6";
 import { generatePart7 } from "./src/generator-part7";
@@ -34,14 +36,22 @@ import type {
 
 function parseArgs(): PipelineConfig {
   const args = process.argv.slice(2);
-  const partArg = args.find((a) => a.startsWith("--part="));
-  const countArg = args.find((a) => a.startsWith("--count="));
+  const getArgValue = (name: string): string | undefined => {
+    const equalsArg = args.find((a) => a.startsWith(`${name}=`));
+    if (equalsArg) return equalsArg.split("=")[1];
+    const idx = args.indexOf(name);
+    return idx >= 0 ? args[idx + 1] : undefined;
+  };
+  const partArg = getArgValue("--part");
+  const countArg = getArgValue("--count");
 
   const parts = partArg
-    ? partArg.split("=")[1].split(",")
+    ? partArg.split(",")
     : ["5", "6", "7"];
 
   const countMap: Record<string, number> = {
+    "1": 10,
+    "2": 10,
     "5": 20,
     "6": 2,
     "7": 5,
@@ -49,7 +59,7 @@ function parseArgs(): PipelineConfig {
 
   // --count=7:1 means Part 7, 1 passage
   if (countArg) {
-    const val = countArg.split("=")[1];
+    const val = countArg;
     if (val.includes(":")) {
       const [p, n] = val.split(":");
       if (p && n) countMap[p] = parseInt(n, 10);
@@ -120,7 +130,7 @@ async function run(): Promise<void> {
   console.log("========================================");
   console.log(`  Parts: ${args.part.join(", ")} | Dry run: ${args.dryRun}`);
   console.log(
-    `  Counts: P5=${args.count["5"]} P6=${args.count["6"]} P7=${args.count["7"]}`
+    `  Counts: P1=${args.count["1"]} P2=${args.count["2"]} P5=${args.count["5"]} P6=${args.count["6"]} P7=${args.count["7"]}`
   );
   console.log(
     `  Skip Kimi: ${args.skipKimi} | Skip Hy3: ${args.skipHy3}`
@@ -136,6 +146,31 @@ async function run(): Promise<void> {
   }
 
   const allGenerated: RawGeneratedQuestion[] = [];
+  const draftOnlyGenerated: RawGeneratedQuestion[] = [];
+
+  // ─── Part 1 ────────────────────────────────────────────────────────────
+  if (args.part.includes("1") && args.count["1"] > 0) {
+    console.log("── Part 1 Generation ──");
+    try {
+      const questions = await generatePart1(args.count["1"]);
+      console.log(`  Generated ${questions.length} draft questions`);
+      draftOnlyGenerated.push(...questions);
+    } catch (e) {
+      console.error(`  Error: ${(e as Error).message.slice(0, 300)}`);
+    }
+  }
+
+  // ─── Part 2 ────────────────────────────────────────────────────────────
+  if (args.part.includes("2") && args.count["2"] > 0) {
+    console.log("\n── Part 2 Generation ──");
+    try {
+      const questions = await generatePart2(args.count["2"]);
+      console.log(`  Generated ${questions.length} draft questions`);
+      draftOnlyGenerated.push(...questions);
+    } catch (e) {
+      console.error(`  Error: ${(e as Error).message.slice(0, 300)}`);
+    }
+  }
 
   // ─── Part 5 ────────────────────────────────────────────────────────────
   if (args.part.includes("5") && args.count["5"] > 0) {
@@ -230,7 +265,7 @@ async function run(): Promise<void> {
   console.log("========================================");
 
   const byPart = new Map<string, RawGeneratedQuestion[]>();
-  for (const q of allGenerated) {
+  for (const q of [...draftOnlyGenerated, ...allGenerated]) {
     const key = q.part ?? "Unknown";
     if (!byPart.has(key)) byPart.set(key, []);
     byPart.get(key)!.push(q);
@@ -239,10 +274,14 @@ async function run(): Promise<void> {
   for (const [part, qs] of byPart) {
     console.log(`  ${part}: ${qs.length} questions`);
   }
-  console.log(`  Total: ${allGenerated.length} questions`);
+  console.log(`  Total: ${draftOnlyGenerated.length + allGenerated.length} questions`);
   console.log("========================================\n");
 
   if (allGenerated.length === 0) {
+    if (draftOnlyGenerated.length > 0) {
+      console.log("Draft listening output saved to pipeline/output. No app data appended.");
+      return;
+    }
     console.log("No questions generated. Exiting.");
     return;
   }

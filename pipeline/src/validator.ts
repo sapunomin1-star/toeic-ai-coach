@@ -1,8 +1,17 @@
 import type { RawGeneratedQuestion, ValidationResult } from "./types";
 import type { Choice, SkillTag, Part, Difficulty } from "../../types/question";
 
-const VALID_PARTS: Part[] = ["Part 5", "Part 3", "Part 4", "Part 6", "Part 7"];
+const VALID_PARTS: Part[] = [
+  "Part 1",
+  "Part 2",
+  "Part 3",
+  "Part 4",
+  "Part 5",
+  "Part 6",
+  "Part 7",
+];
 const VALID_CHOICES: Choice[] = ["A", "B", "C", "D"];
+const VALID_PART2_CHOICES: Choice[] = ["A", "B", "C"];
 const VALID_DIFFICULTY: Difficulty[] = ["A2", "B1", "B2"];
 const VALID_SKILL_TAGS: SkillTag[] = [
   "passive_voice",
@@ -13,6 +22,8 @@ const VALID_SKILL_TAGS: SkillTag[] = [
   "pronoun",
   "relative_clause",
   "business_vocabulary",
+  "listening_photo",
+  "listening_response",
   "listening_main_idea",
   "listening_inference",
   "listening_next_action",
@@ -48,14 +59,19 @@ export function validateQuestion(
   }
 
   // Validate choices
-  for (const key of VALID_CHOICES) {
+  const requiredChoices = q.part === "Part 2" ? VALID_PART2_CHOICES : VALID_CHOICES;
+  for (const key of requiredChoices) {
     if (!q.choices![key] || typeof q.choices![key] !== "string") {
       errors.push(`[${q.id}] Missing or invalid choice: ${key}`);
     }
   }
+  if (q.part === "Part 2" && q.choices!.D !== undefined) {
+    errors.push(`[${q.id}] Part 2 choices.D must be undefined`);
+  }
 
   // Validate answer
-  if (!VALID_CHOICES.includes(q.answer!)) {
+  const validAnswers = q.part === "Part 2" ? VALID_PART2_CHOICES : VALID_CHOICES;
+  if (!validAnswers.includes(q.answer!)) {
     errors.push(`[${q.id}] Invalid answer: ${q.answer}`);
   }
 
@@ -105,6 +121,33 @@ export function validateQuestion(
       errors.push(
         `[${q.id}] Part 6 passage has no blanks (e.g. ____(A)____)`
       );
+    }
+  }
+
+  // Validate Part 1 listening/photo schema
+  if (q.part === "Part 1") {
+    if (!q.imageAlt || typeof q.imageAlt !== "string") {
+      errors.push(`[${q.id}] Part 1 requires imageAlt`);
+    }
+    const labels = ["(A)", "(B)", "(C)", "(D)"];
+    if (
+      !q.audioScript ||
+      typeof q.audioScript !== "string" ||
+      !labels.every((label) => q.audioScript!.includes(label))
+    ) {
+      errors.push(`[${q.id}] Part 1 requires audioScript with (A)/(B)/(C)/(D) statements`);
+    }
+  }
+
+  // Validate Part 2 listening response schema
+  if (q.part === "Part 2") {
+    const labels = ["Q:", "(A)", "(B)", "(C)"];
+    if (
+      !q.audioScript ||
+      typeof q.audioScript !== "string" ||
+      !labels.every((label) => q.audioScript!.includes(label))
+    ) {
+      errors.push(`[${q.id}] Part 2 requires audioScript with Q and (A)/(B)/(C) responses`);
     }
   }
 

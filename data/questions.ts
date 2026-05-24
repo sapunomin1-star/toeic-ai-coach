@@ -262,3 +262,90 @@ export function buildMockTestPlan(): Question[] {
   assertMockPlan(plan);
   return plan;
 }
+
+// ─── Listening Mock Test Plan ───────────────────────────────────────────────
+
+function groupByTranscript(questions: Question[]): Question[][] {
+  const groups = new Map<string, Question[]>();
+
+  for (const q of questions) {
+    if (!q.transcript) continue;
+    const key = `${q.part}:transcript:${q.transcript}`;
+    const group = groups.get(key) ?? [];
+    group.push(q);
+    groups.set(key, group);
+  }
+
+  return [...groups.values()].map((group) =>
+    [...group].sort(
+      (a, b) =>
+        (a.question_order ?? Number.MAX_SAFE_INTEGER) -
+        (b.question_order ?? Number.MAX_SAFE_INTEGER)
+    )
+  );
+}
+
+function assertListeningMockPlan(plan: Question[]): void {
+  const part1 = countPart(plan, "Part 1");
+  const part2 = countPart(plan, "Part 2");
+  const part3 = countPart(plan, "Part 3");
+  const part4 = countPart(plan, "Part 4");
+  const errors: string[] = [];
+
+  if (plan.length !== 100) errors.push(`總題數 ${plan.length}/100`);
+  if (part1 !== 6) errors.push(`Part 1 ${part1}/6`);
+  if (part2 !== 25) errors.push(`Part 2 ${part2}/25`);
+  if (part3 !== 39) errors.push(`Part 3 ${part3}/39`);
+  if (part4 !== 30) errors.push(`Part 4 ${part4}/30`);
+
+  if (errors.length > 0) {
+    throw new Error(`Listening mock test plan invalid:\n${errors.map((e) => `  - ${e}`).join("\n")}`);
+  }
+}
+
+/**
+ * Build a 100-question TOEIC listening mock test plan.
+ * Part 1 = 6, Part 2 = 25, Part 3 = 39 (13 groups × 3), Part 4 = 30 (10 groups × 3).
+ */
+export function buildListeningMockPlan(): Question[] {
+  const errors: string[] = [];
+
+  const part1Pool = shuffle(getQuestionsByPart("Part 1"));
+  if (part1Pool.length < 6) {
+    errors.push(`Part 1 只有 ${part1Pool.length}/6 題`);
+  }
+
+  const part2Pool = shuffle(getQuestionsByPart("Part 2"));
+  if (part2Pool.length < 25) {
+    errors.push(`Part 2 只有 ${part2Pool.length}/25 題`);
+  }
+
+  const part3Groups = groupByTranscript(getQuestionsByPart("Part 3")).filter(
+    (group) => group.length === 3
+  );
+  if (part3Groups.length < 13) {
+    errors.push(`Part 3 只有 ${part3Groups.length}/13 valid transcript groups`);
+  }
+
+  const part4Groups = groupByTranscript(getQuestionsByPart("Part 4")).filter(
+    (group) => group.length === 3
+  );
+  if (part4Groups.length < 10) {
+    errors.push(`Part 4 只有 ${part4Groups.length}/10 valid transcript groups`);
+  }
+
+  if (errors.length > 0) {
+    throw new Error(
+      `Listening mock test plan incomplete:\n${errors.map((e) => `  - ${e}`).join("\n")}`
+    );
+  }
+
+  const plan = [
+    ...part1Pool.slice(0, 6),
+    ...part2Pool.slice(0, 25),
+    ...shuffle(part3Groups).slice(0, 13).flat(),
+    ...shuffle(part4Groups).slice(0, 10).flat(),
+  ];
+  assertListeningMockPlan(plan);
+  return plan;
+}

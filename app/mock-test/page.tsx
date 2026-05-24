@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import AudioPlayer from "@/components/AudioPlayer";
 import { buildMockTestPlan, getQuestionById } from "@/data/questions";
 import { saveAnswer as saveDailyAnswer } from "@/lib/storage";
 import {
@@ -39,6 +40,7 @@ export default function MockTestPage() {
   const [remainingMs, setRemainingMs] = useState(DURATION_MS);
   const [result, setResult] = useState<MockTestResult | null>(null);
   const submittedRef = useRef(false);
+  const choiceKeys: Choice[] = ["A", "B", "C", "D"];
 
   // Resume session
   useEffect(() => {
@@ -207,6 +209,10 @@ export default function MockTestPage() {
       return <p className="py-10 text-center text-slate-500">找不到題目資料。</p>;
     }
 
+    const visibleChoices: Choice[] =
+      q.choices.D === undefined ? ["A", "B", "C"] : choiceKeys;
+    const questionText = q.question.trim() || "請聽音檔後選擇答案";
+
     return (
       <div className="flex min-h-screen flex-col">
         {/* Timer */}
@@ -238,23 +244,46 @@ export default function MockTestPage() {
 
         {/* Question */}
         <div className="flex-1 overflow-auto px-4 py-4">
+          {q.imageUrl && (
+            <div className="mb-4 overflow-hidden rounded-xl border border-slate-200 bg-white">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={q.imageUrl}
+                alt={q.imageAlt ?? "TOEIC listening question image"}
+                className="h-auto w-full object-cover"
+              />
+            </div>
+          )}
+
+          {q.audioUrl && (
+            <div className="mb-4">
+              <AudioPlayer key={q.audioUrl} src={q.audioUrl} autoPlay />
+            </div>
+          )}
+
           {q.passage && (
             <div className="mb-4 whitespace-pre-wrap rounded-xl border border-slate-200 bg-slate-50 p-3 text-xs leading-relaxed text-slate-700">
               {q.passage}
             </div>
           )}
 
-          <p className="text-sm font-medium text-slate-900">{currentIndex + 1}. {q.question}</p>
+          <p className="text-sm font-medium text-slate-900">{currentIndex + 1}. {questionText}</p>
 
           <div className="mt-3 space-y-2">
-            {(["A", "B", "C", "D"] as Choice[]).map((c) => {
+            {visibleChoices.map((c) => {
               const sel = answers[q.id] === c;
+              const choiceAudio = q.audioChoices?.[c];
               return (
-                <button key={c} onClick={() => pick(q.id, c)}
-                  aria-pressed={sel}
-                  className={`block w-full rounded-xl border px-4 py-3 text-left text-sm ${sel ? "border-indigo-300 bg-indigo-50 text-indigo-900" : "border-slate-200 bg-white text-slate-700"}`}>
-                  <span className="font-bold">{c}.</span> {q.choices[c]}
-                </button>
+                <div key={c} className="space-y-2">
+                  {choiceAudio && (
+                    <AudioPlayer key={choiceAudio} src={choiceAudio} allowReplay />
+                  )}
+                  <button onClick={() => pick(q.id, c)}
+                    aria-pressed={sel}
+                    className={`block w-full rounded-xl border px-4 py-3 text-left text-sm ${sel ? "border-indigo-300 bg-indigo-50 text-indigo-900" : "border-slate-200 bg-white text-slate-700"}`}>
+                    <span className="font-bold">{c}.</span> {q.choices[c]}
+                  </button>
+                </div>
               );
             })}
           </div>

@@ -45,7 +45,8 @@
 
 ## 題庫與 Pipeline
 
-- `data/questions.ts`: 主題庫 + 輔助函式（getQuestionsByPart, buildDailyPlan, buildMockTestPlan）
+- `data/questions.ts`: 題庫聚合 + 輔助函式（getQuestionsByPart, buildDailyPlan, buildMockTestPlan）
+- `data/questions-part5.ts` / `data/questions-part6.ts` / `data/questions-part7.ts` / `data/questions-listening.ts`: 拆檔後的題庫
 - `data/questions-generated.ts`: AI 生成題庫（import 到 QUESTIONS array）
 - `pipeline/`: RAG 題目生成 Pipeline（TypeScript, 獨立於 Next.js build）
 - `pipeline/src/mark-groups.ts`: Part 6/7 passage group 標記工具

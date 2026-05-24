@@ -84,7 +84,12 @@ export type RawGeneratedQuestion = {
   id: string;
   part: Part;
   question: string;
-  choices: Record<Choice, string>;
+  choices: {
+    A: string;
+    B: string;
+    C: string;
+    D?: string;
+  };
   answer: Choice;
   explanation_zh: string;
   explanation_en?: string;
@@ -93,6 +98,16 @@ export type RawGeneratedQuestion = {
   vocabulary: string[];
   transcript?: string;
   passage?: string;
+  imageUrl?: string;
+  imageAlt?: string;
+  audioUrl?: string;
+  audioChoices?: {
+    A: string;
+    B: string;
+    C: string;
+    D?: string;
+  };
+  audioScript?: string;
 };
 
 export type GenerationResult = {

@@ -7,6 +7,8 @@ export type SkillTag =
   | "pronoun"
   | "relative_clause"
   | "business_vocabulary"
+  | "listening_photo"
+  | "listening_response"
   | "listening_main_idea"
   | "listening_inference"
   | "listening_next_action"
@@ -15,10 +17,18 @@ export type SkillTag =
   | "reading_inference";
 
 export type Choice = "A" | "B" | "C" | "D";
+export type Part2Choice = "A" | "B" | "C";
 
 export type Difficulty = "A2" | "B1" | "B2";
 
-export type Part = "Part 5" | "Part 3" | "Part 4" | "Part 6" | "Part 7";
+export type Part =
+  | "Part 1"
+  | "Part 2"
+  | "Part 3"
+  | "Part 4"
+  | "Part 5"
+  | "Part 6"
+  | "Part 7";
 
 export type WrongBookStatus = "new" | "reviewing" | "improving" | "mastered";
 
@@ -30,7 +40,7 @@ export type Question = {
     A: string;
     B: string;
     C: string;
-    D: string;
+    D?: string;
   };
   answer: Choice;
   explanation_zh: string;
@@ -44,6 +54,16 @@ export type Question = {
   passage_group_type?: "single" | "double" | "triple";
   passage_order?: number;
   question_order?: number;
+  imageUrl?: string;
+  imageAlt?: string;
+  audioUrl?: string;
+  audioChoices?: {
+    A: string;
+    B: string;
+    C: string;
+    D?: string;
+  };
+  audioScript?: string;
 };
 
 export type AnswerRecord = {
@@ -66,6 +86,8 @@ export const SKILL_LABELS: Record<SkillTag, string> = {
   pronoun: "代名詞",
   relative_clause: "關係子句",
   business_vocabulary: "商務單字",
+  listening_photo: "聽力照片題",
+  listening_response: "聽力應答題",
   listening_main_idea: "聽力主旨",
   listening_inference: "聽力推論",
   listening_next_action: "聽力下一步",

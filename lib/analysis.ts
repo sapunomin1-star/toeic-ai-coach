@@ -13,6 +13,8 @@ const PART5_SKILLS = new Set<SkillTag>([
 ]);
 
 export const LISTENING_SKILLS: SkillTag[] = [
+  "listening_photo",
+  "listening_response",
   "listening_main_idea",
   "listening_inference",
   "listening_next_action",
@@ -47,6 +49,8 @@ export function countMistakesBySkill(
     "pronoun",
     "business_vocabulary",
     "relative_clause",
+    "listening_photo",
+    "listening_response",
     "listening_main_idea",
     "listening_inference",
     "listening_next_action",
@@ -219,6 +223,14 @@ function isPart7Record(r: { questionId: string }): boolean {
   return r.questionId.startsWith("p7-");
 }
 
+function isPart1Record(r: { questionId: string }): boolean {
+  return r.questionId.startsWith("p1-");
+}
+
+function isPart2Record(r: { questionId: string }): boolean {
+  return r.questionId.startsWith("p2-");
+}
+
 // ─── Part 5 / Part 6 / Listening breakdown ──────────────────────────────────
 
 export function calculatePart5Accuracy(records: AnswerRecord[]): number {
@@ -227,6 +239,22 @@ export function calculatePart5Accuracy(records: AnswerRecord[]): number {
 
 export function countPart5Attempts(records: AnswerRecord[]): number {
   return excludeMock(records).filter((r) => PART5_SKILLS.has(r.skill_tag)).length;
+}
+
+export function calculatePart1Accuracy(records: AnswerRecord[]): number {
+  return calculateAccuracy(excludeMock(records).filter((r) => isPart1Record(r)));
+}
+
+export function countPart1Attempts(records: AnswerRecord[]): number {
+  return excludeMock(records).filter((r) => isPart1Record(r)).length;
+}
+
+export function calculatePart2Accuracy(records: AnswerRecord[]): number {
+  return calculateAccuracy(excludeMock(records).filter((r) => isPart2Record(r)));
+}
+
+export function countPart2Attempts(records: AnswerRecord[]): number {
+  return excludeMock(records).filter((r) => isPart2Record(r)).length;
 }
 
 export function calculateListeningAccuracy(records: AnswerRecord[]): number {
@@ -271,6 +299,24 @@ export function calculateListeningAvgTime(records: AnswerRecord[]): number {
 
 export function calculateReadingAvgTime(records: AnswerRecord[]): number {
   return calculateAvgResponseTime(excludeMock(records).filter((r) => isPart7Record(r)));
+}
+
+export function countPart1MistakesBySkill(
+  records: AnswerRecord[]
+): Record<SkillTag, number> {
+  const filtered = excludeMock(records);
+  const skills: SkillTag[] = ["listening_photo"];
+  const init = Object.fromEntries(
+    skills.map((skill) => [skill, 0])
+  ) as Record<SkillTag, number>;
+
+  for (const r of filtered) {
+    if (!r.isCorrect && isPart1Record(r) && skills.includes(r.skill_tag)) {
+      init[r.skill_tag] += 1;
+    }
+  }
+
+  return init;
 }
 
 export function countPart7MistakesBySkill(

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
+import AudioPlayer from "@/components/AudioPlayer";
 import { buildDailyPlan, getQuestionById } from "@/data/questions";
 import {
   clearDailyPlan,
@@ -213,6 +214,10 @@ export default function QuizPage() {
   const progress = ((cursor + (status === "answered" ? 1 : 0)) / total) * 100;
   const isAnswered = status === "answered";
   const isCorrect = submittedChoice === currentQuestion.answer;
+  const visibleChoices: Choice[] =
+    currentQuestion.choices.D === undefined ? ["A", "B", "C"] : CHOICES;
+  const questionText =
+    currentQuestion.question.trim() || "請聽音檔後選擇答案";
 
   return (
     <div className="space-y-4">
@@ -254,6 +259,21 @@ export default function QuizPage() {
         </div>
       </div>
 
+      {currentQuestion.imageUrl && (
+        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={currentQuestion.imageUrl}
+            alt={currentQuestion.imageAlt ?? "TOEIC listening question image"}
+            className="h-auto w-full object-cover"
+          />
+        </div>
+      )}
+
+      {currentQuestion.audioUrl && (
+        <AudioPlayer key={currentQuestion.audioUrl} src={currentQuestion.audioUrl} autoPlay />
+      )}
+
       {currentQuestion.passage && (
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 shadow-sm">
           <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-amber-700">
@@ -278,15 +298,16 @@ export default function QuizPage() {
 
       <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
         <p className="text-base leading-relaxed text-slate-900">
-          {currentQuestion.question}
+          {questionText}
         </p>
       </div>
 
       <ul className="space-y-2">
-        {CHOICES.map((c) => {
+        {visibleChoices.map((c) => {
           const isSelected = selected === c;
           const isCorrectChoice = c === currentQuestion.answer;
           const isUserChoice = submittedChoice === c;
+          const choiceAudio = currentQuestion.audioChoices?.[c];
 
           let classes =
             "w-full rounded-2xl border px-4 py-3 text-left text-sm transition active:scale-[0.99]";
@@ -305,7 +326,10 @@ export default function QuizPage() {
           }
 
           return (
-            <li key={c}>
+            <li key={c} className="space-y-2">
+              {choiceAudio && (
+                <AudioPlayer key={choiceAudio} src={choiceAudio} allowReplay />
+              )}
               <button
                 disabled={isAnswered}
                 onClick={() => setSelected(c)}

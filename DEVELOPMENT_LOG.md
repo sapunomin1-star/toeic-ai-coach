@@ -1021,3 +1021,62 @@ implemented.
 - `npm run lint`: 0 errors, 4 pre-existing pipeline warnings
 - `npm run build`: 9 static routes, TypeScript clean
 - `cd pipeline && npm run check`: 555 questions, PASSED
+
+## 2026-05-24 - Part 1/2 Infrastructure (Phase 0+1)
+
+### Scope
+
+- Split the in-source question bank into per-part files while keeping helper logic in `data/questions.ts`.
+- Added Part 1 / Part 2 to the question type system, plus `listening_photo` and `listening_response` skill tags.
+- Added optional image/audio fields for listening and photo questions.
+- Added native `AudioPlayer` infrastructure with TOEIC-style no-replay default.
+- Added quiz and mock-test rendering branches for listening audio, Part 1 images, per-choice audio, and Part 2 three-choice display.
+- Added Part 1/2 analysis helpers and a strict `buildListeningMockPlan()` skeleton.
+- Added Part 1/2 pipeline generator skeletons and validator rules for draft listening output.
+
+### Files Changed
+
+- `data/questions.ts`
+- `data/questions-part5.ts`
+- `data/questions-part6.ts`
+- `data/questions-part7.ts`
+- `data/questions-listening.ts`
+- `types/question.ts`
+- `lib/storage.ts`
+- `lib/analysis.ts`
+- `components/AudioPlayer.tsx`
+- `components/__sample__/audio-sample.tsx`
+- `public/audio/.gitkeep`
+- `app/quiz/page.tsx`
+- `app/mock-test/page.tsx`
+- `pipeline/src/types.ts`
+- `pipeline/src/validator.ts`
+- `pipeline/src/generator-part1.ts`
+- `pipeline/src/generator-part2.ts`
+- `pipeline/run-pipeline.ts`
+- `AGENTS.md`
+- `README.md`
+- `DEVELOPMENT_LOG.md`
+
+### What's NOT done in this pass
+
+- No Part 1/2 question content generated or inserted.
+- No DeepSeek API call executed.
+- No Vercel Blob, database, login, cloud sync, payment, or storage backend added.
+- Dashboard Part 1/2 sections were not added because the bank still has 0 Part 1/2 questions.
+- Mock-test route was made render-safe for listening media, but it still starts the existing reading mock plan.
+- No audio or image binary files were committed.
+
+### Verification
+
+- `npm run lint`: 0 errors, 4 pre-existing pipeline warnings
+- `npm run build`: 9 static routes, TypeScript clean
+- `cd pipeline && npm run check`: 555 questions, PASSED
+- `buildMockTestPlan()` × 20 runs: PASSED
+- `buildListeningMockPlan()` throw sanity: PASSED (`Part 1` shortage surfaced)
+- `tsx src/generator-part1.ts --help`: import smoke test PASSED
+- `tsx src/generator-part2.ts --help`: import smoke test PASSED
+
+### Next step
+
+DeepSeek generates sample Part 1/2 content into `pipeline/output/`, humans QA the drafts, then approved items are manually written into `data/questions-listening.ts` or `data/questions-generated.ts`.

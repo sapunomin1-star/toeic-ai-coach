@@ -23,6 +23,8 @@ const SKILL_TAGS = [
   "pronoun",
   "relative_clause",
   "business_vocabulary",
+  "listening_photo",
+  "listening_response",
   "listening_main_idea",
   "listening_inference",
   "listening_next_action",
