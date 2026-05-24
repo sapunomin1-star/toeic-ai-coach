@@ -3063,5 +3063,281 @@ export const QUESTIONS_LISTENING: Question[] = [
       "cybersecurity",
       "implement"
     ]
+  },
+  // ─── Part 3 (Conversations) — generated 2026-05-24 via DeepSeek v4 Pro, QA passed (4 groups × 3 questions) ───
+  {
+    "id": "p3-gen-001",
+    "part": "Part 3",
+    "skill_tag": "listening_main_idea",
+    "difficulty": "A2",
+    "transcript": "M: Sarah, are we still on for the project review this Thursday at two?\nW: Actually, I was just about to email you. Mr. Chen can't make it on Thursday afternoon. He suggested we move it to Friday morning instead.\nM: Friday morning works for me. What time exactly?\nW: He is available from ten to noon. Would ten o'clock work for you?\nM: Ten is perfect. I will update the calendar invitation and let everyone know.\nW: Great, thanks. I will also send Mr. Chen the revised agenda by Wednesday evening.",
+    "question": "What is the conversation mainly about?",
+    "choices": {
+      "A": "Rescheduling a project review meeting to Friday morning",
+      "B": "Planning a completely new project timeline",
+      "C": "Discussing Mr. Chen's recent presentation feedback",
+      "D": "Organizing a team lunch for Thursday afternoon"
+    },
+    "answer": "A",
+    "explanation_zh": "對話的主軸是 Sarah 和男同事在討論將週四下午的專案審查會議改到週五早上，因此 (A) 為正確答案。(B) 的「全新專案時程」未在對話中提及。(C) 的「簡報回饋」與對話內容無關。(D) 將「會議」誤植為「午餐」，屬於錯誤主題。",
+    "vocabulary": [
+      "rescheduling",
+      "project",
+      "review",
+      "thursday",
+      "friday"
+    ]
+  },
+  {
+    "id": "p3-gen-002",
+    "part": "Part 3",
+    "skill_tag": "listening_inference",
+    "difficulty": "B1",
+    "transcript": "M: Sarah, are we still on for the project review this Thursday at two?\nW: Actually, I was just about to email you. Mr. Chen can't make it on Thursday afternoon. He suggested we move it to Friday morning instead.\nM: Friday morning works for me. What time exactly?\nW: He is available from ten to noon. Would ten o'clock work for you?\nM: Ten is perfect. I will update the calendar invitation and let everyone know.\nW: Great, thanks. I will also send Mr. Chen the revised agenda by Wednesday evening.",
+    "question": "When was the meeting originally scheduled?",
+    "choices": {
+      "A": "Friday at ten in the morning",
+      "B": "Thursday at two in the afternoon",
+      "C": "Wednesday evening at seven",
+      "D": "Thursday at ten in the morning"
+    },
+    "answer": "B",
+    "explanation_zh": "對話開頭男性詢問「this Thursday at two」，可知會議原訂週四下午兩點，因此 (B) 正確。(A) 是更改後的新時間而非原訂時間。(C) 是 Sarah 預計發送修訂議程的時間，與原訂會議時間無關。(D) 的日期正確但時間錯誤，混淆了新的早上十點和原訂的下午兩點。",
+    "vocabulary": [
+      "originally",
+      "scheduled",
+      "two",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "p3-gen-003",
+    "part": "Part 3",
+    "skill_tag": "listening_next_action",
+    "difficulty": "B1",
+    "transcript": "M: Sarah, are we still on for the project review this Thursday at two?\nW: Actually, I was just about to email you. Mr. Chen can't make it on Thursday afternoon. He suggested we move it to Friday morning instead.\nM: Friday morning works for me. What time exactly?\nW: He is available from ten to noon. Would ten o'clock work for you?\nM: Ten is perfect. I will update the calendar invitation and let everyone know.\nW: Great, thanks. I will also send Mr. Chen the revised agenda by Wednesday evening.",
+    "question": "What will the woman probably do next?",
+    "choices": {
+      "A": "Cancel the meeting with Mr. Chen entirely",
+      "B": "Book a conference room for Thursday afternoon",
+      "C": "Send the revised agenda to Mr. Chen by Wednesday evening",
+      "D": "Call everyone to confirm the original Thursday meeting time"
+    },
+    "answer": "C",
+    "explanation_zh": "女性在對話結尾明確說「I will also send Mr. Chen the revised agenda by Wednesday evening」，因此 (C) 為正確答案。(A) 與對話內容矛盾，會議並未被取消。(B) 的時間錯誤，會議已改至週五而非週四。(D) 與對話不符，原訂時間已確認要更改而非確認不變。",
+    "vocabulary": [
+      "revised",
+      "agenda",
+      "wednesday",
+      "send",
+      "evening"
+    ]
+  },
+  {
+    "id": "p3-gen-004",
+    "part": "Part 3",
+    "skill_tag": "listening_main_idea",
+    "difficulty": "A2",
+    "transcript": "M: Hello, this is David from Summit Supplies. I am calling about order number four five two one. It was supposed to arrive yesterday, but we have not received anything yet.\nW: I apologize for the delay, Mr. Davis. Let me check the tracking for you now. It looks like the shipment was held at the distribution center due to a system error with the shipping labels.\nM: I see. When can we expect delivery then?\nW: They have already corrected the issue. Your order should arrive by tomorrow afternoon at the latest.\nM: All right, thank you for looking into it.",
+    "question": "What is the conversation mainly about?",
+    "choices": {
+      "A": "Placing a new order with Summit Supplies",
+      "B": "Returning damaged items from a recent shipment",
+      "C": "Negotiating a long-term delivery contract",
+      "D": "Checking on the status of a delayed delivery order"
+    },
+    "answer": "D",
+    "explanation_zh": "對話中 David 致電詢問未準時送達的訂單狀況，客服人員查詢後告知延遲原因及預計送達時間，因此 (D) 正確。(A) 的「下新訂單」與對話內容相反，是查詢既有訂單。(B) 的「退貨」未在對話中提及。(C) 的「協商合約」與對話主題無關。",
+    "vocabulary": [
+      "order",
+      "delayed",
+      "delivery",
+      "shipment",
+      "tracking"
+    ]
+  },
+  {
+    "id": "p3-gen-005",
+    "part": "Part 3",
+    "skill_tag": "listening_inference",
+    "difficulty": "B1",
+    "transcript": "M: Hello, this is David from Summit Supplies. I am calling about order number four five two one. It was supposed to arrive yesterday, but we have not received anything yet.\nW: I apologize for the delay, Mr. Davis. Let me check the tracking for you now. It looks like the shipment was held at the distribution center due to a system error with the shipping labels.\nM: I see. When can we expect delivery then?\nW: They have already corrected the issue. Your order should arrive by tomorrow afternoon at the latest.\nM: All right, thank you for looking into it.",
+    "question": "According to the woman, what caused the delay?",
+    "choices": {
+      "A": "A system error with the shipping labels",
+      "B": "Severe weather at the regional distribution center",
+      "C": "The order number was entered incorrectly by the customer",
+      "D": "The delivery truck broke down on the highway"
+    },
+    "answer": "A",
+    "explanation_zh": "女性明確說延遲原因是「a system error with the shipping labels」，因此 (A) 正確。(B) 的「惡劣天氣」未在對話中提及。(C) 將錯誤歸咎於顧客輸入錯誤，但對話中指出是系統錯誤。(D) 的「貨車拋錨」為對話中未出現的虛構細節。",
+    "vocabulary": [
+      "system",
+      "error",
+      "shipping",
+      "labels",
+      "distribution"
+    ]
+  },
+  {
+    "id": "p3-gen-006",
+    "part": "Part 3",
+    "skill_tag": "listening_next_action",
+    "difficulty": "B1",
+    "transcript": "M: Hello, this is David from Summit Supplies. I am calling about order number four five two one. It was supposed to arrive yesterday, but we have not received anything yet.\nW: I apologize for the delay, Mr. Davis. Let me check the tracking for you now. It looks like the shipment was held at the distribution center due to a system error with the shipping labels.\nM: I see. When can we expect delivery then?\nW: They have already corrected the issue. Your order should arrive by tomorrow afternoon at the latest.\nM: All right, thank you for looking into it.",
+    "question": "What will the man most likely do next?",
+    "choices": {
+      "A": "Cancel the order and request a full refund immediately",
+      "B": "Wait for the shipment to arrive by tomorrow afternoon",
+      "C": "Drive to the distribution center to pick up the order",
+      "D": "Place a replacement order with a different supplier"
+    },
+    "answer": "B",
+    "explanation_zh": "女性告知貨物最遲明天下午送達後，男性回應「All right, thank you」，表示接受此安排，因此 (B) 他將等待貨物送達為正確答案。(A) 與對話內容矛盾，他並未要求取消或退款。(C) 的「親自取貨」未在對話中提及。(D) 的「更換供應商」為過度推論。",
+    "vocabulary": [
+      "shipment",
+      "arrive",
+      "tomorrow",
+      "afternoon",
+      "latest"
+    ]
+  },
+  {
+    "id": "p3-gen-007",
+    "part": "Part 3",
+    "skill_tag": "listening_main_idea",
+    "difficulty": "A2",
+    "transcript": "M1: Lisa, did you prepare the onboarding materials for the new marketing analyst starting Monday?\nW: Yes, I put together the welcome packet and the training schedule. I also reserved the conference room for orientation at nine in the morning.\nM1: Good. Have you set up their email account and system access yet?\nW: Not yet. I am waiting for IT to confirm the laptop is ready before I submit the access request.\nM2: I can help with that. I will stop by IT this afternoon and check on the laptop for you.\nW: That would be very helpful, thanks Mark.",
+    "question": "What is the conversation mainly about?",
+    "choices": {
+      "A": "Ordering new laptops for the entire marketing department",
+      "B": "Scheduling an IT training session for current employees",
+      "C": "Preparing for a new marketing analyst who starts on Monday",
+      "D": "Interviewing several candidates for an analyst position"
+    },
+    "answer": "C",
+    "explanation_zh": "三人對話圍繞著為週一報到的新行銷分析師準備入職資料、訓練行程及系統權限，因此 (C) 正確。(A) 的「訂購整個部門的筆電」過度擴大範圍。(B) 的「IT 訓練課程」與入職準備主題不符。(D) 的「面試候選人」時態錯誤，新人已錄取而非尚在面試階段。",
+    "vocabulary": [
+      "onboarding",
+      "analyst",
+      "orientation",
+      "laptop",
+      "monday"
+    ]
+  },
+  {
+    "id": "p3-gen-008",
+    "part": "Part 3",
+    "skill_tag": "listening_inference",
+    "difficulty": "B2",
+    "transcript": "M1: Lisa, did you prepare the onboarding materials for the new marketing analyst starting Monday?\nW: Yes, I put together the welcome packet and the training schedule. I also reserved the conference room for orientation at nine in the morning.\nM1: Good. Have you set up their email account and system access yet?\nW: Not yet. I am waiting for IT to confirm the laptop is ready before I submit the access request.\nM2: I can help with that. I will stop by IT this afternoon and check on the laptop for you.\nW: That would be very helpful, thanks Mark.",
+    "question": "Why has the woman not set up the email account yet?",
+    "choices": {
+      "A": "She forgot to submit the access request form to IT",
+      "B": "The new employee has not provided the required personal documents",
+      "C": "The conference room reservation has not been confirmed yet.",
+      "D": "She is waiting for IT to confirm the laptop status."
+    },
+    "answer": "D",
+    "explanation_zh": "女性說「I am waiting for IT to confirm the laptop is ready before I submit the access request」，因此 (D) 正確。(A) 將原因歸咎於忘記提交表單，與對話內容不符。(B) 的「個人文件未提供」未在對話中提及。(C) 混淆了已完成的會議室預訂和尚未進行的系統權限設定。",
+    "vocabulary": [
+      "confirm",
+      "ready",
+      "access",
+      "submit",
+      "waiting"
+    ]
+  },
+  {
+    "id": "p3-gen-009",
+    "part": "Part 3",
+    "skill_tag": "listening_next_action",
+    "difficulty": "B1",
+    "transcript": "M1: Lisa, did you prepare the onboarding materials for the new marketing analyst starting Monday?\nW: Yes, I put together the welcome packet and the training schedule. I also reserved the conference room for orientation at nine in the morning.\nM1: Good. Have you set up their email account and system access yet?\nW: Not yet. I am waiting for IT to confirm the laptop is ready before I submit the access request.\nM2: I can help with that. I will stop by IT this afternoon and check on the laptop for you.\nW: That would be very helpful, thanks Mark.",
+    "question": "What will Mark probably do this afternoon?",
+    "choices": {
+      "A": "Visit the IT office to check on the laptop status",
+      "B": "Prepare the welcome packet for the new analyst",
+      "C": "Reserve a different conference room for the orientation",
+      "D": "Submit the system access request on behalf of Lisa"
+    },
+    "answer": "A",
+    "explanation_zh": "Mark 說「I will stop by IT this afternoon and check on the laptop」，因此 (A) 為正確答案。(B) 是 Lisa 已完成的工作，不是 Mark 的任務。(C) 的會議室 Lisa 已經預訂完畢，不需要更換。(D) 混淆了先確認筆電狀態和提交權限申請的先後順序。",
+    "vocabulary": [
+      "visit",
+      "check",
+      "laptop",
+      "status",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "p3-gen-010",
+    "part": "Part 3",
+    "skill_tag": "listening_main_idea",
+    "difficulty": "B1",
+    "transcript": "M: I spoke with the printing vendor. They said the brochure order will not be ready by this Friday as promised.\nW: That is a problem. We need those brochures for the trade show in Chicago next Wednesday. Why the delay?\nM: One of their printing machines broke down, and they are waiting for a replacement part.\nW: Can they send a partial shipment by Monday? We could take a smaller quantity to the show.\nM: Good idea. Let me call them now and ask about a partial shipment.\nW: Please do. I will also check if we can print emergency copies at the office.",
+    "question": "What is the conversation mainly about?",
+    "choices": {
+      "A": "Ordering a new printing machine for the office",
+      "B": "Dealing with a delayed brochure order before a trade show.",
+      "C": "Selecting a different printing vendor for future brochure projects",
+      "D": "Planning the travel arrangements for a trade show in Chicago"
+    },
+    "answer": "B",
+    "explanation_zh": "對話主軸是印刷廠商無法如期交付手冊，兩人討論如何應對以趕上下週三的貿易展，因此 (B) 正確。(A) 的「訂購新印刷機」混淆了延遲原因（機器故障）與主題。(C) 的「選擇新廠商」為過度推論，對話中並未討論更換廠商。(D) 的「差旅安排」與對話內容無關。",
+    "vocabulary": [
+      "brochure",
+      "vendor",
+      "delayed",
+      "tradeshow",
+      "chicago"
+    ]
+  },
+  {
+    "id": "p3-gen-011",
+    "part": "Part 3",
+    "skill_tag": "listening_inference",
+    "difficulty": "B2",
+    "transcript": "M: I spoke with the printing vendor. They said the brochure order will not be ready by this Friday as promised.\nW: That is a problem. We need those brochures for the trade show in Chicago next Wednesday. Why the delay?\nM: One of their printing machines broke down, and they are waiting for a replacement part.\nW: Can they send a partial shipment by Monday? We could take a smaller quantity to the show.\nM: Good idea. Let me call them now and ask about a partial shipment.\nW: Please do. I will also check if we can print emergency copies at the office.",
+    "question": "What caused the delay of the brochure order?",
+    "choices": {
+      "A": "The vendor received the wrong design files from the client",
+      "B": "The brochures were shipped to an incorrect address by mistake",
+      "C": "One of the vendor's printing machines broke down unexpectedly",
+      "D": "The order was placed too late to meet the deadline."
+    },
+    "answer": "C",
+    "explanation_zh": "男性明確指出「One of their printing machines broke down」，因此 (C) 正確。(A) 的「錯誤設計檔」未在對話中提及。(B) 的「寄送地址錯誤」為虛構的細節。(D) 的「訂單太晚送出」與對話內容矛盾，延遲原因是機器故障而非太晚下單。",
+    "vocabulary": [
+      "printing",
+      "machines",
+      "broke",
+      "replacement",
+      "part"
+    ]
+  },
+  {
+    "id": "p3-gen-012",
+    "part": "Part 3",
+    "skill_tag": "listening_next_action",
+    "difficulty": "B2",
+    "transcript": "M: I spoke with the printing vendor. They said the brochure order will not be ready by this Friday as promised.\nW: That is a problem. We need those brochures for the trade show in Chicago next Wednesday. Why the delay?\nM: One of their printing machines broke down, and they are waiting for a replacement part.\nW: Can they send a partial shipment by Monday? We could take a smaller quantity to the show.\nM: Good idea. Let me call them now and ask about a partial shipment.\nW: Please do. I will also check if we can print emergency copies at the office.",
+    "question": "What will the woman probably do next?",
+    "choices": {
+      "A": "Cancel the trade show registration for next Wednesday",
+      "B": "Wait for the vendor to deliver the brochures by Friday",
+      "C": "Contact a different printing company for a new brochure order",
+      "D": "Check whether emergency copies can be printed at the office"
+    },
+    "answer": "D",
+    "explanation_zh": "女性說「I will also check if we can print emergency copies at the office」，因此 (D) 正確。(A) 的「取消參展」為過度反應，對話中並未討論取消。(B) 與對話矛盾，廠商已告知週五無法如期交貨。(C) 的「聯繫另一家印刷公司」為過度推論，女性先選擇內部解決方案而非立即更換廠商。",
+    "vocabulary": [
+      "emergency",
+      "copies",
+      "print",
+      "office",
+      "partial"
+    ]
   }
 ];
