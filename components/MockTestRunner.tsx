@@ -14,6 +14,7 @@ import {
   clearMockSession,
   getMockDurationMs,
   getMockSession,
+  markAudioGroupPlayed,
   saveAnswer as saveMockAnswer,
   saveMockResult,
   startMockSession,
@@ -41,6 +42,31 @@ function defaultBreakdown(parts: MockPartKey[]): MockPartBreakdown {
   const init: MockPartBreakdown = {};
   for (const p of parts) init[p] = { correct: 0, total: 0 };
   return init;
+}
+
+/**
+ * Audio-group identity for the "no replay" mock rule:
+ * - Part 3/4: 3 questions share the same transcript → group by transcript string
+ * - Part 1/2: each question has its own audio → group by question id
+ *
+ * Once a group plays through (onEnded), it is persisted into the mock session
+ * so navigating back or refreshing the page does NOT re-trigger playback.
+ */
+function audioGroupKey(q: Question): string {
+  if ((q.part === "Part 3" || q.part === "Part 4") && q.transcript) {
+    return `${q.part}:${q.transcript}`;
+  }
+  return q.id;
+}
+
+/**
+ * For Part 1/2 in *listening* mock only: the on-screen `question` text and
+ * `choices` text ARE the spoken audio (e.g. Part 2's question stem +
+ * three responses). Showing them lets the student read instead of listen,
+ * which destroys the validity of the mock. Daily quiz mode is unaffected.
+ */
+function shouldHideTextForListening(mode: MockMode, q: Question): boolean {
+  return mode === "listening" && (q.part === "Part 1" || q.part === "Part 2");
 }
 
 type Config = {
@@ -98,6 +124,7 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
   const [remainingMs, setRemainingMs] = useState(config.durationMs);
   const [result, setResult] = useState<MockTestResult | null>(null);
   const [failedAudioIds, setFailedAudioIds] = useState<Set<string>>(new Set());
+  const [playedGroups, setPlayedGroups] = useState<Set<string>>(new Set());
   const submittedRef = useRef(false);
   const choiceKeys: Choice[] = ["A", "B", "C", "D"];
 
@@ -113,6 +140,7 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
           setQuestions(qs);
           setAnswers(session.answers ?? {});
           setEndTime(new Date(session.endTime).getTime());
+          setPlayedGroups(new Set(session.playedAudioGroups ?? []));
           setPhase("testing");
           return;
         }
@@ -128,10 +156,21 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
       setQuestions(plan);
       const session = startMockSession(plan.map((q) => q.id), mode);
       setEndTime(new Date(session.endTime).getTime());
+      setPlayedGroups(new Set());
       setPhase("testing");
     } catch (e) {
       alert((e as Error).message);
     }
+  }
+
+  function handleAudioEnded(groupKey: string) {
+    if (playedGroups.has(groupKey)) return;
+    setPlayedGroups((prev) => {
+      const next = new Set(prev);
+      next.add(groupKey);
+      return next;
+    });
+    markAudioGroupPlayed(groupKey, mode);
   }
 
   function pick(questionId: string, choice: Choice) {
@@ -278,6 +317,9 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
     const audioUrl = getAudioUrl(q);
     const mediaSupport = hasMediaSupport(q);
     const audioFailed = failedAudioIds.has(q.id);
+    const groupKey = audioGroupKey(q);
+    const audioAlreadyPlayed = playedGroups.has(groupKey);
+    const hideText = shouldHideTextForListening(mode, q);
 
     return (
       <div className="flex min-h-screen flex-col">
@@ -321,16 +363,21 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
             </div>
           )}
 
-          {audioUrl && !audioFailed ? (
+          {audioUrl && !audioFailed && !audioAlreadyPlayed ? (
             <div className="mb-4">
               <AudioPlayer
-                key={audioUrl}
+                key={`${audioUrl}-${groupKey}`}
                 src={audioUrl}
                 autoPlay
+                onEnded={() => handleAudioEnded(groupKey)}
                 onError={() =>
                   setFailedAudioIds((ids) => new Set(ids).add(q.id))
                 }
               />
+            </div>
+          ) : audioUrl && audioAlreadyPlayed ? (
+            <div className="mb-4 rounded-xl border border-slate-200 bg-slate-50 p-3 text-sm font-medium text-slate-600">
+              🔇 此段音檔已播放完畢，模擬考不可重播
             </div>
           ) : mediaSupport.audio ? (
             <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm font-medium text-amber-800">
@@ -348,7 +395,13 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
               For listening mock, the goal is real-exam simulation — students
               must rely on the audio alone, not read transcripts mid-test. */}
 
-          <p className="text-sm font-medium text-slate-900">{currentIndex + 1}. {questionText}</p>
+          {hideText ? (
+            <p className="text-sm font-medium text-slate-900">
+              {currentIndex + 1}. 請依音檔內容選擇答案
+            </p>
+          ) : (
+            <p className="text-sm font-medium text-slate-900">{currentIndex + 1}. {questionText}</p>
+          )}
 
           <div className="mt-3 space-y-2">
             {visibleChoices.map((c) => {
@@ -356,13 +409,16 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
               const choiceAudio = q.audioChoices?.[c];
               return (
                 <div key={c} className="space-y-2">
-                  {choiceAudio && (
+                  {/* In listening mock, never expose per-choice audio replay
+                      either — would let students re-hear individual responses. */}
+                  {choiceAudio && mode !== "listening" && (
                     <AudioPlayer key={choiceAudio} src={choiceAudio} allowReplay />
                   )}
                   <button onClick={() => pick(q.id, c)}
                     aria-pressed={sel}
                     className={`block w-full rounded-xl border px-4 py-3 text-left text-sm ${sel ? "border-indigo-300 bg-indigo-50 text-indigo-900" : "border-slate-200 bg-white text-slate-700"}`}>
-                    <span className="font-bold">{c}.</span> {q.choices[c]}
+                    <span className="font-bold">{c}.</span>
+                    {hideText ? null : <> {q.choices[c]}</>}
                   </button>
                 </div>
               );

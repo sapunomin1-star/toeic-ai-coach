@@ -411,65 +411,100 @@ const MIX_CAPS: Omit<NextDayListeningMix, "reason" | "boosted"> = {
 
 const MIN_ATTEMPTS_FOR_BOOST = 6;
 const WEAKNESS_THRESHOLD = 60; // accuracy %
+/**
+ * Sliding window: only the most-recent N attempts per part count for boost decisions.
+ * Kept small (10) so a recent slump is not diluted by old strong performance —
+ * Codex review showed window=20 let 100 old correct mask 6 recent wrong.
+ */
+const ADAPTIVE_RECENT_WINDOW = 10;
+
+/**
+ * Most-recent N non-mock attempts for a given listening part, ordered most-recent first.
+ * Sliding window so a student who used to do well but is recently slipping
+ * still gets adaptive boost.
+ */
+function recentListeningRecordsForPart(
+  records: AnswerRecord[],
+  part: 1 | 2 | 3 | 4,
+  limit: number = ADAPTIVE_RECENT_WINDOW,
+): AnswerRecord[] {
+  const prefix = `p${part}-`;
+  return excludeMock(records)
+    .filter((r) => r.questionId.startsWith(prefix))
+    .slice()
+    .sort((a, b) => b.answeredAt.localeCompare(a.answeredAt))
+    .slice(0, limit);
+}
+
+function accuracyPct(records: AnswerRecord[]): number {
+  if (records.length === 0) return 0;
+  const correct = records.filter((r) => r.isCorrect).length;
+  return (correct / records.length) * 100;
+}
 
 /**
  * Compute the suggested listening question mix for the next daily plan,
- * based on accuracy in the user's recent (non-mock) answers.
+ * based on accuracy in the user's most-recent non-mock answers per part.
  *
  * Default mix: 2 P1 + 3 P2 + 1 P3 group (3 Q) + 1 P4 group (3 Q) = 11 listening Q.
  *
- * If a part has ≥ MIN_ATTEMPTS_FOR_BOOST attempts and accuracy < WEAKNESS_THRESHOLD%,
- * that part is boosted by 1 (group or question, capped by MIX_CAPS).
+ * Each part is evaluated independently using a sliding window
+ * (last {@link ADAPTIVE_RECENT_WINDOW} non-mock attempts of that part):
+ * - need ≥ {@link MIN_ATTEMPTS_FOR_BOOST} samples in the window
+ * - accuracy in window < {@link WEAKNESS_THRESHOLD}%
+ * → that part is boosted by 1 (group or question), capped by {@link MIX_CAPS}.
+ *
+ * Lifetime statistics (used in dashboard cards) are intentionally NOT used
+ * for boost decisions — otherwise old strong performance would mask current
+ * weakness for established users.
  */
 export function getNextDayListeningMix(records: AnswerRecord[]): NextDayListeningMix {
-  const dailyRecords = excludeMock(records);
-
   let part1Count = DEFAULT_LISTENING_MIX.part1Count;
   let part2Count = DEFAULT_LISTENING_MIX.part2Count;
   let part3GroupCount = DEFAULT_LISTENING_MIX.part3GroupCount;
   let part4GroupCount = DEFAULT_LISTENING_MIX.part4GroupCount;
   const boosted: string[] = [];
 
-  const p1Attempts = countPart1Attempts(dailyRecords);
-  if (p1Attempts >= MIN_ATTEMPTS_FOR_BOOST) {
-    const acc = calculatePart1Accuracy(dailyRecords);
-    if (acc < WEAKNESS_THRESHOLD) {
-      part1Count = Math.min(MIX_CAPS.part1Count, part1Count + 1);
-      boosted.push("Part 1");
-    }
+  const p1Recent = recentListeningRecordsForPart(records, 1);
+  if (
+    p1Recent.length >= MIN_ATTEMPTS_FOR_BOOST &&
+    accuracyPct(p1Recent) < WEAKNESS_THRESHOLD
+  ) {
+    part1Count = Math.min(MIX_CAPS.part1Count, part1Count + 1);
+    boosted.push("Part 1");
   }
 
-  const p2Attempts = countPart2Attempts(dailyRecords);
-  if (p2Attempts >= MIN_ATTEMPTS_FOR_BOOST) {
-    const acc = calculatePart2Accuracy(dailyRecords);
-    if (acc < WEAKNESS_THRESHOLD) {
-      part2Count = Math.min(MIX_CAPS.part2Count, part2Count + 1);
-      boosted.push("Part 2");
-    }
+  const p2Recent = recentListeningRecordsForPart(records, 2);
+  if (
+    p2Recent.length >= MIN_ATTEMPTS_FOR_BOOST &&
+    accuracyPct(p2Recent) < WEAKNESS_THRESHOLD
+  ) {
+    part2Count = Math.min(MIX_CAPS.part2Count, part2Count + 1);
+    boosted.push("Part 2");
   }
 
-  const p3Attempts = countPart3Attempts(dailyRecords);
-  if (p3Attempts >= MIN_ATTEMPTS_FOR_BOOST) {
-    const acc = calculatePart3Accuracy(dailyRecords);
-    if (acc < WEAKNESS_THRESHOLD) {
-      part3GroupCount = Math.min(MIX_CAPS.part3GroupCount, part3GroupCount + 1);
-      boosted.push("Part 3");
-    }
+  const p3Recent = recentListeningRecordsForPart(records, 3);
+  if (
+    p3Recent.length >= MIN_ATTEMPTS_FOR_BOOST &&
+    accuracyPct(p3Recent) < WEAKNESS_THRESHOLD
+  ) {
+    part3GroupCount = Math.min(MIX_CAPS.part3GroupCount, part3GroupCount + 1);
+    boosted.push("Part 3");
   }
 
-  const p4Attempts = countPart4Attempts(dailyRecords);
-  if (p4Attempts >= MIN_ATTEMPTS_FOR_BOOST) {
-    const acc = calculatePart4Accuracy(dailyRecords);
-    if (acc < WEAKNESS_THRESHOLD) {
-      part4GroupCount = Math.min(MIX_CAPS.part4GroupCount, part4GroupCount + 1);
-      boosted.push("Part 4");
-    }
+  const p4Recent = recentListeningRecordsForPart(records, 4);
+  if (
+    p4Recent.length >= MIN_ATTEMPTS_FOR_BOOST &&
+    accuracyPct(p4Recent) < WEAKNESS_THRESHOLD
+  ) {
+    part4GroupCount = Math.min(MIX_CAPS.part4GroupCount, part4GroupCount + 1);
+    boosted.push("Part 4");
   }
 
   const reason =
     boosted.length === 0
-      ? "依預設比例（資料還不足 / 各部分表現穩定）"
-      : `根據近期表現加強 ${boosted.join("、")}`;
+      ? `依預設比例（最近 ${ADAPTIVE_RECENT_WINDOW} 題各部分表現穩定 / 資料還不足）`
+      : `根據最近 ${ADAPTIVE_RECENT_WINDOW} 題表現加強 ${boosted.join("、")}`;
 
   return { part1Count, part2Count, part3GroupCount, part4GroupCount, reason, boosted };
 }

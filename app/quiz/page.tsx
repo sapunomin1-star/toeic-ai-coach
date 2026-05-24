@@ -398,27 +398,30 @@ export default function QuizPage() {
         </div>
       )}
 
-      {/* Post-answer transcript reveal + replay (listening only) */}
-      {isAnswered && currentQuestion.transcript && (
-        <div className="rounded-2xl border border-violet-200 bg-violet-50 p-4 shadow-sm">
-          <div className="mb-2 flex items-center justify-between">
-            <p className="text-xs font-semibold uppercase tracking-wider text-violet-600">
-              {currentQuestion.part} · Transcript
-            </p>
-            <span className="rounded-full bg-violet-100 px-2 py-0.5 text-[10px] font-medium text-violet-700">
-              答完才顯示
-            </span>
-          </div>
-          {audioUrl && (
-            <div className="mb-3">
-              <AudioPlayer key={`${audioUrl}-replay`} src={audioUrl} allowReplay />
+      {/* Post-answer audio script reveal + replay (listening only).
+          Prefer `transcript` (P3/P4 conversations / talks).
+          Fall back to `audioScript` (P1 photo descriptions, P2 Q+A). */}
+      {isAnswered &&
+        (currentQuestion.transcript || currentQuestion.audioScript) && (
+          <div className="rounded-2xl border border-violet-200 bg-violet-50 p-4 shadow-sm">
+            <div className="mb-2 flex items-center justify-between">
+              <p className="text-xs font-semibold uppercase tracking-wider text-violet-600">
+                {currentQuestion.part} · {currentQuestion.transcript ? "Transcript" : "Audio Script"}
+              </p>
+              <span className="rounded-full bg-violet-100 px-2 py-0.5 text-[10px] font-medium text-violet-700">
+                答完才顯示
+              </span>
             </div>
-          )}
-          <p className="whitespace-pre-wrap text-sm leading-relaxed text-slate-800">
-            {currentQuestion.transcript}
-          </p>
-        </div>
-      )}
+            {audioUrl && (
+              <div className="mb-3">
+                <AudioPlayer key={`${audioUrl}-replay`} src={audioUrl} allowReplay />
+              </div>
+            )}
+            <p className="whitespace-pre-wrap text-sm leading-relaxed text-slate-800">
+              {currentQuestion.transcript ?? currentQuestion.audioScript}
+            </p>
+          </div>
+        )}
 
       <div className="sticky bottom-3 z-10">
         {isAnswered ? (

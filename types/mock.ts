@@ -20,6 +20,14 @@ export type MockTestSession = {
   startedAt: string;
   endTime: string;
   submittedAt?: string;
+  /**
+   * Group keys whose audio has already played. Listening mock only.
+   * - Part 3/4 group: `${part}:${transcript}` (3 questions share 1 key)
+   * - Part 1/2: question id
+   * Once a key is here, that group's AudioPlayer will not be rendered again
+   * even on navigation back. Real TOEIC: no replay.
+   */
+  playedAudioGroups?: string[];
 };
 
 /** Partial so reading results only need P5/6/7 and listening only need P1-4. */

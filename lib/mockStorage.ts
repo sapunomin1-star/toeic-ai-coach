@@ -167,6 +167,23 @@ export function saveAnswer(
   saveMockSession(session, mode);
 }
 
+/**
+ * Mark a listening-mock audio group as played. Idempotent.
+ * Persisted so navigation back / page refresh cannot replay the audio.
+ */
+export function markAudioGroupPlayed(
+  groupKey: string,
+  mode: MockMode = "listening",
+): void {
+  const session = getMockSession(mode);
+  if (!session) return;
+  const played = new Set(session.playedAudioGroups ?? []);
+  if (played.has(groupKey)) return;
+  played.add(groupKey);
+  session.playedAudioGroups = [...played];
+  saveMockSession(session, mode);
+}
+
 export function getMockResults(mode: MockMode = "reading"): MockTestResult[] {
   const raw = readJSON<unknown[]>(resultsKey(mode), []);
   if (!Array.isArray(raw)) return [];
