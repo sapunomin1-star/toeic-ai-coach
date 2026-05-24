@@ -1145,3 +1145,85 @@ Full batch run deferred to user (cost decision).
 ### Next step
 
 User listens. If quality OK: npx tsx pipeline/src/generate-audio.ts --part all
+
+## 2026-05-25 - Phase C2 (full batch) + C3 (DALL-E images) — autonomous overnight run
+
+### Scope
+
+User approved full batch and went to sleep. While they slept:
+1. Ran C2 full TTS batch (all 158 listening questions)
+2. Wrote pipeline/src/generate-images.ts for Part 1 photographs
+3. Ran C3 full batch (30 Part 1 images)
+4. Investigated existing Part 3/4 question quality
+5. Updated docs
+
+### C2 Full TTS Batch
+
+- Total: 158 questions across Part 1/2/3/4
+- Generated: 155 fresh (3 already from earlier --limit 3 sample skipped)
+- Failed: 0
+- Total time: 21.6 minutes (slower than 6-min estimate because longer transcripts averaged 7-12s per request)
+- Cost: ~$0.80
+- All 158 audio files now at https://wffwoer172mjjgyi.public.blob.vercel-storage.com/audio/<id>.mp3
+
+### C3 Full Image Batch
+
+- Total: 30 Part 1 questions
+- Generated: 28 fresh (2 already from --limit 2 sample skipped)
+- Failed: 0
+- Total time: 11.4 minutes
+- Cost: ~$1.18
+- Image size avg ~1.45 MB JPG, 1024x1024, medium quality
+- All 30 images now at https://wffwoer172mjjgyi.public.blob.vercel-storage.com/images/<id>.jpg
+
+### C3 Schema Migration Notes
+
+OpenAI deprecated `dall-e-3` in favor of `gpt-image-1` family. Encountered
+during the first --limit 2 run; script was updated:
+- Changed `MODEL` to `gpt-image-1`
+- Quality enum changed from `standard/hd` to `low/medium/high`
+- Size enum changed: `1024x1024` still valid; `1792x1024` deprecated in favor of `1536x1024`
+- `response_format` parameter no longer supported; new API returns `b64_json` by default
+- First test forgot `addRandomSuffix: false`, producing URLs like
+  `images/p1-gen-001-XXXXXX.jpg` that broke the lib/media.ts convention.
+  Fixed by adding `addRandomSuffix: false`; 2 orphan blobs were deleted.
+
+### Files Changed
+
+- pipeline/src/generate-images.ts (new)
+- pipeline/package.json (+ generate-images script)
+- AGENTS.md (image generation pipeline section + addRandomSuffix rule)
+
+### Existing Part 3/4 Investigation (for user decision)
+
+Part 3 (45 questions = 33 original + 12 DeepSeek):
+- 16 groups, 14 valid (size >= 3), 2 orphan groups (size 1-2)
+- Orphan questions: p3-mi-001, p3-na-001, p3-rs-001 (the ancient seed group)
+- 0 simplified Chinese, 0 label mismatches, 0 missing required fields
+- Skill distribution balanced 15/15/15
+
+Part 4 (33 questions):
+- 12 groups, 10 valid, 2 orphan groups
+- Orphan questions: p4-mi-001, p4-na-001, p4-lc-001 (ancient seed group)
+- 0 simplified Chinese, 0 label mismatches, 0 missing required fields
+- Skill distribution balanced 11/11/11
+
+### Pending User Decisions
+
+1. **Orphan ancient seed questions** (6 total): keep as harmless extras /
+   remove / add companions to complete groups
+2. **Image visual quality**: spot-check 5-10 random images, decide if any
+   need regeneration (`--question pX-gen-YYY --force`)
+3. **Audio voice quality**: spot-check (tts-1 vs tts-1-hd $0.80 vs $1.60)
+4. **Vercel deploy**: project is not yet deployed. Audio + image URLs work
+   directly. Production deploy is a one-command operation when ready.
+5. **OpenAI API key rotation**: was pasted into chat history; recommend
+   revoking after C-phase complete.
+
+### Cost Accounting (autonomous spend tonight)
+
+- C2 sample (--limit 3): ~$0.01
+- C2 full batch: ~$0.80
+- C3 sample (--limit 2 × 2 attempts due to API migration): ~$0.16
+- C3 full batch (28 fresh): ~$1.18
+- Total: ~$2.15 USD (within approved $3 budget)

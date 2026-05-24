@@ -288,7 +288,7 @@ If a question lacks audio in Blob (404 or env unset), the UI must:
 
 - `lib/media.ts` — URL helpers, runs in browser + Node
 - `pipeline/src/generate-audio.ts` — TTS + Blob upload, runs in Node only
-- `pipeline/src/generate-images.ts` (TBD in C3) — DALL-E + Blob upload, runs in Node only
+- `pipeline/src/generate-images.ts` — gpt-image-1 + Blob upload, runs in Node only
 
 ### Audio generation pipeline (C2)
 
@@ -299,7 +299,21 @@ If a question lacks audio in Blob (404 or env unset), the UI must:
 - Idempotent: skips already-uploaded unless `--force`
 - Rate limit: 30 RPM
 - Cost: tts-1 = $15 / 1M chars; full listening bank ≈ $1
+- `put()` MUST set `addRandomSuffix: false` to keep URL convention `audio/<id>.mp3`
 - Always run `--dry-run` first, then `--limit 3`, then full batch
+
+### Image generation pipeline (C3)
+
+- Script: `pipeline/src/generate-images.ts`
+- Model: OpenAI `gpt-image-1` (replaces deprecated `dall-e-3`)
+- Quality / size defaults: `medium` / `1024x1024` (~$0.042/image)
+- Style prefix: "Photorealistic professional photograph of a business workplace setting..."
+- Idempotent: skips already-uploaded unless `--force`
+- Rate limit: 5 RPM (tier 1 image-gen cap)
+- Cost: 30 Part 1 images ≈ $1.20 at medium
+- `put()` MUST set `addRandomSuffix: false` to keep URL convention `images/<id>.jpg`
+- Returns `b64_json` by default; legacy `response_format` parameter no longer supported
+- Always run `--dry-run` first, then `--limit 2`, then full batch
 
 ### Testing Rules
 
