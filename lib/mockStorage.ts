@@ -1,11 +1,30 @@
-import type { MockTestSession, MockTestResult } from "@/types/mock";
+import type { MockMode, MockTestSession, MockTestResult } from "@/types/mock";
 import type { Choice } from "@/types/question";
 
-const SESSION_KEY = "toeic_mock_session_v1";
-const RESULTS_KEY = "toeic_mock_results_v1";
+// Reading mock (existing keys — back-compat, never rename)
+const READING_SESSION_KEY = "toeic_mock_session_v1";
+const READING_RESULTS_KEY = "toeic_mock_results_v1";
+
+// Listening mock (new in this iteration)
+const LISTENING_SESSION_KEY = "toeic_listening_mock_session_v1";
+const LISTENING_RESULTS_KEY = "toeic_listening_mock_results_v1";
+
 const MAX_RESULTS = 20;
 
 const VALID_CHOICES = new Set(["A", "B", "C", "D"]);
+
+function sessionKey(mode: MockMode): string {
+  return mode === "listening" ? LISTENING_SESSION_KEY : READING_SESSION_KEY;
+}
+
+function resultsKey(mode: MockMode): string {
+  return mode === "listening" ? LISTENING_RESULTS_KEY : READING_RESULTS_KEY;
+}
+
+/** Default duration in ms for each mode (TOEIC official: listening 45 min, reading 75 min). */
+export function getMockDurationMs(mode: MockMode): number {
+  return mode === "listening" ? 45 * 60 * 1000 : 75 * 60 * 1000;
+}
 
 function isBrowser(): boolean {
   return typeof window !== "undefined" && typeof localStorage !== "undefined";
@@ -96,37 +115,45 @@ function writeJSON<T>(key: string, value: T): void {
   }
 }
 
-export function getMockSession(): MockTestSession | null {
-  const raw = readJSON<unknown>(SESSION_KEY, null);
+export function getMockSession(mode: MockMode = "reading"): MockTestSession | null {
+  const raw = readJSON<unknown>(sessionKey(mode), null);
   const session = validateSession(raw);
   if (!session || session.submittedAt) return null;
   return session;
 }
 
-export function saveMockSession(session: MockTestSession): void {
-  writeJSON(SESSION_KEY, session);
+export function saveMockSession(session: MockTestSession, mode: MockMode = "reading"): void {
+  writeJSON(sessionKey(mode), session);
 }
 
-export function clearMockSession(): void {
+export function clearMockSession(mode: MockMode = "reading"): void {
   if (!isBrowser()) return;
-  localStorage.removeItem(SESSION_KEY);
+  localStorage.removeItem(sessionKey(mode));
 }
 
-export function startMockSession(questionIds: string[]): MockTestSession {
+export function startMockSession(
+  questionIds: string[],
+  mode: MockMode = "reading",
+): MockTestSession {
   const now = Date.now();
   const session: MockTestSession = {
+    mode,
     questionIds,
     answers: {},
     unansweredIds: [],
     startedAt: new Date(now).toISOString(),
-    endTime: new Date(now + 75 * 60 * 1000).toISOString(),
+    endTime: new Date(now + getMockDurationMs(mode)).toISOString(),
   };
-  saveMockSession(session);
+  saveMockSession(session, mode);
   return session;
 }
 
-export function saveAnswer(questionId: string, choice: Choice | null): void {
-  const session = getMockSession();
+export function saveAnswer(
+  questionId: string,
+  choice: Choice | null,
+  mode: MockMode = "reading",
+): void {
+  const session = getMockSession(mode);
   if (!session) return;
   if (choice) {
     session.answers[questionId] = choice;
@@ -137,25 +164,27 @@ export function saveAnswer(questionId: string, choice: Choice | null): void {
       session.unansweredIds.push(questionId);
     }
   }
-  saveMockSession(session);
+  saveMockSession(session, mode);
 }
 
-export function getMockResults(): MockTestResult[] {
-  const raw = readJSON<unknown[]>(RESULTS_KEY, []);
+export function getMockResults(mode: MockMode = "reading"): MockTestResult[] {
+  const raw = readJSON<unknown[]>(resultsKey(mode), []);
   if (!Array.isArray(raw)) return [];
   return raw.filter((item): item is MockTestResult => validateResult(item) !== null);
 }
 
-export function saveMockResult(result: MockTestResult): void {
-  const results = getMockResults();
+export function saveMockResult(result: MockTestResult, mode: MockMode = "reading"): void {
+  const results = getMockResults(mode);
   results.push(result);
   // Keep only the most recent MAX_RESULTS entries
   const trimmed = results.slice(-MAX_RESULTS);
-  writeJSON(RESULTS_KEY, trimmed);
+  writeJSON(resultsKey(mode), trimmed);
 }
 
 export function clearAllMockData(): void {
   if (!isBrowser()) return;
-  localStorage.removeItem(SESSION_KEY);
-  localStorage.removeItem(RESULTS_KEY);
+  localStorage.removeItem(READING_SESSION_KEY);
+  localStorage.removeItem(READING_RESULTS_KEY);
+  localStorage.removeItem(LISTENING_SESSION_KEY);
+  localStorage.removeItem(LISTENING_RESULTS_KEY);
 }

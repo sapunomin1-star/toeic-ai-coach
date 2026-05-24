@@ -231,6 +231,14 @@ function isPart2Record(r: { questionId: string }): boolean {
   return r.questionId.startsWith("p2-");
 }
 
+function isPart3Record(r: { questionId: string }): boolean {
+  return r.questionId.startsWith("p3-");
+}
+
+function isPart4Record(r: { questionId: string }): boolean {
+  return r.questionId.startsWith("p4-");
+}
+
 // ─── Part 5 / Part 6 / Listening breakdown ──────────────────────────────────
 
 export function calculatePart5Accuracy(records: AnswerRecord[]): number {
@@ -255,6 +263,22 @@ export function calculatePart2Accuracy(records: AnswerRecord[]): number {
 
 export function countPart2Attempts(records: AnswerRecord[]): number {
   return excludeMock(records).filter((r) => isPart2Record(r)).length;
+}
+
+export function calculatePart3Accuracy(records: AnswerRecord[]): number {
+  return calculateAccuracy(excludeMock(records).filter((r) => isPart3Record(r)));
+}
+
+export function countPart3Attempts(records: AnswerRecord[]): number {
+  return excludeMock(records).filter((r) => isPart3Record(r)).length;
+}
+
+export function calculatePart4Accuracy(records: AnswerRecord[]): number {
+  return calculateAccuracy(excludeMock(records).filter((r) => isPart4Record(r)));
+}
+
+export function countPart4Attempts(records: AnswerRecord[]): number {
+  return excludeMock(records).filter((r) => isPart4Record(r)).length;
 }
 
 export function calculateListeningAccuracy(records: AnswerRecord[]): number {
@@ -356,4 +380,96 @@ export function summarize(records: AnswerRecord[]) {
     todayTotal,
     todayAccuracy,
   };
+}
+
+// ─── Adaptive next-day listening mix ────────────────────────────────────────
+
+export type NextDayListeningMix = {
+  part1Count: number;
+  part2Count: number;
+  part3GroupCount: number;
+  part4GroupCount: number;
+  /** Human-readable Chinese label explaining why we picked these counts */
+  reason: string;
+  /** Names of parts that got boosted, e.g. ["Part 2"] */
+  boosted: string[];
+};
+
+const DEFAULT_LISTENING_MIX: Omit<NextDayListeningMix, "reason" | "boosted"> = {
+  part1Count: 2,
+  part2Count: 3,
+  part3GroupCount: 1,
+  part4GroupCount: 1,
+};
+
+const MIX_CAPS: Omit<NextDayListeningMix, "reason" | "boosted"> = {
+  part1Count: 4,
+  part2Count: 6,
+  part3GroupCount: 3,
+  part4GroupCount: 2,
+};
+
+const MIN_ATTEMPTS_FOR_BOOST = 6;
+const WEAKNESS_THRESHOLD = 60; // accuracy %
+
+/**
+ * Compute the suggested listening question mix for the next daily plan,
+ * based on accuracy in the user's recent (non-mock) answers.
+ *
+ * Default mix: 2 P1 + 3 P2 + 1 P3 group (3 Q) + 1 P4 group (3 Q) = 11 listening Q.
+ *
+ * If a part has ≥ MIN_ATTEMPTS_FOR_BOOST attempts and accuracy < WEAKNESS_THRESHOLD%,
+ * that part is boosted by 1 (group or question, capped by MIX_CAPS).
+ */
+export function getNextDayListeningMix(records: AnswerRecord[]): NextDayListeningMix {
+  const dailyRecords = excludeMock(records);
+
+  let part1Count = DEFAULT_LISTENING_MIX.part1Count;
+  let part2Count = DEFAULT_LISTENING_MIX.part2Count;
+  let part3GroupCount = DEFAULT_LISTENING_MIX.part3GroupCount;
+  let part4GroupCount = DEFAULT_LISTENING_MIX.part4GroupCount;
+  const boosted: string[] = [];
+
+  const p1Attempts = countPart1Attempts(dailyRecords);
+  if (p1Attempts >= MIN_ATTEMPTS_FOR_BOOST) {
+    const acc = calculatePart1Accuracy(dailyRecords);
+    if (acc < WEAKNESS_THRESHOLD) {
+      part1Count = Math.min(MIX_CAPS.part1Count, part1Count + 1);
+      boosted.push("Part 1");
+    }
+  }
+
+  const p2Attempts = countPart2Attempts(dailyRecords);
+  if (p2Attempts >= MIN_ATTEMPTS_FOR_BOOST) {
+    const acc = calculatePart2Accuracy(dailyRecords);
+    if (acc < WEAKNESS_THRESHOLD) {
+      part2Count = Math.min(MIX_CAPS.part2Count, part2Count + 1);
+      boosted.push("Part 2");
+    }
+  }
+
+  const p3Attempts = countPart3Attempts(dailyRecords);
+  if (p3Attempts >= MIN_ATTEMPTS_FOR_BOOST) {
+    const acc = calculatePart3Accuracy(dailyRecords);
+    if (acc < WEAKNESS_THRESHOLD) {
+      part3GroupCount = Math.min(MIX_CAPS.part3GroupCount, part3GroupCount + 1);
+      boosted.push("Part 3");
+    }
+  }
+
+  const p4Attempts = countPart4Attempts(dailyRecords);
+  if (p4Attempts >= MIN_ATTEMPTS_FOR_BOOST) {
+    const acc = calculatePart4Accuracy(dailyRecords);
+    if (acc < WEAKNESS_THRESHOLD) {
+      part4GroupCount = Math.min(MIX_CAPS.part4GroupCount, part4GroupCount + 1);
+      boosted.push("Part 4");
+    }
+  }
+
+  const reason =
+    boosted.length === 0
+      ? "依預設比例（資料還不足 / 各部分表現穩定）"
+      : `根據近期表現加強 ${boosted.join("、")}`;
+
+  return { part1Count, part2Count, part3GroupCount, part4GroupCount, reason, boosted };
 }

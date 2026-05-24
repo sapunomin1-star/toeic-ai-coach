@@ -47,7 +47,7 @@ export default function Home() {
           <PlanStep
             num="3"
             label="今日訓練"
-            desc="Part 5 × 15 題 + 聽力 × 6 題 + 閱讀 × 3 題 + 錯題複習"
+            desc="Part 5 × 15 + Part 6 × 2 + 聽力 P1-4 × 11 + Part 7 × 3 + 錯題複習"
             href="/practice"
             color="slate"
           />
@@ -96,20 +96,31 @@ export default function Home() {
         查看個人教練報告 →
       </Link>
 
-      {/* Mock test entry */}
-      <section className="rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 p-4 text-white shadow-md">
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-xs uppercase tracking-widest text-slate-400">Mock Test</p>
-            <p className="mt-1 text-sm font-bold">模擬考</p>
-            <p className="mt-0.5 text-xs text-slate-400">100 題 · 75 分鐘 · 完整 Reading</p>
-          </div>
+      {/* Mock test entries: Reading + Listening */}
+      <section>
+        <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
+          模擬考
+        </p>
+        <div className="grid grid-cols-2 gap-3">
           <Link
             href="/mock-test"
-            aria-label="進入模擬考"
-            className="rounded-xl bg-white px-4 py-2 text-xs font-bold text-slate-900 active:scale-[0.98]"
+            aria-label="進入閱讀模擬考"
+            className="block rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 p-4 text-white shadow-md active:scale-[0.99]"
           >
-            進入 →
+            <p className="text-xs uppercase tracking-widest text-slate-400">Reading</p>
+            <p className="mt-1 text-base font-bold">閱讀模擬</p>
+            <p className="mt-0.5 text-[11px] text-slate-400">100 題 · 75 分</p>
+            <p className="mt-2 text-[10px] text-slate-300">Part 5/6/7</p>
+          </Link>
+          <Link
+            href="/listening-mock"
+            aria-label="進入聽力模擬考"
+            className="block rounded-2xl bg-gradient-to-br from-indigo-700 to-violet-800 p-4 text-white shadow-md active:scale-[0.99]"
+          >
+            <p className="text-xs uppercase tracking-widest text-indigo-200">Listening</p>
+            <p className="mt-1 text-base font-bold">聽力模擬</p>
+            <p className="mt-0.5 text-[11px] text-indigo-200">100 題 · 45 分</p>
+            <p className="mt-2 text-[10px] text-indigo-200">Part 1/2/3/4</p>
           </Link>
         </div>
       </section>

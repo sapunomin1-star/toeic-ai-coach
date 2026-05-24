@@ -12,15 +12,24 @@ import {
   getReviewableIds,
   saveDailyPlan,
 } from "@/lib/storage";
-import { getWeakestSkills } from "@/lib/analysis";
+import { getNextDayListeningMix, getWeakestSkills } from "@/lib/analysis";
+import type { NextDayListeningMix } from "@/lib/analysis";
 
 const WEAK_COUNT = 8;
 const NEW_COUNT = 7;
 const PART6_COUNT = 2;
-const LISTENING_COUNT = 6;
 const READING_COUNT = 3;
 const REVIEW_MAX = 5;
 const ESTIMATED_SECONDS_PER_Q = 38;
+
+const DEFAULT_LISTENING_MIX: NextDayListeningMix = {
+  part1Count: 2,
+  part2Count: 3,
+  part3GroupCount: 1,
+  part4GroupCount: 1,
+  reason: "依預設比例",
+  boosted: [],
+};
 
 export default function PracticePage() {
   const router = useRouter();
@@ -29,6 +38,9 @@ export default function PracticePage() {
   const [progressIndex, setProgressIndex] = useState(0);
   const [progressTotal, setProgressTotal] = useState(0);
   const [planCounts, setPlanCounts] = useState<PlanCounts | null>(null);
+  const [listeningMix, setListeningMix] = useState<NextDayListeningMix>(
+    DEFAULT_LISTENING_MIX,
+  );
   const hasPart6Questions = getQuestionsByPart("Part 6").length > 0;
   const part6Count = hasPart6Questions ? PART6_COUNT : 0;
 
@@ -36,6 +48,8 @@ export default function PracticePage() {
     const id = window.setTimeout(() => {
       const reviewIds = getReviewableIds();
       setReviewCount(Math.min(reviewIds.length, REVIEW_MAX));
+
+      setListeningMix(getNextDayListeningMix(getAnswerRecords()));
 
       const existing = getDailyPlan();
       if (existing && existing.cursor < existing.questionIds.length) {
@@ -47,16 +61,27 @@ export default function PracticePage() {
     return () => window.clearTimeout(id);
   }, []);
 
-  const counts = planCounts ?? {
-    weak: WEAK_COUNT,
-    new: NEW_COUNT,
-    part6: part6Count,
-    listening: LISTENING_COUNT,
-    reading: READING_COUNT,
-    review: reviewCount,
-  };
+  const counts: PlanCounts =
+    planCounts ?? {
+      weak: WEAK_COUNT,
+      new: NEW_COUNT,
+      part6: part6Count,
+      part1: listeningMix.part1Count,
+      part2: listeningMix.part2Count,
+      part3: listeningMix.part3GroupCount * 3,
+      part4: listeningMix.part4GroupCount * 3,
+      reading: READING_COUNT,
+      review: reviewCount,
+    };
+  const listeningTotal =
+    counts.part1 + counts.part2 + counts.part3 + counts.part4;
   const totalQs =
-    counts.weak + counts.new + counts.part6 + counts.listening + counts.reading + counts.review;
+    counts.weak +
+    counts.new +
+    counts.part6 +
+    listeningTotal +
+    counts.reading +
+    counts.review;
   const minMin = Math.max(
     15,
     Math.round((totalQs * ESTIMATED_SECONDS_PER_Q) / 60)
@@ -66,12 +91,18 @@ export default function PracticePage() {
   function startNewPlan() {
     clearWrongPracticePlan();
     const reviewIds = getReviewableIds().slice(0, REVIEW_MAX);
-    const weakSkillTags = getWeakestSkills(getAnswerRecords(), 2, 5).map((w) => w.skill);
+    const records = getAnswerRecords();
+    const weakSkillTags = getWeakestSkills(records, 2, 5).map((w) => w.skill);
+    const mix = getNextDayListeningMix(records);
+    setListeningMix(mix);
     const plan = buildDailyPlan({
       weakCount: WEAK_COUNT,
       newCount: NEW_COUNT,
       part6Count,
-      listeningCount: LISTENING_COUNT,
+      part1Count: mix.part1Count,
+      part2Count: mix.part2Count,
+      part3GroupCount: mix.part3GroupCount,
+      part4GroupCount: mix.part4GroupCount,
       readingCount: READING_COUNT,
       reviewIds,
       weakSkillTags,
@@ -127,11 +158,28 @@ export default function PracticePage() {
           />
         )}
         <TaskRow
+          emoji="📷"
+          title="Part 1 看圖選擇"
+          desc={`${counts.part1} 題 · 照片描述`}
+          tag="Part 1"
+          tagColor="violet"
+          dim={counts.part1 === 0}
+        />
+        <TaskRow
+          emoji="🗣️"
+          title="Part 2 應答問題"
+          desc={`${counts.part2} 題 · Q+A 三選一`}
+          tag="Part 2"
+          tagColor="violet"
+          dim={counts.part2 === 0}
+        />
+        <TaskRow
           emoji="🎧"
-          title="Part 3 / 4 聽力"
-          desc={`${counts.listening} 題 · 主旨 / 推論 / 下一步行動`}
+          title="Part 3 對話 / Part 4 短講"
+          desc={`${counts.part3 + counts.part4} 題（${counts.part3 / 3} 組 P3 + ${counts.part4 / 3} 組 P4）· 主旨 / 推論 / 下一步行動`}
           tag="聽力"
           tagColor="violet"
+          dim={counts.part3 + counts.part4 === 0}
         />
         <TaskRow
           emoji="📄"
@@ -153,6 +201,15 @@ export default function PracticePage() {
           dim={counts.review === 0}
         />
       </ul>
+
+      {listeningMix.boosted.length > 0 && (
+        <div
+          role="status"
+          className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs text-amber-800"
+        >
+          ⚡ {listeningMix.reason}（聽力配比已自動調整）
+        </div>
+      )}
 
       {hasInProgress && (
         <div

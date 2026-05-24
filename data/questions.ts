@@ -38,7 +38,10 @@ export type PlanCounts = {
   weak: number;
   new: number;
   part6: number;
-  listening: number;
+  part1: number;
+  part2: number;
+  part3: number;
+  part4: number;
   reading: number;
   review: number;
 };
@@ -47,7 +50,10 @@ export function buildDailyPlan(options?: {
   weakCount?: number;
   newCount?: number;
   part6Count?: number;
-  listeningCount?: number;
+  part1Count?: number;
+  part2Count?: number;
+  part3GroupCount?: number;
+  part4GroupCount?: number;
   readingCount?: number;
   reviewIds?: string[];
   weakSkillTags?: SkillTag[];
@@ -55,7 +61,10 @@ export function buildDailyPlan(options?: {
   const weakCount = options?.weakCount ?? 8;
   const newCount = options?.newCount ?? 7;
   const part6Count = options?.part6Count ?? 2;
-  const listeningCount = options?.listeningCount ?? 6;
+  const part1Count = options?.part1Count ?? 2;
+  const part2Count = options?.part2Count ?? 3;
+  const part3GroupCount = options?.part3GroupCount ?? 1;
+  const part4GroupCount = options?.part4GroupCount ?? 1;
   const readingCount = options?.readingCount ?? 3;
   const reviewIds = options?.reviewIds ?? [];
   const weakSkillTags = options?.weakSkillTags ?? ["word_form", "passive_voice"];
@@ -88,12 +97,51 @@ export function buildDailyPlan(options?: {
     );
   }
 
-  const listeningPool = shuffle(
-    [...getQuestionsByPart("Part 3"), ...getQuestionsByPart("Part 4")].filter(
-      (q) => !reviewIdSet.has(q.id)
-    )
+  // Part 1 (photo questions, single items)
+  const part1Pool = shuffle(
+    getQuestionsByPart("Part 1").filter((q) => !reviewIdSet.has(q.id))
   );
-  const listeningQs = listeningPool.slice(0, listeningCount);
+  const part1Qs = part1Pool.slice(0, part1Count);
+  if (part1Qs.length < part1Count) {
+    console.warn(
+      `[buildDailyPlan] Part 1 題庫不足，只有 ${part1Qs.length}/${part1Count} 題`
+    );
+  }
+
+  // Part 2 (single Q+A items)
+  const part2Pool = shuffle(
+    getQuestionsByPart("Part 2").filter((q) => !reviewIdSet.has(q.id))
+  );
+  const part2Qs = part2Pool.slice(0, part2Count);
+  if (part2Qs.length < part2Count) {
+    console.warn(
+      `[buildDailyPlan] Part 2 題庫不足，只有 ${part2Qs.length}/${part2Count} 題`
+    );
+  }
+
+  // Part 3 — pull full transcript groups (3 Q per group) so context is intact
+  const part3Groups = groupByTranscript(getQuestionsByPart("Part 3"))
+    .filter((group) => group.length === 3)
+    .filter((group) => group.every((q) => !reviewIdSet.has(q.id)));
+  const selectedP3Groups = shuffle(part3Groups).slice(0, part3GroupCount);
+  const part3Qs = selectedP3Groups.flat();
+  if (selectedP3Groups.length < part3GroupCount) {
+    console.warn(
+      `[buildDailyPlan] Part 3 groups 不足，只有 ${selectedP3Groups.length}/${part3GroupCount} 組`
+    );
+  }
+
+  // Part 4 — same group-based approach
+  const part4Groups = groupByTranscript(getQuestionsByPart("Part 4"))
+    .filter((group) => group.length === 3)
+    .filter((group) => group.every((q) => !reviewIdSet.has(q.id)));
+  const selectedP4Groups = shuffle(part4Groups).slice(0, part4GroupCount);
+  const part4Qs = selectedP4Groups.flat();
+  if (selectedP4Groups.length < part4GroupCount) {
+    console.warn(
+      `[buildDailyPlan] Part 4 groups 不足，只有 ${selectedP4Groups.length}/${part4GroupCount} 組`
+    );
+  }
 
   const part6Pool = shuffle(
     getQuestionsByPart("Part 6").filter((q) => !reviewIdSet.has(q.id))
@@ -117,12 +165,25 @@ export function buildDailyPlan(options?: {
     .slice(0, 5);
 
   return {
-    questions: [...weakQs, ...newQs, ...part6Qs, ...listeningQs, ...readingQs, ...reviewQs],
+    questions: [
+      ...weakQs,
+      ...newQs,
+      ...part6Qs,
+      ...part1Qs,
+      ...part2Qs,
+      ...part3Qs,
+      ...part4Qs,
+      ...readingQs,
+      ...reviewQs,
+    ],
     counts: {
       weak: weakQs.length,
       new: newQs.length,
       part6: part6Qs.length,
-      listening: listeningQs.length,
+      part1: part1Qs.length,
+      part2: part2Qs.length,
+      part3: part3Qs.length,
+      part4: part4Qs.length,
       reading: readingQs.length,
       review: reviewQs.length,
     },

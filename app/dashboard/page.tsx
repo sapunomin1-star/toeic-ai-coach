@@ -8,6 +8,10 @@ import {
   calculateAvgResponseTime,
   calculateListeningAccuracy,
   calculateListeningAvgTime,
+  calculatePart1Accuracy,
+  calculatePart2Accuracy,
+  calculatePart3Accuracy,
+  calculatePart4Accuracy,
   calculatePart5Accuracy,
   calculatePart5AvgTime,
   calculatePart6Accuracy,
@@ -17,10 +21,15 @@ import {
   countPart7MistakesBySkill,
   countListeningAttempts,
   countMistakesBySkill,
+  countPart1Attempts,
+  countPart2Attempts,
+  countPart3Attempts,
+  countPart4Attempts,
   countPart5Attempts,
   countPart6Attempts,
   countReadingAttempts,
   countSlowQuestions,
+  getNextDayListeningMix,
   getSlowestSkill,
   getTomorrowRecommendation,
   summarize,
@@ -52,6 +61,8 @@ export default function DashboardPage() {
   >([]);
   const [quizStats, setQuizStats] = useState<VocabularyQuizStats | null>(null);
   const [recentMockResult, setRecentMockResult] = useState<MockTestResult | null>(null);
+  const [recentListeningMockResult, setRecentListeningMockResult] =
+    useState<MockTestResult | null>(null);
 
   useEffect(() => {
     const id = window.setTimeout(() => {
@@ -59,8 +70,8 @@ export default function DashboardPage() {
       setTodayVocabulary(getTodayVocabulary());
       setVocabularyProgress(getVocabularyProgress());
       setQuizStats(getVocabularyQuizStats());
-      const mockResults = getMockResults();
-      setRecentMockResult(mockResults.at(-1) ?? null);
+      setRecentMockResult(getMockResults("reading").at(-1) ?? null);
+      setRecentListeningMockResult(getMockResults("listening").at(-1) ?? null);
     }, 0);
     return () => window.clearTimeout(id);
   }, []);
@@ -129,6 +140,20 @@ export default function DashboardPage() {
   const readingAccuracy = useMemo(() => calculateReadingAccuracy(safeRecords), [safeRecords]);
   const readingAvgTime = useMemo(() => calculateReadingAvgTime(safeRecords), [safeRecords]);
   const readingTotal = useMemo(() => countReadingAttempts(safeRecords), [safeRecords]);
+
+  // Per-part listening breakdown
+  const part1Accuracy = useMemo(() => calculatePart1Accuracy(safeRecords), [safeRecords]);
+  const part1Total = useMemo(() => countPart1Attempts(safeRecords), [safeRecords]);
+  const part2Accuracy = useMemo(() => calculatePart2Accuracy(safeRecords), [safeRecords]);
+  const part2Total = useMemo(() => countPart2Attempts(safeRecords), [safeRecords]);
+  const part3Accuracy = useMemo(() => calculatePart3Accuracy(safeRecords), [safeRecords]);
+  const part3Total = useMemo(() => countPart3Attempts(safeRecords), [safeRecords]);
+  const part4Accuracy = useMemo(() => calculatePart4Accuracy(safeRecords), [safeRecords]);
+  const part4Total = useMemo(() => countPart4Attempts(safeRecords), [safeRecords]);
+  const nextListeningMix = useMemo(
+    () => getNextDayListeningMix(safeRecords),
+    [safeRecords],
+  );
 
   const part6WrongCount = useMemo(() => {
     let w = 0;
@@ -325,30 +350,83 @@ export default function DashboardPage() {
             </div>
           )}
           {listeningTotal > 0 && (
-            <ul className="mt-3 space-y-1">
-              {LISTENING_SKILLS.map((skill) => {
-                const mistakes = skillMistakes[skill];
-                return (
-                  <li
-                    key={skill}
-                    className="flex items-center justify-between text-xs"
-                  >
-                    <span className="text-slate-600">
-                      {SKILL_LABELS[skill]}
-                    </span>
-                    <span
-                      className={
-                        mistakes > 0
-                          ? "font-medium text-rose-600"
-                          : "text-slate-400"
-                      }
+            <>
+              {/* P1/P2/P3/P4 breakdown */}
+              <div className="mt-3 grid grid-cols-4 gap-2">
+                {(
+                  [
+                    { label: "P1", accuracy: part1Accuracy, total: part1Total },
+                    { label: "P2", accuracy: part2Accuracy, total: part2Total },
+                    { label: "P3", accuracy: part3Accuracy, total: part3Total },
+                    { label: "P4", accuracy: part4Accuracy, total: part4Total },
+                  ] as const
+                ).map(({ label, accuracy, total }) => (
+                  <div key={label} className="rounded-lg bg-violet-50 p-2 text-center">
+                    <p className="text-[10px] uppercase tracking-wider text-violet-600">
+                      {label}
+                    </p>
+                    <p
+                      className={`mt-0.5 text-base font-bold ${
+                        total === 0
+                          ? "text-slate-400"
+                          : accuracy >= 70
+                            ? "text-emerald-600"
+                            : "text-rose-600"
+                      }`}
                     >
-                      {mistakes > 0 ? `${mistakes} 題錯` : "✓ 無錯誤"}
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
+                      {total > 0 ? `${accuracy}%` : "—"}
+                    </p>
+                    <p className="text-[10px] text-slate-400">{total} 題</p>
+                  </div>
+                ))}
+              </div>
+
+              <ul className="mt-3 space-y-1">
+                {LISTENING_SKILLS.map((skill) => {
+                  const mistakes = skillMistakes[skill];
+                  return (
+                    <li
+                      key={skill}
+                      className="flex items-center justify-between text-xs"
+                    >
+                      <span className="text-slate-600">
+                        {SKILL_LABELS[skill]}
+                      </span>
+                      <span
+                        className={
+                          mistakes > 0
+                            ? "font-medium text-rose-600"
+                            : "text-slate-400"
+                        }
+                      >
+                        {mistakes > 0 ? `${mistakes} 題錯` : "✓ 無錯誤"}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+
+              {/* Adaptive next-day mix hint */}
+              <div className="mt-3 rounded-xl border border-indigo-100 bg-indigo-50 p-3">
+                <p className="text-[10px] uppercase tracking-wider text-indigo-600">
+                  明日聽力配比
+                </p>
+                <p className="mt-1 text-xs text-indigo-800">
+                  {nextListeningMix.part1Count} P1 · {nextListeningMix.part2Count} P2 ·{" "}
+                  {nextListeningMix.part3GroupCount} 組 P3 ·{" "}
+                  {nextListeningMix.part4GroupCount} 組 P4
+                </p>
+                {nextListeningMix.boosted.length > 0 ? (
+                  <p className="mt-1 text-[11px] text-amber-700">
+                    ⚡ {nextListeningMix.reason}
+                  </p>
+                ) : (
+                  <p className="mt-1 text-[11px] text-slate-500">
+                    {nextListeningMix.reason}
+                  </p>
+                )}
+              </div>
+            </>
           )}
         </section>
       )}
@@ -610,9 +688,9 @@ export default function DashboardPage() {
         )}
       </section>
 
-      {/* Mock test entry */}
+      {/* Mock test entry: Reading */}
       <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-        <h2 className="mb-2 text-sm font-semibold">模擬考</h2>
+        <h2 className="mb-2 text-sm font-semibold">閱讀模擬考</h2>
         <p className="text-xs text-slate-500">
           100 題 · 75 分鐘 · Part 5/6/7 完整閱讀測驗
         </p>
@@ -636,7 +714,7 @@ export default function DashboardPage() {
               {(["Part 5", "Part 6", "Part 7"] as const).map((part) => {
                 const item = recentMockResult.partBreakdown[part];
                 const pct =
-                  item.total === 0
+                  !item || item.total === 0
                     ? 0
                     : Math.round((item.correct / item.total) * 100);
                 return (
@@ -664,9 +742,69 @@ export default function DashboardPage() {
           href="/mock-test"
           className="mt-3 block w-full rounded-xl bg-slate-900 px-4 py-3 text-center text-sm font-semibold text-white active:scale-[0.99]"
         >
-          開始模擬考 →
+          開始閱讀模擬考 →
         </Link>
+      </section>
 
+      {/* Mock test entry: Listening */}
+      <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        <h2 className="mb-2 text-sm font-semibold">聽力模擬考</h2>
+        <p className="text-xs text-slate-500">
+          100 題 · 45 分鐘 · Part 1/2/3/4 完整聽力測驗
+        </p>
+        {recentListeningMockResult && (
+          <div className="mt-3 rounded-xl bg-violet-50 p-3">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <p className="text-xs text-slate-500">最近一次</p>
+                <p className="mt-0.5 text-xl font-bold text-slate-900">
+                  {recentListeningMockResult.rawScore}/100
+                </p>
+              </div>
+              <div className="text-right">
+                <p className="text-xs text-slate-500">非官方估分</p>
+                <p className="mt-0.5 text-sm font-semibold text-violet-700">
+                  {recentListeningMockResult.scoreRange.min}-{recentListeningMockResult.scoreRange.max}
+                </p>
+              </div>
+            </div>
+            <div className="mt-3 grid grid-cols-4 gap-2 text-center">
+              {(["Part 1", "Part 2", "Part 3", "Part 4"] as const).map((part) => {
+                const item = recentListeningMockResult.partBreakdown[part];
+                const pct =
+                  !item || item.total === 0
+                    ? 0
+                    : Math.round((item.correct / item.total) * 100);
+                return (
+                  <div key={part} className="rounded-lg bg-white p-2">
+                    <p className="text-[10px] text-slate-500">{part.replace("Part ", "P")}</p>
+                    <p className="mt-0.5 text-sm font-bold text-slate-800">
+                      {pct}%
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+            <p className="mt-2 text-[11px] text-slate-400">
+              交卷：
+              {new Date(recentListeningMockResult.submittedAt).toLocaleString(
+                "zh-TW",
+                {
+                  month: "numeric",
+                  day: "numeric",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                },
+              )}
+            </p>
+          </div>
+        )}
+        <Link
+          href="/listening-mock"
+          className="mt-3 block w-full rounded-xl bg-violet-700 px-4 py-3 text-center text-sm font-semibold text-white active:scale-[0.99]"
+        >
+          開始聽力模擬考 →
+        </Link>
       </section>
 
       <div className="grid grid-cols-2 gap-3">

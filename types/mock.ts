@@ -1,8 +1,19 @@
 import type { Choice } from "@/types/question";
 
-export type MockPartKey = "Part 5" | "Part 6" | "Part 7";
+export type MockMode = "reading" | "listening";
+
+export type MockPartKey =
+  | "Part 1"
+  | "Part 2"
+  | "Part 3"
+  | "Part 4"
+  | "Part 5"
+  | "Part 6"
+  | "Part 7";
 
 export type MockTestSession = {
+  /** "reading" (default for back-compat) or "listening". Optional for legacy. */
+  mode?: MockMode;
   questionIds: string[];
   answers: Partial<Record<string, Choice>>;
   unansweredIds: string[];
@@ -11,16 +22,20 @@ export type MockTestSession = {
   submittedAt?: string;
 };
 
-export type MockPartBreakdown = Record<
-  MockPartKey,
-  {
-    correct: number;
-    total: number;
-  }
+/** Partial so reading results only need P5/6/7 and listening only need P1-4. */
+export type MockPartBreakdown = Partial<
+  Record<
+    MockPartKey,
+    {
+      correct: number;
+      total: number;
+    }
+  >
 >;
 
 export type MockTestResult = {
   id: string;
+  mode?: MockMode;
   questionIds: string[];
   answers: Partial<Record<string, Choice>>;
   unansweredIds: string[];

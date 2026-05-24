@@ -15,7 +15,7 @@ import {
   saveDailyPlan,
   saveQuizPlan,
 } from "@/lib/storage";
-import { getWeakestSkills } from "@/lib/analysis";
+import { getNextDayListeningMix, getWeakestSkills } from "@/lib/analysis";
 import { getAudioUrl, getImageUrl, hasMediaSupport } from "@/lib/media";
 import type { Choice, Question } from "@/types/question";
 import { SKILL_LABELS } from "@/types/question";
@@ -129,8 +129,17 @@ export default function QuizPage() {
 
   function startFreshPlan() {
     const reviewIds = getReviewableIds().slice(0, 5);
-    const weakSkillTags = getWeakestSkills(getAnswerRecords(), 2, 5).map((w) => w.skill);
-    const plan = buildDailyPlan({ reviewIds, weakSkillTags });
+    const records = getAnswerRecords();
+    const weakSkillTags = getWeakestSkills(records, 2, 5).map((w) => w.skill);
+    const mix = getNextDayListeningMix(records);
+    const plan = buildDailyPlan({
+      reviewIds,
+      weakSkillTags,
+      part1Count: mix.part1Count,
+      part2Count: mix.part2Count,
+      part3GroupCount: mix.part3GroupCount,
+      part4GroupCount: mix.part4GroupCount,
+    });
     saveDailyPlan({
       questionIds: plan.questions.map((q) => q.id),
       createdAt: new Date().toISOString(),
@@ -308,17 +317,6 @@ export default function QuizPage() {
         </div>
       )}
 
-      {currentQuestion.transcript && (
-        <div className="rounded-2xl border border-violet-200 bg-violet-50 p-4 shadow-sm">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-violet-600">
-            {currentQuestion.part} · Transcript
-          </p>
-          <p className="whitespace-pre-wrap text-sm leading-relaxed text-slate-800">
-            {currentQuestion.transcript}
-          </p>
-        </div>
-      )}
-
       <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
         <p className="text-base leading-relaxed text-slate-900">
           {questionText}
@@ -397,6 +395,28 @@ export default function QuizPage() {
               關鍵字：{currentQuestion.vocabulary.join(" · ")}
             </p>
           )}
+        </div>
+      )}
+
+      {/* Post-answer transcript reveal + replay (listening only) */}
+      {isAnswered && currentQuestion.transcript && (
+        <div className="rounded-2xl border border-violet-200 bg-violet-50 p-4 shadow-sm">
+          <div className="mb-2 flex items-center justify-between">
+            <p className="text-xs font-semibold uppercase tracking-wider text-violet-600">
+              {currentQuestion.part} · Transcript
+            </p>
+            <span className="rounded-full bg-violet-100 px-2 py-0.5 text-[10px] font-medium text-violet-700">
+              答完才顯示
+            </span>
+          </div>
+          {audioUrl && (
+            <div className="mb-3">
+              <AudioPlayer key={`${audioUrl}-replay`} src={audioUrl} allowReplay />
+            </div>
+          )}
+          <p className="whitespace-pre-wrap text-sm leading-relaxed text-slate-800">
+            {currentQuestion.transcript}
+          </p>
         </div>
       )}
 
