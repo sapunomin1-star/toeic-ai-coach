@@ -18,18 +18,20 @@ export function runIntegrityCheck(questions: Question[]): IntegrityReport {
     }
     ids.add(q.id);
 
+    const requiredChoices =
+      q.part === "Part 2" ? (["A", "B", "C"] as const) : (["A", "B", "C", "D"] as const);
+
     // Invalid answers
-    if (!["A", "B", "C", "D"].includes(q.answer)) {
+    if (!requiredChoices.includes(q.answer)) {
       invalidAnswers.push(q.id);
     }
 
     // Missing choices
-    if (
-      !q.choices.A ||
-      !q.choices.B ||
-      !q.choices.C ||
-      !q.choices.D
-    ) {
+    if (requiredChoices.some((choice) => !q.choices[choice])) {
+      missingChoices.push(q.id);
+    }
+
+    if (q.part === "Part 2" && q.choices.D !== undefined) {
       missingChoices.push(q.id);
     }
 

@@ -1255,4 +1255,1813 @@ export const QUESTIONS_LISTENING: Question[] = [
       transcript:
         "Thank you all for coming to the 10th Annual International Food Festival. This year, we have over 50 food stalls representing cuisines from 20 different countries. The festival will run from 11 a.m. to 9 p.m. today and tomorrow. At 3 p.m., there will be a cooking demonstration by a famous chef in the main square. Tickets can be purchased at the entrance or online. Children under 12 enter for free. Enjoy the food!",
     },
+  // ─── Part 1 (Photographs) — generated 2026-05-24 via DeepSeek v4 Pro, QA passed ───
+  {
+    "id": "p1-gen-001",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "A2",
+    "imageAlt": "A woman is sitting at a desk in a modern office, typing on a computer keyboard while looking at the monitor screen.",
+    "audioScript": "(A) A woman is typing on a computer keyboard.\n(B) A woman is talking on the telephone.\n(C) Two women are working at their desks.\n(D) A woman is typing on a computer yesterday.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "A woman is typing on a computer keyboard.",
+      "B": "A woman is talking on the telephone.",
+      "C": "Two women are working at their desks.",
+      "D": "A woman is typing on a computer yesterday."
+    },
+    "answer": "A",
+    "explanation_zh": "照片中一名女性正在使用電腦鍵盤打字，因此 (A) 為正確答案。(B) 的動作錯誤，她不是在講電話。(C) 的人數錯誤，照片中只有一位女性。(D) 的時態錯誤，使用了過去式 'yesterday' 來描述正在進行的動作。",
+    "vocabulary": [
+      "keyboard",
+      "typing",
+      "desk",
+      "office",
+      "monitor"
+    ]
+  },
+  {
+    "id": "p1-gen-002",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "A2",
+    "imageAlt": "Four people are sitting around a conference table in a meeting room, looking at documents and discussing something together.",
+    "audioScript": "(A) The people are eating lunch at a restaurant.\n(B) Some people are having a meeting around a table.\n(C) The people have finished their meeting.\n(D) A man is standing by the window alone.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "The people are eating lunch at a restaurant.",
+      "B": "Some people are having a meeting around a table.",
+      "C": "The people have finished their meeting.",
+      "D": "A man is standing by the window alone."
+    },
+    "answer": "B",
+    "explanation_zh": "照片中有一群人圍著桌子開會討論文件，因此 (B) 正確。(A) 的地點錯誤，他們在會議室而非餐廳。(C) 的時態錯誤，會議正在進行中而非已完成。(D) 的人數錯誤，並非一名男子獨自站在窗邊。",
+    "vocabulary": [
+      "meeting",
+      "conference",
+      "table",
+      "documents",
+      "discussing"
+    ]
+  },
+  {
+    "id": "p1-gen-003",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "A2",
+    "imageAlt": "A waiter in a restaurant is carrying a tray with plates of food toward a table where customers are seated.",
+    "audioScript": "(A) The waiter is cleaning the table with a cloth.\n(B) The customers are paying the bill at the counter.\n(C) The waiter is carrying a tray with plates of food.\n(D) The waiter carried a tray with plates of food.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "The waiter is cleaning the table with a cloth.",
+      "B": "The customers are paying the bill at the counter.",
+      "C": "The waiter is carrying a tray with plates of food.",
+      "D": "The waiter carried a tray with plates of food."
+    },
+    "answer": "C",
+    "explanation_zh": "照片中服務生正端著放有餐點的托盤，因此 (C) 正確。(A) 的動作錯誤，他沒有在擦桌子。(B) 的動作錯誤，顧客不是在結帳。(D) 的時態錯誤，使用過去式 'carried' 而非現在進行式。",
+    "vocabulary": [
+      "waiter",
+      "tray",
+      "plates",
+      "restaurant",
+      "customers"
+    ]
+  },
+  {
+    "id": "p1-gen-004",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "A2",
+    "imageAlt": "Several travelers are standing in line at an airport check-in counter with suitcases, waiting to speak with an airline agent.",
+    "audioScript": "(A) The travelers are boarding the airplane.\n(B) The travelers are at a train station platform.\n(C) The travelers are eating at an airport restaurant.\n(D) The travelers are standing at the airport check-in counter.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "The travelers are boarding the airplane.",
+      "B": "The travelers are at a train station platform.",
+      "C": "The travelers are eating at an airport restaurant.",
+      "D": "The travelers are standing at the airport check-in counter."
+    },
+    "answer": "D",
+    "explanation_zh": "照片中旅客在機場報到櫃檯前排隊，因此 (D) 正確。(A) 的動作錯誤，他們不是在登機。(B) 的地點錯誤，他們在機場而非火車站。(C) 的動作錯誤，他們不是在用餐。",
+    "vocabulary": [
+      "travelers",
+      "airport",
+      "counter",
+      "suitcases",
+      "checkin"
+    ]
+  },
+  {
+    "id": "p1-gen-005",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "A2",
+    "imageAlt": "Two construction workers wearing yellow hard hats and reflective vests are standing on a building site looking at blueprints together.",
+    "audioScript": "(A) Two construction workers are looking at blueprints on a building site.\n(B) The construction workers are driving a bulldozer.\n(C) One construction worker is sitting alone eating lunch.\n(D) Two construction workers looked at blueprints yesterday.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "Two construction workers are looking at blueprints on a building site.",
+      "B": "The construction workers are driving a bulldozer.",
+      "C": "One construction worker is sitting alone eating lunch.",
+      "D": "Two construction workers looked at blueprints yesterday."
+    },
+    "answer": "A",
+    "explanation_zh": "照片中兩名建築工人在工地查看藍圖，因此 (A) 正確。(B) 的動作錯誤，他們不是在駕駛推土機。(C) 的人數錯誤，並非一人獨自用餐。(D) 的時態錯誤，使用了過去式 'yesterday'。",
+    "vocabulary": [
+      "construction",
+      "hardhats",
+      "blueprints",
+      "workers",
+      "vests"
+    ]
+  },
+  {
+    "id": "p1-gen-006",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "B1",
+    "imageAlt": "A man in business attire is standing next to an office copy machine, placing a stack of documents into the paper feeder tray.",
+    "audioScript": "(A) A man is repairing the office copy machine.\n(B) A man is placing documents into the copy machine.\n(C) The man has already finished using the copy machine.\n(D) A woman is making copies of a document.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "A man is repairing the office copy machine.",
+      "B": "A man is placing documents into the copy machine.",
+      "C": "The man has already finished using the copy machine.",
+      "D": "A woman is making copies of a document."
+    },
+    "answer": "B",
+    "explanation_zh": "照片中一名男子正將文件放入影印機的進紙槽，因此 (B) 正確。(A) 的動作錯誤，他沒有在維修設備。(C) 的時態錯誤，使用完成式暗示動作已結束。(D) 的主語錯誤，畫面中是男性而非女性。",
+    "vocabulary": [
+      "documents",
+      "copier",
+      "office",
+      "placing",
+      "machine"
+    ]
+  },
+  {
+    "id": "p1-gen-007",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "B1",
+    "imageAlt": "A forklift operator inside a large warehouse is moving a wooden pallet loaded with cardboard boxes toward a tall storage rack.",
+    "audioScript": "(A) A truck is being unloaded outside the warehouse building.\n(B) The forklift is parked in the corner of the warehouse.\n(C) A forklift is moving a pallet of boxes in a warehouse.\n(D) A forklift moved a pallet of boxes last week.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "A truck is being unloaded outside the warehouse building.",
+      "B": "The forklift is parked in the corner of the warehouse.",
+      "C": "A forklift is moving a pallet of boxes in a warehouse.",
+      "D": "A forklift moved a pallet of boxes last week."
+    },
+    "answer": "C",
+    "explanation_zh": "照片中堆高機正在倉庫內移動裝有紙箱的棧板，因此 (C) 正確。(A) 的動作錯誤，不是在卸貨。(B) 的動作錯誤，堆高機正在運作而非停放。(D) 的時態錯誤，使用過去式。",
+    "vocabulary": [
+      "forklift",
+      "warehouse",
+      "pallet",
+      "boxes",
+      "storage"
+    ]
+  },
+  {
+    "id": "p1-gen-008",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "B1",
+    "imageAlt": "A customer at a retail clothing store is handing a credit card to a cashier standing behind the checkout counter with a cash register.",
+    "audioScript": "(A) The customer is trying on a jacket in the fitting room.\n(B) The cashier is folding clothes on a display table.\n(C) The customer is looking at items on a shelf.\n(D) A customer is handing a credit card to the cashier.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "The customer is trying on a jacket in the fitting room.",
+      "B": "The cashier is folding clothes on a display table.",
+      "C": "The customer is looking at items on a shelf.",
+      "D": "A customer is handing a credit card to the cashier."
+    },
+    "answer": "D",
+    "explanation_zh": "照片中顧客正將信用卡遞給收銀員，因此 (D) 正確。(A) 的地點錯誤，不是在試衣間。(B) 的動作錯誤，收銀員不是在摺衣服。(C) 的動作錯誤，顧客不是在瀏覽貨架。",
+    "vocabulary": [
+      "customer",
+      "cashier",
+      "creditcard",
+      "counter",
+      "retail"
+    ]
+  },
+  {
+    "id": "p1-gen-009",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "B1",
+    "imageAlt": "A hotel guest is standing at the front desk reception counter while a receptionist behind the counter is checking information on a computer monitor.",
+    "audioScript": "(A) A guest is checking in at the hotel front desk reception counter.\n(B) A guest is carrying heavy luggage up the hotel staircase.\n(C) The receptionist is cleaning the hotel lobby floor with a mop.\n(D) The guest has already left the hotel reception area entirely.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "A guest is checking in at the hotel front desk reception counter.",
+      "B": "A guest is carrying heavy luggage up the hotel staircase.",
+      "C": "The receptionist is cleaning the hotel lobby floor with a mop.",
+      "D": "The guest has already left the hotel reception area entirely."
+    },
+    "answer": "A",
+    "explanation_zh": "照片中飯店客人正在櫃檯辦理入住，因此 (A) 正確。(B) 的動作錯誤，不是在搬行李上樓。(C) 的動作錯誤，接待員不是在拖地。(D) 的時態錯誤，使用完成式表示已離開，但客人仍在現場。",
+    "vocabulary": [
+      "hotel",
+      "guest",
+      "reception",
+      "frontdesk",
+      "checkingin"
+    ]
+  },
+  {
+    "id": "p1-gen-010",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "A2",
+    "imageAlt": "Several factory workers wearing uniforms and protective gloves are assembling electronic components on a long production line inside a brightly lit factory.",
+    "audioScript": "(A) Workers are eating their lunch in the factory cafeteria.\n(B) Several workers are assembling products on a factory production line.\n(C) The workers have already finished their shift at the factory.\n(D) Only one worker is sweeping the factory floor with a broom.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "Workers are eating their lunch in the factory cafeteria.",
+      "B": "Several workers are assembling products on a factory production line.",
+      "C": "The workers have already finished their shift at the factory.",
+      "D": "Only one worker is sweeping the factory floor with a broom."
+    },
+    "answer": "B",
+    "explanation_zh": "照片中多位工人正在生產線上組裝產品，因此 (B) 正確。(A) 的地點錯誤，不是在餐廳用餐。(C) 的時態錯誤，使用完成式。(D) 的人數與動作錯誤，並非一人在掃地。",
+    "vocabulary": [
+      "factory",
+      "workers",
+      "assembling",
+      "production",
+      "line"
+    ]
+  },
+  {
+    "id": "p1-gen-011",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "B1",
+    "imageAlt": "A presenter in a conference room is standing beside a projection screen, pointing at a bar chart with a laser pointer while colleagues watch attentively from their seats.",
+    "audioScript": "(A) The presenter is writing on a whiteboard with a blue marker.\n(B) The audience members are all standing up to leave the room.\n(C) A presenter is pointing at a chart on a screen in a conference room.\n(D) The presenter gave a presentation in the conference room yesterday.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "The presenter is writing on a whiteboard with a blue marker.",
+      "B": "The audience members are all standing up to leave the room.",
+      "C": "A presenter is pointing at a chart on a screen in a conference room.",
+      "D": "The presenter gave a presentation in the conference room yesterday."
+    },
+    "answer": "C",
+    "explanation_zh": "照片中簡報者正用雷射筆指向螢幕上的圖表，因此 (C) 正確。(A) 的動作錯誤，不是在白板上書寫。(B) 的動作錯誤，觀眾並非站起來離場。(D) 的時態錯誤，使用過去式 'yesterday'。",
+    "vocabulary": [
+      "presenter",
+      "laserpointer",
+      "screen",
+      "conference",
+      "chart"
+    ]
+  },
+  {
+    "id": "p1-gen-012",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "B1",
+    "imageAlt": "Several people are sitting at outdoor tables on a restaurant patio, looking at menus and eating dishes while a server refills water glasses.",
+    "audioScript": "(A) The customers are ordering food from a drive-through window.\n(B) Several people are eating breakfast inside a hotel lobby area.\n(C) The server is mopping the floor near the outdoor tables.\n(D) People are sitting at outdoor tables while a server refills water glasses.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "The customers are ordering food from a drive-through window.",
+      "B": "Several people are eating breakfast inside a hotel lobby area.",
+      "C": "The server is mopping the floor near the outdoor tables.",
+      "D": "People are sitting at outdoor tables while a server refills water glasses."
+    },
+    "answer": "D",
+    "explanation_zh": "照片中人們坐在餐廳戶外座位，服務生正在倒水，因此 (D) 正確。(A) 的照片中不存在的物件錯誤，畫面中沒有得來速窗口。(B) 的地點錯誤，是在餐廳戶外而非飯店大廳。(C) 的動作錯誤，服務生不是在拖地。",
+    "vocabulary": [
+      "outdoor",
+      "tables",
+      "server",
+      "refilling",
+      "menus"
+    ]
+  },
+  {
+    "id": "p1-gen-013",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "B1",
+    "imageAlt": "A businesswoman in an open-plan office is holding a telephone receiver to her ear with one hand while writing notes on a notepad with a pen in the other hand.",
+    "audioScript": "(A) A woman is talking on the phone while writing notes at her desk.\n(B) The woman is reading a newspaper at her office desk quietly.\n(C) Two businesswomen are having a face-to-face conversation near the window.\n(D) A woman talked on the phone while writing notes at her desk.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "A woman is talking on the phone while writing notes at her desk.",
+      "B": "The woman is reading a newspaper at her office desk quietly.",
+      "C": "Two businesswomen are having a face-to-face conversation near the window.",
+      "D": "A woman talked on the phone while writing notes at her desk."
+    },
+    "answer": "A",
+    "explanation_zh": "照片中一名女性一邊講電話一邊在便條紙上寫筆記，因此 (A) 正確。(B) 的動作錯誤，她不是在讀報紙。(C) 的人數錯誤，僅有一人而非兩人。(D) 的時態錯誤，使用過去式 'talked'。",
+    "vocabulary": [
+      "telephone",
+      "notepad",
+      "writing",
+      "office",
+      "businesswoman"
+    ]
+  },
+  {
+    "id": "p1-gen-014",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "B1",
+    "imageAlt": "Passengers are walking down an airport jet bridge tunnel toward the open door of a commercial airplane parked on the tarmac under a clear blue sky.",
+    "audioScript": "(A) Passengers are picking up their luggage from a baggage carousel.\n(B) Passengers are walking down a jet bridge toward an airplane door.\n(C) Passengers are sitting inside the airplane with seat belts fastened.\n(D) Passengers will walk down a jet bridge toward an airplane door.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "Passengers are picking up their luggage from a baggage carousel.",
+      "B": "Passengers are walking down a jet bridge toward an airplane door.",
+      "C": "Passengers are sitting inside the airplane with seat belts fastened.",
+      "D": "Passengers will walk down a jet bridge toward an airplane door."
+    },
+    "answer": "B",
+    "explanation_zh": "照片中旅客正從空橋走向飛機艙門準備登機，因此 (B) 正確。(A) 的動作錯誤，不是在行李轉盤取行李。(C) 的動作錯誤，不是在機艙內坐著。(D) 的時態錯誤，使用未來式 'will walk'。",
+    "vocabulary": [
+      "passengers",
+      "jetbridge",
+      "airplane",
+      "boarding",
+      "tarmac"
+    ]
+  },
+  {
+    "id": "p1-gen-015",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "B2",
+    "imageAlt": "In a dimly lit warehouse aisle, tall metal shelving units are filled with cardboard boxes of varying sizes, and a clipboard with an inventory sheet hangs from one of the racks.",
+    "audioScript": "(A) A worker is climbing a ladder to reach the top shelf in the warehouse aisle.\n(B) A forklift is being driven through the narrow aisle of the warehouse.\n(C) Tall metal shelves filled with boxes line both sides of a warehouse aisle.\n(D) The warehouse shelves have already been emptied of all their boxes.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "A worker is climbing a ladder to reach the top shelf in the warehouse aisle.",
+      "B": "A forklift is being driven through the narrow aisle of the warehouse.",
+      "C": "Tall metal shelves filled with boxes line both sides of a warehouse aisle.",
+      "D": "The warehouse shelves have already been emptied of all their boxes."
+    },
+    "answer": "C",
+    "explanation_zh": "照片中倉庫走道兩旁排列著堆滿紙箱的高大金屬貨架，因此 (C) 正確。(A) 的照片中不存在的物件錯誤，畫面中沒有工人也沒有梯子。(B) 的照片中不存在的物件錯誤，畫面中沒有堆高機。(D) 的內容與事實相反，貨架上明顯堆滿了箱子而非空的。",
+    "vocabulary": [
+      "warehouse",
+      "aisle",
+      "shelving",
+      "boxes",
+      "inventory"
+    ]
+  },
+  {
+    "id": "p1-gen-016",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "B2",
+    "imageAlt": "A tall yellow construction crane is lifting a long steel beam into the air at a high-rise building construction site under an overcast sky.",
+    "audioScript": "(A) A construction crane is lowering a steel beam to the ground.\n(B) Workers are pouring concrete for the building foundation.\n(C) A crane lifted a steel beam at the construction site yesterday.\n(D) A crane is lifting a steel beam at a high-rise construction site.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "A construction crane is lowering a steel beam to the ground.",
+      "B": "Workers are pouring concrete for the building foundation.",
+      "C": "A crane lifted a steel beam at the construction site yesterday.",
+      "D": "A crane is lifting a steel beam at a high-rise construction site."
+    },
+    "answer": "D",
+    "explanation_zh": "照片中起重機正將鋼樑吊起到空中，因此 (D) 正確。(A) 的動作與方向錯誤，是吊起而非降下。(B) 的動作錯誤，工人不是在灌混凝土。(C) 的時態錯誤，使用過去式 'yesterday'。",
+    "vocabulary": [
+      "crane",
+      "steelbeam",
+      "construction",
+      "highrise",
+      "lifting"
+    ]
+  },
+  {
+    "id": "p1-gen-017",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "B1",
+    "imageAlt": "Several shoppers are browsing through racks of hanging clothes inside a brightly lit retail department store with folded items on display tables nearby.",
+    "audioScript": "(A) Several shoppers are browsing through racks of clothes in a retail store.\n(B) The shoppers are trying on shoes in the footwear section.\n(C) A store employee is vacuuming the carpet near the entrance.\n(D) Several shoppers browsed through racks of clothes in a store.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "Several shoppers are browsing through racks of clothes in a retail store.",
+      "B": "The shoppers are trying on shoes in the footwear section.",
+      "C": "A store employee is vacuuming the carpet near the entrance.",
+      "D": "Several shoppers browsed through racks of clothes in a store."
+    },
+    "answer": "A",
+    "explanation_zh": "照片中多名顧客正在瀏覽服飾店內的衣架，因此 (A) 正確。(B) 的動作錯誤，不是在試穿鞋子。(C) 的照片中不存在的物件與動作錯誤，沒有員工在用吸塵器。(D) 的時態錯誤，使用過去式 'browsed'。",
+    "vocabulary": [
+      "shoppers",
+      "browsing",
+      "racks",
+      "clothes",
+      "retail"
+    ]
+  },
+  {
+    "id": "p1-gen-018",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "B2",
+    "imageAlt": "Two business colleagues in formal suits are shaking hands while smiling at each other across a polished wooden conference table in a bright meeting room.",
+    "audioScript": "(A) Two colleagues are arguing loudly across the conference table.\n(B) Two colleagues are shaking hands across a conference table.\n(C) The colleagues are shaking hands in the hotel lobby.\n(D) Two colleagues shook hands across a conference table last month.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "Two colleagues are arguing loudly across the conference table.",
+      "B": "Two colleagues are shaking hands across a conference table.",
+      "C": "The colleagues are shaking hands in the hotel lobby.",
+      "D": "Two colleagues shook hands across a conference table last month."
+    },
+    "answer": "B",
+    "explanation_zh": "照片中兩位同事在會議桌旁握手微笑，因此 (B) 正確。(A) 的動作錯誤，是在握手而非爭論。(C) 的地點錯誤，是在會議室而非飯店大廳。(D) 的時態錯誤，使用過去式。",
+    "vocabulary": [
+      "colleagues",
+      "shakinghands",
+      "conference",
+      "table",
+      "suits"
+    ]
+  },
+  {
+    "id": "p1-gen-019",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "B1",
+    "imageAlt": "A hotel housekeeper in uniform is pushing a cleaning cart down a hotel corridor hallway, stopping in front of a guest room door with fresh towels on the cart.",
+    "audioScript": "(A) A housekeeper is checking a guest into a hotel room at the front desk.\n(B) The housekeeper is folding towels in the hotel laundry room.\n(C) A housekeeper is pushing a cleaning cart down a hotel corridor.\n(D) A housekeeper pushed a cleaning cart down a hotel corridor.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "A housekeeper is checking a guest into a hotel room at the front desk.",
+      "B": "The housekeeper is folding towels in the hotel laundry room.",
+      "C": "A housekeeper is pushing a cleaning cart down a hotel corridor.",
+      "D": "A housekeeper pushed a cleaning cart down a hotel corridor."
+    },
+    "answer": "C",
+    "explanation_zh": "照片中房務員正推著清潔車經過飯店走廊，因此 (C) 正確。(A) 的動作錯誤，不是在辦理入住手續。(B) 的地點錯誤，是在走廊而非洗衣房。(D) 的時態錯誤，使用過去式 'pushed'。",
+    "vocabulary": [
+      "housekeeper",
+      "cleaningcart",
+      "corridor",
+      "hotel",
+      "towels"
+    ]
+  },
+  {
+    "id": "p1-gen-020",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "A2",
+    "imageAlt": "A bus driver in a blue uniform is sitting behind the steering wheel of a parked city bus, looking forward through the large front windshield.",
+    "audioScript": "(A) A bus driver is sitting behind the steering wheel of a city bus.\n(B) The bus driver is helping passengers get off the bus.\n(C) Several passengers are getting on the bus together.\n(D) The bus driver sat behind the steering wheel of the bus.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "A bus driver is sitting behind the steering wheel of a city bus.",
+      "B": "The bus driver is helping passengers get off the bus.",
+      "C": "Several passengers are getting on the bus together.",
+      "D": "The bus driver sat behind the steering wheel of the bus."
+    },
+    "answer": "A",
+    "explanation_zh": "照片中公車司機坐在方向盤後方，因此 (A) 正確。(B) 的動作錯誤，不是在協助乘客下車。(C) 的照片中不存在的物件錯誤，畫面中沒有乘客在上車。(D) 的時態錯誤，使用過去式 'sat'。",
+    "vocabulary": [
+      "busdriver",
+      "steeringwheel",
+      "uniform",
+      "windshield",
+      "citybus"
+    ]
+  },
+  {
+    "id": "p1-gen-021",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "B1",
+    "imageAlt": "Two office colleagues are standing in front of a large whiteboard covered with diagrams and sticky notes, one is drawing while the other points at a section.",
+    "audioScript": "(A) The colleagues are sitting at their desks typing on computers.\n(B) A janitor is erasing the whiteboard alone in the office.\n(C) Colleagues discussed diagrams at a whiteboard in an office.\n(D) Colleagues are discussing diagrams at a whiteboard in an office.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "The colleagues are sitting at their desks typing on computers.",
+      "B": "A janitor is erasing the whiteboard alone in the office.",
+      "C": "Colleagues discussed diagrams at a whiteboard in an office.",
+      "D": "Colleagues are discussing diagrams at a whiteboard in an office."
+    },
+    "answer": "D",
+    "explanation_zh": "照片中同事們在白板前討論圖表與便利貼，因此 (D) 正確。(A) 的動作錯誤，不是在座位上打電腦。(B) 的主語與動作錯誤，並非清潔工獨自在擦白板。(C) 的時態錯誤，使用過去式 'discussed'。",
+    "vocabulary": [
+      "whiteboard",
+      "diagrams",
+      "stickynotes",
+      "colleagues",
+      "discussing"
+    ]
+  },
+  {
+    "id": "p1-gen-022",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "B1",
+    "imageAlt": "A factory technician wearing safety goggles and a hard hat is using a tablet device to inspect a large industrial machine on the factory floor.",
+    "audioScript": "(A) The technician is repairing the factory roof with a hammer.\n(B) A technician is inspecting machinery with a tablet on the factory floor.\n(C) The technician is inspecting machinery in the warehouse storage area.\n(D) A technician inspected machinery with a tablet on the factory floor.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "The technician is repairing the factory roof with a hammer.",
+      "B": "A technician is inspecting machinery with a tablet on the factory floor.",
+      "C": "The technician is inspecting machinery in the warehouse storage area.",
+      "D": "A technician inspected machinery with a tablet on the factory floor."
+    },
+    "answer": "B",
+    "explanation_zh": "照片中技師在工廠車間使用平板電腦檢查機器，因此 (B) 正確。(A) 的動作錯誤，不是在修理屋頂。(C) 的地點錯誤，是在工廠車間而非倉庫。(D) 的時態錯誤，使用過去式 'inspected'。",
+    "vocabulary": [
+      "technician",
+      "inspecting",
+      "machinery",
+      "tablet",
+      "goggles"
+    ]
+  },
+  {
+    "id": "p1-gen-023",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "A2",
+    "imageAlt": "A chef in a white uniform and tall hat is standing in a commercial restaurant kitchen, stirring a large pot on a stove with steam rising from it.",
+    "audioScript": "(A) A chef is stirring a large pot on a stove in a restaurant kitchen.\n(B) A chef is chopping vegetables on a wooden cutting board.\n(C) The chef is serving food to customers in the dining room.\n(D) A chef has already finished cooking in the restaurant kitchen.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "A chef is stirring a large pot on a stove in a restaurant kitchen.",
+      "B": "A chef is chopping vegetables on a wooden cutting board.",
+      "C": "The chef is serving food to customers in the dining room.",
+      "D": "A chef has already finished cooking in the restaurant kitchen."
+    },
+    "answer": "A",
+    "explanation_zh": "照片中廚師正在攪拌爐上的大鍋，因此 (A) 正確。(B) 的動作錯誤，不是在切菜。(C) 的地點錯誤，是在廚房而非用餐區。(D) 的時態錯誤，使用完成式表示已結束。",
+    "vocabulary": [
+      "chef",
+      "stirring",
+      "pot",
+      "stove",
+      "kitchen"
+    ]
+  },
+  {
+    "id": "p1-gen-024",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "B1",
+    "imageAlt": "An airport security officer in uniform is standing beside a baggage screening X-ray machine, watching the monitor while a passenger places a bag on the conveyor belt.",
+    "audioScript": "(A) The security officer is boarding a flight at the departure gate.\n(B) A passenger is driving a baggage cart across the tarmac.\n(C) The security officer is cleaning the airport waiting area.\n(D) A security officer is watching the baggage screening monitor at the airport.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "The security officer is boarding a flight at the departure gate.",
+      "B": "A passenger is driving a baggage cart across the tarmac.",
+      "C": "The security officer is cleaning the airport waiting area.",
+      "D": "A security officer is watching the baggage screening monitor at the airport."
+    },
+    "answer": "D",
+    "explanation_zh": "照片中安檢人員正在查看行李 X 光機螢幕，因此 (D) 正確。(A) 的動作錯誤，安檢人員不是在登機。(B) 的動作錯誤，乘客不是在開行李車。(C) 的動作錯誤，安檢人員不是在打掃。",
+    "vocabulary": [
+      "security",
+      "screening",
+      "xray",
+      "baggage",
+      "airport"
+    ]
+  },
+  {
+    "id": "p1-gen-025",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "B2",
+    "imageAlt": "A large audience is seated in rows inside a hotel ballroom conference space, all facing a speaker standing at a podium on an elevated stage under bright spotlighting.",
+    "audioScript": "(A) The audience members are all standing up and applauding the speaker.\n(B) The speaker is handing out printed materials to the audience.\n(C) An audience listened to a speaker at a podium in a conference hall yesterday.\n(D) An audience is listening to a speaker at a podium in a conference hall.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "The audience members are all standing up and applauding the speaker.",
+      "B": "The speaker is handing out printed materials to the audience.",
+      "C": "An audience listened to a speaker at a podium in a conference hall yesterday.",
+      "D": "An audience is listening to a speaker at a podium in a conference hall."
+    },
+    "answer": "D",
+    "explanation_zh": "照片中聽眾坐在會議廳內聆聽講台上的演講者，因此 (D) 正確。(A) 的動作錯誤，聽眾坐著而非站著鼓掌。(B) 的照片中不存在的物件錯誤，畫面中沒有分發資料的場景。(C) 的時態錯誤，使用過去式 'yesterday'。",
+    "vocabulary": [
+      "audience",
+      "speaker",
+      "podium",
+      "conference",
+      "ballroom"
+    ]
+  },
+  {
+    "id": "p1-gen-026",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "B2",
+    "imageAlt": "A construction worker in an orange safety vest is kneeling on the ground at a road construction site, using a metal measuring tape to measure the distance between two wooden stakes.",
+    "audioScript": "(A) The construction worker is driving a bulldozer across the construction site.\n(B) A worker is measuring a distance with a tape measure at a construction site.\n(C) The construction worker is measuring a distance at the factory assembly line.\n(D) A worker measured a distance with a tape measure at a construction site.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "The construction worker is driving a bulldozer across the construction site.",
+      "B": "A worker is measuring a distance with a tape measure at a construction site.",
+      "C": "The construction worker is measuring a distance at the factory assembly line.",
+      "D": "A worker measured a distance with a tape measure at a construction site."
+    },
+    "answer": "B",
+    "explanation_zh": "照片中工人正蹲在地上用捲尺測量距離，因此 (B) 正確。(A) 的動作錯誤，不是在駕駛推土機。(C) 的地點錯誤，是在工地而非工廠生產線。(D) 的時態錯誤，使用過去式 'measured'。",
+    "vocabulary": [
+      "measuring",
+      "tapemeasure",
+      "construction",
+      "worker",
+      "stakes"
+    ]
+  },
+  {
+    "id": "p1-gen-027",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "B2",
+    "imageAlt": "A retail store employee wearing a name tag and apron is kneeling beside a shelf, carefully placing canned goods from a cardboard box onto the store shelves in neat rows.",
+    "audioScript": "(A) A store employee is mopping the floor near the checkout aisle.\n(B) The employee is helping a customer find a product on the shelf.\n(C) A store employee is restocking canned goods onto the store shelves.\n(D) A store employee has already restocked all the shelves completely.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "A store employee is mopping the floor near the checkout aisle.",
+      "B": "The employee is helping a customer find a product on the shelf.",
+      "C": "A store employee is restocking canned goods onto the store shelves.",
+      "D": "A store employee has already restocked all the shelves completely."
+    },
+    "answer": "C",
+    "explanation_zh": "照片中店員正在將罐頭商品從紙箱中補充到貨架上，因此 (C) 正確。(A) 的動作錯誤，不是在拖地。(B) 的照片中不存在的物件錯誤，畫面中沒有顧客。(D) 的時態與事實錯誤，補貨正在進行中而非已完成。",
+    "vocabulary": [
+      "employee",
+      "restocking",
+      "cannedgoods",
+      "shelves",
+      "store"
+    ]
+  },
+  {
+    "id": "p1-gen-028",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "B1",
+    "imageAlt": "A large delivery truck is backed up to an open warehouse loading dock where two workers are unloading large cardboard boxes onto a hand cart under a covered awning.",
+    "audioScript": "(A) Workers are loading boxes onto a delivery truck at the loading dock.\n(B) A delivery truck is parked empty in the warehouse parking lot.\n(C) Workers are unloading boxes from a truck at the warehouse loading dock.\n(D) Workers unloaded boxes from a truck at the warehouse loading dock.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "Workers are loading boxes onto a delivery truck at the loading dock.",
+      "B": "A delivery truck is parked empty in the warehouse parking lot.",
+      "C": "Workers are unloading boxes from a truck at the warehouse loading dock.",
+      "D": "Workers unloaded boxes from a truck at the warehouse loading dock."
+    },
+    "answer": "C",
+    "explanation_zh": "照片中工人正從貨車上卸下箱子到卸貨平台，因此 (C) 正確。(A) 的動作方向錯誤，是卸貨而非裝貨。(B) 的地點錯誤，貨車在卸貨區而非停車場。(D) 的時態錯誤，使用過去式 'unloaded'。",
+    "vocabulary": [
+      "unloading",
+      "truck",
+      "loadingdock",
+      "warehouse",
+      "handcart"
+    ]
+  },
+  {
+    "id": "p1-gen-029",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "A2",
+    "imageAlt": "A man in casual business clothes is sitting at an office desk holding a white coffee mug, looking at his computer screen with a calm expression on his face.",
+    "audioScript": "(A) A man is drinking coffee at his desk in an office.\n(B) A man is pouring coffee into a mug in the office kitchen.\n(C) Two men are drinking coffee together at a desk.\n(D) A man drank coffee at his desk in an office.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "A man is drinking coffee at his desk in an office.",
+      "B": "A man is pouring coffee into a mug in the office kitchen.",
+      "C": "Two men are drinking coffee together at a desk.",
+      "D": "A man drank coffee at his desk in an office."
+    },
+    "answer": "A",
+    "explanation_zh": "照片中一名男子在辦公桌前喝咖啡，因此 (A) 正確。(B) 的地點錯誤，是在辦公桌前而非廚房。(C) 的人數錯誤，只有一人而非兩人。(D) 的時態錯誤，使用過去式 'drank'。",
+    "vocabulary": [
+      "coffee",
+      "mug",
+      "desk",
+      "office",
+      "drinking"
+    ]
+  },
+  {
+    "id": "p1-gen-030",
+    "part": "Part 1",
+    "skill_tag": "listening_photo",
+    "difficulty": "B1",
+    "imageAlt": "Three team members in a small meeting room are gathered around an open laptop computer on a table, with one person pointing at something on the screen while the others lean in to look.",
+    "audioScript": "(A) The team members are writing on a whiteboard with markers.\n(B) Three team members are sitting in a waiting room using their phones.\n(C) Team members are gathered around a laptop looking at the screen.\n(D) The team members gathered around a laptop looked at the screen.",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "The team members are writing on a whiteboard with markers.",
+      "B": "Three team members are sitting in a waiting room using their phones.",
+      "C": "Team members are gathered around a laptop looking at the screen.",
+      "D": "The team members gathered around a laptop looked at the screen."
+    },
+    "answer": "C",
+    "explanation_zh": "照片中團隊成員圍著筆記型電腦看螢幕，因此 (C) 正確。(A) 的動作錯誤，不是在白板上寫字。(B) 的地點錯誤，是在會議室而非等候室。(D) 的時態錯誤，使用過去式 'looked'。",
+    "vocabulary": [
+      "laptop",
+      "team",
+      "meeting",
+      "screen",
+      "gathered"
+    ]
+  },
+  // ─── Part 2 (Question-Response) — generated 2026-05-24 via DeepSeek v4 Pro, QA passed ───
+  {
+    "id": "p2-gen-001",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "audioScript": "Q: The marketing team is meeting in the main conference room, aren't they?\n(A) Yes, they reserved it for the whole afternoon.\n(B) No, I think they moved it to the boardroom instead.\n(C) The marketing report is on your desk right now.",
+    "question": "The marketing team is meeting in the main conference room, aren't they?",
+    "choices": {
+      "A": "Yes, they reserved it for the whole afternoon.",
+      "B": "No, I think they moved it to the boardroom instead.",
+      "C": "The marketing report is on your desk right now."
+    },
+    "answer": "B",
+    "explanation_zh": "這是一個附加問句，確認行銷團隊是否在主會議室開會，(B) 回應修正資訊表示已改至董事會議室為正確回應。(A) 回答已預訂但未確認是否改地點。(C) 提到行銷報告在桌上，與會議地點的確認無關。",
+    "vocabulary": [
+      "marketing",
+      "meeting",
+      "conference",
+      "boardroom",
+      "reserved"
+    ]
+  },
+  {
+    "id": "p2-gen-002",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "audioScript": "Q: Did you send the invoice to the client yet?\n(A) Yes, I sent it this morning.\n(B) The client will arrive at noon.\n(C) I think the invoice is on the table.",
+    "question": "Did you send the invoice to the client yet?",
+    "choices": {
+      "A": "Yes, I sent it this morning.",
+      "B": "The client will arrive at noon.",
+      "C": "I think the invoice is on the table."
+    },
+    "answer": "A",
+    "explanation_zh": "這是一個 Yes-No 問句，詢問發票是否已寄出，(A) 明確回答「是的，今天早上寄了」為正確回應。(B) 提到客戶到達時間，與寄發票無關。(C) 說發票在桌上，未回答是否已寄出的問題。",
+    "vocabulary": [
+      "invoice",
+      "client",
+      "sent",
+      "morning"
+    ]
+  },
+  {
+    "id": "p2-gen-003",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "audioScript": "Q: When does the delivery truck usually arrive at the warehouse?\n(A) The warehouse is on Oak Street.\n(B) The driver is from the logistics company.\n(C) It is usually here by nine in the morning.",
+    "question": "When does the delivery truck usually arrive at the warehouse?",
+    "choices": {
+      "A": "The warehouse is on Oak Street.",
+      "B": "The driver is from the logistics company.",
+      "C": "It is usually here by nine in the morning."
+    },
+    "answer": "C",
+    "explanation_zh": "問題問的是貨車抵達的「時間」，(C) 回答通常在早上九點前到達為正確回應。(A) 回答倉庫地址，屬於答非所問。(B) 提及司機的所屬公司，與抵達時間無關。",
+    "vocabulary": [
+      "delivery",
+      "truck",
+      "warehouse",
+      "arrive",
+      "usually"
+    ]
+  },
+  {
+    "id": "p2-gen-004",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "audioScript": "Q: I think the quarterly sales report is finally ready for review.\n(A) I reviewed it last quarter.\n(B) Great, let me take a look at it right now.\n(C) The sales team is in a meeting.",
+    "question": "I think the quarterly sales report is finally ready for review.",
+    "choices": {
+      "A": "I reviewed it last quarter.",
+      "B": "Great, let me take a look at it right now.",
+      "C": "The sales team is in a meeting."
+    },
+    "answer": "B",
+    "explanation_zh": "這是一個陳述句，表示報告已準備好供審閱，(B) 回應「好的，我立刻來看」為適當的確認回應。(A) 的時態錯誤，報告剛完成而非上一季已審閱完畢。(C) 提到銷售團隊在開會，與報告準備好的陳述無關。",
+    "vocabulary": [
+      "quarterly",
+      "sales",
+      "report",
+      "review",
+      "ready"
+    ]
+  },
+  {
+    "id": "p2-gen-005",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "audioScript": "Q: Who is responsible for ordering the office supplies this month?\n(A) I placed the order last week.\n(B) I believe Susan is handling it now.\n(C) The office supplies are in the storage closet.",
+    "question": "Who is responsible for ordering the office supplies this month?",
+    "choices": {
+      "A": "I placed the order last week.",
+      "B": "I believe Susan is handling it now.",
+      "C": "The office supplies are in the storage closet."
+    },
+    "answer": "B",
+    "explanation_zh": "問題問的是「誰」負責訂購辦公用品，(B) 回答 Susan 在處理為正確回應。(A) 回答的是時間而非人物。(C) 回答物品的位置，而非負責人是誰。",
+    "vocabulary": [
+      "responsible",
+      "ordering",
+      "supplies",
+      "handling",
+      "office"
+    ]
+  },
+  {
+    "id": "p2-gen-006",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "audioScript": "Q: The presentation went really well, didn't it?\n(A) Yes, the clients seemed very impressed.\n(B) I will present it tomorrow afternoon.\n(C) The presentation room is on the third floor.",
+    "question": "The presentation went really well, didn't it?",
+    "choices": {
+      "A": "Yes, the clients seemed very impressed.",
+      "B": "I will present it tomorrow afternoon.",
+      "C": "The presentation room is on the third floor."
+    },
+    "answer": "A",
+    "explanation_zh": "這是一個附加問句，說話者表示簡報很成功並尋求認同，(A) 回應「是的，客戶似乎印象深刻」為適當的確認。(B) 的時態錯誤，簡報已發生而非明天才進行。(C) 回答地點，與簡報是否成功完全無關。",
+    "vocabulary": [
+      "presentation",
+      "clients",
+      "impressed",
+      "went"
+    ]
+  },
+  {
+    "id": "p2-gen-007",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "audioScript": "Q: Is the conference call with the London office still on for four o'clock?\n(A) Yes, it is still scheduled for four o'clock our time.\n(B) The London office is on Baker Street downtown.\n(C) I already had a call with them this morning.",
+    "question": "Is the conference call with the London office still on for four o'clock?",
+    "choices": {
+      "A": "Yes, it is still scheduled for four o'clock our time.",
+      "B": "The London office is on Baker Street downtown.",
+      "C": "I already had a call with them this morning."
+    },
+    "answer": "A",
+    "explanation_zh": "這是一個 Yes-No 問句，詢問與倫敦辦公室的電話會議是否照常舉行，(A) 回答是的並確認時間為正確回應。(B) 回答倫敦辦公室的地址，與會議是否照常無關。(C) 的時態錯誤，使用過去式且未直接回答問題。",
+    "vocabulary": [
+      "conference",
+      "london",
+      "scheduled",
+      "call"
+    ]
+  },
+  {
+    "id": "p2-gen-008",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "audioScript": "Q: Is there a printer on this floor that I can use?\n(A) The papers are printed in color.\n(B) Yes, there is one right next to the break room.\n(C) I prefer to use the stairs instead.",
+    "question": "Is there a printer on this floor that I can use?",
+    "choices": {
+      "A": "The papers are printed in color.",
+      "B": "Yes, there is one right next to the break room.",
+      "C": "I prefer to use the stairs instead."
+    },
+    "answer": "B",
+    "explanation_zh": "這是一個 Yes-No 問句，詢問這層樓是否有印表機可用，(B) 回答「有，就在休息室旁邊」為正確回應。(A) 提到文件是彩色列印，但未回答是否有印表機。(C) 提到樓梯，與印表機完全無關。",
+    "vocabulary": [
+      "printer",
+      "floor",
+      "breakroom"
+    ]
+  },
+  {
+    "id": "p2-gen-009",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "audioScript": "Q: Could you please forward the email to the HR department?\n(A) The HR office is on the second floor.\n(B) I forwarded it to them yesterday.\n(C) Sure, I will do that right away.",
+    "question": "Could you please forward the email to the HR department?",
+    "choices": {
+      "A": "The HR office is on the second floor.",
+      "B": "I forwarded it to them yesterday.",
+      "C": "Sure, I will do that right away."
+    },
+    "answer": "C",
+    "explanation_zh": "這是一個間接請求，請對方轉寄郵件給人資部門，(C) 回答「好的，我馬上做」為適當的回應。(A) 回答人資辦公室的位置，未回應請求。(B) 的時態錯誤，使用過去式而非回應當下的請求。",
+    "vocabulary": [
+      "forward",
+      "email",
+      "department",
+      "rightaway"
+    ]
+  },
+  {
+    "id": "p2-gen-010",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "audioScript": "Q: About twenty-five people have confirmed their attendance for the workshop so far.\n(A) That is a great turnout, we should order extra materials then.\n(B) The workshop will be held on Friday in the training center.\n(C) I think the confirmation letters were sent out last week.",
+    "question": "About twenty-five people have confirmed their attendance for the workshop so far.",
+    "choices": {
+      "A": "That is a great turnout, we should order extra materials then.",
+      "B": "The workshop will be held on Friday in the training center.",
+      "C": "I think the confirmation letters were sent out last week."
+    },
+    "answer": "A",
+    "explanation_zh": "這是一個告知出席人數的陳述句，(A) 回應表示人數不錯並建議多訂材料為適當的回應。(B) 回答工作坊的日期地點而非對人數做出回應。(C) 的時態錯誤，使用過去式而非對當下訊息做出反應。",
+    "vocabulary": [
+      "attendance",
+      "workshop",
+      "turnout",
+      "materials"
+    ]
+  },
+  {
+    "id": "p2-gen-011",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "audioScript": "Q: Should we order lunch for the team or let everyone eat on their own?\n(A) I think ordering in would be more efficient for the team.\n(B) The lunch break is usually at noon.\n(C) Everyone already ate their lunch earlier.",
+    "question": "Should we order lunch for the team or let everyone eat on their own?",
+    "choices": {
+      "A": "I think ordering in would be more efficient for the team.",
+      "B": "The lunch break is usually at noon.",
+      "C": "Everyone already ate their lunch earlier."
+    },
+    "answer": "A",
+    "explanation_zh": "這是一個選擇問句，提供「訂餐」或「各自用餐」兩個選項，(A) 選擇訂餐並給出理由為正確回應。(B) 回答午餐時間，但並未在兩個選項中做出選擇。(C) 的時態錯誤，用餐尚未發生。",
+    "vocabulary": [
+      "order",
+      "lunch",
+      "efficient",
+      "team"
+    ]
+  },
+  {
+    "id": "p2-gen-012",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "audioScript": "Q: Why did the shipping company delay our delivery again?\n(A) The delivery arrived yesterday afternoon.\n(B) I shipped the package to the wrong address.\n(C) The shipment was delayed because of the storm.",
+    "question": "Why did the shipping company delay our delivery again?",
+    "choices": {
+      "A": "The delivery arrived yesterday afternoon.",
+      "B": "I shipped the package to the wrong address.",
+      "C": "The shipment was delayed because of the storm."
+    },
+    "answer": "C",
+    "explanation_zh": "問題問的是延遲的「原因」，(C) 回答因為暴風雨而延遲為正確回應。(A) 回答送達時間而非延遲的原因。(B) 是另一個可能的延遲原因但主語錯誤，問題問的是貨運公司的延遲而非「我」造成的。",
+    "vocabulary": [
+      "shipping",
+      "delay",
+      "delivery",
+      "storm",
+      "shipment"
+    ]
+  },
+  {
+    "id": "p2-gen-013",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "audioScript": "Q: The new employee orientation starts at ten in the training room.\n(A) The training room has been reserved all morning.\n(B) Thanks for letting me know, I will be there on time.\n(C) Ten new employees joined the company last month.",
+    "question": "The new employee orientation starts at ten in the training room.",
+    "choices": {
+      "A": "The training room has been reserved all morning.",
+      "B": "Thanks for letting me know, I will be there on time.",
+      "C": "Ten new employees joined the company last month."
+    },
+    "answer": "B",
+    "explanation_zh": "這是一個告知資訊的陳述句，(B) 回應感謝通知並表示會準時到場為適當的回應。(A) 提到訓練室已被預訂，但未對通知做出回應。(C) 提到上個月有十名新員工，與當下的新進員工訓練通知無關。",
+    "vocabulary": [
+      "orientation",
+      "training",
+      "employee",
+      "starts"
+    ]
+  },
+  {
+    "id": "p2-gen-014",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "audioScript": "Q: Are we still on for the budget meeting at two o'clock?\n(A) Yes, I have already booked the small conference room.\n(B) The budget report needs to be updated first.\n(C) Two o'clock is too early for me to arrive.",
+    "question": "Are we still on for the budget meeting at two o'clock?",
+    "choices": {
+      "A": "Yes, I have already booked the small conference room.",
+      "B": "The budget report needs to be updated first.",
+      "C": "Two o'clock is too early for me to arrive."
+    },
+    "answer": "A",
+    "explanation_zh": "這是一個 Yes-No 問句，確認會議是否照常舉行，(A) 回答「是的，已訂好會議室」為正確回應。(B) 提到預算報告需要更新，但未直接回答會議是否照常。(C) 抱怨時間太早，未正面回答問題。",
+    "vocabulary": [
+      "budget",
+      "meeting",
+      "booked",
+      "conference"
+    ]
+  },
+  {
+    "id": "p2-gen-015",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "audioScript": "Q: Which vendor did we finally choose for the office renovation project?\n(A) The renovation will take about three weeks.\n(B) The project was completed last month.\n(C) We decided to go with Wilson Construction in the end.",
+    "question": "Which vendor did we finally choose for the office renovation project?",
+    "choices": {
+      "A": "The renovation will take about three weeks.",
+      "B": "The project was completed last month.",
+      "C": "We decided to go with Wilson Construction in the end."
+    },
+    "answer": "C",
+    "explanation_zh": "問題問的是「哪一家」廠商被選中，(C) 回答選擇了 Wilson Construction 為正確回應。(A) 回答工期長度而非廠商名稱。(B) 的時態錯誤，專案尚未完成。",
+    "vocabulary": [
+      "vendor",
+      "renovation",
+      "construction",
+      "project",
+      "chose"
+    ]
+  },
+  {
+    "id": "p2-gen-016",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: Where should we set up the display booth for the trade show next week?\n(A) The trade show runs from Monday to Wednesday.\n(B) I will set up the booth all by myself.\n(C) Right by the main entrance would attract the most visitors.",
+    "question": "Where should we set up the display booth for the trade show next week?",
+    "choices": {
+      "A": "The trade show runs from Monday to Wednesday.",
+      "B": "I will set up the booth all by myself.",
+      "C": "Right by the main entrance would attract the most visitors."
+    },
+    "answer": "C",
+    "explanation_zh": "問題問的是設置攤位的「地點建議」，(C) 建議設在主要入口旁並說明理由為正確回應。(A) 回答展覽的日期而非地點。(B) 提到將獨自佈置，但未回答地點。",
+    "vocabulary": [
+      "display",
+      "booth",
+      "tradeshow",
+      "entrance",
+      "visitors"
+    ]
+  },
+  {
+    "id": "p2-gen-017",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: Have you had a chance to look over the contract terms yet?\n(A) I will have a chance to review it tomorrow.\n(B) Not yet, but I plan to read through it this evening.\n(C) The contract was signed by both parties last Friday.",
+    "question": "Have you had a chance to look over the contract terms yet?",
+    "choices": {
+      "A": "I will have a chance to review it tomorrow.",
+      "B": "Not yet, but I plan to read through it this evening.",
+      "C": "The contract was signed by both parties last Friday."
+    },
+    "answer": "B",
+    "explanation_zh": "這是一個 Yes-No 問句，詢問是否已看過合約條款，(B) 回答「還沒有，但打算今晚看」為正確回應。(A) 的時態錯誤，使用未來式而問題問的是已經完成的動作。(C) 提到合約已簽署，與是否已審閱過條款無直接關聯。",
+    "vocabulary": [
+      "contract",
+      "terms",
+      "review",
+      "signed",
+      "parties"
+    ]
+  },
+  {
+    "id": "p2-gen-018",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: When are the candidates coming in for the final round of interviews?\n(A) They will be here on Thursday morning at nine.\n(B) The interview panel consists of three managers.\n(C) I think the candidates are all very qualified.",
+    "question": "When are the candidates coming in for the final round of interviews?",
+    "choices": {
+      "A": "They will be here on Thursday morning at nine.",
+      "B": "The interview panel consists of three managers.",
+      "C": "I think the candidates are all very qualified."
+    },
+    "answer": "A",
+    "explanation_zh": "問題問的是求職者面試的「時間」，(A) 回答週四早上九點為正確回應。(B) 回答面試官成員組成而非時間。(C) 評論求職者的素質，但未回答時間問題。",
+    "vocabulary": [
+      "candidates",
+      "interviews",
+      "final",
+      "panel",
+      "qualified"
+    ]
+  },
+  {
+    "id": "p2-gen-019",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: The client just called and they want to move up the deadline by a week.\n(A) The client is from the headquarters in Tokyo.\n(B) That is tough, but we will try to make it work somehow.\n(C) I called the client earlier this morning about the proposal.",
+    "question": "The client just called and they want to move up the deadline by a week.",
+    "choices": {
+      "A": "The client is from the headquarters in Tokyo.",
+      "B": "That is tough, but we will try to make it work somehow.",
+      "C": "I called the client earlier this morning about the proposal."
+    },
+    "answer": "B",
+    "explanation_zh": "這是一個傳達緊急訊息的陳述句，(B) 回應「很困難但會想辦法完成」為對訊息的自然反應。(A) 提到客戶來自東京總部，與截止日提前的訊息無關。(C) 的時態與內容錯誤，對方剛打電話來說明變更而非「我」已在早上打過電話。",
+    "vocabulary": [
+      "client",
+      "deadline",
+      "tough",
+      "figureout",
+      "called"
+    ]
+  },
+  {
+    "id": "p2-gen-020",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: What exactly is the new software update supposed to fix?\n(A) The software company is based in California.\n(B) It should resolve the data syncing issues we have been having.\n(C) I updated the software on my computer last night.",
+    "question": "What exactly is the new software update supposed to fix?",
+    "choices": {
+      "A": "The software company is based in California.",
+      "B": "It should resolve the data syncing issues we have been having.",
+      "C": "I updated the software on my computer last night."
+    },
+    "answer": "B",
+    "explanation_zh": "問題問的是軟體更新要「修復什麼」，(B) 回答要解決資料同步問題為正確回應。(A) 回答軟體公司的所在地而非更新內容。(C) 提到昨晚更新了軟體，但未說明更新修復了什麼。",
+    "vocabulary": [
+      "software",
+      "update",
+      "resolve",
+      "syncing",
+      "issues"
+    ]
+  },
+  {
+    "id": "p2-gen-021",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: The new dress code policy takes effect starting next Monday, right?\n(A) I bought a new dress for the company dinner.\n(B) The policy was written by the legal department.\n(C) Yes, everyone needs to follow the new guidelines by then.",
+    "question": "The new dress code policy takes effect starting next Monday, right?",
+    "choices": {
+      "A": "I bought a new dress for the company dinner.",
+      "B": "The policy was written by the legal department.",
+      "C": "Yes, everyone needs to follow the new guidelines by then."
+    },
+    "answer": "C",
+    "explanation_zh": "這是一個附加問句，確認新服裝規定下週一生效，(C) 回應確認並補充說明為正確回應。(A) 的「dress」與問題中的「dress code」發音相近但意思不同，屬於語音干擾項。(B) 提到政策由法務部門撰寫，但未對生效日期做出確認。",
+    "vocabulary": [
+      "policy",
+      "takeseffect",
+      "guidelines",
+      "monday"
+    ]
+  },
+  {
+    "id": "p2-gen-022",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: Processing the insurance claim usually takes about three weeks, doesn't it?\n(A) Yes, that is the standard processing time for most claims.\n(B) The shipment was damaged during transit last Tuesday afternoon.\n(C) I think we should file the claim as soon as possible today.",
+    "question": "Processing the insurance claim usually takes about three weeks, doesn't it?",
+    "choices": {
+      "A": "Yes, that is the standard processing time for most claims.",
+      "B": "The shipment was damaged during transit last Tuesday afternoon.",
+      "C": "I think we should file the claim as soon as possible today."
+    },
+    "answer": "A",
+    "explanation_zh": "這是一個附加問句，確認理賠處理通常需要三週時間，(A) 回應確認並補充說明為正確回應。(B) 提到貨物損壞的時間而非確認理賠處理時長。(C) 建議應盡快申請，但未對附加問句做出確認。",
+    "vocabulary": [
+      "insurance",
+      "claim",
+      "processing",
+      "standard"
+    ]
+  },
+  {
+    "id": "p2-gen-023",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: Did the IT department resolve the network outage from yesterday?\n(A) The network was very slow this morning as well.\n(B) Yes, everything is back up and running normally now.\n(C) I need to call the IT department about my computer.",
+    "question": "Did the IT department resolve the network outage from yesterday?",
+    "choices": {
+      "A": "The network was very slow this morning as well.",
+      "B": "Yes, everything is back up and running normally now.",
+      "C": "I need to call the IT department about my computer."
+    },
+    "answer": "B",
+    "explanation_zh": "這是一個 Yes-No 問句，詢問網路問題是否已解決，(B) 回答「是的，一切已恢復正常」為正確回應。(A) 提到網路仍很慢，暗示問題未解決但未直接回答是否已修復。(C) 提到需要打電話給 IT 部門，但與網路問題是否解決無關。",
+    "vocabulary": [
+      "network",
+      "outage",
+      "resolved",
+      "running",
+      "normally"
+    ]
+  },
+  {
+    "id": "p2-gen-024",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: Would you mind staying a little late tonight to help finish the monthly report?\n(A) I finished the report this morning already.\n(B) The monthly meeting is scheduled for Thursday.\n(C) Not at all, I can stay as long as you need me.",
+    "question": "Would you mind staying a little late tonight to help finish the monthly report?",
+    "choices": {
+      "A": "I finished the report this morning already.",
+      "B": "The monthly meeting is scheduled for Thursday.",
+      "C": "Not at all, I can stay as long as you need me."
+    },
+    "answer": "C",
+    "explanation_zh": "這是一個間接請求，以「Would you mind」詢問是否願意加班，(C) 回答「一點也不介意，需要留多久都可以」為正確回應。(A) 的時態錯誤，報告尚未完成而非早上已做完。(B) 提到月會時間，與加班請求完全無關。",
+    "vocabulary": [
+      "staying",
+      "late",
+      "report",
+      "finish",
+      "mind"
+    ]
+  },
+  {
+    "id": "p2-gen-025",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: Who will be leading the project presentation at the board meeting next Tuesday?\n(A) The board meeting has been postponed to Wednesday.\n(B) The project is behind schedule by about two weeks.\n(C) I believe Mr. Anderson will be leading the presentation.",
+    "question": "Who will be leading the project presentation at the board meeting next Tuesday?",
+    "choices": {
+      "A": "The board meeting has been postponed to Wednesday.",
+      "B": "The project is behind schedule by about two weeks.",
+      "C": "I believe Mr. Anderson will be leading the presentation."
+    },
+    "answer": "C",
+    "explanation_zh": "問題問的是「誰」將主持簡報，(C) 回答 Anderson 先生為正確回應。(A) 提到會議延期，但未回答主持人選。(B) 提到專案進度落後，與簡報主持人是誰無關。",
+    "vocabulary": [
+      "leading",
+      "presentation",
+      "board",
+      "project",
+      "postponed"
+    ]
+  },
+  {
+    "id": "p2-gen-026",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: Should we fly out on Monday evening or take the early flight on Tuesday morning?\n(A) I would prefer the Tuesday morning flight to avoid the rush.\n(B) The flight to Chicago takes about three hours.\n(C) Monday is a public holiday so the office will be closed.",
+    "question": "Should we fly out on Monday evening or take the early flight on Tuesday morning?",
+    "choices": {
+      "A": "I would prefer the Tuesday morning flight to avoid the rush.",
+      "B": "The flight to Chicago takes about three hours.",
+      "C": "Monday is a public holiday so the office will be closed."
+    },
+    "answer": "A",
+    "explanation_zh": "這是一個選擇問句，提供週一晚或週二早兩個航班選項，(A) 選擇週二早班機並說明理由為正確回應。(B) 回答飛行時間長度而非做出選擇。(C) 提到週一是假日，但未在兩個航班選項之間做出決定。",
+    "vocabulary": [
+      "flight",
+      "monday",
+      "tuesday",
+      "avoid",
+      "rush"
+    ]
+  },
+  {
+    "id": "p2-gen-027",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: Why do we need to order more toner cartridges for the office printers already?\n(A) The printer is located near the copy machine.\n(B) Because we have been printing a lot of training manuals this month.\n(C) I already placed the order for new toner this morning.",
+    "question": "Why do we need to order more toner cartridges for the office printers already?",
+    "choices": {
+      "A": "The printer is located near the copy machine.",
+      "B": "Because we have been printing a lot of training manuals this month.",
+      "C": "I already placed the order for new toner this morning."
+    },
+    "answer": "B",
+    "explanation_zh": "問題問的是需要再訂購碳粉匣的「原因」，(B) 回答因為本月印了大量訓練手冊為正確回應。(A) 回答印表機的位置而非原因。(C) 的時態錯誤，使用過去式表示已訂購，而非解釋為何需要訂購。",
+    "vocabulary": [
+      "toner",
+      "cartridges",
+      "printing",
+      "manuals",
+      "order"
+    ]
+  },
+  {
+    "id": "p2-gen-028",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: Who is visiting our branch office tomorrow, according to the latest update?\n(A) The branch office is on the outskirts of town near the highway.\n(B) I have not visited the regional office in a very long time.\n(C) The regional manager is coming to inspect our operations today.",
+    "question": "Who is visiting our branch office tomorrow, according to the latest update?",
+    "choices": {
+      "A": "The branch office is on the outskirts of town near the highway.",
+      "B": "I have not visited the regional office in a very long time.",
+      "C": "The regional manager is coming to inspect our operations today."
+    },
+    "answer": "C",
+    "explanation_zh": "問題問的是「誰」要來訪，(C) 回答區域經理要來視察為正確回應。(A) 回答分公司位置而非人物。(B) 提到自己沒去過區域辦公室，但未回答誰要來訪。",
+    "vocabulary": [
+      "regional",
+      "manager",
+      "visiting",
+      "branch",
+      "inspect"
+    ]
+  },
+  {
+    "id": "p2-gen-029",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: Where can I find the employee handbook for the new onboarding policy?\n(A) The new employee starts on the first of next month.\n(B) I found the handbook very helpful when I first joined.\n(C) It is available for download on the company intranet portal.",
+    "question": "Where can I find the employee handbook for the new onboarding policy?",
+    "choices": {
+      "A": "The new employee starts on the first of next month.",
+      "B": "I found the handbook very helpful when I first joined.",
+      "C": "It is available for download on the company intranet portal."
+    },
+    "answer": "C",
+    "explanation_zh": "問題問的是「哪裡」可以找到員工手冊，(C) 回答可在公司內部網站下載為正確回應。(A) 回答新員工的到職日期而非手冊位置。(B) 提到手冊很有幫助，但未回答在哪裡可以找到。",
+    "vocabulary": [
+      "handbook",
+      "onboarding",
+      "intranet",
+      "download",
+      "portal"
+    ]
+  },
+  {
+    "id": "p2-gen-030",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: Is the quarterly financial review still scheduled for this Friday afternoon?\n(A) The financial report was due last Friday.\n(B) The quarterly review is on the third Friday of every month.\n(C) Actually, it has been pushed back to next Monday morning instead.",
+    "question": "Is the quarterly financial review still scheduled for this Friday afternoon?",
+    "choices": {
+      "A": "The financial report was due last Friday.",
+      "B": "The quarterly review is on the third Friday of every month.",
+      "C": "Actually, it has been pushed back to next Monday morning instead."
+    },
+    "answer": "C",
+    "explanation_zh": "這是一個 Yes-No 問句，詢問財報審查是否仍在本週五，(C) 回答「事實上已延後到下週一」為正確回應。(A) 的時態錯誤，使用過去式。(B) 回答一般規律而非本次會議的具體情況。",
+    "vocabulary": [
+      "quarterly",
+      "financial",
+      "review",
+      "scheduled",
+      "pushedback"
+    ]
+  },
+  {
+    "id": "p2-gen-031",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: What is the main reason the marketing campaign did not meet its target this quarter?\n(A) The campaign was launched in January of this year.\n(B) I think the marketing team did an excellent job overall.\n(C) We did not allocate enough budget to the digital advertising channels.",
+    "question": "What is the main reason the marketing campaign did not meet its target this quarter?",
+    "choices": {
+      "A": "The campaign was launched in January of this year.",
+      "B": "I think the marketing team did an excellent job overall.",
+      "C": "We did not allocate enough budget to the digital advertising channels."
+    },
+    "answer": "C",
+    "explanation_zh": "問題問的是行銷活動未達標的「原因」，(C) 回答數位廣告預算不足為正確回應。(A) 回答活動上線時間而非未達標的原因。(B) 給予正面評價而非解釋未達標的原因，與問題邏輯矛盾。",
+    "vocabulary": [
+      "campaign",
+      "target",
+      "budget",
+      "digital",
+      "advertising"
+    ]
+  },
+  {
+    "id": "p2-gen-032",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: The new coffee machine in the break room is much better, right?\n(A) Yes, the coffee tastes so much fresher now.\n(B) I usually drink tea instead of coffee in the morning.\n(C) The break room is being renovated next month.",
+    "question": "The new coffee machine in the break room is much better, right?",
+    "choices": {
+      "A": "Yes, the coffee tastes so much fresher now.",
+      "B": "I usually drink tea instead of coffee in the morning.",
+      "C": "The break room is being renovated next month."
+    },
+    "answer": "A",
+    "explanation_zh": "這是一個附加問句，表示新咖啡機比舊的好並尋求認同，(A) 回應「咖啡喝起來更新鮮了」為適當的確認。(B) 提到自己喝茶而非咖啡，與咖啡機好壞的評論無直接關聯。(C) 提到休息室將翻修，與咖啡機的評價無關。",
+    "vocabulary": [
+      "coffee",
+      "machine",
+      "breakroom",
+      "tastes",
+      "fresher"
+    ]
+  },
+  {
+    "id": "p2-gen-033",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: When do you expect the new inventory management system to be fully operational?\n(A) The inventory is stored in the main warehouse downtown.\n(B) It should be up and running by the end of next month.\n(C) I think we need to hire another inventory specialist.",
+    "question": "When do you expect the new inventory management system to be fully operational?",
+    "choices": {
+      "A": "The inventory is stored in the main warehouse downtown.",
+      "B": "It should be up and running by the end of next month.",
+      "C": "I think we need to hire another inventory specialist."
+    },
+    "answer": "B",
+    "explanation_zh": "問題問的是系統全面運作的「時間」，(B) 回答預計下個月底前上線為正確回應。(A) 回答庫存存放地點而非時間。(C) 提到需要招聘專員，但未回答時間問題。",
+    "vocabulary": [
+      "inventory",
+      "management",
+      "operational",
+      "system",
+      "running"
+    ]
+  },
+  {
+    "id": "p2-gen-034",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: Could you check if there are any meeting rooms available at three?\n(A) I will check the reservation system and get back to you.\n(B) The meeting lasted for about three hours this afternoon.\n(C) There is a meeting scheduled for three o'clock every day.",
+    "question": "Could you check if there are any meeting rooms available at three?",
+    "choices": {
+      "A": "I will check the reservation system and get back to you.",
+      "B": "The meeting lasted for about three hours this afternoon.",
+      "C": "There is a meeting scheduled for three o'clock every day."
+    },
+    "answer": "A",
+    "explanation_zh": "這是一個間接請求，請對方查詢會議室可用情況，(A) 回答會查詢預約系統並回覆為正確回應。(B) 的時態錯誤，使用過去式。(C) 是一般性陳述而非針對今天下午三點的具體查詢結果。",
+    "vocabulary": [
+      "meeting",
+      "reservation",
+      "available",
+      "check",
+      "afternoon"
+    ]
+  },
+  {
+    "id": "p2-gen-035",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: What proposal did the CEO just approve for our department this week?\n(A) The proposal to expand the customer support team with five new members.\n(B) The customer support hotline is available for calls twenty-four hours a day.\n(C) I do not think the CEO will be in the office today.",
+    "question": "What proposal did the CEO just approve for our department this week?",
+    "choices": {
+      "A": "The proposal to expand the customer support team with five new members.",
+      "B": "The customer support hotline is available for calls twenty-four hours a day.",
+      "C": "I do not think the CEO will be in the office today."
+    },
+    "answer": "A",
+    "explanation_zh": "問題問的是「什麼」提案被批准，(A) 回答擴編客服團隊的提案為正確回應。(B) 回答客服專線服務時間而非提案內容。(C) 提到 CEO 不在辦公室，與問題問的內容無關。",
+    "vocabulary": [
+      "proposal",
+      "expand",
+      "customer",
+      "support",
+      "approved"
+    ]
+  },
+  {
+    "id": "p2-gen-036",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: How should we handle the customer complaint about the defective product batch?\n(A) The batch number is printed on the bottom of each box.\n(B) The product was shipped to the customer last Tuesday.\n(C) We should offer a full refund and send a replacement immediately.",
+    "question": "How should we handle the customer complaint about the defective product batch?",
+    "choices": {
+      "A": "The batch number is printed on the bottom of each box.",
+      "B": "The product was shipped to the customer last Tuesday.",
+      "C": "We should offer a full refund and send a replacement immediately."
+    },
+    "answer": "C",
+    "explanation_zh": "問題問的是「如何」處理客訴，(C) 回答應提供全額退款並立即補寄為正確回應。(A) 提到批號的位置，但未回答處理方式。(B) 的時態錯誤，使用過去式而非提出解決方案。",
+    "vocabulary": [
+      "complaint",
+      "defective",
+      "refund",
+      "replacement",
+      "batch"
+    ]
+  },
+  {
+    "id": "p2-gen-037",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: Did anyone remember to order catering for the all-hands meeting on Friday?\n(A) Yes, I arranged it with the Italian restaurant down the street.\n(B) The all-hands meeting is held in the auditorium every quarter.\n(C) Friday is usually the busiest day for the catering company.",
+    "question": "Did anyone remember to order catering for the all-hands meeting on Friday?",
+    "choices": {
+      "A": "Yes, I arranged it with the Italian restaurant down the street.",
+      "B": "The all-hands meeting is held in the auditorium every quarter.",
+      "C": "Friday is usually the busiest day for the catering company."
+    },
+    "answer": "A",
+    "explanation_zh": "這是一個 Yes-No 問句，詢問是否有人記得訂餐，(A) 回答「是的，我已經安排了」為正確回應。(B) 回答全員會議的地點而非訂餐情況。(C) 提到週五對餐飲公司最忙碌，但未直接回答是否已訂餐。",
+    "vocabulary": [
+      "catering",
+      "allhands",
+      "meeting",
+      "restaurant",
+      "arranged"
+    ]
+  },
+  {
+    "id": "p2-gen-038",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: Who should I contact if there is a problem with the new payroll system?\n(A) The payroll is processed on the last Friday of every month.\n(B) I think the new system is more reliable than the old one.\n(C) You should reach out to Karen in the human resources department.",
+    "question": "Who should I contact if there is a problem with the new payroll system?",
+    "choices": {
+      "A": "The payroll is processed on the last Friday of every month.",
+      "B": "I think the new system is more reliable than the old one.",
+      "C": "You should reach out to Karen in the human resources department."
+    },
+    "answer": "C",
+    "explanation_zh": "問題問的是「誰」可以聯繫，(C) 回答應聯繫人資部門的 Karen 為正確回應。(A) 回答薪資發放時間而非聯絡人。(B) 評論新系統的可靠性，但未回答聯絡人是誰。",
+    "vocabulary": [
+      "contact",
+      "payroll",
+      "humanresources",
+      "reachout",
+      "system"
+    ]
+  },
+  {
+    "id": "p2-gen-039",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: The server maintenance is at midnight, so we should save our work by then.\n(A) The server room is on the basement level of the building.\n(B) I have already saved everything and logged off for the day.\n(C) We need to order a new server for the development team.",
+    "question": "The server maintenance is at midnight, so we should save our work by then.",
+    "choices": {
+      "A": "The server room is on the basement level of the building.",
+      "B": "I have already saved everything and logged off for the day.",
+      "C": "We need to order a new server for the development team."
+    },
+    "answer": "B",
+    "explanation_zh": "這是一個告知伺服器維護並提醒存檔的陳述句，(B) 回應已存檔登出為適當的回應。(A) 提到伺服器機房位置，與維護提醒無關。(C) 提到需要訂購新伺服器，與當下的維護提醒無直接關聯。",
+    "vocabulary": [
+      "server",
+      "maintenance",
+      "midnight",
+      "loggedoff"
+    ]
+  },
+  {
+    "id": "p2-gen-040",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "audioScript": "Q: Should we hire a full-time graphic designer or just work with a freelance agency?\n(A) I think hiring a freelancer would be more cost-effective for now.\n(B) The graphic design team is on the fifth floor.\n(C) We just hired a new accountant for the finance department.",
+    "question": "Should we hire a full-time graphic designer or just work with a freelance agency?",
+    "choices": {
+      "A": "I think hiring a freelancer would be more cost-effective for now.",
+      "B": "The graphic design team is on the fifth floor.",
+      "C": "We just hired a new accountant for the finance department."
+    },
+    "answer": "A",
+    "explanation_zh": "這是一個選擇問句，提供全職僱用或外包兩個選項，(A) 選擇自由工作者並說明成本效益較高為正確回應。(B) 回答設計團隊的所在位置而非做出選擇。(C) 提到僱用會計師，與設計師的選擇無關。",
+    "vocabulary": [
+      "graphic",
+      "designer",
+      "freelance",
+      "costeffective",
+      "hire"
+    ]
+  },
+  {
+    "id": "p2-gen-041",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B2",
+    "audioScript": "Q: Why would the supplier increase their prices by twenty percent without any prior notice?\n(A) The supplier is based overseas in a different time zone.\n(B) Apparently, the cost of raw materials has gone up significantly this quarter.\n(C) I noticed the price increase on the invoice this morning.",
+    "question": "Why would the supplier increase their prices by twenty percent without any prior notice?",
+    "choices": {
+      "A": "The supplier is based overseas in a different time zone.",
+      "B": "Apparently, the cost of raw materials has gone up significantly this quarter.",
+      "C": "I noticed the price increase on the invoice this morning."
+    },
+    "answer": "B",
+    "explanation_zh": "問題問的是供應商突然漲價的「原因」，(B) 回答原料成本大幅上升為正確回應。(A) 回答供應商的位置，但未解釋漲價原因。(C) 提到注意到發票上的價格變動，但未解釋為何漲價。",
+    "vocabulary": [
+      "supplier",
+      "increase",
+      "materials",
+      "significantly",
+      "notice"
+    ]
+  },
+  {
+    "id": "p2-gen-042",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B2",
+    "audioScript": "Q: The competitor has launched a product identical to ours at a much lower price.\n(A) I think our product quality is definitely superior to theirs.\n(B) The competitor was founded about ten years ago in Germany.\n(C) That is concerning, we may need to rethink our pricing strategy.",
+    "question": "The competitor has launched a product identical to ours at a much lower price.",
+    "choices": {
+      "A": "I think our product quality is definitely superior to theirs.",
+      "B": "The competitor was founded about ten years ago in Germany.",
+      "C": "That is concerning, we may need to rethink our pricing strategy."
+    },
+    "answer": "C",
+    "explanation_zh": "這是一個傳達競爭威脅的陳述句，(C) 回應表達擔憂並建議重新思考定價策略為最適當的反應。(A) 僅強調自身產品品質較佳，但未針對價格競爭提出對策。(B) 提到競爭對手的成立背景，與當下價格競爭的威脅無關。",
+    "vocabulary": [
+      "competitor",
+      "identical",
+      "pricing",
+      "strategy",
+      "concerning"
+    ]
+  },
+  {
+    "id": "p2-gen-043",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B2",
+    "audioScript": "Q: Has the legal team reviewed the merger agreement thoroughly enough for us to proceed?\n(A) They flagged a few clauses needing more negotiation before we can proceed.\n(B) The merger was officially announced to the public last Wednesday morning.\n(C) The legal department is on the sixth floor of the headquarters.",
+    "question": "Has the legal team reviewed the merger agreement thoroughly enough for us to proceed?",
+    "choices": {
+      "A": "They flagged a few clauses needing more negotiation before we can proceed.",
+      "B": "The merger was officially announced to the public last Wednesday morning.",
+      "C": "The legal department is on the sixth floor of the headquarters."
+    },
+    "answer": "A",
+    "explanation_zh": "這是一個 Yes-No 問句，詢問法務是否已充分審查合併協議，(A) 回答仍有部分條款需要協商才能繼續，雖非直接回答 Yes/No 但提供了當前狀態為最適當回應。(B) 的時態錯誤，合併尚未完成而非已對外公告。(C) 回答法務部門的位置而非審查進度。",
+    "vocabulary": [
+      "merger",
+      "agreement",
+      "clauses",
+      "negotiation",
+      "reviewed"
+    ]
+  },
+  {
+    "id": "p2-gen-044",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B2",
+    "audioScript": "Q: Which proposal do you think the steering committee is most likely to approve?\n(A) The steering committee meets once every two weeks on Tuesdays.\n(B) The one with the lowest cost, since they are very budget-conscious now.\n(C) I submitted all three proposals to the committee late last Friday.",
+    "question": "Which proposal do you think the steering committee is most likely to approve?",
+    "choices": {
+      "A": "The steering committee meets once every two weeks on Tuesdays.",
+      "B": "The one with the lowest cost, since they are very budget-conscious now.",
+      "C": "I submitted all three proposals to the committee late last Friday."
+    },
+    "answer": "B",
+    "explanation_zh": "問題問的是「哪一個」提案最可能被批准，(B) 選擇前期成本最低的提案並解釋原因為正確回應。(A) 回答委員會開會頻率而非選擇哪個提案。(C) 的時態錯誤，使用過去式而非預測哪個提案會通過。",
+    "vocabulary": [
+      "proposals",
+      "committee",
+      "approve",
+      "budgetconscious",
+      "upfront"
+    ]
+  },
+  {
+    "id": "p2-gen-045",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B2",
+    "audioScript": "Q: Would you mind working with the logistics team to arrange international shipping?\n(A) I would be glad to, I will contact them first thing tomorrow.\n(B) The logistics team is handling the domestic shipments this week.\n(C) The new product line was launched in the European market last quarter.",
+    "question": "Would you mind working with the logistics team to arrange international shipping?",
+    "choices": {
+      "A": "I would be glad to, I will contact them first thing tomorrow.",
+      "B": "The logistics team is handling the domestic shipments this week.",
+      "C": "The new product line was launched in the European market last quarter."
+    },
+    "answer": "A",
+    "explanation_zh": "這是一個間接請求，請對方協調國際物流事宜，(A) 回答樂意處理並會立即聯繫為正確回應。(B) 提到物流團隊在處理國內貨運，但未回應請求。(C) 的時態錯誤，使用過去式而非回應請求。",
+    "vocabulary": [
+      "coordinating",
+      "logistics",
+      "international",
+      "shipping",
+      "reachout"
+    ]
+  },
+  {
+    "id": "p2-gen-046",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B2",
+    "audioScript": "Q: How did the sales team manage to exceed their quarterly target despite the economic downturn?\n(A) The economic forecast for next year looks much more positive.\n(B) They focused on building long-term relationships with key accounts abroad.\n(C) The quarterly sales report will be ready for distribution by Friday.",
+    "question": "How did the sales team manage to exceed their quarterly target despite the economic downturn?",
+    "choices": {
+      "A": "The economic forecast for next year looks much more positive.",
+      "B": "They focused on building long-term relationships with key accounts abroad.",
+      "C": "The quarterly sales report will be ready for distribution by Friday."
+    },
+    "answer": "B",
+    "explanation_zh": "問題問的是銷售團隊「如何」在經濟低迷中超越目標，(B) 回答透過專注建立新興市場的長期客戶關係為正確回應。(A) 提到未來經濟預測而非解釋過去的成功方式。(C) 提到報告分發時間，與問題問的策略方法無關。",
+    "vocabulary": [
+      "exceed",
+      "downturn",
+      "relationships",
+      "emerging",
+      "accounts"
+    ]
+  },
+  {
+    "id": "p2-gen-047",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B2",
+    "audioScript": "Q: The board was not convinced by our revenue projections for the upcoming fiscal year.\n(A) The board meeting lasted much longer than we had originally expected.\n(B) In that case, we should gather more data and schedule another presentation.\n(C) The revenue projections were completed by the finance team.",
+    "question": "The board was not convinced by our revenue projections for the upcoming fiscal year.",
+    "choices": {
+      "A": "The board meeting lasted much longer than we had originally expected.",
+      "B": "In that case, we should gather more data and schedule another presentation.",
+      "C": "The revenue projections were completed by the finance team."
+    },
+    "answer": "B",
+    "explanation_zh": "這是一個傳達董事會不滿意的陳述句，(B) 回應建議收集更多資料並安排後續簡報為最適當的應對策略。(A) 提到會議時間長短而非針對董事會不滿意的回應。(C) 的時態錯誤，使用過去式且未針對不滿意提出解決方案。",
+    "vocabulary": [
+      "revenue",
+      "projections",
+      "fiscal",
+      "supporting",
+      "followup"
+    ]
+  },
+  {
+    "id": "p2-gen-048",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B2",
+    "audioScript": "Q: The new policy requires all employees to submit expense reports by the fifth, right?\n(A) I submit all my expenses through the online portal.\n(B) My travel expenses last month were quite high.\n(C) Actually, the deadline has been extended to the tenth starting next month.",
+    "question": "The new policy requires all employees to submit expense reports by the fifth, right?",
+    "choices": {
+      "A": "I submit all my expenses through the online portal.",
+      "B": "My travel expenses last month were quite high.",
+      "C": "Actually, the deadline has been extended to the tenth starting next month."
+    },
+    "answer": "C",
+    "explanation_zh": "這是一個附加問句，確認報銷截止日期是否為每月五號，(C) 回應修正資訊，表示截止日已延至十號為正確回應。(A) 回答提交流程而非確認截止日期。(B) 提到上個月旅費很高，與截止日期的確認無關。",
+    "vocabulary": [
+      "expense",
+      "reports",
+      "deadline",
+      "extended",
+      "policy"
+    ]
+  },
+  {
+    "id": "p2-gen-049",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B2",
+    "audioScript": "Q: Will upper management approve the budget increase for the research and development division?\n(A) It is hard to say, the budget is very tight this year.\n(B) The research and development team is working on several exciting new projects.\n(C) The budget meeting has been rescheduled for next Tuesday at ten.",
+    "question": "Will upper management approve the budget increase for the research and development division?",
+    "choices": {
+      "A": "It is hard to say, the budget is very tight this year.",
+      "B": "The research and development team is working on several exciting new projects.",
+      "C": "The budget meeting has been rescheduled for next Tuesday at ten."
+    },
+    "answer": "A",
+    "explanation_zh": "這是一個 Yes-No 問句，詢問高層是否會批准預算增加，(A) 回答「很難說」並解釋今年預算分配很緊為正確回應。(B) 提到研發團隊的專案內容而非預算批准的可能性。(C) 回答會議改期時間而非高層是否會批准預算。",
+    "vocabulary": [
+      "management",
+      "budget",
+      "allocations",
+      "division",
+      "approve"
+    ]
+  },
+  {
+    "id": "p2-gen-050",
+    "part": "Part 2",
+    "skill_tag": "listening_response",
+    "difficulty": "B2",
+    "audioScript": "Q: What measures should we take to prevent a similar security breach from happening again?\n(A) The security breach was reported to the authorities immediately.\n(B) We should implement stronger data encryption and regular staff cybersecurity training.\n(C) I think the security team handled the situation very professionally.",
+    "question": "What measures should we take to prevent a similar security breach from happening again?",
+    "choices": {
+      "A": "The security breach was reported to the authorities immediately.",
+      "B": "We should implement stronger data encryption and regular staff cybersecurity training.",
+      "C": "I think the security team handled the situation very professionally."
+    },
+    "answer": "B",
+    "explanation_zh": "問題問的是應採取「什麼措施」來防止類似安全漏洞，(B) 回答需要加強資料加密並定期進行網路安全培訓為正確回應。(A) 的時態錯誤，使用過去式描述已發生的事件而非提出未來措施。(C) 評論安全團隊的處理方式而非提出具體預防措施。",
+    "vocabulary": [
+      "measures",
+      "breach",
+      "encryption",
+      "cybersecurity",
+      "implement"
+    ]
+  }
 ];
