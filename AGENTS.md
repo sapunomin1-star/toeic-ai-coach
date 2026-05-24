@@ -254,7 +254,7 @@ Items fixed in this pass:
 
 ### localStorage Rules
 
-- **Never change localStorage key names without migration.** Current keys: `toeic_answer_records_v1`, `toeic_daily_plan_v1`, `toeic_wrong_status_v1`, `toeic_wrong_practice_plan_v1`, `toeic_vocabulary_progress_v1`, `toeic_mock_session_v1`, `toeic_mock_results_v1`.
+- **Never change localStorage key names without migration.** Current keys: `toeic_answer_records_v1`, `toeic_daily_plan_v1`, `toeic_wrong_status_v1`, `toeic_wrong_practice_plan_v1`, `toeic_vocabulary_progress_v1`, `toeic_mock_session_v1`, `toeic_mock_results_v1`, `toeic_listening_mock_session_v1`, `toeic_listening_mock_results_v1`.
 - **Always catch QuotaExceededError.** localStorage is limited to 5-10MB. Silent failure = data loss.
 - **Mock test answers do NOT go to `toeic_answer_records_v1`** unless the user actually answered AND got it wrong. Null answers stay in mock session only.
 - **Wrong-book dismissed entries are pruned.** Entries with `dismissed: true` are removed after 90 days. Status map is capped at 500 entries, with dismissed entries evicted first.
@@ -283,6 +283,12 @@ Always use `lib/media.ts` helpers (`getAudioUrl(q)` / `getImageUrl(q)`) — neve
 If a question lacks audio in Blob (404 or env unset), the UI must:
 - In `/quiz`: show the `audioScript` text as fallback (study mode)
 - In `/mock-test`: show "⚠ 音檔未載入" without leaking the script (test integrity)
+
+### Listening mock integrity
+
+- In `/listening-mock`, Part 1/2 testing screens show only answer letters, never the spoken `question` or `choices` text.
+- A mock audio group is consumed when playback actually starts, not when it finishes. Navigation away or refresh must not permit replay of partial audio.
+- Part 3/4 use one continuous audio player per shared transcript group. Moving among the three questions in that group must not remount or restart the recording.
 
 ### What goes where
 
@@ -321,7 +327,7 @@ If a question lacks audio in Blob (404 or env unset), the UI must:
   1. `npm run lint`
   2. Vercel production build (`vercel --prod --yes`)
   3. Data integrity: duplicate IDs, invalid answers, missing fields, missing transcript/passage
-- **After any UI change, smoke test all routes:** `/`, `/practice`, `/quiz`, `/wrongbook`, `/dashboard`, `/vocabulary`, `/vocabulary-quiz`, `/mock-test`.
+- **After any UI change, smoke test all routes:** `/`, `/practice`, `/quiz`, `/wrongbook`, `/dashboard`, `/vocabulary`, `/vocabulary-quiz`, `/mock-test`, `/listening-mock`.
 
 ### Accessibility Rules (New)
 

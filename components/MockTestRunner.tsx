@@ -49,8 +49,8 @@ function defaultBreakdown(parts: MockPartKey[]): MockPartBreakdown {
  * - Part 3/4: 3 questions share the same transcript → group by transcript string
  * - Part 1/2: each question has its own audio → group by question id
  *
- * Once a group plays through (onEnded), it is persisted into the mock session
- * so navigating back or refreshing the page does NOT re-trigger playback.
+ * Once audible playback starts, the group is persisted into the mock session
+ * so navigating away or refreshing the page does NOT restart partial audio.
  */
 function audioGroupKey(q: Question): string {
   if ((q.part === "Part 3" || q.part === "Part 4") && q.transcript) {
@@ -123,8 +123,9 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
   const [endTime, setEndTime] = useState(0);
   const [remainingMs, setRemainingMs] = useState(config.durationMs);
   const [result, setResult] = useState<MockTestResult | null>(null);
-  const [failedAudioIds, setFailedAudioIds] = useState<Set<string>>(new Set());
+  const [failedAudioGroups, setFailedAudioGroups] = useState<Set<string>>(new Set());
   const [playedGroups, setPlayedGroups] = useState<Set<string>>(new Set());
+  const [activeAudioGroup, setActiveAudioGroup] = useState<string | null>(null);
   const submittedRef = useRef(false);
   const choiceKeys: Choice[] = ["A", "B", "C", "D"];
 
@@ -141,6 +142,7 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
           setAnswers(session.answers ?? {});
           setEndTime(new Date(session.endTime).getTime());
           setPlayedGroups(new Set(session.playedAudioGroups ?? []));
+          setActiveAudioGroup(null);
           setPhase("testing");
           return;
         }
@@ -157,20 +159,35 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
       const session = startMockSession(plan.map((q) => q.id), mode);
       setEndTime(new Date(session.endTime).getTime());
       setPlayedGroups(new Set());
+      setActiveAudioGroup(null);
       setPhase("testing");
     } catch (e) {
       alert((e as Error).message);
     }
   }
 
-  function handleAudioEnded(groupKey: string) {
-    if (playedGroups.has(groupKey)) return;
+  function handleAudioStarted(groupKey: string) {
+    setActiveAudioGroup(groupKey);
     setPlayedGroups((prev) => {
+      if (prev.has(groupKey)) return prev;
       const next = new Set(prev);
       next.add(groupKey);
       return next;
     });
     markAudioGroupPlayed(groupKey, mode);
+  }
+
+  function handleAudioEnded(groupKey: string) {
+    setActiveAudioGroup((current) => (current === groupKey ? null : current));
+  }
+
+  function goToQuestion(index: number) {
+    const nextQuestion = questions[index];
+    if (!nextQuestion) return;
+    if (audioGroupKey(nextQuestion) !== activeAudioGroup) {
+      setActiveAudioGroup(null);
+    }
+    setCurrentIndex(index);
   }
 
   function pick(questionId: string, choice: Choice) {
@@ -314,11 +331,16 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
       q.choices.D === undefined ? ["A", "B", "C"] : choiceKeys;
     const questionText = q.question.trim() || "請聽音檔後選擇答案";
     const imageUrl = getImageUrl(q);
-    const audioUrl = getAudioUrl(q);
     const mediaSupport = hasMediaSupport(q);
-    const audioFailed = failedAudioIds.has(q.id);
     const groupKey = audioGroupKey(q);
+    const audioQuestion =
+      q.part === "Part 3" || q.part === "Part 4"
+        ? questions.find((candidate) => audioGroupKey(candidate) === groupKey) ?? q
+        : q;
+    const audioUrl = getAudioUrl(audioQuestion);
+    const audioFailed = failedAudioGroups.has(groupKey);
     const audioAlreadyPlayed = playedGroups.has(groupKey);
+    const audioIsActive = activeAudioGroup === groupKey;
     const hideText = shouldHideTextForListening(mode, q);
 
     return (
@@ -335,7 +357,7 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
               const done = !!answers[qq.id];
               const cur = i === currentIndex;
               return (
-                <button key={qq.id} onClick={() => setCurrentIndex(i)}
+                <button key={qq.id} onClick={() => goToQuestion(i)}
                   aria-label={`第 ${i + 1} 題${done ? "（已答）" : ""}`}
                   aria-current={cur ? "true" : undefined}
                   className={`flex h-7 w-7 items-center justify-center rounded text-[10px] font-medium ${cur ? "bg-slate-900 text-white" : done ? "bg-emerald-100 text-emerald-700" : "bg-slate-100 text-slate-500"}`}>
@@ -363,21 +385,22 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
             </div>
           )}
 
-          {audioUrl && !audioFailed && !audioAlreadyPlayed ? (
+          {audioUrl && !audioFailed && (!audioAlreadyPlayed || audioIsActive) ? (
             <div className="mb-4">
               <AudioPlayer
-                key={`${audioUrl}-${groupKey}`}
+                key={groupKey}
                 src={audioUrl}
                 autoPlay
+                onPlaybackStart={() => handleAudioStarted(groupKey)}
                 onEnded={() => handleAudioEnded(groupKey)}
                 onError={() =>
-                  setFailedAudioIds((ids) => new Set(ids).add(q.id))
+                  setFailedAudioGroups((groups) => new Set(groups).add(groupKey))
                 }
               />
             </div>
           ) : audioUrl && audioAlreadyPlayed ? (
             <div className="mb-4 rounded-xl border border-slate-200 bg-slate-50 p-3 text-sm font-medium text-slate-600">
-              🔇 此段音檔已播放完畢，模擬考不可重播
+              🔇 此段音檔已播放過，模擬考不可重播
             </div>
           ) : mediaSupport.audio ? (
             <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm font-medium text-amber-800">
@@ -403,7 +426,7 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
             <p className="text-sm font-medium text-slate-900">{currentIndex + 1}. {questionText}</p>
           )}
 
-          <div className="mt-3 space-y-2">
+          <div className={hideText ? `mt-4 grid ${visibleChoices.length === 3 ? "grid-cols-3" : "grid-cols-4"} gap-3` : "mt-3 space-y-2"}>
             {visibleChoices.map((c) => {
               const sel = answers[q.id] === c;
               const choiceAudio = q.audioChoices?.[c];
@@ -415,9 +438,10 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
                     <AudioPlayer key={choiceAudio} src={choiceAudio} allowReplay />
                   )}
                   <button onClick={() => pick(q.id, c)}
+                    aria-label={hideText ? `選擇答案 ${c}` : undefined}
                     aria-pressed={sel}
-                    className={`block w-full rounded-xl border px-4 py-3 text-left text-sm ${sel ? "border-indigo-300 bg-indigo-50 text-indigo-900" : "border-slate-200 bg-white text-slate-700"}`}>
-                    <span className="font-bold">{c}.</span>
+                    className={`block w-full rounded-xl border px-4 py-3 text-sm ${hideText ? "min-h-14 text-center text-base" : "text-left"} ${sel ? "border-indigo-300 bg-indigo-50 text-indigo-900" : "border-slate-200 bg-white text-slate-700"}`}>
+                    <span className="font-bold">{hideText ? c : `${c}.`}</span>
                     {hideText ? null : <> {q.choices[c]}</>}
                   </button>
                 </div>
@@ -429,13 +453,13 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
         {/* Bottom nav */}
         <div className="sticky bottom-0 border-t border-slate-200 bg-white px-3 py-2">
           <div className="flex items-center justify-between">
-            <button onClick={() => setCurrentIndex(Math.max(0, currentIndex - 1))} disabled={currentIndex === 0}
+            <button onClick={() => goToQuestion(Math.max(0, currentIndex - 1))} disabled={currentIndex === 0}
               className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 disabled:opacity-30">
               ← 上一題
             </button>
             <span className="text-xs text-slate-400">{currentIndex + 1} / {questions.length}</span>
             {currentIndex < questions.length - 1 ? (
-              <button onClick={() => setCurrentIndex(Math.min(questions.length - 1, currentIndex + 1))}
+              <button onClick={() => goToQuestion(Math.min(questions.length - 1, currentIndex + 1))}
                 className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600">
                 下一題 →
               </button>

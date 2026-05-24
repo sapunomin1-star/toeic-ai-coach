@@ -1227,3 +1227,53 @@ Part 4 (33 questions):
 - C3 sample (--limit 2 × 2 attempts due to API migration): ~$0.16
 - C3 full batch (28 fresh): ~$1.18
 - Total: ~$2.15 USD (within approved $3 budget)
+
+## 2026-05-25 - Listening Mock Playback Integrity Follow-up
+
+### Scope
+
+Fixed the remaining no-replay defect found during review of `e9e5f9b`.
+Previously, `playedAudioGroups` was persisted only after `onEnded`, allowing
+a student to leave or refresh during playback and restart the recording.
+
+### Behavior Changes
+
+- `AudioPlayer` reports when audible playback actually begins.
+- Listening Mock consumes and persists an audio group at playback start, so
+  leaving a question or refreshing after playback begins cannot replay it.
+- Part 3/4 questions in the same transcript group share one canonical audio
+  source and stable player key; moving among the three questions keeps the
+  recording continuous.
+- Failed audio state is tracked by audio group rather than question id.
+- P1/P2 hidden-text mock choices are now large, centered letter controls with
+  explicit accessible labels.
+- Consumed-audio feedback now says "此段音檔已播放過，模擬考不可重播",
+  which is accurate even when the student navigates away mid-playback.
+- Mock session validation now rejects malformed `playedAudioGroups` values.
+
+### Files Changed
+
+- `components/AudioPlayer.tsx`
+- `components/MockTestRunner.tsx`
+- `lib/mockStorage.ts`
+- `types/mock.ts`
+- `AGENTS.md`
+- `DEVELOPMENT_LOG.md`
+
+### Verification
+
+- `npm run lint`: passed (0 errors, 4 pre-existing pipeline warnings)
+- `npm run build`: passed (`/listening-mock` included in static route output)
+- `cd pipeline && npm run check`: 647 questions PASSED, 0 duplicate IDs
+- UI smoke, P1/P2: no spoken text visible; large letter-only answer buttons
+- UI smoke, navigation: audio started on a Part 1 item, navigating away and
+  back displayed the no-replay state instead of a player
+- UI smoke, refresh: audio explicitly started on a Part 2 item, page refresh
+  restored the no-replay state
+- UI smoke, P3 group: moving from question 1 to question 2 of one group kept
+  the same canonical audio source; after leaving the group, return was blocked
+
+### Review Handoff
+
+Claude should specifically verify playback-start persistence, same-group
+Part 3/4 continuity, refresh/resume behavior, and the masked P1/P2 controls.

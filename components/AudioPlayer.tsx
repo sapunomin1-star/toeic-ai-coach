@@ -6,6 +6,7 @@ type AudioPlayerProps = {
   src: string;
   autoPlay?: boolean;
   allowReplay?: boolean;
+  onPlaybackStart?: () => void;
   onEnded?: () => void;
   onError?: () => void;
 };
@@ -16,6 +17,7 @@ export default function AudioPlayer({
   src,
   autoPlay = false,
   allowReplay = false,
+  onPlaybackStart,
   onEnded,
   onError,
 }: AudioPlayerProps) {
@@ -65,7 +67,10 @@ export default function AudioPlayer({
             setStatus("idle");
           }
         }}
-        onPlaying={() => setStatus("playing")}
+        onPlaying={() => {
+          setStatus("playing");
+          onPlaybackStart?.();
+        }}
         onWaiting={() => setStatus("buffering")}
         onError={() => {
           setStatus("error");

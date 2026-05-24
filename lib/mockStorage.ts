@@ -56,6 +56,13 @@ function validateSession(raw: unknown): MockTestSession | null {
   if (!isValidDate(obj.startedAt)) return null;
   if (!isValidDate(obj.endTime)) return null;
   if (obj.submittedAt !== undefined && obj.submittedAt !== null && !isValidDate(obj.submittedAt)) return null;
+  if (
+    obj.playedAudioGroups !== undefined &&
+    (!Array.isArray(obj.playedAudioGroups) ||
+      obj.playedAudioGroups.some((key: unknown) => typeof key !== "string"))
+  ) {
+    return null;
+  }
 
   return obj as MockTestSession;
 }
@@ -141,6 +148,7 @@ export function startMockSession(
     questionIds,
     answers: {},
     unansweredIds: [],
+    playedAudioGroups: [],
     startedAt: new Date(now).toISOString(),
     endTime: new Date(now + getMockDurationMs(mode)).toISOString(),
   };
@@ -168,8 +176,8 @@ export function saveAnswer(
 }
 
 /**
- * Mark a listening-mock audio group as played. Idempotent.
- * Persisted so navigation back / page refresh cannot replay the audio.
+ * Consume a listening-mock audio group as soon as audible playback starts.
+ * Persisted so navigation away / page refresh cannot replay partial audio.
  */
 export function markAudioGroupPlayed(
   groupKey: string,
