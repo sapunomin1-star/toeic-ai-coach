@@ -6,10 +6,13 @@
   "scripts": {
     "generate": "npx tsx run-pipeline.ts",
     "check": "npx tsx run-integrity.ts",
-    "dry-run": "npx tsx run-pipeline.ts --dry-run"
+    "dry-run": "npx tsx run-pipeline.ts --dry-run",
+    "generate-audio": "npx tsx src/generate-audio.ts"
   },
   "dependencies": {
-    "dotenv": "^16.4.7"
+    "@vercel/blob": "^0.27.3",
+    "dotenv": "^16.4.7",
+    "openai": "^6.39.0"
   },
   "devDependencies": {
     "tsx": "^4.19.2",

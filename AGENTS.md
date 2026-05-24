@@ -287,8 +287,19 @@ If a question lacks audio in Blob (404 or env unset), the UI must:
 ### What goes where
 
 - `lib/media.ts` — URL helpers, runs in browser + Node
-- `pipeline/src/generate-audio.ts` (TBD in C2) — TTS + Blob upload, runs in Node only
+- `pipeline/src/generate-audio.ts` — TTS + Blob upload, runs in Node only
 - `pipeline/src/generate-images.ts` (TBD in C3) — DALL-E + Blob upload, runs in Node only
+
+### Audio generation pipeline (C2)
+
+- Script: `pipeline/src/generate-audio.ts`
+- Model: OpenAI `tts-1`
+- Voices: rotate among `alloy`, `echo`, `nova`, `shimmer` by question id hash
+- v1 limitation: single voice per audio file (no multi-speaker, no silence padding)
+- Idempotent: skips already-uploaded unless `--force`
+- Rate limit: 30 RPM
+- Cost: tts-1 = $15 / 1M chars; full listening bank ≈ $1
+- Always run `--dry-run` first, then `--limit 3`, then full batch
 
 ### Testing Rules
 

@@ -1119,3 +1119,29 @@ with graceful fallback. No actual audio/image generated or uploaded yet.
 
 C2: write `pipeline/src/generate-audio.ts` using OpenAI tts-1, upload to Blob
 following `audio/<id>.mp3` convention. Test with 3-5 questions before full batch.
+
+## 2026-05-24 - Phase C2: TTS Pipeline (sample tested)
+
+### Scope
+
+Wrote pipeline/src/generate-audio.ts; ran dry-run + --limit 3 sample.
+Full batch run deferred to user (cost decision).
+
+### Files Changed
+
+- pipeline/package.json, package-lock.json (+openai +@vercel/blob)
+- pipeline/src/generate-audio.ts (new)
+- AGENTS.md, DEVELOPMENT_LOG.md
+
+### Sample run
+
+- dry-run: 53,452 chars, estimated cost $0.8018
+- --limit 3 on Part 1: 3 audio files uploaded, estimated cost $0.0086, 20.6s
+- Sample URLs:
+  - https://wffwoer172mjjgyi.public.blob.vercel-storage.com/audio/p1-gen-001.mp3
+  - https://wffwoer172mjjgyi.public.blob.vercel-storage.com/audio/p1-gen-002.mp3
+  - https://wffwoer172mjjgyi.public.blob.vercel-storage.com/audio/p1-gen-003.mp3
+
+### Next step
+
+User listens. If quality OK: npx tsx pipeline/src/generate-audio.ts --part all
