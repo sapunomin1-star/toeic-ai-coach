@@ -81,6 +81,15 @@ cd pipeline && npm run check
 
 - 全部使用者資料存在 browser localStorage，部署不需要資料庫。
 - `pipeline/` 是離線產題工具，不應依賴 Vercel runtime。
+
+### 媒體檔案（C1 以後）
+
+- Audio / image 存在 **Vercel Blob**，不進 git
+- 部署前必須在 Vercel project 的 Environment Variables 設定：
+  - `NEXT_PUBLIC_BLOB_BASE_URL`
+  - `BLOB_READ_WRITE_TOKEN`
+- 本地開發如未設定上述變數，UI 會 graceful degrade（無音檔顯示 script，無圖片不顯示）
+
 - macOS/iCloud 可能把檔案變成 `compressed,dataless` placeholder；若 `npm install`、`npm run lint` 或 `npm run build` 無輸出卡住，先執行：
 
 ```bash

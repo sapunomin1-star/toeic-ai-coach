@@ -259,6 +259,37 @@ Items fixed in this pass:
 - **Mock test answers do NOT go to `toeic_answer_records_v1`** unless the user actually answered AND got it wrong. Null answers stay in mock session only.
 - **Wrong-book dismissed entries are pruned.** Entries with `dismissed: true` are removed after 90 days. Status map is capped at 500 entries, with dismissed entries evicted first.
 
+## Media Storage Rules
+
+Audio (Part 1/2/3/4) and images (Part 1) are stored in Vercel Blob, never in git.
+
+### Storage convention
+
+- Audio: `audio/<questionId>.mp3` — combined Q + choices, single playback (matches TOEIC test conditions)
+- Images: `images/<questionId>.jpg` — Part 1 photographs
+
+### Environment variables
+
+- `NEXT_PUBLIC_BLOB_BASE_URL` — client + server, public Blob URL prefix
+- `BLOB_READ_WRITE_TOKEN` — server only, for upload scripts in `pipeline/`
+- `OPENAI_API_KEY` — server only, for TTS + DALL-E generation in `pipeline/`
+
+### URL access
+
+Always use `lib/media.ts` helpers (`getAudioUrl(q)` / `getImageUrl(q)`) — never construct Blob URLs inline. Helpers handle null fallback when env is missing.
+
+### Graceful degradation
+
+If a question lacks audio in Blob (404 or env unset), the UI must:
+- In `/quiz`: show the `audioScript` text as fallback (study mode)
+- In `/mock-test`: show "⚠ 音檔未載入" without leaking the script (test integrity)
+
+### What goes where
+
+- `lib/media.ts` — URL helpers, runs in browser + Node
+- `pipeline/src/generate-audio.ts` (TBD in C2) — TTS + Blob upload, runs in Node only
+- `pipeline/src/generate-images.ts` (TBD in C3) — DALL-E + Blob upload, runs in Node only
+
 ### Testing Rules
 
 - **After any data change, run:**

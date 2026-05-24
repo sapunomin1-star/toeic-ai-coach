@@ -7,6 +7,7 @@ type AudioPlayerProps = {
   autoPlay?: boolean;
   allowReplay?: boolean;
   onEnded?: () => void;
+  onError?: () => void;
 };
 
 type AudioStatus = "idle" | "loading" | "playing" | "buffering" | "ended" | "error";
@@ -16,6 +17,7 @@ export default function AudioPlayer({
   autoPlay = false,
   allowReplay = false,
   onEnded,
+  onError,
 }: AudioPlayerProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [status, setStatus] = useState<AudioStatus>("idle");
@@ -65,7 +67,10 @@ export default function AudioPlayer({
         }}
         onPlaying={() => setStatus("playing")}
         onWaiting={() => setStatus("buffering")}
-        onError={() => setStatus("error")}
+        onError={() => {
+          setStatus("error");
+          onError?.();
+        }}
         onTimeUpdate={(event) => {
           const audio = event.currentTarget;
           if (!audio.duration || Number.isNaN(audio.duration)) return;

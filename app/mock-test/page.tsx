@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import AudioPlayer from "@/components/AudioPlayer";
 import { buildMockTestPlan, getQuestionById } from "@/data/questions";
+import { getAudioUrl, getImageUrl, hasMediaSupport } from "@/lib/media";
 import { saveAnswer as saveDailyAnswer } from "@/lib/storage";
 import {
   clearMockSession,
@@ -39,6 +40,7 @@ export default function MockTestPage() {
   const [endTime, setEndTime] = useState(0);
   const [remainingMs, setRemainingMs] = useState(DURATION_MS);
   const [result, setResult] = useState<MockTestResult | null>(null);
+  const [failedAudioIds, setFailedAudioIds] = useState<Set<string>>(new Set());
   const submittedRef = useRef(false);
   const choiceKeys: Choice[] = ["A", "B", "C", "D"];
 
@@ -212,6 +214,10 @@ export default function MockTestPage() {
     const visibleChoices: Choice[] =
       q.choices.D === undefined ? ["A", "B", "C"] : choiceKeys;
     const questionText = q.question.trim() || "請聽音檔後選擇答案";
+    const imageUrl = getImageUrl(q);
+    const audioUrl = getAudioUrl(q);
+    const mediaSupport = hasMediaSupport(q);
+    const audioFailed = failedAudioIds.has(q.id);
 
     return (
       <div className="flex min-h-screen flex-col">
@@ -244,22 +250,33 @@ export default function MockTestPage() {
 
         {/* Question */}
         <div className="flex-1 overflow-auto px-4 py-4">
-          {q.imageUrl && (
+          {imageUrl && (
             <div className="mb-4 overflow-hidden rounded-xl border border-slate-200 bg-white">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={q.imageUrl}
+                src={imageUrl}
                 alt={q.imageAlt ?? "TOEIC listening question image"}
                 className="h-auto w-full object-cover"
               />
             </div>
           )}
 
-          {q.audioUrl && (
+          {audioUrl && !audioFailed ? (
             <div className="mb-4">
-              <AudioPlayer key={q.audioUrl} src={q.audioUrl} autoPlay />
+              <AudioPlayer
+                key={audioUrl}
+                src={audioUrl}
+                autoPlay
+                onError={() =>
+                  setFailedAudioIds((ids) => new Set(ids).add(q.id))
+                }
+              />
             </div>
-          )}
+          ) : mediaSupport.audio ? (
+            <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm font-medium text-amber-800">
+              ⚠ 音檔未載入
+            </div>
+          ) : null}
 
           {q.passage && (
             <div className="mb-4 whitespace-pre-wrap rounded-xl border border-slate-200 bg-slate-50 p-3 text-xs leading-relaxed text-slate-700">

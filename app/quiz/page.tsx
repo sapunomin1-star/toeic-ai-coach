@@ -16,6 +16,7 @@ import {
   saveQuizPlan,
 } from "@/lib/storage";
 import { getWeakestSkills } from "@/lib/analysis";
+import { getAudioUrl, getImageUrl, hasMediaSupport } from "@/lib/media";
 import type { Choice, Question } from "@/types/question";
 import { SKILL_LABELS } from "@/types/question";
 import type { QuizPlanSource } from "@/lib/storage";
@@ -32,6 +33,7 @@ export default function QuizPage() {
   const [selected, setSelected] = useState<Choice | null>(null);
   const [submittedChoice, setSubmittedChoice] = useState<Choice | null>(null);
   const [sessionStats, setSessionStats] = useState({ correct: 0, total: 0 });
+  const [failedAudioIds, setFailedAudioIds] = useState<Set<string>>(new Set());
   const submittedQuestionIds = useRef(new Set<string>());
   const questionStartTime = useRef<number>(0);
   const planSource = useRef<QuizPlanSource>("daily");
@@ -218,6 +220,11 @@ export default function QuizPage() {
     currentQuestion.choices.D === undefined ? ["A", "B", "C"] : CHOICES;
   const questionText =
     currentQuestion.question.trim() || "請聽音檔後選擇答案";
+  const imageUrl = getImageUrl(currentQuestion);
+  const audioUrl = getAudioUrl(currentQuestion);
+  const mediaSupport = hasMediaSupport(currentQuestion);
+  const audioFailed = failedAudioIds.has(currentQuestion.id);
+  const audioFallbackText = currentQuestion.audioScript ?? null;
 
   return (
     <div className="space-y-4">
@@ -259,20 +266,36 @@ export default function QuizPage() {
         </div>
       </div>
 
-      {currentQuestion.imageUrl && (
+      {imageUrl && (
         <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={currentQuestion.imageUrl}
+            src={imageUrl}
             alt={currentQuestion.imageAlt ?? "TOEIC listening question image"}
             className="h-auto w-full object-cover"
           />
         </div>
       )}
 
-      {currentQuestion.audioUrl && (
-        <AudioPlayer key={currentQuestion.audioUrl} src={currentQuestion.audioUrl} autoPlay />
-      )}
+      {audioUrl && !audioFailed ? (
+        <AudioPlayer
+          key={audioUrl}
+          src={audioUrl}
+          autoPlay
+          onError={() =>
+            setFailedAudioIds((ids) => new Set(ids).add(currentQuestion.id))
+          }
+        />
+      ) : mediaSupport.audio ? (
+        <div className="rounded-2xl border border-sky-200 bg-sky-50 p-4 shadow-sm">
+          <p className="text-sm font-semibold text-sky-800">音檔尚未就緒</p>
+          {audioFallbackText && (
+            <p className="mt-2 whitespace-pre-wrap text-sm leading-relaxed text-slate-800">
+              {audioFallbackText}
+            </p>
+          )}
+        </div>
+      ) : null}
 
       {currentQuestion.passage && (
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 shadow-sm">

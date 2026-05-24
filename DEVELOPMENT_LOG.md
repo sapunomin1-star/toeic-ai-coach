@@ -1080,3 +1080,42 @@ implemented.
 ### Next step
 
 DeepSeek generates sample Part 1/2 content into `pipeline/output/`, humans QA the drafts, then approved items are manually written into `data/questions-listening.ts` or `data/questions-generated.ts`.
+
+## 2026-05-24 - Phase C1: Media Infrastructure
+
+### Scope
+
+Vercel Blob SDK installed, media URL helpers added, UI updated to use helpers
+with graceful fallback. No actual audio/image generated or uploaded yet.
+
+### Files Changed
+
+- package.json, package-lock.json (added @vercel/blob)
+- lib/media.ts (new)
+- components/AudioPlayer.tsx (optional error callback for media fallback)
+- app/quiz/page.tsx (use helpers + audioScript fallback)
+- app/mock-test/page.tsx (use helpers + hidden-script fallback)
+- .env.example (new env vars)
+- AGENTS.md (Media Storage Rules section)
+- README.md (Vercel Blob deployment notes)
+
+### Verification
+
+- npm run lint: 0 errors, 4 pre-existing pipeline warnings
+- npm run build: 9 app routes, TypeScript clean
+- pipeline check: 647 questions, PASSED
+- UI smoke: `/quiz` 200, `/mock-test` 200 with env vars unset
+- Helper sanity: no-env fallback returns 0 URLs; support count is 158 audio / 30 image
+
+### What's NOT done in this pass
+
+- No audio files generated (C2)
+- No image files generated (C3)
+- No actual Blob upload (deferred)
+- Vercel project link untouched (user will set env vars in dashboard)
+- `lib/media.ts` returns null in dev (NEXT_PUBLIC_BLOB_BASE_URL not set)
+
+### Next step
+
+C2: write `pipeline/src/generate-audio.ts` using OpenAI tts-1, upload to Blob
+following `audio/<id>.mp3` convention. Test with 3-5 questions before full batch.
