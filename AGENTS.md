@@ -286,9 +286,23 @@ If a question lacks audio in Blob (404 or env unset), the UI must:
 
 ### Listening mock integrity
 
-- In `/listening-mock`, Part 1/2 testing screens show only answer letters, never the spoken `question` or `choices` text.
+- In `/listening-mock`, Part 1/2 testing screens show only answer letters, never the spoken `question` or `choices` text. The text fields ARE the spoken audio — exposing them turns the listening mock into an open-book reading test.
 - A mock audio group is consumed when playback actually starts, not when it finishes. Navigation away or refresh must not permit replay of partial audio.
 - Part 3/4 use one continuous audio player per shared transcript group. Moving among the three questions in that group must not remount or restart the recording.
+
+#### Audio consumption rule — design intent (do NOT change)
+
+The mock listening "no replay" rule fires on `AudioPlayer.onPlaying` (the HTML5 `playing` event), i.e. **audible playback start**, NOT on `loadstart` or `canplay`. Implementation: `AudioPlayer.onPlaybackStart` → `MockTestRunner.handleAudioStarted` → `markAudioGroupPlayed`.
+
+**Do not be tempted to mark on `loadstart`/`canplay` "to close the race window."** A previous review iteration flagged the gap between `loadstart` and `onPlaying` as a Medium race condition and proposed moving the mark earlier. That fix would actively harm test-takers:
+
+- Slow network: audio downloaded but never played → wrongly marked consumed.
+- Mobile / iOS autoplay blocked: the `<audio autoPlay>` attempt fails silently; only a user gesture starts playback. Marking on `canplay` would consume the audio before the student ever heard it, with no way to recover.
+- Background tab: audio buffered but not playing → wrongly consumed.
+
+If a student navigates away **before** audio starts playing, they have heard nothing, so `markAudioGroupPlayed` is correctly NOT called and returning to the question is allowed to play. This is the intended behavior. `mockStorage.ts` docstring (`markAudioGroupPlayed`) explicitly says "audible playback starts" — preserve that semantic.
+
+`handleAudioStarted` and `markAudioGroupPlayed` are both idempotent (Set check + localStorage write), so the HTML5 `playing` event re-firing after a buffering stall is safe.
 
 ### What goes where
 
