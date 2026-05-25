@@ -351,6 +351,7 @@ export type DailyPlan = {
   questionIds: string[];
   createdAt: string;
   cursor: number;
+  autoPlayedListeningGroups?: string[];
 };
 
 function isDailyPlan(value: unknown): value is DailyPlan {
@@ -364,12 +365,18 @@ function isDailyPlan(value: unknown): value is DailyPlan {
     !Number.isNaN(Date.parse(plan.createdAt)) &&
     Number.isInteger(cursor) &&
     cursor !== undefined &&
-    cursor >= 0
+    cursor >= 0 &&
+    (plan.autoPlayedListeningGroups === undefined ||
+      (Array.isArray(plan.autoPlayedListeningGroups) &&
+        plan.autoPlayedListeningGroups.every((key) => typeof key === "string")))
   );
 }
 
 export function saveDailyPlan(plan: DailyPlan): void {
-  writeJSON(DAILY_PLAN_KEY, plan);
+  writeJSON(DAILY_PLAN_KEY, {
+    ...plan,
+    autoPlayedListeningGroups: plan.autoPlayedListeningGroups ?? [],
+  });
 }
 
 export function getDailyPlan(): DailyPlan | null {
@@ -398,7 +405,10 @@ export function clearDailyPlan(): void {
 export type QuizPlanSource = "daily" | "wrongbook";
 
 export function saveWrongPracticePlan(plan: DailyPlan): void {
-  writeJSON(WRONG_PRACTICE_PLAN_KEY, plan);
+  writeJSON(WRONG_PRACTICE_PLAN_KEY, {
+    ...plan,
+    autoPlayedListeningGroups: plan.autoPlayedListeningGroups ?? [],
+  });
 }
 
 export function clearWrongPracticePlan(): void {
@@ -435,4 +445,27 @@ export function saveQuizPlan(plan: DailyPlan, source: QuizPlanSource): void {
   } else {
     saveDailyPlan(plan);
   }
+}
+
+/**
+ * Persists that a daily-study listening group has already received its one
+ * automatic playback attempt. Manual replay remains available in the UI.
+ */
+export function markQuizPlanListeningGroupAutoPlayed(
+  groupKey: string,
+  source: QuizPlanSource,
+): void {
+  const plan =
+    source === "wrongbook"
+      ? readJSON<unknown>(WRONG_PRACTICE_PLAN_KEY, null)
+      : readJSON<unknown>(DAILY_PLAN_KEY, null);
+  if (!isDailyPlan(plan)) return;
+
+  const played = new Set(plan.autoPlayedListeningGroups ?? []);
+  if (played.has(groupKey)) return;
+  played.add(groupKey);
+  saveQuizPlan(
+    { ...plan, autoPlayedListeningGroups: [...played] },
+    source,
+  );
 }

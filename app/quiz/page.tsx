@@ -5,19 +5,20 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import AudioPlayer from "@/components/AudioPlayer";
-import { buildDailyPlan, getQuestionById } from "@/data/questions";
+import { buildDailyPlan, getQuestionById, getQuestionsByPart } from "@/data/questions";
 import {
   clearDailyPlan,
   clearWrongPracticePlan,
   getAnswerRecords,
   getQuizPlan,
   getReviewableIds,
+  markQuizPlanListeningGroupAutoPlayed,
   saveAnswer,
   saveDailyPlan,
   saveQuizPlan,
 } from "@/lib/storage";
 import { getNextDayListeningMix, getWeakestSkills } from "@/lib/analysis";
-import { getAudioUrl, getImageUrl, hasMediaSupport } from "@/lib/media";
+import { getAudioUrl, getImageUrl, getQuestionAudioUrl, hasMediaSupport } from "@/lib/media";
 import type { Choice, Question } from "@/types/question";
 import { SKILL_LABELS } from "@/types/question";
 import type { QuizPlanSource } from "@/lib/storage";
@@ -25,6 +26,21 @@ import type { QuizPlanSource } from "@/lib/storage";
 type Status = "loading" | "answering" | "answered" | "finished" | "no-plan";
 
 const CHOICES: Choice[] = ["A", "B", "C", "D"];
+
+function getListeningGroupKey(question: Question): string | null {
+  if (
+    (question.part !== "Part 3" && question.part !== "Part 4") ||
+    !question.transcript
+  ) {
+    return null;
+  }
+  const canonicalQuestionId =
+    getQuestionsByPart(question.part)
+      .filter((q) => q.transcript === question.transcript)
+      .map((q) => q.id)
+      .sort()[0] ?? question.id;
+  return `${question.part}:${canonicalQuestionId}`;
+}
 
 export default function QuizPage() {
   const router = useRouter();
@@ -35,6 +51,13 @@ export default function QuizPage() {
   const [submittedChoice, setSubmittedChoice] = useState<Choice | null>(null);
   const [sessionStats, setSessionStats] = useState({ correct: 0, total: 0 });
   const [failedAudioIds, setFailedAudioIds] = useState<Set<string>>(new Set());
+  const [failedQuestionAudioIds, setFailedQuestionAudioIds] = useState<Set<string>>(new Set());
+  const [autoPlayedListeningGroups, setAutoPlayedListeningGroups] = useState<Set<string>>(
+    new Set(),
+  );
+  const [activeAutoConversationId, setActiveAutoConversationId] = useState<string | null>(
+    null,
+  );
   const submittedQuestionIds = useRef(new Set<string>());
   const questionStartTime = useRef<number>(0);
   const planSource = useRef<QuizPlanSource>("daily");
@@ -50,6 +73,7 @@ export default function QuizPage() {
       planSource.current = source;
       setPlanIds(plan.questionIds);
       setCursor(plan.cursor);
+      setAutoPlayedListeningGroups(new Set(plan.autoPlayedListeningGroups ?? []));
       if (plan.cursor >= plan.questionIds.length) {
         setStatus("finished");
       } else {
@@ -72,6 +96,39 @@ export default function QuizPage() {
     const id = planIds[cursor];
     return id ? getQuestionById(id) : undefined;
   }, [planIds, cursor]);
+
+  function markListeningGroupAutoPlayed(groupKey: string) {
+    setAutoPlayedListeningGroups((groups) => {
+      if (groups.has(groupKey)) return groups;
+      const next = new Set(groups);
+      next.add(groupKey);
+      return next;
+    });
+    markQuizPlanListeningGroupAutoPlayed(groupKey, planSource.current);
+  }
+
+  function handleGroupedAudioStarted(questionId: string, groupKey: string) {
+    setFailedAudioIds((ids) => {
+      if (!ids.has(questionId)) return ids;
+      const next = new Set(ids);
+      next.delete(questionId);
+      return next;
+    });
+    setActiveAutoConversationId(questionId);
+    markListeningGroupAutoPlayed(groupKey);
+  }
+
+  function handleGroupedAudioSettled(questionId: string, groupKey: string) {
+    markListeningGroupAutoPlayed(groupKey);
+    setActiveAutoConversationId((activeId) =>
+      activeId === questionId ? null : activeId,
+    );
+  }
+
+  function handleGroupedAudioError(questionId: string, groupKey: string) {
+    setFailedAudioIds((ids) => new Set(ids).add(questionId));
+    handleGroupedAudioSettled(questionId, groupKey);
+  }
 
   function handleSubmit() {
     if (
@@ -115,6 +172,7 @@ export default function QuizPage() {
     setCursor(nextCursor);
     setSelected(null);
     setSubmittedChoice(null);
+    setActiveAutoConversationId(null);
     questionStartTime.current = 0;
 
     if (nextCursor >= planIds.length) {
@@ -232,9 +290,23 @@ export default function QuizPage() {
     currentQuestion.question.trim() || "請聽音檔後選擇答案";
   const imageUrl = getImageUrl(currentQuestion);
   const audioUrl = getAudioUrl(currentQuestion);
+  const questionAudioUrl = getQuestionAudioUrl(currentQuestion);
   const mediaSupport = hasMediaSupport(currentQuestion);
   const audioFailed = failedAudioIds.has(currentQuestion.id);
+  const questionAudioFailed = failedQuestionAudioIds.has(currentQuestion.id);
   const audioFallbackText = currentQuestion.audioScript ?? null;
+  const listeningGroupKey = getListeningGroupKey(currentQuestion);
+  const isGroupedListeningQuestion = listeningGroupKey !== null;
+  const groupAutoPlayed =
+    listeningGroupKey !== null && autoPlayedListeningGroups.has(listeningGroupKey);
+  const groupedAudioIsPlaying = activeAutoConversationId === currentQuestion.id;
+  const groupReplayLabel =
+    currentQuestion.part === "Part 3" ? "重播本組對話" : "重播本組獨白";
+  const showP3QuestionAudio =
+    currentQuestion.part === "Part 3" &&
+    questionAudioUrl !== null &&
+    groupAutoPlayed &&
+    !groupedAudioIsPlaying;
 
   // For Part 1/2, the on-screen `question` text and `choices` text ARE the
   // spoken audio (P1 = the four photo statements, P2 = the question + three
@@ -299,7 +371,33 @@ export default function QuizPage() {
         </div>
       )}
 
-      {audioUrl && !audioFailed ? (
+      {isGroupedListeningQuestion && listeningGroupKey && audioUrl ? (
+        <div className="space-y-2">
+          {groupAutoPlayed && !groupedAudioIsPlaying && (
+            <p className="text-sm font-medium text-slate-700">🔁 {groupReplayLabel}</p>
+          )}
+          <AudioPlayer
+            key={audioUrl}
+            src={audioUrl}
+            autoPlay={!groupAutoPlayed}
+            allowReplay={groupAutoPlayed || audioFailed}
+            onPlaybackStart={() =>
+              handleGroupedAudioStarted(currentQuestion.id, listeningGroupKey)
+            }
+            onEnded={() =>
+              handleGroupedAudioSettled(currentQuestion.id, listeningGroupKey)
+            }
+            onError={() =>
+              handleGroupedAudioError(currentQuestion.id, listeningGroupKey)
+            }
+          />
+          {audioFailed && (
+            <p className="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-xs text-rose-700">
+              音檔載入失敗，可按重試播放；你仍可繼續作答。
+            </p>
+          )}
+        </div>
+      ) : audioUrl && !audioFailed ? (
         <AudioPlayer
           key={audioUrl}
           src={audioUrl}
@@ -320,6 +418,36 @@ export default function QuizPage() {
           )}
         </div>
       ) : null}
+
+      {showP3QuestionAudio && (
+        <div className="space-y-2 rounded-2xl border border-indigo-100 bg-indigo-50/50 p-3">
+          <p className="text-xs font-semibold uppercase tracking-wider text-indigo-700">
+            Part 3 · 題目朗讀
+          </p>
+          <AudioPlayer
+            key={questionAudioUrl}
+            src={questionAudioUrl}
+            autoPlay
+            allowReplay
+            onPlaybackStart={() =>
+              setFailedQuestionAudioIds((ids) => {
+                if (!ids.has(currentQuestion.id)) return ids;
+                const next = new Set(ids);
+                next.delete(currentQuestion.id);
+                return next;
+              })
+            }
+            onError={() =>
+              setFailedQuestionAudioIds((ids) => new Set(ids).add(currentQuestion.id))
+            }
+          />
+          {questionAudioFailed && (
+            <p className="text-xs text-rose-700">
+              題目朗讀音檔載入失敗；不影響作答，可按重試再次播放。
+            </p>
+          )}
+        </div>
+      )}
 
       {currentQuestion.passage && (
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 shadow-sm">

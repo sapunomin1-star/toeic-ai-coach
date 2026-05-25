@@ -307,7 +307,7 @@ If a question lacks audio in Blob (404 or env unset), the UI must:
 - Part 3/4 use one continuous audio player per shared transcript group. Moving among the three questions in that group must not remount or restart the recording.
 - In Part 3 listening mock only, each consumed conversation is followed by narrated question-stem audio and an 8-second answering countdown. Countdown expiry advances automatically whether or not the question was answered; selecting an answer and using Next may advance sooner.
 - Part 3 narrated question audio is consumed on audible playback start, independently for each question, and is persisted in `playedQuestionAudioIds`. A failed load is also persisted while its 8-second fallback countdown runs.
-- Daily `/quiz` is deliberately not timed and does not play the separate Part 3 question-stem audio.
+- Daily `/quiz` is deliberately not timed. Its Part 3 learning flow does play the separate narrated question stem, but the student controls answer and navigation timing.
 
 #### Audio consumption rule — design intent (do NOT change)
 
@@ -322,6 +322,14 @@ The mock listening "no replay" rule fires on `AudioPlayer.onPlaying` (the HTML5 
 If a student navigates away **before** audio starts playing, they have heard nothing, so `markAudioGroupPlayed` is correctly NOT called and returning to the question is allowed to play. This is the intended behavior. `mockStorage.ts` docstring (`markAudioGroupPlayed`) explicitly says "audible playback starts" — preserve that semantic.
 
 `handleAudioStarted` and `markAudioGroupPlayed` are both idempotent (Set check + localStorage write), so the HTML5 `playing` event re-firing after a buffering stall is safe.
+
+### `/quiz` listening study versus mock
+
+- `/quiz` is study mode: Part 3/4 auto-play each conversation or talk once per current daily/wrongbook plan, then keep manual replay available on later questions in the same transcript group.
+- `/quiz` persists a group's automatic playback after audible start, completion, or load failure in `autoPlayedListeningGroups` on the existing plan payload; new plans start empty and existing localStorage keys do not change.
+- `/quiz` Part 3 automatically plays `audio/<questionId>-q.mp3` after the conversation has ended, failed, or was already played earlier in the plan. There is no countdown or automatic advance.
+- `/quiz` Part 4 currently has no separately narrated question-stem asset; it only applies one-time group auto-play plus optional replay.
+- `/listening-mock` remains strict test mode: its no-replay consumption and timed Part 3 progression are separate behavior and must not be relaxed by study-mode changes.
 
 ### What goes where
 

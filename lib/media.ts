@@ -26,7 +26,7 @@ export function getAudioUrl(
 }
 
 /**
- * Returns the narrated question-stem audio URL for timed Part 3 mock pacing.
+ * Returns the narrated question-stem audio URL for Part 3 listening flows.
  * Storage convention: audio/<questionId>-q.mp3
  */
 export function getQuestionAudioUrl(
