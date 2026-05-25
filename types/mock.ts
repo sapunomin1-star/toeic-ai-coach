@@ -1,4 +1,5 @@
 import type { Choice } from "@/types/question";
+import type { CEFRResult, ScoreRange } from "@/lib/toeicScoreEstimate";
 
 export type MockMode = "reading" | "listening";
 
@@ -63,4 +64,45 @@ export type MockTestResult = {
   };
   partBreakdown: MockPartBreakdown;
   timeUsedMs: number;
+};
+
+export type FullMockSection = "listening" | "reading";
+
+export type FullMockSession = {
+  /** Ordered as Listening 100 followed by Reading 100. */
+  questionIds: string[];
+  answers: Partial<Record<string, Choice>>;
+  unansweredIds: string[];
+  startedAt: string;
+  listeningEndsAt: string;
+  endTime: string;
+  submittedAt?: string;
+  /** Audio consumed in Listening; identical no-replay rule to listening mock. */
+  playedAudioGroups?: string[];
+  playedQuestionAudioIds?: string[];
+  /** Set when Page Visibility reports that the test page was hidden. */
+  leftAppDuringTest?: boolean;
+  /** Once Reading starts, the runner never permits navigation back to Listening. */
+  currentSection: FullMockSection;
+};
+
+export type FullMockResult = {
+  id: string;
+  questionIds: string[];
+  answers: Partial<Record<string, Choice>>;
+  unansweredIds: string[];
+  startedAt: string;
+  endTime: string;
+  submittedAt: string;
+  listeningRaw: number;
+  readingRaw: number;
+  listeningRange: ScoreRange;
+  readingRange: ScoreRange;
+  totalRange: ScoreRange;
+  listeningCEFR: CEFRResult;
+  readingCEFR: CEFRResult;
+  partBreakdown: MockPartBreakdown;
+  leftAppDuringTest: boolean;
+  timeUsedMs: number;
+  listeningTimeUsedMs: number;
 };

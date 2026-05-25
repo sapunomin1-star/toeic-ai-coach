@@ -1519,3 +1519,47 @@ and fixed listening mock result omission from backup/restore.
 - Interactive Browser smoke could not run because no isolated in-app browser
   target was available in this session; the user's Chrome profile was not
   used to create fake mock-test history.
+
+## 2026-05-26 - Full TOEIC Mock Test Phase 2
+
+### Scope
+
+Added the standalone `/full-mock` flow for a continuous 200-question,
+120-minute TOEIC simulation. Home-page entry and Dashboard presentation remain
+deferred to Phase 3.
+
+### Implementation
+
+- Added full-mock session/result types without expanding the existing
+  `MockMode` union used by the section mocks.
+- Added `lib/fullMockStorage.ts` with independent
+  `toeic_full_mock_session_v1` / `toeic_full_mock_results_v1` keys, 45/120
+  minute deadlines, section locking, listening no-replay state, page-hidden
+  tracking, result retention, and clearing support.
+- Added `FullMockRunner`: it combines the existing Listening and Reading plan
+  builders, starts with Listening, forcibly enters Reading at the 45-minute
+  deadline without a break, never exposes Listening navigation afterward, and
+  submits one combined IIBC/ETS-scored result.
+- Kept existing Listening audio integrity behavior in the full run, including
+  consumed playback groups and Part 3 question narration plus the 8-second
+  timed answer window.
+- Wired full completed results into existing backup/restore and clear-all data
+  plumbing now that direct navigation can create durable results. In-flight
+  sessions are deliberately not exported.
+
+### Verification
+
+- Temporary persistence smoke: passed for separate full keys, 45/120 minute
+  deadlines, reading transition persistence, audio consumed state, page-hidden
+  flag, result round-trip, backup/import, and clear-all removal.
+- `npm run lint`: passed (0 errors, 4 pre-existing pipeline warnings).
+- `./node_modules/.bin/tsc --noEmit`: passed.
+- `npm run build`: passed (13/13 static pages generated, including
+  `/full-mock`).
+- `cd pipeline && npm run check`: 647 questions PASSED, 0 data integrity
+  errors.
+- Development-server HTTP smoke: `/full-mock`, `/mock-test`, and
+  `/listening-mock` returned their expected preview content.
+- Interactive Browser smoke could not run because no isolated in-app browser
+  target was available; the user's Chrome profile was not used to create fake
+  full-mock history.

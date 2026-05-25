@@ -4,6 +4,7 @@ import type {
   SkillTag,
   WrongBookStatus,
 } from "@/types/question";
+import { clearAllFullMockData } from "@/lib/fullMockStorage";
 import { clearAllMockData } from "@/lib/mockStorage";
 
 const ANSWER_KEY = "toeic_answer_records_v1";
@@ -122,6 +123,7 @@ export function clearAllProgress(): void {
     localStorage.removeItem("toeic_vocabulary_progress_v1");
     localStorage.removeItem("toeic_vocabulary_daily_session_v1");
     clearAllMockData();
+    clearAllFullMockData();
   } catch (e) {
     console.warn("[storage] Failed to clear all progress:", e);
   }
@@ -138,6 +140,7 @@ export const BACKUP_KEYS = [
   "toeic_vocabulary_daily_session_v1",
   "toeic_mock_results_v1",
   "toeic_listening_mock_results_v1",
+  "toeic_full_mock_results_v1",
 ] as const;
 
 export function exportAllData(): string | null {
