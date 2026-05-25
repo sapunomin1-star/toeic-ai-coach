@@ -3,13 +3,20 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import {
-  getTodayVocabulary,
+  buildDailySession,
+  getDailySessionCompletedCount,
   getVocabularyProgress,
   markWordAgain,
   markWordFamiliar,
   markWordKnown,
 } from "@/lib/vocabularyStorage";
-import type { VocabularyItem, VocabularyProgress, VocabularyStatus } from "@/types/vocabulary";
+import type {
+  DailySession,
+  DailySessionBucket,
+  VocabularyItem,
+  VocabularyProgress,
+  VocabularyStatus,
+} from "@/types/vocabulary";
 
 const PART_LABELS: Record<VocabularyItem["partOfSpeech"], string> = {
   noun: "名詞",
@@ -33,15 +40,31 @@ const STATUS_CLASS: Record<VocabularyStatus, string> = {
   mastered: "bg-emerald-100 text-emerald-700",
 };
 
+const BUCKET_LABEL: Record<DailySessionBucket, string> = {
+  retry: "答錯重試",
+  due: "到期複習",
+  masteredReview: "掌握複查",
+  new: "新字",
+};
+
+const BUCKET_ICON: Record<DailySessionBucket, string> = {
+  retry: "🔁",
+  due: "🔄",
+  masteredReview: "🎯",
+  new: "📘",
+};
+
 export default function VocabularyPage() {
-  const [words, setWords] = useState<VocabularyItem[] | null>(null);
+  const [session, setSession] = useState<DailySession | null>(null);
   const [progress, setProgress] = useState<VocabularyProgress[]>([]);
   const [revealedIds, setRevealedIds] = useState<Set<string>>(new Set());
+  const [completedCount, setCompletedCount] = useState(0);
 
   useEffect(() => {
     const id = window.setTimeout(() => {
-      setWords(getTodayVocabulary());
+      setSession(buildDailySession());
       setProgress(getVocabularyProgress());
+      setCompletedCount(getDailySessionCompletedCount());
     }, 0);
     return () => window.clearTimeout(id);
   }, []);
@@ -53,7 +76,8 @@ export default function VocabularyPage() {
 
   function refreshProgress(): void {
     setProgress(getVocabularyProgress());
-    setWords(getTodayVocabulary());
+    setSession(buildDailySession());
+    setCompletedCount(getDailySessionCompletedCount());
   }
 
   function toggleReveal(wordId: string): void {
@@ -83,29 +107,65 @@ export default function VocabularyPage() {
     refreshProgress();
   }
 
-  if (words === null) {
+  if (session === null) {
     return <p className="py-10 text-center text-slate-500">載入中…</p>;
   }
 
-  const masteredCount = words.filter(
-    (w) => progressMap.get(w.id)?.status === "mastered"
-  ).length;
+  const totalItems = session.items.length;
+  const shownCompleted = Math.min(completedCount, totalItems);
 
   return (
     <div className="space-y-4">
-      <header className="flex items-center justify-between">
-        <div>
+      <header>
+        <div className="flex items-start justify-between">
+          <div>
           <h1 className="text-xl font-bold">每日單字</h1>
           <p className="mt-0.5 text-xs text-slate-500">
-            今日 {words.length} 個 · 已掌握 {masteredCount} 個
+              今日任務 · 完成 {shownCompleted} / {totalItems}
           </p>
+          </div>
+          <Link href="/" className="text-xs text-slate-500 underline underline-offset-2">
+            回首頁
+          </Link>
         </div>
-        <Link href="/" className="text-xs text-slate-500 underline underline-offset-2">
-          回首頁
-        </Link>
+        <div className="mt-4 rounded-lg border border-slate-200 bg-white p-3 shadow-sm">
+          <div className="grid grid-cols-2 gap-2 text-sm">
+            {(["retry", "due", "masteredReview", "new"] as DailySessionBucket[]).map(
+              (bucket) => (
+                <div key={bucket} className="rounded-md bg-slate-50 px-3 py-2 text-slate-700">
+                  <span className="mr-1.5 font-semibold text-indigo-600">
+                    {BUCKET_ICON[bucket]}
+                  </span>
+                  {BUCKET_LABEL[bucket]}
+                  <span className="ml-1.5 font-bold text-slate-900">
+                    {session.counts[bucket]}
+                  </span>
+                </div>
+              )
+            )}
+          </div>
+          {session.warnings.newSuppressed && (
+            <p className="mt-3 text-xs font-medium text-amber-700">
+              ⚠️ 因到期與重試項目較多，今日不加入新字。
+            </p>
+          )}
+          {session.warnings.retryDeferred > 0 && (
+            <p className="mt-2 text-xs font-medium text-amber-700">
+              ⚠️ {session.warnings.retryDeferred} 個重試項目延至明日複習。
+            </p>
+          )}
+          {totalItems > 0 && (
+            <Link
+              href="/vocabulary-quiz"
+              className="mt-3 block w-full rounded-lg bg-indigo-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-sm active:scale-[0.99]"
+            >
+              開始今日驗收 →
+            </Link>
+          )}
+        </div>
       </header>
 
-      {words.length === 0 && (
+      {totalItems === 0 && (
         <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-8 text-center shadow-sm">
           <p className="text-sm text-slate-500">
             今日單字已全部完成，繼續加油 💪
@@ -128,7 +188,7 @@ export default function VocabularyPage() {
       )}
 
       <ul className="space-y-3">
-        {words.map((item) => {
+        {session.items.map(({ item, bucket }) => {
           const entry = progressMap.get(item.id);
           const status: VocabularyStatus = entry?.status ?? "new";
           const isRevealed = revealedIds.has(item.id);
@@ -157,6 +217,9 @@ export default function VocabularyPage() {
                     className={`rounded-full px-2 py-0.5 text-xs font-medium ${STATUS_CLASS[status]}`}
                   >
                     {STATUS_LABEL[status]}
+                  </span>
+                  <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-500">
+                    {BUCKET_LABEL[bucket]}
                   </span>
                   <span className="ml-auto text-xs text-slate-400">
                     {isRevealed ? "▲ 收起" : "▼ 查看解釋"}
@@ -198,6 +261,17 @@ export default function VocabularyPage() {
                       {item.category}
                     </span>
                   </div>
+                  <p className="mt-2 text-xs font-medium text-slate-500">
+                    {entry
+                      ? entry.intervalDays === 0
+                        ? "📅 今日重試"
+                        : `📅 下次複習 ${entry.intervalDays} 天後${
+                            entry.consecutiveCorrect > 0
+                              ? ` · 連對 ${entry.consecutiveCorrect} 次`
+                              : ""
+                          }`
+                      : "📅 完成驗收後安排下次複習"}
+                  </p>
 
                   {/* Action buttons */}
                   <div className="mt-4 grid grid-cols-3 gap-2">
@@ -235,7 +309,7 @@ export default function VocabularyPage() {
 
                   {status === "familiar" && entry?.lastSelfCheckDate && (
                     <p className="mt-2 text-center text-xs text-indigo-500">
-                      再次點「認識了」可升為已掌握（需隔天確認）
+                      已有印象；完成跨日驗收後才會升為已掌握
                     </p>
                   )}
                   {status === "mastered" && (
@@ -250,14 +324,8 @@ export default function VocabularyPage() {
         })}
       </ul>
 
-      {words.length > 0 && (
+      {totalItems > 0 && (
         <div className="space-y-3">
-          <Link
-            href="/vocabulary-quiz"
-            className="block w-full rounded-2xl bg-indigo-600 px-5 py-4 text-center text-base font-semibold text-white shadow-sm active:scale-[0.99]"
-          >
-            開始單字小測驗 →
-          </Link>
           <Link
             href="/dashboard"
             className="block w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-center text-sm font-medium text-slate-600"

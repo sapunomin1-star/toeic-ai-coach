@@ -6,7 +6,8 @@ import {
   buildVocabularyQuiz,
   saveVocabularyQuizResult,
 } from "@/lib/vocabularyStorage";
-import type { VocabularyQuizQuestion } from "@/types/vocabulary";
+import type { VocabularyQuizProgressChange } from "@/lib/vocabularyStorage";
+import type { VocabularyQuizQuestion, VocabularyStatus } from "@/types/vocabulary";
 
 type QuizState = "loading" | "answering" | "feedback" | "finished";
 
@@ -18,16 +19,46 @@ const TYPE_LABEL: Record<VocabularyQuizQuestion["type"], string> = {
 
 const CHOICE_LABELS = ["A", "B", "C", "D"] as const;
 
+const STATUS_LABEL: Record<VocabularyStatus, string> = {
+  new: "未學",
+  seen: "見過",
+  familiar: "有印象",
+  mastered: "已掌握",
+};
+
+type SessionChange = VocabularyQuizProgressChange & {
+  word: string;
+  isCorrect: boolean;
+};
+
+function nextReviewLabel(change: VocabularyQuizProgressChange): string {
+  if (
+    change.before.status === change.after.status &&
+    change.before.intervalDays === change.after.intervalDays &&
+    change.before.nextReviewDate === change.after.nextReviewDate
+  ) {
+    return "尚未到期，排程不變";
+  }
+  return change.after.intervalDays === 0
+    ? "今日重考"
+    : `${change.after.intervalDays} 天後再考`;
+}
+
 export default function VocabularyQuizPage() {
   const [quizState, setQuizState] = useState<QuizState>("loading");
   const [questions, setQuestions] = useState<VocabularyQuizQuestion[]>([]);
   const [cursor, setCursor] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [score, setScore] = useState({ correct: 0, total: 0 });
+  const [isRandom, setIsRandom] = useState(false);
+  const [sessionChanges, setSessionChanges] = useState<SessionChange[]>([]);
 
   useEffect(() => {
     const id = window.setTimeout(() => {
-      const qs = buildVocabularyQuiz();
+      const randomMode =
+        new URLSearchParams(window.location.search).get("mode") === "random";
+      setIsRandom(randomMode);
+      const qs = buildVocabularyQuiz(randomMode ? "random" : "today");
       setQuestions(qs);
       setQuizState(qs.length === 0 ? "finished" : "answering");
     }, 0);
@@ -41,7 +72,13 @@ export default function VocabularyQuizPage() {
     if (quizState !== "answering" || !current) return;
     const isCorrect = index === current.correctIndex;
     setSelectedIndex(index);
-    saveVocabularyQuizResult(current.wordId, isCorrect);
+    const change = saveVocabularyQuizResult(current.wordId, isCorrect, !isRandom);
+    if (!isRandom) {
+      setSessionChanges((previous) => [
+        ...previous,
+        { ...change, word: current.explanation.word, isCorrect },
+      ]);
+    }
     setScore((s) => ({
       correct: s.correct + (isCorrect ? 1 : 0),
       total: s.total + 1,
@@ -78,8 +115,40 @@ export default function VocabularyQuizPage() {
 
     return (
       <div className="space-y-5 py-4">
+        {!isRandom && sessionChanges.length > 0 && (
+          <section className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+            <h2 className="mb-3 text-sm font-semibold text-slate-900">本回合進度變化</h2>
+            <ul className="space-y-2">
+              {sessionChanges.map((change, index) => (
+                <li
+                  key={`${change.word}-${index}`}
+                  className="flex gap-2 rounded-md bg-slate-50 px-3 py-2 text-xs text-slate-700"
+                >
+                  <span
+                    className={
+                      change.isCorrect
+                        ? "font-bold text-emerald-600"
+                        : "font-bold text-rose-600"
+                    }
+                  >
+                    {change.isCorrect ? "✅" : "❌"}
+                  </span>
+                  <span className="min-w-0">
+                    <span className="font-semibold text-slate-900">{change.word}</span>
+                    {" · "}
+                    {STATUS_LABEL[change.before.status]} → {STATUS_LABEL[change.after.status]}
+                    <span className="ml-1 text-slate-500">
+                      ({nextReviewLabel(change)})
+                    </span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         <div className="rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 p-6 text-white shadow-md">
-          <p className="text-sm">單字小測驗完成</p>
+          <p className="text-sm">{isRandom ? "隨機挑戰完成" : "今日驗收完成"}</p>
           <p className="mt-2 text-4xl font-bold">
             {score.correct} / {score.total}
           </p>
@@ -118,7 +187,7 @@ export default function VocabularyQuizPage() {
     <div className="space-y-4">
       {/* Header */}
       <header className="flex items-center justify-between">
-        <h1 className="text-lg font-bold">單字小測驗</h1>
+        <h1 className="text-lg font-bold">{isRandom ? "隨機挑戰" : "今日單字驗收"}</h1>
         <Link href="/vocabulary" className="text-xs text-slate-500 underline underline-offset-2">
           離開
         </Link>

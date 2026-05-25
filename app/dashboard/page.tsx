@@ -595,48 +595,62 @@ export default function DashboardPage() {
       )}
 
       {/* Vocabulary quiz stats */}
-      {quizStats && (quizStats.totalCorrect + quizStats.totalWrong > 0) && (
+      {quizStats && (
         <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
           <h2 className="mb-3 text-sm font-semibold">單字測驗表現</h2>
-          <div className="grid grid-cols-3 gap-3 text-center">
-            <StatCard
-              label="答對"
-              value={quizStats.totalCorrect.toString()}
-              accent="text-emerald-600"
-            />
-            <StatCard
-              label="答錯"
-              value={quizStats.totalWrong.toString()}
-              accent="text-rose-600"
-            />
-            <StatCard
-              label="正確率"
-              value={`${quizStats.accuracy}%`}
-              accent={
-                quizStats.accuracy >= 70
-                  ? "text-emerald-600"
-                  : "text-rose-600"
-              }
-            />
-          </div>
-          {quizStats.lastQuizAt && (
-            <p className="mt-2 text-xs text-slate-400">
-              最近測驗：
-              {new Date(quizStats.lastQuizAt).toLocaleDateString("zh-TW", {
-                month: "numeric",
-                day: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
-              })}
+          {quizStats.totalCorrect + quizStats.totalWrong > 0 ? (
+            <>
+              <div className="grid grid-cols-3 gap-3 text-center">
+                <StatCard
+                  label="答對"
+                  value={quizStats.totalCorrect.toString()}
+                  accent="text-emerald-600"
+                />
+                <StatCard
+                  label="答錯"
+                  value={quizStats.totalWrong.toString()}
+                  accent="text-rose-600"
+                />
+                <StatCard
+                  label="正確率"
+                  value={`${quizStats.accuracy}%`}
+                  accent={
+                    quizStats.accuracy >= 70
+                      ? "text-emerald-600"
+                      : "text-rose-600"
+                  }
+                />
+              </div>
+              {quizStats.lastQuizAt && (
+                <p className="mt-2 text-xs text-slate-400">
+                  最近測驗：
+                  {new Date(quizStats.lastQuizAt).toLocaleDateString("zh-TW", {
+                    month: "numeric",
+                    day: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
+                </p>
+              )}
+              <p className="mt-2 text-sm text-slate-600">
+                {quizStats.accuracy < 70
+                  ? "正確率偏低，先完成今日重試與到期複習。"
+                  : quizStats.accuracy <= 85
+                    ? "持續完成每日驗收，穩定拉長複習間隔。"
+                    : "正確率很高，可以挑戰全庫隨機題目。"}
+              </p>
+            </>
+          ) : (
+            <p className="text-sm text-slate-500">
+              完成今日單字驗收後，這裡會顯示你的記憶表現。
             </p>
           )}
-          <p className="mt-2 text-sm text-slate-600">
-            {quizStats.accuracy < 70
-              ? "正確率偏低，先複習 seen / familiar 單字再測驗。"
-              : quizStats.accuracy <= 85
-                ? "持續每日測驗，鞏固熟悉度。"
-                : "正確率很高！可以增加新單字量。"}
-          </p>
+          <Link
+            href="/vocabulary-quiz?mode=random"
+            className="mt-4 block rounded-lg border border-indigo-200 bg-indigo-50 px-4 py-3 text-center text-sm font-semibold text-indigo-700 active:scale-[0.99]"
+          >
+            隨機挑戰 →（從全庫抽 10 題）
+          </Link>
         </section>
       )}
 

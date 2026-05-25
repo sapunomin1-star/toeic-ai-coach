@@ -572,7 +572,8 @@ export type VocabularyQuizProgressChange = {
 
 export function saveVocabularyQuizResult(
   wordId: string,
-  isCorrect: boolean
+  isCorrect: boolean,
+  countTowardDailySession = true
 ): VocabularyQuizProgressChange {
   const progress = readProgress();
   const now = new Date().toISOString();
@@ -586,10 +587,16 @@ export function saveVocabularyQuizResult(
     quizWrongCount: (current.quizWrongCount ?? 0) + (isCorrect ? 0 : 1),
     lastQuizAt: now,
   };
-  const after = advanceSchedule(withQuizCounts, isCorrect);
+  // Early correct answers are useful practice, but must not fast-forward SRS.
+  // A wrong answer always proves a lapse and is applied immediately.
+  const shouldApplySchedule = !isCorrect || current.nextReviewDate <= todayStr();
+  const after = shouldApplySchedule
+    ? advanceSchedule(withQuizCounts, isCorrect)
+    : withQuizCounts;
   if (index >= 0) progress[index] = after;
   else progress.push(after);
   writeProgress(progress);
+  if (countTowardDailySession) markDailySessionItemCompleted(wordId);
   return { before, after };
 }
 
