@@ -47,8 +47,10 @@ function nextReviewLabel(change: VocabularyQuizProgressChange): string {
   ) {
     return "尚未到期，排程不變";
   }
+  // Wording must stay in sync with vocabulary/page.tsx — reinforcement is
+  // not a "retake" of formal validation; it's same-day memory recovery.
   return change.after.intervalDays === 0
-    ? "今日重考"
+    ? "今日需加強"
     : `${change.after.intervalDays} 天後再考`;
 }
 
@@ -134,6 +136,16 @@ export default function VocabularyQuizPage() {
       mode === "today" &&
       questions.length === 0 &&
       (dailyActivity?.validatedCount ?? 0) > 0;
+    // When user re-enters /vocabulary-quiz?mode=reinforcement after both
+    // rounds are spent (or no words remain), buildVocabularyQuiz returns []
+    // and we should NOT display the misleading "0 / 0 / 正確率 0%" score card.
+    // The explanation panel below the card still tells them why.
+    const reinforcementExhausted =
+      isReinforcement &&
+      questions.length === 0 &&
+      dailyActivity !== null &&
+      !dailyActivity.canReinforce;
+    const showCompletionCard = dailyAlreadyComplete || reinforcementExhausted;
     const grade =
       isReinforcement
         ? "今日加強只協助重新記住內容；到期驗收答對後，複習間隔才會延長。"
@@ -180,10 +192,14 @@ export default function VocabularyQuizPage() {
         )}
 
         <div className="rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 p-6 text-white shadow-md">
-          {dailyAlreadyComplete ? (
+          {showCompletionCard ? (
             <>
-              <p className="text-sm">今日驗收已完成</p>
-              <p className="mt-2 text-xl font-bold">本日正式驗收已完成</p>
+              <p className="text-sm">
+                {dailyAlreadyComplete ? "今日驗收已完成" : "今日加強已完成"}
+              </p>
+              <p className="mt-2 text-xl font-bold">
+                {dailyAlreadyComplete ? "本日正式驗收已完成" : "今日加強到此為止"}
+              </p>
             </>
           ) : (
             <>
