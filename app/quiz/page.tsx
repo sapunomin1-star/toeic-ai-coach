@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -277,10 +278,13 @@ export default function QuizPage() {
 
       {imageUrl && (
         <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={imageUrl}
             alt={currentQuestion.imageAlt ?? "TOEIC listening question image"}
+            width={1024}
+            height={1024}
+            priority
+            sizes="(max-width: 768px) 100vw, 600px"
             className="h-auto w-full object-cover"
           />
         </div>

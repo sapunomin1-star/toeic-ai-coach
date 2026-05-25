@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import AudioPlayer from "@/components/AudioPlayer";
@@ -376,10 +377,13 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
         <div className="flex-1 overflow-auto px-4 py-4">
           {imageUrl && (
             <div className="mb-4 overflow-hidden rounded-xl border border-slate-200 bg-white">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={imageUrl}
                 alt={q.imageAlt ?? "TOEIC listening question image"}
+                width={1024}
+                height={1024}
+                priority
+                sizes="(max-width: 768px) 100vw, 600px"
                 className="h-auto w-full object-cover"
               />
             </div>
