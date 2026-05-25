@@ -1434,3 +1434,55 @@ regenerated.
 - Prior single-voice sizes were `p3-ext-001.mp3=518880B` and
   `p2-gen-001.mp3=298560B`. Multi-voice output is not required to be larger:
   speaker labels are no longer spoken and voice durations differ.
+
+## 2026-05-25 - Part 3 Listening Mock Pacing
+
+### Scope
+
+Added real-test pacing for Part 3 in `/listening-mock` only: after a
+conversation has been consumed, the current question is narrated, followed by
+an 8-second timed answering window that automatically advances. Daily `/quiz`
+remains self-paced.
+
+### Implementation
+
+- `pipeline/src/generate-audio.ts` now supports `--question-audio` for Part 3,
+  narrating each `question` with the `fable` voice and writing to
+  `audio/<questionId>-q.mp3`.
+- `lib/media.ts` exposes `getQuestionAudioUrl()` only for Part 3 and returns
+  `null` when no public Blob base URL is configured.
+- Listening mock sessions persist `playedQuestionAudioIds` independently from
+  shared conversation `playedAudioGroups`.
+- Narrated question audio is marked consumed on audible playback start, not
+  on completion. This prevents refresh/navigation from replaying a partially
+  heard question, consistent with existing conversation no-replay behavior;
+  a failed load is also persisted when its timed fallback begins.
+- Once narration ends, an 8-second countdown is shown; the last three seconds
+  use an urgent visual state and reaching zero advances with an unanswered
+  response if no choice was made.
+- If narrated question audio fails to load, the UI reports the failure and
+  proceeds with the same 8-second countdown to preserve pacing.
+
+### Audio Generation
+
+- Dry-run: 45 Part 3 question stems, 1,768 total characters, 45 TTS requests,
+  estimated cost `$0.0265`.
+- Production run: 45/45 uploaded successfully, 0 failed, elapsed `127.2s`.
+- Blob HEAD verification returned HTTP 200 with `audio/mpeg`:
+  `p3-ext-001-q.mp3=28800B`, `p3-gen-007-q.mp3=48960B`, and
+  `p3-mi-001-q.mp3=54240B`.
+
+### Verification
+
+- `npm run lint`: passed (0 errors, 4 pre-existing pipeline warnings).
+- `./node_modules/.bin/tsc --noEmit`: passed.
+- `npm run build`: passed (12/12 static pages generated).
+- `cd pipeline && npm run check`: 647 questions PASSED, 0 duplicate IDs.
+- Runtime smoke: `getQuestionAudioUrl()` verified for Part 3, non-Part 3,
+  and unset Blob base URL; `markQuestionAudioPlayed()` verified idempotent and
+  restored on resumed mock sessions.
+- Production HTTP smoke: `/listening-mock`, `/mock-test`, and `/quiz`
+  returned 200.
+- Interactive Browser smoke could not run because no isolated in-app browser
+  target was available in this session; the user's Chrome profile was not
+  used to create local mock-test state.

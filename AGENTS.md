@@ -305,6 +305,9 @@ If a question lacks audio in Blob (404 or env unset), the UI must:
 - In `/listening-mock`, Part 1/2 testing screens show only answer letters, never the spoken `question` or `choices` text. The text fields ARE the spoken audio — exposing them turns the listening mock into an open-book reading test.
 - A mock audio group is consumed when playback actually starts, not when it finishes. Navigation away or refresh must not permit replay of partial audio.
 - Part 3/4 use one continuous audio player per shared transcript group. Moving among the three questions in that group must not remount or restart the recording.
+- In Part 3 listening mock only, each consumed conversation is followed by narrated question-stem audio and an 8-second answering countdown. Countdown expiry advances automatically whether or not the question was answered; selecting an answer and using Next may advance sooner.
+- Part 3 narrated question audio is consumed on audible playback start, independently for each question, and is persisted in `playedQuestionAudioIds`. A failed load is also persisted while its 8-second fallback countdown runs.
+- Daily `/quiz` is deliberately not timed and does not play the separate Part 3 question-stem audio.
 
 #### Audio consumption rule — design intent (do NOT change)
 
@@ -335,6 +338,7 @@ If a student navigates away **before** audio starts playing, they have heard not
 - Part 3 uses transcript speaker labels: `W`/`Woman`/`W1` → `nova`, `W2` → `shimmer`, `M`/`Man`/`M1` → `onyx`, `M2` → `echo`, unrecognized speaker labels → `alloy`.
 - Part 3 falls back to single-voice output if a transcript cannot be parsed into at least two labelled speaker segments.
 - Multi-voice output concatenates MP3 segment buffers into one playable file. v1 intentionally has no silence padding between segments.
+- With `--question-audio --part 3`, Part 3 question stems are narrated by `fable` and uploaded separately at `audio/<questionId>-q.mp3` for listening mock pacing.
 - Idempotent: skips already-uploaded unless `--force`
 - Rate limit: 30 TTS segment requests per minute; multi-voice questions consume multiple requests
 - Cost: tts-1 = $15 / 1M chars; full listening bank ≈ $1
