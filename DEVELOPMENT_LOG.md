@@ -1379,3 +1379,58 @@ reporting separates formal validation from extra practice.
 - Interactive Browser smoke was unavailable in this session because no in-app
   browser target was available; the user's Chrome profile was not used for
   local test data
+
+## 2026-05-25 - Multi-Voice Listening Audio for Part 2 and Part 3
+
+### Scope
+
+User feedback identified that Part 3 conversations and Part 2
+question-response audio sounded unrealistic when every utterance used one
+speaker. Updated `pipeline/src/generate-audio.ts` and regenerated only Part 2
+and Part 3 Blob audio. Part 1 photographs and Part 4 monologues were not
+regenerated.
+
+### Implementation
+
+- Part 3 speaker-labelled transcripts are split into TTS segments with the
+  mapping `W/Woman/W1 -> nova`, `W2 -> shimmer`, `M/Man/M1 -> onyx`, and
+  `M2 -> echo`; unknown labels fall back to `alloy`.
+- Part 2 scripts are split into one question-stem segment and three response
+  segments. The stem keeps deterministic voice rotation and responses use an
+  opposite-gender default voice.
+- Existing `normalizeForTTS()` remains applied to all spoken segment text.
+  Part 3 speaker labels are routing data only and are not spoken aloud.
+- Generated MP3 segments are concatenated into one Blob file at the unchanged
+  path `audio/<questionId>.mp3`, with no inserted silence in this version.
+- Rate limiting now applies to each TTS segment request rather than each
+  question, preventing multi-voice generation from exceeding the intended
+  30-request-per-minute limit.
+
+### Audio Regeneration
+
+- The live question bank contains 45 Part 3 questions across 16 distinct
+  transcripts, rather than the preliminary estimate of 39 questions.
+- Part 3: 45/45 uploaded successfully, 0 failed; 234 TTS segment requests,
+  estimated cost `$0.2743`, elapsed `695.8s`.
+- Part 2: 50/50 uploaded successfully, 0 failed; 200 TTS segment requests,
+  estimated cost `$0.1952`, elapsed `588.8s`.
+- Total: 95 audio files overwritten, 434 TTS segment requests, estimated cost
+  `$0.4695`.
+
+### Verification
+
+- `npm run lint`: passed (0 errors, 4 pre-existing pipeline warnings).
+- `npm run build`: passed (12/12 static pages generated).
+- `cd pipeline && npm run check`: 647 questions PASSED, 0 duplicate IDs.
+- P3 dry-run: `single=0 p3-multi=45`; sample `p3-ext-001` uses
+  `segments=5 voices=[nova,onyx,nova,onyx,nova]`.
+- P3 three-speaker production sample: `p3-gen-007` uses
+  `voices=[onyx,nova,onyx,nova,echo,nova]`, confirming `M2 -> echo`.
+- P2 dry-run: `single=0 p2-multi=50`; sample `p2-gen-001` uses
+  `segments=4 voices=[echo,nova,nova,nova]`.
+- Public Blob HEAD returned HTTP 200 with `audio/mpeg`:
+  `p3-ext-001.mp3=453600B`, `p2-gen-001.mp3=297120B`, and unchanged Part 4
+  control `p4-mi-001.mp3=478080B`.
+- Prior single-voice sizes were `p3-ext-001.mp3=518880B` and
+  `p2-gen-001.mp3=298560B`. Multi-voice output is not required to be larger:
+  speaker labels are no longer spoken and voice durations differ.

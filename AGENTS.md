@@ -330,10 +330,13 @@ If a student navigates away **before** audio starts playing, they have heard not
 
 - Script: `pipeline/src/generate-audio.ts`
 - Model: OpenAI `tts-1`
-- Voices: rotate among `alloy`, `echo`, `nova`, `shimmer` by question id hash
-- v1 limitation: single voice per audio file (no multi-speaker, no silence padding)
+- Part 1 and Part 4 keep the deterministic single-voice rotation among `alloy`, `echo`, `nova`, and `shimmer` by question id hash.
+- Part 2 uses two voices: the question stem uses the deterministic rotation, and all three answer choices use an opposite-gender default (`onyx` for `alloy`/`nova`/`shimmer`, `nova` for `echo`/`onyx`).
+- Part 3 uses transcript speaker labels: `W`/`Woman`/`W1` → `nova`, `W2` → `shimmer`, `M`/`Man`/`M1` → `onyx`, `M2` → `echo`, unrecognized speaker labels → `alloy`.
+- Part 3 falls back to single-voice output if a transcript cannot be parsed into at least two labelled speaker segments.
+- Multi-voice output concatenates MP3 segment buffers into one playable file. v1 intentionally has no silence padding between segments.
 - Idempotent: skips already-uploaded unless `--force`
-- Rate limit: 30 RPM
+- Rate limit: 30 TTS segment requests per minute; multi-voice questions consume multiple requests
 - Cost: tts-1 = $15 / 1M chars; full listening bank ≈ $1
 - `put()` MUST set `addRandomSuffix: false` to keep URL convention `audio/<id>.mp3`
 - Always run `--dry-run` first, then `--limit 3`, then full batch
