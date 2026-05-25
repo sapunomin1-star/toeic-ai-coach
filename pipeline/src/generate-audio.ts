@@ -9,6 +9,7 @@
  *   npx tsx pipeline/src/generate-audio.ts --part all                 # all listening parts
  *   npx tsx pipeline/src/generate-audio.ts --question p1-gen-005      # single question
  *   npx tsx pipeline/src/generate-audio.ts --part 1 --force           # re-upload existing
+ *   npx tsx pipeline/src/generate-audio.ts --question-audio --part 3  # P3 spoken questions
  *
  * Flags:
  *   --part <1|2|3|4|all>    Which part(s). Default: error (must specify, unless --question).
@@ -17,6 +18,7 @@
  *   --dry-run               Show plan only, no API calls.
  *   --force                 Re-generate even if Blob already has audio/<id>.mp3.
  *   --voice <name>          Override voice rotation (alloy|echo|fable|onyx|nova|shimmer).
+ *   --question-audio        Generate narrated Part 3 question stems at audio/<id>-q.mp3.
  */
 import "dotenv/config";
 import OpenAI from "openai";
@@ -40,7 +42,7 @@ type Segment = {
 };
 
 type AudioPlan = {
-  mode: "single" | "p2-multi" | "p3-multi";
+  mode: "single" | "p2-multi" | "p3-multi" | "p3-question";
   segments: Segment[];
 };
 
@@ -51,15 +53,17 @@ type Args = {
   question?: string;
   dryRun: boolean;
   force: boolean;
+  questionAudio: boolean;
   voiceOverride?: Voice;
 };
 
 function parseArgs(argv: string[]): Args {
-  const out: Args = { dryRun: false, force: false };
+  const out: Args = { dryRun: false, force: false, questionAudio: false };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === "--dry-run") out.dryRun = true;
     else if (a === "--force") out.force = true;
+    else if (a === "--question-audio") out.questionAudio = true;
     else if (a === "--part") out.part = argv[++i] as Args["part"];
     else if (a === "--limit") out.limit = parseInt(argv[++i], 10);
     else if (a === "--question") out.question = argv[++i];
@@ -233,6 +237,19 @@ function buildAudioPlan(q: Question, override?: Voice): AudioPlan {
   };
 }
 
+function buildQuestionAudioPlan(q: Question): AudioPlan {
+  if (q.part !== "Part 3") {
+    throw new Error(`question audio is supported only for Part 3: ${q.id}`);
+  }
+  if (!q.question.trim()) {
+    throw new Error(`[${q.id}] no question text for narrated audio`);
+  }
+  return {
+    mode: "p3-question",
+    segments: [{ voice: "fable", text: normalizeForTTS(q.question) }],
+  };
+}
+
 function describeAudioPlan(plan: AudioPlan): string {
   const voices = plan.segments.map((segment) => segment.voice).join(",");
   return `segments=${plan.segments.length} voices=[${voices}]`;
@@ -300,12 +317,18 @@ function selectQuestions(args: Args): Question[] {
   if (args.question) {
     const q = QUESTIONS.find((x) => x.id === args.question);
     if (!q) throw new Error(`question id not found: ${args.question}`);
+    if (args.questionAudio && q.part !== "Part 3") {
+      throw new Error("--question-audio supports Part 3 questions only");
+    }
     if (!LISTENING_PARTS.includes(q.part)) {
       throw new Error(`audio not supported for ${q.part} (only Part 1/2/3/4)`);
     }
     return [q];
   }
   if (!args.part) throw new Error("--part required (1/2/3/4/all)");
+  if (args.questionAudio && args.part !== "3") {
+    throw new Error("--question-audio requires --part 3 (or --question with a Part 3 id)");
+  }
   if (args.part !== "all" && !["1", "2", "3", "4"].includes(args.part)) {
     throw new Error(`audio not supported for Part ${args.part} (only Part 1/2/3/4)`);
   }
@@ -314,6 +337,10 @@ function selectQuestions(args: Args): Question[] {
   let qs = QUESTIONS.filter((q) => parts.includes(q.part));
   if (args.limit !== undefined) qs = qs.slice(0, args.limit);
   return qs;
+}
+
+function audioPathname(q: Question, args: Args): string {
+  return args.questionAudio ? `audio/${q.id}-q.mp3` : `audio/${q.id}.mp3`;
 }
 
 // ─── Main ────────────────────────────────────────────────────────────────
@@ -328,7 +355,12 @@ async function main() {
     return;
   }
 
-  const plans = questions.map((q) => ({ question: q, plan: buildAudioPlan(q, args.voiceOverride) }));
+  const plans = questions.map((q) => ({
+    question: q,
+    plan: args.questionAudio
+      ? buildQuestionAudioPlan(q)
+      : buildAudioPlan(q, args.voiceOverride),
+  }));
   const totalChars = plans.reduce(
     (sum, { plan }) =>
       sum + plan.segments.reduce((segmentSum, segment) => segmentSum + segment.text.length, 0),
@@ -340,13 +372,13 @@ async function main() {
       counts[plan.mode] += 1;
       return counts;
     },
-    { single: 0, "p2-multi": 0, "p3-multi": 0 },
+    { single: 0, "p2-multi": 0, "p3-multi": 0, "p3-question": 0 },
   );
   const estCostUsd = (totalChars / 1_000_000) * COST_PER_1M_CHARS_USD;
   console.log(`Total chars to TTS: ${totalChars.toLocaleString()}`);
   console.log(`TTS requests:       ${requestCount.toLocaleString()}`);
   console.log(
-    `Audio paths:        single=${pathCounts.single} p2-multi=${pathCounts["p2-multi"]} p3-multi=${pathCounts["p3-multi"]}`,
+    `Audio paths:        single=${pathCounts.single} p2-multi=${pathCounts["p2-multi"]} p3-multi=${pathCounts["p3-multi"]} p3-question=${pathCounts["p3-question"]}`,
   );
   console.log(`Estimated cost:     $${estCostUsd.toFixed(4)} USD`);
   console.log(`Rate limit:         ${RATE_LIMIT_RPM} requests/min`);
@@ -377,7 +409,7 @@ async function main() {
 
   for (let i = 0; i < plans.length; i++) {
     const { question: q, plan } = plans[i];
-    const pathname = `audio/${q.id}.mp3`;
+    const pathname = audioPathname(q, args);
 
     try {
       if (await blobExists(pathname)) {
