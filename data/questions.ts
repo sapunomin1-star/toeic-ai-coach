@@ -67,7 +67,13 @@ export function buildDailyPlan(options?: {
   const part4GroupCount = options?.part4GroupCount ?? 1;
   const readingCount = options?.readingCount ?? 3;
   const reviewIds = options?.reviewIds ?? [];
-  const weakSkillTags = options?.weakSkillTags ?? ["word_form", "passive_voice"];
+  // NB: ?? does not catch empty arrays. A caller passing [] (e.g. a new user
+  // whose history has no P5 wrong answers yet) must still get a usable default,
+  // otherwise weakPool filter returns [] and we silently lose 8 questions.
+  const weakSkillTags =
+    options?.weakSkillTags && options.weakSkillTags.length > 0
+      ? options.weakSkillTags
+      : ["word_form", "passive_voice"];
   const reviewIdSet = new Set(reviewIds);
 
   const part5Pool = getQuestionsByPart("Part 5").filter(
