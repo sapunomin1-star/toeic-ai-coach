@@ -1563,3 +1563,38 @@ deferred to Phase 3.
 - Interactive Browser smoke could not run because no isolated in-app browser
   target was available; the user's Chrome profile was not used to create fake
   full-mock history.
+
+## 2026-05-26 - Full TOEIC Mock Test Phase 3 Exposure
+
+### Scope
+
+Exposed the completed full-mock flow from the home page and Dashboard without
+changing mock generation, timing, scoring, or storage behavior.
+
+### Implementation
+
+- Promoted `/full-mock` on the home page as the primary mock-test card with
+  the 200-question / 120-minute format, prediction source, and preparation
+  reminder. Reading and Listening section mocks remain available as smaller
+  secondary cards with their actual 100-question durations.
+- Added a Dashboard full-mock card ahead of the existing section mock cards.
+  It loads the most recent `FullMockResult` and shows total prediction range,
+  Listening/Reading raw scores and ranges, Part 1-7 percentages, submission
+  time, and a page-leave warning where applicable.
+- Updated the Dashboard clear-data confirmation and button visibility so a
+  user with mock history only can still clear stored results.
+
+### Verification
+
+- `npm run lint`: passed (0 errors, 4 pre-existing pipeline warnings).
+- `./node_modules/.bin/tsc --noEmit`: passed.
+- `npm run build`: passed (13/13 static pages generated, including
+  `/full-mock`).
+- `cd pipeline && npm run check`: 647 questions PASSED, 0 data integrity
+  errors.
+- Development-server HTTP smoke: home output contains the primary
+  `/full-mock` CTA and both correctly labelled section-mock cards;
+  `/full-mock` continues to return its preview content.
+- Interactive Dashboard browser smoke could not run because no isolated
+  in-app browser target was available; the user's Chrome profile/localStorage
+  was not used to seed or read mock-result history.

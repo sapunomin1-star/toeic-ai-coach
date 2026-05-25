@@ -34,9 +34,10 @@ import {
   getTomorrowRecommendation,
   summarize,
 } from "@/lib/analysis";
+import { getFullMockResults } from "@/lib/fullMockStorage";
 import { clearAllProgress, exportAllData, importAllData, getAnswerRecords } from "@/lib/storage";
 import { getMockResults } from "@/lib/mockStorage";
-import type { MockTestResult } from "@/types/mock";
+import type { FullMockResult, MockTestResult } from "@/types/mock";
 import {
   getTodayVocabulary,
   getVocabularyProgress,
@@ -67,6 +68,8 @@ export default function DashboardPage() {
   const [recentMockResult, setRecentMockResult] = useState<MockTestResult | null>(null);
   const [recentListeningMockResult, setRecentListeningMockResult] =
     useState<MockTestResult | null>(null);
+  const [recentFullMockResult, setRecentFullMockResult] =
+    useState<FullMockResult | null>(null);
 
   useEffect(() => {
     const id = window.setTimeout(() => {
@@ -79,6 +82,7 @@ export default function DashboardPage() {
       setReinforcementQuizStats(getVocabularyQuizStats("reinforcement"));
       setRecentMockResult(getMockResults("reading").at(-1) ?? null);
       setRecentListeningMockResult(getMockResults("listening").at(-1) ?? null);
+      setRecentFullMockResult(getFullMockResults().at(-1) ?? null);
     }, 0);
     return () => window.clearTimeout(id);
   }, []);
@@ -92,7 +96,7 @@ export default function DashboardPage() {
         "• 錯題本狀態與待複習清單",
         "• 每日訓練計畫",
         "• 單字練習進度（含 SRS 排程、quiz 紀錄）",
-        "• 閱讀模擬考與聽力模擬考歷史成績",
+        "• 完整、閱讀與聽力模擬考歷史成績",
         "",
         "這個動作無法復原。",
       ].join("\n"),
@@ -110,6 +114,7 @@ export default function DashboardPage() {
     setReinforcementQuizStats(getVocabularyQuizStats("reinforcement"));
     setRecentMockResult(null);
     setRecentListeningMockResult(null);
+    setRecentFullMockResult(null);
   }
 
   function handleExport() {
@@ -740,6 +745,77 @@ export default function DashboardPage() {
         )}
       </section>
 
+      {/* Mock test entry: Full exam */}
+      <section className="rounded-2xl bg-gradient-to-br from-indigo-900 to-slate-900 p-4 text-white shadow-md">
+        <p className="text-xs uppercase tracking-widest text-indigo-200">Full TOEIC Mock Test</p>
+        <h2 className="mt-1 text-lg font-bold">完整 TOEIC 模擬考</h2>
+        <p className="mt-1 text-xs text-slate-200">
+          200 題 · 120 分鐘 · Listening + Reading · IIBC 預測分數
+        </p>
+        {recentFullMockResult ? (
+          <div className="mt-3 rounded-xl bg-white/10 p-3">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <p className="text-xs text-indigo-100">最近一次總分預測</p>
+                <p className="mt-0.5 text-2xl font-bold">
+                  {recentFullMockResult.totalRange.min}-{recentFullMockResult.totalRange.max}
+                </p>
+                <p className="text-[11px] text-indigo-100">/ 990 · 非官方參考範圍</p>
+              </div>
+              <div className="text-right text-[11px] text-slate-200">
+                <p>
+                  L {recentFullMockResult.listeningRaw}/100 · {recentFullMockResult.listeningRange.min}-
+                  {recentFullMockResult.listeningRange.max}
+                </p>
+                <p className="mt-1">
+                  R {recentFullMockResult.readingRaw}/100 · {recentFullMockResult.readingRange.min}-
+                  {recentFullMockResult.readingRange.max}
+                </p>
+              </div>
+            </div>
+            <div className="mt-3 grid grid-cols-7 gap-1 text-center">
+              {(["Part 1", "Part 2", "Part 3", "Part 4", "Part 5", "Part 6", "Part 7"] as const).map((part) => {
+                const item = recentFullMockResult.partBreakdown[part];
+                const pct =
+                  !item || item.total === 0
+                    ? 0
+                    : Math.round((item.correct / item.total) * 100);
+                return (
+                  <div key={part} className="rounded bg-white/10 p-1">
+                    <p className="text-[9px] text-indigo-100">{part.replace("Part ", "P")}</p>
+                    <p className="text-[10px] font-bold">{pct}%</p>
+                  </div>
+                );
+              })}
+            </div>
+            {recentFullMockResult.leftAppDuringTest && (
+              <p className="mt-2 rounded-lg bg-amber-100 px-2 py-1 text-[11px] text-amber-800">
+                此次測驗期間曾離開頁面
+              </p>
+            )}
+            <p className="mt-2 text-[11px] text-indigo-200">
+              交卷：
+              {new Date(recentFullMockResult.submittedAt).toLocaleString("zh-TW", {
+                month: "numeric",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
+            </p>
+          </div>
+        ) : (
+          <p className="mt-3 rounded-xl bg-white/10 p-3 text-xs text-slate-200">
+            完成一次全真模考後，這裡會顯示 Listening、Reading 與總分預測。
+          </p>
+        )}
+        <Link
+          href="/full-mock"
+          className="mt-3 block w-full rounded-xl bg-white px-4 py-3 text-center text-sm font-semibold text-indigo-950 active:scale-[0.99]"
+        >
+          開始完整模擬考 →
+        </Link>
+      </section>
+
       {/* Mock test entry: Reading */}
       <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
         <h2 className="mb-2 text-sm font-semibold">閱讀模擬考</h2>
@@ -894,7 +970,10 @@ export default function DashboardPage() {
         </div>
       </section>
 
-      {records.length > 0 && (
+      {(records.length > 0 ||
+        recentFullMockResult ||
+        recentMockResult ||
+        recentListeningMockResult) && (
         <button
           onClick={handleReset}
           className="block w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-center text-xs font-medium text-slate-500"
