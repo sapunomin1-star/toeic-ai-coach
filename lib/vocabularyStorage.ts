@@ -1,11 +1,14 @@
 import { VOCABULARY } from "@/data/vocabulary";
 import type {
   DailySession,
+  DailySessionActivity,
   DailySessionBucket,
   QuizQuestionType,
   VocabularyItem,
   VocabularyProgress,
   VocabularyQuizQuestion,
+  VocabularyQuizSource,
+  VocabularyQuizSourceStats,
   VocabularyStatus,
 } from "@/types/vocabulary";
 
@@ -16,6 +19,7 @@ const MAX_DUE_ITEMS = 8;
 const MAX_MASTERED_REVIEW_ITEMS = 3;
 const MAX_NEW_ITEMS = 5;
 const SUPPRESS_NEW_THRESHOLD = 15;
+const MAX_REINFORCEMENT_ROUNDS = 2;
 const SRS_INTERVALS = [0, 1, 3, 7, 14, 30] as const;
 
 function isBrowser(): boolean {
@@ -63,6 +67,26 @@ function hasSrsFields(p: Record<string, unknown>): boolean {
   );
 }
 
+function migrateQuizBySource(
+  raw: unknown
+): VocabularyProgress["quizBySource"] {
+  if (!raw || typeof raw !== "object") return undefined;
+  const stored = raw as Record<string, unknown>;
+  const result: VocabularyProgress["quizBySource"] = {};
+  for (const source of ["daily", "random", "reinforcement"] as VocabularyQuizSource[]) {
+    const value = stored[source];
+    if (!value || typeof value !== "object") continue;
+    const entry = value as Record<string, unknown>;
+    result[source] = {
+      correct: typeof entry.correct === "number" ? entry.correct : 0,
+      wrong: typeof entry.wrong === "number" ? entry.wrong : 0,
+      lastQuizAt:
+        typeof entry.lastQuizAt === "string" ? entry.lastQuizAt : undefined,
+    };
+  }
+  return Object.keys(result).length > 0 ? result : undefined;
+}
+
 // Accepts old format (learning → seen) and new format, including quiz fields
 function migrateEntry(raw: unknown): VocabularyProgress | null {
   if (!raw || typeof raw !== "object") return null;
@@ -106,6 +130,7 @@ function migrateEntry(raw: unknown): VocabularyProgress | null {
       typeof p.quizWrongCount === "number" ? p.quizWrongCount : undefined,
     lastQuizAt:
       typeof p.lastQuizAt === "string" ? p.lastQuizAt : undefined,
+    quizBySource: migrateQuizBySource(p.quizBySource),
   };
 }
 
@@ -173,8 +198,8 @@ export function advanceSchedule(
     next.consecutiveCorrect = 0;
     if (progress.status === "mastered") {
       next.status = "familiar";
-      next.intervalDays = 3;
-      next.nextReviewDate = addDays(today, 3);
+      next.intervalDays = 0;
+      next.nextReviewDate = today;
     } else {
       next.status =
         progress.status === "new" || progress.status === "familiar"
@@ -234,8 +259,17 @@ type StoredDailySession = {
   itemBuckets: Array<{ wordId: string; bucket: DailySessionBucket }>;
   counts: DailySession["counts"];
   warnings: DailySession["warnings"];
-  completedIds: string[];
+  reviewedIds: string[];
+  validatedIds: string[];
+  reinforcementIds: string[];
+  reinforcementRound: number;
 };
+
+function stringIds(raw: unknown): string[] {
+  return Array.isArray(raw)
+    ? raw.filter((id): id is string => typeof id === "string")
+    : [];
+}
 
 function readStoredDailySession(): StoredDailySession | null {
   if (!isBrowser()) return null;
@@ -251,6 +285,9 @@ function readStoredDailySession(): StoredDailySession | null {
     ) {
       return null;
     }
+    const legacyCompletedIds = stringIds(
+      (session as Partial<StoredDailySession> & { completedIds?: unknown }).completedIds
+    );
     return {
       date: session.date,
       itemBuckets: session.itemBuckets.filter(
@@ -260,9 +297,19 @@ function readStoredDailySession(): StoredDailySession | null {
       ),
       counts: session.counts,
       warnings: session.warnings,
-      completedIds: Array.isArray(session.completedIds)
-        ? session.completedIds.filter((id): id is string => typeof id === "string")
-        : [],
+      reviewedIds:
+        "reviewedIds" in session
+          ? stringIds(session.reviewedIds)
+          : legacyCompletedIds,
+      validatedIds: stringIds(session.validatedIds),
+      reinforcementIds: stringIds(session.reinforcementIds),
+      reinforcementRound:
+        typeof session.reinforcementRound === "number"
+          ? Math.min(
+              MAX_REINFORCEMENT_ROUNDS,
+              Math.max(0, session.reinforcementRound)
+            )
+          : 0,
     };
   } catch (e) {
     console.warn("[vocabularyStorage] Failed to read daily session:", e);
@@ -279,17 +326,71 @@ function writeStoredDailySession(session: StoredDailySession): void {
   }
 }
 
-function markDailySessionItemCompleted(wordId: string): void {
+function markDailySessionItemReviewed(wordId: string): void {
   const session = readStoredDailySession();
   if (!session || !session.itemBuckets.some((entry) => entry.wordId === wordId)) return;
-  if (!session.completedIds.includes(wordId)) {
-    session.completedIds.push(wordId);
+  if (!session.reviewedIds.includes(wordId)) {
+    session.reviewedIds.push(wordId);
     writeStoredDailySession(session);
   }
 }
 
+function markDailySessionItemValidated(wordId: string, isCorrect: boolean): void {
+  const session = readStoredDailySession();
+  if (!session || !session.itemBuckets.some((entry) => entry.wordId === wordId)) return;
+  if (!session.validatedIds.includes(wordId)) session.validatedIds.push(wordId);
+  if (!isCorrect && !session.reinforcementIds.includes(wordId)) {
+    session.reinforcementIds.push(wordId);
+  }
+  writeStoredDailySession(session);
+}
+
+function updateReinforcementItem(wordId: string, isCorrect: boolean): void {
+  const session = readStoredDailySession();
+  if (!session || !session.reinforcementIds.includes(wordId)) return;
+  if (isCorrect) {
+    session.reinforcementIds = session.reinforcementIds.filter((id) => id !== wordId);
+  }
+  writeStoredDailySession(session);
+}
+
+export function completeReinforcementRound(): DailySessionActivity {
+  const session = readStoredDailySession();
+  if (session && session.reinforcementRound < MAX_REINFORCEMENT_ROUNDS) {
+    session.reinforcementRound += 1;
+    writeStoredDailySession(session);
+  }
+  return getDailySessionActivity();
+}
+
+export function getDailySessionActivity(): DailySessionActivity {
+  const session = readStoredDailySession();
+  if (!session) {
+    return {
+      reviewedCount: 0,
+      validatedCount: 0,
+      reinforcementCount: 0,
+      reinforcementRound: 0,
+      canReinforce: false,
+      validatedIds: [],
+      reinforcementIds: [],
+    };
+  }
+  return {
+    reviewedCount: session.reviewedIds.length,
+    validatedCount: session.validatedIds.length,
+    reinforcementCount: session.reinforcementIds.length,
+    reinforcementRound: session.reinforcementRound,
+    canReinforce:
+      session.reinforcementIds.length > 0 &&
+      session.reinforcementRound < MAX_REINFORCEMENT_ROUNDS,
+    validatedIds: session.validatedIds,
+    reinforcementIds: session.reinforcementIds,
+  };
+}
+
 export function getDailySessionCompletedCount(): number {
-  return readStoredDailySession()?.completedIds.length ?? 0;
+  return getDailySessionActivity().validatedCount;
 }
 
 // ─── Flashcard mark actions ────────────────────────────────────────────────
@@ -303,7 +404,7 @@ export function markWordAgain(wordId: string): void {
     progress.push(makeNewEntry(wordId));
   }
   writeProgress(progress);
-  markDailySessionItemCompleted(wordId);
+  markDailySessionItemReviewed(wordId);
 }
 
 export function markWordFamiliar(wordId: string): void {
@@ -317,7 +418,7 @@ export function markWordFamiliar(wordId: string): void {
     progress.push(makeNewEntry(wordId, "seen"));
   }
   writeProgress(progress);
-  markDailySessionItemCompleted(wordId);
+  markDailySessionItemReviewed(wordId);
 }
 
 export function markWordKnown(wordId: string): void {
@@ -332,7 +433,7 @@ export function markWordKnown(wordId: string): void {
       lastSelfCheckDate: today,
     });
     writeProgress(progress);
-    markDailySessionItemCompleted(wordId);
+    markDailySessionItemReviewed(wordId);
     return;
   }
 
@@ -342,7 +443,7 @@ export function markWordKnown(wordId: string): void {
   else if (existing.status === "seen") existing.status = "familiar";
   existing.lastSelfCheckDate = today;
   writeProgress(progress);
-  markDailySessionItemCompleted(wordId);
+  markDailySessionItemReviewed(wordId);
 }
 
 // Legacy aliases
@@ -455,7 +556,10 @@ export function buildDailySession(): DailySession {
     itemBuckets: result.map(({ item, bucket }) => ({ wordId: item.id, bucket })),
     counts: session.counts,
     warnings: session.warnings,
-    completedIds: [],
+    reviewedIds: [],
+    validatedIds: [],
+    reinforcementIds: [],
+    reinforcementRound: 0,
   });
   return session;
 }
@@ -491,13 +595,31 @@ function makeFillBlank(item: VocabularyItem): string | null {
 }
 
 export function buildVocabularyQuiz(
-  source: "today" | "random" = "today"
+  source: "today" | "random" | "reinforcement" = "today"
 ): VocabularyQuizQuestion[] {
   const progress = readProgress();
   const progressMap = new Map(progress.map((p) => [p.wordId, p]));
   let pool: VocabularyItem[];
   if (source === "today") {
-    pool = buildDailySession().items.map(({ item }) => item);
+    const session = buildDailySession();
+    const validatedIds = new Set(readStoredDailySession()?.validatedIds ?? []);
+    pool = session.items
+      .filter(({ item }) => !validatedIds.has(item.id))
+      .map(({ item }) => item);
+  } else if (source === "reinforcement") {
+    const stored = readStoredDailySession();
+    const itemMap = new Map(VOCABULARY.map((item) => [item.id, item]));
+    const dailyValidationDone =
+      stored !== null && stored.validatedIds.length >= stored.itemBuckets.length;
+    pool =
+      stored &&
+      dailyValidationDone &&
+      stored.reinforcementRound < MAX_REINFORCEMENT_ROUNDS
+        ? stored.reinforcementIds.flatMap((id) => {
+            const item = itemMap.get(id);
+            return item ? [item] : [];
+          })
+        : [];
   } else {
     const nonMastered = shuffleArr(
       VOCABULARY.filter(
@@ -573,30 +695,44 @@ export type VocabularyQuizProgressChange = {
 export function saveVocabularyQuizResult(
   wordId: string,
   isCorrect: boolean,
-  countTowardDailySession = true
+  source: VocabularyQuizSource = "daily"
 ): VocabularyQuizProgressChange {
   const progress = readProgress();
   const now = new Date().toISOString();
   const index = progress.findIndex((p) => p.wordId === wordId);
   const current = index >= 0 ? progress[index] : makeNewEntry(wordId);
   const before = { ...current };
+  const previousSourceStats: VocabularyQuizSourceStats = current.quizBySource?.[source] ?? {
+    correct: 0,
+    wrong: 0,
+  };
   const withQuizCounts: VocabularyProgress = {
     ...current,
     reviewedAt: now,
     quizCorrectCount: (current.quizCorrectCount ?? 0) + (isCorrect ? 1 : 0),
     quizWrongCount: (current.quizWrongCount ?? 0) + (isCorrect ? 0 : 1),
     lastQuizAt: now,
+    quizBySource: {
+      ...current.quizBySource,
+      [source]: {
+        correct: previousSourceStats.correct + (isCorrect ? 1 : 0),
+        wrong: previousSourceStats.wrong + (isCorrect ? 0 : 1),
+        lastQuizAt: now,
+      },
+    },
   };
   // Early correct answers are useful practice, but must not fast-forward SRS.
   // A wrong answer always proves a lapse and is applied immediately.
-  const shouldApplySchedule = !isCorrect || current.nextReviewDate <= todayStr();
-  const after = shouldApplySchedule
-    ? advanceSchedule(withQuizCounts, isCorrect)
-    : withQuizCounts;
+  const shouldApplySchedule =
+    source !== "reinforcement" &&
+    (!isCorrect || current.nextReviewDate <= todayStr());
+  const after =
+    shouldApplySchedule ? advanceSchedule(withQuizCounts, isCorrect) : withQuizCounts;
   if (index >= 0) progress[index] = after;
   else progress.push(after);
   writeProgress(progress);
-  if (countTowardDailySession) markDailySessionItemCompleted(wordId);
+  if (source === "daily") markDailySessionItemValidated(wordId, isCorrect);
+  else if (source === "reinforcement") updateReinforcementItem(wordId, isCorrect);
   return { before, after };
 }
 
@@ -607,17 +743,21 @@ export type VocabularyQuizStats = {
   lastQuizAt: string | null;
 };
 
-export function getVocabularyQuizStats(): VocabularyQuizStats {
+export function getVocabularyQuizStats(
+  source?: VocabularyQuizSource
+): VocabularyQuizStats {
   const progress = readProgress();
   let totalCorrect = 0;
   let totalWrong = 0;
   let lastQuizAt: string | null = null;
 
   for (const p of progress) {
-    totalCorrect += p.quizCorrectCount ?? 0;
-    totalWrong += p.quizWrongCount ?? 0;
-    if (p.lastQuizAt && (!lastQuizAt || p.lastQuizAt > lastQuizAt)) {
-      lastQuizAt = p.lastQuizAt;
+    const stats = source ? p.quizBySource?.[source] : undefined;
+    totalCorrect += source ? stats?.correct ?? 0 : p.quizCorrectCount ?? 0;
+    totalWrong += source ? stats?.wrong ?? 0 : p.quizWrongCount ?? 0;
+    const eventAt = source ? stats?.lastQuizAt : p.lastQuizAt;
+    if (eventAt && (!lastQuizAt || eventAt > lastQuizAt)) {
+      lastQuizAt = eventAt;
     }
   }
 

@@ -1324,3 +1324,58 @@ review state; flashcard self-rating no longer grants `mastered`.
   daily buckets, suppression/deferred caps, and fixed daily-to-quiz IDs passed
 - HTTP route smoke: `/vocabulary`, `/vocabulary-quiz`,
   `/vocabulary-quiz?mode=random`, and `/dashboard` returned 200
+
+## 2026-05-25 - Vocabulary Daily Validation and Reinforcement Follow-up
+
+### Scope
+
+Closed the remaining gap between the SRS design and learner-facing workflow:
+flashcard reading no longer appears as formal completion, wrong daily
+validation now provides a bounded same-day reinforcement loop, and dashboard
+reporting separates formal validation from extra practice.
+
+### Behavior Changes
+
+- Daily session progress now distinguishes `reviewedIds` (flashcard study)
+  from `validatedIds` (formal quiz completion). Legacy `completedIds` sessions
+  are read as reviewed progress only, so users are not falsely credited with
+  validation.
+- `/vocabulary` shows both `已閱讀` and `已驗收`, and uses learner-facing
+  labels `今日加強` and `穩定複查`.
+- Wrong answers during daily validation build a reinforcement queue.
+  `/vocabulary-quiz?mode=reinforcement` tests only that queue for at most two
+  rounds; correct reinforcement answers remove pending work without advancing
+  the SRS interval.
+- Card scheduling text distinguishes pending same-day reinforcement from words
+  already reinforced and waiting for their next formal validation.
+- A `mastered` word answered incorrectly during daily validation now drops to
+  `familiar` with `intervalDays = 0` and enters immediate reinforcement.
+- Quiz results retain aggregate legacy totals and additionally record
+  `daily`, `random`, and `reinforcement` source statistics. Dashboard treats
+  daily validation as the formal metric and displays other modes separately.
+
+### Files Changed
+
+- `types/vocabulary.ts`
+- `lib/vocabularyStorage.ts`
+- `app/vocabulary/page.tsx`
+- `app/vocabulary-quiz/page.tsx`
+- `app/dashboard/page.tsx`
+- `AGENTS.md`
+- `DEVELOPMENT_LOG.md`
+
+### Verification
+
+- `npm run lint`: passed (0 errors, 4 pre-existing pipeline warnings)
+- `./node_modules/.bin/tsc --noEmit`: passed
+- `npm run build`: passed (static route output includes vocabulary routes)
+- `cd pipeline && npm run check`: 647 questions PASSED, 0 duplicate IDs
+- Runtime smoke: legacy session compatibility, reviewed/validated separation,
+  mastered lapse reinforcement, two-round reinforcement limit, and
+  daily/random/reinforcement statistics separation passed
+- Production HTTP smoke: `/vocabulary`, `/vocabulary-quiz`,
+  `/vocabulary-quiz?mode=reinforcement`, `/vocabulary-quiz?mode=random`, and
+  `/dashboard` returned 200
+- Interactive Browser smoke was unavailable in this session because no in-app
+  browser target was available; the user's Chrome profile was not used for
+  local test data

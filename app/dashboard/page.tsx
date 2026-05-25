@@ -60,6 +60,10 @@ export default function DashboardPage() {
     VocabularyProgress[]
   >([]);
   const [quizStats, setQuizStats] = useState<VocabularyQuizStats | null>(null);
+  const [dailyQuizStats, setDailyQuizStats] = useState<VocabularyQuizStats | null>(null);
+  const [randomQuizStats, setRandomQuizStats] = useState<VocabularyQuizStats | null>(null);
+  const [reinforcementQuizStats, setReinforcementQuizStats] =
+    useState<VocabularyQuizStats | null>(null);
   const [recentMockResult, setRecentMockResult] = useState<MockTestResult | null>(null);
   const [recentListeningMockResult, setRecentListeningMockResult] =
     useState<MockTestResult | null>(null);
@@ -70,6 +74,9 @@ export default function DashboardPage() {
       setTodayVocabulary(getTodayVocabulary());
       setVocabularyProgress(getVocabularyProgress());
       setQuizStats(getVocabularyQuizStats());
+      setDailyQuizStats(getVocabularyQuizStats("daily"));
+      setRandomQuizStats(getVocabularyQuizStats("random"));
+      setReinforcementQuizStats(getVocabularyQuizStats("reinforcement"));
       setRecentMockResult(getMockResults("reading").at(-1) ?? null);
       setRecentListeningMockResult(getMockResults("listening").at(-1) ?? null);
     }, 0);
@@ -97,7 +104,10 @@ export default function DashboardPage() {
     setRecords([]);
     setTodayVocabulary([]);
     setVocabularyProgress([]);
-    setQuizStats(null);
+    setQuizStats(getVocabularyQuizStats());
+    setDailyQuizStats(getVocabularyQuizStats("daily"));
+    setRandomQuizStats(getVocabularyQuizStats("random"));
+    setReinforcementQuizStats(getVocabularyQuizStats("reinforcement"));
     setRecentMockResult(null);
     setRecentListeningMockResult(null);
   }
@@ -614,34 +624,35 @@ export default function DashboardPage() {
       {/* Vocabulary quiz stats */}
       {quizStats && (
         <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-          <h2 className="mb-3 text-sm font-semibold">單字測驗表現</h2>
-          {quizStats.totalCorrect + quizStats.totalWrong > 0 ? (
+          <h2 className="mb-3 text-sm font-semibold">每日單字驗收</h2>
+          {dailyQuizStats &&
+          dailyQuizStats.totalCorrect + dailyQuizStats.totalWrong > 0 ? (
             <>
               <div className="grid grid-cols-3 gap-3 text-center">
                 <StatCard
                   label="答對"
-                  value={quizStats.totalCorrect.toString()}
+                  value={dailyQuizStats.totalCorrect.toString()}
                   accent="text-emerald-600"
                 />
                 <StatCard
                   label="答錯"
-                  value={quizStats.totalWrong.toString()}
+                  value={dailyQuizStats.totalWrong.toString()}
                   accent="text-rose-600"
                 />
                 <StatCard
                   label="正確率"
-                  value={`${quizStats.accuracy}%`}
+                  value={`${dailyQuizStats.accuracy}%`}
                   accent={
-                    quizStats.accuracy >= 70
+                    dailyQuizStats.accuracy >= 70
                       ? "text-emerald-600"
                       : "text-rose-600"
                   }
                 />
               </div>
-              {quizStats.lastQuizAt && (
+              {dailyQuizStats.lastQuizAt && (
                 <p className="mt-2 text-xs text-slate-400">
-                  最近測驗：
-                  {new Date(quizStats.lastQuizAt).toLocaleDateString("zh-TW", {
+                  最近驗收：
+                  {new Date(dailyQuizStats.lastQuizAt).toLocaleDateString("zh-TW", {
                     month: "numeric",
                     day: "numeric",
                     hour: "2-digit",
@@ -650,16 +661,26 @@ export default function DashboardPage() {
                 </p>
               )}
               <p className="mt-2 text-sm text-slate-600">
-                {quizStats.accuracy < 70
-                  ? "正確率偏低，先完成今日重試與到期複習。"
-                  : quizStats.accuracy <= 85
+                {dailyQuizStats.accuracy < 70
+                  ? "正確率偏低，先完成今日加強與到期複習。"
+                  : dailyQuizStats.accuracy <= 85
                     ? "持續完成每日驗收，穩定拉長複習間隔。"
                     : "正確率很高，可以挑戰全庫隨機題目。"}
               </p>
             </>
           ) : (
             <p className="text-sm text-slate-500">
-              完成今日單字驗收後，這裡會顯示你的記憶表現。
+              完成新的每日單字驗收後，這裡會顯示你的正式記憶表現。
+            </p>
+          )}
+          <div className="mt-4 divide-y divide-slate-100 border-y border-slate-100 text-sm">
+            <VocabularyQuizSummary label="隨機挑戰" stats={randomQuizStats} />
+            <VocabularyQuizSummary label="今日加強" stats={reinforcementQuizStats} />
+          </div>
+          {quizStats.totalCorrect + quizStats.totalWrong > 0 && (
+            <p className="mt-3 text-xs text-slate-400">
+              累積全部測驗（含改版前紀錄）：答對 {quizStats.totalCorrect}、答錯{" "}
+              {quizStats.totalWrong}、正確率 {quizStats.accuracy}%
             </p>
           )}
           <Link
@@ -902,6 +923,26 @@ function StatCard({
       <p className={`mt-1 text-xl font-bold ${accent ?? "text-slate-900"}`}>
         {value}
       </p>
+    </div>
+  );
+}
+
+function VocabularyQuizSummary({
+  label,
+  stats,
+}: {
+  label: string;
+  stats: VocabularyQuizStats | null;
+}) {
+  const attempts = (stats?.totalCorrect ?? 0) + (stats?.totalWrong ?? 0);
+  return (
+    <div className="flex items-center justify-between py-2.5">
+      <span className="font-medium text-slate-700">{label}</span>
+      <span className="text-xs text-slate-500">
+        {attempts > 0
+          ? `${attempts} 題 · 正確率 ${stats?.accuracy ?? 0}%`
+          : "尚無紀錄"}
+      </span>
     </div>
   );
 }

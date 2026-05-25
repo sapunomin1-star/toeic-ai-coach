@@ -19,6 +19,13 @@ export type VocabularyItem = {
 };
 
 export type VocabularyStatus = "new" | "seen" | "familiar" | "mastered";
+export type VocabularyQuizSource = "daily" | "random" | "reinforcement";
+
+export type VocabularyQuizSourceStats = {
+  correct: number;
+  wrong: number;
+  lastQuizAt?: string;
+};
 
 export type VocabularyProgress = {
   wordId: string;
@@ -33,6 +40,7 @@ export type VocabularyProgress = {
   quizCorrectCount?: number;
   quizWrongCount?: number;
   lastQuizAt?: string;
+  quizBySource?: Partial<Record<VocabularyQuizSource, VocabularyQuizSourceStats>>;
 };
 
 export type DailySessionBucket = "retry" | "due" | "masteredReview" | "new";
@@ -55,6 +63,16 @@ export type DailySession = {
     newSuppressed: boolean;
     retryDeferred: number;
   };
+};
+
+export type DailySessionActivity = {
+  reviewedCount: number;
+  validatedCount: number;
+  reinforcementCount: number;
+  reinforcementRound: number;
+  canReinforce: boolean;
+  validatedIds: string[];
+  reinforcementIds: string[];
 };
 
 export type QuizQuestionType = "en-to-zh" | "zh-to-en" | "fill-blank";

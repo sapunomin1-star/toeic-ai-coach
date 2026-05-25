@@ -264,10 +264,13 @@ Items fixed in this pass:
 
 - The daily session uses four ordered buckets: `retry` > `due` > `masteredReview` > `new`.
 - The daily item IDs are persisted for the date so flashcard study and today's quiz validate the same words.
+- Daily progress distinguishes flashcard `reviewedIds` from quiz `validatedIds`; only validation completes the formal task.
 - Quiz is the authority for status transitions; flashcard self-rating is capped at `familiar`.
 - `mastered` requires `consecutiveCorrect >= 3` and `intervalDays >= 14`.
 - Correct quiz practice before `nextReviewDate` records the result but does not advance SRS; a wrong answer applies a lapse immediately.
-- A wrong quiz answer lowers `mastered` to `familiar`, and lowers `familiar` to `seen`.
+- A wrong daily validation adds the word to today's reinforcement queue. Reinforcement is limited to two rounds and never advances SRS on a same-day correct answer.
+- A wrong quiz answer lowers `mastered` to `familiar` with `intervalDays = 0`, and lowers `familiar` to `seen`; daily validation lapses are added to immediate reinforcement.
+- Quiz statistics are recorded by source: `daily`, `random`, and `reinforcement`; dashboard metrics must not mix them as formal daily performance.
 - Scheduling follows retry today, then 1, 3, 7, 14, and 30 day intervals.
 - To control workload, `retry + due >= 15` suppresses new words and daily total above 25 defers excess retries.
 - Migration backfills SRS fields based on legacy vocabulary status without changing `toeic_vocabulary_progress_v1`.

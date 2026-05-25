@@ -4,12 +4,20 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
   buildVocabularyQuiz,
+  completeReinforcementRound,
+  getDailySessionActivity,
   saveVocabularyQuizResult,
 } from "@/lib/vocabularyStorage";
 import type { VocabularyQuizProgressChange } from "@/lib/vocabularyStorage";
-import type { VocabularyQuizQuestion, VocabularyStatus } from "@/types/vocabulary";
+import type {
+  DailySessionActivity,
+  VocabularyQuizQuestion,
+  VocabularyQuizSource,
+  VocabularyStatus,
+} from "@/types/vocabulary";
 
 type QuizState = "loading" | "answering" | "feedback" | "finished";
+type QuizMode = "today" | "random" | "reinforcement";
 
 const TYPE_LABEL: Record<VocabularyQuizQuestion["type"], string> = {
   "en-to-zh": "英文選中文",
@@ -50,16 +58,23 @@ export default function VocabularyQuizPage() {
   const [cursor, setCursor] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [score, setScore] = useState({ correct: 0, total: 0 });
-  const [isRandom, setIsRandom] = useState(false);
+  const [mode, setMode] = useState<QuizMode>("today");
   const [sessionChanges, setSessionChanges] = useState<SessionChange[]>([]);
+  const [dailyActivity, setDailyActivity] = useState<DailySessionActivity | null>(null);
 
   useEffect(() => {
     const id = window.setTimeout(() => {
-      const randomMode =
-        new URLSearchParams(window.location.search).get("mode") === "random";
-      setIsRandom(randomMode);
-      const qs = buildVocabularyQuiz(randomMode ? "random" : "today");
+      const requestedMode = new URLSearchParams(window.location.search).get("mode");
+      const quizMode: QuizMode =
+        requestedMode === "random"
+          ? "random"
+          : requestedMode === "reinforcement"
+            ? "reinforcement"
+            : "today";
+      setMode(quizMode);
+      const qs = buildVocabularyQuiz(quizMode);
       setQuestions(qs);
+      setDailyActivity(getDailySessionActivity());
       setQuizState(qs.length === 0 ? "finished" : "answering");
     }, 0);
     return () => window.clearTimeout(id);
@@ -67,13 +82,17 @@ export default function VocabularyQuizPage() {
 
   const current = questions[cursor];
   const isFeedback = quizState === "feedback";
+  const isRandom = mode === "random";
+  const isReinforcement = mode === "reinforcement";
 
   function handleSelect(index: number) {
     if (quizState !== "answering" || !current) return;
     const isCorrect = index === current.correctIndex;
     setSelectedIndex(index);
-    const change = saveVocabularyQuizResult(current.wordId, isCorrect, !isRandom);
-    if (!isRandom) {
+    const source: VocabularyQuizSource =
+      mode === "today" ? "daily" : mode;
+    const change = saveVocabularyQuizResult(current.wordId, isCorrect, source);
+    if (mode === "today") {
       setSessionChanges((previous) => [
         ...previous,
         { ...change, word: current.explanation.word, isCorrect },
@@ -89,6 +108,11 @@ export default function VocabularyQuizPage() {
   function handleNext() {
     const next = cursor + 1;
     if (next >= questions.length) {
+      setDailyActivity(
+        isReinforcement
+          ? completeReinforcementRound()
+          : getDailySessionActivity()
+      );
       setQuizState("finished");
     } else {
       setCursor(next);
@@ -106,16 +130,24 @@ export default function VocabularyQuizPage() {
       score.total === 0
         ? 0
         : Math.round((score.correct / score.total) * 100);
+    const dailyAlreadyComplete =
+      mode === "today" &&
+      questions.length === 0 &&
+      (dailyActivity?.validatedCount ?? 0) > 0;
     const grade =
-      pct >= 90
-        ? "非常好！繼續保持。"
-        : pct >= 70
-          ? "不錯，繼續複習 familiar 單字。"
-          : "多複習 seen 和 familiar 單字再來一次。";
+      isReinforcement
+        ? "今日加強只協助重新記住內容；到期驗收答對後，複習間隔才會延長。"
+        : dailyAlreadyComplete
+          ? "今日正式驗收已完成；請等待下一次到期複習。"
+        : pct >= 90
+          ? "非常好！繼續保持。"
+          : pct >= 70
+            ? "不錯，持續完成到期驗收。"
+            : "先完成今日加強，再等待下次到期驗收。";
 
     return (
       <div className="space-y-5 py-4">
-        {!isRandom && sessionChanges.length > 0 && (
+        {mode === "today" && sessionChanges.length > 0 && (
           <section className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
             <h2 className="mb-3 text-sm font-semibold text-slate-900">本回合進度變化</h2>
             <ul className="space-y-2">
@@ -148,11 +180,26 @@ export default function VocabularyQuizPage() {
         )}
 
         <div className="rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 p-6 text-white shadow-md">
-          <p className="text-sm">{isRandom ? "隨機挑戰完成" : "今日驗收完成"}</p>
-          <p className="mt-2 text-4xl font-bold">
-            {score.correct} / {score.total}
-          </p>
-          <p className="mt-1 text-sm text-indigo-100">正確率 {pct}%</p>
+          {dailyAlreadyComplete ? (
+            <>
+              <p className="text-sm">今日驗收已完成</p>
+              <p className="mt-2 text-xl font-bold">本日正式驗收已完成</p>
+            </>
+          ) : (
+            <>
+              <p className="text-sm">
+                {isRandom
+                  ? "隨機挑戰完成"
+                  : isReinforcement
+                    ? "今日加強完成"
+                    : "今日驗收完成"}
+              </p>
+              <p className="mt-2 text-4xl font-bold">
+                {score.correct} / {score.total}
+              </p>
+              <p className="mt-1 text-sm text-indigo-100">正確率 {pct}%</p>
+            </>
+          )}
         </div>
 
         <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
@@ -160,6 +207,30 @@ export default function VocabularyQuizPage() {
         </div>
 
         <div className="space-y-3">
+          {!isRandom &&
+            dailyActivity?.canReinforce &&
+            (mode === "today" || isReinforcement) && (
+              <a
+                href="/vocabulary-quiz?mode=reinforcement"
+                className="block w-full rounded-2xl bg-amber-600 px-5 py-4 text-center text-base font-semibold text-white"
+              >
+                {isReinforcement ? "繼續今日加強" : "開始今日加強"}（
+                {dailyActivity.reinforcementCount} 字）→
+              </a>
+            )}
+          {isReinforcement &&
+            dailyActivity &&
+            dailyActivity.reinforcementCount > 0 &&
+            !dailyActivity.canReinforce && (
+              <p className="rounded-lg bg-amber-50 px-4 py-3 text-sm text-amber-800">
+                今日加強已達 2 輪；仍不熟的字會在下次複習優先出現。
+              </p>
+            )}
+          {isReinforcement && dailyActivity?.reinforcementCount === 0 && (
+            <p className="rounded-lg bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+              今日加強完成。下次到期驗收會確認是否穩定記住。
+            </p>
+          )}
           <Link
             href="/vocabulary"
             className="block w-full rounded-2xl bg-slate-900 px-5 py-4 text-center text-base font-semibold text-white"
@@ -187,7 +258,9 @@ export default function VocabularyQuizPage() {
     <div className="space-y-4">
       {/* Header */}
       <header className="flex items-center justify-between">
-        <h1 className="text-lg font-bold">{isRandom ? "隨機挑戰" : "今日單字驗收"}</h1>
+        <h1 className="text-lg font-bold">
+          {isRandom ? "隨機挑戰" : isReinforcement ? "今日加強" : "今日單字驗收"}
+        </h1>
         <Link href="/vocabulary" className="text-xs text-slate-500 underline underline-offset-2">
           離開
         </Link>
