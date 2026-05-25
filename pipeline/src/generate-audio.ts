@@ -34,6 +34,16 @@ const MODEL = "tts-1";
 const RATE_LIMIT_RPM = 30; // stay under OpenAI tier 1 = 50 RPM
 const COST_PER_1M_CHARS_USD = 15; // tts-1 pricing as of 2024
 
+type Segment = {
+  voice: Voice;
+  text: string;
+};
+
+type AudioPlan = {
+  mode: "single" | "p2-multi" | "p3-multi";
+  segments: Segment[];
+};
+
 // ─── CLI parsing ─────────────────────────────────────────────────────────
 type Args = {
   part?: "1" | "2" | "3" | "4" | "all";
@@ -139,6 +149,134 @@ function pickVoice(questionId: string, override?: Voice): Voice {
   return VOICES[Math.abs(h) % VOICES.length];
 }
 
+function mapSpeakerToVoice(label: string): Voice {
+  switch (label.replace(/\s+/g, "").toUpperCase()) {
+    case "W":
+    case "W1":
+    case "WOMAN":
+      return "nova";
+    case "W2":
+      return "shimmer";
+    case "M":
+    case "M1":
+    case "MAN":
+      return "onyx";
+    case "M2":
+      return "echo";
+    default:
+      return "alloy";
+  }
+}
+
+function opposingVoice(voice: Voice): Voice {
+  return voice === "onyx" || voice === "echo" ? "nova" : "onyx";
+}
+
+function parseSpeakerSegments(transcript: string): Segment[] | null {
+  const speakerPattern =
+    /^(W|M|Woman|Man|M\d+|W\d+|Speaker\s*\d+)\s*:\s*(.+)$/i;
+  const segments = transcript
+    .split(/\r?\n/)
+    .flatMap((line) => {
+      const match = line.trim().match(speakerPattern);
+      if (!match) return [];
+      const text = normalizeForTTS(match[2]).trim();
+      return text ? [{ voice: mapSpeakerToVoice(match[1]), text }] : [];
+    });
+
+  return segments.length > 1 ? segments : null;
+}
+
+function parseP2Segments(raw: string, questionVoice: Voice): Segment[] | null {
+  const lines = normalizeForTTS(raw)
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean);
+  const firstResponseIndex = lines.findIndex((line) =>
+    /^Letter\s+[A-C]\.\s*.+/i.test(line)
+  );
+  if (firstResponseIndex < 1) return null;
+
+  const question = lines.slice(0, firstResponseIndex).join(" ").trim();
+  const responses = lines.slice(firstResponseIndex).flatMap((line) => {
+    const match = line.match(/^Letter\s+([A-C])\.\s*(.+)$/i);
+    return match ? [`Letter ${match[1].toUpperCase()}. ${match[2].trim()}`] : [];
+  });
+  if (!question || responses.length !== 3) return null;
+
+  const responseVoice = opposingVoice(questionVoice);
+  return [
+    { voice: questionVoice, text: question },
+    ...responses.map((text) => ({ voice: responseVoice, text })),
+  ];
+}
+
+function buildAudioPlan(q: Question, override?: Voice): AudioPlan {
+  const raw = q.audioScript ?? q.transcript;
+  if (!raw) {
+    throw new Error(`[${q.id}] no audioScript or transcript field`);
+  }
+
+  if (q.part === "Part 3") {
+    const segments = parseSpeakerSegments(raw);
+    if (segments) return { mode: "p3-multi", segments };
+  }
+
+  if (q.part === "Part 2") {
+    const segments = parseP2Segments(raw, pickVoice(q.id, override));
+    if (segments) return { mode: "p2-multi", segments };
+  }
+
+  return {
+    mode: "single",
+    segments: [{ voice: pickVoice(q.id, override), text: buildAudioText(q) }],
+  };
+}
+
+function describeAudioPlan(plan: AudioPlan): string {
+  const voices = plan.segments.map((segment) => segment.voice).join(",");
+  return `segments=${plan.segments.length} voices=[${voices}]`;
+}
+
+function createRequestLimiter(): () => Promise<void> {
+  const minimumGapMs = 60_000 / RATE_LIMIT_RPM;
+  let previousStartedAt = 0;
+  return async () => {
+    const sleepMs = Math.max(0, previousStartedAt + minimumGapMs - Date.now());
+    if (sleepMs > 0) {
+      await new Promise((resolve) => setTimeout(resolve, sleepMs));
+    }
+    previousStartedAt = Date.now();
+  };
+}
+
+async function generateSingleVoice(
+  openai: OpenAI,
+  segment: Segment,
+  waitForRequestSlot: () => Promise<void>
+): Promise<Buffer> {
+  await waitForRequestSlot();
+  const response = await openai.audio.speech.create({
+    model: MODEL,
+    voice: segment.voice,
+    input: segment.text,
+    response_format: "mp3",
+  });
+  return Buffer.from(await response.arrayBuffer());
+}
+
+async function generateMultiVoiceAudio(
+  openai: OpenAI,
+  segments: Segment[],
+  waitForRequestSlot: () => Promise<void>
+): Promise<Buffer> {
+  const buffers: Buffer[] = [];
+  for (const segment of segments) {
+    buffers.push(await generateSingleVoice(openai, segment, waitForRequestSlot));
+  }
+  return Buffer.concat(buffers);
+}
+
 // ─── Blob existence check ────────────────────────────────────────────────
 async function blobExists(pathname: string): Promise<boolean> {
   try {
@@ -190,22 +328,37 @@ async function main() {
     return;
   }
 
-  const totalChars = questions.reduce(
-    (sum, q) => sum + buildAudioText(q).length,
+  const plans = questions.map((q) => ({ question: q, plan: buildAudioPlan(q, args.voiceOverride) }));
+  const totalChars = plans.reduce(
+    (sum, { plan }) =>
+      sum + plan.segments.reduce((segmentSum, segment) => segmentSum + segment.text.length, 0),
     0,
+  );
+  const requestCount = plans.reduce((sum, { plan }) => sum + plan.segments.length, 0);
+  const pathCounts = plans.reduce(
+    (counts, { plan }) => {
+      counts[plan.mode] += 1;
+      return counts;
+    },
+    { single: 0, "p2-multi": 0, "p3-multi": 0 },
   );
   const estCostUsd = (totalChars / 1_000_000) * COST_PER_1M_CHARS_USD;
   console.log(`Total chars to TTS: ${totalChars.toLocaleString()}`);
+  console.log(`TTS requests:       ${requestCount.toLocaleString()}`);
+  console.log(
+    `Audio paths:        single=${pathCounts.single} p2-multi=${pathCounts["p2-multi"]} p3-multi=${pathCounts["p3-multi"]}`,
+  );
   console.log(`Estimated cost:     $${estCostUsd.toFixed(4)} USD`);
   console.log(`Rate limit:         ${RATE_LIMIT_RPM} requests/min`);
-  console.log(`Estimated runtime:  ${Math.ceil(questions.length / RATE_LIMIT_RPM)} min(s)`);
+  console.log(`Estimated runtime:  ${Math.ceil(requestCount / RATE_LIMIT_RPM)} min(s)`);
 
   if (args.dryRun) {
     console.log("\n[dry-run] Plan:");
-    for (const q of questions.slice(0, 5)) {
-      const voice = pickVoice(q.id, args.voiceOverride);
-      const chars = buildAudioText(q).length;
-      console.log(`  [${q.id}] ${q.part} voice=${voice} chars=${chars}`);
+    for (const { question, plan } of plans.slice(0, 5)) {
+      const chars = plan.segments.reduce((sum, segment) => sum + segment.text.length, 0);
+      console.log(
+        `  [${question.id}] ${question.part} ${describeAudioPlan(plan)} chars=${chars}`,
+      );
     }
     if (questions.length > 5) console.log(`  ... and ${questions.length - 5} more`);
     return;
@@ -220,18 +373,16 @@ async function main() {
   const failedIds: string[] = [];
 
   const startTime = Date.now();
-  const minMsPerRequest = 60_000 / RATE_LIMIT_RPM;
+  const waitForRequestSlot = createRequestLimiter();
 
-  for (let i = 0; i < questions.length; i++) {
-    const q = questions[i];
+  for (let i = 0; i < plans.length; i++) {
+    const { question: q, plan } = plans[i];
     const pathname = `audio/${q.id}.mp3`;
-    const voice = pickVoice(q.id, args.voiceOverride);
-    const text = buildAudioText(q);
 
     try {
       if (await blobExists(pathname)) {
         if (!args.force) {
-          console.log(`[${i + 1}/${questions.length}] SKIP ${q.id} (exists)`);
+          console.log(`[${i + 1}/${plans.length}] SKIP ${q.id} (exists)`);
           skipped++;
           continue;
         }
@@ -239,13 +390,10 @@ async function main() {
       }
 
       const t0 = Date.now();
-      const response = await openai.audio.speech.create({
-        model: MODEL,
-        voice,
-        input: text,
-        response_format: "mp3",
-      });
-      const buf = Buffer.from(await response.arrayBuffer());
+      const buf =
+        plan.segments.length === 1
+          ? await generateSingleVoice(openai, plan.segments[0], waitForRequestSlot)
+          : await generateMultiVoiceAudio(openai, plan.segments, waitForRequestSlot);
 
       const blob = await put(pathname, buf, {
         access: "public",
@@ -256,19 +404,13 @@ async function main() {
 
       const ms = Date.now() - t0;
       console.log(
-        `[${i + 1}/${questions.length}] OK   ${q.id} voice=${voice} ${buf.length}B ${ms}ms -> ${blob.url}`,
+        `[${i + 1}/${plans.length}] OK   ${q.id} ${describeAudioPlan(plan)} ${buf.length}B ${ms}ms -> ${blob.url}`,
       );
       generated++;
     } catch (e) {
       failed++;
       failedIds.push(q.id);
-      console.error(`[${i + 1}/${questions.length}] FAIL ${q.id}: ${(e as Error).message}`);
-    }
-
-    if (i < questions.length - 1) {
-      const targetElapsed = (i + 1) * minMsPerRequest;
-      const sleepMs = Math.max(0, targetElapsed - (Date.now() - startTime));
-      if (sleepMs > 0) await new Promise((r) => setTimeout(r, sleepMs));
+      console.error(`[${i + 1}/${plans.length}] FAIL ${q.id}: ${(e as Error).message}`);
     }
   }
 
