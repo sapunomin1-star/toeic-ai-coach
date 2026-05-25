@@ -78,11 +78,28 @@ export default function DashboardPage() {
 
   function handleReset() {
     const ok = window.confirm(
-      "確定要清除所有作答紀錄嗎？包含歷史統計、錯題狀態。這個動作無法復原。"
+      [
+        "確定要清除所有學習資料嗎？以下全部會被清空：",
+        "",
+        "• 答題紀錄與歷史統計",
+        "• 錯題本狀態與待複習清單",
+        "• 每日訓練計畫",
+        "• 單字練習進度（含 SRS 排程、quiz 紀錄）",
+        "• 閱讀模擬考與聽力模擬考歷史成績",
+        "",
+        "這個動作無法復原。",
+      ].join("\n"),
     );
     if (!ok) return;
     clearAllProgress();
+    // localStorage is cleared; reset all in-memory state so the dashboard
+    // updates immediately without needing a page refresh.
     setRecords([]);
+    setTodayVocabulary([]);
+    setVocabularyProgress([]);
+    setQuizStats(null);
+    setRecentMockResult(null);
+    setRecentListeningMockResult(null);
   }
 
   function handleExport() {
