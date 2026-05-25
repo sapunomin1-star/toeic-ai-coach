@@ -1486,3 +1486,36 @@ remains self-paced.
 - Interactive Browser smoke could not run because no isolated in-app browser
   target was available in this session; the user's Chrome profile was not
   used to create local mock-test state.
+
+## 2026-05-25 - IIBC Reference Score Prediction for Section Mocks
+
+### Scope
+
+Replaced linear TOEIC section estimates in the reading and listening mock
+results with IIBC-published reference score ranges, added ETS CEFR guidance,
+and fixed listening mock result omission from backup/restore.
+
+### Implementation
+
+- Added `lib/toeicScoreEstimate.ts` with the 21-bucket IIBC reference range
+  tables for Listening and Reading, future-ready total range aggregation, and
+  ETS section-level CEFR threshold classification.
+- `/mock-test` and `/listening-mock` newly submitted results now use their
+  section's IIBC range and show the CEFR range plus a non-official prediction
+  disclaimer. Stored historical results remain untouched.
+- `BACKUP_KEYS` now includes `toeic_listening_mock_results_v1` so completed
+  listening mock history round-trips through export/import. In-flight session
+  keys remain excluded because restoring a timed, partially consumed audio
+  attempt would be misleading.
+
+### Verification
+
+- Temporary estimator/backup smoke script: passed for IIBC boundary values,
+  clamp behavior, total aggregation, ETS CEFR single/cross-band values, and
+  listening-results export/import round-trip.
+- `npm run lint`: passed (0 errors, 4 pre-existing pipeline warnings).
+- `./node_modules/.bin/tsc --noEmit`: passed.
+- `npm run build`: passed (12/12 static pages generated).
+- Interactive Browser smoke could not run because no isolated in-app browser
+  target was available in this session; the user's Chrome profile was not
+  used to create fake mock-test history.

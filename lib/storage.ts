@@ -137,6 +137,7 @@ export const BACKUP_KEYS = [
   "toeic_vocabulary_progress_v1",
   "toeic_vocabulary_daily_session_v1",
   "toeic_mock_results_v1",
+  "toeic_listening_mock_results_v1",
 ] as const;
 
 export function exportAllData(): string | null {

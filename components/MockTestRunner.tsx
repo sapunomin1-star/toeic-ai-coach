@@ -21,6 +21,11 @@ import {
   saveMockResult,
   startMockSession,
 } from "@/lib/mockStorage";
+import {
+  getCEFRForSection,
+  PREDICTION_DISCLAIMER,
+  rawToScaledRange,
+} from "@/lib/toeicScoreEstimate";
 import type {
   MockMode,
   MockPartBreakdown,
@@ -33,12 +38,6 @@ type Phase = "preview" | "testing" | "result";
 
 const READING_PARTS: MockPartKey[] = ["Part 5", "Part 6", "Part 7"];
 const LISTENING_PARTS: MockPartKey[] = ["Part 1", "Part 2", "Part 3", "Part 4"];
-
-function estimateScore(raw: number) {
-  const pct = raw / 100;
-  const mid = Math.round(5 + pct * 490);
-  return { min: Math.max(5, mid - 30), max: Math.min(495, mid + 30) };
-}
 
 function defaultBreakdown(parts: MockPartKey[]): MockPartBreakdown {
   const init: MockPartBreakdown = {};
@@ -292,7 +291,10 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
       endTime: new Date(endTime).toISOString(),
       submittedAt: now,
       rawScore: correct,
-      scoreRange: estimateScore(correct),
+      scoreRange: rawToScaledRange(
+        correct,
+        mode === "listening" ? "listening" : "reading",
+      ),
       partBreakdown: breakdown,
       timeUsedMs: config.durationMs - remainingAtSubmit,
     };
@@ -631,6 +633,11 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
   // ─── RESULT ───────────────────────────────────────────────────
   if (phase === "result" && result) {
     const { rawScore, scoreRange, partBreakdown, unansweredIds, timeUsedMs } = result;
+    const cefr = getCEFRForSection(
+      scoreRange,
+      mode === "listening" ? "listening" : "reading",
+    );
+    const cefrLabel = cefr.spans ? `約 ${cefr.spans.join("-")}` : cefr.primary;
 
     return (
       <div className="space-y-4">
@@ -638,8 +645,9 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
           <p className="text-xs uppercase tracking-widest text-emerald-200">Mock Test Result</p>
           <h1 className="mt-2 text-2xl font-bold">{config.headerTitle}成績</h1>
           <p className="mt-2 text-3xl font-bold">{rawScore}<span className="text-lg font-normal text-emerald-200">/100</span></p>
-          <p className="mt-1 text-sm text-emerald-200">估算 TOEIC {config.examFlavor} 分數：{scoreRange.min}–{scoreRange.max}</p>
-          <p className="mt-0.5 text-xs text-emerald-300">※ 非官方估算，僅供參考</p>
+          <p className="mt-1 text-sm text-emerald-200">{config.examFlavor} 預測：{scoreRange.min}–{scoreRange.max} 分</p>
+          <p className="mt-0.5 text-sm text-emerald-200">CEFR 等級：{cefrLabel}</p>
+          <p className="mt-1 text-xs text-emerald-300">※ {PREDICTION_DISCLAIMER}</p>
         </section>
 
         <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
