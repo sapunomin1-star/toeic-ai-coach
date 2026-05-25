@@ -236,6 +236,15 @@ export default function QuizPage() {
   const audioFailed = failedAudioIds.has(currentQuestion.id);
   const audioFallbackText = currentQuestion.audioScript ?? null;
 
+  // For Part 1/2, the on-screen `question` text and `choices` text ARE the
+  // spoken audio (P1 = the four photo statements, P2 = the question + three
+  // responses). Showing them during answering lets the student read instead
+  // of listen, which defeats the whole point. Hide while answering, reveal
+  // once the answer is submitted (the post-answer panel already does that).
+  const isListeningP1or2 =
+    currentQuestion.part === "Part 1" || currentQuestion.part === "Part 2";
+  const hideListeningText = isListeningP1or2 && !isAnswered;
+
   return (
     <div className="space-y-4">
       <div>
@@ -302,7 +311,9 @@ export default function QuizPage() {
       ) : mediaSupport.audio ? (
         <div className="rounded-2xl border border-sky-200 bg-sky-50 p-4 shadow-sm">
           <p className="text-sm font-semibold text-sky-800">音檔尚未就緒</p>
-          {audioFallbackText && (
+          {/* Only show fallback transcript when not hiding for listening,
+              so the script doesn't leak before the student has answered. */}
+          {audioFallbackText && !hideListeningText && (
             <p className="mt-2 whitespace-pre-wrap text-sm leading-relaxed text-slate-800">
               {audioFallbackText}
             </p>
@@ -323,53 +334,82 @@ export default function QuizPage() {
 
       <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
         <p className="text-base leading-relaxed text-slate-900">
-          {questionText}
+          {hideListeningText ? "請依音檔內容選擇答案" : questionText}
         </p>
       </div>
 
-      <ul className="space-y-2">
-        {visibleChoices.map((c) => {
-          const isSelected = selected === c;
-          const isCorrectChoice = c === currentQuestion.answer;
-          const isUserChoice = submittedChoice === c;
-          const choiceAudio = currentQuestion.audioChoices?.[c];
-
-          let classes =
-            "w-full rounded-2xl border px-4 py-3 text-left text-sm transition active:scale-[0.99]";
-          if (isAnswered) {
-            if (isCorrectChoice) {
-              classes += " border-emerald-400 bg-emerald-50 text-emerald-900";
-            } else if (isUserChoice) {
-              classes += " border-rose-400 bg-rose-50 text-rose-900";
-            } else {
-              classes += " border-slate-200 bg-white text-slate-500";
-            }
-          } else if (isSelected) {
-            classes += " border-indigo-500 bg-indigo-50 text-indigo-900";
-          } else {
-            classes += " border-slate-200 bg-white text-slate-800";
-          }
-
-          return (
-            <li key={c} className="space-y-2">
-              {choiceAudio && (
-                <AudioPlayer key={choiceAudio} src={choiceAudio} allowReplay />
-              )}
+      {hideListeningText ? (
+        // Letter-only buttons in a grid so the student must rely on listening,
+        // not reading. Per-choice audio (P2's three responses) is also hidden
+        // because the main audio already plays them in sequence — playing each
+        // choice on demand would let students re-hear individual responses.
+        <div
+          className={`grid ${visibleChoices.length === 3 ? "grid-cols-3" : "grid-cols-4"} gap-3`}
+        >
+          {visibleChoices.map((c) => {
+            const isSelected = selected === c;
+            return (
               <button
-                disabled={isAnswered}
+                key={c}
                 onClick={() => setSelected(c)}
-                className={classes}
-                aria-pressed={isAnswered ? undefined : isSelected}
+                aria-label={`選擇答案 ${c}`}
+                aria-pressed={isSelected}
+                className={`min-h-14 rounded-2xl border px-4 py-3 text-center text-base font-bold transition active:scale-[0.99] focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500 ${
+                  isSelected
+                    ? "border-indigo-500 bg-indigo-50 text-indigo-900"
+                    : "border-slate-200 bg-white text-slate-800"
+                }`}
               >
-                <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold text-slate-700">
-                  {c}
-                </span>
-                {currentQuestion.choices[c]}
+                {c}
               </button>
-            </li>
-          );
-        })}
-      </ul>
+            );
+          })}
+        </div>
+      ) : (
+        <ul className="space-y-2">
+          {visibleChoices.map((c) => {
+            const isSelected = selected === c;
+            const isCorrectChoice = c === currentQuestion.answer;
+            const isUserChoice = submittedChoice === c;
+            const choiceAudio = currentQuestion.audioChoices?.[c];
+
+            let classes =
+              "w-full rounded-2xl border px-4 py-3 text-left text-sm transition active:scale-[0.99]";
+            if (isAnswered) {
+              if (isCorrectChoice) {
+                classes += " border-emerald-400 bg-emerald-50 text-emerald-900";
+              } else if (isUserChoice) {
+                classes += " border-rose-400 bg-rose-50 text-rose-900";
+              } else {
+                classes += " border-slate-200 bg-white text-slate-500";
+              }
+            } else if (isSelected) {
+              classes += " border-indigo-500 bg-indigo-50 text-indigo-900";
+            } else {
+              classes += " border-slate-200 bg-white text-slate-800";
+            }
+
+            return (
+              <li key={c} className="space-y-2">
+                {choiceAudio && (
+                  <AudioPlayer key={choiceAudio} src={choiceAudio} allowReplay />
+                )}
+                <button
+                  disabled={isAnswered}
+                  onClick={() => setSelected(c)}
+                  className={classes}
+                  aria-pressed={isAnswered ? undefined : isSelected}
+                >
+                  <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold text-slate-700">
+                    {c}
+                  </span>
+                  {currentQuestion.choices[c]}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      )}
 
       {isAnswered && (
         <div

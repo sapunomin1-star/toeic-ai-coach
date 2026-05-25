@@ -100,12 +100,33 @@ function getBlobBaseUrl(): string {
 }
 
 // ─── Audio source text builder ───────────────────────────────────────────
+/**
+ * Normalize an audio script for tts-1 input.
+ *
+ * Two transformations:
+ * 1) `(A) ... (B) ... (C) ... (D) ...` → `Letter A. ... Letter B. ...`
+ *    tts-1 has a known quirk where it elides "(D)" specifically (and
+ *    occasionally other parenthesised letters); using natural prose form
+ *    is robust. We do NOT modify the stored `audioScript` field because
+ *    the UI uses that text for the post-answer reveal panel and the
+ *    "(X)" form is what the test booklet shows.
+ * 2) `Q: <stem>` → `<stem>` for Part 2. Real TOEIC audio just plays the
+ *    question without an explicit marker; the "Q:" was a data-format
+ *    convention, not something we want the announcer to read aloud
+ *    ("Q colon ...").
+ */
+function normalizeForTTS(raw: string): string {
+  return raw
+    .replace(/^Q:\s*/gm, "")
+    .replace(/\(\s*([A-D])\s*\)\s*/g, "Letter $1. ");
+}
+
 function buildAudioText(q: Question): string {
   const text = q.audioScript ?? q.transcript;
   if (!text) {
     throw new Error(`[${q.id}] no audioScript or transcript field`);
   }
-  return text;
+  return normalizeForTTS(text);
 }
 
 // ─── Voice rotation (deterministic by id hash) ───────────────────────────
