@@ -26,6 +26,19 @@ export function getAudioUrl(
 }
 
 /**
+ * Returns the narrated question-stem audio URL for timed Part 3 mock pacing.
+ * Storage convention: audio/<questionId>-q.mp3
+ */
+export function getQuestionAudioUrl(
+  question: Pick<Question, "id" | "part">
+): string | null {
+  if (question.part !== "Part 3") return null;
+  const blobBaseUrl = getBlobBaseUrl();
+  if (!blobBaseUrl) return null;
+  return `${blobBaseUrl}/audio/${question.id}-q.mp3`;
+}
+
+/**
  * Returns the canonical Blob URL for a question's image, or null if:
  *   1) BLOB base URL is not configured, OR
  *   2) the question's part doesn't have an image (only Part 1), OR

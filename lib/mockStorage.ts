@@ -63,6 +63,13 @@ function validateSession(raw: unknown): MockTestSession | null {
   ) {
     return null;
   }
+  if (
+    obj.playedQuestionAudioIds !== undefined &&
+    (!Array.isArray(obj.playedQuestionAudioIds) ||
+      obj.playedQuestionAudioIds.some((id: unknown) => typeof id !== "string"))
+  ) {
+    return null;
+  }
 
   return obj as MockTestSession;
 }
@@ -149,6 +156,7 @@ export function startMockSession(
     answers: {},
     unansweredIds: [],
     playedAudioGroups: [],
+    playedQuestionAudioIds: [],
     startedAt: new Date(now).toISOString(),
     endTime: new Date(now + getMockDurationMs(mode)).toISOString(),
   };
@@ -189,6 +197,24 @@ export function markAudioGroupPlayed(
   if (played.has(groupKey)) return;
   played.add(groupKey);
   session.playedAudioGroups = [...played];
+  saveMockSession(session, mode);
+}
+
+/**
+ * Consume a narrated Part 3 question stem as soon as audible playback starts.
+ * It is independent of the shared conversation group: each spoken question
+ * may be heard once in a listening mock session.
+ */
+export function markQuestionAudioPlayed(
+  questionId: string,
+  mode: MockMode = "listening",
+): void {
+  const session = getMockSession(mode);
+  if (!session) return;
+  const played = new Set(session.playedQuestionAudioIds ?? []);
+  if (played.has(questionId)) return;
+  played.add(questionId);
+  session.playedQuestionAudioIds = [...played];
   saveMockSession(session, mode);
 }
 

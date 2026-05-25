@@ -9,13 +9,14 @@ import {
   buildMockTestPlan,
   getQuestionById,
 } from "@/data/questions";
-import { getAudioUrl, getImageUrl, hasMediaSupport } from "@/lib/media";
+import { getAudioUrl, getImageUrl, getQuestionAudioUrl, hasMediaSupport } from "@/lib/media";
 import { saveAnswer as saveDailyAnswer } from "@/lib/storage";
 import {
   clearMockSession,
   getMockDurationMs,
   getMockSession,
   markAudioGroupPlayed,
+  markQuestionAudioPlayed,
   saveAnswer as saveMockAnswer,
   saveMockResult,
   startMockSession,
@@ -127,6 +128,11 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
   const [failedAudioGroups, setFailedAudioGroups] = useState<Set<string>>(new Set());
   const [playedGroups, setPlayedGroups] = useState<Set<string>>(new Set());
   const [activeAudioGroup, setActiveAudioGroup] = useState<string | null>(null);
+  const [playedQuestionAudioIds, setPlayedQuestionAudioIds] = useState<Set<string>>(new Set());
+  const [failedQuestionAudioIds, setFailedQuestionAudioIds] = useState<Set<string>>(new Set());
+  const [activeQuestionAudioId, setActiveQuestionAudioId] = useState<string | null>(null);
+  const [countdownQuestionId, setCountdownQuestionId] = useState<string | null>(null);
+  const [countdownSec, setCountdownSec] = useState(8);
   const submittedRef = useRef(false);
   const choiceKeys: Choice[] = ["A", "B", "C", "D"];
 
@@ -143,7 +149,11 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
           setAnswers(session.answers ?? {});
           setEndTime(new Date(session.endTime).getTime());
           setPlayedGroups(new Set(session.playedAudioGroups ?? []));
+          setPlayedQuestionAudioIds(new Set(session.playedQuestionAudioIds ?? []));
           setActiveAudioGroup(null);
+          setActiveQuestionAudioId(null);
+          setCountdownQuestionId(null);
+          setCountdownSec(8);
           setPhase("testing");
           return;
         }
@@ -160,7 +170,12 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
       const session = startMockSession(plan.map((q) => q.id), mode);
       setEndTime(new Date(session.endTime).getTime());
       setPlayedGroups(new Set());
+      setPlayedQuestionAudioIds(new Set());
+      setFailedQuestionAudioIds(new Set());
       setActiveAudioGroup(null);
+      setActiveQuestionAudioId(null);
+      setCountdownQuestionId(null);
+      setCountdownSec(8);
       setPhase("testing");
     } catch (e) {
       alert((e as Error).message);
@@ -182,9 +197,43 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
     setActiveAudioGroup((current) => (current === groupKey ? null : current));
   }
 
+  function handleQuestionAudioStarted(questionId: string) {
+    setActiveQuestionAudioId(questionId);
+    setPlayedQuestionAudioIds((previous) => {
+      if (previous.has(questionId)) return previous;
+      const next = new Set(previous);
+      next.add(questionId);
+      return next;
+    });
+    markQuestionAudioPlayed(questionId, mode);
+  }
+
+  function beginQuestionCountdown(questionId: string) {
+    setActiveQuestionAudioId((current) => (current === questionId ? null : current));
+    setCountdownQuestionId(questionId);
+    setCountdownSec(8);
+  }
+
+  function handleQuestionAudioError(questionId: string) {
+    setFailedQuestionAudioIds((previous) => new Set(previous).add(questionId));
+    // Preserve the one-pass exam flow even if the remote stem cannot load.
+    setPlayedQuestionAudioIds((previous) => new Set(previous).add(questionId));
+    markQuestionAudioPlayed(questionId, mode);
+    beginQuestionCountdown(questionId);
+  }
+
+  function resetQuestionPacing() {
+    setActiveQuestionAudioId(null);
+    setCountdownQuestionId(null);
+    setCountdownSec(8);
+  }
+
   function goToQuestion(index: number) {
     const nextQuestion = questions[index];
     if (!nextQuestion) return;
+    if (index !== currentIndex) {
+      resetQuestionPacing();
+    }
     if (audioGroupKey(nextQuestion) !== activeAudioGroup) {
       setActiveAudioGroup(null);
     }
@@ -267,6 +316,57 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
     return () => window.clearInterval(id);
   }, [phase, endTime, submit]);
 
+  // A question stem that began playing is consumed. If the student refreshes
+  // or navigates back, continue with timed answering rather than replaying it.
+  useEffect(() => {
+    if (phase !== "testing" || mode !== "listening") return;
+    const question = questions[currentIndex];
+    if (!question || question.part !== "Part 3" || !getQuestionAudioUrl(question)) return;
+    const groupKey = audioGroupKey(question);
+    if (
+      playedGroups.has(groupKey) &&
+      activeAudioGroup !== groupKey &&
+      playedQuestionAudioIds.has(question.id) &&
+      activeQuestionAudioId !== question.id &&
+      countdownQuestionId !== question.id
+    ) {
+      const id = window.setTimeout(() => {
+        setCountdownQuestionId(question.id);
+        setCountdownSec(8);
+      }, 0);
+      return () => window.clearTimeout(id);
+    }
+  }, [
+    activeAudioGroup,
+    activeQuestionAudioId,
+    countdownQuestionId,
+    currentIndex,
+    mode,
+    phase,
+    playedGroups,
+    playedQuestionAudioIds,
+    questions,
+  ]);
+
+  useEffect(() => {
+    if (phase !== "testing" || countdownQuestionId === null) return;
+    const currentQuestion = questions[currentIndex];
+    if (!currentQuestion || currentQuestion.id !== countdownQuestionId) return;
+    const id = window.setTimeout(() => {
+      if (countdownSec > 1) {
+        setCountdownSec((previous) => previous - 1);
+        return;
+      }
+      resetQuestionPacing();
+      if (currentIndex < questions.length - 1) {
+        setCurrentIndex((previous) => Math.min(questions.length - 1, previous + 1));
+      } else {
+        submit();
+      }
+    }, 1000);
+    return () => window.clearTimeout(id);
+  }, [countdownQuestionId, countdownSec, currentIndex, phase, questions, submit]);
+
   function confirmSubmit() {
     if (!window.confirm("確定要交卷嗎？未作答的題目將視為空白。")) return;
     submit();
@@ -343,6 +443,20 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
     const audioAlreadyPlayed = playedGroups.has(groupKey);
     const audioIsActive = activeAudioGroup === groupKey;
     const hideText = shouldHideTextForListening(mode, q);
+    const questionAudioUrl =
+      mode === "listening" && q.part === "Part 3" ? getQuestionAudioUrl(q) : null;
+    const enableP3MockPacing = questionAudioUrl !== null;
+    const questionAudioPlayed = playedQuestionAudioIds.has(q.id);
+    const questionAudioIsActive = activeQuestionAudioId === q.id;
+    const questionAudioFailed = failedQuestionAudioIds.has(q.id);
+    const countdownActive = countdownQuestionId === q.id;
+    const conversationFinishedOrSkipped = audioAlreadyPlayed && !audioIsActive;
+    const showQuestionAudio =
+      enableP3MockPacing &&
+      conversationFinishedOrSkipped &&
+      !countdownActive &&
+      !questionAudioFailed &&
+      (!questionAudioPlayed || questionAudioIsActive);
 
     return (
       <div className="flex min-h-screen flex-col">
@@ -411,6 +525,42 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
               ⚠ 音檔未載入
             </div>
           ) : null}
+
+          {showQuestionAudio && (
+            <div className="mb-4">
+              <p className="mb-2 text-xs font-semibold text-slate-500">題目朗讀</p>
+              <AudioPlayer
+                key={`${q.id}-question-audio`}
+                src={questionAudioUrl}
+                autoPlay
+                onPlaybackStart={() => handleQuestionAudioStarted(q.id)}
+                onEnded={() => beginQuestionCountdown(q.id)}
+                onError={() => handleQuestionAudioError(q.id)}
+              />
+            </div>
+          )}
+
+          {enableP3MockPacing && questionAudioFailed && countdownActive && (
+            <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm font-medium text-amber-800">
+              ⚠ 題目朗讀載入失敗，倒數仍進行
+            </div>
+          )}
+
+          {enableP3MockPacing && countdownActive && (
+            <div
+              role="timer"
+              aria-live="polite"
+              aria-label={`此題剩餘 ${countdownSec} 秒`}
+              className={`mb-4 rounded-xl border p-4 text-center ${
+                countdownSec <= 3
+                  ? "animate-pulse border-rose-200 bg-rose-50 text-rose-700"
+                  : "border-indigo-200 bg-indigo-50 text-indigo-700"
+              }`}
+            >
+              <p className="text-xs font-semibold">作答倒數</p>
+              <p className="mt-1 text-4xl font-bold">⏱ {countdownSec}</p>
+            </div>
+          )}
 
           {q.passage && (
             <div className="mb-4 whitespace-pre-wrap rounded-xl border border-slate-200 bg-slate-50 p-3 text-xs leading-relaxed text-slate-700">

@@ -28,6 +28,12 @@ export type MockTestSession = {
    * away before playback ends. Real TOEIC: no replay.
    */
   playedAudioGroups?: string[];
+  /**
+   * Part 3 question-stem audio IDs whose audible playback has started.
+   * Persisted separately from conversation groups so each of the three
+   * spoken questions can be consumed exactly once in listening mock mode.
+   */
+  playedQuestionAudioIds?: string[];
 };
 
 /** Partial so reading results only need P5/6/7 and listening only need P1-4. */
