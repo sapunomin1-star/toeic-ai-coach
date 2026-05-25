@@ -1277,3 +1277,50 @@ a student to leave or refresh during playback and restart the recording.
 
 Claude should specifically verify playback-start persistence, same-group
 Part 3/4 continuity, refresh/resume behavior, and the masked P1/P2 controls.
+
+## 2026-05-25 - Vocabulary SRS Refactor
+
+### Scope
+
+Replaced the status-only daily vocabulary flow with a fixed-session SRS flow.
+The daily validation quiz is now authoritative for advancing or lowering
+review state; flashcard self-rating no longer grants `mastered`.
+
+### Behavior Changes
+
+- Added SRS fields to vocabulary progress: interval, next review date, and
+  consecutive quiz recall count.
+- Existing `toeic_vocabulary_progress_v1` records migrate in place on first
+  read, preserving the existing localStorage key and user history.
+- Daily vocabulary sessions are fixed for the date with four priority
+  buckets: retry, due, mastered review, and new.
+- Daily workload suppresses new words when retry/due work is high and defers
+  retries over the 25-item cap.
+- Today's quiz tests the fixed daily session and shows before/after schedule
+  changes. `/vocabulary-quiz?mode=random` remains a separate whole-bank
+  challenge.
+- Repeating a correct quiz before its due date no longer fast-forwards SRS;
+  wrong answers still apply lapse handling immediately.
+- Dashboard now offers the random challenge entry point.
+
+### Files Changed
+
+- `types/vocabulary.ts`
+- `lib/vocabularyStorage.ts`
+- `lib/storage.ts`
+- `app/vocabulary/page.tsx`
+- `app/vocabulary-quiz/page.tsx`
+- `app/dashboard/page.tsx`
+- `AGENTS.md`
+- `DEVELOPMENT_LOG.md`
+
+### Verification
+
+- `npm run lint`: passed (0 errors, 4 pre-existing pipeline warnings)
+- `./node_modules/.bin/tsc --noEmit`: passed
+- `npm run build`: passed (static route output includes vocabulary routes)
+- `cd pipeline && npm run check`: 647 questions PASSED, 0 duplicate IDs
+- Runtime SRS smoke: migration writeback, stage advancement/lapses, four
+  daily buckets, suppression/deferred caps, and fixed daily-to-quiz IDs passed
+- HTTP route smoke: `/vocabulary`, `/vocabulary-quiz`,
+  `/vocabulary-quiz?mode=random`, and `/dashboard` returned 200

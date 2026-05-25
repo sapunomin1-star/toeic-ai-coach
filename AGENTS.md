@@ -15,7 +15,7 @@ The app currently focuses on:
 - TOEIC Part 3 and Part 4 transcript-based listening practice.
 - TOEIC Part 7 short reading practice.
 - Wrong-book review with simple spaced repetition status.
-- Daily vocabulary flashcards with cross-day confirmation for `mastered`.
+- Daily vocabulary flashcards with quiz-authoritative SRS scheduling.
 - Vocabulary quiz with English-to-Chinese, Chinese-to-English, and fill-in-the-blank questions.
 - Dashboard reporting for accuracy, weak skills, response speed, vocabulary progress, and reading/listening breakdowns.
 
@@ -133,9 +133,9 @@ Vocabulary data must satisfy:
 ## Learning Logic Rules
 
 - Correct TOEIC answers do not automatically mark related vocabulary as mastered.
-- Correct vocabulary quiz answers do not directly mark words as mastered.
-- Vocabulary `mastered` requires cross-day active confirmation through the flashcard flow.
-- Vocabulary quiz results may promote `new` or `seen` words to `familiar`, but not to `mastered`.
+- Vocabulary flashcard self-rating is capped at `familiar`; it never produces `mastered`.
+- Vocabulary quiz answers are authoritative for SRS advancement and lapse handling.
+- Vocabulary `mastered` requires repeated quiz recall at sufficiently long review intervals.
 - Wrong questions remain reviewable until dismissed or improved through repeated correct answers.
 - Part 6 and Part 7 use `passage`; Part 3 and Part 4 use `transcript`.
 - Part 6 questions are identified by question ID prefix `p6-` in analytics (they use `reading_detail` skill_tag).
@@ -160,7 +160,8 @@ Run these checks after meaningful changes:
    - missing Part 6/7 passages.
    - duplicate vocabulary IDs.
 6. Vocabulary quiz generation check:
-   - 10 questions when vocabulary exists.
+   - today's quiz contains the fixed daily-session items.
+   - random challenge contains 10 questions when vocabulary exists.
    - 4 choices per question.
    - no duplicate choices.
    - valid `correctIndex`.
@@ -254,10 +255,22 @@ Items fixed in this pass:
 
 ### localStorage Rules
 
-- **Never change localStorage key names without migration.** Current keys: `toeic_answer_records_v1`, `toeic_daily_plan_v1`, `toeic_wrong_status_v1`, `toeic_wrong_practice_plan_v1`, `toeic_vocabulary_progress_v1`, `toeic_mock_session_v1`, `toeic_mock_results_v1`, `toeic_listening_mock_session_v1`, `toeic_listening_mock_results_v1`.
+- **Never change localStorage key names without migration.** Current keys: `toeic_answer_records_v1`, `toeic_daily_plan_v1`, `toeic_wrong_status_v1`, `toeic_wrong_practice_plan_v1`, `toeic_vocabulary_progress_v1`, `toeic_vocabulary_daily_session_v1`, `toeic_mock_session_v1`, `toeic_mock_results_v1`, `toeic_listening_mock_session_v1`, `toeic_listening_mock_results_v1`.
 - **Always catch QuotaExceededError.** localStorage is limited to 5-10MB. Silent failure = data loss.
 - **Mock test answers do NOT go to `toeic_answer_records_v1`** unless the user actually answered AND got it wrong. Null answers stay in mock session only.
 - **Wrong-book dismissed entries are pruned.** Entries with `dismissed: true` are removed after 90 days. Status map is capped at 500 entries, with dismissed entries evicted first.
+
+### Vocabulary SRS design intent
+
+- The daily session uses four ordered buckets: `retry` > `due` > `masteredReview` > `new`.
+- The daily item IDs are persisted for the date so flashcard study and today's quiz validate the same words.
+- Quiz is the authority for status transitions; flashcard self-rating is capped at `familiar`.
+- `mastered` requires `consecutiveCorrect >= 3` and `intervalDays >= 14`.
+- Correct quiz practice before `nextReviewDate` records the result but does not advance SRS; a wrong answer applies a lapse immediately.
+- A wrong quiz answer lowers `mastered` to `familiar`, and lowers `familiar` to `seen`.
+- Scheduling follows retry today, then 1, 3, 7, 14, and 30 day intervals.
+- To control workload, `retry + due >= 15` suppresses new words and daily total above 25 defers excess retries.
+- Migration backfills SRS fields based on legacy vocabulary status without changing `toeic_vocabulary_progress_v1`.
 
 ## Media Storage Rules
 
