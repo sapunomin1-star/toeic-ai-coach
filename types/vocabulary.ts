@@ -23,6 +23,9 @@ export type VocabularyStatus = "new" | "seen" | "familiar" | "mastered";
 export type VocabularyProgress = {
   wordId: string;
   status: VocabularyStatus;
+  intervalDays: number; // 0=retry today, then 1 / 3 / 7 / 14 / 30
+  nextReviewDate: string; // YYYY-MM-DD
+  consecutiveCorrect: number;
   reviewedAt: string;
   selfCheckCount: number;
   lastSelfCheckDate: string | null; // YYYY-MM-DD
@@ -30,6 +33,28 @@ export type VocabularyProgress = {
   quizCorrectCount?: number;
   quizWrongCount?: number;
   lastQuizAt?: string;
+};
+
+export type DailySessionBucket = "retry" | "due" | "masteredReview" | "new";
+
+export type DailySessionItem = {
+  item: VocabularyItem;
+  bucket: DailySessionBucket;
+  progress: VocabularyProgress | null;
+};
+
+export type DailySession = {
+  items: DailySessionItem[];
+  counts: {
+    retry: number;
+    due: number;
+    masteredReview: number;
+    new: number;
+  };
+  warnings: {
+    newSuppressed: boolean;
+    retryDeferred: number;
+  };
 };
 
 export type QuizQuestionType = "en-to-zh" | "zh-to-en" | "fill-blank";

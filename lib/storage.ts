@@ -119,6 +119,8 @@ export function clearAllProgress(): void {
     localStorage.removeItem(DAILY_PLAN_KEY);
     localStorage.removeItem(WRONG_STATUS_KEY);
     localStorage.removeItem(WRONG_PRACTICE_PLAN_KEY);
+    localStorage.removeItem("toeic_vocabulary_progress_v1");
+    localStorage.removeItem("toeic_vocabulary_daily_session_v1");
     clearAllMockData();
   } catch (e) {
     console.warn("[storage] Failed to clear all progress:", e);
@@ -133,6 +135,7 @@ export const BACKUP_KEYS = [
   WRONG_STATUS_KEY,
   WRONG_PRACTICE_PLAN_KEY,
   "toeic_vocabulary_progress_v1",
+  "toeic_vocabulary_daily_session_v1",
   "toeic_mock_results_v1",
 ] as const;
 
