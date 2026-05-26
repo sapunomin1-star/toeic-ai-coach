@@ -1652,3 +1652,45 @@ photo/listening media. Part 2 was left unchanged.
 - `npm run lint`: passed with 0 errors and 0 warnings.
 - `cd pipeline && npm run check`: 937 questions passed with 0 data integrity
   errors.
+
+## 2026-05-26 - Listening Capacity Completion And Kokoro Voices
+
+### Scope
+
+Completed the remaining listening-bank capacity work only: Part 2, Part 3,
+and Part 4. Switched new OpenRouter speech generation to Kokoro US/UK voices;
+existing media was not regenerated.
+
+### Implementation
+
+- Replaced the OpenRouter TTS default model with `hexgrad/kokoro-82m`, using
+  stable real US/UK voice pools. AU maps to UK and CA maps to US with a
+  one-time warning, and Kokoro 5xx responses fall back to the OpenAI TTS
+  route with an American voice.
+- Updated the audio generator so new P2 files alternate US/UK voice families,
+  P3 conversations keep stable W=US and M=UK voices within a transcript, P3
+  question narrations use fixed `af_bella`, and P4 talks alternate US/UK.
+- Added a reviewed listening-expansion generator using `openai/gpt-4o`
+  through OpenRouter and a DeepSeek independent reviewer.
+- Added Part 2 +50 questions, Part 3 +81 questions (27 complete groups), and
+  Part 4 +57 questions (19 complete groups). Final listening counts are
+  P2=100, P3=156, and P4=120; the full question bank is 1125.
+
+### Verification
+
+- Kokoro live probe succeeded for US, UK, AU-to-UK, and CA-to-US selections;
+  no OpenAI fallback was triggered.
+- Uploaded new media paths: P2=50, P3 conversation=27, P3 question=81,
+  P4=19; public HEAD checks passed for all 177 expected paths.
+- `cd pipeline && npm run check`: passed, 1125 questions, 0 data integrity
+  errors.
+- `npm run lint` and `cd pipeline && ./node_modules/.bin/tsc --noEmit`:
+  passed.
+- `./node_modules/.bin/tsc --noEmit` and `npm run build`: blocked by
+  concurrently modified `data/vocabulary.ts`, which contains unsupported
+  `difficulty: "C1"` and category values outside the current vocabulary type.
+  This listening task intentionally did not modify vocabulary data or types.
+- Four independent `buildListeningMockPlan()` calls returned 274 unique
+  question IDs out of 400 in one smoke run. The pool now has capacity for four
+  disjoint sets, but the current stateless random planner does not enforce
+  cross-session exclusion.

@@ -31,7 +31,14 @@ import { del, head, put } from "@vercel/blob";
 
 import { QUESTIONS } from "../../data/questions";
 import type { Part, Question } from "../../types/question";
-import { generateSpeech, type Accent, type VoiceHint } from "./openrouter-tts";
+import {
+  generateSpeech,
+  getTtsFallbackCount,
+  pickVoice as pickKokoroVoice,
+  type Accent,
+  type KokoroVoice,
+  type VoiceHint,
+} from "./openrouter-tts";
 
 // ─── Config ──────────────────────────────────────────────────────────────
 const LISTENING_PARTS: Part[] = ["Part 1", "Part 2", "Part 3", "Part 4"];
@@ -40,7 +47,8 @@ const ALL_VOICES = ["alloy", "echo", "fable", "onyx", "nova", "shimmer"] as cons
 type Voice = (typeof ALL_VOICES)[number];
 const MODEL = "tts-1";
 const RATE_LIMIT_RPM = 30; // stay under OpenAI tier 1 = 50 RPM
-const COST_PER_1M_CHARS_USD = 15; // tts-1 pricing as of 2024
+const OPENAI_COST_PER_1M_CHARS_USD = 15; // tts-1 pricing as of 2024
+const KOKORO_COST_PER_1M_CHARS_USD = 0.62; // OpenRouter price verified for this batch
 const ACCENTS: Accent[] = ["US", "UK", "AU", "CA"];
 type Provider = "openai" | "openrouter";
 
@@ -50,6 +58,7 @@ type Segment = {
   accent?: Accent;
   voiceHint?: VoiceHint;
   speakerSeed?: string;
+  kokoroVoice?: KokoroVoice;
 };
 
 type AudioPlan = {
@@ -196,6 +205,17 @@ function pickAccent(seed: string): Accent {
   return ACCENTS[Math.abs(hash) % ACCENTS.length];
 }
 
+function pickUSOrUK(seed: string): "US" | "UK" {
+  const suffix = seed.match(/(\d+)$/)?.[1];
+  if (suffix) return Number.parseInt(suffix, 10) % 2 === 0 ? "UK" : "US";
+  return pickAccent(seed) === "UK" ? "UK" : "US";
+}
+
+function alternateGender(seed: string): VoiceHint {
+  const suffix = Number.parseInt(seed.match(/(\d+)$/)?.[1] ?? "1", 10);
+  return suffix % 2 === 0 ? "male" : "female";
+}
+
 function mapSpeakerToVoice(label: string): Voice {
   switch (label.replace(/\s+/g, "").toUpperCase()) {
     case "W":
@@ -235,10 +255,12 @@ function parseSpeakerSegments(transcript: string, groupSeed: string): Segment[] 
       const match = line.trim().match(speakerPattern);
       if (!match) return [];
       const text = normalizeForTTS(match[2]).trim();
+      const accent: Accent = speakerVoiceHint(match[1]) === "male" ? "UK" : "US";
       return text
         ? [{
             voice: mapSpeakerToVoice(match[1]),
             text,
+            accent,
             voiceHint: speakerVoiceHint(match[1]),
             speakerSeed: `${groupSeed}:${match[1].replace(/\s+/g, "").toUpperCase()}`,
           }]
@@ -248,7 +270,7 @@ function parseSpeakerSegments(transcript: string, groupSeed: string): Segment[] 
   return segments.length > 1 ? segments : null;
 }
 
-function parseP2Segments(raw: string, questionVoice: Voice): Segment[] | null {
+function parseP2Segments(raw: string, questionVoice: Voice, questionId: string): Segment[] | null {
   const lines = normalizeForTTS(raw)
     .split(/\r?\n/)
     .map((line) => line.trim())
@@ -266,18 +288,19 @@ function parseP2Segments(raw: string, questionVoice: Voice): Segment[] | null {
   if (!question || responses.length !== 3) return null;
 
   const responseVoice = opposingVoice(questionVoice);
+  const accent = pickUSOrUK(questionId);
+  const questionHint = alternateGender(questionId);
+  const responseHint: VoiceHint = questionHint === "female" ? "male" : "female";
   return [
-    { voice: questionVoice, text: question },
-    ...responses.map((text) => ({ voice: responseVoice, text })),
+    { voice: questionVoice, text: question, accent, voiceHint: questionHint, speakerSeed: `${questionId}:Q` },
+    ...responses.map((text) => ({
+      voice: responseVoice,
+      text,
+      accent,
+      voiceHint: responseHint,
+      speakerSeed: `${questionId}:R`,
+    })),
   ];
-}
-
-function withAccent(plan: AudioPlan, seed: string): AudioPlan {
-  const accent = pickAccent(seed);
-  return {
-    ...plan,
-    segments: plan.segments.map((segment) => ({ ...segment, accent })),
-  };
 }
 
 function buildAudioPlan(q: Question, override?: Voice): AudioPlan {
@@ -288,18 +311,24 @@ function buildAudioPlan(q: Question, override?: Voice): AudioPlan {
 
   if (q.part === "Part 3") {
     const segments = parseSpeakerSegments(raw, q.transcript ?? q.id);
-    if (segments) return withAccent({ mode: "p3-multi", segments }, q.transcript ?? q.id);
+    if (segments) return { mode: "p3-multi", segments };
   }
 
   if (q.part === "Part 2") {
-    const segments = parseP2Segments(raw, pickVoice(q.id, override));
-    if (segments) return withAccent({ mode: "p2-multi", segments }, q.id);
+    const segments = parseP2Segments(raw, pickVoice(q.id, override), q.id);
+    if (segments) return { mode: "p2-multi", segments };
   }
 
-  return withAccent({
+  return {
     mode: "single",
-    segments: [{ voice: pickVoice(q.id, override), text: buildAudioText(q) }],
-  }, q.id);
+    segments: [{
+      voice: pickVoice(q.id, override),
+      text: buildAudioText(q),
+      accent: q.part === "Part 4" ? pickUSOrUK(q.id) : pickAccent(q.id),
+      voiceHint: q.part === "Part 4" ? alternateGender(q.id) : undefined,
+      speakerSeed: q.id,
+    }],
+  };
 }
 
 function buildQuestionAudioPlan(q: Question): AudioPlan {
@@ -309,16 +338,28 @@ function buildQuestionAudioPlan(q: Question): AudioPlan {
   if (!q.question.trim()) {
     throw new Error(`[${q.id}] no question text for narrated audio`);
   }
-  return withAccent({
+  return {
     mode: "p3-question",
-    segments: [{ voice: "fable", text: normalizeForTTS(q.question) }],
-  }, q.transcript ?? q.id);
+    segments: [{
+      voice: "fable",
+      text: normalizeForTTS(q.question),
+      accent: "US",
+      voiceHint: "female",
+      speakerSeed: "p3-question-narrator",
+      kokoroVoice: "af_bella",
+    }],
+  };
 }
 
-function describeAudioPlan(plan: AudioPlan): string {
-  const voices = plan.segments.map((segment) => segment.voice).join(",");
-  const accent = plan.segments[0]?.accent ?? "n/a";
-  return `segments=${plan.segments.length} voices=[${voices}] accent=${accent}`;
+function describeAudioPlan(plan: AudioPlan, provider: Provider): string {
+  const voices = plan.segments.map((segment) =>
+    provider === "openrouter"
+      ? segment.kokoroVoice ??
+        pickKokoroVoice(segment.accent ?? "US", segment.voiceHint, segment.speakerSeed)
+      : segment.voice
+  ).join(",");
+  const accents = [...new Set(plan.segments.map((segment) => segment.accent ?? "n/a"))].join(",");
+  return `segments=${plan.segments.length} voices=[${voices}] accents=[${accents}]`;
 }
 
 function createRequestLimiter(): () => Promise<void> {
@@ -346,6 +387,7 @@ async function generateSingleVoice(
       accent: segment.accent ?? "US",
       voiceHint: segment.voiceHint,
       speakerSeed: segment.speakerSeed,
+      voice: segment.kokoroVoice,
     });
   }
   if (!openai) throw new Error("OpenAI client is not initialized");
@@ -465,7 +507,9 @@ async function main() {
     },
     { single: 0, "p2-multi": 0, "p3-multi": 0, "p3-question": 0 },
   );
-  const estCostUsd = (totalChars / 1_000_000) * COST_PER_1M_CHARS_USD;
+  const costPerMillion =
+    args.provider === "openrouter" ? KOKORO_COST_PER_1M_CHARS_USD : OPENAI_COST_PER_1M_CHARS_USD;
+  const estCostUsd = (totalChars / 1_000_000) * costPerMillion;
   console.log(`Total chars to TTS: ${totalChars.toLocaleString()}`);
   console.log(`Provider:           ${args.provider}`);
   console.log(`TTS requests:       ${requestCount.toLocaleString()}`);
@@ -481,7 +525,7 @@ async function main() {
     for (const { question, plan } of plans.slice(0, 5)) {
       const chars = plan.segments.reduce((sum, segment) => sum + segment.text.length, 0);
       console.log(
-        `  [${question.id}] ${question.part} ${describeAudioPlan(plan)} chars=${chars}`,
+        `  [${question.id}] ${question.part} ${describeAudioPlan(plan, args.provider)} chars=${chars}`,
       );
     }
     if (questions.length > 5) console.log(`  ... and ${questions.length - 5} more`);
@@ -531,7 +575,7 @@ async function main() {
 
       const ms = Date.now() - t0;
       console.log(
-        `[${i + 1}/${plans.length}] OK   ${q.id} ${describeAudioPlan(plan)} ${buf.length}B ${ms}ms -> ${blob.url}`,
+        `[${i + 1}/${plans.length}] OK   ${q.id} ${describeAudioPlan(plan, args.provider)} ${buf.length}B ${ms}ms -> ${blob.url}`,
       );
       generated++;
     } catch (e) {
@@ -547,6 +591,9 @@ async function main() {
   console.log(`Failed:    ${failed}`);
   if (failedIds.length > 0) console.log(`Failed IDs: ${failedIds.join(", ")}`);
   console.log(`Total time: ${((Date.now() - startTime) / 1000).toFixed(1)}s`);
+  if (args.provider === "openrouter") {
+    console.log(`Kokoro model fallbacks: ${getTtsFallbackCount()}`);
+  }
 }
 
 main().catch((e) => {
