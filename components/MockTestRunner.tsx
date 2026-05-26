@@ -436,6 +436,19 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
     const imageUrl = getImageUrl(q);
     const mediaSupport = hasMediaSupport(q);
     const groupKey = audioGroupKey(q);
+    // Audio resolution: the pipeline uploads P3/P4 group audio only to the
+    // canonical (smallest-id) member of each transcript group via the
+    // `--group-primary` flag in pipeline/src/generate-audio.ts. The find()
+    // below relies on plan-internal group ordering equalling full-bank ID
+    // order, which holds today because:
+    //   1. buildListeningMockPlan / buildMockTestPlan extract groups via
+    //      groupByTranscript / groupByPassage (stable sort by question_order).
+    //   2. New P3/P4 generated in commit 1d2768f lack question_order, so the
+    //      sort tie-breaks by push order (= ID order in questions-generated.ts).
+    // If a future plan builder shuffles group members, or new questions add a
+    // non-trivial question_order that diverges from ID order, replace this
+    // find() with getAudioOwnerQuestion() from app/quiz/page.tsx (full-bank
+    // canonical lookup independent of plan order).
     const audioQuestion =
       q.part === "Part 3" || q.part === "Part 4"
         ? questions.find((candidate) => audioGroupKey(candidate) === groupKey) ?? q

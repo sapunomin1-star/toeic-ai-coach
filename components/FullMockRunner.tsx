@@ -460,6 +460,14 @@ export default function FullMockRunner() {
     const imageUrl = getImageUrl(question);
     const mediaSupport = hasMediaSupport(question);
     const groupKey = audioGroupKey(question);
+    // Audio resolution: pipeline uploads P3/P4 group audio only to the
+    // canonical (smallest-id) member via --group-primary. The find() below
+    // relies on plan-internal group ordering equalling full-bank ID order
+    // (stable sort by question_order in buildListeningMockPlan + new P3/P4
+    // lack question_order so push order = ID order). If a future plan
+    // builder shuffles members, replace this with getAudioOwnerQuestion()
+    // from app/quiz/page.tsx (full-bank canonical lookup independent of
+    // plan order). See MockTestRunner for the same rationale.
     const audioQuestion =
       question.part === "Part 3" || question.part === "Part 4"
         ? currentQuestions.find((candidate) => audioGroupKey(candidate) === groupKey) ??
