@@ -74,6 +74,10 @@ export async function generatePart5(
 
   for (let i = 0; i < parsed.length; i++) {
     const raw = parsed[i] as Partial<RawGeneratedQuestion>;
+    raw.skill_tag = (SUBTYPE_TO_SKILL[pattern.subtype] ??
+      pattern.subtype) as RawGeneratedQuestion["skill_tag"];
+    raw.part = "Part 5";
+    raw.difficulty = pattern.difficulty;
     const validation = validateQuestion(raw, i);
 
     if (!validation.valid) {
@@ -83,17 +87,12 @@ export async function generatePart5(
       continue;
     }
 
-    raw.skill_tag = (SUBTYPE_TO_SKILL[pattern.subtype] ??
-      pattern.subtype) as RawGeneratedQuestion["skill_tag"];
-    raw.part = "Part 5";
-    raw.difficulty = pattern.difficulty;
-
     // Optimize explanation with Kimi
     if (!options.skipKimi && raw.explanation_zh) {
       try {
         const improved = await optimizeExplanation(raw as RawGeneratedQuestion);
         if (improved) raw.explanation_zh = improved;
-      } catch (e) {
+      } catch {
         // Keep original explanation
       }
     }

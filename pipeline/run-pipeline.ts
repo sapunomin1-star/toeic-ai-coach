@@ -26,7 +26,6 @@ import {
   saveToJson,
 } from "./src/questions-writer";
 import type {
-  Pattern,
   PatternLibrary,
   RawGeneratedQuestion,
   PipelineConfig,

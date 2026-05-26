@@ -12,6 +12,8 @@
  * Flags:
  *   --limit N               Process first N matching questions.
  *   --question <id>         Process one specific question (must be Part 1).
+ *   --id-prefix <prefix>    Process only matching question ID prefixes.
+ *   --id-from <id>          Process matching IDs lexically at or after this ID.
  *   --dry-run               Show plan only, no API calls.
  *   --force                 Re-generate even if Blob already has images/<id>.jpg.
  *   --quality <q>           "standard" (default) or "hd" (2x cost).
@@ -19,7 +21,7 @@
  */
 import "dotenv/config";
 import OpenAI from "openai";
-import { head, put } from "@vercel/blob";
+import { del, head, put } from "@vercel/blob";
 
 import { QUESTIONS } from "../../data/questions";
 import type { Question } from "../../types/question";
@@ -49,6 +51,8 @@ type Size = "1024x1024" | "1536x1024" | "1024x1536";
 type Args = {
   limit?: number;
   question?: string;
+  idPrefix?: string;
+  idFrom?: string;
   dryRun: boolean;
   force: boolean;
   quality: Quality;
@@ -68,6 +72,8 @@ function parseArgs(argv: string[]): Args {
     else if (a === "--force") out.force = true;
     else if (a === "--limit") out.limit = parseInt(argv[++i], 10);
     else if (a === "--question") out.question = argv[++i];
+    else if (a === "--id-prefix") out.idPrefix = argv[++i];
+    else if (a === "--id-from") out.idFrom = argv[++i];
     else if (a === "--quality") out.quality = argv[++i] as Quality;
     else if (a === "--size") out.size = argv[++i] as Size;
     else if (a === "--help") {
@@ -119,6 +125,8 @@ function selectQuestions(args: Args): Question[] {
     return [q];
   }
   let qs = QUESTIONS.filter((q) => q.part === "Part 1");
+  if (args.idPrefix) qs = qs.filter((q) => q.id.startsWith(args.idPrefix!));
+  if (args.idFrom) qs = qs.filter((q) => q.id.localeCompare(args.idFrom!) >= 0);
   if (args.limit !== undefined) qs = qs.slice(0, args.limit);
   return qs;
 }
@@ -171,10 +179,14 @@ async function main() {
     const pathname = `images/${q.id}.jpg`;
 
     try {
-      if (!args.force && (await blobExists(pathname))) {
+      const exists = await blobExists(pathname);
+      if (!args.force && exists) {
         console.log(`[${i + 1}/${questions.length}] SKIP ${q.id} (exists)`);
         skipped++;
       } else {
+        if (args.force && exists) {
+          await del(pathname, { token });
+        }
         const prompt = buildPrompt(q);
         const t0 = Date.now();
 
@@ -204,7 +216,6 @@ async function main() {
           access: "public",
           contentType: "image/jpeg",
           token,
-          allowOverwrite: true,
           addRandomSuffix: false,
         });
 

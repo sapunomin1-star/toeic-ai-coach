@@ -30,7 +30,6 @@ const VALID_SKILL_TAGS: SkillTag[] = [
   "reading_main_idea",
   "reading_detail",
   "reading_inference",
-  "cross_text_reference",
 ];
 
 export function validateQuestion(

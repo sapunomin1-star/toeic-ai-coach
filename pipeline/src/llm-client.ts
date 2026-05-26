@@ -11,6 +11,18 @@ type LLMResponse = {
   usage?: { promptTokens: number; completionTokens: number };
 };
 
+type UsageEntry = {
+  calls: number;
+  promptTokens: number;
+  completionTokens: number;
+};
+
+const usageByModel = new Map<string, UsageEntry>();
+
+export function getLlmUsage(): Record<string, UsageEntry> {
+  return Object.fromEntries(usageByModel.entries());
+}
+
 async function chatCompletion(
   baseUrl: string,
   apiKey: string,
@@ -46,15 +58,26 @@ async function chatCompletion(
     usage?: { prompt_tokens: number; completion_tokens: number };
   };
 
+  const usage = data.usage
+    ? {
+        promptTokens: data.usage.prompt_tokens,
+        completionTokens: data.usage.completion_tokens,
+      }
+    : undefined;
+  const entry = usageByModel.get(data.model) ?? {
+    calls: 0,
+    promptTokens: 0,
+    completionTokens: 0,
+  };
+  entry.calls += 1;
+  entry.promptTokens += usage?.promptTokens ?? 0;
+  entry.completionTokens += usage?.completionTokens ?? 0;
+  usageByModel.set(data.model, entry);
+
   return {
     content: data.choices[0]?.message?.content ?? "",
     model: data.model,
-    usage: data.usage
-      ? {
-          promptTokens: data.usage.prompt_tokens,
-          completionTokens: data.usage.completion_tokens,
-        }
-      : undefined,
+    usage,
   };
 }
 

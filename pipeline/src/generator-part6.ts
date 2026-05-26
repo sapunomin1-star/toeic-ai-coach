@@ -13,10 +13,17 @@ const PROMPT_TEMPLATE = fs.readFileSync(
 
 export async function generatePart6(
   pattern: Pattern,
-  options: { skipKimi?: boolean; skipHy3?: boolean } = {}
+  options: {
+    skipKimi?: boolean;
+    skipHy3?: boolean;
+    expectedAnswers?: RawGeneratedQuestion["answer"][];
+  } = {}
 ): Promise<RawGeneratedQuestion[]> {
   const systemPrompt =
-    "You are a TOEIC Part 6 question writer. Output only valid JSON array with 4 question objects.";
+    "You are a meticulous TOEIC Part 6 question writer. Output only a valid JSON array with 4 question objects. Use plain test-paper text without markdown. Respect the requested passage length. Before answering, verify that each keyed option is the only grammatically and logically defensible completion; in particular, transition words must match the actual contrast, cause, or addition between sentences.";
+  const answerPlanInstruction = options.expectedAnswers
+    ? `\nFor blanks (A), (B), (C), and (D) in that order, the keyed correct choice letters must be exactly ${options.expectedAnswers.join(", ")}. Design each option set around this answer placement from the outset; do not merely relabel an existing answer.`
+    : "";
   const userPrompt = PROMPT_TEMPLATE.replace(
     /\{\{difficulty\}\}/g,
     pattern.difficulty
@@ -40,7 +47,7 @@ export async function generatePart6(
     .replace(
       /\{\{generation_instruction\}\}/g,
       pattern.generation_instruction
-    );
+    ) + answerPlanInstruction;
 
   console.log(`  Generating Part 6 passage via DeepSeek...`);
   const response = await deepseek(systemPrompt, userPrompt);

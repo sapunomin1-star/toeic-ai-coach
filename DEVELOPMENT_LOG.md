@@ -1598,3 +1598,57 @@ changing mock generation, timing, scoring, or storage behavior.
 - Interactive Dashboard browser smoke could not run because no isolated
   in-app browser target was available; the user's Chrome profile/localStorage
   was not used to seed or read mock-result history.
+
+## 2026-05-26 - Question Expansion And OpenRouter TTS
+
+### Scope
+
+Expanded the question bank by 290 reviewed items and produced the required new
+photo/listening media. Part 2 was left unchanged.
+
+### Implementation
+
+- Added an OpenRouter speech client using the official `/audio/speech`
+  endpoint, with deterministic US/UK/AU/CA accent instructions and stable
+  multi-speaker selection for a Part 3 conversation.
+- Extended audio and image tooling with ID filters. Audio generation can use
+  OpenRouter and can emit one primary P3/P4 recording per shared transcript,
+  while retaining separate Part 3 question narration recordings.
+- Added an expansion generator with separate review and promotion steps. P3,
+  P4, P5, P7, and P1 candidates are checked for unique answers and balanced
+  answer placement; P6 candidates are checked for four blanks, passage length,
+  balanced answer placement, rewritten post-placement explanations, and
+  semantic fit before promotion.
+- Fixed the existing Part 5 pipeline order so normalized skill tags and part
+  metadata are set before validation, and cleaned pipeline type/lint blockers
+  exposed while verifying the new tools.
+- Added P1 +30, P3 +30, P4 +30, P5 +50, P6 +100, and P7 +50. P3 began at 45
+  questions in `HEAD`, so honoring the requested ten new conversation groups
+  results in 75 P3 questions rather than the stated target of 63.
+- Generated Blob media for the new set: 30 P1 images, 30 P1 audio files, 10
+  P3 conversation recordings, 30 P3 question narrations, and 10 P4
+  recordings.
+
+### Cost
+
+- OpenRouter TTS dry-run conservative ceiling for promoted media: `$0.2828`.
+- `gpt-image-1` medium 1024x1024 estimate for 30 generated photos: `$1.26`.
+- Current promoted text-generation and review batches reported a combined
+  ceiling of `$0.0666`, including `$0.0306` for the final balanced P6 batch.
+  Strict-review retries and the superseded unbalanced P6 draft also consumed
+  low-cost text calls; total spending remained safely below the `$18`
+  mandatory stop threshold.
+
+### Verification
+
+- Official OpenRouter model listing and a minimal speech request verified
+  `openai/gpt-4o-mini-tts-2025-12-15`; the probe returned `audio/mpeg`.
+- New Blob media HEAD verification: 110 expected files, 110 found, 0 missing.
+- Manual visual checks on representative new Part 1 images confirmed that
+  their keyed statements are visibly supported.
+- The promoted P6 addition contains 25 passages / 100 questions with exact
+  answer-position balance: A=25, B=25, C=25, D=25.
+- `cd pipeline && ./node_modules/.bin/tsc --noEmit`: passed.
+- `npm run lint`: passed with 0 errors and 0 warnings.
+- `cd pipeline && npm run check`: 937 questions passed with 0 data integrity
+  errors.

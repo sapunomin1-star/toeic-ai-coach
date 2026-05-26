@@ -1,12 +1,13 @@
 #!/usr/bin/env npx tsx
 /**
- * Generate TOEIC listening audio via OpenAI tts-1 and upload to Vercel Blob.
+ * Generate TOEIC listening audio via OpenAI or OpenRouter and upload to Vercel Blob.
  *
  * Usage:
  *   npx tsx pipeline/src/generate-audio.ts --dry-run                  # preview only
  *   npx tsx pipeline/src/generate-audio.ts --part 1 --limit 3         # test 3 Part 1 questions
  *   npx tsx pipeline/src/generate-audio.ts --part 1                   # all Part 1
  *   npx tsx pipeline/src/generate-audio.ts --part all                 # all listening parts
+ *   npx tsx pipeline/src/generate-audio.ts --provider openrouter --part 3 # multi-accent TTS
  *   npx tsx pipeline/src/generate-audio.ts --question p1-gen-005      # single question
  *   npx tsx pipeline/src/generate-audio.ts --part 1 --force           # re-upload existing
  *   npx tsx pipeline/src/generate-audio.ts --question-audio --part 3  # P3 spoken questions
@@ -15,9 +16,13 @@
  *   --part <1|2|3|4|all>    Which part(s). Default: error (must specify, unless --question).
  *   --limit N               Process first N matching questions.
  *   --question <id>         Process one specific question (overrides --part).
+ *   --id-prefix <prefix>    Process only matching question ID prefixes.
+ *   --id-from <id>          Process matching IDs lexically at or after this ID.
+ *   --group-primary         For Part 3/4 main audio, generate only the first question per transcript.
  *   --dry-run               Show plan only, no API calls.
  *   --force                 Re-generate even if Blob already has audio/<id>.mp3.
  *   --voice <name>          Override voice rotation (alloy|echo|fable|onyx|nova|shimmer).
+ *   --provider <name>       "openai" (default) or "openrouter".
  *   --question-audio        Generate narrated Part 3 question stems at audio/<id>-q.mp3.
  */
 import "dotenv/config";
@@ -26,6 +31,7 @@ import { del, head, put } from "@vercel/blob";
 
 import { QUESTIONS } from "../../data/questions";
 import type { Part, Question } from "../../types/question";
+import { generateSpeech, type Accent, type VoiceHint } from "./openrouter-tts";
 
 // ─── Config ──────────────────────────────────────────────────────────────
 const LISTENING_PARTS: Part[] = ["Part 1", "Part 2", "Part 3", "Part 4"];
@@ -35,10 +41,15 @@ type Voice = (typeof ALL_VOICES)[number];
 const MODEL = "tts-1";
 const RATE_LIMIT_RPM = 30; // stay under OpenAI tier 1 = 50 RPM
 const COST_PER_1M_CHARS_USD = 15; // tts-1 pricing as of 2024
+const ACCENTS: Accent[] = ["US", "UK", "AU", "CA"];
+type Provider = "openai" | "openrouter";
 
 type Segment = {
   voice: Voice;
   text: string;
+  accent?: Accent;
+  voiceHint?: VoiceHint;
+  speakerSeed?: string;
 };
 
 type AudioPlan = {
@@ -51,14 +62,24 @@ type Args = {
   part?: "1" | "2" | "3" | "4" | "all";
   limit?: number;
   question?: string;
+  idPrefix?: string;
+  idFrom?: string;
+  groupPrimary: boolean;
   dryRun: boolean;
   force: boolean;
   questionAudio: boolean;
+  provider: Provider;
   voiceOverride?: Voice;
 };
 
 function parseArgs(argv: string[]): Args {
-  const out: Args = { dryRun: false, force: false, questionAudio: false };
+  const out: Args = {
+    dryRun: false,
+    force: false,
+    questionAudio: false,
+    groupPrimary: false,
+    provider: "openai",
+  };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === "--dry-run") out.dryRun = true;
@@ -67,7 +88,11 @@ function parseArgs(argv: string[]): Args {
     else if (a === "--part") out.part = argv[++i] as Args["part"];
     else if (a === "--limit") out.limit = parseInt(argv[++i], 10);
     else if (a === "--question") out.question = argv[++i];
+    else if (a === "--id-prefix") out.idPrefix = argv[++i];
+    else if (a === "--id-from") out.idFrom = argv[++i];
+    else if (a === "--group-primary") out.groupPrimary = true;
     else if (a === "--voice") out.voiceOverride = parseVoice(argv[++i]);
+    else if (a === "--provider") out.provider = parseProvider(argv[++i]);
     else if (a === "--help") {
       printHelp();
       process.exit(0);
@@ -79,6 +104,13 @@ function parseArgs(argv: string[]): Args {
     throw new Error("--limit must be a positive integer");
   }
   return out;
+}
+
+function parseProvider(value: string | undefined): Provider {
+  if (value !== "openai" && value !== "openrouter") {
+    throw new Error("--provider must be one of: openai, openrouter");
+  }
+  return value;
 }
 
 function parseVoice(value: string | undefined): Voice {
@@ -95,10 +127,13 @@ function printHelp(): void {
 // ─── Env validation ──────────────────────────────────────────────────────
 function validateEnv(args: Args): void {
   const need: Record<string, string | undefined> = {
-    OPENAI_API_KEY: process.env.OPENAI_API_KEY,
     BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,
     NEXT_PUBLIC_BLOB_BASE_URL: process.env.NEXT_PUBLIC_BLOB_BASE_URL,
   };
+  need[args.provider === "openrouter" ? "OPENROUTER_API_KEY" : "OPENAI_API_KEY"] =
+    args.provider === "openrouter"
+      ? process.env.OPENROUTER_API_KEY
+      : process.env.OPENAI_API_KEY;
   const missing = Object.entries(need)
     .filter(([, v]) => !v)
     .map(([k]) => k);
@@ -153,6 +188,14 @@ function pickVoice(questionId: string, override?: Voice): Voice {
   return VOICES[Math.abs(h) % VOICES.length];
 }
 
+function pickAccent(seed: string): Accent {
+  let hash = 0;
+  for (let i = 0; i < seed.length; i++) {
+    hash = (hash * 31 + seed.charCodeAt(i)) | 0;
+  }
+  return ACCENTS[Math.abs(hash) % ACCENTS.length];
+}
+
 function mapSpeakerToVoice(label: string): Voice {
   switch (label.replace(/\s+/g, "").toUpperCase()) {
     case "W":
@@ -176,7 +219,14 @@ function opposingVoice(voice: Voice): Voice {
   return voice === "onyx" || voice === "echo" ? "nova" : "onyx";
 }
 
-function parseSpeakerSegments(transcript: string): Segment[] | null {
+function speakerVoiceHint(label: string): VoiceHint | undefined {
+  const normalized = label.replace(/\s+/g, "").toUpperCase();
+  if (normalized.startsWith("W") || normalized === "WOMAN") return "female";
+  if (normalized.startsWith("M") || normalized === "MAN") return "male";
+  return undefined;
+}
+
+function parseSpeakerSegments(transcript: string, groupSeed: string): Segment[] | null {
   const speakerPattern =
     /^(W|M|Woman|Man|M\d+|W\d+|Speaker\s*\d+)\s*:\s*(.+)$/i;
   const segments = transcript
@@ -185,7 +235,14 @@ function parseSpeakerSegments(transcript: string): Segment[] | null {
       const match = line.trim().match(speakerPattern);
       if (!match) return [];
       const text = normalizeForTTS(match[2]).trim();
-      return text ? [{ voice: mapSpeakerToVoice(match[1]), text }] : [];
+      return text
+        ? [{
+            voice: mapSpeakerToVoice(match[1]),
+            text,
+            voiceHint: speakerVoiceHint(match[1]),
+            speakerSeed: `${groupSeed}:${match[1].replace(/\s+/g, "").toUpperCase()}`,
+          }]
+        : [];
     });
 
   return segments.length > 1 ? segments : null;
@@ -215,6 +272,14 @@ function parseP2Segments(raw: string, questionVoice: Voice): Segment[] | null {
   ];
 }
 
+function withAccent(plan: AudioPlan, seed: string): AudioPlan {
+  const accent = pickAccent(seed);
+  return {
+    ...plan,
+    segments: plan.segments.map((segment) => ({ ...segment, accent })),
+  };
+}
+
 function buildAudioPlan(q: Question, override?: Voice): AudioPlan {
   const raw = q.audioScript ?? q.transcript;
   if (!raw) {
@@ -222,19 +287,19 @@ function buildAudioPlan(q: Question, override?: Voice): AudioPlan {
   }
 
   if (q.part === "Part 3") {
-    const segments = parseSpeakerSegments(raw);
-    if (segments) return { mode: "p3-multi", segments };
+    const segments = parseSpeakerSegments(raw, q.transcript ?? q.id);
+    if (segments) return withAccent({ mode: "p3-multi", segments }, q.transcript ?? q.id);
   }
 
   if (q.part === "Part 2") {
     const segments = parseP2Segments(raw, pickVoice(q.id, override));
-    if (segments) return { mode: "p2-multi", segments };
+    if (segments) return withAccent({ mode: "p2-multi", segments }, q.id);
   }
 
-  return {
+  return withAccent({
     mode: "single",
     segments: [{ voice: pickVoice(q.id, override), text: buildAudioText(q) }],
-  };
+  }, q.id);
 }
 
 function buildQuestionAudioPlan(q: Question): AudioPlan {
@@ -244,15 +309,16 @@ function buildQuestionAudioPlan(q: Question): AudioPlan {
   if (!q.question.trim()) {
     throw new Error(`[${q.id}] no question text for narrated audio`);
   }
-  return {
+  return withAccent({
     mode: "p3-question",
     segments: [{ voice: "fable", text: normalizeForTTS(q.question) }],
-  };
+  }, q.transcript ?? q.id);
 }
 
 function describeAudioPlan(plan: AudioPlan): string {
   const voices = plan.segments.map((segment) => segment.voice).join(",");
-  return `segments=${plan.segments.length} voices=[${voices}]`;
+  const accent = plan.segments[0]?.accent ?? "n/a";
+  return `segments=${plan.segments.length} voices=[${voices}] accent=${accent}`;
 }
 
 function createRequestLimiter(): () => Promise<void> {
@@ -268,11 +334,21 @@ function createRequestLimiter(): () => Promise<void> {
 }
 
 async function generateSingleVoice(
-  openai: OpenAI,
+  openai: OpenAI | null,
   segment: Segment,
+  provider: Provider,
   waitForRequestSlot: () => Promise<void>
 ): Promise<Buffer> {
   await waitForRequestSlot();
+  if (provider === "openrouter") {
+    return generateSpeech({
+      text: segment.text,
+      accent: segment.accent ?? "US",
+      voiceHint: segment.voiceHint,
+      speakerSeed: segment.speakerSeed,
+    });
+  }
+  if (!openai) throw new Error("OpenAI client is not initialized");
   const response = await openai.audio.speech.create({
     model: MODEL,
     voice: segment.voice,
@@ -283,13 +359,14 @@ async function generateSingleVoice(
 }
 
 async function generateMultiVoiceAudio(
-  openai: OpenAI,
+  openai: OpenAI | null,
   segments: Segment[],
+  provider: Provider,
   waitForRequestSlot: () => Promise<void>
 ): Promise<Buffer> {
   const buffers: Buffer[] = [];
   for (const segment of segments) {
-    buffers.push(await generateSingleVoice(openai, segment, waitForRequestSlot));
+    buffers.push(await generateSingleVoice(openai, segment, provider, waitForRequestSlot));
   }
   return Buffer.concat(buffers);
 }
@@ -335,6 +412,20 @@ function selectQuestions(args: Args): Question[] {
   const parts: Part[] =
     args.part === "all" ? LISTENING_PARTS : [`Part ${args.part}` as Part];
   let qs = QUESTIONS.filter((q) => parts.includes(q.part));
+  if (args.idPrefix) qs = qs.filter((q) => q.id.startsWith(args.idPrefix!));
+  if (args.idFrom) qs = qs.filter((q) => q.id.localeCompare(args.idFrom!) >= 0);
+  if (args.groupPrimary) {
+    if (args.questionAudio || (args.part !== "3" && args.part !== "4")) {
+      throw new Error("--group-primary supports Part 3/4 conversation audio only");
+    }
+    const transcripts = new Set<string>();
+    qs = qs.filter((q) => {
+      const group = q.transcript ?? q.id;
+      if (transcripts.has(group)) return false;
+      transcripts.add(group);
+      return true;
+    });
+  }
   if (args.limit !== undefined) qs = qs.slice(0, args.limit);
   return qs;
 }
@@ -376,6 +467,7 @@ async function main() {
   );
   const estCostUsd = (totalChars / 1_000_000) * COST_PER_1M_CHARS_USD;
   console.log(`Total chars to TTS: ${totalChars.toLocaleString()}`);
+  console.log(`Provider:           ${args.provider}`);
   console.log(`TTS requests:       ${requestCount.toLocaleString()}`);
   console.log(
     `Audio paths:        single=${pathCounts.single} p2-multi=${pathCounts["p2-multi"]} p3-multi=${pathCounts["p3-multi"]} p3-question=${pathCounts["p3-question"]}`,
@@ -396,7 +488,10 @@ async function main() {
     return;
   }
 
-  const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  const openai =
+    args.provider === "openai"
+      ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+      : null;
   const token = process.env.BLOB_READ_WRITE_TOKEN!;
 
   let generated = 0;
@@ -424,8 +519,8 @@ async function main() {
       const t0 = Date.now();
       const buf =
         plan.segments.length === 1
-          ? await generateSingleVoice(openai, plan.segments[0], waitForRequestSlot)
-          : await generateMultiVoiceAudio(openai, plan.segments, waitForRequestSlot);
+          ? await generateSingleVoice(openai, plan.segments[0], args.provider, waitForRequestSlot)
+          : await generateMultiVoiceAudio(openai, plan.segments, args.provider, waitForRequestSlot);
 
       const blob = await put(pathname, buf, {
         access: "public",

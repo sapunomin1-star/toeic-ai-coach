@@ -88,7 +88,8 @@ export async function generatePart7(
     raw.difficulty = pattern.difficulty;
 
     const skillIndex = i % skills.length;
-    const mappedSkill = SKILL_TAG_MAP[skills[skillIndex]] ?? skills[skillIndex];
+    const mappedSkill = (SKILL_TAG_MAP[skills[skillIndex]] ??
+      skills[skillIndex]) as SkillTag;
     raw.skill_tag = mappedSkill;
 
     // Set passage group metadata based on pattern type
@@ -124,7 +125,7 @@ export async function generatePart7(
           prompt
         );
         raw.explanation_zh = kimiResp.content.trim();
-      } catch (_e) {
+      } catch {
         // Keep original
       }
     }

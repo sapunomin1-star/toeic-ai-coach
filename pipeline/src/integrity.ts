@@ -22,7 +22,7 @@ export function runIntegrityCheck(questions: Question[]): IntegrityReport {
       q.part === "Part 2" ? (["A", "B", "C"] as const) : (["A", "B", "C", "D"] as const);
 
     // Invalid answers
-    if (!requiredChoices.includes(q.answer)) {
+    if (!requiredChoices.some((choice) => choice === q.answer)) {
       invalidAnswers.push(q.id);
     }
 
