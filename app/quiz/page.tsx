@@ -42,6 +42,25 @@ function getListeningGroupKey(question: Question): string | null {
   return `${question.part}:${canonicalQuestionId}`;
 }
 
+/**
+ * For P3/P4 group questions, audio is uploaded only once per group under the
+ * canonical (smallest-id) question's URL. Returns the question whose id owns
+ * the shared audio file so non-canonical group members don't 404.
+ * Falls back to the input question for non-grouped parts.
+ */
+function getAudioOwnerQuestion(question: Question): Question {
+  if (
+    (question.part !== "Part 3" && question.part !== "Part 4") ||
+    !question.transcript
+  ) {
+    return question;
+  }
+  const sameGroup = getQuestionsByPart(question.part)
+    .filter((q) => q.transcript === question.transcript)
+    .sort((a, b) => a.id.localeCompare(b.id));
+  return sameGroup[0] ?? question;
+}
+
 export default function QuizPage() {
   const router = useRouter();
   const [status, setStatus] = useState<Status>("loading");
@@ -289,7 +308,8 @@ export default function QuizPage() {
   const questionText =
     currentQuestion.question.trim() || "請聽音檔後選擇答案";
   const imageUrl = getImageUrl(currentQuestion);
-  const audioUrl = getAudioUrl(currentQuestion);
+  // P3/P4 group: audio lives on canonical (smallest-id) member only.
+  const audioUrl = getAudioUrl(getAudioOwnerQuestion(currentQuestion));
   const questionAudioUrl = getQuestionAudioUrl(currentQuestion);
   const mediaSupport = hasMediaSupport(currentQuestion);
   const audioFailed = failedAudioIds.has(currentQuestion.id);
