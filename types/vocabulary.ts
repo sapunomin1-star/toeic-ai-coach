@@ -6,7 +6,7 @@ export type VocabularyItem = {
   example: string;
   example_zh: string;
   collocations?: string[];
-  difficulty: "A2" | "B1" | "B2";
+  difficulty: "A1" | "A2" | "B1" | "B2" | "C1";
   category:
     | "business"
     | "office"
@@ -15,7 +15,18 @@ export type VocabularyItem = {
     | "meeting"
     | "email"
     | "finance"
-    | "daily";
+    | "daily"
+    // Extended categories (added with DeepSeek v3.2-exp batch, 2026-05):
+    | "hr"
+    | "retail"
+    | "restaurant"
+    | "contract"
+    | "report"
+    | "schedule"
+    | "customer-service"
+    | "marketing"
+    | "production"
+    | "logistics";
 };
 
 export type VocabularyStatus = "new" | "seen" | "familiar" | "mastered";
