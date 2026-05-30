@@ -350,7 +350,7 @@ export default function FullMockRunner() {
           href="/"
           className="block w-full rounded-2xl border border-slate-200 bg-white px-5 py-3 text-center text-sm font-medium text-slate-600"
         >
-          返回首頁
+          返回桌面
         </Link>
       </div>
     );
@@ -737,7 +737,7 @@ export default function FullMockRunner() {
           href="/"
           className="block w-full rounded-2xl bg-slate-900 px-5 py-4 text-center text-lg font-semibold text-white shadow-sm"
         >
-          返回首頁
+          返回桌面
         </Link>
       </div>
     );

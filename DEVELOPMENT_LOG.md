@@ -1753,3 +1753,22 @@ Reading" control to the full mock — both preserved.
 - Not runtime-tested here: listening "no replay" and the Part 3 countdown need
   a real browser + audio + user gesture. Recommend a manual smoke test of the
   listening mock and the full mock.
+
+## Mock return button → home ("返回桌面") - 2026-05-30
+
+### Scope
+
+UI fix on the three mock runners' preview/result screens.
+
+### Changes
+
+- `components/MockTestRunner.tsx` (reading + listening mock): preview and result
+  "返回 Dashboard" links now read "返回桌面" and navigate to `/` (home) instead of
+  `/dashboard`.
+- `components/FullMockRunner.tsx` (full mock): "返回首頁" relabeled "返回桌面" for
+  consistency (already navigated to `/`).
+- All three mock runners now return to the home screen with the same label.
+
+### Verification
+
+- `./node_modules/.bin/tsc --noEmit` and `npm run lint`: passed.
