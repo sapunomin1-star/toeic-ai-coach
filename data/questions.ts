@@ -1,4 +1,11 @@
-import type { Question, SkillTag } from "@/types/question";
+import type {
+  Question,
+  SkillTag,
+  Part,
+  SkillCategory,
+  Difficulty,
+} from "@/types/question";
+import { getSkillCategory } from "@/types/question";
 import { QUESTIONS_PART5 } from "./questions-part5";
 import { QUESTIONS_PART6 } from "./questions-part6";
 import { QUESTIONS_PART7 } from "./questions-part7";
@@ -13,8 +20,38 @@ export const QUESTIONS: Question[] = [
   ...GENERATED_QUESTIONS,
 ];
 
-export function getQuestionsByPart(part: Question["part"]): Question[] {
-  return QUESTIONS.filter((q) => q.part === part);
+export type QuestionFilter = {
+  parts?: Part[];
+  skills?: SkillTag[];
+  categories?: SkillCategory[];
+  difficulties?: Difficulty[];
+  excludeIds?: Iterable<string>;
+};
+
+/**
+ * Unified question query. All filters are optional and AND-combined.
+ * Prefer this over scattered `QUESTIONS.filter(...)` so new filter
+ * dimensions (e.g. a new category) live in exactly one place.
+ */
+export function queryQuestions(filter: QuestionFilter = {}): Question[] {
+  const exclude = filter.excludeIds ? new Set(filter.excludeIds) : null;
+  const parts = filter.parts ? new Set(filter.parts) : null;
+  const skills = filter.skills ? new Set(filter.skills) : null;
+  const categories = filter.categories ? new Set(filter.categories) : null;
+  const difficulties = filter.difficulties ? new Set(filter.difficulties) : null;
+
+  return QUESTIONS.filter((q) => {
+    if (exclude?.has(q.id)) return false;
+    if (parts && !parts.has(q.part)) return false;
+    if (skills && !skills.has(q.skill_tag)) return false;
+    if (categories && !categories.has(getSkillCategory(q.skill_tag))) return false;
+    if (difficulties && !difficulties.has(q.difficulty)) return false;
+    return true;
+  });
+}
+
+export function getQuestionsByPart(part: Part): Question[] {
+  return queryQuestions({ parts: [part] });
 }
 
 export function getQuestionById(id: string): Question | undefined {
@@ -22,7 +59,11 @@ export function getQuestionById(id: string): Question | undefined {
 }
 
 export function getQuestionsBySkill(skill: SkillTag): Question[] {
-  return QUESTIONS.filter((q) => q.skill_tag === skill);
+  return queryQuestions({ skills: [skill] });
+}
+
+export function getQuestionsByCategory(category: SkillCategory): Question[] {
+  return queryQuestions({ categories: [category] });
 }
 
 function shuffle<T>(arr: T[]): T[] {

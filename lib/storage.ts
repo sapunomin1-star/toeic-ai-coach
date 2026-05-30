@@ -6,76 +6,24 @@ import type {
 } from "@/types/question";
 import { clearAllFullMockData } from "@/lib/fullMockStorage";
 import { clearAllMockData } from "@/lib/mockStorage";
+import {
+  STORAGE_KEYS,
+  isBrowser,
+  readJSON,
+  writeJSON,
+  isChoice,
+} from "@/lib/storageCore";
+import { SKILL_TAG_LIST } from "@/types/question";
 
-const ANSWER_KEY = "toeic_answer_records_v1";
-const DAILY_PLAN_KEY = "toeic_daily_plan_v1";
-const WRONG_STATUS_KEY = "toeic_wrong_status_v1";
-const WRONG_PRACTICE_PLAN_KEY = "toeic_wrong_practice_plan_v1";
+const ANSWER_KEY = STORAGE_KEYS.answerRecords;
+const DAILY_PLAN_KEY = STORAGE_KEYS.dailyPlan;
+const WRONG_STATUS_KEY = STORAGE_KEYS.wrongStatus;
+const WRONG_PRACTICE_PLAN_KEY = STORAGE_KEYS.wrongPracticePlan;
 
 const DAILY_PLAN_TTL_MS = 24 * 60 * 60 * 1000;
 
-const CHOICES = ["A", "B", "C", "D"] satisfies Choice[];
-const SKILL_TAGS = [
-  "passive_voice",
-  "word_form",
-  "tense",
-  "preposition",
-  "conjunction",
-  "pronoun",
-  "relative_clause",
-  "business_vocabulary",
-  "listening_photo",
-  "listening_response",
-  "listening_main_idea",
-  "listening_inference",
-  "listening_next_action",
-  "reading_main_idea",
-  "reading_detail",
-  "reading_inference",
-] satisfies SkillTag[];
-
-function isBrowser(): boolean {
-  return typeof window !== "undefined" && typeof localStorage !== "undefined";
-}
-
-function readJSON<T>(key: string, fallback: T): T {
-  if (!isBrowser()) return fallback;
-  try {
-    const raw = localStorage.getItem(key);
-    if (!raw) return fallback;
-    return JSON.parse(raw) as T;
-  } catch (e) {
-    console.warn(`[storage] Failed to read "${key}":`, e);
-    return fallback;
-  }
-}
-
-function writeJSON<T>(key: string, value: T): boolean {
-  if (!isBrowser()) return true;
-  try {
-    localStorage.setItem(key, JSON.stringify(value));
-    return true;
-  } catch (e) {
-    console.warn(`[storage] Failed to write "${key}":`, e);
-    if (
-      e instanceof DOMException &&
-      (e.name === "QuotaExceededError" || e.code === 22)
-    ) {
-      alert(
-        "儲存空間已滿，請匯出學習資料後清除舊紀錄。\n\n" +
-          "請至 Dashboard → 清除所有學習紀錄"
-      );
-    }
-    return false;
-  }
-}
-
-function isChoice(value: unknown): value is Choice {
-  return typeof value === "string" && CHOICES.includes(value as Choice);
-}
-
 function isSkillTag(value: unknown): value is SkillTag {
-  return typeof value === "string" && SKILL_TAGS.includes(value as SkillTag);
+  return typeof value === "string" && SKILL_TAG_LIST.includes(value as SkillTag);
 }
 
 function isAnswerRecord(value: unknown): value is AnswerRecord {
@@ -120,8 +68,8 @@ export function clearAllProgress(): void {
     localStorage.removeItem(DAILY_PLAN_KEY);
     localStorage.removeItem(WRONG_STATUS_KEY);
     localStorage.removeItem(WRONG_PRACTICE_PLAN_KEY);
-    localStorage.removeItem("toeic_vocabulary_progress_v1");
-    localStorage.removeItem("toeic_vocabulary_daily_session_v1");
+    localStorage.removeItem(STORAGE_KEYS.vocabularyProgress);
+    localStorage.removeItem(STORAGE_KEYS.vocabularyDailySession);
     clearAllMockData();
     clearAllFullMockData();
   } catch (e) {
@@ -136,11 +84,11 @@ export const BACKUP_KEYS = [
   DAILY_PLAN_KEY,
   WRONG_STATUS_KEY,
   WRONG_PRACTICE_PLAN_KEY,
-  "toeic_vocabulary_progress_v1",
-  "toeic_vocabulary_daily_session_v1",
-  "toeic_mock_results_v1",
-  "toeic_listening_mock_results_v1",
-  "toeic_full_mock_results_v1",
+  STORAGE_KEYS.vocabularyProgress,
+  STORAGE_KEYS.vocabularyDailySession,
+  STORAGE_KEYS.readingMockResults,
+  STORAGE_KEYS.listeningMockResults,
+  STORAGE_KEYS.fullMockResults,
 ] as const;
 
 export function exportAllData(): string | null {

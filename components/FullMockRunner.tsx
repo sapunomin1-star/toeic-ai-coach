@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import AudioPlayer from "@/components/AudioPlayer";
+import PartBreakdownBars from "@/components/PartBreakdownBars";
 import {
   buildListeningMockPlan,
   buildMockTestPlan,
@@ -30,10 +31,16 @@ import {
   PREDICTION_DISCLAIMER,
   rawToScaledRange,
 } from "@/lib/toeicScoreEstimate";
+import {
+  audioGroupKey,
+  formatTime,
+  getGroupPosition,
+  makeBreakdown,
+} from "@/lib/mockShared";
+import { useMockAudioPacing } from "@/lib/useMockAudioPacing";
 import type {
   FullMockResult,
   FullMockSection,
-  MockPartBreakdown,
   MockPartKey,
 } from "@/types/mock";
 import type { Choice, Question } from "@/types/question";
@@ -53,29 +60,6 @@ const ALL_PARTS: MockPartKey[] = [
 ];
 const CHOICE_KEYS: Choice[] = ["A", "B", "C", "D"];
 
-function defaultBreakdown(): MockPartBreakdown {
-  const breakdown: MockPartBreakdown = {};
-  for (const part of ALL_PARTS) breakdown[part] = { correct: 0, total: 0 };
-  return breakdown;
-}
-
-function audioGroupKey(question: Question): string {
-  if (
-    (question.part === "Part 3" || question.part === "Part 4") &&
-    question.transcript
-  ) {
-    return `${question.part}:${question.transcript}`;
-  }
-  return question.id;
-}
-
-function formatTime(ms: number): string {
-  const seconds = Math.ceil(ms / 1000);
-  const minutes = Math.floor(seconds / 60);
-  const remainder = seconds % 60;
-  return `${String(minutes).padStart(2, "0")}:${String(remainder).padStart(2, "0")}`;
-}
-
 function cefrLabel(result: FullMockResult["listeningCEFR"]): string {
   return result.spans ? `約 ${result.spans.join("-")}` : result.primary;
 }
@@ -94,71 +78,7 @@ export default function FullMockRunner() {
   const [totalRemainingMs, setTotalRemainingMs] = useState(FULL_MOCK_DURATION_MS);
   const [leftAppDuringTest, setLeftAppDuringTest] = useState(false);
   const [result, setResult] = useState<FullMockResult | null>(null);
-  const [failedAudioGroups, setFailedAudioGroups] = useState<Set<string>>(new Set());
-  const [playedGroups, setPlayedGroups] = useState<Set<string>>(new Set());
-  const [activeAudioGroup, setActiveAudioGroup] = useState<string | null>(null);
-  const [playedQuestionAudioIds, setPlayedQuestionAudioIds] = useState<Set<string>>(
-    new Set(),
-  );
-  const [failedQuestionAudioIds, setFailedQuestionAudioIds] = useState<Set<string>>(
-    new Set(),
-  );
-  const [activeQuestionAudioId, setActiveQuestionAudioId] = useState<string | null>(
-    null,
-  );
-  const [countdownQuestionId, setCountdownQuestionId] = useState<string | null>(
-    null,
-  );
-  const [countdownSec, setCountdownSec] = useState(8);
   const submittedRef = useRef(false);
-
-  function resetQuestionPacing() {
-    setActiveQuestionAudioId(null);
-    setCountdownQuestionId(null);
-    setCountdownSec(8);
-  }
-
-  const beginReadingSection = useCallback(() => {
-    advanceFullMockToReading();
-    setSection("reading");
-    setCurrentIndex(LISTENING_QUESTIONS);
-    setActiveAudioGroup(null);
-    resetQuestionPacing();
-  }, []);
-
-  useEffect(() => {
-    const id = window.setTimeout(() => {
-      const session = getFullMockSession();
-      if (session) {
-        const restoredQuestions = session.questionIds
-          .map((questionId) => getQuestionById(questionId))
-          .filter((question): question is Question => Boolean(question));
-        if (restoredQuestions.length === session.questionIds.length) {
-          const listeningDeadline = new Date(session.listeningEndsAt).getTime();
-          const restoredSection =
-            session.currentSection === "reading" || Date.now() >= listeningDeadline
-              ? "reading"
-              : "listening";
-          setQuestions(restoredQuestions);
-          setAnswers(session.answers ?? {});
-          setListeningEndsAt(listeningDeadline);
-          setEndTime(new Date(session.endTime).getTime());
-          setLeftAppDuringTest(Boolean(session.leftAppDuringTest));
-          setPlayedGroups(new Set(session.playedAudioGroups ?? []));
-          setPlayedQuestionAudioIds(new Set(session.playedQuestionAudioIds ?? []));
-          setSection(restoredSection);
-          setCurrentIndex(restoredSection === "reading" ? LISTENING_QUESTIONS : 0);
-          setPhase("testing");
-          if (restoredSection === "reading" && session.currentSection !== "reading") {
-            advanceFullMockToReading();
-          }
-          return;
-        }
-      }
-      clearFullMockSession();
-    }, 0);
-    return () => window.clearTimeout(id);
-  }, []);
 
   function start() {
     try {
@@ -174,55 +94,11 @@ export default function FullMockRunner() {
       setSectionRemainingMs(FULL_LISTENING_DURATION_MS);
       setTotalRemainingMs(FULL_MOCK_DURATION_MS);
       setLeftAppDuringTest(false);
-      setFailedAudioGroups(new Set());
-      setPlayedGroups(new Set());
-      setActiveAudioGroup(null);
-      setPlayedQuestionAudioIds(new Set());
-      setFailedQuestionAudioIds(new Set());
-      resetQuestionPacing();
+      resetForStart();
       setPhase("testing");
     } catch (error) {
       alert((error as Error).message);
     }
-  }
-
-  function handleAudioStarted(groupKey: string) {
-    setActiveAudioGroup(groupKey);
-    setPlayedGroups((previous) => {
-      if (previous.has(groupKey)) return previous;
-      const next = new Set(previous);
-      next.add(groupKey);
-      return next;
-    });
-    markFullMockAudioGroupPlayed(groupKey);
-  }
-
-  function handleAudioEnded(groupKey: string) {
-    setActiveAudioGroup((current) => (current === groupKey ? null : current));
-  }
-
-  function handleQuestionAudioStarted(questionId: string) {
-    setActiveQuestionAudioId(questionId);
-    setPlayedQuestionAudioIds((previous) => {
-      if (previous.has(questionId)) return previous;
-      const next = new Set(previous);
-      next.add(questionId);
-      return next;
-    });
-    markFullMockQuestionAudioPlayed(questionId);
-  }
-
-  function beginQuestionCountdown(questionId: string) {
-    setActiveQuestionAudioId((current) => (current === questionId ? null : current));
-    setCountdownQuestionId(questionId);
-    setCountdownSec(8);
-  }
-
-  function handleQuestionAudioError(questionId: string) {
-    setFailedQuestionAudioIds((previous) => new Set(previous).add(questionId));
-    setPlayedQuestionAudioIds((previous) => new Set(previous).add(questionId));
-    markFullMockQuestionAudioPlayed(questionId);
-    beginQuestionCountdown(questionId);
   }
 
   function goToQuestion(index: number) {
@@ -230,9 +106,7 @@ export default function FullMockRunner() {
     const sectionEnd = sectionStart + SECTION_QUESTIONS;
     if (index < sectionStart || index >= sectionEnd || !questions[index]) return;
     if (index !== currentIndex) resetQuestionPacing();
-    if (audioGroupKey(questions[index]) !== activeAudioGroup) {
-      setActiveAudioGroup(null);
-    }
+    syncActiveGroupOnNavigate(audioGroupKey(questions[index]));
     setCurrentIndex(index);
   }
 
@@ -248,7 +122,7 @@ export default function FullMockRunner() {
 
     let listeningRaw = 0;
     let readingRaw = 0;
-    const partBreakdown = defaultBreakdown();
+    const partBreakdown = makeBreakdown(ALL_PARTS);
     const unansweredIds = questions
       .map((question) => question.id)
       .filter((questionId) => !answers[questionId]);
@@ -312,6 +186,86 @@ export default function FullMockRunner() {
     setPhase("result");
   }, [answers, endTime, leftAppDuringTest, listeningEndsAt, questions]);
 
+  const onCountdownAdvance = useCallback(() => {
+    if (currentIndex < LISTENING_QUESTIONS - 1) {
+      setCurrentIndex((previous) => Math.min(LISTENING_QUESTIONS - 1, previous + 1));
+    }
+  }, [currentIndex]);
+
+  const {
+    failedAudioGroups,
+    playedGroups,
+    activeAudioGroup,
+    playedQuestionAudioIds,
+    failedQuestionAudioIds,
+    activeQuestionAudioId,
+    countdownQuestionId,
+    countdownSec,
+    handleAudioStarted,
+    handleAudioEnded,
+    markAudioGroupFailed,
+    handleQuestionAudioStarted,
+    beginQuestionCountdown,
+    handleQuestionAudioError,
+    resetQuestionPacing,
+    syncActiveGroupOnNavigate,
+    clearActiveAudioGroup,
+    resetForStart,
+    hydrateFromSession,
+  } = useMockAudioPacing({
+    isTesting: phase === "testing",
+    isListeningActive: section === "listening",
+    questions,
+    currentIndex,
+    persistAudioGroup: markFullMockAudioGroupPlayed,
+    persistQuestionAudio: markFullMockQuestionAudioPlayed,
+    onCountdownAdvance,
+  });
+
+  const beginReadingSection = useCallback(() => {
+    advanceFullMockToReading();
+    setSection("reading");
+    setCurrentIndex(LISTENING_QUESTIONS);
+    clearActiveAudioGroup();
+    resetQuestionPacing();
+  }, [clearActiveAudioGroup, resetQuestionPacing]);
+
+  useEffect(() => {
+    const id = window.setTimeout(() => {
+      const session = getFullMockSession();
+      if (session) {
+        const restoredQuestions = session.questionIds
+          .map((questionId) => getQuestionById(questionId))
+          .filter((question): question is Question => Boolean(question));
+        if (restoredQuestions.length === session.questionIds.length) {
+          const listeningDeadline = new Date(session.listeningEndsAt).getTime();
+          const restoredSection =
+            session.currentSection === "reading" || Date.now() >= listeningDeadline
+              ? "reading"
+              : "listening";
+          setQuestions(restoredQuestions);
+          setAnswers(session.answers ?? {});
+          setListeningEndsAt(listeningDeadline);
+          setEndTime(new Date(session.endTime).getTime());
+          setLeftAppDuringTest(Boolean(session.leftAppDuringTest));
+          hydrateFromSession({
+            playedAudioGroups: session.playedAudioGroups,
+            playedQuestionAudioIds: session.playedQuestionAudioIds,
+          });
+          setSection(restoredSection);
+          setCurrentIndex(restoredSection === "reading" ? LISTENING_QUESTIONS : 0);
+          setPhase("testing");
+          if (restoredSection === "reading" && session.currentSection !== "reading") {
+            advanceFullMockToReading();
+          }
+          return;
+        }
+      }
+      clearFullMockSession();
+    }, 0);
+    return () => window.clearTimeout(id);
+  }, [hydrateFromSession]);
+
   useEffect(() => {
     if (phase !== "testing" || endTime === 0 || listeningEndsAt === 0) return;
     const tick = () => {
@@ -343,62 +297,20 @@ export default function FullMockRunner() {
     return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, [phase]);
 
-  useEffect(() => {
-    if (phase !== "testing" || section !== "listening") return;
-    const question = questions[currentIndex];
-    if (!question || question.part !== "Part 3" || !getQuestionAudioUrl(question)) return;
-    const groupKey = audioGroupKey(question);
-    if (
-      playedGroups.has(groupKey) &&
-      activeAudioGroup !== groupKey &&
-      playedQuestionAudioIds.has(question.id) &&
-      activeQuestionAudioId !== question.id &&
-      countdownQuestionId !== question.id
-    ) {
-      const id = window.setTimeout(() => {
-        setCountdownQuestionId(question.id);
-        setCountdownSec(8);
-      }, 0);
-      return () => window.clearTimeout(id);
-    }
-  }, [
-    activeAudioGroup,
-    activeQuestionAudioId,
-    countdownQuestionId,
-    currentIndex,
-    phase,
-    playedGroups,
-    playedQuestionAudioIds,
-    questions,
-    section,
-  ]);
-
-  useEffect(() => {
-    if (
-      phase !== "testing" ||
-      section !== "listening" ||
-      countdownQuestionId === null
-    ) {
-      return;
-    }
-    const question = questions[currentIndex];
-    if (!question || question.id !== countdownQuestionId) return;
-    const id = window.setTimeout(() => {
-      if (countdownSec > 1) {
-        setCountdownSec((previous) => previous - 1);
-        return;
-      }
-      resetQuestionPacing();
-      if (currentIndex < LISTENING_QUESTIONS - 1) {
-        setCurrentIndex((previous) => Math.min(LISTENING_QUESTIONS - 1, previous + 1));
-      }
-    }, 1000);
-    return () => window.clearTimeout(id);
-  }, [countdownQuestionId, countdownSec, currentIndex, phase, questions, section]);
-
   function confirmSubmit() {
     if (!window.confirm("確定要交卷嗎？未作答的題目將視為空白。")) return;
     submit();
+  }
+
+  function confirmBeginReadingEarly() {
+    const listeningQuestions = questions.slice(0, LISTENING_QUESTIONS);
+    const unanswered = listeningQuestions.filter((item) => !answers[item.id]).length;
+    const message =
+      unanswered > 0
+        ? `Listening 還有 ${unanswered} 題未作答。確定要直接開始 Reading 嗎？未作答會保留空白。`
+        : "Listening 已全部作答。要直接開始 Reading，不等待剩餘聽力時間嗎？";
+    if (!window.confirm(message)) return;
+    beginReadingSection();
   }
 
   if (phase === "preview") {
@@ -420,6 +332,7 @@ export default function FullMockRunner() {
           </ul>
           <ul className="mt-3 space-y-1 text-xs text-slate-500">
             <li>• 中間沒有休息；聽力時間到會直接進入閱讀</li>
+            <li>• 若 Listening 已完成，可手動提早開始 Reading</li>
             <li>• 進入 Reading 後不可返回 Listening 修改答案</li>
             <li>• 聽力音檔不可重播，作答時不顯示 transcript</li>
             <li>• 離開頁面仍持續計時，結果會註記離頁紀錄</li>
@@ -460,6 +373,7 @@ export default function FullMockRunner() {
     const imageUrl = getImageUrl(question);
     const mediaSupport = hasMediaSupport(question);
     const groupKey = audioGroupKey(question);
+    const groupPosition = getGroupPosition(currentQuestions, question);
     // Audio resolution: pipeline uploads P3/P4 group audio only to the
     // canonical (smallest-id) member via --group-primary. The find() below
     // relies on plan-internal group ordering equalling full-bank ID order
@@ -493,6 +407,11 @@ export default function FullMockRunner() {
       !countdownActive &&
       !questionAudioFailed &&
       (!questionAudioPlayed || questionAudioIsActive);
+    const sectionAnsweredCount = currentQuestions.filter((candidate) =>
+      Boolean(answers[candidate.id]),
+    ).length;
+    const listeningAllAnswered =
+      isListening && sectionAnsweredCount === SECTION_QUESTIONS;
 
     return (
       <div className="flex min-h-screen flex-col">
@@ -516,6 +435,15 @@ export default function FullMockRunner() {
             <p className="text-[10px] text-slate-500">
               全測驗剩餘 {formatTime(totalRemainingMs)}
             </p>
+          )}
+          {listeningAllAnswered && (
+            <button
+              type="button"
+              onClick={confirmBeginReadingEarly}
+              className="mt-2 rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-bold text-white"
+            >
+              Listening 已完成，開始 Reading →
+            </button>
           )}
         </div>
 
@@ -560,11 +488,12 @@ export default function FullMockRunner() {
           </div>
           <div className="mt-1 flex justify-between text-[10px] text-slate-400">
             <span>
-              本區已答{" "}
-              {currentQuestions.filter((candidate) => Boolean(answers[candidate.id])).length} /{" "}
-              {SECTION_QUESTIONS}
+              本區已答 {sectionAnsweredCount} / {SECTION_QUESTIONS}
             </span>
-            <span>{question.part}</span>
+            <span>
+              {question.part}
+              {groupPosition ? ` · 題組 ${groupPosition.index}/${groupPosition.total}` : ""}
+            </span>
           </div>
         </div>
 
@@ -591,9 +520,7 @@ export default function FullMockRunner() {
                 autoPlay
                 onPlaybackStart={() => handleAudioStarted(groupKey)}
                 onEnded={() => handleAudioEnded(groupKey)}
-                onError={() =>
-                  setFailedAudioGroups((groups) => new Set(groups).add(groupKey))
-                }
+                onError={() => markAudioGroupFailed(groupKey)}
               />
             </div>
           ) : audioUrl && audioAlreadyPlayed ? (
@@ -658,6 +585,12 @@ export default function FullMockRunner() {
             </p>
           )}
 
+          {groupPosition && (
+            <p className="mt-2 rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+              {question.part} 題組題 {groupPosition.index}/{groupPosition.total}
+            </p>
+          )}
+
           <div
             className={
               hideText
@@ -716,9 +649,12 @@ export default function FullMockRunner() {
                 下一題 →
               </button>
             ) : isListening ? (
-              <span className="rounded-lg bg-slate-100 px-3 py-1.5 text-xs text-slate-500">
-                等待 Reading 開始
-              </span>
+              <button
+                onClick={confirmBeginReadingEarly}
+                className="rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-bold text-white"
+              >
+                開始 Reading →
+              </button>
             ) : (
               <button
                 onClick={confirmSubmit}
@@ -775,33 +711,7 @@ export default function FullMockRunner() {
 
         <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
           <h2 className="mb-3 text-sm font-semibold">Part 1-7 表現</h2>
-          <div className="space-y-2">
-            {ALL_PARTS.map((part) => {
-              const breakdown = result.partBreakdown[part];
-              if (!breakdown || breakdown.total === 0) return null;
-              const percentage = Math.round((breakdown.correct / breakdown.total) * 100);
-              return (
-                <div key={part} className="flex items-center gap-3">
-                  <span className="w-16 text-xs font-medium text-slate-600">{part}</span>
-                  <div className="flex-1">
-                    <div className="h-2 rounded-full bg-slate-100">
-                      <div
-                        className={`h-full ${
-                          breakdown.correct / breakdown.total >= 0.7
-                            ? "bg-emerald-500"
-                            : "bg-rose-500"
-                        }`}
-                        style={{ width: `${percentage}%` }}
-                      />
-                    </div>
-                  </div>
-                  <span className="w-24 text-right text-xs text-slate-500">
-                    {breakdown.correct}/{breakdown.total}（{percentage}%）
-                  </span>
-                </div>
-              );
-            })}
-          </div>
+          <PartBreakdownBars parts={ALL_PARTS} breakdown={result.partBreakdown} />
         </section>
 
         <section className="grid grid-cols-2 gap-3">

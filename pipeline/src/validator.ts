@@ -1,36 +1,13 @@
 import type { RawGeneratedQuestion, ValidationResult } from "./types";
-import type { Choice, SkillTag, Part, Difficulty } from "../../types/question";
+import type { Choice, Difficulty } from "../../types/question";
+// Part / skill validity derives from the single-source-of-truth registries in
+// types/question.ts (PARTS / SKILLS). Add a part or skill there and the
+// pipeline validator picks it up automatically — no second list to maintain.
+import { PART_LIST, SKILL_TAG_LIST } from "../../types/question";
 
-const VALID_PARTS: Part[] = [
-  "Part 1",
-  "Part 2",
-  "Part 3",
-  "Part 4",
-  "Part 5",
-  "Part 6",
-  "Part 7",
-];
 const VALID_CHOICES: Choice[] = ["A", "B", "C", "D"];
 const VALID_PART2_CHOICES: Choice[] = ["A", "B", "C"];
 const VALID_DIFFICULTY: Difficulty[] = ["A2", "B1", "B2"];
-const VALID_SKILL_TAGS: SkillTag[] = [
-  "passive_voice",
-  "word_form",
-  "tense",
-  "preposition",
-  "conjunction",
-  "pronoun",
-  "relative_clause",
-  "business_vocabulary",
-  "listening_photo",
-  "listening_response",
-  "listening_main_idea",
-  "listening_inference",
-  "listening_next_action",
-  "reading_main_idea",
-  "reading_detail",
-  "reading_inference",
-];
 
 export function validateQuestion(
   q: Partial<RawGeneratedQuestion>,
@@ -53,7 +30,7 @@ export function validateQuestion(
   if (errors.length > 0) return { valid: false, errors, warnings };
 
   // Validate types
-  if (!VALID_PARTS.includes(q.part!)) {
+  if (!PART_LIST.includes(q.part!)) {
     errors.push(`[${q.id}] Invalid part: ${q.part}`);
   }
 
@@ -85,7 +62,7 @@ export function validateQuestion(
   }
 
   // Validate skill_tag
-  if (!VALID_SKILL_TAGS.includes(q.skill_tag!)) {
+  if (!SKILL_TAG_LIST.includes(q.skill_tag!)) {
     errors.push(`[${q.id}] Invalid skill_tag: ${q.skill_tag}`);
   }
 

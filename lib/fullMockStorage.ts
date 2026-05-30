@@ -1,26 +1,12 @@
 import type { FullMockResult, FullMockSession } from "@/types/mock";
 import type { Choice } from "@/types/question";
+import { STORAGE_KEYS, isChoice, isValidDate } from "@/lib/storageCore";
+import { createSessionStore } from "@/lib/sessionStore";
 
-const FULL_SESSION_KEY = "toeic_full_mock_session_v1";
-const FULL_RESULTS_KEY = "toeic_full_mock_results_v1";
-const MAX_RESULTS = 20;
-const VALID_CHOICES = new Set(["A", "B", "C", "D"]);
 const VALID_SECTIONS = new Set(["listening", "reading"]);
 
 export const FULL_LISTENING_DURATION_MS = 45 * 60 * 1000;
 export const FULL_MOCK_DURATION_MS = 120 * 60 * 1000;
-
-function isBrowser(): boolean {
-  return typeof window !== "undefined" && typeof localStorage !== "undefined";
-}
-
-function isValidDate(value: unknown): value is string {
-  return typeof value === "string" && !Number.isNaN(Date.parse(value));
-}
-
-function isValidChoice(value: unknown): value is Choice {
-  return typeof value === "string" && VALID_CHOICES.has(value);
-}
 
 function isStringArray(value: unknown): value is string[] {
   return Array.isArray(value) && value.every((item) => typeof item === "string");
@@ -29,7 +15,7 @@ function isStringArray(value: unknown): value is string[] {
 function isValidAnswers(value: unknown): value is Partial<Record<string, Choice>> {
   if (!value || typeof value !== "object") return false;
   return Object.entries(value).every(
-    ([questionId, choice]) => typeof questionId === "string" && isValidChoice(choice),
+    ([questionId, choice]) => typeof questionId === "string" && isChoice(choice),
   );
 }
 
@@ -123,38 +109,23 @@ function validateFullResult(raw: unknown): FullMockResult | null {
   return result as FullMockResult;
 }
 
-function readJSON<T>(key: string, fallback: T): T {
-  if (!isBrowser()) return fallback;
-  try {
-    const raw = localStorage.getItem(key);
-    return raw ? (JSON.parse(raw) as T) : fallback;
-  } catch {
-    return fallback;
-  }
-}
-
-function writeJSON<T>(key: string, value: T): void {
-  if (!isBrowser()) return;
-  try {
-    localStorage.setItem(key, JSON.stringify(value));
-  } catch (error) {
-    console.warn("[fullMockStorage] write failed:", error);
-  }
-}
+const store = createSessionStore<FullMockSession, FullMockResult>({
+  sessionKey: STORAGE_KEYS.fullMockSession,
+  resultsKey: STORAGE_KEYS.fullMockResults,
+  validateSession: validateFullSession,
+  validateResult: validateFullResult,
+});
 
 export function getFullMockSession(): FullMockSession | null {
-  const session = validateFullSession(readJSON<unknown>(FULL_SESSION_KEY, null));
-  if (!session || session.submittedAt) return null;
-  return session;
+  return store.getSession();
 }
 
 export function saveFullMockSession(session: FullMockSession): void {
-  writeJSON(FULL_SESSION_KEY, session);
+  store.saveSession(session);
 }
 
 export function clearFullMockSession(): void {
-  if (!isBrowser()) return;
-  localStorage.removeItem(FULL_SESSION_KEY);
+  store.clearSession();
 }
 
 export function startFullMockSession(questionIds: string[]): FullMockSession {
@@ -180,38 +151,15 @@ export function startFullMockSession(questionIds: string[]): FullMockSession {
 }
 
 export function saveFullMockAnswer(questionId: string, choice: Choice | null): void {
-  const session = getFullMockSession();
-  if (!session) return;
-  if (choice) {
-    session.answers[questionId] = choice;
-    session.unansweredIds = session.unansweredIds.filter((id) => id !== questionId);
-  } else {
-    delete session.answers[questionId];
-    if (!session.unansweredIds.includes(questionId)) {
-      session.unansweredIds.push(questionId);
-    }
-  }
-  saveFullMockSession(session);
+  store.saveAnswer(questionId, choice);
 }
 
 export function markFullMockAudioGroupPlayed(groupKey: string): void {
-  const session = getFullMockSession();
-  if (!session) return;
-  const played = new Set(session.playedAudioGroups ?? []);
-  if (played.has(groupKey)) return;
-  played.add(groupKey);
-  session.playedAudioGroups = [...played];
-  saveFullMockSession(session);
+  store.markAudioGroupPlayed(groupKey);
 }
 
 export function markFullMockQuestionAudioPlayed(questionId: string): void {
-  const session = getFullMockSession();
-  if (!session) return;
-  const played = new Set(session.playedQuestionAudioIds ?? []);
-  if (played.has(questionId)) return;
-  played.add(questionId);
-  session.playedQuestionAudioIds = [...played];
-  saveFullMockSession(session);
+  store.markQuestionAudioPlayed(questionId);
 }
 
 export function markFullMockLeftApp(): void {
@@ -232,19 +180,13 @@ export function advanceFullMockToReading(): FullMockSession | null {
 }
 
 export function getFullMockResults(): FullMockResult[] {
-  const raw = readJSON<unknown[]>(FULL_RESULTS_KEY, []);
-  if (!Array.isArray(raw)) return [];
-  return raw.filter((result): result is FullMockResult => validateFullResult(result) !== null);
+  return store.getResults();
 }
 
 export function saveFullMockResult(result: FullMockResult): void {
-  const results = getFullMockResults();
-  results.push(result);
-  writeJSON(FULL_RESULTS_KEY, results.slice(-MAX_RESULTS));
+  store.saveResult(result);
 }
 
 export function clearAllFullMockData(): void {
-  if (!isBrowser()) return;
-  localStorage.removeItem(FULL_SESSION_KEY);
-  localStorage.removeItem(FULL_RESULTS_KEY);
+  store.clearAll();
 }
