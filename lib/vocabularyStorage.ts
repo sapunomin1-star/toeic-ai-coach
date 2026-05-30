@@ -11,9 +11,10 @@ import type {
   VocabularyQuizSourceStats,
   VocabularyStatus,
 } from "@/types/vocabulary";
+import { STORAGE_KEYS, isBrowser, writeJSON } from "@/lib/storageCore";
 
-const VOCABULARY_PROGRESS_KEY = "toeic_vocabulary_progress_v1";
-const DAILY_SESSION_KEY = "toeic_vocabulary_daily_session_v1";
+const VOCABULARY_PROGRESS_KEY = STORAGE_KEYS.vocabularyProgress;
+const DAILY_SESSION_KEY = STORAGE_KEYS.vocabularyDailySession;
 const MAX_DAILY_ITEMS = 25;
 const MAX_DUE_ITEMS = 8;
 const MAX_MASTERED_REVIEW_ITEMS = 3;
@@ -21,10 +22,6 @@ const MAX_NEW_ITEMS = 5;
 const SUPPRESS_NEW_THRESHOLD = 15;
 const MAX_REINFORCEMENT_ROUNDS = 2;
 const SRS_INTERVALS = [0, 1, 3, 7, 14, 30] as const;
-
-function isBrowser(): boolean {
-  return typeof window !== "undefined" && typeof localStorage !== "undefined";
-}
 
 function todayStr(): string {
   const d = new Date();
@@ -162,12 +159,7 @@ function readProgress(): VocabularyProgress[] {
 }
 
 function writeProgress(progress: VocabularyProgress[]): void {
-  if (!isBrowser()) return;
-  try {
-    localStorage.setItem(VOCABULARY_PROGRESS_KEY, JSON.stringify(progress));
-  } catch (e) {
-    console.warn("[vocabularyStorage] Failed to write progress:", e);
-  }
+  writeJSON(VOCABULARY_PROGRESS_KEY, progress);
 }
 
 function makeNewEntry(
@@ -318,12 +310,7 @@ function readStoredDailySession(): StoredDailySession | null {
 }
 
 function writeStoredDailySession(session: StoredDailySession): void {
-  if (!isBrowser()) return;
-  try {
-    localStorage.setItem(DAILY_SESSION_KEY, JSON.stringify(session));
-  } catch (e) {
-    console.warn("[vocabularyStorage] Failed to write daily session:", e);
-  }
+  writeJSON(DAILY_SESSION_KEY, session);
 }
 
 function markDailySessionItemReviewed(wordId: string): void {

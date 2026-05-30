@@ -26,7 +26,18 @@ export type VocabularyItem = {
     | "customer-service"
     | "marketing"
     | "production"
-    | "logistics";
+    | "logistics"
+    // Extra categories added in batch 2 (576 → 1500):
+    | "technology"
+    | "legal"
+    | "healthcare"
+    | "insurance"
+    | "real-estate"
+    | "education"
+    | "training"
+    | "hospitality"
+    | "security"
+    | "presentation";
 };
 
 export type VocabularyStatus = "new" | "seen" | "familiar" | "mastered";

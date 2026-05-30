@@ -4,12 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import AudioPlayer from "@/components/AudioPlayer";
+import PartBreakdownBars from "@/components/PartBreakdownBars";
 import {
   buildListeningMockPlan,
   buildMockTestPlan,
   getQuestionById,
 } from "@/data/questions";
 import { getAudioUrl, getImageUrl, getQuestionAudioUrl, hasMediaSupport } from "@/lib/media";
+import { audioGroupKey, formatTime, getGroupPosition, makeBreakdown } from "@/lib/mockShared";
 import { saveAnswer as saveDailyAnswer } from "@/lib/storage";
 import {
   clearMockSession,
@@ -26,39 +28,14 @@ import {
   PREDICTION_DISCLAIMER,
   rawToScaledRange,
 } from "@/lib/toeicScoreEstimate";
-import type {
-  MockMode,
-  MockPartBreakdown,
-  MockPartKey,
-  MockTestResult,
-} from "@/types/mock";
+import { useMockAudioPacing } from "@/lib/useMockAudioPacing";
+import type { MockMode, MockPartKey, MockTestResult } from "@/types/mock";
 import type { Choice, Question } from "@/types/question";
 
 type Phase = "preview" | "testing" | "result";
 
 const READING_PARTS: MockPartKey[] = ["Part 5", "Part 6", "Part 7"];
 const LISTENING_PARTS: MockPartKey[] = ["Part 1", "Part 2", "Part 3", "Part 4"];
-
-function defaultBreakdown(parts: MockPartKey[]): MockPartBreakdown {
-  const init: MockPartBreakdown = {};
-  for (const p of parts) init[p] = { correct: 0, total: 0 };
-  return init;
-}
-
-/**
- * Audio-group identity for the "no replay" mock rule:
- * - Part 3/4: 3 questions share the same transcript → group by transcript string
- * - Part 1/2: each question has its own audio → group by question id
- *
- * Once audible playback starts, the group is persisted into the mock session
- * so navigating away or refreshing the page does NOT restart partial audio.
- */
-function audioGroupKey(q: Question): string {
-  if ((q.part === "Part 3" || q.part === "Part 4") && q.transcript) {
-    return `${q.part}:${q.transcript}`;
-  }
-  return q.id;
-}
 
 /**
  * For Part 1/2 in *listening* mock only: the on-screen `question` text and
@@ -124,43 +101,8 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
   const [endTime, setEndTime] = useState(0);
   const [remainingMs, setRemainingMs] = useState(config.durationMs);
   const [result, setResult] = useState<MockTestResult | null>(null);
-  const [failedAudioGroups, setFailedAudioGroups] = useState<Set<string>>(new Set());
-  const [playedGroups, setPlayedGroups] = useState<Set<string>>(new Set());
-  const [activeAudioGroup, setActiveAudioGroup] = useState<string | null>(null);
-  const [playedQuestionAudioIds, setPlayedQuestionAudioIds] = useState<Set<string>>(new Set());
-  const [failedQuestionAudioIds, setFailedQuestionAudioIds] = useState<Set<string>>(new Set());
-  const [activeQuestionAudioId, setActiveQuestionAudioId] = useState<string | null>(null);
-  const [countdownQuestionId, setCountdownQuestionId] = useState<string | null>(null);
-  const [countdownSec, setCountdownSec] = useState(8);
   const submittedRef = useRef(false);
   const choiceKeys: Choice[] = ["A", "B", "C", "D"];
-
-  // Resume session
-  useEffect(() => {
-    const id = window.setTimeout(() => {
-      const session = getMockSession(mode);
-      if (session && !session.submittedAt) {
-        const qs = session.questionIds
-          .map((questionId) => getQuestionById(questionId))
-          .filter((q): q is Question => Boolean(q));
-        if (qs.length === session.questionIds.length) {
-          setQuestions(qs);
-          setAnswers(session.answers ?? {});
-          setEndTime(new Date(session.endTime).getTime());
-          setPlayedGroups(new Set(session.playedAudioGroups ?? []));
-          setPlayedQuestionAudioIds(new Set(session.playedQuestionAudioIds ?? []));
-          setActiveAudioGroup(null);
-          setActiveQuestionAudioId(null);
-          setCountdownQuestionId(null);
-          setCountdownSec(8);
-          setPhase("testing");
-          return;
-        }
-      }
-      clearMockSession(mode);
-    }, 0);
-    return () => window.clearTimeout(id);
-  }, [mode]);
 
   function start() {
     try {
@@ -168,63 +110,11 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
       setQuestions(plan);
       const session = startMockSession(plan.map((q) => q.id), mode);
       setEndTime(new Date(session.endTime).getTime());
-      setPlayedGroups(new Set());
-      setPlayedQuestionAudioIds(new Set());
-      setFailedQuestionAudioIds(new Set());
-      setActiveAudioGroup(null);
-      setActiveQuestionAudioId(null);
-      setCountdownQuestionId(null);
-      setCountdownSec(8);
+      resetForStart();
       setPhase("testing");
     } catch (e) {
       alert((e as Error).message);
     }
-  }
-
-  function handleAudioStarted(groupKey: string) {
-    setActiveAudioGroup(groupKey);
-    setPlayedGroups((prev) => {
-      if (prev.has(groupKey)) return prev;
-      const next = new Set(prev);
-      next.add(groupKey);
-      return next;
-    });
-    markAudioGroupPlayed(groupKey, mode);
-  }
-
-  function handleAudioEnded(groupKey: string) {
-    setActiveAudioGroup((current) => (current === groupKey ? null : current));
-  }
-
-  function handleQuestionAudioStarted(questionId: string) {
-    setActiveQuestionAudioId(questionId);
-    setPlayedQuestionAudioIds((previous) => {
-      if (previous.has(questionId)) return previous;
-      const next = new Set(previous);
-      next.add(questionId);
-      return next;
-    });
-    markQuestionAudioPlayed(questionId, mode);
-  }
-
-  function beginQuestionCountdown(questionId: string) {
-    setActiveQuestionAudioId((current) => (current === questionId ? null : current));
-    setCountdownQuestionId(questionId);
-    setCountdownSec(8);
-  }
-
-  function handleQuestionAudioError(questionId: string) {
-    setFailedQuestionAudioIds((previous) => new Set(previous).add(questionId));
-    // Preserve the one-pass exam flow even if the remote stem cannot load.
-    setPlayedQuestionAudioIds((previous) => new Set(previous).add(questionId));
-    markQuestionAudioPlayed(questionId, mode);
-    beginQuestionCountdown(questionId);
-  }
-
-  function resetQuestionPacing() {
-    setActiveQuestionAudioId(null);
-    setCountdownQuestionId(null);
-    setCountdownSec(8);
   }
 
   function goToQuestion(index: number) {
@@ -233,9 +123,7 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
     if (index !== currentIndex) {
       resetQuestionPacing();
     }
-    if (audioGroupKey(nextQuestion) !== activeAudioGroup) {
-      setActiveAudioGroup(null);
-    }
+    syncActiveGroupOnNavigate(audioGroupKey(nextQuestion));
     setCurrentIndex(index);
   }
 
@@ -250,7 +138,7 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
     submittedRef.current = true;
 
     let correct = 0;
-    const breakdown = defaultBreakdown(config.parts);
+    const breakdown = makeBreakdown(config.parts);
     const unansweredIds = questions.map((q) => q.id).filter((id) => !answers[id]);
 
     for (const q of questions) {
@@ -305,6 +193,68 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
     setPhase("result");
   }, [answers, config.durationMs, config.parts, endTime, mode, questions]);
 
+  const onCountdownAdvance = useCallback(() => {
+    if (currentIndex < questions.length - 1) {
+      setCurrentIndex((previous) => Math.min(questions.length - 1, previous + 1));
+    } else {
+      submit();
+    }
+  }, [currentIndex, questions.length, submit]);
+
+  const {
+    failedAudioGroups,
+    playedGroups,
+    activeAudioGroup,
+    playedQuestionAudioIds,
+    failedQuestionAudioIds,
+    activeQuestionAudioId,
+    countdownQuestionId,
+    countdownSec,
+    handleAudioStarted,
+    handleAudioEnded,
+    markAudioGroupFailed,
+    handleQuestionAudioStarted,
+    beginQuestionCountdown,
+    handleQuestionAudioError,
+    resetQuestionPacing,
+    syncActiveGroupOnNavigate,
+    resetForStart,
+    hydrateFromSession,
+  } = useMockAudioPacing({
+    isTesting: phase === "testing",
+    isListeningActive: mode === "listening",
+    questions,
+    currentIndex,
+    persistAudioGroup: (groupKey) => markAudioGroupPlayed(groupKey, mode),
+    persistQuestionAudio: (questionId) => markQuestionAudioPlayed(questionId, mode),
+    onCountdownAdvance,
+  });
+
+  // Resume session
+  useEffect(() => {
+    const id = window.setTimeout(() => {
+      const session = getMockSession(mode);
+      if (session && !session.submittedAt) {
+        const qs = session.questionIds
+          .map((questionId) => getQuestionById(questionId))
+          .filter((q): q is Question => Boolean(q));
+        if (qs.length === session.questionIds.length) {
+          setQuestions(qs);
+          setAnswers(session.answers ?? {});
+          setEndTime(new Date(session.endTime).getTime());
+          hydrateFromSession({
+            playedAudioGroups: session.playedAudioGroups,
+            playedQuestionAudioIds: session.playedQuestionAudioIds,
+          });
+          setPhase("testing");
+          return;
+        }
+      }
+      clearMockSession(mode);
+    }, 0);
+    return () => window.clearTimeout(id);
+  }, [hydrateFromSession, mode]);
+
   // Countdown
   useEffect(() => {
     if (phase !== "testing" || endTime === 0) return;
@@ -318,67 +268,9 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
     return () => window.clearInterval(id);
   }, [phase, endTime, submit]);
 
-  // A question stem that began playing is consumed. If the student refreshes
-  // or navigates back, continue with timed answering rather than replaying it.
-  useEffect(() => {
-    if (phase !== "testing" || mode !== "listening") return;
-    const question = questions[currentIndex];
-    if (!question || question.part !== "Part 3" || !getQuestionAudioUrl(question)) return;
-    const groupKey = audioGroupKey(question);
-    if (
-      playedGroups.has(groupKey) &&
-      activeAudioGroup !== groupKey &&
-      playedQuestionAudioIds.has(question.id) &&
-      activeQuestionAudioId !== question.id &&
-      countdownQuestionId !== question.id
-    ) {
-      const id = window.setTimeout(() => {
-        setCountdownQuestionId(question.id);
-        setCountdownSec(8);
-      }, 0);
-      return () => window.clearTimeout(id);
-    }
-  }, [
-    activeAudioGroup,
-    activeQuestionAudioId,
-    countdownQuestionId,
-    currentIndex,
-    mode,
-    phase,
-    playedGroups,
-    playedQuestionAudioIds,
-    questions,
-  ]);
-
-  useEffect(() => {
-    if (phase !== "testing" || countdownQuestionId === null) return;
-    const currentQuestion = questions[currentIndex];
-    if (!currentQuestion || currentQuestion.id !== countdownQuestionId) return;
-    const id = window.setTimeout(() => {
-      if (countdownSec > 1) {
-        setCountdownSec((previous) => previous - 1);
-        return;
-      }
-      resetQuestionPacing();
-      if (currentIndex < questions.length - 1) {
-        setCurrentIndex((previous) => Math.min(questions.length - 1, previous + 1));
-      } else {
-        submit();
-      }
-    }, 1000);
-    return () => window.clearTimeout(id);
-  }, [countdownQuestionId, countdownSec, currentIndex, phase, questions, submit]);
-
   function confirmSubmit() {
     if (!window.confirm("確定要交卷嗎？未作答的題目將視為空白。")) return;
     submit();
-  }
-
-  function fmt(ms: number) {
-    const t = Math.ceil(ms / 1000);
-    const m = Math.floor(t / 60);
-    const s = t % 60;
-    return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
   }
 
   // ─── PREVIEW ──────────────────────────────────────────────────
@@ -436,6 +328,7 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
     const imageUrl = getImageUrl(q);
     const mediaSupport = hasMediaSupport(q);
     const groupKey = audioGroupKey(q);
+    const groupPosition = getGroupPosition(questions, q);
     // Audio resolution: the pipeline uploads P3/P4 group audio only to the
     // canonical (smallest-id) member of each transcript group via the
     // `--group-primary` flag in pipeline/src/generate-audio.ts. The find()
@@ -477,7 +370,7 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
       <div className="flex min-h-screen flex-col">
         {/* Timer */}
         <div role="timer" aria-live="off" className={`sticky top-0 z-10 border-b px-3 py-2 text-center font-mono text-lg font-bold ${low ? "border-rose-200 bg-rose-50 text-rose-700" : "border-slate-200 bg-white text-slate-800"}`}>
-          {low && "⚠ "}{fmt(remainingMs)}
+          {low && "⚠ "}{formatTime(remainingMs)}
         </div>
 
         {/* Nav */}
@@ -498,7 +391,10 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
           </div>
           <div className="mt-1 flex justify-between text-[10px] text-slate-400">
             <span>已答 {Object.keys(answers).length} / {questions.length}</span>
-            <span>{q.part}</span>
+            <span>
+              {q.part}
+              {groupPosition ? ` · 題組 ${groupPosition.index}/${groupPosition.total}` : ""}
+            </span>
           </div>
         </div>
 
@@ -526,9 +422,7 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
                 autoPlay
                 onPlaybackStart={() => handleAudioStarted(groupKey)}
                 onEnded={() => handleAudioEnded(groupKey)}
-                onError={() =>
-                  setFailedAudioGroups((groups) => new Set(groups).add(groupKey))
-                }
+                onError={() => markAudioGroupFailed(groupKey)}
               />
             </div>
           ) : audioUrl && audioAlreadyPlayed ? (
@@ -593,6 +487,12 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
             </p>
           ) : (
             <p className="text-sm font-medium text-slate-900">{currentIndex + 1}. {questionText}</p>
+          )}
+
+          {groupPosition && (
+            <p className="mt-2 rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
+              {q.part} 題組題 {groupPosition.index}/{groupPosition.total}
+            </p>
           )}
 
           <div className={hideText ? `mt-4 grid ${visibleChoices.length === 3 ? "grid-cols-3" : "grid-cols-4"} gap-3` : "mt-3 space-y-2"}>
@@ -665,29 +565,13 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
 
         <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
           <h2 className="mb-3 text-sm font-semibold">各部分表現</h2>
-          <div className="space-y-2">
-            {config.parts.map((part) => {
-              const d = partBreakdown[part];
-              if (!d || d.total === 0) return null;
-              const pct = Math.round((d.correct / d.total) * 100);
-              return (
-                <div key={part} className="flex items-center gap-3">
-                  <span className="w-16 text-xs font-medium text-slate-600">{part}</span>
-                  <div className="flex-1"><div className="h-2 rounded-full bg-slate-100">
-                    <div className={`h-full ${d.correct / d.total >= 0.7 ? "bg-emerald-500" : "bg-rose-500"}`}
-                      style={{ width: `${pct}%` }} />
-                  </div></div>
-                  <span className="w-24 text-right text-xs text-slate-500">{d.correct}/{d.total}（{pct}%）</span>
-                </div>
-              );
-            })}
-          </div>
+          <PartBreakdownBars parts={config.parts} breakdown={partBreakdown} />
         </section>
 
         <section className="grid grid-cols-2 gap-3">
           <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm">
             <p className="text-[10px] uppercase tracking-wider text-slate-500">用時</p>
-            <p className="mt-1 text-lg font-bold text-slate-800">{fmt(timeUsedMs)}</p>
+            <p className="mt-1 text-lg font-bold text-slate-800">{formatTime(timeUsedMs)}</p>
           </div>
           <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm">
             <p className="text-[10px] uppercase tracking-wider text-slate-500">未作答</p>

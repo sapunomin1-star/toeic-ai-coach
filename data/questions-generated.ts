@@ -10927,7 +10927,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       C: "Carry their ID badge for verification",
       D: "Report any inconvenience to management",
     },
-    answer: "D",
+    answer: "C",
     explanation_zh: "選擇 C：公告中特別要求攜帶 'your ID badge at all times for verification'。雖然 D 是不錯的建議，但公告中沒有指示要報告不便。",
     skill_tag: "listening_next_action",
     difficulty: "B1",

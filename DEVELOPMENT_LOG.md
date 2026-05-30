@@ -1694,3 +1694,62 @@ existing media was not regenerated.
   question IDs out of 400 in one smoke run. The pool now has capacity for four
   disjoint sets, but the current stateless random planner does not enforce
   cross-session exclusion.
+
+## Architecture Refactor (Phases 1–5 + pipeline) - 2026-05-30
+
+### Scope
+
+Staged, conservative, behavior-preserving refactor for cleanliness and
+extensibility ("乾淨易懂 + 延展性"). Every localStorage key and existing behavior
+was preserved (no migration). Each phase passed `tsc --noEmit`, `npm run lint`,
+and `npm run build` before the next began. Phase 4's runner wiring was completed
+by a parallel Codex session and reviewed here; that session also added the
+question-group position label (`getGroupPosition`) and a manual "early-start
+Reading" control to the full mock — both preserved.
+
+### Changes
+
+- **Phase 1 — Storage core.** Added `lib/storageCore.ts` with `STORAGE_KEYS`
+  (all 12 keys, values unchanged) and shared primitives `isBrowser`,
+  `readJSON`, `writeJSON` (QuotaExceededError alert), `isChoice`,
+  `isValidDate`. `storage.ts`, `mockStorage.ts`, `fullMockStorage.ts`, and
+  `vocabularyStorage.ts` now import these instead of redeclaring them; mock,
+  full-mock, and vocabulary writes gained quota protection.
+- **Phase 2 — Taxonomy registry + query API.** `types/question.ts` now derives
+  `SkillTag`/`Part` from `SKILLS`/`PARTS` registries (`satisfies` + `keyof
+  typeof`); `SKILL_LABELS`, `SKILL_TAG_LIST`, `PART_LIST`, and category/section
+  lookups derive automatically. The derived unions are byte-identical to the
+  old literals. `data/questions.ts` added `queryQuestions(filter)`;
+  `getQuestionsByPart`/`getQuestionsBySkill` became thin wrappers and
+  `getQuestionsByCategory` was added. Plan builders untouched.
+- **Phase 3 — Session store factory.** Added `lib/sessionStore.ts`
+  `createSessionStore<TSession, TResult>`. `mockStorage.ts` (reading +
+  listening) and `fullMockStorage.ts` now build their stores from it and keep
+  only their own validators + session construction. Public function names and
+  key values unchanged.
+- **Phase 4 — Mock runner dedup.** Added `lib/useMockAudioPacing.ts` (shared
+  listening no-replay + Part 3 countdown state machine), `lib/mockShared.ts`
+  (`audioGroupKey`, `formatTime`, `makeBreakdown`, `getGroupPosition`), and
+  `components/PartBreakdownBars.tsx`. Both runners consume them; differences are
+  callbacks (`persistAudioGroup`, `persistQuestionAudio`, `onCountdownAdvance`)
+  + the `isListeningActive` gate. The no-replay rule still fires on
+  `onPlaybackStart`.
+- **Phase 5 — Dashboard split.** `app/dashboard/page.tsx` went 1052 → ~200
+  lines. Computations moved to `lib/dashboardMetrics.ts` (`useDashboardMetrics`,
+  each `useMemo` preserved); render moved to `components/dashboard/` (`cards`,
+  `PerformanceSections`, `VocabQuizSection`, `MockSections`, `BackupSection`).
+  Section order, conditionals, `useMemo` rules, and ARIA preserved.
+- **Pipeline validator.** `pipeline/src/validator.ts` now imports `PART_LIST` /
+  `SKILL_TAG_LIST` from the registry instead of its own `VALID_PARTS` /
+  `VALID_SKILL_TAGS` arrays — adding a part/skill is now truly one place.
+
+### Verification
+
+- `./node_modules/.bin/tsc --noEmit`, `npm run lint`, `npm run build`: passed
+  after every phase and on the final integrated tree (13 routes generated).
+- `cd pipeline && ./node_modules/.bin/tsc --noEmit`: passed.
+- `cd pipeline && npm run check`: passed — 1125 questions, 0 integrity errors
+  (confirms the registry-derived validator lists behave identically).
+- Not runtime-tested here: listening "no replay" and the Part 3 countdown need
+  a real browser + audio + user gesture. Recommend a manual smoke test of the
+  listening mock and the full mock.

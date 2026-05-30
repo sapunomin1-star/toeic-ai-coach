@@ -19,6 +19,7 @@ import {
 } from "@/lib/storage";
 import { getNextDayListeningMix, getWeakestSkills } from "@/lib/analysis";
 import { getAudioUrl, getImageUrl, getQuestionAudioUrl, hasMediaSupport } from "@/lib/media";
+import { getGroupPosition } from "@/lib/mockShared";
 import type { Choice, Question } from "@/types/question";
 import { SKILL_LABELS } from "@/types/question";
 import type { QuizPlanSource } from "@/lib/storage";
@@ -115,6 +116,14 @@ export default function QuizPage() {
     const id = planIds[cursor];
     return id ? getQuestionById(id) : undefined;
   }, [planIds, cursor]);
+
+  const planQuestions = useMemo(
+    () =>
+      planIds
+        .map((id) => getQuestionById(id))
+        .filter((question): question is Question => Boolean(question)),
+    [planIds],
+  );
 
   function markListeningGroupAutoPlayed(groupKey: string) {
     setAutoPlayedListeningGroups((groups) => {
@@ -317,6 +326,7 @@ export default function QuizPage() {
   const audioFallbackText = currentQuestion.audioScript ?? null;
   const listeningGroupKey = getListeningGroupKey(currentQuestion);
   const isGroupedListeningQuestion = listeningGroupKey !== null;
+  const groupPosition = getGroupPosition(planQuestions, currentQuestion);
   const groupAutoPlayed =
     listeningGroupKey !== null && autoPlayedListeningGroups.has(listeningGroupKey);
   const groupedAudioIsPlaying = activeAutoConversationId === currentQuestion.id;
@@ -367,6 +377,7 @@ export default function QuizPage() {
         <div className="flex flex-wrap items-center gap-2">
           <span className="rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-medium text-indigo-700">
             {currentQuestion.part}
+            {groupPosition ? ` · 題組 ${groupPosition.index}/${groupPosition.total}` : ""}
           </span>
           <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">
             {SKILL_LABELS[currentQuestion.skill_tag]}

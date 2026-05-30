@@ -2102,14 +2102,14 @@ export const QUESTIONS_LISTENING: Question[] = [
     choices: {
       A: "The branch office is on the outskirts of town near the highway.",
       B: "I have not visited the regional office in a very long time.",
-      C: "The regional manager is coming to inspect our operations today.",
+      C: "The regional manager is coming to inspect our operations tomorrow.",
     },
     answer: "C",
     explanation_zh: "問題問的是「誰」要來訪，(C) 回答區域經理要來視察為正確回應。(A) 回答分公司位置而非人物。(B) 提到自己沒去過區域辦公室，但未回答誰要來訪。",
     skill_tag: "listening_response",
     difficulty: "B1",
     vocabulary: ["regional","manager","visiting","branch","inspect"],
-    audioScript: "Q: Who is visiting our branch office tomorrow, according to the latest update?\n(A) The branch office is on the outskirts of town near the highway.\n(B) I have not visited the regional office in a very long time.\n(C) The regional manager is coming to inspect our operations today.",
+    audioScript: "Q: Who is visiting our branch office tomorrow, according to the latest update?\n(A) The branch office is on the outskirts of town near the highway.\n(B) I have not visited the regional office in a very long time.\n(C) The regional manager is coming to inspect our operations tomorrow.",
   },
   {
     id: "p2-gen-029",
