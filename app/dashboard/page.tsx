@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BackupSection } from "@/components/dashboard/BackupSection";
 import {
@@ -21,6 +22,7 @@ import {
 import ReasonBreakdownSection from "@/components/dashboard/ReasonBreakdownSection";
 import { VocabQuizSection } from "@/components/dashboard/VocabQuizSection";
 import { useDashboardMetrics } from "@/lib/dashboardMetrics";
+import { buildGrammarVariantPlan } from "@/lib/grammarRemediation";
 import { getFullMockResults } from "@/lib/fullMockStorage";
 import { getMockResults } from "@/lib/mockStorage";
 import {
@@ -28,6 +30,7 @@ import {
   exportAllData,
   getAnswerRecords,
   importAllData,
+  startGrammarVariantPractice,
 } from "@/lib/storage";
 import {
   getTodayVocabulary,
@@ -40,6 +43,7 @@ import type { AnswerRecord } from "@/types/question";
 import type { VocabularyItem, VocabularyProgress } from "@/types/vocabulary";
 
 export default function DashboardPage() {
+  const router = useRouter();
   const [records, setRecords] = useState<AnswerRecord[] | null>(null);
   const [todayVocabulary, setTodayVocabulary] = useState<VocabularyItem[]>([]);
   const [vocabularyProgress, setVocabularyProgress] = useState<
@@ -137,6 +141,14 @@ export default function DashboardPage() {
 
   const metrics = useDashboardMetrics(records, todayVocabulary, vocabularyProgress);
 
+  function handleStartGrammarVariantPractice() {
+    if (!records) return;
+    const ids = buildGrammarVariantPlan(records);
+    if (startGrammarVariantPractice(ids)) {
+      router.push("/quiz");
+    }
+  }
+
   if (records === null) {
     return <p className="py-10 text-center text-slate-500">載入中…</p>;
   }
@@ -165,6 +177,8 @@ export default function DashboardPage() {
       <ReasonBreakdownSection
         reasonBreakdown={metrics.reasonBreakdown}
         reasonInsight={metrics.reasonInsight}
+        grammarWeakSkills={metrics.grammarWeakSkills}
+        onStartGrammarVariantPractice={handleStartGrammarVariantPractice}
       />
       <TomorrowRecommendation recommendation={metrics.recommendation} />
       <SkillErrorChart metrics={metrics} />

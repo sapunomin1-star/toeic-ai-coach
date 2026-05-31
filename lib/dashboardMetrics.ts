@@ -26,6 +26,7 @@ import {
   countSlowQuestions,
   countMistakesByReason,
   getNextDayListeningMix,
+  getGrammarWeakSkills,
   getReasonInsight,
   getSlowestSkill,
   getTomorrowRecommendation,
@@ -55,6 +56,7 @@ export function useDashboardMetrics(
   const recommendation = useMemo(() => getTomorrowRecommendation(safeRecords), [safeRecords]);
   const reasonBreakdown = useMemo(() => countMistakesByReason(safeRecords), [safeRecords]);
   const reasonInsight = useMemo(() => getReasonInsight(safeRecords), [safeRecords]);
+  const grammarWeakSkills = useMemo(() => getGrammarWeakSkills(safeRecords), [safeRecords]);
   const avgTime = useMemo(() => calculateAvgResponseTime(safeRecords), [safeRecords]);
   const part5AvgTime = useMemo(() => calculatePart5AvgTime(safeRecords), [safeRecords]);
   const slowCount = useMemo(() => countSlowQuestions(safeRecords), [safeRecords]);
@@ -159,6 +161,7 @@ export function useDashboardMetrics(
     recommendation,
     reasonBreakdown,
     reasonInsight,
+    grammarWeakSkills,
     avgTime,
     part5AvgTime,
     slowCount,

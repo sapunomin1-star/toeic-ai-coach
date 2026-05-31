@@ -386,6 +386,16 @@ export function saveWrongPracticePlan(plan: DailyPlan): void {
   });
 }
 
+export function startGrammarVariantPractice(questionIds: string[]): boolean {
+  if (questionIds.length === 0) return false;
+  saveWrongPracticePlan({
+    questionIds,
+    createdAt: new Date().toISOString(),
+    cursor: 0,
+  });
+  return true;
+}
+
 export function clearWrongPracticePlan(): void {
   if (!isBrowser()) return;
   try {

@@ -5,7 +5,7 @@ import type {
   Question,
   SkillTag,
 } from "@/types/question";
-import { MISTAKE_REASONS, SKILL_LABELS } from "@/types/question";
+import { MISTAKE_REASONS, SKILL_LABELS, getSkillCategory } from "@/types/question";
 
 const PART5_SKILLS = new Set<SkillTag>([
   "passive_voice",
@@ -89,6 +89,27 @@ export function getWeakestSkills(
     .filter((x) => x.mistakes > 0)
     .sort((a, b) => b.mistakes - a.mistakes)
     .slice(0, topN);
+}
+
+export function getGrammarWeakSkills(
+  records: AnswerRecord[],
+): { skill: SkillTag; wrongCount: number }[] {
+  const counts = new Map<SkillTag, number>();
+
+  for (const record of excludeMock(records)) {
+    if (
+      record.isCorrect ||
+      record.mistakeReason !== "grammar" ||
+      getSkillCategory(record.skill_tag) !== "grammar"
+    ) {
+      continue;
+    }
+    counts.set(record.skill_tag, (counts.get(record.skill_tag) ?? 0) + 1);
+  }
+
+  return [...counts.entries()]
+    .map(([skill, wrongCount]) => ({ skill, wrongCount }))
+    .sort((a, b) => b.wrongCount - a.wrongCount);
 }
 
 // ─── Time analytics ────────────────────────────────────────────────────────

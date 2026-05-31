@@ -1,12 +1,16 @@
-import type { MistakeReason } from "@/types/question";
-import { MISTAKE_REASON_LABELS } from "@/types/question";
+import type { MistakeReason, SkillTag } from "@/types/question";
+import { MISTAKE_REASON_LABELS, SKILL_LABELS } from "@/types/question";
 
 export default function ReasonBreakdownSection({
   reasonBreakdown,
   reasonInsight,
+  grammarWeakSkills,
+  onStartGrammarVariantPractice,
 }: {
   reasonBreakdown: Record<MistakeReason, number>;
   reasonInsight: string | null;
+  grammarWeakSkills: { skill: SkillTag; wrongCount: number }[];
+  onStartGrammarVariantPractice: () => void;
 }) {
   const entries = (Object.entries(reasonBreakdown) as [MistakeReason, number][])
     .filter(([, count]) => count > 0)
@@ -32,6 +36,28 @@ export default function ReasonBreakdownSection({
               <p className="mt-1 text-sm font-semibold leading-relaxed text-indigo-900">
                 {reasonInsight}
               </p>
+            </div>
+          )}
+
+          {grammarWeakSkills.length > 0 && (
+            <div className="rounded-xl border border-amber-100 bg-amber-50 p-3">
+              <p className="text-xs font-semibold uppercase tracking-wider text-amber-700">
+                Grammar Remediation
+              </p>
+              <p className="mt-1 text-sm font-semibold text-slate-900">
+                文法弱點複習
+              </p>
+              <p className="mt-1 text-xs leading-relaxed text-slate-600">
+                用同類型新題練 5 題，優先修補{" "}
+                {SKILL_LABELS[grammarWeakSkills[0].skill]}。
+              </p>
+              <button
+                type="button"
+                onClick={onStartGrammarVariantPractice}
+                className="mt-3 w-full rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white active:scale-[0.99]"
+              >
+                文法弱點複習 →
+              </button>
             </div>
           )}
 
