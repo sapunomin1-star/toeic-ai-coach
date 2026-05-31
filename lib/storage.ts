@@ -1,6 +1,8 @@
 import type {
   AnswerRecord,
   Choice,
+  MistakeReason,
+  ReasonSource,
   SkillTag,
   WrongBookStatus,
 } from "@/types/question";
@@ -13,7 +15,7 @@ import {
   writeJSON,
   isChoice,
 } from "@/lib/storageCore";
-import { SKILL_TAG_LIST } from "@/types/question";
+import { MISTAKE_REASONS, SKILL_TAG_LIST } from "@/types/question";
 
 const ANSWER_KEY = STORAGE_KEYS.answerRecords;
 const DAILY_PLAN_KEY = STORAGE_KEYS.dailyPlan;
@@ -37,7 +39,12 @@ function isAnswerRecord(value: unknown): value is AnswerRecord {
     isSkillTag(r.skill_tag) &&
     typeof r.answeredAt === "string" &&
     !Number.isNaN(Date.parse(r.answeredAt)) &&
-    (r.responseTimeMs === undefined || typeof r.responseTimeMs === "number")
+    (r.responseTimeMs === undefined || typeof r.responseTimeMs === "number") &&
+    // Mistake Reason System (Phase 1): optional — undefined passes, bad values rejected.
+    (r.mistakeReason === undefined || MISTAKE_REASONS.includes(r.mistakeReason)) &&
+    (r.reasonSource === undefined ||
+      r.reasonSource === "user" ||
+      r.reasonSource === "inferred")
   );
 }
 
@@ -58,6 +65,22 @@ export function saveAnswer(record: AnswerRecord): void {
   const hasEntry = statusMap[record.questionId] !== undefined;
   if (!record.isCorrect || hasEntry) {
     updateWrongStatus(record.questionId, record.isCorrect);
+  }
+}
+
+export function updateLatestReason(
+  questionId: string,
+  reason: MistakeReason,
+  source: ReasonSource,
+): void {
+  const all = getAnswerRecords();
+  for (let i = all.length - 1; i >= 0; i--) {
+    const record = all[i];
+    if (record.questionId !== questionId || record.isCorrect) continue;
+    record.mistakeReason = reason;
+    record.reasonSource = source;
+    writeJSON(ANSWER_KEY, all);
+    return;
   }
 }
 
