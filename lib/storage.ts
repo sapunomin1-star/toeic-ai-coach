@@ -22,6 +22,7 @@ const ANSWER_KEY = STORAGE_KEYS.answerRecords;
 const DAILY_PLAN_KEY = STORAGE_KEYS.dailyPlan;
 const WRONG_STATUS_KEY = STORAGE_KEYS.wrongStatus;
 const WRONG_PRACTICE_PLAN_KEY = STORAGE_KEYS.wrongPracticePlan;
+const MANUAL_REVIEW_KEY = STORAGE_KEYS.manualReviewItems;
 
 const DAILY_PLAN_TTL_MS = 24 * 60 * 60 * 1000;
 
@@ -67,6 +68,9 @@ export function saveAnswer(record: AnswerRecord): void {
   if (!record.isCorrect || hasEntry) {
     updateWrongStatus(record.questionId, record.isCorrect);
   }
+  if (isManualReviewQuestion(record.questionId)) {
+    removeManualReviewEntry(record.questionId);
+  }
 }
 
 export function updateLatestReason(
@@ -92,6 +96,7 @@ export function clearAllProgress(): void {
     localStorage.removeItem(DAILY_PLAN_KEY);
     localStorage.removeItem(WRONG_STATUS_KEY);
     localStorage.removeItem(WRONG_PRACTICE_PLAN_KEY);
+    localStorage.removeItem(MANUAL_REVIEW_KEY);
     localStorage.removeItem(STORAGE_KEYS.vocabularyProgress);
     localStorage.removeItem(STORAGE_KEYS.vocabularyDailySession);
     clearAllMockData();
@@ -115,6 +120,7 @@ export const BACKUP_KEYS = [
   STORAGE_KEYS.listeningMockResults,
   STORAGE_KEYS.fullMockResults,
   STORAGE_KEYS.mockReviewSnapshots,
+  STORAGE_KEYS.manualReviewItems,
 ] as const;
 
 export function exportAllData(): string | null {
@@ -209,6 +215,7 @@ export function removeSingleWrong(questionId: string): void {
   entry.dismissedAt = new Date().toISOString();
   map[questionId] = entry;
   writeJSON(WRONG_STATUS_KEY, pruneDismissed(map));
+  removeManualReviewEntry(questionId);
 }
 
 // ─── Pruning ─────────────────────────────────────────────────────────────────
@@ -249,16 +256,81 @@ function pruneDismissed(map: WrongStatusMap): WrongStatusMap {
 }
 
 export function clearWrongAnswers(): void {
-  // Preserve full AnswerRecord history for dashboard; only clear wrong status map
+  // Preserve full AnswerRecord history for dashboard; clear review queues only.
   writeJSON(WRONG_STATUS_KEY, {});
+  writeJSON(MANUAL_REVIEW_KEY, []);
 }
 
-// IDs of wrong questions that should appear in daily review
+export type ManualReviewEntry = {
+  questionId: string;
+  skill_tag: SkillTag;
+  correctAnswer: Choice;
+  userAnswer?: Choice;
+  addedAt: string;
+  source: "mock-review";
+  snapshotId?: string;
+};
+
+function isManualReviewEntry(value: unknown): value is ManualReviewEntry {
+  if (!value || typeof value !== "object") return false;
+  const entry = value as Partial<ManualReviewEntry>;
+  return (
+    typeof entry.questionId === "string" &&
+    isSkillTag(entry.skill_tag) &&
+    isChoice(entry.correctAnswer) &&
+    (entry.userAnswer === undefined || isChoice(entry.userAnswer)) &&
+    typeof entry.addedAt === "string" &&
+    !Number.isNaN(Date.parse(entry.addedAt)) &&
+    entry.source === "mock-review" &&
+    (entry.snapshotId === undefined || typeof entry.snapshotId === "string")
+  );
+}
+
+export function getManualReviewEntries(): ManualReviewEntry[] {
+  const entries = readJSON<unknown>(MANUAL_REVIEW_KEY, []);
+  return Array.isArray(entries) ? entries.filter(isManualReviewEntry) : [];
+}
+
+export function addManualReviewEntry(
+  entry: Omit<ManualReviewEntry, "addedAt" | "source">,
+): void {
+  const all = getManualReviewEntries();
+  const now = new Date().toISOString();
+  const next: ManualReviewEntry = {
+    ...entry,
+    addedAt: now,
+    source: "mock-review",
+  };
+  const existingIndex = all.findIndex((item) => item.questionId === entry.questionId);
+  if (existingIndex >= 0) {
+    all[existingIndex] = next;
+  } else {
+    all.push(next);
+  }
+  writeJSON(MANUAL_REVIEW_KEY, all);
+}
+
+export function removeManualReviewEntry(questionId: string): void {
+  const next = getManualReviewEntries().filter((entry) => entry.questionId !== questionId);
+  writeJSON(MANUAL_REVIEW_KEY, next);
+}
+
+export function isManualReviewQuestion(questionId: string): boolean {
+  return getManualReviewEntries().some((entry) => entry.questionId === questionId);
+}
+
+// IDs of wrong/manual-review questions that should appear in daily review
 export function getReviewableIds(): string[] {
   const map = getWrongStatusMap();
-  return Object.entries(map)
-    .filter(([, e]) => !e.dismissed && e.status !== "mastered")
-    .map(([id]) => id);
+  const ids = new Set(
+    Object.entries(map)
+      .filter(([, e]) => !e.dismissed && e.status !== "mastered")
+      .map(([id]) => id),
+  );
+  for (const entry of getManualReviewEntries()) {
+    ids.add(entry.questionId);
+  }
+  return [...ids];
 }
 
 // Legacy alias used by quiz page
@@ -270,14 +342,17 @@ export type WrongBookEntry = {
   questionId: string;
   skill_tag: SkillTag;
   status: WrongBookStatus;
-  userAnswer: Choice;
+  userAnswer?: Choice;
   correctAnswer: Choice;
   lastAnsweredAt: string;
+  source?: "wrong" | "manual";
 };
 
 export function getWrongBookEntries(): WrongBookEntry[] {
   const statusMap = getWrongStatusMap();
   const allRecords = getAnswerRecords();
+  const manualEntries = getManualReviewEntries();
+  const manualIds = new Set(manualEntries.map((entry) => entry.questionId));
 
   // Latest wrong record per question
   const latestWrong = new Map<string, AnswerRecord>();
@@ -307,6 +382,7 @@ export function getWrongBookEntries(): WrongBookEntry[] {
 
   for (const [questionId, entry] of Object.entries(statusMap)) {
     if (entry.dismissed) continue;
+    if (entry.status === "mastered" && manualIds.has(questionId)) continue;
     const wrongRecord = latestWrong.get(questionId);
     if (!wrongRecord) continue; // no wrong record means it shouldn't be here
     result.push({
@@ -317,6 +393,21 @@ export function getWrongBookEntries(): WrongBookEntry[] {
       correctAnswer: wrongRecord.correctAnswer,
       lastAnsweredAt:
         latestAny.get(questionId)?.answeredAt ?? wrongRecord.answeredAt,
+      source: "wrong",
+    });
+  }
+
+  const existingIds = new Set(result.map((entry) => entry.questionId));
+  for (const entry of manualEntries) {
+    if (existingIds.has(entry.questionId)) continue;
+    result.push({
+      questionId: entry.questionId,
+      skill_tag: entry.skill_tag,
+      status: "new",
+      userAnswer: entry.userAnswer,
+      correctAnswer: entry.correctAnswer,
+      lastAnsweredAt: entry.addedAt,
+      source: "manual",
     });
   }
 

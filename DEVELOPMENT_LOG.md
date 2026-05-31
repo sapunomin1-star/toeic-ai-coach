@@ -1981,3 +1981,53 @@ IDs, answers, scoring, storage, routing, or mock logic changed.
 - `cd pipeline && ./node_modules/.bin/tsc --noEmit`: passed.
 - Common Simplified-Chinese glyph scan: no remaining matches in tracked app/data
   text after the cleanup pass.
+
+## Manual review queue from mock review - 2026-05-31
+
+### Scope
+
+Added a lightweight manual review path for questions that students got right
+but still want to revisit, especially guessed-correct mock questions. This is
+not a confidence system and does not create fake wrong answers.
+
+### Changes
+
+- **lib/storageCore.ts**: added `STORAGE_KEYS.manualReviewItems` with key
+  `toeic_manual_review_items_v1`.
+- **lib/storage.ts**: added a bounded metadata path for manual review entries
+  selected from mock review snapshots. `getReviewableIds()` now returns both
+  active wrong-book IDs and manual review IDs. `getWrongBookEntries()` surfaces
+  manual entries with `source: "manual"` and keeps true wrong records as the
+  source of truth when a question is already an active wrong item.
+- **app/mock-review/[snapshotId]/page.tsx**: each review item now has an
+  `加入複習` action. Once added, the button changes to `已在複習清單`.
+- **app/wrongbook/page.tsx**: wrongbook now also displays manual review entries,
+  labels them as `手動加入複習`, and lets the existing practice flow include
+  those questions.
+- **AGENTS.md**: documented the new manual review queue and the rule that mock
+  review must not create fake `AnswerRecord` rows or alter mock scores.
+
+### Design notes
+
+- Manual review entries store only the question ID, skill tag, correct answer,
+  optional user answer, source, snapshot ID, and timestamp. The canonical
+  question body still comes from the existing question bank.
+- Practicing a manual review item removes it from the manual queue via
+  `saveAnswer()`. If the student answers wrong during practice, the existing
+  wrong-status flow records it as a normal wrong item.
+- Clearing the wrongbook clears both wrong status and manual review queue, while
+  preserving `AnswerRecord` history for dashboard metrics.
+- Backup/export and clear-all-progress include `toeic_manual_review_items_v1`.
+
+### Verification
+
+- `./node_modules/.bin/tsc --noEmit`: passed.
+- `npm run lint`: passed.
+- `npm run build`: passed.
+- `cd pipeline && npm run check`: passed — 1125 questions, 0 integrity errors.
+- `cd pipeline && ./node_modules/.bin/tsc --noEmit`: passed.
+- `git diff --check`: passed.
+- Manual storage smoke: passed. `addManualReviewEntry()` surfaced the question
+  in `getReviewableIds()` and `getWrongBookEntries()`; a correct practice answer
+  removed the manual entry; an incorrect practice answer converted the item into
+  a normal wrong-book entry.

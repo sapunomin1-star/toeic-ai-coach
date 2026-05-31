@@ -42,7 +42,7 @@ export default function WrongBookPage() {
 
   function handleClear() {
     const ok = window.confirm(
-      "確定要清除所有錯題紀錄嗎？AnswerRecord 歷史仍保留，僅清除錯題狀態。"
+      "確定要清除所有錯題/複習紀錄嗎？AnswerRecord 歷史仍保留，僅清除錯題狀態與手動複習清單。"
     );
     if (!ok) return;
     clearWrongAnswers();
@@ -114,7 +114,7 @@ export default function WrongBookPage() {
 
       {entries.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-8 text-center text-sm text-slate-500">
-          目前沒有錯題，繼續加油 💪
+          目前沒有錯題或手動複習題，繼續加油 💪
         </div>
       ) : (
         <>
@@ -123,7 +123,7 @@ export default function WrongBookPage() {
               onClick={handlePracticeWrongQuestions}
               className="block w-full rounded-2xl bg-indigo-600 px-5 py-4 text-center text-base font-semibold text-white shadow-sm active:scale-[0.99]"
             >
-              練習目前錯題（{reviewableCount} 題）
+              練習目前複習題（{reviewableCount} 題）
             </button>
           )}
 
@@ -164,6 +164,11 @@ export default function WrongBookPage() {
                               {q.part}
                             </span>
                           )}
+                          {entry.source === "manual" && (
+                            <span className="rounded-full bg-indigo-50 px-2 py-0.5 font-medium text-indigo-700">
+                              手動加入複習
+                            </span>
+                          )}
                           <span className="ml-auto text-slate-400">
                             {dateStr}
                           </span>
@@ -178,8 +183,9 @@ export default function WrongBookPage() {
                             <div className="rounded-lg bg-rose-50 px-3 py-2 text-rose-800">
                               <p className="font-semibold">你的答案</p>
                               <p className="mt-0.5">
-                                {entry.userAnswer}.{" "}
-                                {q.choices[entry.userAnswer]}
+                                {entry.userAnswer
+                                  ? `${entry.userAnswer}. ${q.choices[entry.userAnswer]}`
+                                  : "未作答 / 自行加入"}
                               </p>
                             </div>
                             <div className="rounded-lg bg-emerald-50 px-3 py-2 text-emerald-800">
@@ -223,7 +229,7 @@ export default function WrongBookPage() {
               : "border border-rose-200 bg-white text-rose-600"
           }`}
         >
-          清除所有錯題紀錄
+          清除所有錯題/複習紀錄
         </button>
       </div>
     </div>

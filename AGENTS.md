@@ -87,6 +87,7 @@ Important scripts:
 - `lib/sessionStore.ts`: `createSessionStore` factory — one implementation backing the reading, listening, and full mock session+result stores.
 - `lib/mockStorage.ts` / `lib/fullMockStorage.ts`: reading+listening / full mock stores, built on `createSessionStore`.
 - `lib/mockReviewStorage.ts`: post-submit mock review snapshots (`toeic_mock_review_snapshots_v1`), compact per-question snapshots for exam review.
+- `lib/storage.ts`: also owns the manual review queue (`toeic_manual_review_items_v1`) for "加入複習" items selected from mock review.
 - `lib/mockShared.ts`: pure mock helpers shared by both runners (`audioGroupKey`, `formatTime`, `makeBreakdown`, `getGroupPosition`).
 - `lib/useMockAudioPacing.ts`: shared hook for the listening "no replay" + Part 3 countdown state machine used by both mock runners.
 - `lib/analysis.ts`: accuracy, mistake, timing, recommendation, Part 5/6/listening/reading analytics.
@@ -270,7 +271,7 @@ Items fixed in this pass:
 
 ### localStorage Rules
 
-- **All localStorage keys live in `STORAGE_KEYS` (`lib/storageCore.ts`); never change a key string without migration.** Current keys: `toeic_answer_records_v1`, `toeic_daily_plan_v1`, `toeic_wrong_status_v1`, `toeic_wrong_practice_plan_v1`, `toeic_vocabulary_progress_v1`, `toeic_vocabulary_daily_session_v1`, `toeic_mock_session_v1`, `toeic_mock_results_v1`, `toeic_listening_mock_session_v1`, `toeic_listening_mock_results_v1`, `toeic_full_mock_session_v1`, `toeic_full_mock_results_v1`, `toeic_mock_review_snapshots_v1`. Read/write through `readJSON`/`writeJSON` so QuotaExceededError handling is automatic — do not inline `localStorage` JSON parsing.
+- **All localStorage keys live in `STORAGE_KEYS` (`lib/storageCore.ts`); never change a key string without migration.** Current keys: `toeic_answer_records_v1`, `toeic_daily_plan_v1`, `toeic_wrong_status_v1`, `toeic_wrong_practice_plan_v1`, `toeic_vocabulary_progress_v1`, `toeic_vocabulary_daily_session_v1`, `toeic_mock_session_v1`, `toeic_mock_results_v1`, `toeic_listening_mock_session_v1`, `toeic_listening_mock_results_v1`, `toeic_full_mock_session_v1`, `toeic_full_mock_results_v1`, `toeic_mock_review_snapshots_v1`, `toeic_manual_review_items_v1`. Read/write through `readJSON`/`writeJSON` so QuotaExceededError handling is automatic — do not inline `localStorage` JSON parsing.
 - **Always catch QuotaExceededError.** localStorage is limited to 5-10MB. Silent failure = data loss.
 - **Mock test answers do NOT go to `toeic_answer_records_v1`** unless the user actually answered AND got it wrong. Null answers stay in mock session only.
 - **Wrong-book dismissed entries are pruned.** Entries with `dismissed: true` are removed after 90 days. Status map is capped at 500 entries, with dismissed entries evicted first.
@@ -314,6 +315,7 @@ and existing behavior were preserved (no migration).
 - Do not store audio/image binary data in localStorage; store metadata/URLs only. Media can 404 later, but the textual review must remain useful.
 - Keep snapshot retention bounded (currently 10 newest snapshots). Full mock snapshots are large; do not append unbounded data to localStorage.
 - Existing mock timing still has no per-question response time. `responseTimeMs` in review items is optional; do not change the exam flow just to populate it unless a future task explicitly asks.
+- Mock review can add a question to the manual review queue. This must not create a fake wrong `AnswerRecord` or change mock scores; it only stores enough metadata to surface the question in the wrongbook/review flow.
 
 ### Question queries
 - `data/questions.ts` `queryQuestions({ parts, skills, categories, difficulties, excludeIds })` is the unified filter; `getQuestionsByPart`/`getQuestionsBySkill`/`getQuestionsByCategory` are thin wrappers. Prefer it over ad hoc `.filter()`. `buildDailyPlan`/`buildMockTestPlan`/`buildListeningMockPlan` are unchanged.

@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { getMockReviewSnapshot } from "@/lib/mockReviewStorage";
 import { formatTime } from "@/lib/mockShared";
+import { addManualReviewEntry, getReviewableIds } from "@/lib/storage";
 import type {
   MockReviewQuestionSnapshot,
   MockReviewSnapshot,
@@ -47,11 +48,28 @@ function answerLabel(value?: Choice): string {
 function ReviewItem({
   item,
   index,
+  isReviewable,
+  snapshotId,
+  onAdded,
 }: {
   item: MockReviewQuestionSnapshot;
   index: number;
+  isReviewable: boolean;
+  snapshotId: string;
+  onAdded: (questionId: string) => void;
 }) {
   const choices = CHOICE_KEYS.filter((key) => item.choices[key]);
+
+  function handleAddReview() {
+    addManualReviewEntry({
+      questionId: item.questionId,
+      skill_tag: item.skill_tag,
+      correctAnswer: item.correctAnswer,
+      userAnswer: item.userAnswer,
+      snapshotId,
+    });
+    onAdded(item.questionId);
+  }
 
   return (
     <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
@@ -159,6 +177,19 @@ function ReviewItem({
         </div>
       </div>
 
+      <button
+        type="button"
+        onClick={handleAddReview}
+        disabled={isReviewable}
+        className={`mt-4 w-full rounded-xl px-4 py-2.5 text-sm font-semibold ${
+          isReviewable
+            ? "border border-emerald-200 bg-emerald-50 text-emerald-700"
+            : "bg-slate-900 text-white active:scale-[0.99]"
+        }`}
+      >
+        {isReviewable ? "已在複習清單" : "加入複習"}
+      </button>
+
       <div className="mt-4 rounded-xl border border-amber-100 bg-amber-50 p-3">
         <p className="text-xs font-semibold text-amber-800">Explanation</p>
         <p className="mt-1 whitespace-pre-wrap text-sm text-amber-950">
@@ -177,15 +208,25 @@ function ReviewItem({
 export default function MockReviewPage() {
   const params = useParams<{ snapshotId: string }>();
   const [snapshot, setSnapshot] = useState<MockReviewSnapshot | null>(null);
+  const [reviewableIds, setReviewableIds] = useState<Set<string>>(new Set());
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const id = window.setTimeout(() => {
       setSnapshot(getMockReviewSnapshot(params.snapshotId));
+      setReviewableIds(new Set(getReviewableIds()));
       setLoaded(true);
     }, 0);
     return () => window.clearTimeout(id);
   }, [params.snapshotId]);
+
+  function handleAdded(questionId: string) {
+    setReviewableIds((ids) => {
+      const next = new Set(ids);
+      next.add(questionId);
+      return next;
+    });
+  }
 
   const summary = useMemo(() => {
     if (!snapshot) return null;
@@ -248,7 +289,14 @@ export default function MockReviewPage() {
 
       <div className="space-y-4">
         {snapshot.items.map((item, index) => (
-          <ReviewItem key={item.questionId} item={item} index={index} />
+          <ReviewItem
+            key={item.questionId}
+            item={item}
+            index={index}
+            isReviewable={reviewableIds.has(item.questionId)}
+            snapshotId={snapshot.id}
+            onAdded={handleAdded}
+          />
         ))}
       </div>
 
