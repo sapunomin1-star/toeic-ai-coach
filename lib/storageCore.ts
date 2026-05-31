@@ -17,6 +17,7 @@ export const STORAGE_KEYS = {
   listeningMockResults: "toeic_listening_mock_results_v1",
   fullMockSession: "toeic_full_mock_session_v1",
   fullMockResults: "toeic_full_mock_results_v1",
+  mockReviewSnapshots: "toeic_mock_review_snapshots_v1",
 } as const;
 
 export type StorageKey = (typeof STORAGE_KEYS)[keyof typeof STORAGE_KEYS];

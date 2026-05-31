@@ -1834,3 +1834,121 @@ localStorage key changes, mock timing untouched.
 - Phase 2+ (not built): cause-driven daily plan, grammar variant-question track,
   careless precision retest, listening dictation, reading pacing, `trap` + distractor
   metadata, pre-answer confidence.
+
+## Grammar Variant Remediation — Phase 2 MVP - 2026-05-31
+
+### Scope
+
+First treatment loop built on top of Mistake Reason Phase 1. When a learner's
+wrong answers are labeled `mistakeReason: "grammar"`, the dashboard can launch a
+short set of same-skill *new variant questions* instead of simply re-serving the
+original wrong item. This phase is pure routing over the existing question bank:
+no new question generation, no SRS change, no mock-flow change.
+
+### Changes
+
+- **lib/analysis.ts**: added `getGrammarWeakSkills(records)`, which only counts
+  wrong records labeled `grammar`, filters to grammar-category skills, and sorts
+  by severity.
+- **lib/grammarRemediation.ts**: added `buildGrammarVariantPlan(records,
+  { maxQuestions = 5 })`. It excludes every already-attempted `questionId`, then
+  round-robins through same-skill pools via `queryQuestions`.
+- **lib/storage.ts**: added `startGrammarVariantPractice(questionIds)`, using
+  the existing wrong-practice plan key and returning `false` for an empty plan.
+- **lib/dashboardMetrics.ts** + **components/dashboard/ReasonBreakdownSection.tsx**
+  + **app/dashboard/page.tsx**: surfaced a "文法弱點複習" CTA inside the reason
+  analysis section. If all available same-skill variant questions were already
+  attempted, the page now alerts instead of opening an empty quiz.
+- **.codex-goals/phase2-grammar-variants.md**: recorded the Codex staged goal for
+  this feature.
+
+### Verification
+
+- `./node_modules/.bin/tsc --noEmit`, `npm run lint`, and `npm run build`: passed.
+- Behavior stays additive: no localStorage key changes, no schema migration, and
+  old answer records without `mistakeReason` are ignored by the grammar-remediation
+  selector.
+- Edge case handled: grammar weak skills may exist while no unseen same-skill
+  variants remain; the dashboard now shows an alert and does not navigate.
+
+## Git recovery — main restored missing Phase 1/2 work - 2026-05-31
+
+### Scope
+
+After PR #1 merged, `main` contained the architecture refactor but was missing
+the later Mistake Reason + Grammar Remediation commits. The work was not lost:
+the complete chain was still reachable at commit `092e15f`.
+
+### Recovery
+
+- Created and pushed safety branch `rescue/phase1-2-recovery` pointing at
+  `092e15f`.
+- Merged the rescue branch back into `main` with merge commit `d96d245`
+  (`fix: recover mistake reason and grammar remediation work`).
+- Verified `origin/main` now contains the recovered files, including:
+  `components/quiz/MistakeReasonChips.tsx`,
+  `components/dashboard/ReasonBreakdownSection.tsx`,
+  `lib/grammarRemediation.ts`, and `.codex-goals/phase2-grammar-variants.md`.
+- Kept the rescue branch on origin temporarily as insurance.
+
+### Verification
+
+- `./node_modules/.bin/tsc --noEmit`: passed.
+- `npm run lint`: passed.
+- `npm run build`: passed.
+- Local `main` was clean and matched `origin/main` after push.
+
+## Mock Review Snapshot MVP - 2026-05-31
+
+### Scope
+
+Post-exam review snapshot for completed mock exams. The goal is to preserve the
+exact question/answer state from the submitted mock so the learner can review
+what they saw and how they answered, including cases where a correct answer may
+have been guessed. This is intentionally **not** a confidence system, guessed
+flag system, AI analysis feature, or new dashboard.
+
+### Changes
+
+- **types/mock.ts**: added `MockReviewMode`, `MockReviewQuestionSnapshot`, and
+  `MockReviewSnapshot`; added optional `reviewSnapshotId?` to `MockTestResult`
+  and `FullMockResult` for backward-compatible linking.
+- **lib/storageCore.ts**: added `STORAGE_KEYS.mockReviewSnapshots` with key
+  `toeic_mock_review_snapshots_v1`.
+- **lib/mockReviewStorage.ts**: new bounded snapshot storage layer. It builds
+  compact per-question snapshots from the submitted question list, validates
+  snapshot reads, stores only metadata/URLs for media, and keeps the newest 10
+  snapshots to protect localStorage quota.
+- **components/MockTestRunner.tsx** and **components/FullMockRunner.tsx**:
+  on submit, build and save a review snapshot first; only attach
+  `reviewSnapshotId` to the result when the snapshot write succeeds. Existing
+  mock scoring/timing/session behavior is unchanged.
+- **app/mock-review/[snapshotId]/page.tsx**: new localStorage-backed review page
+  showing question text, user's answer, correct answer, correct/wrong status,
+  explanation, and available passage/transcript/image/audio metadata. Per-question
+  `responseTimeMs` is optional and currently displays as "尚未記錄" because mock
+  sessions do not yet track per-question timing.
+- **lib/storage.ts**: backup/export and "clear all progress" now include review
+  snapshots.
+- **AGENTS.md**: documented mock review snapshot conventions and updated storage
+  key / route guidance.
+
+### Verification
+
+- `./node_modules/.bin/tsc --noEmit`: passed.
+- `npm run lint`: passed.
+- `npm run build`: passed (14 app routes; `/mock-review/[snapshotId]` is dynamic).
+- `git diff --check`: passed.
+
+### Design notes / limits
+
+- Snapshot storage is separate from `toeic_mock_results_v1`,
+  `toeic_listening_mock_results_v1`, and `toeic_full_mock_results_v1` so result
+  summaries remain small and legacy results remain valid.
+- Snapshots store compact question data plus `questionId`, rather than only
+  `questionId + answer`, because future question-bank edits should not rewrite
+  what a student sees in an old review.
+- Audio/image binaries are never stored in localStorage; only URLs/metadata are
+  retained. Textual review remains useful even if media URLs later fail.
+- Existing historical mock results are not backfilled. Only newly submitted mock
+  exams receive a `reviewSnapshotId`.

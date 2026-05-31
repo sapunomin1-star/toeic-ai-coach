@@ -12,6 +12,10 @@ import {
 } from "@/data/questions";
 import { getAudioUrl, getImageUrl, getQuestionAudioUrl, hasMediaSupport } from "@/lib/media";
 import { audioGroupKey, formatTime, getGroupPosition, makeBreakdown } from "@/lib/mockShared";
+import {
+  buildMockReviewSnapshot,
+  saveMockReviewSnapshot,
+} from "@/lib/mockReviewStorage";
 import { saveAnswer as saveDailyAnswer } from "@/lib/storage";
 import {
   clearMockSession,
@@ -168,14 +172,17 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
       }
     }
 
-    const remainingAtSubmit = Math.max(0, endTime - Date.now());
+    const submittedTime = Date.now();
+    const remainingAtSubmit = Math.max(0, endTime - submittedTime);
+    const resultId = `mock-${mode}-${submittedTime}`;
+    const startedAt = new Date(endTime - config.durationMs).toISOString();
     const mockResult: MockTestResult = {
-      id: `mock-${mode}-${Date.now()}`,
+      id: resultId,
       mode,
       questionIds: questions.map((q) => q.id),
       answers,
       unansweredIds,
-      startedAt: new Date(endTime - config.durationMs).toISOString(),
+      startedAt,
       endTime: new Date(endTime).toISOString(),
       submittedAt: now,
       rawScore: correct,
@@ -186,6 +193,17 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
       partBreakdown: breakdown,
       timeUsedMs: config.durationMs - remainingAtSubmit,
     };
+    const reviewSnapshot = buildMockReviewSnapshot({
+      resultId,
+      mode,
+      questions,
+      answers,
+      startedAt,
+      submittedAt: now,
+    });
+    if (saveMockReviewSnapshot(reviewSnapshot)) {
+      mockResult.reviewSnapshotId = reviewSnapshot.id;
+    }
 
     saveMockResult(mockResult, mode);
     clearMockSession(mode);
@@ -545,7 +563,14 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
 
   // ─── RESULT ───────────────────────────────────────────────────
   if (phase === "result" && result) {
-    const { rawScore, scoreRange, partBreakdown, unansweredIds, timeUsedMs } = result;
+    const {
+      rawScore,
+      scoreRange,
+      partBreakdown,
+      unansweredIds,
+      timeUsedMs,
+      reviewSnapshotId,
+    } = result;
     const cefr = getCEFRForSection(
       scoreRange,
       mode === "listening" ? "listening" : "reading",
@@ -578,6 +603,15 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
             <p className={`mt-1 text-lg font-bold ${unansweredIds.length > 0 ? "text-rose-600" : "text-slate-800"}`}>{unansweredIds.length} 題</p>
           </div>
         </section>
+
+        {reviewSnapshotId && (
+          <Link
+            href={`/mock-review/${reviewSnapshotId}`}
+            className="block w-full rounded-2xl bg-indigo-600 px-5 py-4 text-center text-lg font-semibold text-white shadow-sm"
+          >
+            查看本次詳解
+          </Link>
+        )}
 
         <Link href="/" className="block w-full rounded-2xl bg-slate-900 px-5 py-4 text-center text-lg font-semibold text-white shadow-sm">
           返回桌面

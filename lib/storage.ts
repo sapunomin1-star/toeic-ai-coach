@@ -8,6 +8,7 @@ import type {
 } from "@/types/question";
 import { clearAllFullMockData } from "@/lib/fullMockStorage";
 import { clearAllMockData } from "@/lib/mockStorage";
+import { clearMockReviewSnapshots } from "@/lib/mockReviewStorage";
 import {
   STORAGE_KEYS,
   isBrowser,
@@ -95,6 +96,7 @@ export function clearAllProgress(): void {
     localStorage.removeItem(STORAGE_KEYS.vocabularyDailySession);
     clearAllMockData();
     clearAllFullMockData();
+    clearMockReviewSnapshots();
   } catch (e) {
     console.warn("[storage] Failed to clear all progress:", e);
   }
@@ -112,6 +114,7 @@ export const BACKUP_KEYS = [
   STORAGE_KEYS.readingMockResults,
   STORAGE_KEYS.listeningMockResults,
   STORAGE_KEYS.fullMockResults,
+  STORAGE_KEYS.mockReviewSnapshots,
 ] as const;
 
 export function exportAllData(): string | null {

@@ -77,6 +77,7 @@ Important scripts:
 - `app/quiz/page.tsx`: quiz runner, answer feedback, response-time recording, passage/transcript display, and plan cursor updates.
 - `app/wrongbook/page.tsx`: wrong-book grouping, removal, and wrong-question practice launch.
 - `app/dashboard/page.tsx`: study analytics, recommendations, vocabulary progress, and Part 5/6/listening/reading breakdowns.
+- `app/mock-review/[snapshotId]/page.tsx`: localStorage-backed mock review snapshot viewer for completed mock exams.
 - `app/vocabulary/page.tsx`: daily vocabulary flashcard flow.
 - `app/vocabulary-quiz/page.tsx`: vocabulary quiz UI and result persistence.
 - `data/questions.ts`: TOEIC question bank plus question selection helpers.
@@ -85,6 +86,7 @@ Important scripts:
 - `lib/storageCore.ts`: single source for localStorage keys (`STORAGE_KEYS`) and JSON primitives (`isBrowser`, `readJSON`, `writeJSON` with QuotaExceededError handling, `isChoice`, `isValidDate`). All storage modules build on this.
 - `lib/sessionStore.ts`: `createSessionStore` factory — one implementation backing the reading, listening, and full mock session+result stores.
 - `lib/mockStorage.ts` / `lib/fullMockStorage.ts`: reading+listening / full mock stores, built on `createSessionStore`.
+- `lib/mockReviewStorage.ts`: post-submit mock review snapshots (`toeic_mock_review_snapshots_v1`), compact per-question snapshots for exam review.
 - `lib/mockShared.ts`: pure mock helpers shared by both runners (`audioGroupKey`, `formatTime`, `makeBreakdown`, `getGroupPosition`).
 - `lib/useMockAudioPacing.ts`: shared hook for the listening "no replay" + Part 3 countdown state machine used by both mock runners.
 - `lib/analysis.ts`: accuracy, mistake, timing, recommendation, Part 5/6/listening/reading analytics.
@@ -183,6 +185,10 @@ Run these checks after meaningful changes:
    - `/dashboard`
    - `/vocabulary`
    - `/vocabulary-quiz`
+   - `/mock-test`
+   - `/listening-mock`
+   - `/full-mock`
+   - `/mock-review/[snapshotId]` after completing a new mock
 
 ## Known Environment Notes
 
@@ -264,7 +270,7 @@ Items fixed in this pass:
 
 ### localStorage Rules
 
-- **All localStorage keys live in `STORAGE_KEYS` (`lib/storageCore.ts`); never change a key string without migration.** Current keys: `toeic_answer_records_v1`, `toeic_daily_plan_v1`, `toeic_wrong_status_v1`, `toeic_wrong_practice_plan_v1`, `toeic_vocabulary_progress_v1`, `toeic_vocabulary_daily_session_v1`, `toeic_mock_session_v1`, `toeic_mock_results_v1`, `toeic_listening_mock_session_v1`, `toeic_listening_mock_results_v1`, `toeic_full_mock_session_v1`, `toeic_full_mock_results_v1`. Read/write through `readJSON`/`writeJSON` so QuotaExceededError handling is automatic — do not inline `localStorage` JSON parsing.
+- **All localStorage keys live in `STORAGE_KEYS` (`lib/storageCore.ts`); never change a key string without migration.** Current keys: `toeic_answer_records_v1`, `toeic_daily_plan_v1`, `toeic_wrong_status_v1`, `toeic_wrong_practice_plan_v1`, `toeic_vocabulary_progress_v1`, `toeic_vocabulary_daily_session_v1`, `toeic_mock_session_v1`, `toeic_mock_results_v1`, `toeic_listening_mock_session_v1`, `toeic_listening_mock_results_v1`, `toeic_full_mock_session_v1`, `toeic_full_mock_results_v1`, `toeic_mock_review_snapshots_v1`. Read/write through `readJSON`/`writeJSON` so QuotaExceededError handling is automatic — do not inline `localStorage` JSON parsing.
 - **Always catch QuotaExceededError.** localStorage is limited to 5-10MB. Silent failure = data loss.
 - **Mock test answers do NOT go to `toeic_answer_records_v1`** unless the user actually answered AND got it wrong. Null answers stay in mock session only.
 - **Wrong-book dismissed entries are pruned.** Entries with `dismissed: true` are removed after 90 days. Status map is capped at 500 entries, with dismissed entries evicted first.
@@ -301,6 +307,14 @@ and existing behavior were preserved (no migration).
 - `lib/useMockAudioPacing.ts` is the shared listening pacing state machine (consumed-audio sets, active group, Part 3 question-stem countdown). Both `MockTestRunner` and `FullMockRunner` use it; differences are passed as callbacks (`persistAudioGroup`, `persistQuestionAudio`, `onCountdownAdvance`) plus the `isListeningActive` gate. The no-replay rule still fires on `onPlaybackStart` (see Audio consumption rule).
 - `lib/mockShared.ts` holds the pure helpers; `components/PartBreakdownBars.tsx` renders the shared per-part result bars.
 
+### Mock review snapshots
+- Completed mock exams may create a compact review snapshot in `toeic_mock_review_snapshots_v1` via `lib/mockReviewStorage.ts`. Snapshot storage is separate from mock result history so score summaries stay small and backward-compatible.
+- `MockTestResult` and `FullMockResult` may contain optional `reviewSnapshotId`; legacy results without it remain valid and simply do not show a review link.
+- Store `questionId` plus the needed question fields (`question`, `choices`, `answer`, explanation, passage/transcript/media URLs) in the snapshot. Do not rely only on `getQuestionById` for historical review, because later question-bank edits would change what the student sees.
+- Do not store audio/image binary data in localStorage; store metadata/URLs only. Media can 404 later, but the textual review must remain useful.
+- Keep snapshot retention bounded (currently 10 newest snapshots). Full mock snapshots are large; do not append unbounded data to localStorage.
+- Existing mock timing still has no per-question response time. `responseTimeMs` in review items is optional; do not change the exam flow just to populate it unless a future task explicitly asks.
+
 ### Question queries
 - `data/questions.ts` `queryQuestions({ parts, skills, categories, difficulties, excludeIds })` is the unified filter; `getQuestionsByPart`/`getQuestionsBySkill`/`getQuestionsByCategory` are thin wrappers. Prefer it over ad hoc `.filter()`. `buildDailyPlan`/`buildMockTestPlan`/`buildListeningMockPlan` are unchanged.
 
@@ -336,6 +350,31 @@ from "re-feed the skill you miss" toward cause-specific remediation. Phase 1 is
 
 ### Display
 - `countMistakesByReason` (mock-excluded, labeled wrongs only) and `getReasonInsight` (headline + careless over-use guard; returns `null` under `MIN_LABELED_FOR_INSIGHT`) live in `lib/analysis.ts`; surfaced via `useDashboardMetrics` (`reasonBreakdown`, `reasonInsight`) and `components/dashboard/ReasonBreakdownSection.tsx`. The headline insight is the highest-value output — it is what turns the "measuring instrument" into a "coach".
+
+## Grammar Variant Remediation (Phase 2, 2026-05-31)
+
+First cause-specific treatment track after Mistake Reason Phase 1. When grammar
+errors cluster around a skill, the dashboard can launch a short practice set of
+same-skill **new variant questions** instead of asking the student to memorize
+the original wrong item.
+
+- `getGrammarWeakSkills(records)` in `lib/analysis.ts` looks only at wrong
+  records where `mistakeReason === "grammar"` and the skill category is
+  grammar. It sorts by severity.
+- `buildGrammarVariantPlan(records, { maxQuestions = 5 })` in
+  `lib/grammarRemediation.ts` uses `queryQuestions` to select same-skill
+  questions while excluding every question ID the learner has already attempted.
+  It round-robins across weak grammar skills so one dominant skill does not
+  consume the whole plan.
+- `startGrammarVariantPractice(questionIds)` in `lib/storage.ts` writes the
+  existing wrong-practice plan key. It returns `false` for an empty plan and does
+  not create a broken quiz session.
+- Dashboard wiring lives in `components/dashboard/ReasonBreakdownSection.tsx`
+  and `app/dashboard/page.tsx`: show the CTA only when grammar weak skills exist;
+  if all same-skill variants have already been attempted, alert the user instead
+  of navigating to an empty quiz.
+- This phase does not generate new questions and does not change SRS, dashboard
+  totals, mock behavior, or the `AnswerRecord` schema.
 
 ## Media Storage Rules
 

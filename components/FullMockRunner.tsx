@@ -37,6 +37,10 @@ import {
   getGroupPosition,
   makeBreakdown,
 } from "@/lib/mockShared";
+import {
+  buildMockReviewSnapshot,
+  saveMockReviewSnapshot,
+} from "@/lib/mockReviewStorage";
 import { useMockAudioPacing } from "@/lib/useMockAudioPacing";
 import type {
   FullMockResult,
@@ -156,12 +160,14 @@ export default function FullMockRunner() {
     const readingRange = rawToScaledRange(readingRaw, "reading");
     const startedTime = endTime - FULL_MOCK_DURATION_MS;
     const submittedTime = Date.now();
+    const resultId = `mock-full-${submittedTime}`;
+    const startedAt = new Date(startedTime).toISOString();
     const fullResult: FullMockResult = {
-      id: `mock-full-${submittedTime}`,
+      id: resultId,
       questionIds: questions.map((question) => question.id),
       answers,
       unansweredIds,
-      startedAt: new Date(startedTime).toISOString(),
+      startedAt,
       endTime: new Date(endTime).toISOString(),
       submittedAt: now,
       listeningRaw,
@@ -179,6 +185,17 @@ export default function FullMockRunner() {
         Math.max(0, Math.min(submittedTime, listeningEndsAt) - startedTime),
       ),
     };
+    const reviewSnapshot = buildMockReviewSnapshot({
+      resultId,
+      mode: "full",
+      questions,
+      answers,
+      startedAt,
+      submittedAt: now,
+    });
+    if (saveMockReviewSnapshot(reviewSnapshot)) {
+      fullResult.reviewSnapshotId = reviewSnapshot.id;
+    }
 
     saveFullMockResult(fullResult);
     clearFullMockSession();
@@ -732,6 +749,15 @@ export default function FullMockRunner() {
             </p>
           </div>
         </section>
+
+        {result.reviewSnapshotId && (
+          <Link
+            href={`/mock-review/${result.reviewSnapshotId}`}
+            className="block w-full rounded-2xl bg-indigo-600 px-5 py-4 text-center text-lg font-semibold text-white shadow-sm"
+          >
+            查看完整檢討
+          </Link>
+        )}
 
         <Link
           href="/"

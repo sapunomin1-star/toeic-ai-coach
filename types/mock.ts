@@ -1,7 +1,8 @@
-import type { Choice } from "@/types/question";
+import type { Choice, Question } from "@/types/question";
 import type { CEFRResult, ScoreRange } from "@/lib/toeicScoreEstimate";
 
 export type MockMode = "reading" | "listening";
+export type MockReviewMode = MockMode | "full";
 
 export type MockPartKey =
   | "Part 1"
@@ -64,6 +65,45 @@ export type MockTestResult = {
   };
   partBreakdown: MockPartBreakdown;
   timeUsedMs: number;
+  reviewSnapshotId?: string;
+};
+
+export type MockReviewQuestionSnapshot = {
+  questionId: string;
+  part: Question["part"];
+  question: string;
+  choices: Question["choices"];
+  correctAnswer: Choice;
+  userAnswer?: Choice;
+  isCorrect: boolean;
+  responseTimeMs?: number;
+  explanation_zh: string;
+  explanation_en?: string;
+  skill_tag: Question["skill_tag"];
+  difficulty: Question["difficulty"];
+  vocabulary?: string[];
+  transcript?: string;
+  passage?: string;
+  passage_group_id?: string;
+  passage_group_type?: Question["passage_group_type"];
+  passage_order?: number;
+  question_order?: number;
+  imageUrl?: string;
+  imageAlt?: string;
+  audioUrl?: string;
+  questionAudioUrl?: string;
+  audioChoices?: Question["audioChoices"];
+  audioScript?: string;
+};
+
+export type MockReviewSnapshot = {
+  id: string;
+  resultId: string;
+  mode: MockReviewMode;
+  startedAt: string;
+  submittedAt: string;
+  questionIds: string[];
+  items: MockReviewQuestionSnapshot[];
 };
 
 export type FullMockSection = "listening" | "reading";
@@ -105,4 +145,5 @@ export type FullMockResult = {
   leftAppDuringTest: boolean;
   timeUsedMs: number;
   listeningTimeUsedMs: number;
+  reviewSnapshotId?: string;
 };
