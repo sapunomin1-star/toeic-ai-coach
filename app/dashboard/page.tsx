@@ -18,6 +18,7 @@ import {
   VocabProgressSection,
   WeaknessSection,
 } from "@/components/dashboard/PerformanceSections";
+import ReasonBreakdownSection from "@/components/dashboard/ReasonBreakdownSection";
 import { VocabQuizSection } from "@/components/dashboard/VocabQuizSection";
 import { useDashboardMetrics } from "@/lib/dashboardMetrics";
 import { getFullMockResults } from "@/lib/fullMockStorage";
@@ -160,6 +161,10 @@ export default function DashboardPage() {
         dailyQuizStats={dailyQuizStats}
         randomQuizStats={randomQuizStats}
         reinforcementQuizStats={reinforcementQuizStats}
+      />
+      <ReasonBreakdownSection
+        reasonBreakdown={metrics.reasonBreakdown}
+        reasonInsight={metrics.reasonInsight}
       />
       <TomorrowRecommendation recommendation={metrics.recommendation} />
       <SkillErrorChart metrics={metrics} />
