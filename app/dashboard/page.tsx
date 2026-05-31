@@ -146,6 +146,8 @@ export default function DashboardPage() {
     const ids = buildGrammarVariantPlan(records);
     if (startGrammarVariantPractice(ids)) {
       router.push("/quiz");
+    } else {
+      alert("這些文法類型的題目你都練過了！換個弱點，或先去做今日訓練吧。");
     }
   }
 
