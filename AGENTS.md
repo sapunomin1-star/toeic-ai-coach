@@ -307,6 +307,36 @@ and existing behavior were preserved (no migration).
 ### Large pages
 - Split big client pages into a metrics hook + presentational section components. `app/dashboard/page.tsx` (was 1052 lines) is now a thin container: state + load effect + handlers + `useDashboardMetrics` + a list of `components/dashboard/*` sections. Preserve `useMemo` rules (Performance Rules) and ARIA when extracting.
 
+## Mistake Reason System (Phase 1, 2026-05-31)
+
+Diagnoses *why* an answer was wrong (not just which skill), so practice can move
+from "re-feed the skill you miss" toward cause-specific remediation. Phase 1 is
+**capture + display only** — later phases route causes into treatment tracks.
+
+### Data model
+- `MistakeReason = "vocab" | "grammar" | "comprehension" | "speed" | "careless" | "guess"` and `ReasonSource = "user" | "inferred"` in `types/question.ts`, with `MISTAKE_REASONS` + `MISTAKE_REASON_LABELS` (registry style — add a reason in one place). `"trap"` is intentionally deferred to a later phase (needs distractor metadata).
+- `AnswerRecord` gained **optional** `mistakeReason?` / `reasonSource?`. Only meaningful when `isCorrect === false`. Additive + backward-compatible: legacy records without them are valid (= unlabeled). `isAnswerRecord` validates them as "undefined passes, bad values rejected".
+- Reason is a property of **each attempt** (the AnswerRecord), not of the question — the same question re-done can fail for a different reason.
+
+### Inference (pre-select, never auto-commit silently)
+- `inferMistakeReason(question, record, isWeakWord?)` in `lib/analysis.ts` returns a suggested reason to pre-select in the chip UI, or `null` when there is no clear signal.
+- **speed: reading parts only (Part 5/6/7).** In `/quiz` the listening `responseTimeMs` includes audio playback, so it is NOT a usable speed signal — never infer speed for Part 1–4. Thresholds: `SLOW_THRESHOLD_MS`, `FAST_FLOOR_MS`, `PART_TIME_BUDGET_MS` (reading parts only).
+- **vocab is injected, not coupled.** `inferMistakeReason` takes an `isWeakWord?` predicate so `analysis.ts` stays pure (no `vocabularyStorage` import). The quiz page builds the predicate: weak word = in the bank AND SRS status `new`/`seen`/none (familiar/mastered are NOT weak).
+- Priority when several apply: **speed > vocab > careless.**
+
+### Capture UX (do NOT make it block or nag)
+- Chips appear **only in `/quiz`, only on wrong answers**, after the explanation card. `/quiz` is never a mock, so no mock gating is needed — and the mock runners must never show inline reason chips (protects timing).
+- Never blocks navigation: not choosing a chip still advances. The inferred reason is persisted as `"inferred"` on submit (so collection doesn't depend on a tap); tapping a chip upgrades it to `"user"`.
+- `MistakeReasonChips` uses progressive disclosure (≤3 primary + "其他原因" details), `role="radiogroup"`, and a Part-aware `comprehension` label ("聽不懂" for listening, "看不懂" for reading).
+- `responseTimeMs` for inference must come from the existing `handleSubmit` value — do not call `Date.now()` a second time.
+
+### Writeback + vocab routing
+- `updateLatestReason(questionId, reason, source)` in `lib/storage.ts` updates the **latest wrong attempt** for that question (scans from the end for `isCorrect === false`). No-op if none; **no side effects** on wrong-status/SRS — it only writes metadata.
+- vocab reason routes weak words into review via `bumpWordsToDueByWords(words)` in `lib/vocabularyStorage.ts`. **Safety red line:** it only pulls `seen`/`familiar` words' `nextReviewDate` *earlier* to today; it never touches `new`/`mastered`, never changes `status`/`intervalDays`/`consecutiveCorrect`, and is a no-op when nothing matches. Use the local `todayStr()` (not UTC `toISOString`).
+
+### Display
+- `countMistakesByReason` (mock-excluded, labeled wrongs only) and `getReasonInsight` (headline + careless over-use guard; returns `null` under `MIN_LABELED_FOR_INSIGHT`) live in `lib/analysis.ts`; surfaced via `useDashboardMetrics` (`reasonBreakdown`, `reasonInsight`) and `components/dashboard/ReasonBreakdownSection.tsx`. The headline insight is the highest-value output — it is what turns the "measuring instrument" into a "coach".
+
 ## Media Storage Rules
 
 Audio (Part 1/2/3/4) and images (Part 1) are stored in Vercel Blob, never in git.
