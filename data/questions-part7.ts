@@ -652,7 +652,7 @@ export const QUESTIONS_PART7: Question[] = [
       D: "Employees must collect reimbursements in person",
     },
     answer: "B",
-    explanation_zh: "推論題：「processed within 10 business days」大約是兩週，因此報銷款項在核准後約兩週發放。",
+    explanation_zh: "推論題：「processed within 10 business days」大約是兩週，因此報銷款項在核準後約兩週發放。",
     skill_tag: "reading_inference",
     difficulty: "B1",
     vocabulary: ["processed","business days","finance portal","cooperation","categorized"],

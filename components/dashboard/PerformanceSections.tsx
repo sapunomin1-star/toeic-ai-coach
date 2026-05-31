@@ -425,7 +425,7 @@ export function SkillErrorChart({ metrics }: { metrics: DashboardMetrics }) {
 
   return (
     <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-      <h2 className="mb-3 text-sm font-semibold">各 Skill 錯題分布</h2>
+      <h2 className="mb-3 text-sm font-semibold">各 Skill 錯題分佈</h2>
       {stats.total === 0 ? (
         <p className="text-sm text-slate-500">
           還沒有作答紀錄，先去做今日訓練吧。

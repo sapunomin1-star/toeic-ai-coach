@@ -1952,3 +1952,32 @@ flag system, AI analysis feature, or new dashboard.
   retained. Textual review remains useful even if media URLs later fail.
 - Existing historical mock results are not backfilled. Only newly submitted mock
   exams receive a `reviewSnapshotId`.
+
+## Traditional Chinese cleanup - 2026-05-31
+
+### Scope
+
+Normalized remaining Simplified Chinese text to Traditional Chinese across user
+visible strings and learning content. This was a text-only cleanup; no question
+IDs, answers, scoring, storage, routing, or mock logic changed.
+
+### Changes
+
+- Fixed a mixed-script UI typo in `/practice`: `錯题` → `錯題`.
+- Normalized dashboard copy: `錯題分布` → `錯題分佈`.
+- Converted Simplified Chinese explanation text in generated questions to
+  Traditional Chinese.
+- Normalized a small number of existing Part 5/7/listening explanations and
+  vocabulary meanings/examples.
+- Manually corrected OpenCC over-conversions such as `報名錶`, `錶轉折`,
+  `幹擾`, and accidental `瞭` usages where they made the sentence unnatural.
+
+### Verification
+
+- `./node_modules/.bin/tsc --noEmit`: passed.
+- `npm run lint`: passed.
+- `npm run build`: passed.
+- `cd pipeline && npm run check`: passed — 1125 questions, 0 integrity errors.
+- `cd pipeline && ./node_modules/.bin/tsc --noEmit`: passed.
+- Common Simplified-Chinese glyph scan: no remaining matches in tracked app/data
+  text after the cleanup pass.

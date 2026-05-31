@@ -137,7 +137,7 @@ export default function PracticePage() {
         <TaskRow
           emoji="💪"
           title="弱點補強"
-          desc={`${counts.weak} 題 · 依錯题分析自動挑選最弱文法`}
+          desc={`${counts.weak} 題 · 依錯題分析自動挑選最弱文法`}
           tag="Part 5"
           tagColor="rose"
         />
