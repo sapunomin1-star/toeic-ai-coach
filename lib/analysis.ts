@@ -1,5 +1,11 @@
-import type { AnswerRecord, SkillTag } from "@/types/question";
-import { SKILL_LABELS } from "@/types/question";
+import type {
+  AnswerRecord,
+  MistakeReason,
+  Part,
+  Question,
+  SkillTag,
+} from "@/types/question";
+import { MISTAKE_REASONS, SKILL_LABELS, getSkillCategory } from "@/types/question";
 
 const PART5_SKILLS = new Set<SkillTag>([
   "passive_voice",
@@ -83,6 +89,27 @@ export function getWeakestSkills(
     .filter((x) => x.mistakes > 0)
     .sort((a, b) => b.mistakes - a.mistakes)
     .slice(0, topN);
+}
+
+export function getGrammarWeakSkills(
+  records: AnswerRecord[],
+): { skill: SkillTag; wrongCount: number }[] {
+  const counts = new Map<SkillTag, number>();
+
+  for (const record of excludeMock(records)) {
+    if (
+      record.isCorrect ||
+      record.mistakeReason !== "grammar" ||
+      getSkillCategory(record.skill_tag) !== "grammar"
+    ) {
+      continue;
+    }
+    counts.set(record.skill_tag, (counts.get(record.skill_tag) ?? 0) + 1);
+  }
+
+  return [...counts.entries()]
+    .map(([skill, wrongCount]) => ({ skill, wrongCount }))
+    .sort((a, b) => b.wrongCount - a.wrongCount);
 }
 
 // ─── Time analytics ────────────────────────────────────────────────────────
@@ -507,4 +534,166 @@ export function getNextDayListeningMix(records: AnswerRecord[]): NextDayListenin
       : `根據最近 ${ADAPTIVE_RECENT_WINDOW} 題表現加強 ${boosted.join("、")}`;
 
   return { part1Count, part2Count, part3GroupCount, part4GroupCount, reason, boosted };
+}
+
+// ─── Mistake Reason System (Phase 1) ────────────────────────────────────────
+//
+// Pure analysis helpers: infer a suggested reason for a wrong answer, count
+// reasons for the dashboard, and produce the headline insight sentence. No
+// storage / UI / vocab-SRS coupling — vocab is injected via a predicate.
+
+/**
+ * Per-part answering time budgets (ms). Reading parts only: in /quiz the
+ * listening responseTimeMs includes audio playback, so it is NOT a usable
+ * speed signal. Kept for reference / future per-question pacing.
+ */
+export const PART_TIME_BUDGET_MS: Partial<Record<Part, number>> = {
+  "Part 5": 20_000,
+  "Part 6": 25_000,
+  "Part 7": 55_000,
+};
+
+/** Slower than this (reading parts) + wrong → infer "speed" (ran out of time). */
+export const SLOW_THRESHOLD_MS: Partial<Record<Part, number>> = {
+  "Part 5": 40_000,
+  "Part 6": 50_000,
+  "Part 7": 75_000,
+};
+
+/** Faster than this (reading parts) + wrong → infer "careless" (too quick to think). */
+export const FAST_FLOOR_MS: Partial<Record<Part, number>> = {
+  "Part 5": 5_000,
+  "Part 6": 6_000,
+  "Part 7": 10_000,
+};
+
+/**
+ * Suggest a mistake reason for a wrong answer, to pre-select in the chip UI.
+ * Best-effort and pure: returns null when there is no clear signal (let the
+ * learner decide).
+ *
+ * - speed: reading parts only (listening time includes audio playback).
+ * - vocab: only when an `isWeakWord` predicate is supplied (kept decoupled from
+ *   vocabularyStorage so this stays a pure function; wired in a later step).
+ * - careless: very fast + wrong, reading parts only (where "fast" is meaningful).
+ *
+ * Priority when several could apply: speed > vocab > careless.
+ */
+export function inferMistakeReason(
+  question: Pick<Question, "part" | "vocabulary">,
+  record: Pick<AnswerRecord, "isCorrect" | "responseTimeMs">,
+  isWeakWord?: (word: string) => boolean,
+): MistakeReason | null {
+  if (record.isCorrect) return null;
+
+  const ms = record.responseTimeMs;
+
+  const slow = SLOW_THRESHOLD_MS[question.part];
+  if (slow !== undefined && ms !== undefined && ms > slow) {
+    return "speed";
+  }
+
+  if (isWeakWord && question.vocabulary && question.vocabulary.length > 0) {
+    if (question.vocabulary.some((word) => isWeakWord(word))) {
+      return "vocab";
+    }
+  }
+
+  const floor = FAST_FLOOR_MS[question.part];
+  if (floor !== undefined && ms !== undefined && ms < floor) {
+    return "careless";
+  }
+
+  return null;
+}
+
+/**
+ * Count wrong answers by mistake reason (mock excluded). Only labeled wrongs
+ * are counted; legacy / unlabeled records are ignored. Every reason key is
+ * present (zero-filled) so the dashboard can render a stable list.
+ */
+export function countMistakesByReason(
+  records: AnswerRecord[],
+): Record<MistakeReason, number> {
+  const filtered = excludeMock(records);
+  const counts = {} as Record<MistakeReason, number>;
+  for (const reason of MISTAKE_REASONS) {
+    counts[reason] = 0;
+  }
+  for (const r of filtered) {
+    if (!r.isCorrect && r.mistakeReason) {
+      counts[r.mistakeReason] = (counts[r.mistakeReason] ?? 0) + 1;
+    }
+  }
+  return counts;
+}
+
+/** Minimum labeled wrong answers before an insight is shown (avoids 1/1 = 100%). */
+const MIN_LABELED_FOR_INSIGHT = 8;
+/** A reason at or above this share of labeled wrongs counts as dominant. */
+const DOMINANT_REASON_RATIO = 0.35;
+/** "careless" tagged at least this many times triggers the over-use guard. */
+const CARELESS_ABUSE_MIN = 5;
+
+/** Prescription clause appended after "你最近 N% 的錯…". */
+const REASON_PRESCRIPTION: Record<MistakeReason, string> = {
+  speed: "其實是「來不及」，不是不會。重心放在配速，分數最快上升。",
+  vocab: "卡在單字。先把弱字背起來，正確率會明顯回升。",
+  grammar: "集中在文法觀念。與其多寫題，不如先補對應觀念。",
+  comprehension: "是「看懂字卻抓不到意思」。重點在整段理解，不是單字量。",
+  careless: "是粗心。放慢一點、看完整句再作答，是最快的進步。",
+  guess: "是用猜的，代表底層觀念還沒建立，建議回頭把基礎補起來。",
+};
+
+/**
+ * Build the single dashboard headline from mistake-reason data, or null when
+ * there isn't enough labeled data to be meaningful.
+ *
+ * Priority:
+ *  1. fewer than MIN_LABELED_FOR_INSIGHT labeled wrongs → null
+ *  2. "careless" over-use guard (self-deception) → corrective insight
+ *  3. a dominant reason (>= 35%) → its prescription, with live percentage
+ *  4. otherwise → neutral "spread out" message
+ */
+export function getReasonInsight(records: AnswerRecord[]): string | null {
+  const filtered = excludeMock(records);
+  const labeledWrong = filtered.filter((r) => !r.isCorrect && r.mistakeReason);
+  if (labeledWrong.length < MIN_LABELED_FOR_INSIGHT) return null;
+
+  const counts = countMistakesByReason(records);
+
+  // (2) Over-use guard: many "careless" tags, but those skills still fail a lot.
+  if (counts.careless >= CARELESS_ABUSE_MIN) {
+    const skills = new Set(
+      labeledWrong
+        .filter((r) => r.mistakeReason === "careless")
+        .map((r) => r.skill_tag),
+    );
+    const onSkills = filtered.filter((r) => skills.has(r.skill_tag));
+    const accuracy =
+      onSkills.length === 0
+        ? 1
+        : onSkills.filter((r) => r.isCorrect).length / onSkills.length;
+    if (accuracy < 0.5) {
+      return "你把不少題標成「粗心」，但同類型一直錯——也許其實是觀念盲點？";
+    }
+  }
+
+  // (3) Dominant reason.
+  const total = labeledWrong.length;
+  let topReason: MistakeReason | null = null;
+  let topCount = 0;
+  for (const reason of MISTAKE_REASONS) {
+    if (counts[reason] > topCount) {
+      topCount = counts[reason];
+      topReason = reason;
+    }
+  }
+  if (topReason && topCount / total >= DOMINANT_REASON_RATIO) {
+    const pct = Math.round((topCount / total) * 100);
+    return `你最近 ${pct}% 的錯${REASON_PRESCRIPTION[topReason]}`;
+  }
+
+  // (4) Spread out.
+  return "你的錯誤原因蠻分散的，持續累積資料會更準。";
 }

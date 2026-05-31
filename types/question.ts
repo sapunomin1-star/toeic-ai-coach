@@ -96,6 +96,47 @@ export type Question = {
   audioScript?: string;
 };
 
+/**
+ * Mistake Reason System — why an answer was wrong, not just where.
+ *
+ * Each reason maps to a different remediation track (wired in later phases).
+ * Cognitive pipeline order: vocab → grammar → comprehension (understanding),
+ * then speed → careless → guess (execution / metacognition).
+ *
+ * Single source of truth: add a reason here and the union, list, and labels
+ * stay in sync. `trap` is intentionally deferred to Phase 2 (needs distractor
+ * metadata). `comprehension` is not split into listen/read — the UI picks the
+ * label by Part and aggregation derives the section.
+ */
+export type MistakeReason =
+  | "vocab" // didn't know the word(s)
+  | "grammar" // grammar concept not understood
+  | "comprehension" // understood words but not the meaning (listening or reading)
+  | "speed" // ran out of time
+  | "careless" // actually knew it, slipped / misread
+  | "guess"; // pure guess
+
+/** Whether a reason was confirmed by the learner or only inferred by the system. */
+export type ReasonSource = "user" | "inferred";
+
+export const MISTAKE_REASONS: MistakeReason[] = [
+  "vocab",
+  "grammar",
+  "comprehension",
+  "speed",
+  "careless",
+  "guess",
+];
+
+export const MISTAKE_REASON_LABELS: Record<MistakeReason, string> = {
+  vocab: "不會單字",
+  grammar: "文法不懂",
+  comprehension: "看不懂", // UI overrides to「聽不懂」for listening parts
+  speed: "來不及",
+  careless: "其實會選錯",
+  guess: "用猜的",
+};
+
 export type AnswerRecord = {
   questionId: string;
   userAnswer: Choice;
@@ -105,6 +146,12 @@ export type AnswerRecord = {
   answeredAt: string;
   responseTimeMs?: number;
   source?: "daily" | "mock";
+  /**
+   * Mistake Reason System (Phase 1). Only meaningful when `isCorrect === false`.
+   * Optional + additive: legacy records without these stay valid (= unlabeled).
+   */
+  mistakeReason?: MistakeReason;
+  reasonSource?: ReasonSource;
 };
 
 export const SKILL_LABELS: Record<SkillTag, string> = Object.fromEntries(

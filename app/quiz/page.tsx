@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import AudioPlayer from "@/components/AudioPlayer";
+import MistakeReasonChips from "@/components/quiz/MistakeReasonChips";
 import { buildDailyPlan, getQuestionById, getQuestionsByPart } from "@/data/questions";
 import {
   clearDailyPlan,
@@ -16,11 +17,21 @@ import {
   saveAnswer,
   saveDailyPlan,
   saveQuizPlan,
+  updateLatestReason,
 } from "@/lib/storage";
-import { getNextDayListeningMix, getWeakestSkills } from "@/lib/analysis";
+import {
+  getNextDayListeningMix,
+  getWeakestSkills,
+  inferMistakeReason,
+} from "@/lib/analysis";
 import { getAudioUrl, getImageUrl, getQuestionAudioUrl, hasMediaSupport } from "@/lib/media";
 import { getGroupPosition } from "@/lib/mockShared";
-import type { Choice, Question } from "@/types/question";
+import {
+  bumpWordsToDueByWords,
+  findVocabularyByWord,
+  getVocabularyProgress,
+} from "@/lib/vocabularyStorage";
+import type { Choice, MistakeReason, Question } from "@/types/question";
 import { SKILL_LABELS } from "@/types/question";
 import type { QuizPlanSource } from "@/lib/storage";
 
@@ -69,6 +80,8 @@ export default function QuizPage() {
   const [cursor, setCursor] = useState(0);
   const [selected, setSelected] = useState<Choice | null>(null);
   const [submittedChoice, setSubmittedChoice] = useState<Choice | null>(null);
+  const [inferredReason, setInferredReason] = useState<MistakeReason | null>(null);
+  const [selectedReason, setSelectedReason] = useState<MistakeReason | null>(null);
   const [sessionStats, setSessionStats] = useState({ correct: 0, total: 0 });
   const [failedAudioIds, setFailedAudioIds] = useState<Set<string>>(new Set());
   const [failedQuestionAudioIds, setFailedQuestionAudioIds] = useState<Set<string>>(new Set());
@@ -81,6 +94,18 @@ export default function QuizPage() {
   const submittedQuestionIds = useRef(new Set<string>());
   const questionStartTime = useRef<number>(0);
   const planSource = useRef<QuizPlanSource>("daily");
+
+  function buildIsWeakWord(): (word: string) => boolean {
+    const statusByWordId = new Map(
+      getVocabularyProgress().map((progress) => [progress.wordId, progress.status]),
+    );
+    return (word) => {
+      const item = findVocabularyByWord(word);
+      if (!item) return false;
+      const status = statusByWordId.get(item.id);
+      return status === undefined || status === "new" || status === "seen";
+    };
+  }
 
   useEffect(() => {
     const id = window.setTimeout(() => {
@@ -180,6 +205,25 @@ export default function QuizPage() {
       answeredAt: new Date().toISOString(),
       responseTimeMs,
     });
+    if (!isCorrect) {
+      const isWeakWord = buildIsWeakWord();
+      const inferred = inferMistakeReason(
+        { part: currentQuestion.part, vocabulary: currentQuestion.vocabulary },
+        { isCorrect: false, responseTimeMs },
+        isWeakWord,
+      );
+      setInferredReason(inferred);
+      setSelectedReason(null);
+      if (inferred) {
+        updateLatestReason(currentQuestion.id, inferred, "inferred");
+        if (inferred === "vocab") {
+          bumpWordsToDueByWords(currentQuestion.vocabulary ?? []);
+        }
+      }
+    } else {
+      setInferredReason(null);
+      setSelectedReason(null);
+    }
     setSubmittedChoice(selected);
     setSessionStats((s) => ({
       correct: s.correct + (isCorrect ? 1 : 0),
@@ -200,6 +244,8 @@ export default function QuizPage() {
     setCursor(nextCursor);
     setSelected(null);
     setSubmittedChoice(null);
+    setInferredReason(null);
+    setSelectedReason(null);
     setActiveAutoConversationId(null);
     questionStartTime.current = 0;
 
@@ -233,6 +279,15 @@ export default function QuizPage() {
       cursor: 0,
     });
     router.push("/practice");
+  }
+
+  function handleReasonSelect(reason: MistakeReason) {
+    if (!currentQuestion) return;
+    setSelectedReason(reason);
+    updateLatestReason(currentQuestion.id, reason, "user");
+    if (reason === "vocab") {
+      bumpWordsToDueByWords(currentQuestion.vocabulary ?? []);
+    }
   }
 
   if (status === "loading") {
@@ -599,6 +654,15 @@ export default function QuizPage() {
             </p>
           )}
         </div>
+      )}
+
+      {isAnswered && !isCorrect && currentQuestion && (
+        <MistakeReasonChips
+          part={currentQuestion.part}
+          inferredReason={inferredReason}
+          selectedReason={selectedReason}
+          onSelect={handleReasonSelect}
+        />
       )}
 
       {/* Post-answer audio script reveal + replay (listening only).

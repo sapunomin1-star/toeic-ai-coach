@@ -23,6 +23,18 @@ const SUPPRESS_NEW_THRESHOLD = 15;
 const MAX_REINFORCEMENT_ROUNDS = 2;
 const SRS_INTERVALS = [0, 1, 3, 7, 14, 30] as const;
 
+function normalizeVocabularyWord(word: string): string {
+  return word.trim().toLowerCase();
+}
+
+const VOCABULARY_BY_NORMALIZED_WORD = new Map<string, VocabularyItem>();
+for (const item of VOCABULARY) {
+  const normalized = normalizeVocabularyWord(item.word);
+  if (!VOCABULARY_BY_NORMALIZED_WORD.has(normalized)) {
+    VOCABULARY_BY_NORMALIZED_WORD.set(normalized, item);
+  }
+}
+
 function todayStr(): string {
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
@@ -238,6 +250,40 @@ export function getVocabularyProgress(): VocabularyProgress[] {
 
 export function saveVocabularyProgress(progress: VocabularyProgress[]): void {
   writeProgress(progress);
+}
+
+export function findVocabularyByWord(word: string): VocabularyItem | null {
+  if (typeof word !== "string") return null;
+  return VOCABULARY_BY_NORMALIZED_WORD.get(normalizeVocabularyWord(word)) ?? null;
+}
+
+export function bumpWordsToDueByWords(words: string[]): void {
+  if (!Array.isArray(words) || words.length === 0) return;
+
+  const wordIds = new Set<string>();
+  for (const word of words) {
+    if (typeof word !== "string") continue;
+    const item = findVocabularyByWord(word);
+    if (item) wordIds.add(item.id);
+  }
+  if (wordIds.size === 0) return;
+
+  const today = todayStr();
+  const progress = getVocabularyProgress();
+  let changed = false;
+
+  for (const entry of progress) {
+    if (!wordIds.has(entry.wordId)) continue;
+    if (entry.status !== "seen" && entry.status !== "familiar") continue;
+    if (entry.nextReviewDate <= today) continue;
+
+    entry.nextReviewDate = today;
+    changed = true;
+  }
+
+  if (changed) {
+    saveVocabularyProgress(progress);
+  }
 }
 
 export function getMasteredWordIds(): string[] {

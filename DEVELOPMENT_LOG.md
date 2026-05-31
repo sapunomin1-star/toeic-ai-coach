@@ -1753,3 +1753,84 @@ Reading" control to the full mock — both preserved.
 - Not runtime-tested here: listening "no replay" and the Part 3 countdown need
   a real browser + audio + user gesture. Recommend a manual smoke test of the
   listening mock and the full mock.
+
+## Mock return button → home ("返回桌面") - 2026-05-30
+
+### Scope
+
+UI fix on the three mock runners' preview/result screens.
+
+### Changes
+
+- `components/MockTestRunner.tsx` (reading + listening mock): preview and result
+  "返回 Dashboard" links now read "返回桌面" and navigate to `/` (home) instead of
+  `/dashboard`.
+- `components/FullMockRunner.tsx` (full mock): "返回首頁" relabeled "返回桌面" for
+  consistency (already navigated to `/`).
+- All three mock runners now return to the home screen with the same label.
+
+### Verification
+
+- `./node_modules/.bin/tsc --noEmit` and `npm run lint`: passed.
+
+## Mistake Reason System — Phase 1 MVP - 2026-05-31
+
+### Scope
+
+First step of turning the app from a "measuring instrument" into a "coach":
+capture *why* an answer was wrong (not just which skill), and surface the
+distribution + a headline insight on the dashboard. Phase 1 is capture +
+display only — cause-specific treatment tracks are deferred to later phases.
+Built in 7 reviewed steps (data → inference → writeback → vocab routing →
+capture UI → display → docs); each step was tsc/lint(/build) green before the
+next. All additive + backward-compatible: optional fields only, no
+localStorage key changes, mock timing untouched.
+
+### Changes
+
+- **types/question.ts**: `MistakeReason` / `ReasonSource` types, `MISTAKE_REASONS`,
+  `MISTAKE_REASON_LABELS`; `AnswerRecord` gains optional `mistakeReason` /
+  `reasonSource`.
+- **lib/storage.ts**: `isAnswerRecord` validates the new optional fields;
+  `updateLatestReason(questionId, reason, source)` updates the latest wrong
+  attempt for a question (no-op if none; no wrong-status/SRS side effects).
+- **lib/analysis.ts** (pure): `PART_TIME_BUDGET_MS` / `SLOW_THRESHOLD_MS` /
+  `FAST_FLOOR_MS`; `inferMistakeReason` (speed for reading parts only — listening
+  time includes audio playback; careless; vocab via injected `isWeakWord`
+  predicate; priority speed > vocab > careless); `countMistakesByReason`
+  (mock-excluded, labeled wrongs only); `getReasonInsight` (headline +
+  careless over-use guard; null under the min-sample threshold).
+- **lib/vocabularyStorage.ts**: `findVocabularyByWord` (normalized exact match,
+  prebuilt Map) + `bumpWordsToDueByWords` (pulls `seen`/`familiar` weak words to
+  due today via `todayStr()`; never touches `new`/`mastered` or other SRS fields;
+  no-op when nothing matches).
+- **components/quiz/MistakeReasonChips.tsx** + **app/quiz/page.tsx**: low-friction
+  chip UI (progressive disclosure, ARIA radiogroup, Part-aware comprehension
+  label) shown only on wrong answers in daily practice; never blocks navigation.
+  Inferred reason persisted on submit; vocab reason routes weak words into the
+  SRS due queue.
+- **lib/dashboardMetrics.ts** + **components/dashboard/ReasonBreakdownSection.tsx**
+  + **app/dashboard/page.tsx**: "錯誤原因分析" section — headline insight card +
+  per-reason bars sorted by frequency, empty state under threshold (0/0 guarded).
+- **AGENTS.md**: new "Mistake Reason System (Phase 1)" conventions section.
+
+### Verification
+
+- `./node_modules/.bin/tsc --noEmit`, `npm run lint`, `npm run build`: green after
+  every step and on the final tree (13 routes).
+- Backward compatibility: legacy `AnswerRecord`s without the new fields still pass
+  `isAnswerRecord` and render normally; mock answers stay excluded from the reason
+  distribution.
+- Not runtime-tested here: the chip flow and vocab routing need a real browser.
+  Recommend a manual smoke test — answer a daily question wrong, confirm/adjust a
+  chip, then check the dashboard "錯誤原因分析" section.
+
+### Known limitations / next
+
+- vocab routing is best-effort: question `vocabulary` strings are matched to the
+  bank by normalized exact word; misses (not in bank, inflected forms) are skipped.
+- `comprehension` / `grammar` / `guess` are captured but not auto-inferred (the
+  system can't see intent); `speed` / `careless` / `vocab` are pre-selected.
+- Phase 2+ (not built): cause-driven daily plan, grammar variant-question track,
+  careless precision retest, listening dictation, reading pacing, `trap` + distractor
+  metadata, pre-answer confidence.
