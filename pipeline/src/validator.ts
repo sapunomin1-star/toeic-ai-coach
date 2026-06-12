@@ -7,7 +7,7 @@ import { PART_LIST, SKILL_TAG_LIST } from "../../types/question";
 
 const VALID_CHOICES: Choice[] = ["A", "B", "C", "D"];
 const VALID_PART2_CHOICES: Choice[] = ["A", "B", "C"];
-const VALID_DIFFICULTY: Difficulty[] = ["A2", "B1", "B2"];
+const VALID_DIFFICULTY: Difficulty[] = ["A2", "B1", "B2", "C1"];
 
 export function validateQuestion(
   q: Partial<RawGeneratedQuestion>,
