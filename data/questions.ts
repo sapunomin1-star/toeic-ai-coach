@@ -268,12 +268,37 @@ function groupByPassage(questions: Question[]): Question[][] {
   );
 }
 
+/**
+ * Order a flat question pool so questions the user has NOT seen in a previous
+ * mock come first (each tier shuffled). Falls back to seen questions only
+ * when the unseen pool runs out — so repeat mocks stay possible on a finite
+ * bank but repetition is minimized.
+ */
+function shuffleUnseenFirst(pool: Question[], seenIds: ReadonlySet<string>): Question[] {
+  if (seenIds.size === 0) return shuffle(pool);
+  const unseen = pool.filter((q) => !seenIds.has(q.id));
+  const seen = pool.filter((q) => seenIds.has(q.id));
+  return [...shuffle(unseen), ...shuffle(seen)];
+}
+
+/** Same idea for question groups: a group counts as seen if ANY member was. */
+function shuffleUnseenGroupsFirst(
+  groups: Question[][],
+  seenIds: ReadonlySet<string>,
+): Question[][] {
+  if (seenIds.size === 0) return shuffle(groups);
+  const unseen = groups.filter((group) => group.every((q) => !seenIds.has(q.id)));
+  const seen = groups.filter((group) => group.some((q) => seenIds.has(q.id)));
+  return [...shuffle(unseen), ...shuffle(seen)];
+}
+
 function selectGroupsForTotal(groups: Question[][], target: number): Question[][] | null {
-  const shuffled = shuffle(groups);
+  // Caller controls ordering (unseen-first); iteration order biases which
+  // groups end up in the subset-sum solution.
   const sums = new Map<number, Question[][]>();
   sums.set(0, []);
 
-  for (const group of shuffled) {
+  for (const group of groups) {
     const snapshots = [...sums.entries()];
     for (const [sum, selected] of snapshots) {
       const nextSum = sum + group.length;
@@ -310,11 +335,14 @@ function assertMockPlan(plan: Question[]): void {
 /**
  * Build a 100-question mock test plan with strict part distribution:
  * Part 5 = 30, Part 6 = 16, Part 7 = 54 (single=29, double=10, triple=15).
+ *
+ * Pass `seenIds` (question ids answered in previous mocks) to bias selection
+ * toward unseen material; seen questions are only used as a fallback.
  */
-export function buildMockTestPlan(): Question[] {
+export function buildMockTestPlan(seenIds: ReadonlySet<string> = new Set()): Question[] {
   const errors: string[] = [];
 
-  const part5Qs = shuffle(getQuestionsByPart("Part 5")).slice(0, 30);
+  const part5Qs = shuffleUnseenFirst(getQuestionsByPart("Part 5"), seenIds).slice(0, 30);
   if (part5Qs.length < 30) {
     errors.push(`Part 5 只有 ${part5Qs.length}/30 題`);
   }
@@ -322,7 +350,7 @@ export function buildMockTestPlan(): Question[] {
   const p6Groups = groupByPassage(getQuestionsByPart("Part 6")).filter(
     (group) => group.length === 4
   );
-  const selectedP6 = shuffle(p6Groups).slice(0, 4);
+  const selectedP6 = shuffleUnseenGroupsFirst(p6Groups, seenIds).slice(0, 4);
   if (selectedP6.length < 4) {
     errors.push(`Part 6 只有 ${selectedP6.length}/4 valid groups`);
   }
@@ -338,18 +366,21 @@ export function buildMockTestPlan(): Question[] {
     (group) => getType(group) === "triple" && group.length === 5
   );
 
-  const selectedSingles = selectGroupsForTotal(singleGroups, 29);
+  const selectedSingles = selectGroupsForTotal(
+    shuffleUnseenGroupsFirst(singleGroups, seenIds),
+    29,
+  );
   if (!selectedSingles) {
     const available = singleGroups.reduce((sum, group) => sum + group.length, 0);
     errors.push(`Part 7 single 無法剛好組成 29 題 (available ${available})`);
   }
 
-  const selectedDoubles = shuffle(doubleGroups).slice(0, 2);
+  const selectedDoubles = shuffleUnseenGroupsFirst(doubleGroups, seenIds).slice(0, 2);
   if (selectedDoubles.length < 2) {
     errors.push(`Part 7 double 只有 ${selectedDoubles.length}/2 valid groups`);
   }
 
-  const selectedTriples = shuffle(tripleGroups).slice(0, 3);
+  const selectedTriples = shuffleUnseenGroupsFirst(tripleGroups, seenIds).slice(0, 3);
   if (selectedTriples.length < 3) {
     errors.push(`Part 7 triple 只有 ${selectedTriples.length}/3 valid groups`);
   }
@@ -414,16 +445,21 @@ function assertListeningMockPlan(plan: Question[]): void {
 /**
  * Build a 100-question TOEIC listening mock test plan.
  * Part 1 = 6, Part 2 = 25, Part 3 = 39 (13 groups × 3), Part 4 = 30 (10 groups × 3).
+ *
+ * Pass `seenIds` (question ids answered in previous mocks) to bias selection
+ * toward unseen material; seen questions are only used as a fallback.
  */
-export function buildListeningMockPlan(): Question[] {
+export function buildListeningMockPlan(
+  seenIds: ReadonlySet<string> = new Set(),
+): Question[] {
   const errors: string[] = [];
 
-  const part1Pool = shuffle(getQuestionsByPart("Part 1"));
+  const part1Pool = shuffleUnseenFirst(getQuestionsByPart("Part 1"), seenIds);
   if (part1Pool.length < 6) {
     errors.push(`Part 1 只有 ${part1Pool.length}/6 題`);
   }
 
-  const part2Pool = shuffle(getQuestionsByPart("Part 2"));
+  const part2Pool = shuffleUnseenFirst(getQuestionsByPart("Part 2"), seenIds);
   if (part2Pool.length < 25) {
     errors.push(`Part 2 只有 ${part2Pool.length}/25 題`);
   }
@@ -451,8 +487,8 @@ export function buildListeningMockPlan(): Question[] {
   const plan = [
     ...part1Pool.slice(0, 6),
     ...part2Pool.slice(0, 25),
-    ...shuffle(part3Groups).slice(0, 13).flat(),
-    ...shuffle(part4Groups).slice(0, 10).flat(),
+    ...shuffleUnseenGroupsFirst(part3Groups, seenIds).slice(0, 13).flat(),
+    ...shuffleUnseenGroupsFirst(part4Groups, seenIds).slice(0, 10).flat(),
   ];
   assertListeningMockPlan(plan);
   return plan;

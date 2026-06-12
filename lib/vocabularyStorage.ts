@@ -603,18 +603,50 @@ export function getTodayVocabulary(): VocabularyItem[] {
 
 // ─── Vocabulary quiz ───────────────────────────────────────────────────────
 
+/**
+ * `wrongPool` is consumed in priority order (best distractors first), so the
+ * caller controls plausibility; only the correct answer's position is random.
+ */
 function placeCorrect(
   correct: string,
   wrongPool: string[]
 ): { choices: string[]; correctIndex: number } {
-  const wrong = shuffleArr(
-    [...new Set(wrongPool)].filter((w) => w !== correct)
-  ).slice(0, 3);
+  const wrong = [...new Set(wrongPool)].filter((w) => w !== correct).slice(0, 3);
   while (wrong.length < 3) wrong.push("—");
   const pos = Math.floor(Math.random() * 4);
   const choices = [...wrong];
   choices.splice(pos, 0, correct);
   return { choices: choices.slice(0, 4), correctIndex: pos };
+}
+
+/**
+ * Distractors drawn uniformly from the whole bank are usually trivial to
+ * eliminate (wrong part of speech, unrelated topic), which turns a 4-choice
+ * quiz into a 2-choice one. Prefer words sharing part of speech AND topic
+ * category, then same part of speech, then anything — so the quiz measures
+ * whether the learner knows THIS word, not whether they can spot outliers.
+ */
+function buildDistractorPool(
+  target: VocabularyItem,
+  others: VocabularyItem[],
+  project: (item: VocabularyItem) => string,
+): string[] {
+  const samePosSameCat: VocabularyItem[] = [];
+  const samePos: VocabularyItem[] = [];
+  const rest: VocabularyItem[] = [];
+  for (const v of others) {
+    if (v.partOfSpeech === target.partOfSpeech) {
+      if (v.category === target.category) samePosSameCat.push(v);
+      else samePos.push(v);
+    } else {
+      rest.push(v);
+    }
+  }
+  return [
+    ...shuffleArr(samePosSameCat),
+    ...shuffleArr(samePos),
+    ...shuffleArr(rest),
+  ].map(project);
 }
 
 function escapeRegExp(s: string): string {
@@ -687,21 +719,27 @@ export function buildVocabularyQuiz(
         prompt = target.word;
         result = placeCorrect(
           target.meaning_zh,
-          others.map((v) => v.meaning_zh)
+          buildDistractorPool(target, others, (v) => v.meaning_zh)
         );
       } else {
         prompt = blank;
-        result = placeCorrect(target.word, others.map((v) => v.word));
+        result = placeCorrect(
+          target.word,
+          buildDistractorPool(target, others, (v) => v.word)
+        );
       }
     } else if (qType === "zh-to-en") {
       prompt = target.meaning_zh;
-      result = placeCorrect(target.word, others.map((v) => v.word));
+      result = placeCorrect(
+        target.word,
+        buildDistractorPool(target, others, (v) => v.word)
+      );
     } else {
       // en-to-zh
       prompt = target.word;
       result = placeCorrect(
         target.meaning_zh,
-        others.map((v) => v.meaning_zh)
+        buildDistractorPool(target, others, (v) => v.meaning_zh)
       );
     }
 

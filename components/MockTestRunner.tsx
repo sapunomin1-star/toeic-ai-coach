@@ -16,7 +16,7 @@ import {
   buildMockReviewSnapshot,
   saveMockReviewSnapshot,
 } from "@/lib/mockReviewStorage";
-import { saveAnswer as saveDailyAnswer } from "@/lib/storage";
+import { getMockSeenQuestionIds, saveAnswer as saveDailyAnswer } from "@/lib/storage";
 import {
   clearMockSession,
   getMockDurationMs,
@@ -59,7 +59,7 @@ type Config = {
   subtitle: string;
   examFlavor: string; // shown in result ("Reading" / "Listening")
   description: { emoji: string; text: string }[];
-  buildPlan: () => Question[];
+  buildPlan: (seenIds?: ReadonlySet<string>) => Question[];
 };
 
 function getConfig(mode: MockMode): Config {
@@ -110,7 +110,7 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
 
   function start() {
     try {
-      const plan = config.buildPlan();
+      const plan = config.buildPlan(getMockSeenQuestionIds());
       setQuestions(plan);
       const session = startMockSession(plan.map((q) => q.id), mode);
       setEndTime(new Date(session.endTime).getTime());

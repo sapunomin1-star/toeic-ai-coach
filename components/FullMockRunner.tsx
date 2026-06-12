@@ -24,7 +24,7 @@ import {
   startFullMockSession,
 } from "@/lib/fullMockStorage";
 import { getAudioUrl, getImageUrl, getQuestionAudioUrl, hasMediaSupport } from "@/lib/media";
-import { saveAnswer as saveDailyAnswer } from "@/lib/storage";
+import { getMockSeenQuestionIds, saveAnswer as saveDailyAnswer } from "@/lib/storage";
 import {
   getCEFRForSection,
   getTotalRange,
@@ -86,7 +86,8 @@ export default function FullMockRunner() {
 
   function start() {
     try {
-      const plan = [...buildListeningMockPlan(), ...buildMockTestPlan()];
+      const seenIds = getMockSeenQuestionIds();
+      const plan = [...buildListeningMockPlan(seenIds), ...buildMockTestPlan(seenIds)];
       const session = startFullMockSession(plan.map((question) => question.id));
       submittedRef.current = false;
       setQuestions(plan);

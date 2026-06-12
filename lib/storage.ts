@@ -163,16 +163,52 @@ export function importAllData(json: string): boolean {
   }
 }
 
+/**
+ * Question ids the user already answered in any previous mock. Mock plan
+ * builders use this to prefer unseen material, so a repeat mock measures
+ * ability rather than memory of the previous attempt.
+ */
+export function getMockSeenQuestionIds(): Set<string> {
+  return new Set(
+    getAnswerRecords()
+      .filter((record) => record.source === "mock")
+      .map((record) => record.questionId),
+  );
+}
+
 // ─── Wrong-book status (spaced repetition) ────────────────────────────────
+
+/**
+ * Review interval ladder (days). A wrong answer resets to the start; each
+ * correct answer climbs one rung. Re-drilling a question minutes after
+ * getting it wrong only proves short-term recall, so the daily review queue
+ * (getReviewableIds) only serves questions whose interval has elapsed.
+ */
+const WRONG_SRS_INTERVALS = [1, 3, 7, 14] as const;
 
 export type WrongStatusEntry = {
   status: WrongBookStatus;
   consecutiveCorrect: number;
+  /** Current SRS interval in days. Absent on legacy entries. */
+  intervalDays?: number;
+  /** YYYY-MM-DD due date. Absent (legacy) is treated as due now. */
+  nextReviewDate?: string;
   dismissed?: boolean;
   dismissedAt?: string;
 };
 
 export type WrongStatusMap = Record<string, WrongStatusEntry>;
+
+function localDateStr(offsetDays = 0): string {
+  const d = new Date();
+  d.setDate(d.getDate() + offsetDays);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+function isDueForReview(entry: WrongStatusEntry): boolean {
+  if (!entry.nextReviewDate) return true; // legacy entry → due now
+  return entry.nextReviewDate <= localDateStr();
+}
 
 export function getWrongStatusMap(): WrongStatusMap {
   return readJSON<WrongStatusMap>(WRONG_STATUS_KEY, {});
@@ -192,9 +228,22 @@ export function updateWrongStatus(
     entry.status = map[questionId] ? "reviewing" : "new";
     entry.consecutiveCorrect = 0;
     entry.dismissed = false; // re-surface if answered wrong again
+    entry.intervalDays = WRONG_SRS_INTERVALS[0];
+    entry.nextReviewDate = localDateStr(WRONG_SRS_INTERVALS[0]);
   } else {
     entry.consecutiveCorrect = (entry.consecutiveCorrect ?? 0) + 1;
-    if (entry.consecutiveCorrect >= 2) {
+    const currentIdx = WRONG_SRS_INTERVALS.indexOf(
+      (entry.intervalDays ?? 1) as (typeof WRONG_SRS_INTERVALS)[number],
+    );
+    const nextInterval =
+      WRONG_SRS_INTERVALS[
+        Math.min(currentIdx < 0 ? 1 : currentIdx + 1, WRONG_SRS_INTERVALS.length - 1)
+      ];
+    entry.intervalDays = nextInterval;
+    entry.nextReviewDate = localDateStr(nextInterval);
+    // Mastered = two correct answers with real spacing between them (interval
+    // has climbed past the first rung), not two answers in the same session.
+    if (entry.consecutiveCorrect >= 2 && nextInterval >= 3) {
       entry.status = "mastered";
     } else {
       entry.status = "improving";
@@ -319,12 +368,16 @@ export function isManualReviewQuestion(questionId: string): boolean {
   return getManualReviewEntries().some((entry) => entry.questionId === questionId);
 }
 
-// IDs of wrong/manual-review questions that should appear in daily review
+// IDs of wrong/manual-review questions that should appear in daily review.
+// SRS-gated: a question only re-enters the queue once its interval elapsed,
+// so "correct" answers prove retention rather than same-day recall.
 export function getReviewableIds(): string[] {
   const map = getWrongStatusMap();
   const ids = new Set(
     Object.entries(map)
-      .filter(([, e]) => !e.dismissed && e.status !== "mastered")
+      .filter(
+        ([, e]) => !e.dismissed && e.status !== "mastered" && isDueForReview(e),
+      )
       .map(([id]) => id),
   );
   for (const entry of getManualReviewEntries()) {
