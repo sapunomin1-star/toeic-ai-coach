@@ -143,6 +143,10 @@ export type IntegrityReport = {
   missingVocabulary: string[];
   missingTranscript: string[];
   missingPassage: string[];
+  /** Per-part answer-position skew violations, e.g. "Part 7: B=54% (118/220)". */
+  answerBalanceViolations: string[];
+  /** Incomplete question groups, e.g. "Part 3 transcript group has 2 questions". */
+  groupStructureViolations: string[];
   totalQuestions: number;
   passed: boolean;
 };
