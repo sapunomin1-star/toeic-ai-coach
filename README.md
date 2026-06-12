@@ -6,6 +6,10 @@
 ## 專案目標
 
 - 每日 Part 5/6/7 + 聽力練習，搭配錯題本、手動複習清單與弱點分析
+- 錯題採間隔複習（SRS：1/3/7/14 天），連續兩次「跨日」答對才算精熟；錯題本仍可隨時手動分組複習
+- 題庫涵蓋完整真考題型：P6 句子插入、P7 字義語境（closest in meaning）/ NOT / 句子定位 / 簡訊對話（含意圖題），難度 A2–C1
+- 全題庫答案位置平衡（每選項約 25%，由 pipeline integrity 強制檢查）
+- 模擬考優先抽「沒考過的題」；聽力模考音檔播畢後自動倒數推進（P1/P2 5 秒、P3/P4 8 秒），仿真考節奏
 - 半套模擬考：
   - Reading：100 題 / 75 分鐘 / Part 5-7
   - Listening：100 題 / 45 分鐘 / Part 1-4
@@ -111,6 +115,11 @@ npm run build
 cd pipeline && npm run check
 cd pipeline && npx tsc --noEmit
 ```
+
+`pipeline check` 除了重複 ID / 缺欄位檢查外，還會強制：
+
+- 各 Part 答案位置分布（四選一題每選項 18–32%；Part 2 每選項 25–42%）
+- 題組完整性（P3/P4 transcript 群組必為 3 題、P6 passage 群組必為 4 題）
 
 ## Vercel 部署注意事項
 
