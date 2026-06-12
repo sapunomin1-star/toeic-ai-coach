@@ -129,9 +129,18 @@ function normalizeP2(raw: unknown[]): ListeningQuestion[] {
   });
 }
 
-function flattenGroups(raw: unknown[], part: "3" | "4"): ListeningQuestion[] {
+/**
+ * `firstGroupIndex` is the absolute (bank-wide) index of the first group in
+ * `raw`; question 3's skill tag alternates by group parity so the new bank
+ * covers next-action AND inference questions (主旨/細節/推論/下一步 mix).
+ */
+function flattenGroups(
+  raw: unknown[],
+  part: "3" | "4",
+  firstGroupIndex = 0,
+): ListeningQuestion[] {
   const section = `Part ${part}` as const;
-  return raw.flatMap((groupValue) => {
+  return raw.flatMap((groupValue, groupIdx) => {
     const group = groupValue as { transcript?: string; questions?: ListeningQuestion[] };
     if (!group.transcript || !Array.isArray(group.questions)) return [];
     const transcript = part === "3"
@@ -149,8 +158,10 @@ function flattenGroups(raw: unknown[], part: "3" | "4"): ListeningQuestion[] {
       q.question_order = index + 1;
       q.skill_tag = [
         "listening_main_idea",
-        "listening_inference",
-        "listening_next_action",
+        "listening_detail",
+        (firstGroupIndex + groupIdx) % 2 === 0
+          ? "listening_next_action"
+          : "listening_inference",
       ][index] as RawGeneratedQuestion["skill_tag"];
       return q;
     });
@@ -177,24 +188,26 @@ function p2Prompt(batch: number, count: number, itemOffset = 0): string {
     "where question requiring a location",
     "who question requiring a person or department",
     "why question requiring a reason",
-    "how question requiring a method",
-    "yes/no question with a natural indirect answer",
-    "choice question using or",
-    "polite request requiring acceptance or inability",
+    "what or how question requiring a specific item, method, or quantity",
+    "yes/no question with a natural, possibly indirect answer",
+    "tag question ending in ', isn't it?' / ', didn't you?' or similar — exactly one response addresses the confirmation; neither wrong response may be readable as agreeing, disagreeing, or hedging",
+    "choice question using or, answered by picking one option or a natural alternative",
+    "statement (not a question) such as an observation or problem, requiring the one natural spoken reaction",
     "indirect question such as Could you tell me... requiring specific information",
-    "what question requiring a specific item or action",
   ];
   return `Create ${count} original TOEIC Part 2 question-response item${count === 1 ? "" : "s"} in a JSON object {"questions":[...]}.
 Each item has fields: question, choices {A,B,C}, answer, explanation_zh, difficulty, vocabulary, trapChoice, trapWord, trapReason.
 Set part to "Part 2" and skill_tag to "listening_response".
 Difficulty must be exactly one of "A2", "B1", or "B2".
-Use concise natural spoken workplace English. Mix WH, yes/no, embedded, statement-response, and choice questions.
+Use concise natural spoken workplace English. Mix WH, yes/no, tag, embedded, statement-response, and choice questions.
 For EVERY item, one wrong response must be a clear repeated-word trap: it repeats an exact key noun from the prompt but is grammatically or logically nonresponsive. For example, a time question about a report may have a wrong response discussing the report without giving a time. Do not use strained near-sounds. Set trapChoice to its wrong answer letter, trapWord to the exact shared word, and trapReason to why it cannot answer the prompt. In explanation_zh, explicitly name that shared word and why it is still wrong.
 The other wrong response must be natural spoken English but answer a different question type, not be an alternative reasonable reply.
 Silently verify before output that only one response is defensible in a real conversation; avoid vague replies such as "That sounds fine" when more than one prompt interpretation could fit.
+For tag and yes/no prompts this check is critical: neither wrong response may be readable as any form of agreement, disagreement, or hedged answer to the prompt — that creates two defensible answers.
 The only defensible answer letters in item order must be exactly: ${answers.join(", ")}.
 The required prompt form for this item is: ${questionForms[itemOffset % questionForms.length]}.
-Vary the situation using item index ${batch * 10 + itemOffset + 1}: meeting schedule, office supply, shipping, travel, invoice, facility, hiring, training, reservation, or customer service.
+Vary the situation using item index ${batch * 10 + itemOffset + 1}: office supplies, shipping and logistics, business travel, facilities or building maintenance, hiring, staff training, restaurant or hotel reservations, customer service, IT equipment, or marketing events.
+Never set the scene around scheduling a meeting or around invoices/billing; those contexts are overrepresented in the existing bank.
 Use Traditional Chinese explanations that state transcript logic and why distractors fail. Vocabulary is 3-5 English terms.
 Do not use recalled exam material. No fourth choice.`;
 }
@@ -227,9 +240,14 @@ function groupsPrompt(part: "3" | "4", firstGroup: number, groups: number): stri
 Each group is a ${kind}; use realistic ${scenario}. Before output, count the transcript words: aim for 90 words and keep it strictly between 80 and 105 spoken words, with a change/problem/contrast and at least two concrete details such as date, price, location, item, or deadline.
 ${part === "3" ? "Use 8-10 concise alternating turns. Every conversation turn must start on a new line with exactly W: or M:. Never use names, Woman:, Man:, or Speaker labels." : ""}
 Scenario focus for the first group in this request: ${focusedScenarios[firstGroup % focusedScenarios.length]}.
-For each group write exactly three questions in order: (1) purpose/main topic or setting, (2) detail/problem, (3) next action or conservative inference.
+For each group write exactly three questions in order: (1) purpose/main topic or setting, (2) an explicitly stated detail/problem, (3) as assigned below.
+Question 3 assignment: ${Array.from({ length: groups }, (_, index) =>
+    `group ${index + 1}: ${(firstGroup + index) % 2 === 0
+      ? "the most likely immediate next action"
+      : "a conservative inference directly supported by stated evidence (not a future action)"}`).join("; ")}.
+Never write a question that depends on a chart, table, graphic, or any visual; all evidence must be spoken in the transcript.
 Each question has fields question, choices {A,B,C,D}, answer, explanation_zh, difficulty, vocabulary, skill_tag.
-Allowed skill_tag values only: listening_main_idea, listening_inference, listening_next_action.
+Allowed skill_tag values only: listening_main_idea, listening_detail, listening_inference, listening_next_action.
 Difficulty must be exactly one of "A2", "B1", or "B2".
 For question 3, if the transcript mentions more than one future action, never use a second stated future action as a distractor for the immediate/most-likely next action; that would create two defensible choices.
 For question 2, prefer an explicitly stated cause, date, location, quantity, or requested item. If asking about a problem, the keyed answer must name the stated cause/problem itself, not merely a consequence or deadline.
@@ -322,7 +340,12 @@ function reviewerAccepts(review: { score: number; note: string }): boolean {
     .replace(/\bno [^.]*\b(?:ambiguity|unsupported|incorrect|contradictions?)[^.]*\.?/gi, "")
     .replace(/\bnot defensible\b/gi, "")
     .replace(/\bnot ambiguous\b/gi, "")
-    .replace(/\bcould be slightly ambiguous if[^.]*however[^.]*supports[^.]*\.?/gi, "");
+    .replace(/\bcould be slightly ambiguous if[^.]*however[^.]*supports[^.]*\.?/gi, "")
+    // Positive confirmations that echo the reviewer instructions ("each wrong
+    // choice is uniquely eliminable", "answers are uniquely supported") would
+    // otherwise false-positive the answer↔wrong proximity check below.
+    .replace(/\b(?:all|every|each)[^.]*\b(?:wrong choices?|distractors?)[^.]*\belimin[a-z]*[^.]*\.?/gi, "")
+    .replace(/\b(?:answers?|keys?)[^.]{0,60}\buniquely supported[^.]*\.?/gi, "");
   return (
     review.score >= 7 &&
     !/\bambig|debatable|less direct than ["']|unsupported|not (?:fully )?supported|(?:answer|key)[^.]{0,80}(?:incorrect|wrong)|(?:incorrect|wrong) (?:answer|key)|contradict|two .*defensible|both .*defensible|also defensible|also a plausible|immediate next step|multiple .*correct|fails? the required|violation|violating/i.test(concerns)
@@ -399,7 +422,7 @@ async function reviewBatch(
         return groups;
       }, []);
   const response = await deepseek(
-    `You are a strict independent TOEIC Part ${part} reviewer. Review only Part ${part}; do not comment on absent sections. Score this batch from 1 to 10. Reject ambiguity, unnatural spoken English, unsupported correct answers, or distractors that are also defensible. For Part 2, require one tempting wrong distractor per item that repeats an exact key word from the prompt while failing to answer the requested information; this repeated-word lure satisfies the required lexical trap and does not need to be a phonetic pun. For Part 3/4 require natural timing, concrete detail, and three coherent questions per transcript. Return JSON only: {"score":1-10,"note":"brief findings"}.`,
+    `You are a strict independent TOEIC Part ${part} reviewer. Review only Part ${part}; do not comment on absent sections. Score this batch from 1 to 10. Reject ambiguity, unnatural spoken English, unsupported correct answers, or distractors that are also defensible. For every item, verify each wrong choice is uniquely eliminable using the prompt/transcript alone. For Part 2, require one tempting wrong distractor per item that repeats an exact key word from the prompt while failing to answer the requested information; this repeated-word lure satisfies the required lexical trap and does not need to be a phonetic pun. For Part 2 tag questions and yes/no prompts, reject the batch if any wrong choice could be read as agreement, disagreement, or a hedged answer to the prompt (two defensible responses). For Part 3/4 require natural timing, concrete detail, and three coherent questions per transcript. Return JSON only: {"score":1-10,"note":"brief findings"}.`,
     JSON.stringify(input),
     0.1,
   );
@@ -458,7 +481,7 @@ async function generateBatch(
             `Reviewer findings: ${priorNote}\nReturn {"groups":[{"transcript":"...","questions":[...]}]} for these corrected groups:\n${JSON.stringify(groupedPayload(priorCandidate))}`,
             usage,
           );
-          candidate = flattenGroups((revision.groups as unknown[]) ?? [], part);
+          candidate = flattenGroups((revision.groups as unknown[]) ?? [], part, groupOffset);
         } else {
           const generatedGroups: ListeningQuestion[] = [];
           for (let group = 0; group < requested / 3; group++) {
@@ -470,7 +493,7 @@ async function generateBatch(
                 groupsPrompt(part, groupOffset + group, 1),
                 usage,
               );
-              const generated = flattenGroups((json.groups as unknown[]) ?? [], part);
+              const generated = flattenGroups((json.groups as unknown[]) ?? [], part, groupOffset + group);
               try {
                 validateBatch(generated, part, 3);
                 acceptedGroup = generated;
