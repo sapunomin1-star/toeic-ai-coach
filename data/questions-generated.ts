@@ -14294,4 +14294,2243 @@ export const GENERATED_QUESTIONS: Question[] = [
     "transcript": "Hello, team. This is a reminder that our mandatory staff training session will take place this Friday, October 27th, at 10 AM in Conference Room B. Please ensure you bring your laptops and any necessary documents. The training will cover the new software updates and how they impact our daily operations. Remember, this session is crucial for staying current with company procedures. If you have any questions, contact your department head by Thursday afternoon. We look forward to seeing everyone there.",
     "question_order": 3
   },
+  {
+  "question": "When will the new office chairs be delivered?",
+  "choices": {
+    "A": "They should arrive next Tuesday.",
+    "B": "The chairs are brand new and very comfortable.",
+    "C": "Yes, I can check the tracking for you."
+  },
+  "answer": "A",
+  "explanation_zh": "問題詢問新辦公室椅子的交貨時間，正確答案是A選項，指出預計交貨時間為下週二。B選項雖然提到了椅子這個詞，但它描述的是椅子的狀況而非交貨時間。C選項回答的是另一類問題，並未提供具體的交貨日期。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "delivered",
+    "office chairs",
+    "arrive"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-101",
+  "audioScript": "Q: When will the new office chairs be delivered?\n(A) They should arrive next Tuesday.\n(B) The chairs are brand new and very comfortable.\n(C) Yes, I can check the tracking for you."
+},
+  {
+  "question": "Where are the extra ink cartridges stored?",
+  "choices": {
+    "A": "They should last a few months.",
+    "B": "In the supply closet next to the printer paper.",
+    "C": "The printer needs servicing soon."
+  },
+  "answer": "B",
+  "explanation_zh": "問題詢問墨水匣存放的位置。選項B提供了具體的地點“在供應櫃中，靠近打印紙旁邊”，是唯一合理的答案。選項A提到墨水匣的使用時長，並未回答存放地點。選項C提到打印機需要維修，也未回答問題。選項A中出現的“should”不符合問題的“where”。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "store",
+    "supply",
+    "printer"
+  ],
+  "id": "p2-gen-102",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Where are the extra ink cartridges stored?\n(A) They should last a few months.\n(B) In the supply closet next to the printer paper.\n(C) The printer needs servicing soon."
+},
+  {
+  "question": "Who should I contact about ordering more office supplies?",
+  "choices": {
+    "A": "The office supplies are in the storage room.",
+    "B": "You need to fill out a request form.",
+    "C": "Speak with Karen in the procurement department."
+  },
+  "answer": "C",
+  "explanation_zh": "問題是詢問應該聯繫誰來訂購辦公用品。選項C提到應該聯繫採購部門的Karen，是正確的答案。選項A雖然提到office supplies這個詞，但只說明了這些用品的位置，並未回答應聯繫誰。選項B提到填寫申請表，與詢問聯絡人無關。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "contact",
+    "ordering",
+    "supplies"
+  ],
+  "id": "p2-gen-103",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Who should I contact about ordering more office supplies?\n(A) The office supplies are in the storage room.\n(B) You need to fill out a request form.\n(C) Speak with Karen in the procurement department."
+},
+  {
+  "question": "Why did the shipment get delayed?",
+  "choices": {
+    "A": "There was a problem with the customs paperwork.",
+    "B": "The shipment contains electronics.",
+    "C": "It was delivered yesterday."
+  },
+  "answer": "A",
+  "explanation_zh": "問題問的是\"為什麼貨物延遲？\"，正確答案是A，因為提到海關文件問題是造成延遲的原因。選項B提到\"shipment\"，但只是描述貨物的內容，並未解釋延遲原因。選項C提到昨天已送達，但未回答為何延遲的問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shipment",
+    "delayed",
+    "customs",
+    "paperwork",
+    "delivered"
+  ],
+  "id": "p2-gen-104",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Why did the shipment get delayed?\n(A) There was a problem with the customs paperwork.\n(B) The shipment contains electronics.\n(C) It was delivered yesterday."
+},
+  {
+  "question": "What type of printer paper are we using for the new office brochures?",
+  "choices": {
+    "A": "The brochures will be printed next month.",
+    "B": "It's the glossy type for better image quality.",
+    "C": "The brochures are in the marketing department."
+  },
+  "answer": "B",
+  "explanation_zh": "問題是詢問我們為新辦公室手冊使用哪種類型的打印紙。選項B提到使用的是光面類型，以獲得更好的圖像質量，直接回答了問題。選項A提到手冊會在下個月印刷，但沒有提到打印紙的類型，因此不正確。選項C提到手冊在市場部，雖然提到手冊（brochures），但這不是問題詢問的打印紙類型，所以仍然不正確。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "printer",
+    "brochures",
+    "glossy"
+  ],
+  "id": "p2-gen-105",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: What type of printer paper are we using for the new office brochures?\n(A) The brochures will be printed next month.\n(B) It's the glossy type for better image quality.\n(C) The brochures are in the marketing department."
+},
+  {
+  "question": "Did we order enough brochures for the upcoming marketing event?",
+  "choices": {
+    "A": "The event is scheduled for next Friday.",
+    "B": "Yes, the brochures are printed.",
+    "C": "I confirmed they were printed and shipped already."
+  },
+  "answer": "C",
+  "explanation_zh": "問題問的是是否訂購了足夠的宣傳冊。選項A提到活動時間，與訂購宣傳冊無關。選項B提到宣傳冊已經印刷，但未確認數量是否足夠。選項C確認宣傳冊已經印刷並發貨，因此是唯一正確的答案。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "brochures",
+    "marketing",
+    "event"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-106",
+  "audioScript": "Q: Did we order enough brochures for the upcoming marketing event?\n(A) The event is scheduled for next Friday.\n(B) Yes, the brochures are printed.\n(C) I confirmed they were printed and shipped already."
+},
+  {
+  "question": "You ordered new office chairs last week, didn't you?",
+  "choices": {
+    "A": "Yes, they should be delivered tomorrow.",
+    "B": "I thought the chairs were quite comfortable.",
+    "C": "The order was placed for the supplies."
+  },
+  "answer": "A",
+  "explanation_zh": "問題詢問的是上週是否訂購了新的辦公椅子，選項A回應了訂購並指出預計的交貨時間。選項B雖然提到“chairs”這個詞，但只是在陳述椅子的舒適度，沒有回答訂購的問題。選項C提到了“order”這個詞，但指的是訂購用品，而非回應訂購椅子的確認。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "ordered",
+    "office chairs",
+    "delivered",
+    "supplies"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-107",
+  "audioScript": "Q: You ordered new office chairs last week, didn't you?\n(A) Yes, they should be delivered tomorrow.\n(B) I thought the chairs were quite comfortable.\n(C) The order was placed for the supplies."
+},
+  {
+  "question": "Should we order more toner cartridges or continue using the ones we have?",
+  "choices": {
+    "A": "I haven't checked the printer today.",
+    "B": "Let's order more toner cartridges.",
+    "C": "The toner cartridges arrived last week."
+  },
+  "answer": "B",
+  "explanation_zh": "問題詢問是否應該訂購更多的碳粉匣或繼續使用現有的。選項A說自己還沒檢查打印機，不回答是否訂購。選項C提到上週到貨的碳粉匣，但問題是在於要不要訂購而非是否已經到貨。碳粉匣（toner cartridges）這個詞在C選項中使用，但C選項並未回答問題。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "order",
+    "toner cartridges",
+    "continue"
+  ],
+  "id": "p2-gen-108",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Should we order more toner cartridges or continue using the ones we have?\n(A) I haven't checked the printer today.\n(B) Let's order more toner cartridges.\n(C) The toner cartridges arrived last week."
+},
+  {
+  "question": "Our IT equipment inventory is running low.",
+  "choices": {
+    "A": "I can find out who ordered it.",
+    "B": "Yes, I saw the equipment last week.",
+    "C": "I'll place an order for more laptops today."
+  },
+  "answer": "C",
+  "explanation_zh": "此處的關鍵詞是“equipment”，但選項B雖然提到了“equipment”，卻未能解決問題，因為問題焦點在於庫存不足，而不是看到設備。選項C提供了具體的解決方案。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "inventory",
+    "running low",
+    "order",
+    "equipment",
+    "laptops"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-109",
+  "audioScript": "Q: Our IT equipment inventory is running low.\n(A) I can find out who ordered it.\n(B) Yes, I saw the equipment last week.\n(C) I'll place an order for more laptops today."
+},
+  {
+  "question": "Could you tell me where the new office supplies are stored?",
+  "choices": {
+    "A": "They're in the storage room next to the kitchen.",
+    "B": "We ordered office supplies last week.",
+    "C": "Yes, the office is on the third floor."
+  },
+  "answer": "A",
+  "explanation_zh": "問題詢問新辦公用品存放的地方。選項A指出它們在廚房旁邊的儲藏室，正確回答了問題。選項B雖提到\"office supplies\"（辦公用品），但只提到訂購時間，並未回答存放位置。選項C則回答了辦公室的位置，與問題無關。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "office supplies",
+    "storage room",
+    "kitchen"
+  ],
+  "id": "p2-gen-110",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Could you tell me where the new office supplies are stored?\n(A) They're in the storage room next to the kitchen.\n(B) We ordered office supplies last week.\n(C) Yes, the office is on the third floor."
+},
+  {
+  "question": "When will the new office chairs be delivered?",
+  "choices": {
+    "A": "We ordered the chairs last week.",
+    "B": "They should arrive by Thursday.",
+    "C": "The chairs are very comfortable."
+  },
+  "answer": "B",
+  "explanation_zh": "問題詢問新辦公椅的交貨時間。選項B提供了具體時間「週四」，正確回答問題。選項A重複「chairs」這個詞，但只是說明下訂單時間，無法回答交貨時間的問題。選項C描述椅子的舒適度，與問題無關。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "deliver",
+    "office chairs",
+    "arrive"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-111",
+  "audioScript": "Q: When will the new office chairs be delivered?\n(A) We ordered the chairs last week.\n(B) They should arrive by Thursday.\n(C) The chairs are very comfortable."
+},
+  {
+  "question": "Where can I find the office supply closet?",
+  "choices": {
+    "A": "It should arrive by next week.",
+    "B": "The office supply order has been placed.",
+    "C": "It's next to the conference room."
+  },
+  "answer": "C",
+  "explanation_zh": "問題詢問辦公室物品櫃的位置。選項A提到一個預估到達時間，並未回答位置問題。選項B提到辦公室用品訂單，重複了“supply”這個字，但無法回答位置問題。選項C提供了具體位置，才是正確答案。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "office",
+    "supply",
+    "closet"
+  ],
+  "id": "p2-gen-112",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Where can I find the office supply closet?\n(A) It should arrive by next week.\n(B) The office supply order has been placed.\n(C) It's next to the conference room."
+},
+  {
+  "question": "Who should I contact to get the broken printer fixed?",
+  "choices": {
+    "A": "You should speak with the IT department.",
+    "B": "The printer is next to the copier.",
+    "C": "I think it was fixed last month."
+  },
+  "answer": "A",
+  "explanation_zh": "問題詢問誰能修理壞掉的印表機。選項A提到IT部門，合乎邏輯。選項B提到印表機的位置，但並未答覆誰負責修理。選項C說印表機上個月修好了，並沒有回答誰應被聯絡。重複的單詞是“printer”，但選項B未回答問題，故此為錯誤解答。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "contact",
+    "fixed",
+    "department"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-113",
+  "audioScript": "Q: Who should I contact to get the broken printer fixed?\n(A) You should speak with the IT department.\n(B) The printer is next to the copier.\n(C) I think it was fixed last month."
+},
+  {
+  "question": "Why did the shipment get delayed?",
+  "choices": {
+    "A": "The shipment includes electronics.",
+    "B": "There was a problem with customs clearance.",
+    "C": "We sent the shipment last week."
+  },
+  "answer": "B",
+  "explanation_zh": "問題詢問貨物延遲的原因。選項 B 提供了明確的原因，表示海關清關出現問題。選項 A 提到貨物中包含電子產品，但這不是貨物延遲的原因。選項 C 提供了與時間有關的資訊，但並未解釋延遲的原因。選項 A 中的 'shipment' 是一個陷阱詞，因為雖然提到了貨物，但未能回答延遲的原因。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shipment",
+    "delayed",
+    "customs"
+  ],
+  "id": "p2-gen-114",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Why did the shipment get delayed?\n(A) The shipment includes electronics.\n(B) There was a problem with customs clearance.\n(C) We sent the shipment last week."
+},
+  {
+  "question": "What kind of paper do we need to order for the printers?",
+  "choices": {
+    "A": "We should check the printer settings first.",
+    "B": "The new paper will be delivered tomorrow.",
+    "C": "We need more A4 paper."
+  },
+  "answer": "C",
+  "explanation_zh": "問題是詢問需要訂購哪種紙張。選項C提供了具體的紙張類型'A4 paper'，回答了問題。選項A提到檢查印表機設定，並未回答需要訂購哪種紙張。選項B提到了紙張的交付時間，即便包含了'paper'這個字，但並未說明需要訂購的紙張類型，因此不符合問題要求。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "order",
+    "printers",
+    "paper"
+  ],
+  "id": "p2-gen-115",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: What kind of paper do we need to order for the printers?\n(A) We should check the printer settings first.\n(B) The new paper will be delivered tomorrow.\n(C) We need more A4 paper."
+},
+  {
+  "question": "Did the new office chairs arrive yet?",
+  "choices": {
+    "A": "Yes, they were delivered this morning.",
+    "B": "The chairs are adjustable.",
+    "C": "They should arrive by the end of the month."
+  },
+  "answer": "A",
+  "explanation_zh": "問題是詢問新辦公椅是否已經到達，選項A表示椅子今天早上已經送到，是正確的回答。選項B提到椅子是可調整的，使用了共同的詞“chairs”，但沒有回答椅子是否到達的問題。選項C則回答了不同的問題類型，並非直接回答是否已經到達。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "arrive",
+    "delivered",
+    "adjustable"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-116",
+  "audioScript": "Q: Did the new office chairs arrive yet?\n(A) Yes, they were delivered this morning.\n(B) The chairs are adjustable.\n(C) They should arrive by the end of the month."
+},
+  {
+  "question": "You ordered new office supplies, didn't you?",
+  "choices": {
+    "A": "The supplies are in the storage room.",
+    "B": "Yes, they should be delivered by tomorrow.",
+    "C": "I called the supplier last week."
+  },
+  "answer": "B",
+  "explanation_zh": "問題問的是對新辦公用品的訂購確認，B選項直接回應了確認並提供了相關細節。而A選項提到'supplies'這個關鍵詞，但僅告知位置，並未回答訂購的確認。C選項對應的是其他問題類型，與確認無關。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "ordered",
+    "supplies",
+    "delivered"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-117",
+  "audioScript": "Q: You ordered new office supplies, didn't you?\n(A) The supplies are in the storage room.\n(B) Yes, they should be delivered by tomorrow.\n(C) I called the supplier last week."
+},
+  {
+  "question": "Do you want the new computers delivered today or tomorrow?",
+  "choices": {
+    "A": "The computers are in the IT department.",
+    "B": "Yes, they were quite expensive.",
+    "C": "Please have them delivered tomorrow."
+  },
+  "answer": "C",
+  "explanation_zh": "問題問的是希望新電腦今天還是明天送到，選項C是唯一選擇了一個時間（明天）的答案。選項A提到電腦但沒有回答時間問題；選項B完全不涉及時間。選項A中的“computers”是重複用詞陷阱，問題問時間，但A只是提到電腦的所在位置，沒有回答問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "delivered",
+    "computers",
+    "tomorrow"
+  ],
+  "id": "p2-gen-118",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Do you want the new computers delivered today or tomorrow?\n(A) The computers are in the IT department.\n(B) Yes, they were quite expensive.\n(C) Please have them delivered tomorrow."
+},
+  {
+  "question": "The printer is out of ink again.",
+  "choices": {
+    "A": "I'll order new cartridges right away.",
+    "B": "The printer has been there for years.",
+    "C": "It should arrive by tomorrow."
+  },
+  "answer": "A",
+  "explanation_zh": "這裡的問題是打印機的墨水又用完了，所以最自然的反應是趕快去訂購新的墨盒。選項 B 提到“printer（打印機）”這個詞，但它只是指出打印機的存在時間，無法回應問題。選項 C 則是在回答有關到貨時間的問題，與墨水用完無關。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "printer",
+    "ink",
+    "cartridges"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-119",
+  "audioScript": "Q: The printer is out of ink again.\n(A) I'll order new cartridges right away.\n(B) The printer has been there for years.\n(C) It should arrive by tomorrow."
+},
+  {
+  "question": "Could you tell me where the office supplies are stored?",
+  "choices": {
+    "A": "Yes, I just ordered more supplies.",
+    "B": "In the cabinet next to the printer.",
+    "C": "They're for the marketing team."
+  },
+  "answer": "B",
+  "explanation_zh": "問題詢問的是辦公用品存放的地點。選項B提供了具體的位置信息。在選項A中，\"supplies\"這個詞重複出現，但該回答只是說明訂購的情況，並未提供地點資訊。選項C則回答了另一個問題，並未涉及地點。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "office supplies",
+    "stored",
+    "cabinet"
+  ],
+  "id": "p2-gen-120",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Could you tell me where the office supplies are stored?\n(A) Yes, I just ordered more supplies.\n(B) In the cabinet next to the printer.\n(C) They're for the marketing team."
+},
+  {
+  "question": "When will the new office chairs be delivered?",
+  "choices": {
+    "A": "We ordered thirty chairs.",
+    "B": "The chairs are very comfortable.",
+    "C": "They should arrive next Tuesday."
+  },
+  "answer": "C",
+  "explanation_zh": "問題詢問的是交付椅子的具體時間。選項C提供了具體時間“下週二”，因此是正確答案。選項A重複了“chairs”這個詞，但只是提到訂購數量，沒有回答交付時間。選項B提到椅子的舒適性，完全偏離問題焦點。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "chairs",
+    "delivered",
+    "arrive"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-121",
+  "audioScript": "Q: When will the new office chairs be delivered?\n(A) We ordered thirty chairs.\n(B) The chairs are very comfortable.\n(C) They should arrive next Tuesday."
+},
+  {
+  "question": "Where can I find the new office supplies catalog?",
+  "choices": {
+    "A": "It's on the supply manager's desk.",
+    "B": "The office supplies are running low.",
+    "C": "You can order it online."
+  },
+  "answer": "A",
+  "explanation_zh": "問題詢問新辦公用品目錄的位置。選項A提到目錄在供應經理的桌子上，是正確的。選項B雖然提到\"office supplies\"（辦公用品），但並未回答目錄的位置，僅陳述一個事實，故不正確。選項C回答了一個不同的問題，並未提供實際位置，因此不合適。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "catalog",
+    "supply",
+    "manager"
+  ],
+  "id": "p2-gen-122",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Where can I find the new office supplies catalog?\n(A) It's on the supply manager's desk.\n(B) The office supplies are running low.\n(C) You can order it online."
+},
+  {
+  "question": "Who is responsible for ordering office supplies?",
+  "choices": {
+    "A": "They're delivered every Tuesday.",
+    "B": "That would be Emily from procurement.",
+    "C": "The office supplies are in the storage room."
+  },
+  "answer": "B",
+  "explanation_zh": "問題詢問誰負責訂購辦公用品。選項B回答了這個問題，指出是採購部門的Emily負責。選項A提到了交貨時間，但並未回答誰負責訂購。選項C提到了‘office supplies’（辦公用品），但只描述了物品的存放地點，並未回答誰負責。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "responsible",
+    "ordering",
+    "procurement"
+  ],
+  "id": "p2-gen-123",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Who is responsible for ordering office supplies?\n(A) They're delivered every Tuesday.\n(B) That would be Emily from procurement.\n(C) The office supplies are in the storage room."
+},
+  {
+  "question": "Why did the printer stop working?",
+  "choices": {
+    "A": "The report isn't finished yet.",
+    "B": "Because it was delivered yesterday.",
+    "C": "It ran out of paper."
+  },
+  "answer": "C",
+  "explanation_zh": "問題詢問打印機為什麼停止工作。選項A提到“報告”但並沒有回答為什麼打印機停止工作。選項B提到“交付”，但這與打印機停止工作的原因無關。正確答案是C，它解釋了打印機沒有紙張。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "printer",
+    "working",
+    "stop",
+    "paper",
+    "delivered"
+  ],
+  "id": "p2-gen-124",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Why did the printer stop working?\n(A) The report isn't finished yet.\n(B) Because it was delivered yesterday.\n(C) It ran out of paper."
+},
+  {
+  "question": "What kind of office supplies do we need to order?",
+  "choices": {
+    "A": "We need more printer paper and pens.",
+    "B": "The office is on the second floor.",
+    "C": "The supplies were delivered yesterday."
+  },
+  "answer": "A",
+  "explanation_zh": "問題問的是需要訂購哪種辦公用品。選項A回答了具體需要的用品：紙和筆。選項B提到“office”這個詞，但回答的是辦公室的位置，與問題無關。選項C提到“supplies”，但回答了什麼時候送達的，與需要訂購的用品無關。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "office supplies",
+    "order",
+    "printer paper",
+    "pens"
+  ],
+  "id": "p2-gen-125",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: What kind of office supplies do we need to order?\n(A) We need more printer paper and pens.\n(B) The office is on the second floor.\n(C) The supplies were delivered yesterday."
+},
+  {
+  "question": "Did the new office supplies arrive yet?",
+  "choices": {
+    "A": "The office is on the third floor.",
+    "B": "They were delivered this morning.",
+    "C": "We need more paper clips."
+  },
+  "answer": "B",
+  "explanation_zh": "問題是詢問新的辦公用品是否已經到了。選項B提到「它們今天早上送到了」，直接回答了問題。選項A提到「辦公室在三樓」，不相關。選項C提到「我們需要更多的迴紋針」，雖然提到了辦公用品（supplies），但沒有回答問題。選項C是因為提到supplies這個詞而容易誤解，但它沒有說明是否到貨。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "office supplies",
+    "delivered",
+    "paper clips"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-126",
+  "audioScript": "Q: Did the new office supplies arrive yet?\n(A) The office is on the third floor.\n(B) They were delivered this morning.\n(C) We need more paper clips."
+},
+  {
+  "question": "You ordered more toner for the printer, didn't you?",
+  "choices": {
+    "A": "The printer is in the other room.",
+    "B": "I think we need more paper.",
+    "C": "Yes, it should arrive tomorrow."
+  },
+  "answer": "C",
+  "explanation_zh": "此題的問題是詢問對方是否訂購了更多的印表機碳粉匣，答案 C 回應了此確認問題，表示碳粉匣應該會在明天到達。選項 A 提到印表機的位置，沒有回答訂購的問題。選項 B 提到紙張的需求，與碳粉匣無關。選項 A 的陷阱字是 'printer'，但它沒有回答到訂購的確認問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "toner",
+    "printer",
+    "order"
+  ],
+  "id": "p2-gen-127",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: You ordered more toner for the printer, didn't you?\n(A) The printer is in the other room.\n(B) I think we need more paper.\n(C) Yes, it should arrive tomorrow."
+},
+  {
+  "question": "Should we order more printer paper or toner cartridges?",
+  "choices": {
+    "A": "We definitely need more printer paper.",
+    "B": "The printer is out of order right now.",
+    "C": "We should schedule a meeting about it."
+  },
+  "answer": "A",
+  "explanation_zh": "問題詢問應該訂購更多的打印紙還是碳粉匣。選項A直接回答需要更多的打印紙，符合問題要求。選項B提到打印機，但並未回答有關訂購物品的問題，因此不相關。選項C提到安排會議，與問題無關。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "order",
+    "printer paper",
+    "toner cartridges"
+  ],
+  "id": "p2-gen-128",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Should we order more printer paper or toner cartridges?\n(A) We definitely need more printer paper.\n(B) The printer is out of order right now.\n(C) We should schedule a meeting about it."
+},
+  {
+  "question": "The new printer in the copy room is out of toner, so we'll need to order more.",
+  "choices": {
+    "A": "I saw it in the copy room yesterday.",
+    "B": "I'll contact the supplier right away.",
+    "C": "The toner is usually delivered by noon."
+  },
+  "answer": "B",
+  "explanation_zh": "問題提到新印表機的碳粉不足，B選項\"I'll contact the supplier right away.\"意味著馬上聯繫供應商訂購，符合邏輯。A選項提到\"copy room\"（影印室），但只是描述觀察，沒有提供解決問題的方法。C選項提到\"toner\"（碳粉），但只是描述交貨時間點，不是回應訂購需求。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "printer",
+    "toner",
+    "supplier",
+    "order",
+    "deliver"
+  ],
+  "id": "p2-gen-129",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: The new printer in the copy room is out of toner, so we'll need to order more.\n(A) I saw it in the copy room yesterday.\n(B) I'll contact the supplier right away.\n(C) The toner is usually delivered by noon."
+},
+  {
+  "question": "Could you tell me when the IT equipment will be delivered?",
+  "choices": {
+    "A": "We ordered new monitors.",
+    "B": "I think it was shipped yesterday.",
+    "C": "It should arrive by Friday afternoon."
+  },
+  "answer": "C",
+  "explanation_zh": "問題詢問IT設備的交貨時間，選項C提供具體的到達時間「應該在星期五下午到達」，因此是正確答案。選項A重複了關鍵字「equipment」，但回答了設備內容而非時間，無法解答問題。選項B則提供了運送時間，而非交貨時間，不符合問題需求。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "delivered",
+    "equipment",
+    "shipped"
+  ],
+  "id": "p2-gen-130",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Could you tell me when the IT equipment will be delivered?\n(A) We ordered new monitors.\n(B) I think it was shipped yesterday.\n(C) It should arrive by Friday afternoon."
+},
+  {
+  "question": "When will the new office chairs be delivered?",
+  "choices": {
+    "A": "They'll arrive on Thursday.",
+    "B": "The chairs are very comfortable.",
+    "C": "We ordered them last week."
+  },
+  "answer": "A",
+  "explanation_zh": "問題是詢問新辦公椅的到貨時間，選擇B雖然提到“椅子（chairs）”，但並未回答時間問題；選擇C則回答了下訂的時間，而非到貨時間。正確答案是A：它們會在星期四到。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "delivered",
+    "office chairs",
+    "arrive"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-131",
+  "audioScript": "Q: When will the new office chairs be delivered?\n(A) They'll arrive on Thursday.\n(B) The chairs are very comfortable.\n(C) We ordered them last week."
+},
+  {
+  "question": "Where is the new shipment of office supplies stored?",
+  "choices": {
+    "A": "The shipment arrived yesterday.",
+    "B": "In the storage room on the third floor.",
+    "C": "We need more supplies soon."
+  },
+  "answer": "B",
+  "explanation_zh": "問題詢問新辦公用品的存放地點。選項B清楚地回答了問題：在三樓的儲藏室。選項A是陷阱選項，重複了“shipment”這個詞，但是只說到了貨到達的時間，並沒有提到存放地點。選項C則是提到需要更多物品，但並未提及存放位置。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "shipment",
+    "stored",
+    "storage"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-132",
+  "audioScript": "Q: Where is the new shipment of office supplies stored?\n(A) The shipment arrived yesterday.\n(B) In the storage room on the third floor.\n(C) We need more supplies soon."
+},
+  {
+  "question": "Who should I contact to order new office supplies?",
+  "choices": {
+    "A": "The supplies were delivered last week.",
+    "B": "You can find them in the supply room.",
+    "C": "You should reach out to Carla in the procurement department."
+  },
+  "answer": "C",
+  "explanation_zh": "問題問的是誰負責訂購辦公用品，而不是辦公用品是否已經交付或存放在哪裡。選項A重複了“supplies”這個詞，但它沒有回答應聯繫誰。選項B則告知辦公用品的位置，但未回答應聯繫的對象。只有選項C正確回答了應聯繫的部門和人。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "order",
+    "contact",
+    "supplies"
+  ],
+  "id": "p2-gen-133",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Who should I contact to order new office supplies?\n(A) The supplies were delivered last week.\n(B) You can find them in the supply room.\n(C) You should reach out to Carla in the procurement department."
+},
+  {
+  "question": "Why did the company order new IT equipment?",
+  "choices": {
+    "A": "To upgrade our outdated systems.",
+    "B": "The equipment is in the supply room.",
+    "C": "Yes, the delivery was on time."
+  },
+  "answer": "A",
+  "explanation_zh": "問題詢問公司為何訂購新IT設備。選項A「為了升級過時的系統」提供了原因。選項B雖然提到「設備」，但並未解釋原因。選項C回答了錯誤的問題，與訂購原因無關。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "equipment",
+    "order",
+    "upgrade",
+    "delivery",
+    "outdated"
+  ],
+  "id": "p2-gen-134",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Why did the company order new IT equipment?\n(A) To upgrade our outdated systems.\n(B) The equipment is in the supply room.\n(C) Yes, the delivery was on time."
+},
+  {
+  "question": "What size envelopes do we need for the marketing event invitations?",
+  "choices": {
+    "A": "The marketing event is next Thursday.",
+    "B": "We need the A5 size envelopes.",
+    "C": "We have plenty of envelopes in the storage."
+  },
+  "answer": "B",
+  "explanation_zh": "這個問題詢問的是需要什麼尺寸的信封來裝行銷活動的邀請函。選項 B 提供了具體的尺寸 A5，直接回答了問題。選項 A 雖然提到行銷活動，但回答的是活動的日期，並未涉及信封的尺寸。選項 C 提到有很多信封，但也沒有給出所需的具體尺寸，因此無法回答問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "envelopes",
+    "marketing",
+    "size"
+  ],
+  "id": "p2-gen-135",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: What size envelopes do we need for the marketing event invitations?\n(A) The marketing event is next Thursday.\n(B) We need the A5 size envelopes.\n(C) We have plenty of envelopes in the storage."
+},
+  {
+  "question": "Did you order more office supplies for the team yet?",
+  "choices": {
+    "A": "The supplies arrived yesterday.",
+    "B": "I think the order was processed last week.",
+    "C": "Yes, I've just placed the order."
+  },
+  "answer": "C",
+  "explanation_zh": "問題詢問是否已經訂購更多的辦公用品。選項A提到“supplies”並說明用品已經到達，這並沒有回答訂購的問題，因此無法回答提問。選項B提到訂單可能在上週處理，但這不是最直接肯定的回答。選項C表示肯定，證實訂購已經完成，因此是正確答案。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "order",
+    "supplies",
+    "team"
+  ],
+  "id": "p2-gen-136",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Did you order more office supplies for the team yet?\n(A) The supplies arrived yesterday.\n(B) I think the order was processed last week.\n(C) Yes, I've just placed the order."
+},
+  {
+  "question": "You ordered the new office chairs, didn't you?",
+  "choices": {
+    "A": "Yes, they should arrive by next Tuesday.",
+    "B": "The chairs are very comfortable.",
+    "C": "I think we have enough pens for now."
+  },
+  "answer": "A",
+  "explanation_zh": "題目詢問是否訂購了新的辦公椅，選項A表示確認椅子已訂購並指出到貨時間。選項B提到椅子很舒適，但未確認訂購，故無法回答此問題。選項C提到筆，完全不相關。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "ordered",
+    "chairs",
+    "arrive"
+  ],
+  "id": "p2-gen-137",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: You ordered the new office chairs, didn't you?\n(A) Yes, they should arrive by next Tuesday.\n(B) The chairs are very comfortable.\n(C) I think we have enough pens for now."
+},
+  {
+  "question": "Would you like to order more printer paper or ink cartridges for the office?",
+  "choices": {
+    "A": "I think the printer needs to be replaced.",
+    "B": "We should get more ink cartridges.",
+    "C": "The delivery is scheduled for tomorrow."
+  },
+  "answer": "B",
+  "explanation_zh": "問題是詢問是否要訂購更多的印表機紙或墨水匣，選項B（我們應該多訂購一些墨水匣）直接回答了問題。而選項A雖然提到印表機，但回答的是替換印表機，不是訂購物品的選擇。選項C提到了運送，但與訂購問題無關。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "order",
+    "printer",
+    "cartridges"
+  ],
+  "id": "p2-gen-138",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Would you like to order more printer paper or ink cartridges for the office?\n(A) I think the printer needs to be replaced.\n(B) We should get more ink cartridges.\n(C) The delivery is scheduled for tomorrow."
+},
+  {
+  "question": "The printer in the main office is out of ink.",
+  "choices": {
+    "A": "The main office closes at 5 PM.",
+    "B": "We just ordered more ink yesterday.",
+    "C": "I'll replace the cartridge right away."
+  },
+  "answer": "C",
+  "explanation_zh": "敘述提到“printer（印表機）”沒墨水了，正確反應是C選項“我會馬上更換墨盒”。選項A提到“main office（主辦公室）”，但與印表機無關，不是合理的回應。選項B雖然提到“ink（墨水）”，但只是說昨天訂購了，並未解決當下的問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "printer",
+    "ink",
+    "cartridge",
+    "main office"
+  ],
+  "id": "p2-gen-139",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: The printer in the main office is out of ink.\n(A) The main office closes at 5 PM.\n(B) We just ordered more ink yesterday.\n(C) I'll replace the cartridge right away."
+},
+  {
+  "question": "Could you tell me where the new shipment is being stored?",
+  "choices": {
+    "A": "It's in warehouse 3.",
+    "B": "The shipment arrived yesterday.",
+    "C": "I think John is handling it."
+  },
+  "answer": "A",
+  "explanation_zh": "問題問的是新貨物儲存的地點。選項A表示在3號倉庫，是唯一合理的回答。選項B提到\"shipment\"但只說明貨物何時到，未回答地點問題。選項C說可能是John負責，回答了不同的問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shipment",
+    "stored",
+    "warehouse"
+  ],
+  "id": "p2-gen-140",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Could you tell me where the new shipment is being stored?\n(A) It's in warehouse 3.\n(B) The shipment arrived yesterday.\n(C) I think John is handling it."
+},
+  {
+  "question": "When will the new IT equipment arrive?",
+  "choices": {
+    "A": "The equipment is in good condition.",
+    "B": "It should be delivered on Friday.",
+    "C": "Yes, we need new equipment."
+  },
+  "answer": "B",
+  "explanation_zh": "問題詢問IT設備何時到達，選項B是唯一提供具體時間的回應。選項A提到“equipment”但未提供到達時間，不符合問題要求。選項C答非所問，只是肯定了需求，未回答問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "equipment",
+    "deliver",
+    "arrive"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-141",
+  "audioScript": "Q: When will the new IT equipment arrive?\n(A) The equipment is in good condition.\n(B) It should be delivered on Friday.\n(C) Yes, we need new equipment."
+},
+  {
+  "question": "Where should we store the extra office chairs?",
+  "choices": {
+    "A": "Those chairs are very comfortable.",
+    "B": "They were ordered last week.",
+    "C": "In the storage room on the second floor."
+  },
+  "answer": "C",
+  "explanation_zh": "問題詢問我們應該將多餘的辦公椅存放在哪裡。選項A提到椅子的舒適度，但沒有回答存放地點；選項B提到椅子的訂購時間，同樣沒有回答問題。只有選項C正確回答了存放地點：二樓的儲藏室。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "store",
+    "extra",
+    "chairs",
+    "storage room",
+    "floor"
+  ],
+  "id": "p2-gen-142",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Where should we store the extra office chairs?\n(A) Those chairs are very comfortable.\n(B) They were ordered last week.\n(C) In the storage room on the second floor."
+},
+  {
+  "question": "Who should I contact about ordering new office supplies?",
+  "choices": {
+    "A": "You should email Karen in procurement.",
+    "B": "The supplies are in the storage room.",
+    "C": "Yes, we need more paper too."
+  },
+  "answer": "A",
+  "explanation_zh": "問題詢問應該聯繫誰來訂購新的辦公用品，正確答案是 A，因為 Karen 是負責採購的人。選項 B 選擇了錯誤的重複單詞 \"supplies\"，但不能回答需要聯繫誰。選項 C 提到紙張，但回答了不同的問題類型，並未提供聯繫人。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "contact",
+    "ordering",
+    "supplies"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-143",
+  "audioScript": "Q: Who should I contact about ordering new office supplies?\n(A) You should email Karen in procurement.\n(B) The supplies are in the storage room.\n(C) Yes, we need more paper too."
+},
+  {
+  "question": "Why did the office supply order get delayed?",
+  "choices": {
+    "A": "The supplies are on the desk.",
+    "B": "The shipment was held up by customs.",
+    "C": "We ordered extra pens."
+  },
+  "answer": "B",
+  "explanation_zh": "正確答案是B，因為它解釋了訂單延遲的原因是因為海關的問題，而不是與辦公用品在桌上有關。選項A中的“supplies”雖然出現了同樣的詞，但它只是描述物品的位置，並未解釋延遲的原因。選項C則回答了不同的問題，與訂單延遲無關。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "order",
+    "delayed",
+    "shipment",
+    "customs",
+    "supplies"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-144",
+  "audioScript": "Q: Why did the office supply order get delayed?\n(A) The supplies are on the desk.\n(B) The shipment was held up by customs.\n(C) We ordered extra pens."
+},
+  {
+  "question": "What type of printer paper should we order for the office?",
+  "choices": {
+    "A": "We'll need to check the current paper supply first.",
+    "B": "The printer is in the copy room.",
+    "C": "We should get the A4 size with a high brightness rating."
+  },
+  "answer": "C",
+  "explanation_zh": "問題詢問應該訂購何種類型的印表紙，選項C提供了明確的答案：A4尺寸且具有高亮度等級的紙張。選項A提到需要先檢查目前的紙張供應，但並沒有回答應該訂購哪種類型的紙。選項B提到印表機在影印室，重複了印表機這個詞，但與問題無關。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "printer",
+    "paper",
+    "order",
+    "supply",
+    "brightness"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-145",
+  "audioScript": "Q: What type of printer paper should we order for the office?\n(A) We'll need to check the current paper supply first.\n(B) The printer is in the copy room.\n(C) We should get the A4 size with a high brightness rating."
+},
+  {
+  "question": "Did we order enough printer cartridges for the office?",
+  "choices": {
+    "A": "Yes, they should arrive by Friday.",
+    "B": "The office needs more printers.",
+    "C": "We ordered last week."
+  },
+  "answer": "A",
+  "explanation_zh": "選項A「是的，應該在週五到達」直接回答了問題，表示訂購的打印機墨盒數量是足夠的。選項B提到「更多打印機」，但問題是關於墨盒的數量，不能回答問題。選項C「我們上週訂購了」只是陳述過去的動作，並沒有具體回答是否夠用。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "order",
+    "printer",
+    "cartridges"
+  ],
+  "id": "p2-gen-146",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Did we order enough printer cartridges for the office?\n(A) Yes, they should arrive by Friday.\n(B) The office needs more printers.\n(C) We ordered last week."
+},
+  {
+  "question": "You ordered more printer paper last week, didn't you?",
+  "choices": {
+    "A": "The printer is in the corner.",
+    "B": "Yes, it should arrive by Friday.",
+    "C": "I ordered new ink cartridges."
+  },
+  "answer": "B",
+  "explanation_zh": "問題問的是上週是否訂購了更多的印表機紙，回答 B 是唯一確認這一點的答案。選項 A 提到印表機的位置，但未回答是否訂購印表機紙。選項 C 提到訂購墨水匣，重複了關鍵詞 'order'，但未回答問題中關於印表機紙的確認。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "printer",
+    "order",
+    "paper",
+    "arrive",
+    "week"
+  ],
+  "id": "p2-gen-147",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: You ordered more printer paper last week, didn't you?\n(A) The printer is in the corner.\n(B) Yes, it should arrive by Friday.\n(C) I ordered new ink cartridges."
+},
+  {
+  "question": "Should we order more printer paper or toner for the office?",
+  "choices": {
+    "A": "The printer is working fine.",
+    "B": "Both supplies are essential.",
+    "C": "We need more toner."
+  },
+  "answer": "C",
+  "explanation_zh": "問題是詢問應該訂購哪一種辦公室用品，A選項提到的『printer（印表機）』不是問題中問的選項之一，且沒有回答是否需要紙張或碳粉。B選項回答了一個不同的問題類型，即兩個物品的必要性，而非選擇其一。只有C選項直接回答問題，指出需要更換碳粉。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "order",
+    "printer",
+    "toner",
+    "office",
+    "supplies"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-148",
+  "audioScript": "Q: Should we order more printer paper or toner for the office?\n(A) The printer is working fine.\n(B) Both supplies are essential.\n(C) We need more toner."
+},
+  {
+  "question": "The printer in the office isn't working again.",
+  "choices": {
+    "A": "I'll call the technician right away.",
+    "B": "Yes, it's a very old printer.",
+    "C": "The office is on the second floor."
+  },
+  "answer": "A",
+  "explanation_zh": "正確答案是A。這個句子陳述了辦公室的印表機再次故障，因此需要採取行動。選項A的回應表明會立即聯繫技術人員來修理印表機。選項B雖然提到印表機也用了相同的單字printer，但只是描述印表機的舊而沒有提供解決方案，因此不是合適的回應。選項C與問題無關，談論辦公室的位置。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "printer",
+    "technician",
+    "office"
+  ],
+  "id": "p2-gen-149",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: The printer in the office isn't working again.\n(A) I'll call the technician right away.\n(B) Yes, it's a very old printer.\n(C) The office is on the second floor."
+},
+  {
+  "question": "Could you tell me where the IT equipment is being stored?",
+  "choices": {
+    "A": "Yes, we need to upgrade it soon.",
+    "B": "It's in the storage room on the third floor.",
+    "C": "The equipment is in great condition."
+  },
+  "answer": "B",
+  "explanation_zh": "問題詢問IT設備儲存的位置，B選項明確指出儲存位置在三樓的儲藏室，是唯一合理的回應。A選項提到需要升級設備，但沒有回答儲存位置。C選項提到設備狀況良好，重複使用了“equipment”這個詞，但沒有回答儲存位置，因此不正確。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "equipment",
+    "stored",
+    "storage",
+    "third floor",
+    "condition"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-150",
+  "audioScript": "Q: Could you tell me where the IT equipment is being stored?\n(A) Yes, we need to upgrade it soon.\n(B) It's in the storage room on the third floor.\n(C) The equipment is in great condition."
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "A new shipping order",
+    "B": "A delayed shipment",
+    "C": "A price negotiation",
+    "D": "A product return"
+  },
+  "answer": "B",
+  "explanation_zh": "答案是 B。根據對話，女士提到 'the shipment we were expecting today is delayed'，這表明對話的主要話題是 'A delayed shipment'。其他選項如 A 'A new shipping order'、C 'A price negotiation' 和 D 'A product return' 都沒有在對話中提到。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "shipment",
+    "delayed",
+    "port"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-124",
+  "part": "Part 3",
+  "transcript": "W: I just received a notification that the shipment we were expecting today is delayed.\nM: That's unfortunate. Did they mention why it's delayed?\nW: Yes, apparently there's a problem at the port. They're saying the shipment will arrive three days later.\nM: So, it should be here by Friday then. Is there anything we can do in the meantime?\nW: I’ll contact our client to inform them of the delay.\nM: Good idea. Let me know if they need any additional updates.\nW: Will do. Hopefully, everything will be resolved by the end of the week.\nM: Let’s keep an eye on it and see if there are any further changes.",
+  "question_order": 1
+},
+  {
+  "question": "Why is the shipment delayed?",
+  "choices": {
+    "A": "Weather conditions",
+    "B": "Customs issues",
+    "C": "A problem at the port",
+    "D": "Incorrect documentation"
+  },
+  "answer": "C",
+  "explanation_zh": "答案是 C。女士提到 'apparently there's a problem at the port' 作為延誤的原因，因此選項 C 'A problem at the port' 是正確的。其他選項如 A 'Weather conditions'、B 'Customs issues' 和 D 'Incorrect documentation' 未提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "problem",
+    "port",
+    "delayed"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-125",
+  "part": "Part 3",
+  "transcript": "W: I just received a notification that the shipment we were expecting today is delayed.\nM: That's unfortunate. Did they mention why it's delayed?\nW: Yes, apparently there's a problem at the port. They're saying the shipment will arrive three days later.\nM: So, it should be here by Friday then. Is there anything we can do in the meantime?\nW: I’ll contact our client to inform them of the delay.\nM: Good idea. Let me know if they need any additional updates.\nW: Will do. Hopefully, everything will be resolved by the end of the week.\nM: Let’s keep an eye on it and see if there are any further changes.",
+  "question_order": 2
+},
+  {
+  "question": "What is the woman likely to do next?",
+  "choices": {
+    "A": "Cancel the shipment",
+    "B": "Contact the shipping company",
+    "C": "Request a refund",
+    "D": "Inform the client"
+  },
+  "answer": "D",
+  "explanation_zh": "答案是 D。女士說 'I’ll contact our client to inform them of the delay'，因此她接下來可能會通知客戶。選項 A 'Cancel the shipment'、B 'Contact the shipping company' 和 C 'Request a refund' 都不符合對話內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "contact",
+    "client",
+    "inform"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-126",
+  "part": "Part 3",
+  "transcript": "W: I just received a notification that the shipment we were expecting today is delayed.\nM: That's unfortunate. Did they mention why it's delayed?\nW: Yes, apparently there's a problem at the port. They're saying the shipment will arrive three days later.\nM: So, it should be here by Friday then. Is there anything we can do in the meantime?\nW: I’ll contact our client to inform them of the delay.\nM: Good idea. Let me know if they need any additional updates.\nW: Will do. Hopefully, everything will be resolved by the end of the week.\nM: Let’s keep an eye on it and see if there are any further changes.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Scheduling a presentation",
+    "B": "Renting a projector",
+    "C": "Repairing equipment",
+    "D": "Ordering new equipment"
+  },
+  "answer": "C",
+  "explanation_zh": "答案是 C。對話的重點在於 'the projector isn't working' 和請求 'call the repair service'，顯示主題是 'Repairing equipment'。選項 A 'Scheduling a presentation'、B 'Renting a projector' 和 D 'Ordering new equipment' 都不符合主要對話主題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "projector",
+    "presentation",
+    "repair",
+    "service"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-127",
+  "part": "Part 3",
+  "transcript": "W: I just realized the projector isn't working. We need it for the presentation tomorrow.\nM: That's not good. Do we have a backup?\nW: Unfortunately, no. Could you call the repair service?\nM: Sure, I'll contact them right away.\nW: Ask if they can come today. We can't afford to wait.\nM: I will, but they might be busy.\nW: Let's hope they can fit us in. If not, we'll have to rent one.\nM: Understood. I'll get on it now.\nW: Please update me as soon as you know.\nM: Will do. I'm on it.",
+  "question_order": 1
+},
+  {
+  "question": "What problem did the woman mention?",
+  "choices": {
+    "A": "The presentation is delayed.",
+    "B": "The projector is missing.",
+    "C": "The repair service is unavailable.",
+    "D": "The projector isn't working."
+  },
+  "answer": "D",
+  "explanation_zh": "答案是 D。女士提到 'the projector isn't working'，所以問題是投影機不能運作。選項 A 'The presentation is delayed'、B 'The projector is missing' 和 C 'The repair service is unavailable' 都沒有在對話中提到。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "projector",
+    "working",
+    "presentation",
+    "backup"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-128",
+  "part": "Part 3",
+  "transcript": "W: I just realized the projector isn't working. We need it for the presentation tomorrow.\nM: That's not good. Do we have a backup?\nW: Unfortunately, no. Could you call the repair service?\nM: Sure, I'll contact them right away.\nW: Ask if they can come today. We can't afford to wait.\nM: I will, but they might be busy.\nW: Let's hope they can fit us in. If not, we'll have to rent one.\nM: Understood. I'll get on it now.\nW: Please update me as soon as you know.\nM: Will do. I'm on it.",
+  "question_order": 2
+},
+  {
+  "question": "What is the man's most likely immediate next action?",
+  "choices": {
+    "A": "Contact the repair service",
+    "B": "Set up a backup projector",
+    "C": "Prepare the presentation slides",
+    "D": "Rent a projector"
+  },
+  "answer": "A",
+  "explanation_zh": "答案是 A。男士回答 'I'll contact them right away'，表示他會立即聯繫維修服務。其他選項如 B 'Set up a backup projector'、C 'Prepare the presentation slides' 和 D 'Rent a projector' 並不是他的直接行動。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "contact",
+    "repair",
+    "service",
+    "backup"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-129",
+  "part": "Part 3",
+  "transcript": "W: I just realized the projector isn't working. We need it for the presentation tomorrow.\nM: That's not good. Do we have a backup?\nW: Unfortunately, no. Could you call the repair service?\nM: Sure, I'll contact them right away.\nW: Ask if they can come today. We can't afford to wait.\nM: I will, but they might be busy.\nW: Let's hope they can fit us in. If not, we'll have to rent one.\nM: Understood. I'll get on it now.\nW: Please update me as soon as you know.\nM: Will do. I'm on it.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Booking a flight.",
+    "B": "Scheduling a meeting.",
+    "C": "Cancelling a conference.",
+    "D": "Changing a conference registration."
+  },
+  "answer": "D",
+  "explanation_zh": "答案是 D。對話中提到女士想要 'switch to the morning session'，這表示她正在改變會議註冊細節。選項 A 'Booking a flight'、B 'Scheduling a meeting' 和 C 'Cancelling a conference' 都未在對話中提到。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "conference",
+    "registration",
+    "change"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-130",
+  "part": "Part 3",
+  "transcript": "W: Hello, I need to change the registration details for the upcoming conference on October 15th.\nM: Sure, I can help with that. What changes do you need?\nW: I originally signed up for the afternoon session, but I'd like to switch to the morning one.\nM: Unfortunately, the morning session is fully booked.\nW: Oh, that's disappointing. Is there a waitlist I can join?\nM: Yes, I can add you to the waitlist.\nW: Thank you. Will I be updated via email?\nM: Yes, you'll receive an email if a spot opens up.\nW: Great, I'll keep an eye on my inbox.",
+  "question_order": 1
+},
+  {
+  "question": "What problem does the woman encounter?",
+  "choices": {
+    "A": "The morning session is fully booked.",
+    "B": "She missed the registration deadline.",
+    "C": "The location has changed.",
+    "D": "The conference is canceled."
+  },
+  "answer": "A",
+  "explanation_zh": "答案是 A。對話中男士說 'the morning session is fully booked'，所以女士遇到的問題是早上的課程已滿。選項 B 'She missed the registration deadline'、C 'The location has changed' 和 D 'The conference is canceled' 都未提及。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "session",
+    "waitlist",
+    "fully booked"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-131",
+  "part": "Part 3",
+  "transcript": "W: Hello, I need to change the registration details for the upcoming conference on October 15th.\nM: Sure, I can help with that. What changes do you need?\nW: I originally signed up for the afternoon session, but I'd like to switch to the morning one.\nM: Unfortunately, the morning session is fully booked.\nW: Oh, that's disappointing. Is there a waitlist I can join?\nM: Yes, I can add you to the waitlist.\nW: Thank you. Will I be updated via email?\nM: Yes, you'll receive an email if a spot opens up.\nW: Great, I'll keep an eye on my inbox.",
+  "question_order": 2
+},
+  {
+  "question": "What can be inferred from the conversation?",
+  "choices": {
+    "A": "The woman will attend a different conference.",
+    "B": "The woman will wait for an email update.",
+    "C": "The man will call the woman about the schedule.",
+    "D": "The waitlist is for the afternoon session."
+  },
+  "answer": "B",
+  "explanation_zh": "答案是 B。女士說 'I'll keep an eye on my inbox'，暗示她會等待電子郵件更新。選項 A 'The woman will attend a different conference'、C 'The man will call the woman about the schedule' 和 D 'The waitlist is for the afternoon session' 都不符合對話內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "waitlist",
+    "email",
+    "update"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-132",
+  "part": "Part 3",
+  "transcript": "W: Hello, I need to change the registration details for the upcoming conference on October 15th.\nM: Sure, I can help with that. What changes do you need?\nW: I originally signed up for the afternoon session, but I'd like to switch to the morning one.\nM: Unfortunately, the morning session is fully booked.\nW: Oh, that's disappointing. Is there a waitlist I can join?\nM: Yes, I can add you to the waitlist.\nW: Thank you. Will I be updated via email?\nM: Yes, you'll receive an email if a spot opens up.\nW: Great, I'll keep an eye on my inbox.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Correcting a customer order",
+    "B": "Scheduling a meeting",
+    "C": "Discussing a product return",
+    "D": "Requesting a refund"
+  },
+  "answer": "A",
+  "explanation_zh": "答案：A。對話中提到\"我打電話是因為我的訂單有錯誤\"，然後確認訂單中數量錯誤，並安排補發，這表明對話主要是關於更正客戶訂單。選項B、C、D均未在對話中提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "order",
+    "invoice",
+    "units"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-133",
+  "part": "Part 3",
+  "transcript": "W: Hi, I'm calling about my recent order, invoice number 784596. It seems there was an error.\nM: Of course, let me check. Yes, I see here, you ordered 50 units of the printer cartridges.\nW: That's correct, but I received 30 units instead.\nM: I apologize for the mistake. We can send the additional 20 units by express delivery.\nW: That would be appreciated. How soon can I expect them?\nM: You should receive them by Friday.\nW: Great, and will there be any additional charges?\nM: No, the shipping will be complimentary, given the error.\nW: Thank you for resolving this quickly.\nM: You're welcome. Is there anything else I can assist you with today?",
+  "question_order": 1
+},
+  {
+  "question": "What was the mistake with the customer's order?",
+  "choices": {
+    "A": "Wrong product delivered",
+    "B": "Incorrect quantity sent",
+    "C": "Delayed shipment",
+    "D": "Incorrect invoice number"
+  },
+  "answer": "B",
+  "explanation_zh": "答案：B。對話中明確指出\"我訂了50個單位的墨水匣，但只收到了30個\"，這明確顯示錯誤是數量不正確。選項A、C、D都不是對話中提到的問題。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "error",
+    "order",
+    "units"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-134",
+  "part": "Part 3",
+  "transcript": "W: Hi, I'm calling about my recent order, invoice number 784596. It seems there was an error.\nM: Of course, let me check. Yes, I see here, you ordered 50 units of the printer cartridges.\nW: That's correct, but I received 30 units instead.\nM: I apologize for the mistake. We can send the additional 20 units by express delivery.\nW: That would be appreciated. How soon can I expect them?\nM: You should receive them by Friday.\nW: Great, and will there be any additional charges?\nM: No, the shipping will be complimentary, given the error.\nW: Thank you for resolving this quickly.\nM: You're welcome. Is there anything else I can assist you with today?",
+  "question_order": 2
+},
+  {
+  "question": "What will the customer most likely do next?",
+  "choices": {
+    "A": "Wait for the additional units to arrive",
+    "B": "Call another company",
+    "C": "Request a refund",
+    "D": "Cancel the order"
+  },
+  "answer": "C",
+  "explanation_zh": "答案：A。根據對話內容，客戶接受了補發的安排，且對話結束時問及是否還有其他需要幫助，顯示客戶將等待額外數量的到來。選項B、C、D都不符合對話的內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "expect",
+    "complimentary",
+    "receive"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-135",
+  "part": "Part 3",
+  "transcript": "W: Hi, I'm calling about my recent order, invoice number 784596. It seems there was an error.\nM: Of course, let me check. Yes, I see here, you ordered 50 units of the printer cartridges.\nW: That's correct, but I received 30 units instead.\nM: I apologize for the mistake. We can send the additional 20 units by express delivery.\nW: That would be appreciated. How soon can I expect them?\nM: You should receive them by Friday.\nW: Great, and will there be any additional charges?\nM: No, the shipping will be complimentary, given the error.\nW: Thank you for resolving this quickly.\nM: You're welcome. Is there anything else I can assist you with today?",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Discussing a new project.",
+    "B": "Rescheduling a client meeting.",
+    "C": "Preparing a presentation.",
+    "D": "Organizing a team event."
+  },
+  "answer": "B",
+  "explanation_zh": "答案：B。整段對話圍繞著重新安排客戶會議的時間進行，從確認時間到通知團隊，顯示主要主題為重新安排會議時間。選項A、C、D並未涉及。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "reschedule",
+    "client",
+    "meeting"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-136",
+  "part": "Part 3",
+  "transcript": "W: We have a meeting with the client scheduled for Thursday at 3 PM. Can you confirm?\nM: Actually, I just received an email. They need to reschedule.\nW: Oh, I see. Did they suggest a new time?\nM: Yes, they proposed moving it to Friday at 10 AM.\nW: Friday works for me. Should I update the calendar invite?\nM: Yes, please do that. Also, can you inform the rest of the team?\nW: Sure. Is there anything else we need to prepare for the meeting?\nM: We might need to adjust the presentation slides to include the latest sales figures.\nW: I'll have those updated by tomorrow afternoon.",
+  "question_order": 1
+},
+  {
+  "question": "Why does the meeting need to be rescheduled?",
+  "choices": {
+    "A": "The venue is unavailable.",
+    "B": "Technical issues occurred.",
+    "C": "The client has a conflict.",
+    "D": "The team is not ready."
+  },
+  "answer": "C",
+  "explanation_zh": "答案：C。對話中提到\"他們需要重新安排\"，並且對話的內容全程未涉及其他原因，顯示明確是因為客戶的衝突才需要重新安排會議。選項A、B、D均未提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "reschedule",
+    "confirm",
+    "propose"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-137",
+  "part": "Part 3",
+  "transcript": "W: We have a meeting with the client scheduled for Thursday at 3 PM. Can you confirm?\nM: Actually, I just received an email. They need to reschedule.\nW: Oh, I see. Did they suggest a new time?\nM: Yes, they proposed moving it to Friday at 10 AM.\nW: Friday works for me. Should I update the calendar invite?\nM: Yes, please do that. Also, can you inform the rest of the team?\nW: Sure. Is there anything else we need to prepare for the meeting?\nM: We might need to adjust the presentation slides to include the latest sales figures.\nW: I'll have those updated by tomorrow afternoon.",
+  "question_order": 2
+},
+  {
+  "question": "What is most likely the woman’s next action?",
+  "choices": {
+    "A": "Contact the client for confirmation.",
+    "B": "Notify the client about the time change.",
+    "C": "Prepare additional presentation materials.",
+    "D": "Update the calendar invite."
+  },
+  "answer": "D",
+  "explanation_zh": "答案：D。對話中提到\"應該更新日曆邀請嗎？\"，並得到肯定的答覆，顯示下一步會更新日曆邀請。選項A、B、C不符合對話內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "update",
+    "calendar",
+    "inform"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-138",
+  "part": "Part 3",
+  "transcript": "W: We have a meeting with the client scheduled for Thursday at 3 PM. Can you confirm?\nM: Actually, I just received an email. They need to reschedule.\nW: Oh, I see. Did they suggest a new time?\nM: Yes, they proposed moving it to Friday at 10 AM.\nW: Friday works for me. Should I update the calendar invite?\nM: Yes, please do that. Also, can you inform the rest of the team?\nW: Sure. Is there anything else we need to prepare for the meeting?\nM: We might need to adjust the presentation slides to include the latest sales figures.\nW: I'll have those updated by tomorrow afternoon.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Scheduling a meeting",
+    "B": "Ordering new supplies",
+    "C": "A delayed shipment",
+    "D": "Office renovations"
+  },
+  "answer": "C",
+  "explanation_zh": "答案：C。對話中提到\"辦公椅的運輸不會如計劃今天抵達\"，提到供應問題，表明主題是延遲的運輸。選項A、B、D都不符合。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "shipment",
+    "delay",
+    "supplier"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-139",
+  "part": "Part 3",
+  "transcript": "W: I just received an update that the shipment of office chairs won't arrive today as planned.\nM: That's unfortunate. Did they mention why there's a delay?\nW: Yes, the supplier said there was a problem at the distribution center.\nM: Do we have a new delivery date?\nW: They are aiming for Thursday instead.\nM: Alright, I'll inform the office staff about the change.\nW: Could you also check if we need to adjust any meetings?\nM: Sure, I'll review the schedule and make necessary changes.\nW: Thanks, let's hope this doesn't cause too much disruption.",
+  "question_order": 1
+},
+  {
+  "question": "What was the cause of the shipment delay?",
+  "choices": {
+    "A": "Traffic issues",
+    "B": "Weather conditions",
+    "C": "Supplier's mistake",
+    "D": "Problem at the distribution center"
+  },
+  "answer": "D",
+  "explanation_zh": "答案：D。對話中提到\"供應商說發生在配銷中心的問題\"，清楚指出延遲原因是配銷中心的問題。選項A、B、C都不符合對話內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "delay",
+    "distribution",
+    "supplier"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-140",
+  "part": "Part 3",
+  "transcript": "W: I just received an update that the shipment of office chairs won't arrive today as planned.\nM: That's unfortunate. Did they mention why there's a delay?\nW: Yes, the supplier said there was a problem at the distribution center.\nM: Do we have a new delivery date?\nW: They are aiming for Thursday instead.\nM: Alright, I'll inform the office staff about the change.\nW: Could you also check if we need to adjust any meetings?\nM: Sure, I'll review the schedule and make necessary changes.\nW: Thanks, let's hope this doesn't cause too much disruption.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate next action?",
+  "choices": {
+    "A": "Informing office staff about the change",
+    "B": "Ordering new office chairs",
+    "C": "Adjusting the staff's work hours",
+    "D": "Canceling all scheduled meetings"
+  },
+  "answer": "A",
+  "explanation_zh": "答案：A。對話中提到\"我會通知辦公室工作人員有關變更\"，顯示最可能的下一步行動是通知員工。選項B、C、D不符合對話內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "inform",
+    "schedule",
+    "staff"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-141",
+  "part": "Part 3",
+  "transcript": "W: I just received an update that the shipment of office chairs won't arrive today as planned.\nM: That's unfortunate. Did they mention why there's a delay?\nW: Yes, the supplier said there was a problem at the distribution center.\nM: Do we have a new delivery date?\nW: They are aiming for Thursday instead.\nM: Alright, I'll inform the office staff about the change.\nW: Could you also check if we need to adjust any meetings?\nM: Sure, I'll review the schedule and make necessary changes.\nW: Thanks, let's hope this doesn't cause too much disruption.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Scheduling a meeting",
+    "B": "Planning a business trip",
+    "C": "Arranging a shipment",
+    "D": "Repairing equipment"
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D是正確的，因為整個對話圍繞著修理投影設備進行。對話中明確提到投影機的燈泡問題以及安排技術人員進行維修的細節。選項A、B和C與對話內容不符。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "projector",
+    "presentation",
+    "repair"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-142",
+  "part": "Part 3",
+  "transcript": "W: Hi, I urgently need the projector repaired for tomorrow's presentation. Can you help?\nM: Sure, I can send a technician this afternoon. What's the issue?\nW: The bulb seems to have burned out and the image is flickering.\nM: I understand. Our technician can replace the bulb today.\nW: That would be great. The presentation is at 9 AM at the downtown office.\nM: I'll make sure the technician fixes it by 5 PM today.\nW: Thank you. How much will the repair cost?\nM: It will be $75, and you'll receive an invoice by email.\nW: Perfect, I'll look out for the invoice.",
+  "question_order": 1
+},
+  {
+  "question": "What problem does the projector have?",
+  "choices": {
+    "A": "The bulb is burnt out.",
+    "B": "It has a cracked lens.",
+    "C": "It is overheating.",
+    "D": "It won't turn on."
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A是正確的，因為對話中女士明確提到“燈泡似乎燒壞了”，這直接指出了投影機的問題。選項B、C和D都未在對話中提及，屬於誤導選項。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "burned out",
+    "flickering",
+    "bulb"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-143",
+  "part": "Part 3",
+  "transcript": "W: Hi, I urgently need the projector repaired for tomorrow's presentation. Can you help?\nM: Sure, I can send a technician this afternoon. What's the issue?\nW: The bulb seems to have burned out and the image is flickering.\nM: I understand. Our technician can replace the bulb today.\nW: That would be great. The presentation is at 9 AM at the downtown office.\nM: I'll make sure the technician fixes it by 5 PM today.\nW: Thank you. How much will the repair cost?\nM: It will be $75, and you'll receive an invoice by email.\nW: Perfect, I'll look out for the invoice.",
+  "question_order": 2
+},
+  {
+  "question": "What can be inferred about the technician's visit?",
+  "choices": {
+    "A": "The technician will arrive the following week.",
+    "B": "The technician will complete the repair by 5 PM.",
+    "C": "The repair will cost more than $100.",
+    "D": "The technician will bring a replacement projector."
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B為正確答案，因為男士說“我會確保技術人員在今天下午5點之前修好它”，這表明技術人員會在今天完成修理。選項A錯誤，因為技術人員今天就會到達；選項C錯誤，因為修理費用是75美元；選項D錯誤，對話中沒有提及替換投影機。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "technician",
+    "repair",
+    "invoice"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-144",
+  "part": "Part 3",
+  "transcript": "W: Hi, I urgently need the projector repaired for tomorrow's presentation. Can you help?\nM: Sure, I can send a technician this afternoon. What's the issue?\nW: The bulb seems to have burned out and the image is flickering.\nM: I understand. Our technician can replace the bulb today.\nW: That would be great. The presentation is at 9 AM at the downtown office.\nM: I'll make sure the technician fixes it by 5 PM today.\nW: Thank you. How much will the repair cost?\nM: It will be $75, and you'll receive an invoice by email.\nW: Perfect, I'll look out for the invoice.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Changing a conference registration.",
+    "B": "Cancelling a hotel reservation.",
+    "C": "Booking a flight ticket.",
+    "D": "Rescheduling a meeting."
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A是正確的，因為整個對話聚焦於更改會議註冊時間，從下午場次改到上午場次。選項B、C和D與對話內容不符，因此是誤導選項。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "registration",
+    "conference",
+    "session"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-145",
+  "part": "Part 3",
+  "transcript": "W: I need to change my registration for the upcoming conference on October 15th.\nM: Certainly. What would you like to modify?\nW: I originally registered for the afternoon session, but I need to attend the morning one instead.\nM: Let me check the availability. Yes, there are still spots open in the morning session.\nW: Great, can you switch my registration to that session?\nM: Absolutely. I'll update your registration now.\nW: Thank you. Will I get a confirmation email?\nM: Yes, it should arrive in your inbox shortly.\nW: Perfect, I appreciate your help.",
+  "question_order": 1
+},
+  {
+  "question": "What specific change does the woman want to make?",
+  "choices": {
+    "A": "Cancel her registration entirely.",
+    "B": "Switch to the morning session.",
+    "C": "Add an additional guest.",
+    "D": "Change the conference date."
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B是正確的，因為女士明確提到她需要從下午場次改到上午場次，這是她希望進行的具體更改。選項A、C和D均未在對話中出現，屬於誤導選項。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "switch",
+    "session",
+    "availability"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-146",
+  "part": "Part 3",
+  "transcript": "W: I need to change my registration for the upcoming conference on October 15th.\nM: Certainly. What would you like to modify?\nW: I originally registered for the afternoon session, but I need to attend the morning one instead.\nM: Let me check the availability. Yes, there are still spots open in the morning session.\nW: Great, can you switch my registration to that session?\nM: Absolutely. I'll update your registration now.\nW: Thank you. Will I get a confirmation email?\nM: Yes, it should arrive in your inbox shortly.\nW: Perfect, I appreciate your help.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate next action?",
+  "choices": {
+    "A": "The man will cancel the woman's registration.",
+    "B": "The woman will call the conference organizer.",
+    "C": "The woman's registration will be updated.",
+    "D": "The man will issue a refund."
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C是正確的，因為男士表示會“立即更新您的註冊”，這是對話中最可能的下一步行動。選項A、B和D未在對話中提及，屬於誤導選項。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "confirmation",
+    "update",
+    "inbox"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-147",
+  "part": "Part 3",
+  "transcript": "W: I need to change my registration for the upcoming conference on October 15th.\nM: Certainly. What would you like to modify?\nW: I originally registered for the afternoon session, but I need to attend the morning one instead.\nM: Let me check the availability. Yes, there are still spots open in the morning session.\nW: Great, can you switch my registration to that session?\nM: Absolutely. I'll update your registration now.\nW: Thank you. Will I get a confirmation email?\nM: Yes, it should arrive in your inbox shortly.\nW: Perfect, I appreciate your help.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "A shipment delay",
+    "B": "A customer order correction",
+    "C": "A product inquiry",
+    "D": "A billing issue"
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B是正確的，因為對話內容集中在更正客戶訂單中的錯誤，將錯誤的黑色筆更換為正確的藍色筆。選項A、C和D都未在對話中提及，屬於誤導選項。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "order",
+    "pens",
+    "replacement"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-148",
+  "part": "Part 3",
+  "transcript": "W: Hello, I received my order today, but it seems there’s a mistake. I ordered three boxes of blue pens, but I got black pens instead.\nM: I’m sorry for the inconvenience. Can you confirm the order number for me?\nW: Sure, it's 45321.\nM: Thank you. I’ll arrange for the correct items to be sent out today.\nW: Great, and should I return the black pens?\nM: Yes, please. We’ll include a prepaid shipping label with your replacement.\nW: Perfect, how long will it take to get the new pens?\nM: You should receive them by Friday.",
+  "question_order": 1
+},
+  {
+  "question": "What was the problem with the order?",
+  "choices": {
+    "A": "The pens were damaged",
+    "B": "The pens were missing",
+    "C": "The wrong color pens were sent",
+    "D": "The order number was incorrect"
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C是正確的，因為女士提到她收到錯誤顏色的筆（黑色而不是藍色），這明確指出了訂單的問題。選項A、B和D未在對話中出現，屬於誤導選項。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "order",
+    "mistake",
+    "confirm"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-149",
+  "part": "Part 3",
+  "transcript": "W: Hello, I received my order today, but it seems there’s a mistake. I ordered three boxes of blue pens, but I got black pens instead.\nM: I’m sorry for the inconvenience. Can you confirm the order number for me?\nW: Sure, it's 45321.\nM: Thank you. I’ll arrange for the correct items to be sent out today.\nW: Great, and should I return the black pens?\nM: Yes, please. We’ll include a prepaid shipping label with your replacement.\nW: Perfect, how long will it take to get the new pens?\nM: You should receive them by Friday.",
+  "question_order": 2
+},
+  {
+  "question": "What can be inferred about the shipping process?",
+  "choices": {
+    "A": "The pens will arrive tomorrow",
+    "B": "The prepaid label needs to be purchased",
+    "C": "The order cannot be changed once shipped",
+    "D": "The shipping process includes prepaid returns"
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D是正確的，因為對話中提到會附帶預付費的運輸標籤，這表明物流過程包括預付費的退貨選項。選項A、B和C未在對話中支持，因此是誤導選項。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shipping",
+    "prepaid",
+    "replacement"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-150",
+  "part": "Part 3",
+  "transcript": "W: Hello, I received my order today, but it seems there’s a mistake. I ordered three boxes of blue pens, but I got black pens instead.\nM: I’m sorry for the inconvenience. Can you confirm the order number for me?\nW: Sure, it's 45321.\nM: Thank you. I’ll arrange for the correct items to be sent out today.\nW: Great, and should I return the black pens?\nM: Yes, please. We’ll include a prepaid shipping label with your replacement.\nW: Perfect, how long will it take to get the new pens?\nM: You should receive them by Friday.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Booking a conference room.",
+    "B": "Canceling a business trip.",
+    "C": "Rescheduling a client meeting.",
+    "D": "Discussing a project deadline."
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C：重新安排客戶會議。根據對話，男女雙方討論的是更改會議時間，因為男方有一個與會議時間衝突的電話會議。對話中提到需要更改的會議，以及確認新的會議時間和地點。選項A、B和D都未被提及，不符合對話內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "confirm",
+    "reschedule",
+    "conference",
+    "invite"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-151",
+  "part": "Part 3",
+  "transcript": "W: I wanted to confirm our meeting scheduled for Wednesday afternoon.\nM: Unfortunately, I need to reschedule. I have a conference call at the same time.\nW: Could we move it to Thursday instead?\nM: I'm booked that day too. How about Friday morning?\nW: Friday works for me. Should we meet at the office as usual?\nM: Actually, let's meet at the café near the office. It's quieter there.\nW: That sounds good. At 10 AM then?\nM: Perfect. I'll send you a calendar invite with the new details.",
+  "question_order": 1
+},
+  {
+  "question": "Why does the man need to reschedule the meeting?",
+  "choices": {
+    "A": "He has a doctor's appointment.",
+    "B": "He is out of town.",
+    "C": "He is attending a workshop.",
+    "D": "He has a conference call."
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D：他有一個電話會議。對話中男士明確表示，他需要重新安排會議是因為與他有一個電話會議的時間衝突。這是對話中的直接訊息。選項A、B和C未被提及，與對話內容不符。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "reschedule",
+    "conference call",
+    "meeting",
+    "confirm"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-152",
+  "part": "Part 3",
+  "transcript": "W: I wanted to confirm our meeting scheduled for Wednesday afternoon.\nM: Unfortunately, I need to reschedule. I have a conference call at the same time.\nW: Could we move it to Thursday instead?\nM: I'm booked that day too. How about Friday morning?\nW: Friday works for me. Should we meet at the office as usual?\nM: Actually, let's meet at the café near the office. It's quieter there.\nW: That sounds good. At 10 AM then?\nM: Perfect. I'll send you a calendar invite with the new details.",
+  "question_order": 2
+},
+  {
+  "question": "What will the woman most likely do next?",
+  "choices": {
+    "A": "Wait for a calendar invite.",
+    "B": "Go to the office café.",
+    "C": "Reschedule her other appointments.",
+    "D": "Prepare for a conference call."
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A：等待日曆邀請。根據對話，女士最後表示新的安排聽起來不錯，男士則說他會發送一個包含新細節的日曆邀請。因此，女士接下來最可能會等待這個邀請。選項B、C和D沒有在對話中被暗示或提及，與對話情境不符。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "invite",
+    "calendar",
+    "meeting",
+    "office"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-153",
+  "part": "Part 3",
+  "transcript": "W: I wanted to confirm our meeting scheduled for Wednesday afternoon.\nM: Unfortunately, I need to reschedule. I have a conference call at the same time.\nW: Could we move it to Thursday instead?\nM: I'm booked that day too. How about Friday morning?\nW: Friday works for me. Should we meet at the office as usual?\nM: Actually, let's meet at the café near the office. It's quieter there.\nW: That sounds good. At 10 AM then?\nM: Perfect. I'll send you a calendar invite with the new details.",
+  "question_order": 3
+},
+  {
+  "question": "What is the purpose of this recorded message?",
+  "choices": {
+    "A": "To inform about a new product launch.",
+    "B": "To update customers on service wait times.",
+    "C": "To announce a holiday closure.",
+    "D": "To advertise a special sale."
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B：錄音中提到『我們的服務線路目前正在經歷比平常更高的等待時間』，表明目的是更新服務等待時間。選項A、C和D都沒有在錄音中提到。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "customer",
+    "technical",
+    "website"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-088",
+  "part": "Part 4",
+  "transcript": "Thank you for calling Grandview Electronics Customer Service. Due to an unexpected technical issue, our service lines are currently experiencing higher than usual wait times. We apologize for any inconvenience this may cause. For immediate assistance, please visit our website, grandview-electronics.com, where you can chat live with an agent. Our offices are open Monday to Friday, from 8 AM to 6 PM. We appreciate your patience and understanding as we work to resolve this matter promptly. Thank you for choosing Grandview Electronics.",
+  "question_order": 1
+},
+  {
+  "question": "What problem is mentioned in the message?",
+  "choices": {
+    "A": "The website is down.",
+    "B": "The office hours have changed.",
+    "C": "Higher than usual wait times.",
+    "D": "The phone lines are closed."
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C：錄音清楚指出『我們的服務線路目前正在經歷比平常更高的等待時間』。選項A、B和D都未被提及或不符合現實。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "technical",
+    "issue",
+    "wait times"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-089",
+  "part": "Part 4",
+  "transcript": "Thank you for calling Grandview Electronics Customer Service. Due to an unexpected technical issue, our service lines are currently experiencing higher than usual wait times. We apologize for any inconvenience this may cause. For immediate assistance, please visit our website, grandview-electronics.com, where you can chat live with an agent. Our offices are open Monday to Friday, from 8 AM to 6 PM. We appreciate your patience and understanding as we work to resolve this matter promptly. Thank you for choosing Grandview Electronics.",
+  "question_order": 2
+},
+  {
+  "question": "What can be inferred about the company's response to the issue?",
+  "choices": {
+    "A": "They are ignoring the technical issue.",
+    "B": "They plan to close the office early.",
+    "C": "They have hired more staff to handle calls.",
+    "D": "They are working to resolve the issue promptly."
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D：錄音中提到『我們正在努力迅速解決這個問題』，表示公司正迅速處理技術問題。選項A不正確，選項B和C未被提及或不符合現實。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "resolve",
+    "patience",
+    "assistance"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p4-gen-090",
+  "part": "Part 4",
+  "transcript": "Thank you for calling Grandview Electronics Customer Service. Due to an unexpected technical issue, our service lines are currently experiencing higher than usual wait times. We apologize for any inconvenience this may cause. For immediate assistance, please visit our website, grandview-electronics.com, where you can chat live with an agent. Our offices are open Monday to Friday, from 8 AM to 6 PM. We appreciate your patience and understanding as we work to resolve this matter promptly. Thank you for choosing Grandview Electronics.",
+  "question_order": 3
+},
+  {
+  "question": "What is the announcement mainly about?",
+  "choices": {
+    "A": "A new security system installation.",
+    "B": "An upcoming company event.",
+    "C": "Building access changes.",
+    "D": "Office relocation."
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C：公告中提到『主入口將進行翻新』，並要求員工使用另一入口，重點在於建築物進出變更。選項A、B和D未被提及或不符合公告內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "renovation",
+    "entrance",
+    "access"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-091",
+  "part": "Part 4",
+  "transcript": "Attention all employees: Starting Monday, February 14th, the main entrance of our building will be undergoing renovation. During this time, please use the side entrance on Maple Street to access the building. The renovation is expected to last for two weeks, concluding on February 28th. For those with mobility issues, a temporary ramp will be installed at the side entrance. We apologize for any inconvenience this may cause and appreciate your cooperation. Please contact the facilities department if you have any questions.",
+  "question_order": 1
+},
+  {
+  "question": "What is the specified duration of the renovation?",
+  "choices": {
+    "A": "One week.",
+    "B": "Three weeks.",
+    "C": "Until March 5th.",
+    "D": "Until February 28th."
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D：公告指出『預計持續兩週，於2月28日結束』，明確表示翻新持續到2月28日。選項A、B和C不符合公告內容。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "duration",
+    "renovation",
+    "concluding"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-092",
+  "part": "Part 4",
+  "transcript": "Attention all employees: Starting Monday, February 14th, the main entrance of our building will be undergoing renovation. During this time, please use the side entrance on Maple Street to access the building. The renovation is expected to last for two weeks, concluding on February 28th. For those with mobility issues, a temporary ramp will be installed at the side entrance. We apologize for any inconvenience this may cause and appreciate your cooperation. Please contact the facilities department if you have any questions.",
+  "question_order": 2
+},
+  {
+  "question": "What should employees do next?",
+  "choices": {
+    "A": "Use the side entrance on Maple Street.",
+    "B": "Report to the facilities department.",
+    "C": "Install a temporary ramp.",
+    "D": "Wait for further instructions."
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A：公告中指示『請使用Maple Street的側入口進入建築物』。選項B、C和D未被提及或不符合公告內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "employees",
+    "temporary",
+    "cooperation"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p4-gen-093",
+  "part": "Part 4",
+  "transcript": "Attention all employees: Starting Monday, February 14th, the main entrance of our building will be undergoing renovation. During this time, please use the side entrance on Maple Street to access the building. The renovation is expected to last for two weeks, concluding on February 28th. For those with mobility issues, a temporary ramp will be installed at the side entrance. We apologize for any inconvenience this may cause and appreciate your cooperation. Please contact the facilities department if you have any questions.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the announcement?",
+  "choices": {
+    "A": "A new store opening",
+    "B": "A change in store hours",
+    "C": "A customer service issue",
+    "D": "A store promotion"
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D：公告重點在於『我們的特別夏季促銷』，這是商店促銷活動。選項A、B和C未被提及或不符合公告內容。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "promotion",
+    "summer",
+    "discount"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-094",
+  "part": "Part 4",
+  "transcript": "Good morning, shoppers! We're excited to announce our special summer promotion at Millford Mall. Starting June 10th and running through June 20th, enjoy 25% off on all summer clothing. Please note that this offer is only valid for in-store purchases and cannot be combined with other discounts. Also, check out our new arrivals section located on the first floor near the entrance. Don't miss this opportunity to refresh your wardrobe with the latest styles. If you have any questions, our staff will be happy to assist you.",
+  "question_order": 1
+},
+  {
+  "question": "What is a restriction mentioned for the promotion?",
+  "choices": {
+    "A": "It cannot be combined with other discounts.",
+    "B": "It starts on June 15th.",
+    "C": "It includes all items.",
+    "D": "It can be used online."
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A：公告明確指出『不能與其他折扣一起使用』為限制條件。選項B、C和D不符合公告或未被提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "restriction",
+    "valid",
+    "in-store"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-095",
+  "part": "Part 4",
+  "transcript": "Good morning, shoppers! We're excited to announce our special summer promotion at Millford Mall. Starting June 10th and running through June 20th, enjoy 25% off on all summer clothing. Please note that this offer is only valid for in-store purchases and cannot be combined with other discounts. Also, check out our new arrivals section located on the first floor near the entrance. Don't miss this opportunity to refresh your wardrobe with the latest styles. If you have any questions, our staff will be happy to assist you.",
+  "question_order": 2
+},
+  {
+  "question": "Where can customers find the new arrivals section?",
+  "choices": {
+    "A": "On the second floor near the elevator",
+    "B": "On the first floor near the entrance",
+    "C": "In the basement next to the food court",
+    "D": "On the third floor next to the escalator"
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B：公告中提到『新到商品區位於一樓入口附近』，表明新到商品區的位置。選項A、C和D不符合公告或未被提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "arrival",
+    "section",
+    "entrance"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p4-gen-096",
+  "part": "Part 4",
+  "transcript": "Good morning, shoppers! We're excited to announce our special summer promotion at Millford Mall. Starting June 10th and running through June 20th, enjoy 25% off on all summer clothing. Please note that this offer is only valid for in-store purchases and cannot be combined with other discounts. Also, check out our new arrivals section located on the first floor near the entrance. Don't miss this opportunity to refresh your wardrobe with the latest styles. If you have any questions, our staff will be happy to assist you.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the announcement?",
+  "choices": {
+    "A": "A train delay.",
+    "B": "A station renovation.",
+    "C": "A new train schedule.",
+    "D": "A special event at the station."
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A：公告的主題是關於火車延遲，因為聲明中明確提到“the train will be delayed by approximately 45 minutes”。選項B、C和D均未提及。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "announcement",
+    "express train",
+    "delay",
+    "maintenance",
+    "departure"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-097",
+  "part": "Part 4",
+  "transcript": "Good afternoon, passengers. This is an announcement regarding the 3:15 PM express train to Westville. Due to unexpected maintenance work on the tracks, the train will be delayed by approximately 45 minutes. We apologize for the inconvenience. Passengers can collect complimentary refreshments at the station café while waiting. The revised departure time is now 4:00 PM. For further assistance, please contact the information desk, which is located near platform 3. Thank you for your understanding and patience.",
+  "question_order": 1
+},
+  {
+  "question": "What is the reason for the delay of the train?",
+  "choices": {
+    "A": "Adverse weather conditions.",
+    "B": "Maintenance work on the tracks.",
+    "C": "A staff shortage.",
+    "D": "A power outage at the station."
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B：延遲的原因是“unexpected maintenance work on the tracks”，這在聲明中有明確提到。選項A、C和D沒有在對話中被提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "delay",
+    "maintenance",
+    "tracks",
+    "inconvenience",
+    "departure"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-098",
+  "part": "Part 4",
+  "transcript": "Good afternoon, passengers. This is an announcement regarding the 3:15 PM express train to Westville. Due to unexpected maintenance work on the tracks, the train will be delayed by approximately 45 minutes. We apologize for the inconvenience. Passengers can collect complimentary refreshments at the station café while waiting. The revised departure time is now 4:00 PM. For further assistance, please contact the information desk, which is located near platform 3. Thank you for your understanding and patience.",
+  "question_order": 2
+},
+  {
+  "question": "What should passengers probably do next?",
+  "choices": {
+    "A": "Board the train immediately.",
+    "B": "Visit platform 3.",
+    "C": "Collect refreshments at the café.",
+    "D": "Leave the station."
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C：乘客應該去咖啡廳領取免費的餐點，因為聲明中提到“Passengers can collect complimentary refreshments at the station café while waiting”。選項A不正確，因為火車還沒有準備好。選項B和D都不符合公告內容。",
+  "difficulty": "B2",
+  "vocabulary": [
+    "passengers",
+    "complimentary",
+    "refreshments",
+    "café",
+    "assistance"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p4-gen-099",
+  "part": "Part 4",
+  "transcript": "Good afternoon, passengers. This is an announcement regarding the 3:15 PM express train to Westville. Due to unexpected maintenance work on the tracks, the train will be delayed by approximately 45 minutes. We apologize for the inconvenience. Passengers can collect complimentary refreshments at the station café while waiting. The revised departure time is now 4:00 PM. For further assistance, please contact the information desk, which is located near platform 3. Thank you for your understanding and patience.",
+  "question_order": 3
+},
+  {
+  "question": "What is the purpose of the announcement?",
+  "choices": {
+    "A": "To introduce a new employee",
+    "B": "To remind about a training session",
+    "C": "To announce a company holiday",
+    "D": "To schedule a team meeting"
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B：公告的目的是提醒關於即將到來的培訓會議，因為提到“This is a quick reminder about our upcoming staff training session”。選項A、C和D均不符合公告內容。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "reminder",
+    "upcoming",
+    "training",
+    "session"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-100",
+  "part": "Part 4",
+  "transcript": "Good morning, team. This is a quick reminder about our upcoming staff training session scheduled for next Tuesday, October 12th, at 9 AM. We will be meeting in the main conference room on the third floor. Please remember to bring your employee ID cards for check-in. The training will focus on the new customer service protocols launched last month. Due to a scheduling conflict, the session originally planned for 11 AM has been moved up to 9 AM instead. Be sure to arrive on time, as the session will begin promptly.",
+  "question_order": 1
+},
+  {
+  "question": "When is the staff training session scheduled to start?",
+  "choices": {
+    "A": "11 AM",
+    "B": "10 AM",
+    "C": "9 AM",
+    "D": "8 AM"
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C：培訓會議的開始時間是上午9點，聲明中清楚地提到“scheduled for next Tuesday, October 12th, at 9 AM”。選項A、B和D不正確。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "scheduled",
+    "session",
+    "conference",
+    "promptly"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-101",
+  "part": "Part 4",
+  "transcript": "Good morning, team. This is a quick reminder about our upcoming staff training session scheduled for next Tuesday, October 12th, at 9 AM. We will be meeting in the main conference room on the third floor. Please remember to bring your employee ID cards for check-in. The training will focus on the new customer service protocols launched last month. Due to a scheduling conflict, the session originally planned for 11 AM has been moved up to 9 AM instead. Be sure to arrive on time, as the session will begin promptly.",
+  "question_order": 2
+},
+  {
+  "question": "What can be inferred about the original training session time?",
+  "choices": {
+    "A": "It was scheduled for the afternoon.",
+    "B": "It was planned for the third floor.",
+    "C": "It was held last month.",
+    "D": "It was initially set for 11 AM."
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D：可以推斷出原定時間是11點，因為聲明中提到“the session originally planned for 11 AM has been moved up to 9 AM instead”。選項A、B和C未被提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "originally",
+    "conflict",
+    "moved",
+    "instead"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p4-gen-102",
+  "part": "Part 4",
+  "transcript": "Good morning, team. This is a quick reminder about our upcoming staff training session scheduled for next Tuesday, October 12th, at 9 AM. We will be meeting in the main conference room on the third floor. Please remember to bring your employee ID cards for check-in. The training will focus on the new customer service protocols launched last month. Due to a scheduling conflict, the session originally planned for 11 AM has been moved up to 9 AM instead. Be sure to arrive on time, as the session will begin promptly.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of this message?",
+  "choices": {
+    "A": "To announce a new product release",
+    "B": "To provide a weather update",
+    "C": "To inform about shipment delays",
+    "D": "To offer a discount on future purchases"
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C：消息的主要目的是通知運輸延遲，因為聲明中提到“We are currently experiencing a delay in shipping”。選項A、B和D不正確。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "shipping",
+    "delay",
+    "weather",
+    "orders"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-103",
+  "part": "Part 4",
+  "transcript": "Hello, this is a message from the customer service department at TechGear. We are currently experiencing a delay in shipping due to unforeseen weather conditions in the Midwest. Orders placed on or after October 15th will be delayed by approximately three to five business days. We apologize for any inconvenience this may cause and are working diligently to resolve the issue. Please check your email for updates on your shipment. If you have any questions, feel free to contact us at our toll-free number. Thank you for your understanding and patience.",
+  "question_order": 1
+},
+  {
+  "question": "What is the cause of the shipping delay?",
+  "choices": {
+    "A": "Supplier issue",
+    "B": "System upgrade",
+    "C": "Limited staff",
+    "D": "Weather conditions"
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D：運輸延遲的原因是“unforeseen weather conditions in the Midwest”。這從公告中明確可得。選項A、B和C不匹配。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "unforeseen",
+    "weather",
+    "conditions",
+    "delay"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-104",
+  "part": "Part 4",
+  "transcript": "Hello, this is a message from the customer service department at TechGear. We are currently experiencing a delay in shipping due to unforeseen weather conditions in the Midwest. Orders placed on or after October 15th will be delayed by approximately three to five business days. We apologize for any inconvenience this may cause and are working diligently to resolve the issue. Please check your email for updates on your shipment. If you have any questions, feel free to contact us at our toll-free number. Thank you for your understanding and patience.",
+  "question_order": 2
+},
+  {
+  "question": "What should customers do after hearing this message?",
+  "choices": {
+    "A": "Check their email for updates",
+    "B": "Place a new order",
+    "C": "Visit the store",
+    "D": "Ignore the delay"
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A：聽到這個信息後，顧客應該檢查他們的電子郵件，因為聲明中提到“Please check your email for updates on your shipment”。選項B、C和D沒有相關指示。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "email",
+    "updates",
+    "shipment",
+    "contact"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p4-gen-105",
+  "part": "Part 4",
+  "transcript": "Hello, this is a message from the customer service department at TechGear. We are currently experiencing a delay in shipping due to unforeseen weather conditions in the Midwest. Orders placed on or after October 15th will be delayed by approximately three to five business days. We apologize for any inconvenience this may cause and are working diligently to resolve the issue. Please check your email for updates on your shipment. If you have any questions, feel free to contact us at our toll-free number. Thank you for your understanding and patience.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of this announcement?",
+  "choices": {
+    "A": "To introduce a new security policy.",
+    "B": "To announce a change in office hours.",
+    "C": "To inform about a company event.",
+    "D": "To notify about a building access change."
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D是正確的，因為公告的主要目的是通知員工建築物的入口變更。證據在於公告中提到由於維修，主要入口將於10月6日關閉，並要求使用側入口。選項A、B和C都與公告內容不符，無法解釋此次通知的目的。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "maintenance",
+    "entrance",
+    "scheduled",
+    "side",
+    "security"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-106",
+  "part": "Part 4",
+  "transcript": "Attention all employees. Due to scheduled maintenance, the main entrance of the building will be closed on Friday, October 6th. Please use the side entrance near the parking lot instead. The maintenance work is expected to start at 8:00 AM and finish by 5:00 PM. We apologize for any inconvenience this may cause. Additionally, please note that the security office will be temporarily relocated to Room 102 during this period. Thank you for your understanding and cooperation.",
+  "question_order": 1
+},
+  {
+  "question": "When will the main entrance be closed?",
+  "choices": {
+    "A": "On October 6th",
+    "B": "On October 7th",
+    "C": "On October 8th",
+    "D": "On October 5th"
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A是正確的，因為公告中明確指出主要入口將於10月6日（星期五）關閉。這是直接從內容中得出的信息。選項B、C和D都與公告所述日期不符。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "entrance",
+    "closed",
+    "scheduled",
+    "start",
+    "finish"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-107",
+  "part": "Part 4",
+  "transcript": "Attention all employees. Due to scheduled maintenance, the main entrance of the building will be closed on Friday, October 6th. Please use the side entrance near the parking lot instead. The maintenance work is expected to start at 8:00 AM and finish by 5:00 PM. We apologize for any inconvenience this may cause. Additionally, please note that the security office will be temporarily relocated to Room 102 during this period. Thank you for your understanding and cooperation.",
+  "question_order": 2
+},
+  {
+  "question": "What can be inferred about the security office?",
+  "choices": {
+    "A": "It will be open 24 hours.",
+    "B": "It will be in Room 102 temporarily.",
+    "C": "It requires a new access code.",
+    "D": "It has been permanently relocated."
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B是正確的，因為公告中提到保安辦公室在這段期間將臨時遷至102室，這表示遷移是暫時性的。選項A、C和D都不符合公告中給出的信息。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "relocated",
+    "temporary",
+    "maintenance",
+    "entrance",
+    "side"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p4-gen-108",
+  "part": "Part 4",
+  "transcript": "Attention all employees. Due to scheduled maintenance, the main entrance of the building will be closed on Friday, October 6th. Please use the side entrance near the parking lot instead. The maintenance work is expected to start at 8:00 AM and finish by 5:00 PM. We apologize for any inconvenience this may cause. Additionally, please note that the security office will be temporarily relocated to Room 102 during this period. Thank you for your understanding and cooperation.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the announcement?",
+  "choices": {
+    "A": "A store's weekend sale event.",
+    "B": "A new product launch.",
+    "C": "A change in store hours.",
+    "D": "A customer feedback survey."
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A是正確的，因為公告的主要話題是關於店鋪的周末特賣活動，從4月15日到4月17日進行。內容中提到折扣和購物活動。選項B、C和D未在公告中提到，與主要話題無關。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "sale",
+    "electronics",
+    "discount",
+    "event"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-109",
+  "part": "Part 4",
+  "transcript": "Attention shoppers! We're excited to announce our weekend sale event at Riverdale Mall, running from April 15th to April 17th. Enjoy discounts up to 50% on select electronics, including televisions and smartphones. Please note that these offers are available in-store only and cannot be combined with other promotions. Remember to check the product labels for eligible discounts. Store hours are extended during the sale, from 9 AM to 10 PM. Hurry in, as supplies are limited. We look forward to seeing you! Thank you for shopping with us.",
+  "question_order": 1
+},
+  {
+  "question": "When is the sale event taking place?",
+  "choices": {
+    "A": "April 10th to April 12th.",
+    "B": "April 15th to April 17th.",
+    "C": "April 18th to April 20th.",
+    "D": "April 20th to April 22nd."
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B是正確的，因為公告中明確指出特賣活動將於4月15日至4月17日舉行。這是直接從內容中得出的信息。選項A、C和D都不符合公告所述的日期。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "sale",
+    "event",
+    "April"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-110",
+  "part": "Part 4",
+  "transcript": "Attention shoppers! We're excited to announce our weekend sale event at Riverdale Mall, running from April 15th to April 17th. Enjoy discounts up to 50% on select electronics, including televisions and smartphones. Please note that these offers are available in-store only and cannot be combined with other promotions. Remember to check the product labels for eligible discounts. Store hours are extended during the sale, from 9 AM to 10 PM. Hurry in, as supplies are limited. We look forward to seeing you! Thank you for shopping with us.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate next action for a shopper interested in the sale?",
+  "choices": {
+    "A": "Call to extend the sale period.",
+    "B": "Combine discounts with another promotion.",
+    "C": "Visit the store to shop during the sale.",
+    "D": "Sign up for a newsletter about future sales."
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C是正確的，因為對於有興趣的購物者來說，最可能的立即行動就是在特賣期間去商店購物。公告中提到特賣活動是在店內進行，並未提及延長特賣期、合併折扣或訂閱未來銷售資訊等。選項A、B和D都不符合合理行動。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shopper",
+    "store",
+    "interested",
+    "immediate"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p4-gen-111",
+  "part": "Part 4",
+  "transcript": "Attention shoppers! We're excited to announce our weekend sale event at Riverdale Mall, running from April 15th to April 17th. Enjoy discounts up to 50% on select electronics, including televisions and smartphones. Please note that these offers are available in-store only and cannot be combined with other promotions. Remember to check the product labels for eligible discounts. Store hours are extended during the sale, from 9 AM to 10 PM. Hurry in, as supplies are limited. We look forward to seeing you! Thank you for shopping with us.",
+  "question_order": 3
+}
 ];
