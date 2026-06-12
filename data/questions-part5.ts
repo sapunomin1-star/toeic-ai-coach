@@ -6577,4 +6577,428 @@ export const QUESTIONS_PART5: Question[] = [
       "login failure"
     ]
   },
+  {
+    "id": "p5-pr-011",
+    "part": "Part 5",
+    "question": "The project manager is responsible _______ overseeing the entire development process.",
+    "choices": {
+      "A": "for",
+      "B": "to",
+      "C": "with",
+      "D": "of"
+    },
+    "answer": "A",
+    "explanation_zh": "答案為 A。固定搭配「responsible for」表示「對…負責」。B「to」、C「with」、D「of」均無法與 responsible 構成正確搭配。",
+    "skill_tag": "preposition",
+    "difficulty": "B1",
+    "vocabulary": [
+      "project manager",
+      "responsible for",
+      "overseeing",
+      "development process"
+    ]
+  },
+  {
+    "id": "p5-pr-012",
+    "part": "Part 5",
+    "question": "All employees are required to be familiar _______ the new safety procedures.",
+    "choices": {
+      "A": "to",
+      "B": "with",
+      "C": "of",
+      "D": "about"
+    },
+    "answer": "B",
+    "explanation_zh": "正确答案是 'with'，因为 'familiar with' 是固定搭配，表示熟悉某事。'familiar to' 表示某事对某人熟悉，主语和宾语颠倒；'of' 和 'about' 不能与 familiar 搭配。",
+    "skill_tag": "preposition",
+    "difficulty": "B1",
+    "vocabulary": [
+      "employees",
+      "familiar with",
+      "safety procedures"
+    ]
+  },
+  {
+    "id": "p5-pr-013",
+    "part": "Part 5",
+    "question": "The marketing team is interested _______ exploring new advertising channels.",
+    "choices": {
+      "A": "for",
+      "B": "to",
+      "C": "in",
+      "D": "about"
+    },
+    "answer": "C",
+    "explanation_zh": "正确答案是 'in'，因为 'interested in' 是固定搭配，表示对某事感兴趣。'interested for' 和 'interested about' 都是错误搭配；'interested to' 后面接动词原形，但此处需介词。",
+    "skill_tag": "preposition",
+    "difficulty": "B1",
+    "vocabulary": [
+      "marketing team",
+      "interested in",
+      "exploring",
+      "advertising channels"
+    ]
+  },
+  {
+    "id": "p5-pr-014",
+    "part": "Part 5",
+    "question": "The candidate's qualifications are similar _______ those required for the position.",
+    "choices": {
+      "A": "as",
+      "B": "with",
+      "C": "than",
+      "D": "to"
+    },
+    "answer": "D",
+    "explanation_zh": "答案為 D。固定搭配「similar to」表示「與…相似」。A「as」、B「with」、C「than」均無法與 similar 構成正確搭配。",
+    "skill_tag": "preposition",
+    "difficulty": "B1",
+    "vocabulary": [
+      "candidate",
+      "qualifications",
+      "similar to",
+      "position"
+    ]
+  },
+  {
+    "id": "p5-pr-015",
+    "part": "Part 5",
+    "question": "The company's success depends _______ the dedication of its employees.",
+    "choices": {
+      "A": "on",
+      "B": "to",
+      "C": "for",
+      "D": "in"
+    },
+    "answer": "A",
+    "explanation_zh": "答案為 A。固定搭配「depend on」表示「依賴於」。B「to」、C「for」、D「in」均無法與 depend 構成正確搭配。",
+    "skill_tag": "preposition",
+    "difficulty": "B1",
+    "vocabulary": [
+      "company",
+      "depends on",
+      "dedication",
+      "employees"
+    ]
+  },
+  {
+    "id": "p5-pr-016",
+    "part": "Part 5",
+    "question": "The new software must be installed _______ the end of the month to avoid any disruption to the quarterly reports.",
+    "choices": {
+      "A": "during",
+      "B": "by",
+      "C": "until",
+      "D": "for"
+    },
+    "answer": "B",
+    "explanation_zh": "答案為 B。介係詞「by」表示「在…之前（不遲於）」，強調截止時間。A「during」表示「在…期間」；C「until」表示「直到…」；D「for」表示「持續…時間」，均不符合語境。",
+    "skill_tag": "preposition",
+    "difficulty": "B1",
+    "vocabulary": [
+      "software",
+      "installed",
+      "disruption",
+      "quarterly reports"
+    ]
+  },
+  {
+    "id": "p5-pr-017",
+    "part": "Part 5",
+    "question": "The new software will be implemented _______ the entire company next month, not just a few departments.",
+    "choices": {
+      "A": "between",
+      "B": "within",
+      "C": "throughout",
+      "D": "among"
+    },
+    "answer": "C",
+    "explanation_zh": "答案為 C。「throughout」表示「遍及整個公司」。A「between」用於兩者之間；B「within」表示「在…內部」；D「among」表示「在…之中」，均無法表達「遍及全公司」的含義。",
+    "skill_tag": "preposition",
+    "difficulty": "B1",
+    "vocabulary": [
+      "implemented",
+      "company",
+      "departments",
+      "throughout"
+    ]
+  },
+  {
+    "id": "p5-pr-018",
+    "part": "Part 5",
+    "question": "Please submit the completed form _______ three business days after the training session.",
+    "choices": {
+      "A": "for",
+      "B": "by",
+      "C": "until",
+      "D": "within"
+    },
+    "answer": "D",
+    "explanation_zh": "答案為 D。「within」表示「在…之內」，強調在三天內完成。A「for」表示目的或持續時間；B「by」表示截止時間；C「until」表示直到某時間，均不符合語境。",
+    "skill_tag": "preposition",
+    "difficulty": "B1",
+    "vocabulary": [
+      "submit",
+      "completed form",
+      "training session",
+      "business days"
+    ]
+  },
+  {
+    "id": "p5-pr-019",
+    "part": "Part 5",
+    "question": "The meeting was scheduled _______ 2:00 PM and 3:00 PM to avoid overlapping with other events.",
+    "choices": {
+      "A": "between",
+      "B": "among",
+      "C": "during",
+      "D": "throughout"
+    },
+    "answer": "A",
+    "explanation_zh": "答案為 A。「between...and...」為固定搭配，表示「在…和…之間」。B「among」用於三者以上；C「during」表示「在…期間」；D「throughout」表示「遍及」，均無法與 and 搭配。",
+    "skill_tag": "preposition",
+    "difficulty": "B1",
+    "vocabulary": [
+      "scheduled",
+      "overlapping",
+      "events",
+      "meeting"
+    ]
+  },
+  {
+    "id": "p5-pr-020",
+    "part": "Part 5",
+    "question": "The manager's email was sent _______ the urgent request from the client.",
+    "choices": {
+      "A": "on behalf of",
+      "B": "in response to",
+      "C": "regardless of",
+      "D": "in addition to"
+    },
+    "answer": "B",
+    "explanation_zh": "答案為 B。「in response to」表示「回應…」。A「on behalf of」表示「代表」；C「regardless of」表示「不管」；D「in addition to」表示「除了…之外」，均不符合語境。",
+    "skill_tag": "preposition",
+    "difficulty": "B2",
+    "vocabulary": [
+      "manager",
+      "sent",
+      "urgent",
+      "request",
+      "client"
+    ]
+  },
+  {
+    "id": "p5-pr-021",
+    "part": "Part 5",
+    "question": "The CEO spoke at the meeting _______ the entire company.",
+    "choices": {
+      "A": "with regard to",
+      "B": "prior to",
+      "C": "on behalf of",
+      "D": "in terms of"
+    },
+    "answer": "C",
+    "explanation_zh": "答案為 C。「on behalf of」表示「代表…」。A「with regard to」表示「關於」；B「prior to」表示「在…之前」；D「in terms of」表示「就…而言」，均不符合語境。",
+    "skill_tag": "preposition",
+    "difficulty": "B2",
+    "vocabulary": [
+      "CEO",
+      "spoke",
+      "meeting",
+      "entire",
+      "company"
+    ]
+  },
+  {
+    "id": "p5-pr-022",
+    "part": "Part 5",
+    "question": "All employees must complete the training _______ the new policy takes effect.",
+    "choices": {
+      "A": "in addition to",
+      "B": "regardless of",
+      "C": "in response to",
+      "D": "prior to"
+    },
+    "answer": "D",
+    "explanation_zh": "答案為 D。「prior to」表示「在…之前」。A「in addition to」表示「除了…之外」；B「regardless of」表示「不管」；C「in response to」表示「回應」，均不符合語境。",
+    "skill_tag": "preposition",
+    "difficulty": "B2",
+    "vocabulary": [
+      "employees",
+      "complete",
+      "training",
+      "policy",
+      "takes effect"
+    ]
+  },
+  {
+    "id": "p5-pr-023",
+    "part": "Part 5",
+    "question": "The project will proceed _______ the budget constraints.",
+    "choices": {
+      "A": "regardless of",
+      "B": "on behalf of",
+      "C": "in response to",
+      "D": "prior to"
+    },
+    "answer": "A",
+    "explanation_zh": "答案為 A。「regardless of」表示「不管、不顧」。B「on behalf of」表示「代表」；C「in response to」表示「回應」；D「prior to」表示「在…之前」，均不符合語境。",
+    "skill_tag": "preposition",
+    "difficulty": "B2",
+    "vocabulary": [
+      "project",
+      "proceed",
+      "budget",
+      "constraints"
+    ]
+  },
+  {
+    "id": "p5-pr-024",
+    "part": "Part 5",
+    "question": "The manager will speak _______ the new policy changes at the upcoming staff meeting.",
+    "choices": {
+      "A": "in addition to",
+      "B": "with regard to",
+      "C": "on behalf of",
+      "D": "regardless of"
+    },
+    "answer": "B",
+    "explanation_zh": "正确答案是B，'with regard to'表示‘关于’，用于引出话题。A 'in addition to'意为‘除…之外’，不符合语境；C 'on behalf of'意为‘代表’，主语是人时可使用但这里强调谈论内容；D 'regardless of'意为‘不管’，逻辑不符。",
+    "skill_tag": "preposition",
+    "difficulty": "B2",
+    "vocabulary": [
+      "manager",
+      "policy changes",
+      "staff meeting",
+      "speak"
+    ]
+  },
+  {
+    "id": "p5-pr-025",
+    "part": "Part 5",
+    "question": "Please direct any questions _______ the new policy to the HR department.",
+    "choices": {
+      "A": "in response to",
+      "B": "on behalf of",
+      "C": "with regard to",
+      "D": "prior to"
+    },
+    "answer": "C",
+    "explanation_zh": "答案為 C。「with regard to」表示「關於」。A「in response to」表示「回應」；B「on behalf of」表示「代表」；D「prior to」表示「在…之前」，均不符合語境。",
+    "skill_tag": "preposition",
+    "difficulty": "B2",
+    "vocabulary": [
+      "questions",
+      "policy",
+      "HR",
+      "department"
+    ]
+  },
+  {
+    "id": "p5-pr-026",
+    "part": "Part 5",
+    "question": "The contract was signed _______ the new fiscal year.",
+    "choices": {
+      "A": "regardless of",
+      "B": "in addition to",
+      "C": "in response to",
+      "D": "as of"
+    },
+    "answer": "D",
+    "explanation_zh": "答案為 D。「as of」表示「自…起生效」。A「regardless of」表示「不管」；B「in addition to」表示「除了…之外」；C「in response to」表示「回應」，均不符合語境。",
+    "skill_tag": "preposition",
+    "difficulty": "B2",
+    "vocabulary": [
+      "contract",
+      "signed",
+      "fiscal",
+      "year"
+    ]
+  },
+  {
+    "id": "p5-pr-027",
+    "part": "Part 5",
+    "question": "The company's success can be measured _______ customer satisfaction.",
+    "choices": {
+      "A": "in terms of",
+      "B": "prior to",
+      "C": "on behalf of",
+      "D": "in addition to"
+    },
+    "answer": "A",
+    "explanation_zh": "答案為 A。「in terms of」表示「就…而言、以…衡量」。B「prior to」表示「在…之前」；C「on behalf of」表示「代表」；D「in addition to」表示「除了…之外」，均不符合語境。",
+    "skill_tag": "preposition",
+    "difficulty": "B2",
+    "vocabulary": [
+      "company",
+      "success",
+      "measured",
+      "customer",
+      "satisfaction"
+    ]
+  },
+  {
+    "id": "p5-pr-028",
+    "part": "Part 5",
+    "question": "All contractors must operate _______ with local safety regulations to avoid penalties.",
+    "choices": {
+      "A": "on compliance",
+      "B": "in compliance",
+      "C": "with compliance",
+      "D": "at compliance"
+    },
+    "answer": "B",
+    "explanation_zh": "答案為 B。固定搭配「in compliance with」表示「符合、遵守」。A、C、D 均無法構成正確搭配。",
+    "skill_tag": "preposition",
+    "difficulty": "C1",
+    "vocabulary": [
+      "contractors",
+      "compliance",
+      "regulations",
+      "penalties"
+    ]
+  },
+  {
+    "id": "p5-pr-029",
+    "part": "Part 5",
+    "question": "The final bonus amount will be determined _______ of the project manager.",
+    "choices": {
+      "A": "in discretion",
+      "B": "by discretion",
+      "C": "at the discretion",
+      "D": "on discretion"
+    },
+    "answer": "C",
+    "explanation_zh": "答案為 C。固定搭配「at the discretion of」表示「由…酌情決定」。A、B、D 均無法構成正確搭配。",
+    "skill_tag": "preposition",
+    "difficulty": "C1",
+    "vocabulary": [
+      "bonus",
+      "determined",
+      "discretion",
+      "project manager"
+    ]
+  },
+  {
+    "id": "p5-pr-030",
+    "part": "Part 5",
+    "question": "All shipments must be processed in compliance _______ the latest customs regulations to avoid any delays.",
+    "choices": {
+      "A": "from",
+      "B": "to",
+      "C": "for",
+      "D": "with"
+    },
+    "answer": "D",
+    "explanation_zh": "答案為 D。固定搭配「in compliance with」表示「符合、遵守」，介系詞固定用 with。from、to、for 皆無法與 in compliance 構成正確搭配；受 comply 誤用影響的 in compliance to 是常見陷阱，正確搭配只有 with。",
+    "skill_tag": "preposition",
+    "difficulty": "C1",
+    "vocabulary": [
+      "shipments",
+      "processed",
+      "regulations",
+      "delays",
+      "compliance"
+    ]
+  },
 ];
