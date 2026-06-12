@@ -316,6 +316,9 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
             {mode === "listening" && (
               <li>• 聽力 transcript 在作答時不會顯示（模擬真實考試）</li>
             )}
+            {mode === "listening" && (
+              <li>• 音檔播畢後自動倒數進下一題（P1/P2 各 5 秒、P3/P4 各 8 秒），仿真考節奏</li>
+            )}
             <li>• 答錯的題目會加入錯題本，未作答不進</li>
           </ul>
         </section>
@@ -473,7 +476,7 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
             </div>
           )}
 
-          {enableP3MockPacing && countdownActive && (
+          {countdownActive && (
             <div
               role="timer"
               aria-live="polite"

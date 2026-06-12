@@ -19,9 +19,34 @@ type UseMockAudioPacingConfig = {
 };
 
 /**
- * Shared listening audio "no replay" + Part 3 pacing state machine for the
+ * Per-part answering countdown after the audio finishes, mirroring the real
+ * exam's pacing (ETS allows ~5 seconds after each P1/P2 item and ~8 seconds
+ * per P3/P4 question). Self-paced listening lets students take unrealistic
+ * thinking time, which inflates listening mock scores.
+ */
+const COUNTDOWN_SECONDS: Record<string, number> = {
+  "Part 1": 5,
+  "Part 2": 5,
+  "Part 3": 8,
+  "Part 4": 8,
+};
+
+function countdownSecondsFor(part: string): number {
+  return COUNTDOWN_SECONDS[part] ?? 8;
+}
+
+/** Parts whose countdown starts right after the (shared) audio ends. */
+const AUTO_COUNTDOWN_PARTS = new Set(["Part 1", "Part 2", "Part 4"]);
+
+/**
+ * Shared listening audio "no replay" + listening pacing state machine for the
  * mock runners. Owns which audio groups / question stems have been consumed,
  * which are actively playing, and the per-question answering countdown.
+ *
+ * Pacing model (real-exam style):
+ * - Part 1/2: item audio plays → fixed countdown → auto-advance.
+ * - Part 3: conversation plays → question-stem narration → countdown → advance.
+ * - Part 4: talk plays once for the group → countdown per question → advance.
  *
  * Consumption is persisted the instant audible playback starts (via the
  * caller's persist* callbacks fired from AudioPlayer.onPlaybackStart), so
@@ -44,6 +69,11 @@ export function useMockAudioPacing({
   const [activeQuestionAudioId, setActiveQuestionAudioId] = useState<string | null>(null);
   const [countdownQuestionId, setCountdownQuestionId] = useState<string | null>(null);
   const [countdownSec, setCountdownSec] = useState(8);
+  // Questions whose countdown already elapsed once — never restart it, so
+  // navigating back to an answered question doesn't yank the user forward.
+  const [completedCountdownIds, setCompletedCountdownIds] = useState<Set<string>>(
+    new Set(),
+  );
 
   function handleAudioStarted(groupKey: string) {
     setActiveAudioGroup(groupKey);
@@ -111,6 +141,7 @@ export function useMockAudioPacing({
     setActiveAudioGroup(null);
     setPlayedQuestionAudioIds(new Set());
     setFailedQuestionAudioIds(new Set());
+    setCompletedCountdownIds(new Set());
     resetQuestionPacing();
   }, [resetQuestionPacing]);
 
@@ -120,6 +151,7 @@ export function useMockAudioPacing({
       setPlayedGroups(new Set(options.playedAudioGroups ?? []));
       setPlayedQuestionAudioIds(new Set(options.playedQuestionAudioIds ?? []));
       setActiveAudioGroup(null);
+      setCompletedCountdownIds(new Set());
       resetQuestionPacing();
     },
     [resetQuestionPacing],
@@ -137,23 +169,59 @@ export function useMockAudioPacing({
       activeAudioGroup !== groupKey &&
       playedQuestionAudioIds.has(question.id) &&
       activeQuestionAudioId !== question.id &&
-      countdownQuestionId !== question.id
+      countdownQuestionId !== question.id &&
+      !completedCountdownIds.has(question.id)
     ) {
       const id = window.setTimeout(() => {
         setCountdownQuestionId(question.id);
-        setCountdownSec(8);
+        setCountdownSec(countdownSecondsFor(question.part));
       }, 0);
       return () => window.clearTimeout(id);
     }
   }, [
     activeAudioGroup,
     activeQuestionAudioId,
+    completedCountdownIds,
     countdownQuestionId,
     currentIndex,
     isListeningActive,
     isTesting,
     playedGroups,
     playedQuestionAudioIds,
+    questions,
+  ]);
+
+  // Real-exam pacing for Part 1/2/4: once the (shared) audio for the current
+  // question has finished, a fixed answering countdown starts and the test
+  // auto-advances. Audio that failed to load never forces a countdown — the
+  // student self-paces instead of being rushed past a question they never heard.
+  useEffect(() => {
+    if (!isTesting || !isListeningActive) return;
+    const question = questions[currentIndex];
+    if (!question || !AUTO_COUNTDOWN_PARTS.has(question.part)) return;
+    const groupKey = audioGroupKey(question);
+    if (
+      playedGroups.has(groupKey) &&
+      activeAudioGroup !== groupKey &&
+      !failedAudioGroups.has(groupKey) &&
+      countdownQuestionId !== question.id &&
+      !completedCountdownIds.has(question.id)
+    ) {
+      const id = window.setTimeout(() => {
+        setCountdownQuestionId(question.id);
+        setCountdownSec(countdownSecondsFor(question.part));
+      }, 0);
+      return () => window.clearTimeout(id);
+    }
+  }, [
+    activeAudioGroup,
+    completedCountdownIds,
+    countdownQuestionId,
+    currentIndex,
+    failedAudioGroups,
+    isListeningActive,
+    isTesting,
+    playedGroups,
     questions,
   ]);
 
@@ -166,6 +234,12 @@ export function useMockAudioPacing({
         setCountdownSec((previous) => previous - 1);
         return;
       }
+      setCompletedCountdownIds((previous) => {
+        if (previous.has(question.id)) return previous;
+        const next = new Set(previous);
+        next.add(question.id);
+        return next;
+      });
       resetQuestionPacing();
       onCountdownAdvance();
     }, 1000);

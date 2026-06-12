@@ -353,6 +353,7 @@ export default function FullMockRunner() {
             <li>• 若 Listening 已完成，可手動提早開始 Reading</li>
             <li>• 進入 Reading 後不可返回 Listening 修改答案</li>
             <li>• 聽力音檔不可重播，作答時不顯示 transcript</li>
+            <li>• 聽力音檔播畢自動倒數進下一題（P1/P2 各 5 秒、P3/P4 各 8 秒）</li>
             <li>• 離開頁面仍持續計時，結果會註記離頁紀錄</li>
             <li>• 答錯的題目會加入錯題本，未作答不進</li>
           </ul>
@@ -571,7 +572,7 @@ export default function FullMockRunner() {
             </div>
           )}
 
-          {enableP3MockPacing && countdownActive && (
+          {countdownActive && (
             <div
               role="timer"
               aria-live="polite"
