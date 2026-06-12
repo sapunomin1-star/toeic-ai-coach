@@ -538,7 +538,7 @@ export default function QuizPage() {
       {currentQuestion.passage && (
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 shadow-sm">
           <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-amber-700">
-            Part 7 · Reading Passage
+            {currentQuestion.part} · {currentQuestion.part === "Part 6" ? "段落填空" : "Reading Passage"}
           </p>
           <p className="whitespace-pre-wrap text-sm leading-relaxed text-slate-800">
             {currentQuestion.passage}

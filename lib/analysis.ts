@@ -5,7 +5,12 @@ import type {
   Question,
   SkillTag,
 } from "@/types/question";
-import { MISTAKE_REASONS, SKILL_LABELS, getSkillCategory } from "@/types/question";
+import {
+  MISTAKE_REASONS,
+  SKILL_LABELS,
+  SKILL_TAG_LIST,
+  getSkillCategory,
+} from "@/types/question";
 
 const PART5_SKILLS = new Set<SkillTag>([
   "passive_voice",
@@ -24,12 +29,15 @@ export const LISTENING_SKILLS: SkillTag[] = [
   "listening_main_idea",
   "listening_inference",
   "listening_next_action",
+  "listening_detail",
 ];
 
 export const READING_SKILLS: SkillTag[] = [
   "reading_main_idea",
   "reading_detail",
   "reading_inference",
+  "reading_vocab",
+  "sentence_insertion",
 ];
 
 function excludeMock(records: AnswerRecord[]): AnswerRecord[] {
@@ -46,25 +54,9 @@ export function countMistakesBySkill(
   records: AnswerRecord[]
 ): Record<SkillTag, number> {
   const filtered = excludeMock(records);
-  const tags: SkillTag[] = [
-    "passive_voice",
-    "word_form",
-    "tense",
-    "preposition",
-    "conjunction",
-    "pronoun",
-    "business_vocabulary",
-    "relative_clause",
-    "listening_photo",
-    "listening_response",
-    "listening_main_idea",
-    "listening_inference",
-    "listening_next_action",
-    "reading_main_idea",
-    "reading_detail",
-    "reading_inference",
-  ];
-  const init = Object.fromEntries(tags.map((t) => [t, 0])) as Record<
+  // Derive from the SKILLS registry so newly added skill tags are counted
+  // automatically (a hardcoded list silently produced NaN for unknown tags).
+  const init = Object.fromEntries(SKILL_TAG_LIST.map((t) => [t, 0])) as Record<
     SkillTag,
     number
   >;
@@ -190,6 +182,12 @@ const SKILL_ADVICE: Partial<Record<SkillTag, string>> = {
     "明天請優先練商務單字，重點記憶 comply/implement/allocate/submit/collaborate 等核心動詞。",
   reading_detail:
     "明天請多練 Part 6 段落填空與 Part 7 細節題，注意文章中的上下文線索和關鍵資訊定位。",
+  reading_vocab:
+    "明天請優先練字彙語境題（closest in meaning），重點是依上下文判斷多義字的意思，而非背單一中譯。",
+  sentence_insertion:
+    "明天請優先練句子插入題，先抓代名詞/連接詞的指涉對象（this、such、also），再驗證前後句邏輯是否連貫。",
+  listening_detail:
+    "明天請優先練聽力細節題，練習邊聽邊抓數字、時間、地點與指令動詞，聽到關鍵資訊立刻在心中複誦一次。",
 };
 
 export type Recommendation = {

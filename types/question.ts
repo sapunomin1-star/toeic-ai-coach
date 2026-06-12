@@ -28,9 +28,12 @@ export const SKILLS = {
   listening_main_idea: { label: "聽力主旨", category: "listening" },
   listening_inference: { label: "聽力推論", category: "listening" },
   listening_next_action: { label: "聽力下一步", category: "listening" },
+  listening_detail: { label: "聽力細節", category: "listening" },
   reading_main_idea: { label: "閱讀主旨", category: "reading" },
   reading_detail: { label: "閱讀細節", category: "reading" },
   reading_inference: { label: "閱讀推論", category: "reading" },
+  reading_vocab: { label: "字彙語境", category: "reading" },
+  sentence_insertion: { label: "句子插入", category: "reading" },
 } satisfies Record<string, { label: string; category: SkillCategory }>;
 
 export type SkillTag = keyof typeof SKILLS;
@@ -40,7 +43,7 @@ export const SKILL_TAG_LIST = Object.keys(SKILLS) as SkillTag[];
 export type Choice = "A" | "B" | "C" | "D";
 export type Part2Choice = "A" | "B" | "C";
 
-export type Difficulty = "A2" | "B1" | "B2";
+export type Difficulty = "A2" | "B1" | "B2" | "C1";
 
 /**
  * TOEIC parts — single source of truth. Each part declares its section
