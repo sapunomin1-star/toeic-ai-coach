@@ -113,6 +113,7 @@ npm run lint
 npx tsc --noEmit
 npm run build
 cd pipeline && npm run check
+cd pipeline && npm run check-media
 cd pipeline && npx tsc --noEmit
 ```
 
@@ -120,6 +121,13 @@ cd pipeline && npx tsc --noEmit
 
 - 各 Part 答案位置分布（四選一題每選項 18–32%；Part 2 每選項 25–42%）
 - 題組完整性（P3/P4 transcript 群組必為 3 題、P6 passage 群組必為 4 題）
+
+`pipeline check-media` 依 app 的媒體路徑慣例推導每題應存在的 Blob 檔案，並對
+`NEXT_PUBLIC_BLOB_BASE_URL` 逐一 HEAD 驗證（missing > 0 時 exit 1）：
+
+- P1：`images/<id>.jpg` 與 `audio/<id>.mp3`；P2：`audio/<id>.mp3`
+- P3/P4：群組音檔掛在同 transcript 群組中 id 最小的題目 `audio/<id>.mp3`
+- P3 每題另有題目朗讀 `audio/<id>-q.mp3`（`--verbose` 可列出全部路徑與結果）
 
 ## Vercel 部署注意事項
 
