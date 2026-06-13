@@ -77,6 +77,34 @@ function checkGroupStructure(questions: Question[]): string[] {
   return violations;
 }
 
+/**
+ * Duplicate-stem guard. For Part 2 the question text IS the spoken stem and
+ * for Part 5 it is the full test sentence — exact duplicates mean the student
+ * can meet the same item twice in one mock. (Other parts legitimately repeat
+ * stems like "What is the main purpose of this email?" across passages.)
+ */
+const UNIQUE_STEM_PARTS = new Set(["Part 2", "Part 5"]);
+
+function checkDuplicateStems(questions: Question[]): string[] {
+  const violations: string[] = [];
+  for (const part of UNIQUE_STEM_PARTS) {
+    const seen = new Map<string, string[]>();
+    for (const q of questions) {
+      if (q.part !== part) continue;
+      const key = q.question.trim();
+      const ids = seen.get(key) ?? [];
+      ids.push(q.id);
+      seen.set(key, ids);
+    }
+    for (const [stem, ids] of seen) {
+      if (ids.length > 1) {
+        violations.push(`${part} duplicate stem (${ids.join(", ")}): "${stem.slice(0, 60)}"`);
+      }
+    }
+  }
+  return violations;
+}
+
 export function runIntegrityCheck(questions: Question[]): IntegrityReport {
   const ids = new Set<string>();
   const duplicateIds: string[] = [];
@@ -139,7 +167,10 @@ export function runIntegrityCheck(questions: Question[]): IntegrityReport {
   }
 
   const answerBalanceViolations = checkAnswerBalance(questions);
-  const groupStructureViolations = checkGroupStructure(questions);
+  const groupStructureViolations = [
+    ...checkGroupStructure(questions),
+    ...checkDuplicateStems(questions),
+  ];
 
   const passed =
     duplicateIds.length === 0 &&
