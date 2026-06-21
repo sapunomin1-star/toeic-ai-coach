@@ -21,6 +21,7 @@
  */
 import "dotenv/config";
 import OpenAI from "openai";
+import sharp from "sharp";
 import { del, head, put } from "@vercel/blob";
 
 import { QUESTIONS } from "../../data/questions";
@@ -43,6 +44,21 @@ const STYLE_PREFIX =
   "Photorealistic professional photograph of a business workplace setting. ";
 const STYLE_SUFFIX =
   " Natural lighting, sharp focus, no text overlay, no watermark, no signage, no logos. People should be engaged in their activity rather than posing for the camera.";
+
+// ─── Compression ───────────────────────────────────────────────────────────
+// gpt-image-1 returns a ~1.4 MB PNG. We re-encode to a real JPEG before upload
+// so the Blob source (and the input next/image's optimizer has to refetch) is
+// not a multi-MB PNG. The storage path stays images/<id>.jpg with contentType
+// image/jpeg, so nothing in the app changes (lib/media.ts hardcodes .jpg).
+const JPEG_QUALITY = 82;
+const MAX_EDGE = 1024; // gpt-image-1 default is 1024² already; caps larger sizes
+
+async function compressToJpeg(input: Buffer): Promise<Buffer> {
+  return sharp(input)
+    .resize(MAX_EDGE, MAX_EDGE, { fit: "inside", withoutEnlargement: true })
+    .jpeg({ quality: JPEG_QUALITY, mozjpeg: true })
+    .toBuffer();
+}
 
 type Quality = "low" | "medium" | "high";
 type Size = "1024x1024" | "1536x1024" | "1024x1536";
@@ -212,7 +228,9 @@ async function main() {
           throw new Error("no b64_json or url in response");
         }
 
-        const blob = await put(pathname, buf, {
+        const jpeg = await compressToJpeg(buf);
+
+        const blob = await put(pathname, jpeg, {
           access: "public",
           contentType: "image/jpeg",
           token,
@@ -220,8 +238,9 @@ async function main() {
         });
 
         const ms = Date.now() - t0;
+        const pct = ((1 - jpeg.length / buf.length) * 100).toFixed(0);
         console.log(
-          `[${i + 1}/${questions.length}] OK   ${q.id} ${buf.length}B ${ms}ms -> ${blob.url}`,
+          `[${i + 1}/${questions.length}] OK   ${q.id} ${buf.length}B -> ${jpeg.length}B (-${pct}%) ${ms}ms -> ${blob.url}`,
         );
         generated++;
       }

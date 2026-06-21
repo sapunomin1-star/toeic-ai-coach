@@ -9,12 +9,14 @@
     "check-media": "npx tsx src/check-media.ts",
     "dry-run": "npx tsx run-pipeline.ts --dry-run",
     "generate-audio": "npx tsx src/generate-audio.ts",
-    "generate-images": "npx tsx src/generate-images.ts"
+    "generate-images": "npx tsx src/generate-images.ts",
+    "recompress-images": "npx tsx src/recompress-images.ts"
   },
   "dependencies": {
     "@vercel/blob": "^0.27.3",
     "dotenv": "^16.4.7",
-    "openai": "^6.39.0"
+    "openai": "^6.39.0",
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "tsx": "^4.19.2",
