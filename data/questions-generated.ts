@@ -5029,7 +5029,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "D": "on"
     },
     "answer": "A",
-    "explanation_zh": "答案為 A。arrive at the warehouse receiving desk 表示到達明確的收貨地點，固定搭配需用 at。A in 不搭配此具體櫃臺地點，B by 表示在期限前，C on 表示日期或表面，均不合句意。",
+    "explanation_zh": "答案為 A。arrive at the warehouse receiving desk 表示到達明確的收貨地點，固定搭配需用 at。B in 不搭配此具體櫃臺地點，C by 表示在期限前，D on 表示日期或表面，均不合句意。",
     "skill_tag": "preposition",
     "difficulty": "A2",
     "vocabulary": [
@@ -5050,7 +5050,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "D": "on"
     },
     "answer": "B",
-    "explanation_zh": "答案為 B。by Friday 表示「在星期五之前」，符合提交報告以便週末前審閱的語境。B on 指特定日期，C at 指時間點，D in 指一段時間內，均不正確。",
+    "explanation_zh": "答案為 B。by Friday 表示「在星期五之前」，符合提交報告以便週末前審閱的語境。D on 指特定日期，C at 指時間點，A in 指一段時間內，均不正確。",
     "skill_tag": "preposition",
     "difficulty": "A2",
     "vocabulary": [
@@ -5072,7 +5072,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "D": "by"
     },
     "answer": "B",
-    "explanation_zh": "答案為 B。in the conference room 表示「在會議室內」，強調空間內部。A at 用於較小地點或點位，C on 用於表面，D by 表示「在…旁邊」，皆不適合。",
+    "explanation_zh": "答案為 B。in the conference room 表示「在會議室內」，強調空間內部。C at 用於較小地點或點位，A on 用於表面，D by 表示「在…旁邊」，皆不適合。",
     "skill_tag": "preposition",
     "difficulty": "A2",
     "vocabulary": [
@@ -5093,7 +5093,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "D": "on"
     },
     "answer": "D",
-    "explanation_zh": "答案為 D。on June 1st 是特定日期，需用介係詞 on。A in 用於月份或年份，B at 用於時間點，D by 表示「在…之前」，均不正確。",
+    "explanation_zh": "答案為 D。on June 1st 是特定日期，需用介係詞 on。A in 用於月份或年份，B at 用於時間點，C by 表示「在…之前」，均不正確。",
     "skill_tag": "preposition",
     "difficulty": "A2",
     "vocabulary": [
@@ -5114,7 +5114,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "D": "during"
     },
     "answer": "B",
-    "explanation_zh": "答案為 B。until the end of the month 表示「直到月底」，強調持續到某時間點。A by 表示「在…之前」，B during 表示「在…期間」，C in 表示「在…之內」，皆不符合語境。",
+    "explanation_zh": "答案為 B。until the end of the month 表示「直到月底」，強調持續到某時間點。C by 表示「在…之前」，D during 表示「在…期間」，A in 表示「在…之內」，皆不符合語境。",
     "skill_tag": "preposition",
     "difficulty": "A2",
     "vocabulary": [
@@ -5355,7 +5355,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "D": "that"
     },
     "answer": "C",
-    "explanation_zh": "答案為C。關係代名詞who引導非限定形容詞子句，修飾人Ms. Tanaka，在子句中作主詞。A that不可用於非限定子句；B which用於事物；D whom為受格，不符主詞位置。",
+    "explanation_zh": "答案為C。關係代名詞who引導非限定形容詞子句，修飾人Ms. Tanaka，在子句中作主詞。D that不可用於非限定子句；A which用於事物；B whom為受格，不符主詞位置。",
     "skill_tag": "relative_clause",
     "difficulty": "B1",
     "vocabulary": [
@@ -5377,7 +5377,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "D": "whom"
     },
     "answer": "A",
-    "explanation_zh": "答案為A。關係代名詞that引導限定形容詞子句，修飾事物the report，在子句中作主詞。A who用於人；B whom為受格；C whose表所有格，不符語意。",
+    "explanation_zh": "答案為A。關係代名詞that引導限定形容詞子句，修飾事物the report，在子句中作主詞。B who用於人；D whom為受格；C whose表所有格，不符語意。",
     "skill_tag": "relative_clause",
     "difficulty": "B1",
     "vocabulary": [
@@ -5399,7 +5399,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "D": "who"
     },
     "answer": "B",
-    "explanation_zh": "答案為B。關係代名詞whose表所有格，修飾人the manager，意為「其專業知識」。B whom為受格；C which用於事物；D who為主格，不符所有格需求。",
+    "explanation_zh": "答案為B。關係代名詞whose表所有格，修飾人the manager，意為「其專業知識」。A whom為受格；C which用於事物；D who為主格，不符所有格需求。",
     "skill_tag": "relative_clause",
     "difficulty": "B1",
     "vocabulary": [
@@ -5421,7 +5421,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "D": "who"
     },
     "answer": "D",
-    "explanation_zh": "答案為D。關係代名詞who引導限定形容詞子句，修飾人employees，在子句中作主詞。A whom為受格；C which用於事物；D whose表所有格，不符主詞位置。",
+    "explanation_zh": "答案為D。關係代名詞who引導限定形容詞子句，修飾人employees，在子句中作主詞。B whom為受格；A which用於事物；C whose表所有格，不符主詞位置。",
     "skill_tag": "relative_clause",
     "difficulty": "B1",
     "vocabulary": [
@@ -5443,7 +5443,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "D": "whom"
     },
     "answer": "A",
-    "explanation_zh": "答案為A。關係代名詞which引導非限定形容詞子句，修飾事物the software update，在子句中作主詞。A who用於人；B that不可用於非限定子句；D whom為受格。",
+    "explanation_zh": "答案為A。關係代名詞which引導非限定形容詞子句，修飾事物the software update，在子句中作主詞。B who用於人；C that不可用於非限定子句；D whom為受格。",
     "skill_tag": "relative_clause",
     "difficulty": "B1",
     "vocabulary": [
@@ -5465,7 +5465,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "D": "comply"
     },
     "answer": "D",
-    "explanation_zh": "答案為 D。comply with 是固定搭配，表示「遵守」，符合句意「遵守所有法規要求」。A compile 意為「編纂」，B compose 意為「組成」，C comprise 意為「包含」，均不與 with 搭配。",
+    "explanation_zh": "答案為 D。comply with 是固定搭配，表示「遵守」，符合句意「遵守所有法規要求」。C compile 意為「編纂」，B compose 意為「組成」，A comprise 意為「包含」，均不與 with 搭配。",
     "skill_tag": "business_vocabulary",
     "difficulty": "B2",
     "vocabulary": [
@@ -5486,7 +5486,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "D": "alleviate"
     },
     "answer": "B",
-    "explanation_zh": "答案為 B。allocate 意為「分配、撥出」，與 funds 搭配表示「撥款」。B alleviate 意為「減輕」，C alternate 意為「交替」，D alleged 意為「聲稱的」，皆不符合句意。",
+    "explanation_zh": "答案為 B。allocate 意為「分配、撥出」，與 funds 搭配表示「撥款」。D alleviate 意為「減輕」，A alternate 意為「交替」，C alleged 意為「聲稱的」，皆不符合句意。",
     "skill_tag": "business_vocabulary",
     "difficulty": "B2",
     "vocabulary": [
@@ -5507,7 +5507,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "D": "enquire"
     },
     "answer": "B",
-    "explanation_zh": "答案為 B。acquire 意為「收購」，符合句意「收購較小的競爭對手以擴大市場佔有率」。A inquire 意為「詢問」，C require 意為「要求」，D enquire 為 inquire 的英式拼法，均不適用。",
+    "explanation_zh": "答案為 B。acquire 意為「收購」，符合句意「收購較小的競爭對手以擴大市場佔有率」。C inquire 意為「詢問」，A require 意為「要求」，D enquire 為 inquire 的英式拼法，均不適用。",
     "skill_tag": "business_vocabulary",
     "difficulty": "B2",
     "vocabulary": [
@@ -5528,7 +5528,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "D": "admit"
     },
     "answer": "C",
-    "explanation_zh": "答案為 C。submit 意為「提交」，與 compliance training 搭配表示「提交合規訓練（的完成證明）」。A admit 意為「承認」，B commit 意為「犯（罪）或承諾」，D permit 意為「允許」，皆不符合。",
+    "explanation_zh": "答案為 C。submit 意為「提交」，與 compliance training 搭配表示「提交合規訓練（的完成證明）」。D admit 意為「承認」，A commit 意為「犯（罪）或承諾」，B permit 意為「允許」，皆不符合。",
     "skill_tag": "business_vocabulary",
     "difficulty": "B2",
     "vocabulary": [
@@ -5549,7 +5549,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "D": "nominate"
     },
     "answer": "A",
-    "explanation_zh": "答案為 A。negotiate 意為「協商」，與 partnership 搭配表示「協商策略夥伴關係」。A nominate 意為「提名」，B negate 意為「否定」，C navigate 意為「導航」，均不適用。",
+    "explanation_zh": "答案為 A。negotiate 意為「協商」，與 partnership 搭配表示「協商策略夥伴關係」。D nominate 意為「提名」，C negate 意為「否定」，B navigate 意為「導航」，均不適用。",
     "skill_tag": "business_vocabulary",
     "difficulty": "B2",
     "vocabulary": [
@@ -15266,7 +15266,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "C": "Request a refund",
       "D": "Cancel the order"
     },
-    "answer": "C",
+    "answer": "A",
     "explanation_zh": "答案：A。根據對話內容，客戶接受了補發的安排，且對話結束時問及是否還有其他需要幫助，顯示客戶將等待額外數量的到來。選項B、C、D都不符合對話的內容。",
     "difficulty": "B1",
     "vocabulary": [
