@@ -3,6 +3,7 @@ import * as path from "path";
 import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 import { deepseek, kimi, parseGeneratedJson } from "./llm-client";
+import { readingTemplatePrompt } from "./reading-template-library";
 import { validateQuestion, validateQuestionGroup } from "./validator";
 import type { Pattern, RawGeneratedQuestion } from "./types";
 import type { SkillTag } from "../../types/question";
@@ -26,10 +27,10 @@ export async function generatePart7(
 ): Promise<RawGeneratedQuestion[]> {
   const questionMix = pattern.question_mix ?? {};
   const skills = Object.keys(questionMix) as SkillTag[];
-  const totalQuestions = skills.reduce(
-    (sum, s) => sum + (questionMix[s] ?? 0),
-    0
+  const expandedSkills = skills.flatMap((skill) =>
+    Array.from({ length: questionMix[skill] ?? 0 }, () => skill)
   );
+  const totalQuestions = expandedSkills.length;
 
   if (skills.length === 0) {
     throw new Error(`Pattern ${pattern.pattern_id} has no question_mix`);
@@ -61,9 +62,9 @@ export async function generatePart7(
     .replace(/\{\{few_shot_examples\}\}/g, "")
     .replace(
       /\{\{generation_instruction\}\}/g,
-      pattern.generation_instruction
+      `${pattern.generation_instruction}\n\n${readingTemplatePrompt("Part 7")}`
     )
-    .replace(/\{\{skill1\}\}/g, skills[0] ?? "reading_main_idea");
+    .replace(/\{\{skill1\}\}/g, expandedSkills[0] ?? "reading_main_idea");
 
   console.log(
     `  Calling DeepSeek for ${totalQuestions} Part 7 questions...`
@@ -87,9 +88,8 @@ export async function generatePart7(
     raw.part = "Part 7";
     raw.difficulty = pattern.difficulty;
 
-    const skillIndex = i % skills.length;
-    const mappedSkill = (SKILL_TAG_MAP[skills[skillIndex]] ??
-      skills[skillIndex]) as SkillTag;
+    const skill = expandedSkills[i] ?? expandedSkills[i % expandedSkills.length] ?? "reading_main_idea";
+    const mappedSkill = (SKILL_TAG_MAP[skill] ?? skill) as SkillTag;
     raw.skill_tag = mappedSkill;
 
     // Set passage group metadata based on pattern type

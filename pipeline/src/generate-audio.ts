@@ -7,7 +7,7 @@
  *   npx tsx pipeline/src/generate-audio.ts --part 1 --limit 3         # test 3 Part 1 questions
  *   npx tsx pipeline/src/generate-audio.ts --part 1                   # all Part 1
  *   npx tsx pipeline/src/generate-audio.ts --part all                 # all listening parts
- *   npx tsx pipeline/src/generate-audio.ts --provider openrouter --part 3 # multi-accent TTS
+ *   npx tsx pipeline/src/generate-audio.ts --provider openrouter --part 3 # US/UK/CA accent rotation
  *   npx tsx pipeline/src/generate-audio.ts --question p1-gen-005      # single question
  *   npx tsx pipeline/src/generate-audio.ts --part 1 --force           # re-upload existing
  *   npx tsx pipeline/src/generate-audio.ts --question-audio --part 3  # P3 spoken questions
@@ -49,7 +49,7 @@ const MODEL = "tts-1";
 const RATE_LIMIT_RPM = 30; // stay under OpenAI tier 1 = 50 RPM
 const OPENAI_COST_PER_1M_CHARS_USD = 15; // tts-1 pricing as of 2024
 const KOKORO_COST_PER_1M_CHARS_USD = 0.62; // OpenRouter price verified for this batch
-const ACCENTS: Accent[] = ["US", "UK", "AU", "CA"];
+const ACCENTS: Accent[] = ["US", "UK", "CA"];
 type Provider = "openai" | "openrouter";
 
 type Segment = {
@@ -188,27 +188,39 @@ function buildAudioText(q: Question): string {
 }
 
 // ─── Voice rotation (deterministic by id hash) ───────────────────────────
-function pickVoice(questionId: string, override?: Voice): Voice {
-  if (override) return override;
-  let h = 0;
-  for (let i = 0; i < questionId.length; i++) {
-    h = (h * 31 + questionId.charCodeAt(i)) | 0;
-  }
-  return VOICES[Math.abs(h) % VOICES.length];
-}
-
-function pickAccent(seed: string): Accent {
+function hashSeed(seed: string): number {
   let hash = 0;
   for (let i = 0; i < seed.length; i++) {
     hash = (hash * 31 + seed.charCodeAt(i)) | 0;
   }
-  return ACCENTS[Math.abs(hash) % ACCENTS.length];
+  return Math.abs(hash);
 }
 
-function pickUSOrUK(seed: string): "US" | "UK" {
+function pickVoice(questionId: string, override?: Voice): Voice {
+  if (override) return override;
+  return VOICES[hashSeed(questionId) % VOICES.length];
+}
+
+function pickAccent(seed: string): Accent {
+  return ACCENTS[hashSeed(seed) % ACCENTS.length];
+}
+
+function pickNarrationAccent(seed: string): Accent {
   const suffix = seed.match(/(\d+)$/)?.[1];
-  if (suffix) return Number.parseInt(suffix, 10) % 2 === 0 ? "UK" : "US";
-  return pickAccent(seed) === "UK" ? "UK" : "US";
+  if (suffix) {
+    const number = Number.parseInt(suffix, 10);
+    return ACCENTS[(number - 1 + ACCENTS.length) % ACCENTS.length];
+  }
+  return pickAccent(seed);
+}
+
+function pickPart4NarrationAccent(seed: string): Accent {
+  const suffix = seed.match(/(\d+)$/)?.[1];
+  if (suffix) {
+    const number = Number.parseInt(suffix, 10);
+    return ACCENTS[Math.floor((number - 1) / 3) % ACCENTS.length];
+  }
+  return pickAccent(seed);
 }
 
 function alternateGender(seed: string): VoiceHint {
@@ -249,13 +261,27 @@ function speakerVoiceHint(label: string): VoiceHint | undefined {
 function parseSpeakerSegments(transcript: string, groupSeed: string): Segment[] | null {
   const speakerPattern =
     /^(W|M|Woman|Man|M\d+|W\d+|Speaker\s*\d+)\s*:\s*(.+)$/i;
+  const speakerAccents = new Map<string, Accent>();
+  const speakerAccent = (label: string): Accent => {
+    const key = label.replace(/\s+/g, "").toUpperCase();
+    const existing = speakerAccents.get(key);
+    if (existing) return existing;
+
+    const used = new Set(speakerAccents.values());
+    let accent = pickAccent(`${groupSeed}:${key}`);
+    if (used.has(accent) && used.size < ACCENTS.length) {
+      accent = ACCENTS.find((candidate) => !used.has(candidate)) ?? accent;
+    }
+    speakerAccents.set(key, accent);
+    return accent;
+  };
   const segments = transcript
     .split(/\r?\n/)
     .flatMap((line) => {
       const match = line.trim().match(speakerPattern);
       if (!match) return [];
       const text = normalizeForTTS(match[2]).trim();
-      const accent: Accent = speakerVoiceHint(match[1]) === "male" ? "UK" : "US";
+      const accent = speakerAccent(match[1]);
       return text
         ? [{
             voice: mapSpeakerToVoice(match[1]),
@@ -288,7 +314,8 @@ function parseP2Segments(raw: string, questionVoice: Voice, questionId: string):
   if (!question || responses.length !== 3) return null;
 
   const responseVoice = opposingVoice(questionVoice);
-  const accent = pickUSOrUK(questionId);
+  const accent = pickNarrationAccent(questionId);
+  const responseAccent = ACCENTS[(ACCENTS.indexOf(accent) + 1) % ACCENTS.length];
   const questionHint = alternateGender(questionId);
   const responseHint: VoiceHint = questionHint === "female" ? "male" : "female";
   return [
@@ -296,7 +323,7 @@ function parseP2Segments(raw: string, questionVoice: Voice, questionId: string):
     ...responses.map((text) => ({
       voice: responseVoice,
       text,
-      accent,
+      accent: responseAccent,
       voiceHint: responseHint,
       speakerSeed: `${questionId}:R`,
     })),
@@ -324,7 +351,7 @@ function buildAudioPlan(q: Question, override?: Voice): AudioPlan {
     segments: [{
       voice: pickVoice(q.id, override),
       text: buildAudioText(q),
-      accent: q.part === "Part 4" ? pickUSOrUK(q.id) : pickAccent(q.id),
+      accent: q.part === "Part 4" ? pickPart4NarrationAccent(q.id) : pickAccent(q.id),
       voiceHint: q.part === "Part 4" ? alternateGender(q.id) : undefined,
       speakerSeed: q.id,
     }],
@@ -343,10 +370,9 @@ function buildQuestionAudioPlan(q: Question): AudioPlan {
     segments: [{
       voice: "fable",
       text: normalizeForTTS(q.question),
-      accent: "US",
+      accent: pickNarrationAccent(q.id),
       voiceHint: "female",
-      speakerSeed: "p3-question-narrator",
-      kokoroVoice: "af_bella",
+      speakerSeed: `${q.id}:question-narrator`,
     }],
   };
 }

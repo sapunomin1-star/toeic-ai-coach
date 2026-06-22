@@ -1,6 +1,6 @@
 import "dotenv/config";
 
-export type Accent = "US" | "UK" | "AU" | "CA";
+export type Accent = "US" | "UK" | "CA";
 export type VoiceHint = "male" | "female";
 export type KokoroVoice =
   | "af_bella"
@@ -38,7 +38,7 @@ const VOICE_POOLS: Record<"US" | "UK", Record<VoiceHint, readonly KokoroVoice[]>
   },
 };
 
-const warnedFallbackAccents = new Set<"AU" | "CA">();
+const warnedFallbackAccents = new Set<"CA">();
 let modelFallbackCount = 0;
 
 function hashSeed(seed: string): number {
@@ -50,13 +50,6 @@ function hashSeed(seed: string): number {
 }
 
 function supportedAccent(accent: Accent): "US" | "UK" {
-  if (accent === "AU") {
-    if (!warnedFallbackAccents.has(accent)) {
-      console.warn("Kokoro no AU, using UK");
-      warnedFallbackAccents.add(accent);
-    }
-    return "UK";
-  }
   if (accent === "CA") {
     if (!warnedFallbackAccents.has(accent)) {
       console.warn("Kokoro no CA, using US");
@@ -107,8 +100,9 @@ async function requestSpeech(
  * Endpoint source checked 2026-05-26:
  * https://openrouter.ai/docs/features/multimodal/tts
  *
- * Kokoro voices encode accent directly; AU and CA are mapped to the closest
- * supported pool. Only server errors trigger the American OpenAI fallback.
+ * Kokoro voices encode US/UK accent directly; CA is mapped to the closest
+ * supported North American pool. Only server errors trigger the American
+ * OpenAI fallback.
  */
 export async function generateSpeech(opts: {
   text: string;

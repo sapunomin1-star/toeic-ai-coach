@@ -147,6 +147,8 @@ export type IntegrityReport = {
   answerBalanceViolations: string[];
   /** Incomplete question groups, e.g. "Part 3 transcript group has 2 questions". */
   groupStructureViolations: string[];
+  /** Items whose explanation argues for a different letter than `answer`. */
+  explanationAnswerMismatches: string[];
   totalQuestions: number;
   passed: boolean;
 };

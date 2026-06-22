@@ -1,6 +1,6 @@
 #!/usr/bin/env npx tsx
 /**
- * Generate TOEIC Part 1 photographs via OpenAI DALL-E 3 and upload to Vercel Blob.
+ * Generate original TOEIC Part 1 photographs via OpenAI gpt-image-1 and upload to Vercel Blob.
  *
  * Usage:
  *   npx tsx pipeline/src/generate-images.ts --dry-run                  # preview only
@@ -16,8 +16,8 @@
  *   --id-from <id>          Process matching IDs lexically at or after this ID.
  *   --dry-run               Show plan only, no API calls.
  *   --force                 Re-generate even if Blob already has images/<id>.jpg.
- *   --quality <q>           "standard" (default) or "hd" (2x cost).
- *   --size <s>              "1024x1024" (default), "1792x1024", or "1024x1792".
+ *   --quality <q>           "low", "medium" (default), or "high".
+ *   --size <s>              "1024x1024" (default), "1536x1024", or "1024x1536".
  */
 import "dotenv/config";
 import OpenAI from "openai";
@@ -43,7 +43,7 @@ const COST_PER_IMAGE_USD = {
 const STYLE_PREFIX =
   "Photorealistic professional photograph of a business workplace setting. ";
 const STYLE_SUFFIX =
-  " Natural lighting, sharp focus, no text overlay, no watermark, no signage, no logos. People should be engaged in their activity rather than posing for the camera.";
+  " Natural lighting, sharp focus, fresh composition, no text overlay, no watermark, no signage, no logos. People should be engaged in their activity rather than posing for the camera.";
 
 // ─── Compression ───────────────────────────────────────────────────────────
 // gpt-image-1 returns a ~1.4 MB PNG. We re-encode to a real JPEG before upload
@@ -117,7 +117,7 @@ function validateEnv(args: Args): void {
 
 function buildPrompt(q: Question): string {
   if (!q.imageAlt) {
-    throw new Error(`[${q.id}] no imageAlt field — required for DALL-E`);
+    throw new Error(`[${q.id}] no imageAlt field; required for OpenAI image generation`);
   }
   return STYLE_PREFIX + q.imageAlt + STYLE_SUFFIX;
 }

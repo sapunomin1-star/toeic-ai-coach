@@ -1,0 +1,232 @@
+{
+  "metadata": {
+    "version": "2026-06-22",
+    "created_from": "abstracted local listening sample patterns",
+    "purpose": "Generate original TOEIC-style listening questions from source-inspired structures without storing or paraphrasing the source questions.",
+    "total_patterns": 14
+  },
+  "source_policy": {
+    "allowed": [
+      "Use only the abstract scenario type, tested skill, distractor style, and answer-support structure.",
+      "Create new names, companies, dates, places, numbers, products, and event details.",
+      "For Part 1, create a new imageAlt prompt seed for OpenAI image generation."
+    ],
+    "forbidden": [
+      "Do not copy, translate, paraphrase, or preserve source item wording.",
+      "Do not reuse source answer choices, transcripts, exact facts, names, layouts, or image compositions.",
+      "Do not reconstruct scanned pages or textbook-style source photos."
+    ]
+  },
+  "accent_policy": {
+    "target_accents": ["US", "UK", "CA"],
+    "rotation": "Distribute US, UK, and Canadian accents across generated listening audio. In conversations, assign different stable accents to different speakers when natural.",
+    "note": "The question data remains accent-neutral; the audio generation step chooses the accent deterministically from the question id and speaker seed."
+  },
+  "image_policy": {
+    "part": "Part 1",
+    "provider": "OpenAI",
+    "model": "gpt-image-1",
+    "requirements": [
+      "Photorealistic business or workplace scene.",
+      "One clearly visible action or state that matches exactly one answer statement.",
+      "No readable text, logos, watermarks, brand marks, posters, or signs.",
+      "No recreation of any source photo; use a fresh composition."
+    ]
+  },
+  "patterns": [
+    {
+      "id": "p1-work-action-maintenance",
+      "part": "Part 1",
+      "skill_tag": "listening_photo",
+      "scenario_type": "single visible workplace action",
+      "generation_brief": "Create an original workplace or public-facility scene where one worker is performing a maintenance or setup action with equipment.",
+      "answer_support": "The correct statement describes the visible action in present continuous form.",
+      "distractor_patterns": [
+        "wrong object",
+        "wrong action",
+        "wrong location",
+        "incorrect number of people"
+      ],
+      "image_prompt_seed": "A maintenance employee using equipment in a clean commercial facility, with the action easy to identify."
+    },
+    {
+      "id": "p1-device-or-equipment-setup",
+      "part": "Part 1",
+      "skill_tag": "listening_photo",
+      "scenario_type": "object handling in an office or service workspace",
+      "generation_brief": "Create an original scene where a person is connecting, arranging, inspecting, or preparing office equipment or small appliances.",
+      "answer_support": "The correct statement identifies the person-object interaction and avoids hidden intentions.",
+      "distractor_patterns": [
+        "wrong tense",
+        "wrong object",
+        "claiming movement that is not shown",
+        "describing a different room"
+      ],
+      "image_prompt_seed": "An office employee preparing a device on a tidy work surface in a realistic business environment."
+    },
+    {
+      "id": "p2-location-information-request",
+      "part": "Part 2",
+      "skill_tag": "listening_response",
+      "scenario_type": "short wh-question",
+      "generation_brief": "Ask where a workplace item, service counter, room, or person can be found.",
+      "answer_support": "The correct response gives a location or explains where to ask.",
+      "distractor_patterns": [
+        "repeats the key noun but gives no location",
+        "answers when instead of where",
+        "sounds polite but avoids the requested information"
+      ]
+    },
+    {
+      "id": "p2-ability-or-quality-check",
+      "part": "Part 2",
+      "skill_tag": "listening_response",
+      "scenario_type": "how well / can you question",
+      "generation_brief": "Ask about someone's ability, quality, readiness, or confidence in a workplace task.",
+      "answer_support": "The correct response directly addresses ability or quality.",
+      "distractor_patterns": [
+        "repeats the task noun but shifts to schedule",
+        "answers a yes/no question when a degree is requested",
+        "mentions a person unrelated to the ability"
+      ]
+    },
+    {
+      "id": "p2-travel-or-arrangement-offer",
+      "part": "Part 2",
+      "skill_tag": "listening_response",
+      "scenario_type": "yes/no offer or suggestion",
+      "generation_brief": "Offer help with travel, transport, delivery, or a practical arrangement.",
+      "answer_support": "The correct response accepts, declines, or gives a clear condition.",
+      "distractor_patterns": [
+        "repeats a travel word but gives unrelated information",
+        "answers a different wh-question",
+        "ambiguous agreement that could fit more than one prompt"
+      ]
+    },
+    {
+      "id": "p2-announcement-or-news-reaction",
+      "part": "Part 2",
+      "skill_tag": "listening_response",
+      "scenario_type": "statement-response",
+      "generation_brief": "Make a brief workplace statement about a change, announcement, or issue that needs a natural reaction.",
+      "answer_support": "The correct response is the only conversationally natural reaction.",
+      "distractor_patterns": [
+        "repeated-word trap",
+        "wrong speaker role",
+        "response to a request rather than to a statement"
+      ]
+    },
+    {
+      "id": "p3-service-issue-resolution",
+      "part": "Part 3",
+      "skill_tag": "listening_detail",
+      "scenario_type": "two-speaker customer or coworker problem",
+      "generation_brief": "Write a service or product issue conversation with a clear complaint, a policy or constraint, and a resolution step.",
+      "answer_support": "Questions should test purpose, the specific problem, and the next action.",
+      "distractor_patterns": [
+        "wrong problem cause",
+        "plausible but unstated compensation",
+        "future action performed by the wrong speaker"
+      ],
+      "visual_allowed": false
+    },
+    {
+      "id": "p3-hospitality-staffing-change",
+      "part": "Part 3",
+      "skill_tag": "listening_inference",
+      "scenario_type": "work schedule or staffing conversation",
+      "generation_brief": "Write a workplace conversation about a staffing gap, shift change, candidate, or department need.",
+      "answer_support": "At least one detail should require connecting a role, time, and next step.",
+      "distractor_patterns": [
+        "wrong department",
+        "wrong reason for the change",
+        "inference that goes beyond the transcript"
+      ],
+      "visual_allowed": false
+    },
+    {
+      "id": "p3-office-growth-or-budget",
+      "part": "Part 3",
+      "skill_tag": "listening_main_idea",
+      "scenario_type": "internal business planning conversation",
+      "generation_brief": "Write a conversation about office expansion, budgets, equipment, hiring, or operational constraints.",
+      "answer_support": "The transcript should include a problem, one number or deadline, and a practical decision.",
+      "distractor_patterns": [
+        "confuses cause and consequence",
+        "uses a stated number for the wrong purpose",
+        "chooses a later action instead of the immediate one"
+      ],
+      "visual_allowed": false
+    },
+    {
+      "id": "p3-purchasing-option-comparison",
+      "part": "Part 3",
+      "skill_tag": "listening_next_action",
+      "scenario_type": "purchase or vendor comparison",
+      "generation_brief": "Write a conversation comparing two or three purchasing options using spoken details only.",
+      "answer_support": "The correct answers must be supported by the transcript without any chart or table.",
+      "distractor_patterns": [
+        "price/feature mismatch",
+        "wrong recommended option",
+        "unsupported delivery or warranty detail"
+      ],
+      "visual_allowed": false
+    },
+    {
+      "id": "p4-repair-status-message",
+      "part": "Part 4",
+      "skill_tag": "listening_detail",
+      "scenario_type": "recorded service message",
+      "generation_brief": "Write a short recorded message about repair status, pickup timing, payment, or transportation help.",
+      "answer_support": "Include one clear reason for the call and one concrete instruction.",
+      "distractor_patterns": [
+        "wrong pickup time",
+        "wrong service completed",
+        "extra service not mentioned"
+      ],
+      "visual_allowed": false
+    },
+    {
+      "id": "p4-restaurant-or-retail-staff-notice",
+      "part": "Part 4",
+      "skill_tag": "listening_next_action",
+      "scenario_type": "staff announcement",
+      "generation_brief": "Write a manager notice about staffing, menu/product changes, opening tasks, or customer service instructions.",
+      "answer_support": "The talk should include a change, its reason, and what listeners should do.",
+      "distractor_patterns": [
+        "wrong assigned task",
+        "wrong reason for shortage",
+        "confuses staff and customers"
+      ],
+      "visual_allowed": false
+    },
+    {
+      "id": "p4-contract-or-cost-review",
+      "part": "Part 4",
+      "skill_tag": "listening_inference",
+      "scenario_type": "business update or voicemail",
+      "generation_brief": "Write a talk about contract terms, cost control, vendor evaluation, or project limits.",
+      "answer_support": "Use concrete spoken evidence for an inference about a concern or recommendation.",
+      "distractor_patterns": [
+        "wrong contract issue",
+        "unsupported recommendation",
+        "confuses cost saving with quality improvement"
+      ],
+      "visual_allowed": false
+    },
+    {
+      "id": "p4-event-schedule-change",
+      "part": "Part 4",
+      "skill_tag": "listening_main_idea",
+      "scenario_type": "event or seminar announcement",
+      "generation_brief": "Write an announcement about a seminar, training day, tour, or event schedule change.",
+      "answer_support": "Include a purpose, a revised time or location, and a listener instruction.",
+      "distractor_patterns": [
+        "old time versus new time",
+        "wrong venue",
+        "action assigned to the organizer instead of attendees"
+      ],
+      "visual_allowed": false
+    }
+  ]
+}

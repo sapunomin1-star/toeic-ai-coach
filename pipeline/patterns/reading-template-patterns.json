@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "version": "2026-06-22",
+    "created_from": "abstracted local Reading OCR sample patterns",
+    "purpose": "Generate original TOEIC-style Reading questions from source-inspired structures without storing or paraphrasing the source questions.",
+    "standard_reading_test": {
+      "total_questions": 100,
+      "duration_minutes": 75,
+      "part_5": 30,
+      "part_6": 16,
+      "part_7": 54,
+      "part_7_single": { "questions": 29, "groups": 10, "questions_per_group": "2-4" },
+      "part_7_double": { "questions": 10, "groups": 2, "questions_per_group": 5 },
+      "part_7_triple": { "questions": 15, "groups": 3, "questions_per_group": 5 }
+    }
+  },
+  "source_policy": {
+    "allowed": [
+      "Use only abstract exam structure, tested skills, document types, question counts, and distractor styles.",
+      "Create new names, companies, products, dates, locations, numbers, and business facts.",
+      "Keep the official Reading sequence concept: Part 5 independent sentence completion, Part 6 four-blank passages, Part 7 grouped reading comprehension."
+    ],
+    "forbidden": [
+      "Do not copy, translate, paraphrase, or preserve source item wording.",
+      "Do not reuse source names, companies, dates, order numbers, article facts, passages, answer choices, or explanations.",
+      "Do not reconstruct OCR pages or preserve source passage structure closely enough to identify the source."
+    ]
+  },
+  "patterns": {
+    "Part 5": [
+      "Independent business sentence with one blank and four choices.",
+      "Grammar mix includes word form, tense, passive voice, pronouns, relative clauses, conjunctions, prepositions, collocations, and business vocabulary.",
+      "Distractors should be same-root word forms, wrong tense/aspect, wrong connector logic, wrong preposition, or plausible vocabulary with incorrect context."
+    ],
+    "Part 6": [
+      "One business text with four blanks: email, memo, notice, advertisement, or business letter.",
+      "Each four-question passage should test vocabulary in context, grammar/verb form, transition logic, and sentence insertion or paragraph flow.",
+      "The passage should be natural business English with a single coherent purpose and no OCR-like artifacts."
+    ],
+    "Part 7": [
+      "Single passages include email, memo, advertisement, notice, article, schedule, invoice, review, or form-like business document.",
+      "Double passages usually combine related documents such as advertisement plus inquiry, notice plus email, order confirmation plus complaint, or schedule plus memo.",
+      "Triple passages usually require cross-text reasoning across an initial document, a follow-up message, and a resolution or external update.",
+      "Questions should mix main idea, detail, inference, vocabulary-in-context, sentence insertion, and cross-text reference where applicable."
+    ]
+  }
+}

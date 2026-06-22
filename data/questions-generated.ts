@@ -16227,4 +16227,13790 @@ export const GENERATED_QUESTIONS: Question[] = [
     "transcript": "Attention shoppers! We're excited to announce our weekend sale event at Riverdale Mall, running from April 15th to April 17th. Enjoy discounts up to 50% on select electronics, including televisions and smartphones. Please note that these offers are available in-store only and cannot be combined with other promotions. Remember to check the product labels for eligible discounts. Store hours are extended during the sale, from 9 AM to 10 PM. Hurry in, as supplies are limited. We look forward to seeing you! Thank you for shopping with us.",
     "question_order": 3
   },
+  {
+  "id": "p1-gen-061",
+  "part": "Part 1",
+  "skill_tag": "listening_photo",
+  "difficulty": "B1",
+  "imageAlt": "A maintenance worker in a blue uniform is adjusting a large air conditioning unit on the roof of a modern office building.",
+  "audioScript": "(A) The worker is repairing the air conditioning unit.\n(B) The worker is painting the air conditioning unit.\n(C) The worker is cleaning the air conditioning unit.\n(D) The worker is moving the air conditioning unit.",
+  "question": "Look at the photo and choose the statement that best describes it.",
+  "choices": {
+    "A": "The worker is repairing the air conditioning unit.",
+    "B": "The worker is painting the air conditioning unit.",
+    "C": "The worker is cleaning the air conditioning unit.",
+    "D": "The worker is moving the air conditioning unit."
+  },
+  "answer": "A",
+  "explanation_zh": "正確答案為A。照片中維修工人身穿藍色制服，正在調整大型空調機組，動作明顯是進行修理或調整，而非其他選項。B選項「油漆」不符，因為工人未持油漆工具；C選項「清潔」不正確，因無清潔動作；D選項「移動」錯誤，因機組體積龐大且工人僅在調整部件。",
+  "vocabulary": [
+    "maintenance worker",
+    "air conditioning unit",
+    "repairing",
+    "adjusting",
+    "roof"
+  ]
+},
+  {
+  "id": "p1-gen-062",
+  "part": "Part 1",
+  "skill_tag": "listening_photo",
+  "difficulty": "B1",
+  "imageAlt": "An office employee in a white shirt is plugging a cable into the back of a monitor on a clean wooden desk.",
+  "audioScript": "(A) The employee is unplugging the monitor.\n(B) The employee is connecting a cable to the monitor.\n(C) The employee is moving the monitor to another desk.\n(D) The employee is cleaning the monitor with a cloth.",
+  "question": "Look at the photo and choose the statement that best describes it.",
+  "choices": {
+    "A": "The employee is unplugging the monitor.",
+    "B": "The employee is connecting a cable to the monitor.",
+    "C": "The employee is moving the monitor to another desk.",
+    "D": "The employee is cleaning the monitor with a cloth."
+  },
+  "answer": "B",
+  "explanation_zh": "正確答案為B。照片中辦公室員工身穿白襯衫，正將電纜插入顯示器背面，動作明確是連接線路。A選項「拔掉」相反，因插入而非拔出；C選項「移動」不符，因顯示器位置未變；D選項「清潔」錯誤，因未使用布料。",
+  "vocabulary": [
+    "employee",
+    "cable",
+    "monitor",
+    "connecting",
+    "plugging",
+    "desk"
+  ]
+},
+  {
+  "id": "p1-gen-063",
+  "part": "Part 1",
+  "skill_tag": "listening_photo",
+  "difficulty": "A2",
+  "imageAlt": "Two chefs in a commercial kitchen are arranging plates of food on a counter under bright lights.",
+  "audioScript": "(A) The chefs are washing dishes in the sink.\n(B) The chefs are eating their lunch at the table.\n(C) The chefs are arranging plates of food on the counter.\n(D) The chefs are cutting vegetables on a cutting board.",
+  "question": "Look at the photo and choose the statement that best describes it.",
+  "choices": {
+    "A": "The chefs are washing dishes in the sink.",
+    "B": "The chefs are eating their lunch at the table.",
+    "C": "The chefs are arranging plates of food on the counter.",
+    "D": "The chefs are cutting vegetables on a cutting board."
+  },
+  "answer": "C",
+  "explanation_zh": "正確答案為C。照片中兩位廚師在商業廚房內，正將盤子排列在檯面上，動作與擺盤一致。A選項「洗碗」不符，因無水槽或清洗動作；B選項「吃午餐」錯誤，因未進食；D選項「切菜」不正確，因無刀具或砧板。",
+  "vocabulary": [
+    "chefs",
+    "plates",
+    "counter",
+    "arranging",
+    "commercial kitchen"
+  ]
+},
+  {
+  "id": "p1-gen-064",
+  "part": "Part 1",
+  "skill_tag": "listening_photo",
+  "difficulty": "B2",
+  "imageAlt": "A businesswoman in a gray suit is pointing at a chart on a large screen while standing in a modern conference room.",
+  "audioScript": "(A) The woman is typing on a laptop.\n(B) The woman is handing out papers to the audience.\n(C) The woman is writing on a whiteboard.\n(D) The woman is pointing at the screen to explain the chart.",
+  "question": "Look at the photo and choose the statement that best describes it.",
+  "choices": {
+    "A": "The woman is typing on a laptop.",
+    "B": "The woman is handing out papers to the audience.",
+    "C": "The woman is writing on a whiteboard.",
+    "D": "The woman is pointing at the screen to explain the chart."
+  },
+  "answer": "D",
+  "explanation_zh": "正確答案為D。照片中商務女性身穿灰色套裝，正指向大螢幕上的圖表，動作是解釋圖表。A選項「打字」不符，因無筆記型電腦；B選項「發講義」錯誤，因未分發紙張；C選項「寫白板」不正確，因未使用白板筆。",
+  "vocabulary": [
+    "businesswoman",
+    "chart",
+    "screen",
+    "pointing",
+    "conference room",
+    "explain"
+  ]
+},
+  {
+  "id": "p1-gen-065",
+  "part": "Part 1",
+  "skill_tag": "listening_photo",
+  "difficulty": "B1",
+  "imageAlt": "Three factory workers in hard hats are inspecting a conveyor belt with a machine stopped for maintenance.",
+  "audioScript": "(A) The workers are inspecting the conveyor belt.\n(B) The workers are operating the conveyor belt.\n(C) The workers are repairing the conveyor belt.\n(D) The workers are cleaning the conveyor belt.",
+  "question": "Look at the photo and choose the statement that best describes it.",
+  "choices": {
+    "A": "The workers are inspecting the conveyor belt.",
+    "B": "The workers are operating the conveyor belt.",
+    "C": "The workers are repairing the conveyor belt.",
+    "D": "The workers are cleaning the conveyor belt."
+  },
+  "answer": "A",
+  "explanation_zh": "正確答案為A。照片中三位工廠工人戴安全帽，正檢查停止運轉的輸送帶，動作是檢查而非操作。B選項「操作」錯誤，因機器已停止；C選項「修理」不符，因無修理工具；D選項「清潔」不正確，因無清潔動作。",
+  "vocabulary": [
+    "factory workers",
+    "hard hats",
+    "conveyor belt",
+    "inspecting",
+    "maintenance"
+  ]
+},
+  {
+  "id": "p1-gen-066",
+  "part": "Part 1",
+  "skill_tag": "listening_photo",
+  "difficulty": "B1",
+  "imageAlt": "A male maintenance worker in a blue uniform is adjusting a large air conditioning unit on the roof of a commercial building.",
+  "audioScript": "(A) A worker is repairing a broken window.\n(B) The man is adjusting the air conditioning unit.\n(C) Several workers are painting the roof.\n(D) The equipment is being loaded onto a truck.",
+  "question": "Look at the photo and choose the statement that best describes it.",
+  "choices": {
+    "A": "A worker is repairing a broken window.",
+    "B": "The man is adjusting the air conditioning unit.",
+    "C": "Several workers are painting the roof.",
+    "D": "The equipment is being loaded onto a truck."
+  },
+  "answer": "B",
+  "explanation_zh": "正確答案為 B。照片中清楚顯示一名身穿藍色制服的男性維修工人正在調整屋頂上的大型空調機組。選項 A 錯誤，因為工人並未修理窗戶；選項 C 錯誤，因為沒有工人在粉刷屋頂；選項 D 錯誤，因為設備並未被裝上卡車。",
+  "vocabulary": [
+    "maintenance",
+    "adjusting",
+    "air conditioning unit",
+    "commercial building",
+    "worker"
+  ]
+},
+  {
+  "id": "p1-gen-067",
+  "part": "Part 1",
+  "skill_tag": "listening_photo",
+  "difficulty": "B1",
+  "imageAlt": "A female office worker in a white blouse is plugging a cable into the back of a computer monitor on a clean desk.",
+  "audioScript": "(A) A printer is being refilled with paper.\n(B) The woman is typing on a keyboard.\n(C) She is connecting a cable to the monitor.\n(D) The computer screen is turned off.",
+  "question": "Look at the photo and choose the statement that best describes it.",
+  "choices": {
+    "A": "A printer is being refilled with paper.",
+    "B": "The woman is typing on a keyboard.",
+    "C": "She is connecting a cable to the monitor.",
+    "D": "The computer screen is turned off."
+  },
+  "answer": "C",
+  "explanation_zh": "正確答案為 C。照片中一名身穿白襯衫的女性辦公室員工正在將電纜插入電腦顯示器背面。選項 A 錯誤，因為印表機並未被補充紙張；選項 B 錯誤，因為她並未在鍵盤上打字；選項 D 錯誤，因為電腦螢幕並未關閉。",
+  "vocabulary": [
+    "connecting",
+    "cable",
+    "monitor",
+    "office worker",
+    "desk"
+  ]
+},
+  {
+  "id": "p1-gen-068",
+  "part": "Part 1",
+  "skill_tag": "listening_photo",
+  "difficulty": "A2",
+  "imageAlt": "A chef in a white apron is slicing vegetables on a cutting board in a busy restaurant kitchen.",
+  "audioScript": "(A) The chef is washing dishes in the sink.\n(B) The oven door is being opened.\n(C) A waiter is serving food to customers.\n(D) Vegetables are being chopped on the board.",
+  "question": "Look at the photo and choose the statement that best describes it.",
+  "choices": {
+    "A": "The chef is washing dishes in the sink.",
+    "B": "The oven door is being opened.",
+    "C": "A waiter is serving food to customers.",
+    "D": "Vegetables are being chopped on the board."
+  },
+  "answer": "D",
+  "explanation_zh": "正確答案為 D。照片中一名身穿白色圍裙的廚師正在砧板上切蔬菜。選項 A 錯誤，因為廚師並未在水槽中洗碗；選項 B 錯誤，因為烤箱門並未被打開；選項 C 錯誤，因為沒有服務生在為顧客上菜。",
+  "vocabulary": [
+    "chef",
+    "slicing",
+    "vegetables",
+    "cutting board",
+    "kitchen"
+  ]
+},
+  {
+  "id": "p1-gen-069",
+  "part": "Part 1",
+  "skill_tag": "listening_photo",
+  "difficulty": "B2",
+  "imageAlt": "A businesswoman in a gray suit is pointing at a chart on a digital display during a meeting in a modern conference room.",
+  "audioScript": "(A) The woman is pointing at a screen.\n(B) She is handing out papers to the attendees.\n(C) A laptop is being closed on the table.\n(D) Several people are leaving the room.",
+  "question": "Look at the photo and choose the statement that best describes it.",
+  "choices": {
+    "A": "The woman is pointing at a screen.",
+    "B": "She is handing out papers to the attendees.",
+    "C": "A laptop is being closed on the table.",
+    "D": "Several people are leaving the room."
+  },
+  "answer": "A",
+  "explanation_zh": "正確答案為 A。照片中一名身穿灰色套裝的女商人在現代會議室中指向數位顯示器上的圖表。選項 B 錯誤，因為她並未分發文件給與會者；選項 C 錯誤，因為筆記型電腦並未被闔上；選項 D 錯誤，因為沒有人離開房間。",
+  "vocabulary": [
+    "pointing",
+    "chart",
+    "digital display",
+    "conference room",
+    "meeting"
+  ]
+},
+  {
+  "id": "p1-gen-070",
+  "part": "Part 1",
+  "skill_tag": "listening_photo",
+  "difficulty": "B1",
+  "imageAlt": "A male warehouse worker in a safety vest is operating a forklift to move a stack of cardboard boxes.",
+  "audioScript": "(A) The worker is stacking boxes by hand.\n(B) A forklift is being used to move pallets.\n(C) Someone is sweeping the warehouse floor.\n(D) The boxes are being loaded onto a delivery truck.",
+  "question": "Look at the photo and choose the statement that best describes it.",
+  "choices": {
+    "A": "The worker is stacking boxes by hand.",
+    "B": "A forklift is being used to move pallets.",
+    "C": "Someone is sweeping the warehouse floor.",
+    "D": "The boxes are being loaded onto a delivery truck."
+  },
+  "answer": "B",
+  "explanation_zh": "正確答案為 B。照片中一名身穿安全背心的男性倉庫工人正在操作堆高機移動一疊紙箱。選項 A 錯誤，因為工人並非徒手堆疊箱子；選項 C 錯誤，因為沒有人清掃倉庫地板；選項 D 錯誤，因為箱子並未被裝上送貨卡車。",
+  "vocabulary": [
+    "forklift",
+    "pallets",
+    "warehouse",
+    "worker",
+    "safety vest"
+  ]
+},
+  {
+  "id": "p1-gen-071",
+  "part": "Part 1",
+  "skill_tag": "listening_photo",
+  "difficulty": "B1",
+  "imageAlt": "A maintenance worker in a gray uniform is adjusting a large air conditioning unit on the roof of a modern office building.",
+  "audioScript": "(A) The worker is repairing a computer.\n(B) The worker is painting the wall.\n(C) The worker is adjusting the air conditioning unit.\n(D) The worker is carrying a ladder.",
+  "question": "Look at the photo and choose the statement that best describes it.",
+  "choices": {
+    "A": "The worker is repairing a computer.",
+    "B": "The worker is painting the wall.",
+    "C": "The worker is adjusting the air conditioning unit.",
+    "D": "The worker is carrying a ladder."
+  },
+  "answer": "C",
+  "explanation_zh": "正確答案為C。照片中一名穿著灰色制服的維修工人正在屋頂上調整大型空調機組，與選項C「工人正在調整空調機組」完全相符。選項A「工人正在修理電腦」錯誤，因為照片中沒有電腦；選項B「工人正在粉刷牆壁」錯誤，因為工人並未進行粉刷動作；選項D「工人正在搬梯子」錯誤，因為工人雙手在調整空調，並未搬運梯子。",
+  "vocabulary": [
+    "maintenance",
+    "adjusting",
+    "air conditioning unit",
+    "uniform",
+    "roof"
+  ]
+},
+  {
+  "id": "p1-gen-072",
+  "part": "Part 1",
+  "skill_tag": "listening_photo",
+  "difficulty": "A2",
+  "imageAlt": "An office worker in a white shirt is plugging a black printer cable into a power outlet near a desk.",
+  "audioScript": "(A) The man is printing a document.\n(B) The man is sitting at the desk.\n(C) The man is opening a window.\n(D) The man is plugging in the printer.",
+  "question": "Look at the photo and choose the statement that best describes it.",
+  "choices": {
+    "A": "The man is printing a document.",
+    "B": "The man is sitting at the desk.",
+    "C": "The man is opening a window.",
+    "D": "The man is plugging in the printer."
+  },
+  "answer": "D",
+  "explanation_zh": "正確答案為D。照片中一名穿著白襯衫的辦公室員工正將黑色印表機電纜插入桌子附近的電源插座，與選項D「該男子正在插印表機電源」完全相符。選項A「該男子正在列印文件」錯誤，因為他並未操作印表機；選項B「該男子正坐在桌前」錯誤，因為他是站著的；選項C「該男子正在開窗」錯誤，因為照片中沒有窗戶。",
+  "vocabulary": [
+    "plugging",
+    "printer",
+    "cable",
+    "power outlet",
+    "desk"
+  ]
+},
+  {
+  "id": "p1-gen-073",
+  "part": "Part 1",
+  "skill_tag": "listening_photo",
+  "difficulty": "B2",
+  "imageAlt": "Two construction workers in hard hats are installing a steel beam on a high-rise building site under a clear blue sky.",
+  "audioScript": "(A) The workers are installing a steel beam.\n(B) The workers are eating lunch on the ground.\n(C) The workers are driving a forklift.\n(D) The workers are measuring the wall.",
+  "question": "Look at the photo and choose the statement that best describes it.",
+  "choices": {
+    "A": "The workers are installing a steel beam.",
+    "B": "The workers are eating lunch on the ground.",
+    "C": "The workers are driving a forklift.",
+    "D": "The workers are measuring the wall."
+  },
+  "answer": "A",
+  "explanation_zh": "正確答案為A。照片中兩名戴安全帽的建築工人正在高樓建築工地安裝鋼樑，背景是晴朗的藍天，與選項A「工人們正在安裝鋼樑」完全相符。選項B「工人們正在地上吃午餐」錯誤，因為他們正在工作而非用餐；選項C「工人們正在駕駛堆高機」錯誤，因為照片中沒有堆高機；選項D「工人們正在測量牆壁」錯誤，因為他們在安裝鋼樑而非測量。",
+  "vocabulary": [
+    "installing",
+    "steel beam",
+    "construction",
+    "hard hats",
+    "high-rise"
+  ]
+},
+  {
+  "id": "p1-gen-074",
+  "part": "Part 1",
+  "skill_tag": "listening_photo",
+  "difficulty": "B1",
+  "imageAlt": "A female technician in a lab coat is examining a small circuit board under a magnifying lamp in a clean electronics lab.",
+  "audioScript": "(A) The woman is writing a report.\n(B) The woman is examining a circuit board.\n(C) The woman is drinking coffee.\n(D) The woman is cleaning the floor.",
+  "question": "Look at the photo and choose the statement that best describes it.",
+  "choices": {
+    "A": "The woman is writing a report.",
+    "B": "The woman is examining a circuit board.",
+    "C": "The woman is drinking coffee.",
+    "D": "The woman is cleaning the floor."
+  },
+  "answer": "B",
+  "explanation_zh": "正確答案為B。照片中一名穿著實驗室外套的女性技術員正在潔淨的電子實驗室裡用放大燈檢查小型電路板，與選項B「該女子正在檢查電路板」完全相符。選項A「該女子正在寫報告」錯誤，因為她手中拿著電路板而非筆或文件；選項C「該女子正在喝咖啡」錯誤，因為照片中沒有咖啡；選項D「該女子正在清潔地板」錯誤，因為她專注於檢查電路板。",
+  "vocabulary": [
+    "examining",
+    "circuit board",
+    "technician",
+    "magnifying lamp",
+    "lab coat"
+  ]
+},
+  {
+  "id": "p1-gen-075",
+  "part": "Part 1",
+  "skill_tag": "listening_photo",
+  "difficulty": "A2",
+  "imageAlt": "A delivery person in a brown uniform is placing a large cardboard box on the front steps of a house.",
+  "audioScript": "(A) The man is opening a mailbox.\n(B) The man is climbing a ladder.\n(C) The man is placing a box on the steps.\n(D) The man is watering the garden.",
+  "question": "Look at the photo and choose the statement that best describes it.",
+  "choices": {
+    "A": "The man is opening a mailbox.",
+    "B": "The man is climbing a ladder.",
+    "C": "The man is placing a box on the steps.",
+    "D": "The man is watering the garden."
+  },
+  "answer": "C",
+  "explanation_zh": "正確答案為C。照片中一名穿著棕色制服的送貨員正將一個大紙箱放在房屋的前台階上，與選項C「該男子正在將盒子放在台階上」完全相符。選項A「該男子正在打開郵箱」錯誤，因為他並未接觸郵箱；選項B「該男子正在爬梯子」錯誤，因為照片中沒有梯子；選項D「該男子正在澆花」錯誤，因為他正在放置箱子而非澆水。",
+  "vocabulary": [
+    "delivery",
+    "placing",
+    "cardboard box",
+    "steps",
+    "uniform"
+  ]
+},
+  {
+  "id": "p1-gen-076",
+  "part": "Part 1",
+  "skill_tag": "listening_photo",
+  "difficulty": "B1",
+  "imageAlt": "A maintenance worker in a blue uniform is adjusting a large air conditioning unit on the roof of a modern office building.",
+  "audioScript": "(A) The worker is repairing a computer server.\n(B) The worker is cleaning a window on the roof.\n(C) The worker is painting the roof of the building.\n(D) The worker is adjusting an air conditioning unit.",
+  "question": "Look at the photo and choose the statement that best describes it.",
+  "choices": {
+    "A": "The worker is repairing a computer server.",
+    "B": "The worker is cleaning a window on the roof.",
+    "C": "The worker is painting the roof of the building.",
+    "D": "The worker is adjusting an air conditioning unit."
+  },
+  "answer": "D",
+  "explanation_zh": "正確答案為 D。照片中一名穿著藍色制服的維修工人正在屋頂上調整大型空調機組，這與選項 D「工人正在調整空調機組」完全吻合。選項 A「工人正在修理電腦伺服器」錯誤，因為照片中沒有電腦伺服器。選項 B「工人正在屋頂上擦窗戶」錯誤，因為工人並未擦窗戶。選項 C「工人正在粉刷屋頂」錯誤，因為工人沒有進行粉刷工作。",
+  "vocabulary": [
+    "maintenance worker",
+    "adjusting",
+    "air conditioning unit",
+    "roof",
+    "office building"
+  ]
+},
+  {
+  "id": "p1-gen-077",
+  "part": "Part 1",
+  "skill_tag": "listening_photo",
+  "difficulty": "A2",
+  "imageAlt": "An office employee in a white shirt is plugging a cable into the back of a desktop computer monitor on a clean desk.",
+  "audioScript": "(A) The employee is connecting a cable to the monitor.\n(B) The employee is typing on the keyboard.\n(C) The employee is reading a document on the desk.\n(D) The employee is moving the monitor to another desk.",
+  "question": "Look at the photo and choose the statement that best describes it.",
+  "choices": {
+    "A": "The employee is connecting a cable to the monitor.",
+    "B": "The employee is typing on the keyboard.",
+    "C": "The employee is reading a document on the desk.",
+    "D": "The employee is moving the monitor to another desk."
+  },
+  "answer": "A",
+  "explanation_zh": "正確答案為 A。照片中一名穿著白襯衫的辦公室員工正在將電纜插入桌上型電腦顯示器背面，這與選項 A「員工正在將電纜連接到顯示器」完全吻合。選項 B「員工正在鍵盤上打字」錯誤，因為員工的手並未在鍵盤上。選項 C「員工正在閱讀桌上的文件」錯誤，因為桌上沒有文件。選項 D「員工正在將顯示器移到另一張桌子」錯誤，因為員工沒有移動顯示器。",
+  "vocabulary": [
+    "employee",
+    "connecting",
+    "cable",
+    "monitor",
+    "desk"
+  ]
+},
+  {
+  "id": "p1-gen-078",
+  "part": "Part 1",
+  "skill_tag": "listening_photo",
+  "difficulty": "B2",
+  "imageAlt": "Two technicians in hard hats are inspecting a large piece of industrial machinery on a factory floor with bright overhead lights.",
+  "audioScript": "(A) The technicians are repairing a broken conveyor belt.\n(B) The technicians are inspecting industrial equipment.\n(C) The technicians are operating a forklift.\n(D) The technicians are cleaning the factory floor.",
+  "question": "Look at the photo and choose the statement that best describes it.",
+  "choices": {
+    "A": "The technicians are repairing a broken conveyor belt.",
+    "B": "The technicians are inspecting industrial equipment.",
+    "C": "The technicians are operating a forklift.",
+    "D": "The technicians are cleaning the factory floor."
+  },
+  "answer": "B",
+  "explanation_zh": "正確答案為 B。照片中兩名戴著安全帽的技術人員正在工廠地板上檢查大型工業機械，這與選項 B「技術人員正在檢查工業設備」完全吻合。選項 A「技術人員正在修理損壞的輸送帶」錯誤，因為照片中沒有輸送帶。選項 C「技術人員正在操作堆高機」錯誤，因為照片中沒有堆高機。選項 D「技術人員正在清潔工廠地板」錯誤，因為他們沒有進行清潔工作。",
+  "vocabulary": [
+    "technicians",
+    "inspecting",
+    "industrial equipment",
+    "hard hats",
+    "factory floor"
+  ]
+},
+  {
+  "question": "When will the new office supplies be delivered?",
+  "choices": {
+    "A": "They'll arrive tomorrow morning.",
+    "B": "The supplies are in the storage room.",
+    "C": "Yes, we ordered more supplies."
+  },
+  "answer": "A",
+  "explanation_zh": "問題是詢問新辦公用品何時會送達，需要一個時間點作為答案。選項A提供了具體的時間，明天早上，是正確的。選項B提到用品在儲藏室，但沒有回答何時送達。選項C說我們已經訂購了更多，但沒有提供時間資訊。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "delivered",
+    "supplies",
+    "morning"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-150",
+  "audioScript": "Q: When will the new office supplies be delivered?\n(A) They'll arrive tomorrow morning.\n(B) The supplies are in the storage room.\n(C) Yes, we ordered more supplies."
+},
+  {
+  "question": "Where can I find the new office chairs?",
+  "choices": {
+    "A": "They were delivered yesterday.",
+    "B": "In the storage room on the second floor.",
+    "C": "The chairs are for the conference room."
+  },
+  "answer": "B",
+  "explanation_zh": "問題問的是新辦公椅的所在地，因此需要一個地點的回答。選項B提供了具體地點：在二樓的儲藏室。選項A提到“椅子”這個關鍵字，但只提供了到貨時間，無法回答“哪裡”的問題。選項C也提到“椅子”這個關鍵字，但僅描述了使用地點，而非存放地點，仍然無法回答問題。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "office chairs",
+    "storage room",
+    "delivered"
+  ],
+  "id": "p2-gen-151",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Where can I find the new office chairs?\n(A) They were delivered yesterday.\n(B) In the storage room on the second floor.\n(C) The chairs are for the conference room."
+},
+  {
+  "question": "Who is responsible for ordering more office supplies?",
+  "choices": {
+    "A": "The office supplies are in the storage room.",
+    "B": "They were ordered last week.",
+    "C": "That would be Jenna in purchasing."
+  },
+  "answer": "C",
+  "explanation_zh": "問題詢問誰負責訂購更多辦公用品。選項C提到Jenna是負責人，直接回答了問題。選項A重複了“office supplies”這個詞，但只是提到辦公用品的位置，沒有解釋誰負責。選項B提到上週已經訂購，但未回答負責人的問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "responsible",
+    "ordering",
+    "office supplies",
+    "purchasing"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-152",
+  "audioScript": "Q: Who is responsible for ordering more office supplies?\n(A) The office supplies are in the storage room.\n(B) They were ordered last week.\n(C) That would be Jenna in purchasing."
+},
+  {
+  "question": "Why did we run out of printer paper so quickly?",
+  "choices": {
+    "A": "I believe we had more orders than usual this week.",
+    "B": "The printer isn't working properly.",
+    "C": "Yes, I printed the report yesterday."
+  },
+  "answer": "A",
+  "explanation_zh": "問題詢問為什麼打印紙用得這麼快，選項A給出了具體原因：這週訂單比平常多。選項B重複了“printer”，但討論的是打印機本身的問題，與打印紙耗盡的原因無關。選項C回答了另一個問題，與問題無關。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "printer",
+    "orders",
+    "report"
+  ],
+  "id": "p2-gen-153",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Why did we run out of printer paper so quickly?\n(A) I believe we had more orders than usual this week.\n(B) The printer isn't working properly.\n(C) Yes, I printed the report yesterday."
+},
+  {
+  "question": "How many boxes of printing paper do we need to reorder?",
+  "choices": {
+    "A": "They'll be in the supply closet.",
+    "B": "We need to order ten more boxes.",
+    "C": "The printer is working fine now."
+  },
+  "answer": "B",
+  "explanation_zh": "問題是詢問需要重新訂購多少盒印刷紙。選項B回答了具體數量『十盒』，是正確的回答。選項A重複了『supply』一詞，但卻指向供應櫃的位置，無法回答問題。選項C談到『printer』，偏離了原問題，回答了不同的內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "boxes",
+    "reorder",
+    "printing paper"
+  ],
+  "id": "p2-gen-154",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: How many boxes of printing paper do we need to reorder?\n(A) They'll be in the supply closet.\n(B) We need to order ten more boxes.\n(C) The printer is working fine now."
+},
+  {
+  "question": "Have you already ordered the new IT equipment for the office?",
+  "choices": {
+    "A": "The equipment is in the storage room.",
+    "B": "When do we need it by?",
+    "C": "Yes, it should arrive next week."
+  },
+  "answer": "C",
+  "explanation_zh": "問題詢問是否已經訂購新的IT設備。選項C直接回應已經訂購，並提供到達時間。選項A重複關鍵詞\"equipment\"（設備），但並未回答是否訂購。選項B回答了另一個問題類型，詢問時間而不是確認訂購狀態。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "ordered",
+    "equipment",
+    "office"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-155",
+  "audioScript": "Q: Have you already ordered the new IT equipment for the office?\n(A) The equipment is in the storage room.\n(B) When do we need it by?\n(C) Yes, it should arrive next week."
+},
+  {
+  "part": "Part 2",
+  "question": "The marketing event starts at 3 PM, doesn't it?",
+  "choices": {
+    "A": "Yes, that's correct.",
+    "B": "The event is about our new product.",
+    "C": "The event location is the city hall."
+  },
+  "answer": "A",
+  "explanation_zh": "問題詢問活動開始的時間，選項A確認了3點開始，正確。選項B提到“event”但談論的是活動的內容，而不是時間，因此不符合問題要求。選項C提到“event location”卻回答了錯誤的問題類型。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "marketing",
+    "event",
+    "starts",
+    "correct"
+  ],
+  "id": "p2-gen-156",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: The marketing event starts at 3 PM, doesn't it?\n(A) Yes, that's correct.\n(B) The event is about our new product.\n(C) The event location is the city hall."
+},
+  {
+  "question": "Would you like to use the conference room or the open workspace for the team meeting?",
+  "choices": {
+    "A": "Yes, the report is ready.",
+    "B": "The conference room would be best.",
+    "C": "I can book a table for lunch."
+  },
+  "answer": "B",
+  "explanation_zh": "問題詢問是否要使用會議室或開放工作區來進行團隊會議。選擇B直接回答「會議室是最好的選擇」。選擇A重複了“會議室”一詞但卻沒有回答這個問題，而是提到了報告。選擇C則是回答了另一個問題，與會議的地點無關。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "conference room",
+    "workspace",
+    "team meeting"
+  ],
+  "id": "p2-gen-157",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Would you like to use the conference room or the open workspace for the team meeting?\n(A) Yes, the report is ready.\n(B) The conference room would be best.\n(C) I can book a table for lunch."
+},
+  {
+  "question": "The printer in the IT room is out of paper.",
+  "choices": {
+    "A": "The IT manager already left for the day.",
+    "B": "I saw the printer just an hour ago.",
+    "C": "I’ll get more paper from the supply closet."
+  },
+  "answer": "C",
+  "explanation_zh": "題目說IT室的印表機沒紙了，選項A提到IT經理，與印表機問題無關。選項B談論印表機，但未解決缺紙問題。只有選項C表示會去拿紙，直接解決問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "printer",
+    "IT room",
+    "paper",
+    "supply closet"
+  ],
+  "id": "p2-gen-158",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: The printer in the IT room is out of paper.\n(A) The IT manager already left for the day.\n(B) I saw the printer just an hour ago.\n(C) I’ll get more paper from the supply closet."
+},
+  {
+  "question": "Could you tell me where the new shipment is stored?",
+  "choices": {
+    "A": "In the warehouse next to the loading dock.",
+    "B": "The shipment is scheduled to arrive on Thursday.",
+    "C": "I believe the shipment is important."
+  },
+  "answer": "A",
+  "explanation_zh": "問題是詢問新貨物的存放地點。選項A提供了具體的地點『在靠近裝卸碼頭的倉庫』，是唯一符合問題的答案。選項B重複了『shipment』這個關鍵詞，但提供的是時間資訊，而不是地點，因此不合適。選項C提到貨物的重要性，但未回答貨物存放位置，不滿足問題要求。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shipment",
+    "stored",
+    "warehouse"
+  ],
+  "id": "p2-gen-159",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Could you tell me where the new shipment is stored?\n(A) In the warehouse next to the loading dock.\n(B) The shipment is scheduled to arrive on Thursday.\n(C) I believe the shipment is important."
+},
+  {
+  "question": "When will the new shipment of office supplies arrive?",
+  "choices": {
+    "A": "They ordered supplies last week.",
+    "B": "It should arrive by Friday.",
+    "C": "The office supplies are in the storeroom."
+  },
+  "answer": "B",
+  "explanation_zh": "問題詢問新一批辦公用品何時會到。選項A提到上週訂購，但沒有回答到達時間。選項C提到辦公用品在儲藏室，但沒有回答到達時間。選項B回答應該是星期五到，直接回答了問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shipment",
+    "office supplies",
+    "arrive"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-160",
+  "audioScript": "Q: When will the new shipment of office supplies arrive?\n(A) They ordered supplies last week.\n(B) It should arrive by Friday.\n(C) The office supplies are in the storeroom."
+},
+  {
+  "question": "Where is the customer service desk located?",
+  "choices": {
+    "A": "The customer service team is very helpful.",
+    "B": "It opens at 9 AM every day.",
+    "C": "It's right next to the entrance on the first floor."
+  },
+  "answer": "C",
+  "explanation_zh": "問題詢問顧客服務櫃檯的位置。選項C提供了具體位置資訊：在一樓入口旁邊。而選項A只提到顧客服務團隊的幫助，没有回答位置問題，儘管提及了\"customer service\"這個詞。選項B回答了開放時間而非位置。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "customer",
+    "service",
+    "desk",
+    "located",
+    "entrance"
+  ],
+  "id": "p2-gen-161",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Where is the customer service desk located?\n(A) The customer service team is very helpful.\n(B) It opens at 9 AM every day.\n(C) It's right next to the entrance on the first floor."
+},
+  {
+  "question": "Who is coordinating the lobby signage installation?",
+  "choices": {
+    "A": "Marta from Facilities is handling it.",
+    "B": "The signage will arrive on Friday.",
+    "C": "The lobby is closed for cleaning."
+  },
+  "answer": "A",
+  "explanation_zh": "問題詢問誰在協調大廳標示安裝，答案需要人物或部門。A指出由Facilities的Marta負責，直接回答問題。B提到標示到貨時間，C提到大廳清潔，兩者都沒有回答誰負責協調。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "coordinating",
+    "signage",
+    "installation",
+    "Facilities"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-162",
+  "audioScript": "Q: Who is coordinating the lobby signage installation?\n(A) Marta from Facilities is handling it.\n(B) The signage will arrive on Friday.\n(C) The lobby is closed for cleaning."
+},
+  {
+  "question": "Why are we switching to a new shipping provider?",
+  "choices": {
+    "A": "The shipping details are on your desk.",
+    "B": "They're offering us better rates.",
+    "C": "We received the shipment yesterday."
+  },
+  "answer": "B",
+  "explanation_zh": "問題問的是我們為什麼要改用新的運輸供應商。選項A中重複使用了“shipping”這個詞，但它只描述了位置，沒有解釋原因。選項C則是回答了一個不同的問題，與運輸供應商的選擇無關。選項B提供了具體的原因，因此是正確的答案。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "switching",
+    "shipping",
+    "provider"
+  ],
+  "id": "p2-gen-163",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Why are we switching to a new shipping provider?\n(A) The shipping details are on your desk.\n(B) They're offering us better rates.\n(C) We received the shipment yesterday."
+},
+  {
+  "question": "How many new computers do we need for the IT department?",
+  "choices": {
+    "A": "The computers are in the storage room.",
+    "B": "There's a training next week for the team.",
+    "C": "We need ten new ones."
+  },
+  "answer": "C",
+  "explanation_zh": "這個問題詢問需要多少台新電腦，選項C提供了具體的數量“十台”，是唯一正確的回答。選項A雖然提到“computers”這個詞，卻是關於電腦的位置，無法回答數量問題。選項B完全答非所問，講的是訓練時間。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "computers",
+    "IT department",
+    "new",
+    "training",
+    "storage room"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-164",
+  "audioScript": "Q: How many new computers do we need for the IT department?\n(A) The computers are in the storage room.\n(B) There's a training next week for the team.\n(C) We need ten new ones."
+},
+  {
+  "question": "Are we out of printer paper?",
+  "choices": {
+    "A": "Yes, I can order more today.",
+    "B": "The printer is in the copy room.",
+    "C": "We always use it for reports."
+  },
+  "answer": "A",
+  "explanation_zh": "問題詢問是否缺乏打印紙，選項A直接回答問題，表示可以今天訂購更多。選項B重複了關鍵詞 'printer'，但提供了打印機的位置，無法回答是否缺乏打印紙。選項C提到報告中使用打印紙，未回答問題。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "printer",
+    "paper",
+    "order"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-165",
+  "audioScript": "Q: Are we out of printer paper?\n(A) Yes, I can order more today.\n(B) The printer is in the copy room.\n(C) We always use it for reports."
+},
+  {
+  "question": "You ordered more ink cartridges last week, didn't you?",
+  "choices": {
+    "A": "I received the cartridges yesterday.",
+    "B": "Yes, I did.",
+    "C": "The cartridges are for the printers."
+  },
+  "answer": "B",
+  "explanation_zh": "問題是詢問上週是否訂購了更多墨水匣，選項A雖然提到了墨水匣，但並未確認是否上週訂購。選項C提到墨水匣是用於印表機，並未正面回答問題。只有選項B明確回答了問題。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "ordered",
+    "ink cartridges",
+    "last week"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-166",
+  "audioScript": "Q: You ordered more ink cartridges last week, didn't you?\n(A) I received the cartridges yesterday.\n(B) Yes, I did.\n(C) The cartridges are for the printers."
+},
+  {
+  "question": "Do we need more printer paper or toner for the office supplies order?",
+  "choices": {
+    "A": "The paper is in the supply closet.",
+    "B": "I'm not sure about the toner price.",
+    "C": "We need more toner, but we're good on paper."
+  },
+  "answer": "C",
+  "explanation_zh": "問題問的是需要更多紙張還是碳粉，選項C直接回答缺碳粉但紙張足夠。選項A提到“紙張”卻只說明位置，並未回答需要哪一種。選項B回答了價格問題，與需要哪種物品無關。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "printer",
+    "paper",
+    "toner",
+    "order",
+    "supplies"
+  ],
+  "id": "p2-gen-167",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Do we need more printer paper or toner for the office supplies order?\n(A) The paper is in the supply closet.\n(B) I'm not sure about the toner price.\n(C) We need more toner, but we're good on paper."
+},
+  {
+  "question": "The printer in the main office has run out of paper again.",
+  "choices": {
+    "A": "I'll refill it right now.",
+    "B": "The main office is on the second floor.",
+    "C": "Yes, the printer is quite old."
+  },
+  "answer": "A",
+  "explanation_zh": "題目說明辦公室的印表機又沒有紙了。A選項表示會立即補充紙張，是唯一符合題意的自然反應。B選項重複了“main office”這個詞，但提供的是辦公室的位置，無法解決沒有紙的問題。C選項提到印表機的年齡，並沒有回答如何應對缺紙的情況。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "printer",
+    "main office",
+    "paper",
+    "refill"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-168",
+  "audioScript": "Q: The printer in the main office has run out of paper again.\n(A) I'll refill it right now.\n(B) The main office is on the second floor.\n(C) Yes, the printer is quite old."
+},
+  {
+  "question": "Could you tell me where the new batch of office chairs is being stored?",
+  "choices": {
+    "A": "They were ordered last week.",
+    "B": "They're in the storage room near the loading dock.",
+    "C": "The chairs need assembling first."
+  },
+  "answer": "B",
+  "explanation_zh": "問題詢問辦公椅的存放地點。選項A提到椅子何時被訂購，並未回答「在哪裡」的問題。選項B正確地回應椅子存放的位置。選項C提到椅子需要組裝，與問題無關。選項A是重複詞陷阱，因為提到「椅子」但沒有給出存放地點。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "batch",
+    "stored",
+    "loading dock"
+  ],
+  "id": "p2-gen-169",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Could you tell me where the new batch of office chairs is being stored?\n(A) They were ordered last week.\n(B) They're in the storage room near the loading dock.\n(C) The chairs need assembling first."
+},
+  {
+  "question": "When will the new office supplies shipment arrive?",
+  "choices": {
+    "A": "The office supplies are in the storeroom.",
+    "B": "I think it was sent yesterday.",
+    "C": "It should arrive by Friday."
+  },
+  "answer": "C",
+  "explanation_zh": "答案 C: 問句詢問辦公用品何時到達，C選項提供具體的到達時間 'It should arrive by Friday.'，符合問題需求。A選項 'The office supplies are in the storeroom.' 及 B選項 'I think it was sent yesterday.' 皆未直接回答到達時間。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shipment",
+    "arrive",
+    "office supplies"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-170",
+  "audioScript": "Q: When will the new office supplies shipment arrive?\n(A) The office supplies are in the storeroom.\n(B) I think it was sent yesterday.\n(C) It should arrive by Friday."
+},
+  {
+  "question": "Where can I find the new office supplies order form?",
+  "choices": {
+    "A": "It's in the supply cabinet next to the copier.",
+    "B": "The office supplies are on the desk.",
+    "C": "We placed the order last week."
+  },
+  "answer": "A",
+  "explanation_zh": "答案 A: 問句詢問辦公用品訂單在哪裡，A選項 'It's in the supply cabinet next to the copier.' 清楚指出位置。B選項 'The office supplies are on the desk.' 和 C選項 'We placed the order last week.' 未回應訂單位置。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "office supplies",
+    "order form",
+    "supply cabinet"
+  ],
+  "id": "p2-gen-171",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Where can I find the new office supplies order form?\n(A) It's in the supply cabinet next to the copier.\n(B) The office supplies are on the desk.\n(C) We placed the order last week."
+},
+  {
+  "question": "Who is responsible for ordering office supplies in our department?",
+  "choices": {
+    "A": "The office supplies are in the storage room.",
+    "B": "That would be Susan from Procurement.",
+    "C": "We usually order them every month."
+  },
+  "answer": "B",
+  "explanation_zh": "答案 B: 問句詢問是誰負責訂購，B選項 'That would be Susan from Procurement.' 明確回答負責人。A選項 'The office supplies are in the storage room.' 和 C選項 'We usually order them every month.' 沒有回答問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "responsible",
+    "ordering",
+    "department",
+    "supplies",
+    "Procurement"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-172",
+  "audioScript": "Q: Who is responsible for ordering office supplies in our department?\n(A) The office supplies are in the storage room.\n(B) That would be Susan from Procurement.\n(C) We usually order them every month."
+},
+  {
+  "question": "Why are we delaying the shipment of the office supplies to Toronto?",
+  "choices": {
+    "A": "The office supplies are in the storage room.",
+    "B": "We just need to check the inventory list.",
+    "C": "There's a problem with the delivery truck."
+  },
+  "answer": "C",
+  "explanation_zh": "答案 C: 問句詢問為何延遲，C選項 'There's a problem with the delivery truck.' 說明原因。A選項 'The office supplies are in the storage room.' 和 B選項 'We just need to check the inventory list.' 都未解釋延遲原因。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shipment",
+    "office supplies",
+    "delivery",
+    "inventory"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-173",
+  "audioScript": "Q: Why are we delaying the shipment of the office supplies to Toronto?\n(A) The office supplies are in the storage room.\n(B) We just need to check the inventory list.\n(C) There's a problem with the delivery truck."
+},
+  {
+  "question": "How many boxes of printer paper should we order for the office?",
+  "choices": {
+    "A": "Let's get ten boxes to start with.",
+    "B": "The printer is in the copy room.",
+    "C": "It was delivered last Tuesday."
+  },
+  "answer": "A",
+  "explanation_zh": "答案 A: 問句詢問應訂購多少，A選項 'Let's get ten boxes to start with.' 提供具體數量。B選項 'The printer is in the copy room.' 和 C選項 'It was delivered last Tuesday.' 不回答數量問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "boxes",
+    "printer paper",
+    "order",
+    "office"
+  ],
+  "id": "p2-gen-174",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: How many boxes of printer paper should we order for the office?\n(A) Let's get ten boxes to start with.\n(B) The printer is in the copy room.\n(C) It was delivered last Tuesday."
+},
+  {
+  "question": "Did you order the new office chairs yet?",
+  "choices": {
+    "A": "The chairs are very comfortable.",
+    "B": "I'll place the order this afternoon.",
+    "C": "They should be here next week."
+  },
+  "answer": "B",
+  "explanation_zh": "答案 B: 問句詢問是否已訂購，B選項 'I'll place the order this afternoon.' 表示尚未訂購但會進行。A選項 'The chairs are very comfortable.' 和 C選項 'They should be here next week.' 未回應訂購狀態。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "order",
+    "office chairs",
+    "afternoon"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-175",
+  "audioScript": "Q: Did you order the new office chairs yet?\n(A) The chairs are very comfortable.\n(B) I'll place the order this afternoon.\n(C) They should be here next week."
+},
+  {
+  "question": "You've already finished the report, haven't you?",
+  "choices": {
+    "A": "The report is on my desk.",
+    "B": "No, I started it yesterday.",
+    "C": "Yes, I sent it to you last night."
+  },
+  "answer": "C",
+  "explanation_zh": "答案 C: 問句確認報告是否完成，C選項 'Yes, I sent it to you last night.' 清楚表示已完成。A選項 'The report is on my desk.' 和 B選項 'No, I started it yesterday.' 皆不支持已完成。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "report",
+    "finished",
+    "sent"
+  ],
+  "id": "p2-gen-176",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: You've already finished the report, haven't you?\n(A) The report is on my desk.\n(B) No, I started it yesterday.\n(C) Yes, I sent it to you last night."
+},
+  {
+  "question": "Should we order more printer ink or paper for the office?",
+  "choices": {
+    "A": "We should definitely get more printer ink.",
+    "B": "The printer is in the copy room.",
+    "C": "I can order them tomorrow."
+  },
+  "answer": "A",
+  "explanation_zh": "答案 A: 問句詢問應訂購哪種用品，A選項 'We should definitely get more printer ink.' 明確回答需訂購墨水。B選項 'The printer is in the copy room.' 和 C選項 'I can order them tomorrow.' 不涉及選擇問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "order",
+    "printer",
+    "ink",
+    "paper",
+    "office"
+  ],
+  "id": "p2-gen-177",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Should we order more printer ink or paper for the office?\n(A) We should definitely get more printer ink.\n(B) The printer is in the copy room.\n(C) I can order them tomorrow."
+},
+  {
+  "question": "The shipment of office supplies was delayed again.",
+  "choices": {
+    "A": "The supplies should arrive tomorrow morning.",
+    "B": "That's frustrating. I'll contact the supplier.",
+    "C": "When did you place the order?"
+  },
+  "answer": "B",
+  "explanation_zh": "答案 B: 問句描述出貨延遲，B選項 'That's frustrating. I'll contact the supplier.' 表現出理解並提供後續行動。A選項 'The supplies should arrive tomorrow morning.' 和 C選項 'When did you place the order?' 未針對延遲回應。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shipment",
+    "supplies",
+    "delayed",
+    "supplier",
+    "contact"
+  ],
+  "id": "p2-gen-178",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: The shipment of office supplies was delayed again.\n(A) The supplies should arrive tomorrow morning.\n(B) That's frustrating. I'll contact the supplier.\n(C) When did you place the order?"
+},
+  {
+  "question": "Where are the replacement printer cartridges kept?",
+  "choices": {
+    "A": "They need to be ordered by Friday.",
+    "B": "I'll check the supply closet for you.",
+    "C": "The cartridges are stored in the supply closet."
+  },
+  "answer": "C",
+  "explanation_zh": "答案 C: 問句詢問墨盒存放處，C選項 'The cartridges are stored in the supply closet.' 清楚提供位置。A選項 'They need to be ordered by Friday.' 和 B選項 'I'll check the supply closet for you.' 不是位置的直接回答。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "printer",
+    "cartridges",
+    "supply closet",
+    "replacement"
+  ],
+  "id": "p2-gen-179",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Where are the replacement printer cartridges kept?\n(A) They need to be ordered by Friday.\n(B) I'll check the supply closet for you.\n(C) The cartridges are stored in the supply closet."
+},
+  {
+  "question": "When is the software training session scheduled to start?",
+  "choices": {
+    "A": "At nine thirty tomorrow morning.",
+    "B": "The training room is on the third floor.",
+    "C": "Yes, the software was updated."
+  },
+  "answer": "A",
+  "explanation_zh": "問題詢問軟體訓練課程何時開始，需要時間作答。A提供明確時間「明天早上九點半」，正確。B回答地點，C提到軟體已更新，都沒有回答開始時間。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "software",
+    "training session",
+    "scheduled",
+    "start"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-180",
+  "audioScript": "Q: When is the software training session scheduled to start?\n(A) At nine thirty tomorrow morning.\n(B) The training room is on the third floor.\n(C) Yes, the software was updated."
+},
+  {
+  "question": "Where can I find the office supplies cabinet?",
+  "choices": {
+    "A": "The office supplies are ordered weekly.",
+    "B": "It's next to the copy machine.",
+    "C": "When do you need the supplies?"
+  },
+  "answer": "B",
+  "explanation_zh": "問句詢問辦公用品櫃的位置，選項B提供了具體的位置「在影印機旁邊」。選項A使用了關鍵字「office supplies」，但談論的是訂購時間，未回答地點問題。選項C是關於時間的詢問，與地點無關。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "office supplies",
+    "cabinet",
+    "copy machine"
+  ],
+  "id": "p2-gen-181",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Where can I find the office supplies cabinet?\n(A) The office supplies are ordered weekly.\n(B) It's next to the copy machine.\n(C) When do you need the supplies?"
+},
+  {
+  "question": "Who approved the travel budget for the sales trip?",
+  "choices": {
+    "A": "The trip starts on Monday.",
+    "B": "The budget form is online.",
+    "C": "The regional manager approved it."
+  },
+  "answer": "C",
+  "explanation_zh": "問題詢問誰核准了業務差旅預算，需要人物或職位作答。C表示由區域經理核准，正確。A回答出差開始時間，B提到預算表在哪裡，都沒有回答核准者是誰。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "approved",
+    "travel budget",
+    "sales trip",
+    "regional manager"
+  ],
+  "id": "p2-gen-182",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Who approved the travel budget for the sales trip?\n(A) The trip starts on Monday.\n(B) The budget form is online.\n(C) The regional manager approved it."
+},
+  {
+  "question": "Why was the catering order changed?",
+  "choices": {
+    "A": "Several guests requested vegetarian meals.",
+    "B": "The catering order arrives at noon.",
+    "C": "The trays are in the kitchen."
+  },
+  "answer": "A",
+  "explanation_zh": "問題詢問餐點訂單為什麼被更改，需要原因。A說明有幾位賓客要求素食餐點，因此正確。B回答送達時間，C回答餐盤位置，兩者都沒有解釋更改原因。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "catering",
+    "order",
+    "vegetarian meals",
+    "guests"
+  ],
+  "id": "p2-gen-183",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Why was the catering order changed?\n(A) Several guests requested vegetarian meals.\n(B) The catering order arrives at noon.\n(C) The trays are in the kitchen."
+},
+  {
+  "question": "How many visitor badges should I print for the tour?",
+  "choices": {
+    "A": "The printer is beside reception.",
+    "B": "Please print twelve badges.",
+    "C": "The tour starts after lunch."
+  },
+  "answer": "B",
+  "explanation_zh": "問題詢問導覽需要列印多少張訪客識別證，答案要提供數量。B明確回答「十二張」，正確。A提到印表機位置，C提到導覽開始時間，都沒有回答數量。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "visitor badges",
+    "print",
+    "tour",
+    "reception"
+  ],
+  "id": "p2-gen-184",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: How many visitor badges should I print for the tour?\n(A) The printer is beside reception.\n(B) Please print twelve badges.\n(C) The tour starts after lunch."
+},
+  {
+  "question": "Is the new shipment of office supplies expected to arrive today?",
+  "choices": {
+    "A": "The office supplies are in the storage room.",
+    "B": "It was supposed to arrive last week.",
+    "C": "Yes, it should be here by this afternoon."
+  },
+  "answer": "C",
+  "explanation_zh": "問題詢問新的辦公用品是否預計今天到達。選項A提到辦公用品的位置，未回答問題。選項B提到上週的預期到達時間，未回答今天是否到達。只有選項C明確回答今天下午應該到達。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shipment",
+    "office supplies",
+    "arrive"
+  ],
+  "id": "p2-gen-185",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Is the new shipment of office supplies expected to arrive today?\n(A) The office supplies are in the storage room.\n(B) It was supposed to arrive last week.\n(C) Yes, it should be here by this afternoon."
+},
+  {
+  "question": "The shipment arrived on time, didn't it?",
+  "choices": {
+    "A": "Yes, it was delivered this morning.",
+    "B": "The shipment is for next week.",
+    "C": "I haven't checked the shipment yet."
+  },
+  "answer": "A",
+  "explanation_zh": "選項A直接回答了問題，確認貨物按時到達。選項B雖然提到了“shipment”這個關鍵詞，但談論的是不同的時間，因此無法回答此確認問題。選項C則表達了未檢查的意思，並未回答問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shipment",
+    "arrived",
+    "delivered"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-186",
+  "audioScript": "Q: The shipment arrived on time, didn't it?\n(A) Yes, it was delivered this morning.\n(B) The shipment is for next week.\n(C) I haven't checked the shipment yet."
+},
+  {
+  "question": "Should we order more printer paper or ink cartridges?",
+  "choices": {
+    "A": "The printer is in the corner office.",
+    "B": "Let's get more printer paper.",
+    "C": "We're running low on both items."
+  },
+  "answer": "B",
+  "explanation_zh": "問題詢問要訂購更多的列印紙還是墨盒。選項 B 明確回答選擇訂購更多的列印紙。選項 A 提到印表機的位置，但沒有回答要訂購何種物品。選項 C 提到兩種物品的庫存狀況，但沒有選擇其中一項訂購。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "printer",
+    "paper",
+    "ink cartridges"
+  ],
+  "id": "p2-gen-187",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Should we order more printer paper or ink cartridges?\n(A) The printer is in the corner office.\n(B) Let's get more printer paper.\n(C) We're running low on both items."
+},
+  {
+  "question": "The printer in the office stopped working again.",
+  "choices": {
+    "A": "I printed the documents yesterday.",
+    "B": "The printer is in the corner.",
+    "C": "I'll call the technician right away."
+  },
+  "answer": "C",
+  "explanation_zh": "只有選項C是正確的反應，因為它提供了解決問題的行動，即打電話給技術人員。選項A雖然提到“documents”，但其內容只是在說自己何時打印過文件，沒有回應到打印機現在不能用的問題。選項B提到“printer”的位置，但未解決任何問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "printer",
+    "office",
+    "technician"
+  ],
+  "id": "p2-gen-188",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: The printer in the office stopped working again.\n(A) I printed the documents yesterday.\n(B) The printer is in the corner.\n(C) I'll call the technician right away."
+},
+  {
+  "question": "Could you tell me where we keep the spare printer cartridges?",
+  "choices": {
+    "A": "They're in the supply closet on the second floor.",
+    "B": "We need more printer cartridges soon.",
+    "C": "The meeting starts at 10 a.m."
+  },
+  "answer": "A",
+  "explanation_zh": "問題詢問備用印表機墨盒的存放地點。選項A正確地提供了位置資訊。選項B雖然提到墨盒，但沒有回答地點問題。選項C回答了一個與地點無關的問題。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "printer",
+    "cartridges",
+    "supply",
+    "closet",
+    "floor"
+  ],
+  "id": "p2-gen-189",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Could you tell me where we keep the spare printer cartridges?\n(A) They're in the supply closet on the second floor.\n(B) We need more printer cartridges soon.\n(C) The meeting starts at 10 a.m."
+},
+  {
+  "question": "When will the new IT equipment be delivered?",
+  "choices": {
+    "A": "The equipment is very advanced.",
+    "B": "It should arrive on Friday.",
+    "C": "We need more equipment."
+  },
+  "answer": "B",
+  "explanation_zh": "問題問的是新IT設備何時送達。選項A提到“equipment”但只描述設備的特性，沒有回答時間問題；選項C提到“equipment”但是關於需求而不是送達時間。因此，只有選項B的回答提供了具體的送達日期。“equipment”是重複詞，但不能回答時間問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "delivered",
+    "equipment",
+    "arrive"
+  ],
+  "id": "p2-gen-190",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: When will the new IT equipment be delivered?\n(A) The equipment is very advanced.\n(B) It should arrive on Friday.\n(C) We need more equipment."
+},
+  {
+  "question": "Where can I find the new office supplies cabinet?",
+  "choices": {
+    "A": "The cabinet is not open today.",
+    "B": "The office supplies are ordered monthly.",
+    "C": "It's next to the break room, on the second floor."
+  },
+  "answer": "C",
+  "explanation_zh": "問題是詢問新辦公用品櫃的位置，選項C提供了具體位置：二樓休息室旁邊。選項A提到櫃子不開放，並沒有提供地點資訊，選項B提到訂購頻率，與地點無關。選項A重複了關鍵字“cabinet（櫃子）”，但未回答位置。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "office supplies",
+    "cabinet",
+    "break room"
+  ],
+  "id": "p2-gen-191",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Where can I find the new office supplies cabinet?\n(A) The cabinet is not open today.\n(B) The office supplies are ordered monthly.\n(C) It's next to the break room, on the second floor."
+},
+  {
+  "question": "Who should I speak to about ordering new office chairs?",
+  "choices": {
+    "A": "You should contact the facilities manager.",
+    "B": "The chairs are delivered tomorrow.",
+    "C": "Yes, the chairs are in the office."
+  },
+  "answer": "A",
+  "explanation_zh": "問題問的是應該聯繫誰來訂購新辦公椅。選項A提供了正確的人——設施經理。選項B重複了關鍵詞“chairs”，但談論的是交貨時間，並沒有回答應聯繫誰。選項C重複了“chairs”，但回答了椅子的位置，沒有提供聯繫人的信息。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "speak",
+    "ordering",
+    "facilities",
+    "manager",
+    "chairs"
+  ],
+  "id": "p2-gen-192",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Who should I speak to about ordering new office chairs?\n(A) You should contact the facilities manager.\n(B) The chairs are delivered tomorrow.\n(C) Yes, the chairs are in the office."
+},
+  {
+  "question": "Why did the shipment arrive later than expected?",
+  "choices": {
+    "A": "The shipment contains electronic components.",
+    "B": "There were customs delays at the border.",
+    "C": "It was delivered to the wrong address."
+  },
+  "answer": "B",
+  "explanation_zh": "問題詢問為什麼運送比預期的晚到。選項B提到海關延誤，符合原因。選項A提到運送的內容，但沒有解釋延遲原因，僅重複“shipment”一詞。選項C則是回答另一個可能的問題，即包裹送錯地址，但不解釋為什麼“延遲”。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shipment",
+    "arrive",
+    "expected",
+    "customs",
+    "delays"
+  ],
+  "id": "p2-gen-193",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Why did the shipment arrive later than expected?\n(A) The shipment contains electronic components.\n(B) There were customs delays at the border.\n(C) It was delivered to the wrong address."
+},
+  {
+  "question": "What kind of paper should we use for the new brochure?",
+  "choices": {
+    "A": "We ordered the brochure last week.",
+    "B": "The paper is stored in the supply closet.",
+    "C": "We should use glossy paper for a premium look."
+  },
+  "answer": "C",
+  "explanation_zh": "問題問的是應該使用什麼樣的紙。選項C直接回答了問題，建議使用光面紙。選項A重複了單詞 'brochure'，但談論的是訂單時間，與問題無關。選項B提到 'paper'，但只是描述紙張存放的位置，並沒有回答應該使用哪種紙。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "brochure",
+    "glossy",
+    "premium"
+  ],
+  "id": "p2-gen-194",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: What kind of paper should we use for the new brochure?\n(A) We ordered the brochure last week.\n(B) The paper is stored in the supply closet.\n(C) We should use glossy paper for a premium look."
+},
+  {
+  "question": "Did you order the new office supplies?",
+  "choices": {
+    "A": "Yes, they'll arrive by Friday.",
+    "B": "I think the supplies are in the storeroom.",
+    "C": "I ordered them last year."
+  },
+  "answer": "A",
+  "explanation_zh": "這個問題是詢問是否已經訂購了新的辦公用品。選項 A 直接回答了這個問題，說明已經訂購了，並且提供了到貨日期。選項 B 虽然提到 'supplies' 這個詞，但它回答的是辦公用品的位置，而不是是否訂購。選項 C 則回答了何時訂購，而不是是否已經訂購。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "order",
+    "supplies",
+    "arrive"
+  ],
+  "id": "p2-gen-195",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Did you order the new office supplies?\n(A) Yes, they'll arrive by Friday.\n(B) I think the supplies are in the storeroom.\n(C) I ordered them last year."
+},
+  {
+  "question": "You've already ordered the new office supplies, haven't you?",
+  "choices": {
+    "A": "The office supplies are in the storage room.",
+    "B": "Yes, they should arrive by Thursday.",
+    "C": "I made a reservation for dinner tonight."
+  },
+  "answer": "B",
+  "explanation_zh": "問題是詢問是否已經訂購了新的辦公用品。選項A提到\"office supplies\"（辦公用品），但僅僅說明了它們的位置，並沒有回答是否訂購。選項C完全不相關，談到晚餐預訂。只有選項B確認了訂購已完成，並提到了預計到達時間。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "order",
+    "office supplies",
+    "arrive"
+  ],
+  "id": "p2-gen-196",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: You've already ordered the new office supplies, haven't you?\n(A) The office supplies are in the storage room.\n(B) Yes, they should arrive by Thursday.\n(C) I made a reservation for dinner tonight."
+},
+  {
+  "question": "Would you prefer the meeting room on the ground floor or the one upstairs?",
+  "choices": {
+    "A": "It's scheduled for next week.",
+    "B": "The meeting room is very spacious.",
+    "C": "Let's use the one upstairs."
+  },
+  "answer": "C",
+  "explanation_zh": "題目詢問會議室的選擇是位於一樓還是樓上。選項C回答選擇樓上的會議室，是唯一正確且直接回應題目的回答。選項A提到的是會議時間，沒有回答問題。選項B提到\"meeting room\"，但只是在描述會議室的特點，沒有對問題的選擇作出回應。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "meeting room",
+    "ground floor",
+    "upstairs"
+  ],
+  "id": "p2-gen-197",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Would you prefer the meeting room on the ground floor or the one upstairs?\n(A) It's scheduled for next week.\n(B) The meeting room is very spacious.\n(C) Let's use the one upstairs."
+},
+  {
+  "question": "The printer is out of paper again.",
+  "choices": {
+    "A": "I'll order more right away.",
+    "B": "Yes, the printer is in the office.",
+    "C": "We can check the report later."
+  },
+  "answer": "A",
+  "explanation_zh": "題目指出打印機紙又用完了，需要的是一個解決問題的自然反應。選項A表示立刻訂購更多紙張，這是一個合理的反應。選項B重複了“printer”這個詞，但只是指出打印機的地點，與題目無關。選項C提到查看報告，完全偏離了打印機缺紙的問題。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "printer",
+    "paper",
+    "order"
+  ],
+  "id": "p2-gen-198",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: The printer is out of paper again.\n(A) I'll order more right away.\n(B) Yes, the printer is in the office.\n(C) We can check the report later."
+},
+  {
+  "question": "Could you tell me where the new shipment of office chairs is stored?",
+  "choices": {
+    "A": "They arrived yesterday.",
+    "B": "In the storage room next to the elevator.",
+    "C": "We need more chairs soon."
+  },
+  "answer": "B",
+  "explanation_zh": "問題詢問辦公椅的新貨存放地點。選項B提供了具體地點資訊「電梯旁的儲藏室」，因此是正確答案。選項A重複了「arrived」這個詞，但只提到貨物到達的時間，沒有回答地點問題。選項C提到需求，但沒有解答問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shipment",
+    "office chairs",
+    "stored"
+  ],
+  "id": "p2-gen-199",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Could you tell me where the new shipment of office chairs is stored?\n(A) They arrived yesterday.\n(B) In the storage room next to the elevator.\n(C) We need more chairs soon."
+},
+  {
+  "question": "When does the warehouse safety briefing begin?",
+  "choices": {
+    "A": "The briefing notes were emailed yesterday.",
+    "B": "The warehouse is behind the main office.",
+    "C": "It starts at 8:15."
+  },
+  "answer": "C",
+  "explanation_zh": "問題詢問倉庫安全簡報何時開始，需要時間資訊。C提供明確開始時間8:15，正確。A提到簡報資料寄出時間，B提到倉庫位置，都沒有回答開始時間。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "warehouse",
+    "safety briefing",
+    "begin",
+    "starts"
+  ],
+  "id": "p2-gen-200",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: When does the warehouse safety briefing begin?\n(A) The briefing notes were emailed yesterday.\n(B) The warehouse is behind the main office.\n(C) It starts at 8:15."
+},
+  {
+  "question": "Where can I find the new office printer?",
+  "choices": {
+    "A": "It's in the copy room next to the break area.",
+    "B": "The printer is being used right now.",
+    "C": "We ordered the printer last month."
+  },
+  "answer": "A",
+  "explanation_zh": "問題問的是新辦公室的印表機在哪裡。選項A回答印表機的位置：在休息區旁邊的影印室。選項B提到印表機正在使用中，但沒有提供位置資訊。選項C提到印表機是上個月訂購的，沒有回答印表機的具體位置。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "printer",
+    "copy room",
+    "break area"
+  ],
+  "id": "p2-gen-201",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Where can I find the new office printer?\n(A) It's in the copy room next to the break area.\n(B) The printer is being used right now.\n(C) We ordered the printer last month."
+},
+  {
+  "question": "Who should I contact about getting more office supplies?",
+  "choices": {
+    "A": "I think the supplies are in the storeroom.",
+    "B": "Please talk to Janet in procurement.",
+    "C": "We need them by next week."
+  },
+  "answer": "B",
+  "explanation_zh": "問題詢問應該聯繫誰來獲得更多辦公用品。選項B正確地指出應聯繫採購部門的Janet。選項A提到“supplies”但只說明了位置，未回答應聯繫的對象，而選項C回答了何時需要，完全不相關。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "contact",
+    "office supplies",
+    "procurement"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-202",
+  "audioScript": "Q: Who should I contact about getting more office supplies?\n(A) I think the supplies are in the storeroom.\n(B) Please talk to Janet in procurement.\n(C) We need them by next week."
+},
+  {
+  "question": "Why did we switch to a new office supply vendor?",
+  "choices": {
+    "A": "The new office is on the fifth floor.",
+    "B": "The report is due next week.",
+    "C": "They offer better prices and faster delivery."
+  },
+  "answer": "C",
+  "explanation_zh": "正確答案是C，因為問題詢問的是為什麼我們換了新的辦公用品供應商，選項C提供了原因：他們提供更好的價格和更快的交貨。選項A提到“新的辦公室”，但沒有給出換供應商的理由。選項B說“報告下週到期”，完全沒有回答問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "vendor",
+    "office supply",
+    "prices",
+    "delivery",
+    "switch"
+  ],
+  "id": "p2-gen-203",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Why did we switch to a new office supply vendor?\n(A) The new office is on the fifth floor.\n(B) The report is due next week.\n(C) They offer better prices and faster delivery."
+},
+  {
+  "question": "How many printer cartridges do we need to order for the office?",
+  "choices": {
+    "A": "We need to order ten more.",
+    "B": "The printer is in the corner room.",
+    "C": "I can check with the supplier next week."
+  },
+  "answer": "A",
+  "explanation_zh": "題目問我們需要訂購多少墨盒，因此正確答案是“A”，即“需要訂購十個”。選項B重複提到了“printer（印表機）”這個關鍵字，但只是描述了它的位置，沒有回答數量問題。選項C則是回答了何時詢問供應商，沒有回答需要的具體數量。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "printer",
+    "cartridges",
+    "order",
+    "office",
+    "supplier"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-204",
+  "audioScript": "Q: How many printer cartridges do we need to order for the office?\n(A) We need to order ten more.\n(B) The printer is in the corner room.\n(C) I can check with the supplier next week."
+},
+  {
+  "question": "Did you want me to order more printer paper for the office?",
+  "choices": {
+    "A": "The printer is working fine.",
+    "B": "Yes, that would be great, thanks.",
+    "C": "The office is on the second floor."
+  },
+  "answer": "B",
+  "explanation_zh": "問題是詢問是否需要訂購更多的打印紙。選項A重複了關鍵詞 'printer（打印機）'，但回應的是打印機的狀況，與訂購打印紙的問題無關。選項C提供了辦公室的位置回答，但與訂購打印紙也無關。正確答案是B，直接接受訂購的提議。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "order",
+    "printer",
+    "office"
+  ],
+  "id": "p2-gen-205",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Did you want me to order more printer paper for the office?\n(A) The printer is working fine.\n(B) Yes, that would be great, thanks.\n(C) The office is on the second floor."
+},
+  {
+  "question": "You ordered the new office chairs last week, didn't you?",
+  "choices": {
+    "A": "The chairs are very comfortable.",
+    "B": "I'm planning to order them tomorrow.",
+    "C": "Yes, they should arrive by Friday."
+  },
+  "answer": "C",
+  "explanation_zh": "選項C是唯一直接回應問題的選項，因為它確認訂單已經下達並預計到貨時間。選項A重複了關鍵字“chairs”，但沒有回應問題，因為它只是評論椅子的舒適度。選項B回答的是未來的計劃，而不是確認過去的行動，因此不符合問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "order",
+    "office",
+    "chairs",
+    "arrive",
+    "week"
+  ],
+  "id": "p2-gen-206",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: You ordered the new office chairs last week, didn't you?\n(A) The chairs are very comfortable.\n(B) I'm planning to order them tomorrow.\n(C) Yes, they should arrive by Friday."
+},
+  {
+  "question": "Should we reserve a van or a taxi for the airport pickup?",
+  "choices": {
+    "A": "Let's reserve a van.",
+    "B": "The pickup area is outside Terminal 2.",
+    "C": "It arrived early this morning."
+  },
+  "answer": "A",
+  "explanation_zh": "問題是在兩個交通選項中做選擇：廂型車或計程車。A直接選擇廂型車，正確。B回答接送地點，C回答到達時間，都沒有在兩個選項中做出選擇。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "reserve",
+    "van",
+    "taxi",
+    "airport pickup"
+  ],
+  "id": "p2-gen-207",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Should we reserve a van or a taxi for the airport pickup?\n(A) Let's reserve a van.\n(B) The pickup area is outside Terminal 2.\n(C) It arrived early this morning."
+},
+  {
+  "question": "The new shipment of office supplies just arrived this morning.",
+  "choices": {
+    "A": "Yes, the supplies list is on my desk.",
+    "B": "Great! I'll start unpacking them now.",
+    "C": "When will the supplies be delivered?"
+  },
+  "answer": "B",
+  "explanation_zh": "正確答案是B，因為這是對於物品已經送達的自然反應，表示將開始處理物品。而A和C選項沒有直接回應物品已經到達的情況。選項A重複了“supplies”這個詞，但只提到清單在哪裡，沒有回應到貨的事實。選項C則是詢問到貨時間，但問題中已經明確提到物品今天早上已經到達。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "shipment",
+    "office supplies",
+    "arrived"
+  ],
+  "id": "p2-gen-208",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: The new shipment of office supplies just arrived this morning.\n(A) Yes, the supplies list is on my desk.\n(B) Great! I'll start unpacking them now.\n(C) When will the supplies be delivered?"
+},
+  {
+  "question": "Could you tell me where the new IT equipment is being stored?",
+  "choices": {
+    "A": "It was delivered last week.",
+    "B": "The equipment manager knows.",
+    "C": "In the storage room on the third floor."
+  },
+  "answer": "C",
+  "explanation_zh": "選項A提到'it'（設備）但提供的是交貨時間，而不是儲存地點，因此無法回答問題。選項B提到'設備經理'，但這不是問題所需的具體資訊。選項C明確指出設備在三樓的儲藏室，正確回答問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "equipment",
+    "stored",
+    "manager"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-209",
+  "audioScript": "Q: Could you tell me where the new IT equipment is being stored?\n(A) It was delivered last week.\n(B) The equipment manager knows.\n(C) In the storage room on the third floor."
+},
+  {
+  "question": "When will the replacement headsets arrive?",
+  "choices": {
+    "A": "They should arrive next Tuesday.",
+    "B": "The headsets are stored in cabinet three.",
+    "C": "They are wireless and lightweight."
+  },
+  "answer": "A",
+  "explanation_zh": "問題詢問替換用耳機何時會到，需要時間作答。A提供具體時間「下週二」，正確。B提到耳機存放位置，C描述耳機特性，都沒有回答何時到達。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "replacement",
+    "headsets",
+    "arrive",
+    "wireless"
+  ],
+  "id": "p2-gen-210",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: When will the replacement headsets arrive?\n(A) They should arrive next Tuesday.\n(B) The headsets are stored in cabinet three.\n(C) They are wireless and lightweight."
+},
+  {
+  "question": "Where can I find the new office supplies storage room?",
+  "choices": {
+    "A": "The office supplies are fully stocked.",
+    "B": "It's on the second floor next to the break room.",
+    "C": "The meeting was about office supplies."
+  },
+  "answer": "B",
+  "explanation_zh": "問題詢問辦公用品儲藏室的位置。選項A提到“office supplies”但沒有提供位置資訊，因此不正確。選項C也提到“office supplies”，但談論的是會議，而不是位置資訊。正確答案是B，因為它給出了儲藏室的位置。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "office supplies",
+    "storage room",
+    "second floor"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-211",
+  "audioScript": "Q: Where can I find the new office supplies storage room?\n(A) The office supplies are fully stocked.\n(B) It's on the second floor next to the break room.\n(C) The meeting was about office supplies."
+},
+  {
+  "question": "Who handles the IT equipment procurement in our company?",
+  "choices": {
+    "A": "It's mostly for the new office setup.",
+    "B": "I think it was delivered last week.",
+    "C": "That would be Mark from the IT department."
+  },
+  "answer": "C",
+  "explanation_zh": "問題詢問誰負責公司內的IT設備採購。選項C中提到Mark是IT部門的負責人，直接回答了問題。選項A重複了\"office\"這個詞，但只是談到辦公室設置，沒有提到負責人。選項B提到\"delivered\"，但這是關於交貨而非負責人。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "handle",
+    "procurement",
+    "delivered"
+  ],
+  "id": "p2-gen-212",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Who handles the IT equipment procurement in our company?\n(A) It's mostly for the new office setup.\n(B) I think it was delivered last week.\n(C) That would be Mark from the IT department."
+},
+  {
+  "question": "Why did the shipment arrive late?",
+  "choices": {
+    "A": "There was a delay at the customs checkpoint.",
+    "B": "The shipment includes electronic goods.",
+    "C": "The shipment is scheduled for next week."
+  },
+  "answer": "A",
+  "explanation_zh": "問題詢問為何貨物延遲送達。選項A指出延遲是因為海關檢查，直接回答了問題。選項B提到貨物內容（電子產品），但不解釋為何延遲。選項C提到預定時間，與問題不相關。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shipment",
+    "delay",
+    "customs",
+    "arrive",
+    "scheduled"
+  ],
+  "id": "p2-gen-213",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Why did the shipment arrive late?\n(A) There was a delay at the customs checkpoint.\n(B) The shipment includes electronic goods.\n(C) The shipment is scheduled for next week."
+},
+  {
+  "question": "How many boxes of printer paper do we need to order for next month?",
+  "choices": {
+    "A": "The printer is in the office.",
+    "B": "We need to order five boxes.",
+    "C": "Yes, I spoke with the supplier."
+  },
+  "answer": "B",
+  "explanation_zh": "問題詢問要訂購多少箱打印紙，正確答案是 B，因為它具體指出需要訂購五箱。選項 A 重複了'printer'這個詞，但沒有回答數量問題。選項 C 回答了另一個問題類型，與訂購數量無關。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "boxes",
+    "order",
+    "printer",
+    "paper",
+    "supplier"
+  ],
+  "id": "p2-gen-214",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: How many boxes of printer paper do we need to order for next month?\n(A) The printer is in the office.\n(B) We need to order five boxes.\n(C) Yes, I spoke with the supplier."
+},
+  {
+  "question": "Did you order the new IT equipment for the office yet?",
+  "choices": {
+    "A": "The IT equipment is in good condition.",
+    "B": "When do you need it by?",
+    "C": "Yes, it arrives next week."
+  },
+  "answer": "C",
+  "explanation_zh": "問題是詢問是否已訂購新的IT設備。選項A重複了“IT equipment”這個詞，但沒有回答是否訂購。選項B詢問時間，但問題是關於是否已經下單。只有選項C直接回答是，並且提供了設備到達的時間。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "order",
+    "IT equipment",
+    "office"
+  ],
+  "id": "p2-gen-215",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Did you order the new IT equipment for the office yet?\n(A) The IT equipment is in good condition.\n(B) When do you need it by?\n(C) Yes, it arrives next week."
+},
+  {
+  "question": "You ordered the extra printer cartridges last week, didn't you?",
+  "choices": {
+    "A": "Yes, they should arrive by Friday.",
+    "B": "I spoke with the supplier yesterday.",
+    "C": "The cartridges are in the storage room."
+  },
+  "answer": "A",
+  "explanation_zh": "問題問的是你上週是否有訂購額外的打印機墨盒，選項A直接確認訂購並給出交貨時間，而選項C雖然提到了\"cartridges\"（墨盒），但回答的是墨盒存放的位置，無法回應是否已下訂單的問題。選項B則回答了一個不同的問題類型，並未確認訂購行為。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "ordered",
+    "printer",
+    "cartridges",
+    "arrive",
+    "supplier"
+  ],
+  "id": "p2-gen-216",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: You ordered the extra printer cartridges last week, didn't you?\n(A) Yes, they should arrive by Friday.\n(B) I spoke with the supplier yesterday.\n(C) The cartridges are in the storage room."
+},
+  {
+  "question": "Should we order the blue or the black ink cartridges for the printer?",
+  "choices": {
+    "A": "The printer is in the office.",
+    "B": "Let's go with the black ones.",
+    "C": "I think the black ones were ordered last week."
+  },
+  "answer": "B",
+  "explanation_zh": "問題詢問應該訂購藍色還是黑色墨水匣，選項B直接回答選擇黑色。選項A重複了關鍵詞\"printer\"（打印機），但沒有回答要訂購哪種墨水匣。選項C則回答了不同的問題，即是否上週訂購了黑色墨水匣，不是直接針對這次的選擇問題。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "order",
+    "ink cartridges",
+    "printer",
+    "office",
+    "last week"
+  ],
+  "id": "p2-gen-217",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Should we order the blue or the black ink cartridges for the printer?\n(A) The printer is in the office.\n(B) Let's go with the black ones.\n(C) I think the black ones were ordered last week."
+},
+  {
+  "question": "The new office supplies have been delivered to the storage room.",
+  "choices": {
+    "A": "I thought we ordered more paper.",
+    "B": "I'll check them after lunch.",
+    "C": "That's great! I'll start organizing them."
+  },
+  "answer": "C",
+  "explanation_zh": "正確答案是C，因為這是唯一一個自然的回應，表示將開始整理辦公用品。選項A重複了關鍵詞“paper”，但實際上是在質疑訂單數量，與陳述無關。選項B則提到“after lunch”，回答的是何時會檢查，而不是對已交付事實的直接反應。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "office supplies",
+    "delivered",
+    "organizing"
+  ],
+  "id": "p2-gen-218",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: The new office supplies have been delivered to the storage room.\n(A) I thought we ordered more paper.\n(B) I'll check them after lunch.\n(C) That's great! I'll start organizing them."
+},
+  {
+  "question": "Could you tell me where the new office printer is located?",
+  "choices": {
+    "A": "It's next to the supply cabinet.",
+    "B": "I think it's a laser printer.",
+    "C": "We installed it last week."
+  },
+  "answer": "A",
+  "explanation_zh": "問題是詢問新辦公室印表機的位置，而選項A提供了具體位置：在供應櫃旁邊。選項B雖然提到\"printer\"這個詞，但僅描述印表機類型，未回答位置問題。選項C提到安裝時間，未回答位置問題。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "printer",
+    "supply cabinet",
+    "location"
+  ],
+  "id": "p2-gen-219",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Could you tell me where the new office printer is located?\n(A) It's next to the supply cabinet.\n(B) I think it's a laser printer.\n(C) We installed it last week."
+},
+  {
+  "question": "When is the new shipment of office supplies expected to arrive?",
+  "choices": {
+    "A": "The supplies are in the storage room.",
+    "B": "It should arrive by Thursday afternoon.",
+    "C": "The shipment was ordered last week."
+  },
+  "answer": "B",
+  "explanation_zh": "問題詢問新的辦公用品出貨何時預計到達，正確答案是B，因為它給出具體時間'星期四下午'。選項A雖重複了'辦公用品(supplies)'，但只是提供了位置，並未回答何時到達的問題。選項C則回答了不同的問題，描述了訂購的時間，而非送達的時間。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shipment",
+    "office supplies",
+    "arrive"
+  ],
+  "id": "p2-gen-220",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: When is the new shipment of office supplies expected to arrive?\n(A) The supplies are in the storage room.\n(B) It should arrive by Thursday afternoon.\n(C) The shipment was ordered last week."
+},
+  {
+  "question": "Where is the IT equipment storage room?",
+  "choices": {
+    "A": "The equipment was delivered yesterday.",
+    "B": "The manager's office is on the second floor.",
+    "C": "It's next to the server room on the third floor."
+  },
+  "answer": "C",
+  "explanation_zh": "問題詢問IT設備儲藏室的位置，選項C提供了具體位置\"在三樓的伺服器室旁邊\"，是正確答案。選項A雖然提到\"設備\"，但只說明了設備的交付時間，並沒有回答位置問題。選項B給出的資訊是關於經理辦公室的位置，與問題無關。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "equipment",
+    "storage",
+    "manager",
+    "server"
+  ],
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "id": "p2-gen-221",
+  "audioScript": "Q: Where is the IT equipment storage room?\n(A) The equipment was delivered yesterday.\n(B) The manager's office is on the second floor.\n(C) It's next to the server room on the third floor."
+},
+  {
+  "question": "Who is checking the projector before the client presentation?",
+  "choices": {
+    "A": "Janet from IT will check it.",
+    "B": "The projector is in the conference room.",
+    "C": "We usually test it on Thursdays."
+  },
+  "answer": "A",
+  "explanation_zh": "問題詢問客戶簡報前誰要檢查投影機，需要人物作答。A指出IT部門的Janet會檢查，正確。B回答投影機位置，C回答通常測試的時間，都沒有回答誰會檢查。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "checking",
+    "projector",
+    "client presentation",
+    "IT"
+  ],
+  "id": "p2-gen-222",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Who is checking the projector before the client presentation?\n(A) Janet from IT will check it.\n(B) The projector is in the conference room.\n(C) We usually test it on Thursdays."
+},
+  {
+  "question": "Why were the new office chairs ordered?",
+  "choices": {
+    "A": "The chairs are in the storage room.",
+    "B": "The old ones were uncomfortable.",
+    "C": "They were delivered last week."
+  },
+  "answer": "B",
+  "explanation_zh": "問題是詢問新辦公椅被訂購的原因，正確答案是因為舊的椅子不舒服。選項A重複了“chairs”這個字，但給出的是椅子的位置，並沒有回答原因。選項C則是提供了椅子送達的時間，並不是原因。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "ordered",
+    "uncomfortable",
+    "delivered"
+  ],
+  "id": "p2-gen-223",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: Why were the new office chairs ordered?\n(A) The chairs are in the storage room.\n(B) The old ones were uncomfortable.\n(C) They were delivered last week."
+},
+  {
+  "question": "What kind of office supplies do we need to order for the new branch?",
+  "choices": {
+    "A": "The order will arrive next week.",
+    "B": "I’m not sure how many we ordered last time.",
+    "C": "We definitely need more pens and notepads."
+  },
+  "answer": "C",
+  "explanation_zh": "問題問的是需要訂購什麼樣的辦公用品，答案C提供了具體的物品：更多的筆和筆記本。選項A重複了“order”這個詞，但只是指出了訂單到達的時間，並沒有回答需要什麼用品。選項B回答“我們上次訂了多少”，而不是現在需要的用品類型。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "office supplies",
+    "order",
+    "branch",
+    "pens",
+    "notepads"
+  ],
+  "id": "p2-gen-224",
+  "part": "Part 2",
+  "skill_tag": "listening_response",
+  "audioScript": "Q: What kind of office supplies do we need to order for the new branch?\n(A) The order will arrive next week.\n(B) I’m not sure how many we ordered last time.\n(C) We definitely need more pens and notepads."
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Ordering new office supplies",
+    "B": "Discussing a logistics team meeting",
+    "C": "Arranging a shipment for next month",
+    "D": "Inquiring about a delayed shipment"
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D是正確的，因為對話的主要話題是關於詢問一批辦公椅的延遲發貨。根據女方的問題，她提到她正在詢問上週訂購的辦公椅的發貨情況，並得知由於暴風雪，發貨被推遲。其他選項A、B、C均未提及或與對話的主要話題無關。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shipment",
+    "delay",
+    "logistics"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-154",
+  "part": "Part 3",
+  "transcript": "W: Hi, I'm calling about the shipment of office chairs we ordered last week. It was supposed to arrive yesterday.\nM: I apologize for the delay. Our records show it was held up due to a snowstorm.\nW: Oh, I see. When can we expect delivery now?\nM: The shipment is rescheduled to arrive on Thursday.\nW: That's two days later than planned. Can you ensure it arrives by then?\nM: Absolutely, I've already spoken with the logistics team.\nW: Great, and can we track the shipment?\nM: Yes, I'll email you the tracking details shortly.\nW: Thank you for your help.",
+  "question_order": 1
+},
+  {
+  "question": "What caused the shipment delay?",
+  "choices": {
+    "A": "A snowstorm",
+    "B": "A holiday",
+    "C": "A wrong address",
+    "D": "A technical error"
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A是正確的，因為對話中男方明確表示發貨延遲的原因是暴風雪。這清楚地回答了問題，並且在對話中沒有提及任何假期、地址錯誤或技術錯誤作為延遲原因，因此排除選項B、C、D。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "shipment",
+    "delay",
+    "snowstorm"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-155",
+  "part": "Part 3",
+  "transcript": "W: Hi, I'm calling about the shipment of office chairs we ordered last week. It was supposed to arrive yesterday.\nM: I apologize for the delay. Our records show it was held up due to a snowstorm.\nW: Oh, I see. When can we expect delivery now?\nM: The shipment is rescheduled to arrive on Thursday.\nW: That's two days later than planned. Can you ensure it arrives by then?\nM: Absolutely, I've already spoken with the logistics team.\nW: Great, and can we track the shipment?\nM: Yes, I'll email you the tracking details shortly.\nW: Thank you for your help.",
+  "question_order": 2
+},
+  {
+  "question": "What will the woman receive shortly?",
+  "choices": {
+    "A": "A refund receipt",
+    "B": "Tracking details",
+    "C": "An apology letter",
+    "D": "A revised invoice"
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B是正確的，因為對話中男方承諾會很快通過電子郵件發送跟蹤細節給女方。這直接回答了問題，其他選項如退款收據、道歉信或修訂發票在對話中均未提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "tracking",
+    "details",
+    "shipment"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-156",
+  "part": "Part 3",
+  "transcript": "W: Hi, I'm calling about the shipment of office chairs we ordered last week. It was supposed to arrive yesterday.\nM: I apologize for the delay. Our records show it was held up due to a snowstorm.\nW: Oh, I see. When can we expect delivery now?\nM: The shipment is rescheduled to arrive on Thursday.\nW: That's two days later than planned. Can you ensure it arrives by then?\nM: Absolutely, I've already spoken with the logistics team.\nW: Great, and can we track the shipment?\nM: Yes, I'll email you the tracking details shortly.\nW: Thank you for your help.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "A projector malfunction",
+    "B": "Scheduling a presentation",
+    "C": "Purchasing new equipment",
+    "D": "Changing a meeting location"
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A是正確的，因為對話的主要內容是關於投影機的故障，女方提到投影機無法開啟，並且男方提議聯絡技術支持。其他選項如安排演示、購買新設備或更改會議地點均未在對話中提及。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "projector",
+    "presentation",
+    "issue"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-157",
+  "part": "Part 3",
+  "transcript": "W: Hi, I’m having trouble with the projector we need for tomorrow’s presentation. It won’t turn on.\nM: Oh no, that’s not good. Did you check if it’s plugged in properly?\nW: Yes, I checked the power cable and it’s connected securely.\nM: In that case, it might be an internal issue. I’ll call the tech support right away.\nW: Can you ask them to fix it by today? The presentation is scheduled for 9 a.m. tomorrow.\nM: I’ll emphasize the urgency. If they can’t fix it, we might need to rent one.\nW: Renting sounds like a backup plan. Let’s hope they fix it soon.\nM: I’ll let you know their response as soon as possible.",
+  "question_order": 1
+},
+  {
+  "question": "What specific problem does the woman mention?",
+  "choices": {
+    "A": "The power cable is missing.",
+    "B": "The projector won't turn on.",
+    "C": "The presentation is canceled.",
+    "D": "The rental cost is too high."
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B是正確的，因為女方具體提到她面臨的問題是投影機無法開啟。這是對話中明確提到的問題，而選項A、C、D均不符合對話內容。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "projector",
+    "power cable",
+    "problem"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-158",
+  "part": "Part 3",
+  "transcript": "W: Hi, I’m having trouble with the projector we need for tomorrow’s presentation. It won’t turn on.\nM: Oh no, that’s not good. Did you check if it’s plugged in properly?\nW: Yes, I checked the power cable and it’s connected securely.\nM: In that case, it might be an internal issue. I’ll call the tech support right away.\nW: Can you ask them to fix it by today? The presentation is scheduled for 9 a.m. tomorrow.\nM: I’ll emphasize the urgency. If they can’t fix it, we might need to rent one.\nW: Renting sounds like a backup plan. Let’s hope they fix it soon.\nM: I’ll let you know their response as soon as possible.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate next action mentioned in the conversation?",
+  "choices": {
+    "A": "Rent a projector.",
+    "B": "Check the power cable again.",
+    "C": "Call tech support.",
+    "D": "Postpone the presentation."
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C是正確的，因為對話中男方提到他會立即聯絡技術支持，這是他們下一步要採取的行動。選項A、B、D均未提到要立即進行的行動。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "tech support",
+    "fix",
+    "rent"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-159",
+  "part": "Part 3",
+  "transcript": "W: Hi, I’m having trouble with the projector we need for tomorrow’s presentation. It won’t turn on.\nM: Oh no, that’s not good. Did you check if it’s plugged in properly?\nW: Yes, I checked the power cable and it’s connected securely.\nM: In that case, it might be an internal issue. I’ll call the tech support right away.\nW: Can you ask them to fix it by today? The presentation is scheduled for 9 a.m. tomorrow.\nM: I’ll emphasize the urgency. If they can’t fix it, we might need to rent one.\nW: Renting sounds like a backup plan. Let’s hope they fix it soon.\nM: I’ll let you know their response as soon as possible.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Booking a flight",
+    "B": "Changing a conference registration",
+    "C": "Canceling a hotel reservation",
+    "D": "Scheduling a meeting"
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B是正確的，因為對話的主要話題是關於更改營銷會議的註冊。女方明確表示她需要更改最初註冊的工作坊日期。其他選項如預訂航班、取消酒店訂房或安排會議均未在對話中提及。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "registration",
+    "conference",
+    "availability"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-160",
+  "part": "Part 3",
+  "transcript": "W: I need to change my registration for the marketing conference next week.\nM: Sure, what's the issue?\nW: I initially registered for the workshop on Thursday, but I can only attend on Wednesday now.\nM: Let me check if there's availability for you on Wednesday.\nW: Thanks, I hope there’s space.\nM: You’re in luck! There are still openings for the Wednesday session.\nW: Great, will there be any additional fees?\nM: No extra charges for changing the day.\nW: Perfect, could you send me a confirmation email?\nM: Absolutely, I’ll forward that to you shortly.",
+  "question_order": 1
+},
+  {
+  "question": "What specific issue does the woman mention?",
+  "choices": {
+    "A": "The workshop is full on Wednesday.",
+    "B": "She needs a refund.",
+    "C": "She cannot attend on Thursday.",
+    "D": "She lost her registration details."
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C是正確的，因為女方明確提到她無法在星期四參加工作坊，這是她需要更改註冊的原因。其他選項如星期三課程已滿、需要退款或遺失註冊詳情均未在對話中提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "issue",
+    "availability",
+    "confirmation"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-161",
+  "part": "Part 3",
+  "transcript": "W: I need to change my registration for the marketing conference next week.\nM: Sure, what's the issue?\nW: I initially registered for the workshop on Thursday, but I can only attend on Wednesday now.\nM: Let me check if there's availability for you on Wednesday.\nW: Thanks, I hope there’s space.\nM: You’re in luck! There are still openings for the Wednesday session.\nW: Great, will there be any additional fees?\nM: No extra charges for changing the day.\nW: Perfect, could you send me a confirmation email?\nM: Absolutely, I’ll forward that to you shortly.",
+  "question_order": 2
+},
+  {
+  "question": "What can be inferred about the woman's next step after the conversation?",
+  "choices": {
+    "A": "She will call the conference organizer.",
+    "B": "She will register for another event.",
+    "C": "She will attend a different conference.",
+    "D": "She will wait for a confirmation email."
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D是正確的，因為對話結束時男方承諾會很快發送確認電子郵件給女方，因此推斷女方下一步會等待該電子郵件。其他選項如打電話給會議組織者、註冊其他活動或參加不同會議均未在對話中提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "confirmation",
+    "forward",
+    "session"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-162",
+  "part": "Part 3",
+  "transcript": "W: I need to change my registration for the marketing conference next week.\nM: Sure, what's the issue?\nW: I initially registered for the workshop on Thursday, but I can only attend on Wednesday now.\nM: Let me check if there's availability for you on Wednesday.\nW: Thanks, I hope there’s space.\nM: You’re in luck! There are still openings for the Wednesday session.\nW: Great, will there be any additional fees?\nM: No extra charges for changing the day.\nW: Perfect, could you send me a confirmation email?\nM: Absolutely, I’ll forward that to you shortly.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Scheduling a meeting",
+    "B": "Discussing a new product",
+    "C": "Correcting a customer order",
+    "D": "Planning a conference"
+  },
+  "answer": "C",
+  "explanation_zh": "C - The main topic of the conversation is correcting a customer order. The woman states there was an issue with her order: she received red chairs instead of blue ones, and the man confirms a warehouse mix-up. Distractors are about meeting scheduling, discussing new products, or planning a conference, which are not the focus here.",
+  "difficulty": "B1",
+  "vocabulary": [
+    "order",
+    "issue",
+    "warehouse"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-163",
+  "part": "Part 3",
+  "transcript": "W: Hello, I received my order today, but there was an issue. I ordered a set of blue chairs, but you sent red ones instead.\nM: I'm sorry for the inconvenience. Let me check your order details. Yes, you're right. It seems there was a mix-up at our warehouse.\nW: Can this be corrected soon? We need the blue chairs for a conference next Friday.\nM: Certainly. We'll expedite the correct order at no extra charge and have it delivered by Wednesday.\nW: Thank you. Do I need to return the red chairs?\nM: No, keep them for now. We'll arrange a pickup.\nW: Great, I appreciate your help.\nM: My pleasure. Feel free to contact us if there's anything else.",
+  "question_order": 1
+},
+  {
+  "question": "What was the specific problem with the order?",
+  "choices": {
+    "A": "The delivery was late",
+    "B": "The chairs were damaged",
+    "C": "The wrong number of chairs was sent",
+    "D": "The wrong color of chairs was sent"
+  },
+  "answer": "D",
+  "explanation_zh": "D - The specific problem with the order is that the wrong color of chairs was sent. The woman clearly mentions she ordered blue chairs but received red ones instead. Other options like late delivery, damaged chairs, or incorrect quantity are not mentioned in the transcript.",
+  "difficulty": "A2",
+  "vocabulary": [
+    "order",
+    "color",
+    "chairs"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-164",
+  "part": "Part 3",
+  "transcript": "W: Hello, I received my order today, but there was an issue. I ordered a set of blue chairs, but you sent red ones instead.\nM: I'm sorry for the inconvenience. Let me check your order details. Yes, you're right. It seems there was a mix-up at our warehouse.\nW: Can this be corrected soon? We need the blue chairs for a conference next Friday.\nM: Certainly. We'll expedite the correct order at no extra charge and have it delivered by Wednesday.\nW: Thank you. Do I need to return the red chairs?\nM: No, keep them for now. We'll arrange a pickup.\nW: Great, I appreciate your help.\nM: My pleasure. Feel free to contact us if there's anything else.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate next action?",
+  "choices": {
+    "A": "The correct order will be expedited",
+    "B": "The woman will return the red chairs",
+    "C": "The woman will call customer service again",
+    "D": "The man will offer a refund"
+  },
+  "answer": "A",
+  "explanation_zh": "A - The most likely immediate next action is that the correct order will be expedited. The man in the conversation assures the woman that they will expedite the correct order and deliver it by Wednesday. Returning the chairs, contacting customer service again, or offering a refund are not actions indicated as immediate next steps.",
+  "difficulty": "B1",
+  "vocabulary": [
+    "expedite",
+    "delivery",
+    "order"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-165",
+  "part": "Part 3",
+  "transcript": "W: Hello, I received my order today, but there was an issue. I ordered a set of blue chairs, but you sent red ones instead.\nM: I'm sorry for the inconvenience. Let me check your order details. Yes, you're right. It seems there was a mix-up at our warehouse.\nW: Can this be corrected soon? We need the blue chairs for a conference next Friday.\nM: Certainly. We'll expedite the correct order at no extra charge and have it delivered by Wednesday.\nW: Thank you. Do I need to return the red chairs?\nM: No, keep them for now. We'll arrange a pickup.\nW: Great, I appreciate your help.\nM: My pleasure. Feel free to contact us if there's anything else.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Discussing a project deadline",
+    "B": "Planning a team outing",
+    "C": "Reviewing a budget proposal",
+    "D": "Rescheduling a client meeting"
+  },
+  "answer": "D",
+  "explanation_zh": "D - The main topic of the conversation is rescheduling a client meeting. The woman discusses a conflict with the original meeting time and reschedules it to Friday. Other options, such as discussing project deadlines, planning outings, or reviewing budgets, are not addressed in this dialogue.",
+  "difficulty": "A2",
+  "vocabulary": [
+    "reschedule",
+    "conflict",
+    "confirm"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-166",
+  "part": "Part 3",
+  "transcript": "W: Could we talk about the client meeting scheduled for this Thursday?\nM: Sure, what's the issue?\nW: I've just been informed that the client has a conflict on Thursday. They can meet on Friday morning instead.\nM: That's unfortunate. Do you know what time on Friday?\nW: Yes, they are available at 10 a.m.\nM: Let me check. I have a team briefing at 9:30, but I can join the meeting at 10.\nW: Great, I'll confirm with the client for 10 a.m. Friday then.\nM: Thanks. Also, could you update the calendar invite?\nW: Of course, I'll handle that right away.",
+  "question_order": 1
+},
+  {
+  "question": "What problem did the woman mention?",
+  "choices": {
+    "A": "The client has a conflict on Thursday.",
+    "B": "The client cannot come to the office.",
+    "C": "The client needs to cancel the meeting.",
+    "D": "The meeting room is unavailable."
+  },
+  "answer": "A",
+  "explanation_zh": "A - The problem mentioned by the woman is that the client has a conflict on Thursday. She explicitly states that the client cannot attend the meeting on that day. Distractors like the client not coming to the office, canceling the meeting, or room unavailability do not align with the provided information.",
+  "difficulty": "B1",
+  "vocabulary": [
+    "conflict",
+    "meeting",
+    "client"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-167",
+  "part": "Part 3",
+  "transcript": "W: Could we talk about the client meeting scheduled for this Thursday?\nM: Sure, what's the issue?\nW: I've just been informed that the client has a conflict on Thursday. They can meet on Friday morning instead.\nM: That's unfortunate. Do you know what time on Friday?\nW: Yes, they are available at 10 a.m.\nM: Let me check. I have a team briefing at 9:30, but I can join the meeting at 10.\nW: Great, I'll confirm with the client for 10 a.m. Friday then.\nM: Thanks. Also, could you update the calendar invite?\nW: Of course, I'll handle that right away.",
+  "question_order": 2
+},
+  {
+  "question": "What is the man likely to do after the meeting on Friday?",
+  "choices": {
+    "A": "Cancel the team briefing",
+    "B": "Join the client meeting at 10 a.m.",
+    "C": "Update the project schedule",
+    "D": "Reschedule another meeting"
+  },
+  "answer": "B",
+  "explanation_zh": "B - The man is likely to join the client meeting at 10 a.m. on Friday. He mentions he has a briefing at 9:30 but states he can join the meeting at 10. Canceling the briefing, updating the project schedule, or rescheduling another meeting are not actions discussed in this context.",
+  "difficulty": "B1",
+  "vocabulary": [
+    "briefing",
+    "join",
+    "calendar"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-168",
+  "part": "Part 3",
+  "transcript": "W: Could we talk about the client meeting scheduled for this Thursday?\nM: Sure, what's the issue?\nW: I've just been informed that the client has a conflict on Thursday. They can meet on Friday morning instead.\nM: That's unfortunate. Do you know what time on Friday?\nW: Yes, they are available at 10 a.m.\nM: Let me check. I have a team briefing at 9:30, but I can join the meeting at 10.\nW: Great, I'll confirm with the client for 10 a.m. Friday then.\nM: Thanks. Also, could you update the calendar invite?\nW: Of course, I'll handle that right away.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "A delayed shipment.",
+    "B": "A product defect.",
+    "C": "A canceled order.",
+    "D": "A price increase."
+  },
+  "answer": "A",
+  "explanation_zh": "A - The main topic of the conversation is a delayed shipment. The woman starts the conversation mentioning the shipment delay notification. Topics like product defects, canceled orders, or price increases are not discussed in this transcript.",
+  "difficulty": "A2",
+  "vocabulary": [
+    "shipment",
+    "notification",
+    "delay"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-169",
+  "part": "Part 3",
+  "transcript": "W: I've just received a notification about the shipment delay. It was supposed to arrive today, but now it's scheduled for next Tuesday.\nM: Really? That's quite inconvenient. Why the delay?\nW: The supplier mentioned a transport strike affecting their delivery trucks.\nM: Can we do anything to speed it up?\nW: They've promised to prioritize our shipment once the strike ends.\nM: Is there any compensation for the delay?\nW: They offered a 10% discount on the next order.\nM: That's helpful. Could you confirm Tuesday's delivery again with them?\nW: I'll reach out right away.",
+  "question_order": 1
+},
+  {
+  "question": "What is the cause of the shipment delay?",
+  "choices": {
+    "A": "A supplier shortage.",
+    "B": "A transport strike.",
+    "C": "Bad weather.",
+    "D": "A packaging issue."
+  },
+  "answer": "B",
+  "explanation_zh": "B - The cause of the shipment delay is a transport strike. The woman mentions that the supplier cited a transport strike affecting delivery trucks. Other options like supplier shortages, bad weather, or packaging issues are not mentioned.",
+  "difficulty": "A2",
+  "vocabulary": [
+    "supplier",
+    "transport",
+    "strike"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-170",
+  "part": "Part 3",
+  "transcript": "W: I've just received a notification about the shipment delay. It was supposed to arrive today, but now it's scheduled for next Tuesday.\nM: Really? That's quite inconvenient. Why the delay?\nW: The supplier mentioned a transport strike affecting their delivery trucks.\nM: Can we do anything to speed it up?\nW: They've promised to prioritize our shipment once the strike ends.\nM: Is there any compensation for the delay?\nW: They offered a 10% discount on the next order.\nM: That's helpful. Could you confirm Tuesday's delivery again with them?\nW: I'll reach out right away.",
+  "question_order": 2
+},
+  {
+  "question": "What will the woman most likely do next?",
+  "choices": {
+    "A": "Request additional compensation.",
+    "B": "Cancel the order.",
+    "C": "Reach out to confirm the new delivery date.",
+    "D": "Place a new order."
+  },
+  "answer": "C",
+  "explanation_zh": "C - The woman will most likely reach out to confirm the new delivery date. The man asks her to confirm Tuesday's delivery with the supplier and she agrees to do so. Other actions like requesting more compensation, canceling the order, or placing a new order are not indicated as her next step.",
+  "difficulty": "B1",
+  "vocabulary": [
+    "confirm",
+    "delivery",
+    "compensation"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-171",
+  "part": "Part 3",
+  "transcript": "W: I've just received a notification about the shipment delay. It was supposed to arrive today, but now it's scheduled for next Tuesday.\nM: Really? That's quite inconvenient. Why the delay?\nW: The supplier mentioned a transport strike affecting their delivery trucks.\nM: Can we do anything to speed it up?\nW: They've promised to prioritize our shipment once the strike ends.\nM: Is there any compensation for the delay?\nW: They offered a 10% discount on the next order.\nM: That's helpful. Could you confirm Tuesday's delivery again with them?\nW: I'll reach out right away.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Purchasing a new projector",
+    "B": "Repairing equipment for a presentation",
+    "C": "Scheduling a meeting",
+    "D": "Setting up a new office"
+  },
+  "answer": "B",
+  "explanation_zh": "B: The main topic of the conversation is about repairing equipment for a presentation. The woman mentions the projector stopped working and asks if it can be fixed in time for her presentation. Options A, C, and D are not mentioned or relevant to the repair discussion.",
+  "difficulty": "B1",
+  "vocabulary": [
+    "projector",
+    "repair",
+    "warranty"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-172",
+  "part": "Part 3",
+  "transcript": "W: Hi, I need help with our projector. It stopped working this morning.\nM: Oh no! Do you have a presentation today?\nW: Yes, it's scheduled for 2 PM in the conference room.\nM: I see. Let me check our repair policy.\nW: It's urgent. Can it be fixed by then?\nM: We do have a technician available today. I’ll ask them to prioritize your request.\nW: Great, thank you. Is there a fee for the service?\nM: No, since it’s still under warranty.\nW: Perfect. I’ll be in my office if you need me.\nM: I’ll keep you updated on the repair status.",
+  "question_order": 1
+},
+  {
+  "question": "What problem does the woman mention?",
+  "choices": {
+    "A": "The presentation time was changed",
+    "B": "The projector needs to be replaced",
+    "C": "The projector stopped working",
+    "D": "The technician is unavailable"
+  },
+  "answer": "C",
+  "explanation_zh": "C: The problem the woman mentions is that 'the projector stopped working this morning.' This is directly stated in the transcript, making option C the correct answer. Options A, B, and D do not accurately reflect the issue presented in the conversation.",
+  "difficulty": "A2",
+  "vocabulary": [
+    "projector",
+    "working",
+    "technician"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-173",
+  "part": "Part 3",
+  "transcript": "W: Hi, I need help with our projector. It stopped working this morning.\nM: Oh no! Do you have a presentation today?\nW: Yes, it's scheduled for 2 PM in the conference room.\nM: I see. Let me check our repair policy.\nW: It's urgent. Can it be fixed by then?\nM: We do have a technician available today. I’ll ask them to prioritize your request.\nW: Great, thank you. Is there a fee for the service?\nM: No, since it’s still under warranty.\nW: Perfect. I’ll be in my office if you need me.\nM: I’ll keep you updated on the repair status.",
+  "question_order": 2
+},
+  {
+  "question": "What can be inferred about the technician's schedule?",
+  "choices": {
+    "A": "The technician is busy all day",
+    "B": "The technician is unavailable until tomorrow",
+    "C": "The technician usually does not work on equipment under warranty",
+    "D": "The technician can assist today"
+  },
+  "answer": "D",
+  "explanation_zh": "D: The technician can assist today, as the man says, 'We do have a technician available today. I’ll ask them to prioritize your request.' This indicates the technician is available to help. Options A, B, and C are incorrect based on the information provided.",
+  "difficulty": "B2",
+  "vocabulary": [
+    "technician",
+    "available",
+    "warranty"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-174",
+  "part": "Part 3",
+  "transcript": "W: Hi, I need help with our projector. It stopped working this morning.\nM: Oh no! Do you have a presentation today?\nW: Yes, it's scheduled for 2 PM in the conference room.\nM: I see. Let me check our repair policy.\nW: It's urgent. Can it be fixed by then?\nM: We do have a technician available today. I’ll ask them to prioritize your request.\nW: Great, thank you. Is there a fee for the service?\nM: No, since it’s still under warranty.\nW: Perfect. I’ll be in my office if you need me.\nM: I’ll keep you updated on the repair status.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Booking a hotel room",
+    "B": "Canceling a flight",
+    "C": "Changing a conference registration",
+    "D": "Arranging a business lunch"
+  },
+  "answer": "C",
+  "explanation_zh": "C: The main topic of the conversation is changing a conference registration. The woman needs assistance to update her registration to attend only one day instead of both. Options A, B, and D do not accurately describe the main topic discussed.",
+  "difficulty": "A2",
+  "vocabulary": [
+    "conference",
+    "registration",
+    "confirmation"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-175",
+  "part": "Part 3",
+  "transcript": "W: Hi, I need to update my registration for the conference next week. Can you assist with that?\nM: Certainly. What's the change you need to make?\nW: I initially registered for both days, but now I can only attend the first day, November 14th.\nM: No problem. I can adjust that for you. There will be a refund of $100 for the second day.\nW: Great, thank you. Will I receive a new confirmation?\nM: Yes, I'll send you an updated confirmation email today.\nW: Perfect. And the event is still at the Downtown Convention Center, right?\nM: Yes, that's correct. Everything else remains the same.",
+  "question_order": 1
+},
+  {
+  "question": "What specific change is being made to the registration?",
+  "choices": {
+    "A": "Changing the conference location",
+    "B": "Adding an extra day",
+    "C": "Switching to a virtual event",
+    "D": "Attending only the first day"
+  },
+  "answer": "D",
+  "explanation_zh": "D: The specific change being made to the registration is that the woman will attend only the first day of the conference. She states, 'I initially registered for both days, but now I can only attend the first day, November 14th.' Options A, B, and C are not changes she mentioned.",
+  "difficulty": "B1",
+  "vocabulary": [
+    "registration",
+    "refund",
+    "adjust"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-176",
+  "part": "Part 3",
+  "transcript": "W: Hi, I need to update my registration for the conference next week. Can you assist with that?\nM: Certainly. What's the change you need to make?\nW: I initially registered for both days, but now I can only attend the first day, November 14th.\nM: No problem. I can adjust that for you. There will be a refund of $100 for the second day.\nW: Great, thank you. Will I receive a new confirmation?\nM: Yes, I'll send you an updated confirmation email today.\nW: Perfect. And the event is still at the Downtown Convention Center, right?\nM: Yes, that's correct. Everything else remains the same.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate next action for the man?",
+  "choices": {
+    "A": "Send an updated confirmation email",
+    "B": "Call the Downtown Convention Center",
+    "C": "Process a payment",
+    "D": "Check the event schedule"
+  },
+  "answer": "A",
+  "explanation_zh": "A: The most likely immediate next action for the man is to send an updated confirmation email, as he says, 'Yes, I'll send you an updated confirmation email today.' Options B, C, and D are not actions related to this specific task.",
+  "difficulty": "B1",
+  "vocabulary": [
+    "confirmation",
+    "refund",
+    "adjust"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-177",
+  "part": "Part 3",
+  "transcript": "W: Hi, I need to update my registration for the conference next week. Can you assist with that?\nM: Certainly. What's the change you need to make?\nW: I initially registered for both days, but now I can only attend the first day, November 14th.\nM: No problem. I can adjust that for you. There will be a refund of $100 for the second day.\nW: Great, thank you. Will I receive a new confirmation?\nM: Yes, I'll send you an updated confirmation email today.\nW: Perfect. And the event is still at the Downtown Convention Center, right?\nM: Yes, that's correct. Everything else remains the same.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of the conversation?",
+  "choices": {
+    "A": "To confirm a new order",
+    "B": "To discuss a product return",
+    "C": "To inquire about a product price",
+    "D": "To correct a customer order"
+  },
+  "answer": "D",
+  "explanation_zh": "D: The main purpose of the conversation is to correct a customer order. The man received an incorrect item and the woman resolves to send the correct item. Options A, B, and C do not fully capture the primary goal of the interaction, which is correcting the order.",
+  "difficulty": "A2",
+  "vocabulary": [
+    "order",
+    "item",
+    "assist"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-178",
+  "part": "Part 3",
+  "transcript": "W: Thank you for calling Bright Home Supplies. How can I assist you today?\nM: Hi, I received my order yesterday, but one of the items is incorrect.\nW: I'm sorry to hear that. Can you tell me which item it was?\nM: I ordered a set of blue kitchen towels, but I received red ones instead.\nW: I see. Do you have your order number handy?\nM: Yes, it's 894756.\nW: Thank you. I'll arrange for the correct towels to be sent. You'll receive them by next Tuesday.\nM: Great, and what should I do with the red towels?\nW: You can keep them as a courtesy from us.\nM: Thank you for resolving this quickly.",
+  "question_order": 1
+},
+  {
+  "question": "What was the issue with the order?",
+  "choices": {
+    "A": "The wrong towel color was sent",
+    "B": "The order number was missing",
+    "C": "The towels were missing",
+    "D": "The shipment was late"
+  },
+  "answer": "A",
+  "explanation_zh": "A: The issue with the order is that the wrong towel color was sent. The man ordered blue kitchen towels but received red ones instead. The transcript explicitly states this, making A the correct choice. Options B, C, and D are not mentioned as issues.",
+  "difficulty": "B1",
+  "vocabulary": [
+    "order",
+    "incorrect",
+    "towels"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-179",
+  "part": "Part 3",
+  "transcript": "W: Thank you for calling Bright Home Supplies. How can I assist you today?\nM: Hi, I received my order yesterday, but one of the items is incorrect.\nW: I'm sorry to hear that. Can you tell me which item it was?\nM: I ordered a set of blue kitchen towels, but I received red ones instead.\nW: I see. Do you have your order number handy?\nM: Yes, it's 894756.\nW: Thank you. I'll arrange for the correct towels to be sent. You'll receive them by next Tuesday.\nM: Great, and what should I do with the red towels?\nW: You can keep them as a courtesy from us.\nM: Thank you for resolving this quickly.",
+  "question_order": 2
+},
+  {
+  "question": "What will the customer most likely do with the red towels?",
+  "choices": {
+    "A": "Return them",
+    "B": "Keep them",
+    "C": "Exchange them for another item",
+    "D": "Sell them"
+  },
+  "answer": "B",
+  "explanation_zh": "B: The customer will most likely keep the red towels, as the woman says, 'You can keep them as a courtesy from us.' This statement indicates the customer does not need to return them. Options A, C, and D are not supported by the conversation.",
+  "difficulty": "B2",
+  "vocabulary": [
+    "courtesy",
+    "keep",
+    "resolve"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-180",
+  "part": "Part 3",
+  "transcript": "W: Thank you for calling Bright Home Supplies. How can I assist you today?\nM: Hi, I received my order yesterday, but one of the items is incorrect.\nW: I'm sorry to hear that. Can you tell me which item it was?\nM: I ordered a set of blue kitchen towels, but I received red ones instead.\nW: I see. Do you have your order number handy?\nM: Yes, it's 894756.\nW: Thank you. I'll arrange for the correct towels to be sent. You'll receive them by next Tuesday.\nM: Great, and what should I do with the red towels?\nW: You can keep them as a courtesy from us.\nM: Thank you for resolving this quickly.",
+  "question_order": 3
+},
+  {
+  "question": "What is the purpose of the conversation?",
+  "choices": {
+    "A": "To reschedule a client meeting.",
+    "B": "To discuss a project deadline.",
+    "C": "To arrange a team lunch.",
+    "D": "To book a conference room."
+  },
+  "answer": "A",
+  "explanation_zh": "A: 對話的目的是重新安排客戶會議。根據對話，\"I just got an email from our client about tomorrow's meeting. They have a conflict and need to reschedule.\" 明確指出客戶要求重新安排會議時間。其他選項如B、C、D在對話中未提及。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "reschedule",
+    "meeting",
+    "confirm"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-181",
+  "part": "Part 3",
+  "transcript": "W: I just got an email from our client about tomorrow's meeting. They have a conflict and need to reschedule.\nM: Oh, really? Did they suggest another time?\nW: Yes, they proposed Thursday at 2 PM instead.\nM: That works for me. I'll need to update the calendar and inform the team.\nW: Great. Could you also confirm with them that we have the conference room booked?\nM: Sure, I'll double-check that. Anything else?\nW: Let's ensure the presentation materials are ready by Wednesday.\nM: Agreed. I'll coordinate with our graphics department.\nW: Perfect. Thanks for handling this adjustment.\nM: No problem, happy to help.",
+  "question_order": 1
+},
+  {
+  "question": "What problem does the client have with the original meeting time?",
+  "choices": {
+    "A": "The presentation materials are not ready.",
+    "B": "The client is unavailable.",
+    "C": "The conference room is not booked.",
+    "D": "The team is not informed."
+  },
+  "answer": "B",
+  "explanation_zh": "B: 客戶在原定會議時間有衝突。根據對話，\"They have a conflict and need to reschedule.\" 客戶因為無法出席而需要修改時間。選項A、C、D未提及客戶的問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "conflict",
+    "client",
+    "reschedule"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-182",
+  "part": "Part 3",
+  "transcript": "W: I just got an email from our client about tomorrow's meeting. They have a conflict and need to reschedule.\nM: Oh, really? Did they suggest another time?\nW: Yes, they proposed Thursday at 2 PM instead.\nM: That works for me. I'll need to update the calendar and inform the team.\nW: Great. Could you also confirm with them that we have the conference room booked?\nM: Sure, I'll double-check that. Anything else?\nW: Let's ensure the presentation materials are ready by Wednesday.\nM: Agreed. I'll coordinate with our graphics department.\nW: Perfect. Thanks for handling this adjustment.\nM: No problem, happy to help.",
+  "question_order": 2
+},
+  {
+  "question": "What will the man most likely do next?",
+  "choices": {
+    "A": "Coordinate with the graphics department.",
+    "B": "Book the conference room.",
+    "C": "Update the calendar and inform the team.",
+    "D": "Contact the client again."
+  },
+  "answer": "C",
+  "explanation_zh": "C: 男士接下來會更新日曆並通知團隊。根據對話，\"I'll need to update the calendar and inform the team.\" 男士提到他會進行這些動作。選項A、B、D並不是男士下一步的行動。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "calendar",
+    "confirm",
+    "coordinate"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-183",
+  "part": "Part 3",
+  "transcript": "W: I just got an email from our client about tomorrow's meeting. They have a conflict and need to reschedule.\nM: Oh, really? Did they suggest another time?\nW: Yes, they proposed Thursday at 2 PM instead.\nM: That works for me. I'll need to update the calendar and inform the team.\nW: Great. Could you also confirm with them that we have the conference room booked?\nM: Sure, I'll double-check that. Anything else?\nW: Let's ensure the presentation materials are ready by Wednesday.\nM: Agreed. I'll coordinate with our graphics department.\nW: Perfect. Thanks for handling this adjustment.\nM: No problem, happy to help.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "A product return",
+    "B": "A delayed shipment",
+    "C": "A payment issue",
+    "D": "A warranty claim"
+  },
+  "answer": "B",
+  "explanation_zh": "B: 對話的主要話題是延遲的運輸。根據對話，\"I'm sorry for the delay.\" 和 \"Ah, it seems there's a hold-up at our distribution center.\" 明確指出運輸延遲問題。其他選項如A、C、D在對話中未提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shipment",
+    "distribution",
+    "expedite"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-184",
+  "part": "Part 3",
+  "transcript": "W: Hi, I called to check on my order. It was supposed to arrive yesterday.\nM: I'm sorry for the delay. Let me check our system. Ah, it seems there's a hold-up at our distribution center.\nW: Can you tell how long the delay will be?\nM: We expect it to ship out by tomorrow, and you should receive it by Friday.\nW: That's quite inconvenient. Is there any way to expedite it?\nM: Unfortunately, our policy doesn't allow for expedited shipping once an order is processed.\nW: Alright, I'll have to wait until Friday then.\nM: I'll keep you updated if anything changes.",
+  "question_order": 1
+},
+  {
+  "question": "What is the reason for the shipment delay?",
+  "choices": {
+    "A": "Incorrect address",
+    "B": "Weather conditions",
+    "C": "Hold-up at the distribution center",
+    "D": "Product out of stock"
+  },
+  "answer": "C",
+  "explanation_zh": "C: 運輸延遲的原因是分銷中心的問題。根據對話，\"Ah, it seems there's a hold-up at our distribution center.\" 此句明確指出延遲原因。選項A、B、D未提及分銷中心的問題。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "delay",
+    "distribution",
+    "shipment"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-185",
+  "part": "Part 3",
+  "transcript": "W: Hi, I called to check on my order. It was supposed to arrive yesterday.\nM: I'm sorry for the delay. Let me check our system. Ah, it seems there's a hold-up at our distribution center.\nW: Can you tell how long the delay will be?\nM: We expect it to ship out by tomorrow, and you should receive it by Friday.\nW: That's quite inconvenient. Is there any way to expedite it?\nM: Unfortunately, our policy doesn't allow for expedited shipping once an order is processed.\nW: Alright, I'll have to wait until Friday then.\nM: I'll keep you updated if anything changes.",
+  "question_order": 2
+},
+  {
+  "question": "What can be inferred about the company's shipping policy?",
+  "choices": {
+    "A": "They offer free shipping for all orders.",
+    "B": "They use multiple shipping carriers.",
+    "C": "They provide compensation for delays.",
+    "D": "They cannot expedite shipping once processed."
+  },
+  "answer": "D",
+  "explanation_zh": "D: 可以推斷公司的運輸政策不允許已處理的訂單加急。根據對話，\"Unfortunately, our policy doesn't allow for expedited shipping once an order is processed.\" 此句明確描述運輸政策。其他選項A、B、C在對話中未提及。",
+  "difficulty": "B2",
+  "vocabulary": [
+    "expedite",
+    "policy",
+    "processed"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-186",
+  "part": "Part 3",
+  "transcript": "W: Hi, I called to check on my order. It was supposed to arrive yesterday.\nM: I'm sorry for the delay. Let me check our system. Ah, it seems there's a hold-up at our distribution center.\nW: Can you tell how long the delay will be?\nM: We expect it to ship out by tomorrow, and you should receive it by Friday.\nW: That's quite inconvenient. Is there any way to expedite it?\nM: Unfortunately, our policy doesn't allow for expedited shipping once an order is processed.\nW: Alright, I'll have to wait until Friday then.\nM: I'll keep you updated if anything changes.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Booking a meeting room",
+    "B": "Organizing a team meeting",
+    "C": "Repairing a projector",
+    "D": "Ordering new equipment"
+  },
+  "answer": "C",
+  "explanation_zh": "C: 對話的主要話題是修理投影機。根據對話，\"I just noticed the projector isn't working.\" 和 \"Let's call the tech support.\" 明確指出投影機的問題和解決方案。其他選項如A、B、D在對話中未提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "projector",
+    "presentation",
+    "tech support"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-187",
+  "part": "Part 3",
+  "transcript": "W: I just noticed the projector isn't working, and we have a presentation at 2 PM today.\nM: Oh, that's unfortunate. Have you checked the cables?\nW: Yes, they all seem fine. It might be an internal issue.\nM: Let's call the tech support. They might be able to fix it quickly.\nW: Good idea. Do you have their number handy?\nM: Yes, here it is. It's 1-800-555-9876.\nW: Thanks. I'll call them right away.\nM: Meanwhile, I'll see if we can reserve another meeting room with a working projector.\nW: Let's hope we get this sorted out before the presentation.",
+  "question_order": 1
+},
+  {
+  "question": "What is the problem with the projector?",
+  "choices": {
+    "A": "It is not bright enough.",
+    "B": "It is out of focus.",
+    "C": "The cables are missing.",
+    "D": "It might have an internal issue."
+  },
+  "answer": "D",
+  "explanation_zh": "D: 投影機的問題可能是內部故障。根據對話，\"It might be an internal issue.\" 此句直接指出問題所在。選項A、B、C並未提及具體問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "projector",
+    "internal",
+    "issue"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-188",
+  "part": "Part 3",
+  "transcript": "W: I just noticed the projector isn't working, and we have a presentation at 2 PM today.\nM: Oh, that's unfortunate. Have you checked the cables?\nW: Yes, they all seem fine. It might be an internal issue.\nM: Let's call the tech support. They might be able to fix it quickly.\nW: Good idea. Do you have their number handy?\nM: Yes, here it is. It's 1-800-555-9876.\nW: Thanks. I'll call them right away.\nM: Meanwhile, I'll see if we can reserve another meeting room with a working projector.\nW: Let's hope we get this sorted out before the presentation.",
+  "question_order": 2
+},
+  {
+  "question": "What is the woman's immediate next action?",
+  "choices": {
+    "A": "Call tech support",
+    "B": "Check the projector cables again",
+    "C": "Start the presentation",
+    "D": "Reserve another room"
+  },
+  "answer": "A",
+  "explanation_zh": "A: 女士的直接下一步行動是打電話給技術支持。根據對話，\"I'll call them right away.\" 此句明確指出她的行動。選項B、C、D並不是她的下一步行動。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "immediate",
+    "action",
+    "support"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-189",
+  "part": "Part 3",
+  "transcript": "W: I just noticed the projector isn't working, and we have a presentation at 2 PM today.\nM: Oh, that's unfortunate. Have you checked the cables?\nW: Yes, they all seem fine. It might be an internal issue.\nM: Let's call the tech support. They might be able to fix it quickly.\nW: Good idea. Do you have their number handy?\nM: Yes, here it is. It's 1-800-555-9876.\nW: Thanks. I'll call them right away.\nM: Meanwhile, I'll see if we can reserve another meeting room with a working projector.\nW: Let's hope we get this sorted out before the presentation.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Flight reservation",
+    "B": "Hotel booking",
+    "C": "Workshop content",
+    "D": "Conference registration change"
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D：對話的主要話題是關於『會議註冊變更』。女方一開始就提到她需要修改商業創新會議的註冊，男方也提到會更新她的註冊信息，因此正確選擇是D。選項A、B、C皆未涉及對話的主要內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "registration",
+    "conference",
+    "session"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-190",
+  "part": "Part 3",
+  "transcript": "W: I'm calling about my registration for the Business Innovations Conference next week. I need to make a change.\nM: Certainly, what would you like to modify?\nW: I originally registered for the workshop on Thursday, but now I need to switch to the one on Friday.\nM: Unfortunately, the Friday workshop is full. Would you like to attend a different session on Thursday?\nW: Is there a session on the latest marketing strategies?\nM: Yes, there is one on Thursday afternoon.\nW: Perfect, please register me for that.\nM: I’ll update your registration to reflect the change.",
+  "question_order": 1
+},
+  {
+  "question": "What problem does the woman face with her registration?",
+  "choices": {
+    "A": "The Friday workshop is full.",
+    "B": "Her registration is lost.",
+    "C": "The location is incorrect.",
+    "D": "The event is canceled."
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A：女方在對話中明確表示她想要將註冊從週四的工作坊改到星期五，但男方告訴她『星期五的工作坊已滿』，這就是她面臨的問題。因此正確選擇是A。選項B、C、D在對話中沒有被提及。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "registration",
+    "workshop",
+    "full"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-191",
+  "part": "Part 3",
+  "transcript": "W: I'm calling about my registration for the Business Innovations Conference next week. I need to make a change.\nM: Certainly, what would you like to modify?\nW: I originally registered for the workshop on Thursday, but now I need to switch to the one on Friday.\nM: Unfortunately, the Friday workshop is full. Would you like to attend a different session on Thursday?\nW: Is there a session on the latest marketing strategies?\nM: Yes, there is one on Thursday afternoon.\nW: Perfect, please register me for that.\nM: I’ll update your registration to reflect the change.",
+  "question_order": 2
+},
+  {
+  "question": "What session will the woman attend instead?",
+  "choices": {
+    "A": "A session on financial planning",
+    "B": "A session on marketing strategies",
+    "C": "A session on team building",
+    "D": "A session on leadership"
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B：女方詢問是否有關於『最新行銷策略』的會議，男方回應說週四下午有，女方選擇參加這個會議。因此，正確選擇是B。選項A、C、D不符合對話內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "session",
+    "marketing",
+    "strategies"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-192",
+  "part": "Part 3",
+  "transcript": "W: I'm calling about my registration for the Business Innovations Conference next week. I need to make a change.\nM: Certainly, what would you like to modify?\nW: I originally registered for the workshop on Thursday, but now I need to switch to the one on Friday.\nM: Unfortunately, the Friday workshop is full. Would you like to attend a different session on Thursday?\nW: Is there a session on the latest marketing strategies?\nM: Yes, there is one on Thursday afternoon.\nW: Perfect, please register me for that.\nM: I’ll update your registration to reflect the change.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Correcting a customer order",
+    "B": "Placing a new order",
+    "C": "Requesting a refund",
+    "D": "Inquiring about a product"
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A: 『修正客戶訂單』是對話的主要主題。女士提到她的訂單有問題，因為寄送的商品與發票不符。男士表示歉意並提議立即更換貨品。選項B『下新訂單』和C『要求退款』不符合談話內容，而D『詢問產品』也與對話無關。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "order",
+    "invoice",
+    "delivery"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-193",
+  "part": "Part 3",
+  "transcript": "W: Hello, I noticed an issue with my recent order from your company. The items delivered do not match the invoice.\nM: I'm sorry to hear that. Could you tell me the invoice number, please?\nW: Sure, it's 456789, and it was supposed to include 10 pairs of blue gloves.\nM: Let me check... It seems you received red gloves instead, correct?\nW: Yes, exactly. How can we fix this?\nM: I can arrange for an immediate replacement. Would you like the blue gloves shipped express?\nW: Yes, please. What's the expected delivery time?\nM: With express shipping, you'll have them by Thursday.\nW: Perfect, thank you so much for your help.",
+  "question_order": 1
+},
+  {
+  "question": "What is the specific problem mentioned in the conversation?",
+  "choices": {
+    "A": "The delivery was late",
+    "B": "The wrong color of gloves was sent",
+    "C": "The invoice number was incorrect",
+    "D": "The quantity was incorrect"
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B: 『寄錯顏色的手套』是對話中提到的具體問題。女士提到她應該收到藍色手套，但收到的是紅色手套。選項A『延遲交貨』、C『發票號碼錯誤』和D『數量不正確』都與對話中的問題無關。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "delivery",
+    "invoice",
+    "gloves"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-194",
+  "part": "Part 3",
+  "transcript": "W: Hello, I noticed an issue with my recent order from your company. The items delivered do not match the invoice.\nM: I'm sorry to hear that. Could you tell me the invoice number, please?\nW: Sure, it's 456789, and it was supposed to include 10 pairs of blue gloves.\nM: Let me check... It seems you received red gloves instead, correct?\nW: Yes, exactly. How can we fix this?\nM: I can arrange for an immediate replacement. Would you like the blue gloves shipped express?\nW: Yes, please. What's the expected delivery time?\nM: With express shipping, you'll have them by Thursday.\nW: Perfect, thank you so much for your help.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate next action?",
+  "choices": {
+    "A": "Cancel the original order",
+    "B": "Refund the customer's purchase",
+    "C": "Ship the blue gloves express",
+    "D": "Send an email confirmation"
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C: 『以快遞方式寄送藍色手套』是最可能的立即下一步行動。男士詢問女士是否希望藍色手套以快遞運送，女士回答是。選項A『取消原訂單』和B『退款』不符合對話內容，而D『發送電子郵件確認』不是立即的行動。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "ship",
+    "express",
+    "replacement"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-195",
+  "part": "Part 3",
+  "transcript": "W: Hello, I noticed an issue with my recent order from your company. The items delivered do not match the invoice.\nM: I'm sorry to hear that. Could you tell me the invoice number, please?\nW: Sure, it's 456789, and it was supposed to include 10 pairs of blue gloves.\nM: Let me check... It seems you received red gloves instead, correct?\nW: Yes, exactly. How can we fix this?\nM: I can arrange for an immediate replacement. Would you like the blue gloves shipped express?\nW: Yes, please. What's the expected delivery time?\nM: With express shipping, you'll have them by Thursday.\nW: Perfect, thank you so much for your help.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Discussing a project update",
+    "B": "Rescheduling a client meeting",
+    "C": "Planning a new project",
+    "D": "Evaluating a product purchase"
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B: 『重新安排客戶會議』是對話的主要主題。女士提到需要重新安排與Greenway Group的會議，因為客戶要求改時間。選項A『討論項目更新』、C『規劃新項目』和D『評估產品購買』不符合對話內容。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "reschedule",
+    "client",
+    "meeting"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-196",
+  "part": "Part 3",
+  "transcript": "W: I need to reschedule our meeting with the Greenway Group. It's currently set for Thursday at 2 PM.\nM: Is there a reason for the change?\nW: Yes, the client requested to move it because of a scheduling conflict.\nM: Alright, when are they available next?\nW: They can do Friday at 10 AM.\nM: Let me check our calendar. Friday at 10 works for us too.\nW: Great, I'll send out the updated invite.\nM: Thanks. Are there any materials we need to prepare for the meeting?\nW: Just the usual presentation slides.\nM: I'll make sure they're ready.",
+  "question_order": 1
+},
+  {
+  "question": "Why is the meeting being rescheduled?",
+  "choices": {
+    "A": "The presentation is not ready",
+    "B": "The meeting room is booked",
+    "C": "The client is unavailable on Thursday",
+    "D": "The project deadline has changed"
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C: 『客戶在星期四不方便』是會議重新安排的原因。女士解釋說客戶因為行程衝突請求更改時間。選項A『簡報未準備好』、B『會議室已訂滿』和D『項目截止日期更改』都不是會議重新安排的原因。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "reschedule",
+    "conflict",
+    "client"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-197",
+  "part": "Part 3",
+  "transcript": "W: I need to reschedule our meeting with the Greenway Group. It's currently set for Thursday at 2 PM.\nM: Is there a reason for the change?\nW: Yes, the client requested to move it because of a scheduling conflict.\nM: Alright, when are they available next?\nW: They can do Friday at 10 AM.\nM: Let me check our calendar. Friday at 10 works for us too.\nW: Great, I'll send out the updated invite.\nM: Thanks. Are there any materials we need to prepare for the meeting?\nW: Just the usual presentation slides.\nM: I'll make sure they're ready.",
+  "question_order": 2
+},
+  {
+  "question": "What will the woman do next?",
+  "choices": {
+    "A": "Prepare the meeting materials",
+    "B": "Cancel the meeting",
+    "C": "Discuss the meeting agenda with the team",
+    "D": "Send out the updated invite"
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D: 『發送更新的邀請』是女士接下來的行動。她告訴男士會發送更新的邀請函。選項A『準備會議資料』需要男士負責，B『取消會議』與對話不符，C『與團隊討論會議議程』也不是女主角的下一步。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "invite",
+    "update",
+    "send"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-198",
+  "part": "Part 3",
+  "transcript": "W: I need to reschedule our meeting with the Greenway Group. It's currently set for Thursday at 2 PM.\nM: Is there a reason for the change?\nW: Yes, the client requested to move it because of a scheduling conflict.\nM: Alright, when are they available next?\nW: They can do Friday at 10 AM.\nM: Let me check our calendar. Friday at 10 works for us too.\nW: Great, I'll send out the updated invite.\nM: Thanks. Are there any materials we need to prepare for the meeting?\nW: Just the usual presentation slides.\nM: I'll make sure they're ready.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Organizing an office event",
+    "B": "Hiring new employees",
+    "C": "Dealing with a delayed shipment",
+    "D": "Discussing office renovations"
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C: 『處理延遲的貨物』是對話的主要主題。女士收到通知，辦公椅的運送被延遲，並詢問原因。選項A『組織辦公室活動』、B『招聘新員工』和D『討論辦公室翻修』都不是對話的內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shipment",
+    "supplier",
+    "warehouse"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-199",
+  "part": "Part 3",
+  "transcript": "W: Hi, I just received a notification that our shipment of office chairs has been delayed. Do you know why?\nM: Yes, I checked earlier. The delay is due to the supplier's warehouse issue. They had a technical problem.\nW: That's disappointing. We really need them by Friday for the new office setup.\nM: I understand. They're trying to expedite the delivery and it's now scheduled for Saturday morning.\nW: Can we arrange for temporary chairs if they don't arrive on time?\nM: I'll contact the local supplier to check for availability.\nW: Please do that and let me know as soon as possible.\nM: Sure, I'll get back to you by this afternoon with an update.",
+  "question_order": 1
+},
+  {
+  "question": "What caused the shipment delay?",
+  "choices": {
+    "A": "Wrong address was provided",
+    "B": "Transportation strike",
+    "C": "Payment issue",
+    "D": "Supplier's warehouse problem"
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D: 『供應商的倉庫問題』是造成運送延遲的原因。男士解釋說是由於供應商倉庫的技術問題導致延遲。選項A『地址錯誤』、B『運輸罷工』和C『付款問題』不符合對話內容。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "delay",
+    "warehouse",
+    "technical"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-200",
+  "part": "Part 3",
+  "transcript": "W: Hi, I just received a notification that our shipment of office chairs has been delayed. Do you know why?\nM: Yes, I checked earlier. The delay is due to the supplier's warehouse issue. They had a technical problem.\nW: That's disappointing. We really need them by Friday for the new office setup.\nM: I understand. They're trying to expedite the delivery and it's now scheduled for Saturday morning.\nW: Can we arrange for temporary chairs if they don't arrive on time?\nM: I'll contact the local supplier to check for availability.\nW: Please do that and let me know as soon as possible.\nM: Sure, I'll get back to you by this afternoon with an update.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate next action?",
+  "choices": {
+    "A": "Contact a local supplier for temporary chairs",
+    "B": "Set up the office without chairs",
+    "C": "Order new chairs from another supplier",
+    "D": "Cancel the current order"
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A: 『聯絡當地供應商以獲取臨時椅子』是最可能的立即下一步行動。男士表示會聯絡當地供應商來檢查是否有臨時椅子的可用性。選項B『在沒有椅子的情況下設置辦公室』和D『取消當前訂單』不符合對話內容，而C『從另一個供應商訂購新椅子』也不是立即的行動。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "temporary",
+    "availability",
+    "supplier"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-201",
+  "part": "Part 3",
+  "transcript": "W: Hi, I just received a notification that our shipment of office chairs has been delayed. Do you know why?\nM: Yes, I checked earlier. The delay is due to the supplier's warehouse issue. They had a technical problem.\nW: That's disappointing. We really need them by Friday for the new office setup.\nM: I understand. They're trying to expedite the delivery and it's now scheduled for Saturday morning.\nW: Can we arrange for temporary chairs if they don't arrive on time?\nM: I'll contact the local supplier to check for availability.\nW: Please do that and let me know as soon as possible.\nM: Sure, I'll get back to you by this afternoon with an update.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Planning a presentation",
+    "B": "Scheduling a meeting",
+    "C": "Purchasing new equipment",
+    "D": "Repairing a projector"
+  },
+  "answer": "D",
+  "explanation_zh": "D: 修理投影機 - 對話主要集中在投影機無法啟動的問題，以及安排技術人員修理的過程。這表明主要話題是修理投影機。選項A、B和C在對話中沒有直接提到或無法與主要話題相關聯。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "projector",
+    "technician",
+    "replacement"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-202",
+  "part": "Part 3",
+  "transcript": "M: Hi, I've got a problem with the projector needed for today's presentation. It's not turning on.\nW: Oh no, that's not good. Did you check if it's plugged in properly?\nM: Yes, I did. The power light isn't even coming on.\nW: Let me check if any technicians are available.\nM: I hope we can get it fixed before the 3 PM meeting.\nW: Our technician can come over at 1 PM.\nM: Great, that should give us enough time.\nW: If there's still an issue, we'll arrange a replacement by 2 PM.\nM: Thanks for handling this so quickly.",
+  "question_order": 1
+},
+  {
+  "question": "What problem does the man report?",
+  "choices": {
+    "A": "The projector is not turning on.",
+    "B": "The projector is not displaying images.",
+    "C": "The projector is overheating.",
+    "D": "The projector is flickering."
+  },
+  "answer": "A",
+  "explanation_zh": "A: 投影機無法啟動 - 男性一開始就說明了問題，'投影機無法啟動'，並進一步提到電源燈也沒有亮。選項B、C和D在對話中未被提及。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "projector",
+    "power light",
+    "technician"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-203",
+  "part": "Part 3",
+  "transcript": "M: Hi, I've got a problem with the projector needed for today's presentation. It's not turning on.\nW: Oh no, that's not good. Did you check if it's plugged in properly?\nM: Yes, I did. The power light isn't even coming on.\nW: Let me check if any technicians are available.\nM: I hope we can get it fixed before the 3 PM meeting.\nW: Our technician can come over at 1 PM.\nM: Great, that should give us enough time.\nW: If there's still an issue, we'll arrange a replacement by 2 PM.\nM: Thanks for handling this so quickly.",
+  "question_order": 2
+},
+  {
+  "question": "What is most likely to happen around 1 PM?",
+  "choices": {
+    "A": "The technician will replace the projector.",
+    "B": "A technician will examine the projector.",
+    "C": "The meeting will start.",
+    "D": "The presentation will be canceled."
+  },
+  "answer": "B",
+  "explanation_zh": "B: 技術人員將檢查投影機 - 女性提到技術人員將在下午1點過來，這顯示出技術人員將檢查投影機的問題。選項A不正確，因為對話中提到如果問題仍然存在，才會安排替換。選項C和D沒有在對話中提到。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "technician",
+    "examine",
+    "meeting"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-204",
+  "part": "Part 3",
+  "transcript": "M: Hi, I've got a problem with the projector needed for today's presentation. It's not turning on.\nW: Oh no, that's not good. Did you check if it's plugged in properly?\nM: Yes, I did. The power light isn't even coming on.\nW: Let me check if any technicians are available.\nM: I hope we can get it fixed before the 3 PM meeting.\nW: Our technician can come over at 1 PM.\nM: Great, that should give us enough time.\nW: If there's still an issue, we'll arrange a replacement by 2 PM.\nM: Thanks for handling this so quickly.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of the woman's call?",
+  "choices": {
+    "A": "To change her conference registration details",
+    "B": "To inquire about conference fees",
+    "C": "To cancel her conference registration",
+    "D": "To register for a new conference"
+  },
+  "answer": "A",
+  "explanation_zh": "A: 更改她的會議註冊詳細信息 - 女性表示她需要更改註冊詳細信息，從數字營銷研討會換到網絡安全研討會，這是她打電話的主要目的。選項B、C和D在對話中未被提及。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "registration",
+    "conference",
+    "workshop"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-205",
+  "part": "Part 3",
+  "transcript": "W: Hi, I'm calling about my registration for the Tech Innovators Conference next month. I need to change my registration details.\nM: Certainly. Could you tell me what's wrong with your current registration?\nW: I registered for the workshop on digital marketing, but I actually wanted the one on cybersecurity.\nM: I see. I can switch you over to the cybersecurity workshop, but there’s an extra fee of $50.\nW: That's fine. When is the registration deadline for making changes?\nM: You can make changes until October 15th.\nW: Great, please process that change for me.\nM: Done. You’ll receive a confirmation email shortly.\nW: Thank you for your help.\nM: You're welcome. Have a great day!",
+  "question_order": 1
+},
+  {
+  "question": "What is the deadline for making registration changes?",
+  "choices": {
+    "A": "October 20th",
+    "B": "October 15th",
+    "C": "October 10th",
+    "D": "October 25th"
+  },
+  "answer": "B",
+  "explanation_zh": "B: 10月15日 - 男性明確表示可以在10月15日之前進行更改。選項A、C和D並未在對話中提到。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "deadline",
+    "registration",
+    "changes"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-206",
+  "part": "Part 3",
+  "transcript": "W: Hi, I'm calling about my registration for the Tech Innovators Conference next month. I need to change my registration details.\nM: Certainly. Could you tell me what's wrong with your current registration?\nW: I registered for the workshop on digital marketing, but I actually wanted the one on cybersecurity.\nM: I see. I can switch you over to the cybersecurity workshop, but there’s an extra fee of $50.\nW: That's fine. When is the registration deadline for making changes?\nM: You can make changes until October 15th.\nW: Great, please process that change for me.\nM: Done. You’ll receive a confirmation email shortly.\nW: Thank you for your help.\nM: You're welcome. Have a great day!",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate next action after the call?",
+  "choices": {
+    "A": "The woman will cancel her registration",
+    "B": "The woman will attend the digital marketing workshop",
+    "C": "The woman will receive a confirmation email",
+    "D": "The man will process a refund"
+  },
+  "answer": "C",
+  "explanation_zh": "C: 女性將收到確認電子郵件 - 男性在對話結束時表示更改已完成，並提到女性將很快收到確認電子郵件。因此，最可能的下一步是收到電子郵件確認。選項A、B和D在對話中未被提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "confirmation",
+    "email",
+    "process"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-207",
+  "part": "Part 3",
+  "transcript": "W: Hi, I'm calling about my registration for the Tech Innovators Conference next month. I need to change my registration details.\nM: Certainly. Could you tell me what's wrong with your current registration?\nW: I registered for the workshop on digital marketing, but I actually wanted the one on cybersecurity.\nM: I see. I can switch you over to the cybersecurity workshop, but there’s an extra fee of $50.\nW: That's fine. When is the registration deadline for making changes?\nM: You can make changes until October 15th.\nW: Great, please process that change for me.\nM: Done. You’ll receive a confirmation email shortly.\nW: Thank you for your help.\nM: You're welcome. Have a great day!",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "A product return process",
+    "B": "A customer order correction",
+    "C": "A new product inquiry",
+    "D": "A delivery delay issue"
+  },
+  "answer": "B",
+  "explanation_zh": "B: 顧客訂單更正 - 對話主要圍繞訂單顏色錯誤及其更正展開，表明這次通話的主要主題是訂單更正。選項A、C和D在對話中未被提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "order",
+    "dispatch",
+    "additional"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-208",
+  "part": "Part 3",
+  "transcript": "W: Hello, I'm calling about my recent order. It seems there's been a mistake.\nM: I’m sorry to hear that. Can you tell me what the issue is?\nW: I ordered 200 blue chairs, but I received 200 red chairs instead.\nM: I see. Let me check your order details. Yes, you’re right. It was an error in our system.\nW: How soon can the correct chairs be sent? I need them by next Friday.\nM: We can dispatch the blue chairs today and they should arrive by Thursday.\nW: Thank you. Will there be any additional charges?\nM: No, we’ll cover all the shipping costs.",
+  "question_order": 1
+},
+  {
+  "question": "What was the problem with the order?",
+  "choices": {
+    "A": "The chairs were damaged.",
+    "B": "The chairs were not delivered.",
+    "C": "The wrong color chairs were sent.",
+    "D": "The wrong quantity of chairs was sent."
+  },
+  "answer": "C",
+  "explanation_zh": "C: 發送錯誤顏色的椅子 - 女性提到她訂購了藍色椅子卻收到了紅色椅子，說明問題在於顏色錯誤。選項A、B和D在對話中未被提及。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "order",
+    "error",
+    "shipping"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-209",
+  "part": "Part 3",
+  "transcript": "W: Hello, I'm calling about my recent order. It seems there's been a mistake.\nM: I’m sorry to hear that. Can you tell me what the issue is?\nW: I ordered 200 blue chairs, but I received 200 red chairs instead.\nM: I see. Let me check your order details. Yes, you’re right. It was an error in our system.\nW: How soon can the correct chairs be sent? I need them by next Friday.\nM: We can dispatch the blue chairs today and they should arrive by Thursday.\nW: Thank you. Will there be any additional charges?\nM: No, we’ll cover all the shipping costs.",
+  "question_order": 2
+},
+  {
+  "question": "What immediate action will the company take?",
+  "choices": {
+    "A": "Refund the order",
+    "B": "Send a technician to fix the issue",
+    "C": "Cancel the current order",
+    "D": "Dispatch the correct chairs today"
+  },
+  "answer": "D",
+  "explanation_zh": "D: 今天發送正確的椅子 - 男性提到將於今天發送藍色椅子，並且它們應該在星期四到達，顯示公司立即的行動是發送正確的椅子。選項A、B和C並未在對話中提到。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "dispatch",
+    "cover",
+    "system"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-210",
+  "part": "Part 3",
+  "transcript": "W: Hello, I'm calling about my recent order. It seems there's been a mistake.\nM: I’m sorry to hear that. Can you tell me what the issue is?\nW: I ordered 200 blue chairs, but I received 200 red chairs instead.\nM: I see. Let me check your order details. Yes, you’re right. It was an error in our system.\nW: How soon can the correct chairs be sent? I need them by next Friday.\nM: We can dispatch the blue chairs today and they should arrive by Thursday.\nW: Thank you. Will there be any additional charges?\nM: No, we’ll cover all the shipping costs.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Discussing a new project.",
+    "B": "Purchasing office supplies.",
+    "C": "Rescheduling a client meeting.",
+    "D": "Evaluating a product."
+  },
+  "answer": "C",
+  "explanation_zh": "問題的主要話題是關於重新安排客戶會議。對話中，女士提到客戶要求因為他們的衝突而重新安排會議，這證明答案是C選項。其餘選項如A、B和D在對話中均未提及。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "reschedule",
+    "conflict",
+    "confirm"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-211",
+  "part": "Part 3",
+  "transcript": "W: Hi, I need to discuss our meeting with the client scheduled for the 15th.\nM: Sure, what's the issue?\nW: They've asked to reschedule due to a conflict on their end.\nM: I see. How about the 18th instead?\nW: That's a Saturday. The client prefers weekdays.\nM: Right, then how about the following Monday, the 20th?\nW: That works. I'll confirm with them.\nM: Great. Do you need me to update the calendar invitation?\nW: Yes, please. And I'll notify the team of the change.\nM: Consider it done.",
+  "question_order": 1
+},
+  {
+  "question": "What problem is mentioned in the conversation?",
+  "choices": {
+    "A": "The client is unhappy with the proposal.",
+    "B": "The meeting room is unavailable.",
+    "C": "The client canceled the meeting.",
+    "D": "The client has a scheduling conflict."
+  },
+  "answer": "D",
+  "explanation_zh": "問題提到的問題是客戶有時間安排上的衝突。根據對話中女士提到客戶要求重新安排會議因為衝突的原因，答案是D選項。選項A、B和C不是對話所提及的問題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "conflict",
+    "schedule",
+    "notify"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-212",
+  "part": "Part 3",
+  "transcript": "W: Hi, I need to discuss our meeting with the client scheduled for the 15th.\nM: Sure, what's the issue?\nW: They've asked to reschedule due to a conflict on their end.\nM: I see. How about the 18th instead?\nW: That's a Saturday. The client prefers weekdays.\nM: Right, then how about the following Monday, the 20th?\nW: That works. I'll confirm with them.\nM: Great. Do you need me to update the calendar invitation?\nW: Yes, please. And I'll notify the team of the change.\nM: Consider it done.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate next action?",
+  "choices": {
+    "A": "Update the calendar invitation.",
+    "B": "Cancel the meeting.",
+    "C": "Call the client.",
+    "D": "Prepare a new proposal."
+  },
+  "answer": "A",
+  "explanation_zh": "最有可能的直接下一步行動是更新日曆邀請。對話中，男士詢問女士是否需要他更新日曆邀請，女士回答“是”，因此答案是A選項。選項B和D不符合對話內容，選項C需要進一步確認。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "confirm",
+    "calendar",
+    "notify"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-213",
+  "part": "Part 3",
+  "transcript": "W: Hi, I need to discuss our meeting with the client scheduled for the 15th.\nM: Sure, what's the issue?\nW: They've asked to reschedule due to a conflict on their end.\nM: I see. How about the 18th instead?\nW: That's a Saturday. The client prefers weekdays.\nM: Right, then how about the following Monday, the 20th?\nW: That works. I'll confirm with them.\nM: Great. Do you need me to update the calendar invitation?\nW: Yes, please. And I'll notify the team of the change.\nM: Consider it done.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "A new office design plan",
+    "B": "A change in supplier policy",
+    "C": "A staff training session",
+    "D": "A delayed shipment"
+  },
+  "answer": "D",
+  "explanation_zh": "問題的主要話題是關於延遲的貨運。女士提到收到的更新是辦公椅的運送延遲，這證明答案是D選項。選項A、B和C在對話中均未提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shipment",
+    "supplier",
+    "delayed"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-214",
+  "part": "Part 3",
+  "transcript": "W: I've just received an update that our shipment of office chairs is delayed.\nM: Oh no, what’s causing the delay?\nW: Apparently, the supplier had some issues with their production line. The chairs won't arrive until next Tuesday.\nM: That's unfortunate. We were expecting them this Friday.\nW: Yes, I know. I’ll contact the supplier to see if they can expedite the process.\nM: Meanwhile, should we inform the staff about the delay?\nW: Definitely. I'll send out an email update today.\nM: Let me know if there's anything else I can do to help.",
+  "question_order": 1
+},
+  {
+  "question": "What is the reason for the shipment delay?",
+  "choices": {
+    "A": "Production line issues",
+    "B": "Customs issues",
+    "C": "Transport strike",
+    "D": "Weather conditions"
+  },
+  "answer": "A",
+  "explanation_zh": "貨運延遲的原因是生產線問題。女士提到供應商的生產線出了問題，這證明答案是A選項。選項B、C和D在對話中均未提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "delay",
+    "production line",
+    "supplier"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-215",
+  "part": "Part 3",
+  "transcript": "W: I've just received an update that our shipment of office chairs is delayed.\nM: Oh no, what’s causing the delay?\nW: Apparently, the supplier had some issues with their production line. The chairs won't arrive until next Tuesday.\nM: That's unfortunate. We were expecting them this Friday.\nW: Yes, I know. I’ll contact the supplier to see if they can expedite the process.\nM: Meanwhile, should we inform the staff about the delay?\nW: Definitely. I'll send out an email update today.\nM: Let me know if there's anything else I can do to help.",
+  "question_order": 2
+},
+  {
+  "question": "What will the woman do today?",
+  "choices": {
+    "A": "Visit the supplier",
+    "B": "Send an email update",
+    "C": "Call the manufacturer",
+    "D": "Arrange a meeting"
+  },
+  "answer": "B",
+  "explanation_zh": "女士今天會做的事情是發送電子郵件更新。女士在對話中提到她會今天發送電子郵件更新，這證明答案是B選項。選項A、C和D不符合對話內容。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "inform",
+    "email",
+    "update"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-216",
+  "part": "Part 3",
+  "transcript": "W: I've just received an update that our shipment of office chairs is delayed.\nM: Oh no, what’s causing the delay?\nW: Apparently, the supplier had some issues with their production line. The chairs won't arrive until next Tuesday.\nM: That's unfortunate. We were expecting them this Friday.\nW: Yes, I know. I’ll contact the supplier to see if they can expedite the process.\nM: Meanwhile, should we inform the staff about the delay?\nW: Definitely. I'll send out an email update today.\nM: Let me know if there's anything else I can do to help.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Repairing equipment for a presentation",
+    "B": "Planning a new office layout",
+    "C": "Discussing a staff meeting schedule",
+    "D": "Ordering new office chairs"
+  },
+  "answer": "A",
+  "explanation_zh": "問題的主要話題是修理演示用的設備。女士提到投影機運行不正常且需要在明天的演示前修好，這證明答案是A選項。選項B、C和D在對話中均未提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "projector",
+    "presentation",
+    "bulb"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-217",
+  "part": "Part 3",
+  "transcript": "W: I've noticed that our projector is not working properly for tomorrow's presentation. Have you had a chance to look at it?\nM: Yes, I checked it yesterday, but I think the bulb needs to be replaced.\nW: Can we get a replacement today? The presentation is at 10 AM tomorrow.\nM: I'll call the supply store to see if they have one in stock. If not, we might need to rent one.\nW: Renting seems like a backup option. Can you confirm by this afternoon?\nM: Sure, I'll update you by 3 PM.\nW: Thanks. It's crucial to have everything ready.\nM: No problem. I'll prioritize it.",
+  "question_order": 1
+},
+  {
+  "question": "What specific problem needs to be resolved?",
+  "choices": {
+    "A": "The projector needs a new stand",
+    "B": "The projector bulb needs replacement",
+    "C": "The presentation slides are incomplete",
+    "D": "The projector screen is missing"
+  },
+  "answer": "B",
+  "explanation_zh": "需要解決的具體問題是投影機燈泡需要更換。男士提到投影機燈泡需要更換，這證明答案是B選項。選項A、C和D在對話中均未提及。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "projector",
+    "replacement",
+    "bulb"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-218",
+  "part": "Part 3",
+  "transcript": "W: I've noticed that our projector is not working properly for tomorrow's presentation. Have you had a chance to look at it?\nM: Yes, I checked it yesterday, but I think the bulb needs to be replaced.\nW: Can we get a replacement today? The presentation is at 10 AM tomorrow.\nM: I'll call the supply store to see if they have one in stock. If not, we might need to rent one.\nW: Renting seems like a backup option. Can you confirm by this afternoon?\nM: Sure, I'll update you by 3 PM.\nW: Thanks. It's crucial to have everything ready.\nM: No problem. I'll prioritize it.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate next action?",
+  "choices": {
+    "A": "Rent a projector",
+    "B": "Start the presentation",
+    "C": "Call the supply store",
+    "D": "Prepare the presentation slides"
+  },
+  "answer": "C",
+  "explanation_zh": "最有可能的直接下一步行動是打電話給供應商店。男士提到他會打電話給供應商店查看是否有存貨，這證明答案是C選項。選項A、B和D不符合對話內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "rent",
+    "supply store",
+    "update"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-219",
+  "part": "Part 3",
+  "transcript": "W: I've noticed that our projector is not working properly for tomorrow's presentation. Have you had a chance to look at it?\nM: Yes, I checked it yesterday, but I think the bulb needs to be replaced.\nW: Can we get a replacement today? The presentation is at 10 AM tomorrow.\nM: I'll call the supply store to see if they have one in stock. If not, we might need to rent one.\nW: Renting seems like a backup option. Can you confirm by this afternoon?\nM: Sure, I'll update you by 3 PM.\nW: Thanks. It's crucial to have everything ready.\nM: No problem. I'll prioritize it.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Discussing conference topics",
+    "B": "Changing a conference registration",
+    "C": "Arranging a conference presentation",
+    "D": "Cancelling a conference session"
+  },
+  "answer": "B",
+  "explanation_zh": "答案是 B。主要話題是更改會議註冊。女性提到她需要更新她的註冊，並要求將她註冊的會議日期從5月15日改為6月5日，這表明她在更改註冊信息。選項 A、C 和 D 都不符合對話內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "registration",
+    "session",
+    "fee"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-220",
+  "part": "Part 3",
+  "transcript": "W: I need to update my registration for the Tech Innovators Conference. I registered for the May 15th session, but I need to change it.\nM: We can assist with that. Which session would you like to attend instead?\nW: Could I switch to the one on June 5th?\nM: Certainly, but there's an additional fee of $50 for changes made less than two weeks prior.\nW: That's fine. How do I pay the fee?\nM: You can pay it through our online portal using your registration account.\nW: Great, I'll handle that today. Thank you!\nM: You're welcome. Please let us know if you need further assistance.\nW: I will, thanks again.",
+  "question_order": 1
+},
+  {
+  "question": "What is the additional fee for making the change?",
+  "choices": {
+    "A": "$25",
+    "B": "$40",
+    "C": "$50",
+    "D": "$75"
+  },
+  "answer": "C",
+  "explanation_zh": "答案是 C。額外費用為 50 美元。男性表示更改會議註冊在兩週內會收取額外的 50 美元費用。選項 A、B 和 D 都不符合對話內容。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "additional",
+    "fee",
+    "change"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-221",
+  "part": "Part 3",
+  "transcript": "W: I need to update my registration for the Tech Innovators Conference. I registered for the May 15th session, but I need to change it.\nM: We can assist with that. Which session would you like to attend instead?\nW: Could I switch to the one on June 5th?\nM: Certainly, but there's an additional fee of $50 for changes made less than two weeks prior.\nW: That's fine. How do I pay the fee?\nM: You can pay it through our online portal using your registration account.\nW: Great, I'll handle that today. Thank you!\nM: You're welcome. Please let us know if you need further assistance.\nW: I will, thanks again.",
+  "question_order": 2
+},
+  {
+  "question": "How will the woman pay the fee?",
+  "choices": {
+    "A": "By cash at the venue",
+    "B": "Through a bank transfer",
+    "C": "By mailing a check",
+    "D": "Using an online portal"
+  },
+  "answer": "D",
+  "explanation_zh": "答案是 D。女性將通過在線門戶支付費用。男性告訴她，她可以通過註冊賬戶在在線門戶支付費用。選項 A、B 和 C 都與對話內容不符。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "portal",
+    "account",
+    "online"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-222",
+  "part": "Part 3",
+  "transcript": "W: I need to update my registration for the Tech Innovators Conference. I registered for the May 15th session, but I need to change it.\nM: We can assist with that. Which session would you like to attend instead?\nW: Could I switch to the one on June 5th?\nM: Certainly, but there's an additional fee of $50 for changes made less than two weeks prior.\nW: That's fine. How do I pay the fee?\nM: You can pay it through our online portal using your registration account.\nW: Great, I'll handle that today. Thank you!\nM: You're welcome. Please let us know if you need further assistance.\nW: I will, thanks again.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Arranging a delivery date",
+    "B": "Returning a damaged item",
+    "C": "Correcting a customer order",
+    "D": "Discussing a new product"
+  },
+  "answer": "C",
+  "explanation_zh": "答案是 C。主要話題是更正客戶訂單。女性提到她收到的訂單有誤，她原本訂購的藍色椅子卻錯發成紅色椅子，這表明話題與訂單更正有關。選項 A、B 和 D 都不符合對話內容。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "order",
+    "express",
+    "pickup"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-223",
+  "part": "Part 3",
+  "transcript": "W: Hello, I'm calling about the order I received today. It seems there was a mistake. I ordered ten blue chairs, but I got ten red ones instead.\nM: I'm sorry to hear that. Let me check our records. Yes, I see the initial order was for blue chairs. I apologize for the mix-up.\nW: How soon can you send the correct ones?\nM: We can ship them by express service, so you should have them by Friday.\nW: That would be great. Do I need to return the red chairs now?\nM: No, you can keep them until the blue ones arrive. We'll arrange a pickup later.",
+  "question_order": 1
+},
+  {
+  "question": "What was the problem with the order?",
+  "choices": {
+    "A": "The chairs were damaged",
+    "B": "The wrong quantity was sent",
+    "C": "The incorrect style was delivered",
+    "D": "The wrong color was sent"
+  },
+  "answer": "D",
+  "explanation_zh": "答案是 D。問題是錯誤顏色的椅子被發送。女性收到的椅子顏色與她訂購的不同，她訂購的是藍色椅子，但收到的是紅色椅子。選項 A、B 和 C 都不符合對話內容。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "order",
+    "mistake",
+    "records"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-224",
+  "part": "Part 3",
+  "transcript": "W: Hello, I'm calling about the order I received today. It seems there was a mistake. I ordered ten blue chairs, but I got ten red ones instead.\nM: I'm sorry to hear that. Let me check our records. Yes, I see the initial order was for blue chairs. I apologize for the mix-up.\nW: How soon can you send the correct ones?\nM: We can ship them by express service, so you should have them by Friday.\nW: That would be great. Do I need to return the red chairs now?\nM: No, you can keep them until the blue ones arrive. We'll arrange a pickup later.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate next action?",
+  "choices": {
+    "A": "The man will arrange to ship the correct chairs",
+    "B": "The man will issue a refund",
+    "C": "The woman will return the red chairs immediately",
+    "D": "The woman will cancel the order"
+  },
+  "answer": "A",
+  "explanation_zh": "答案是 A。男性會安排發送正確的椅子。男性提到他們可以用快遞服務寄送正確的椅子，到周五就能收到。選項 B、C 和 D 都不符合對話內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "ship",
+    "express",
+    "arrange"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-225",
+  "part": "Part 3",
+  "transcript": "W: Hello, I'm calling about the order I received today. It seems there was a mistake. I ordered ten blue chairs, but I got ten red ones instead.\nM: I'm sorry to hear that. Let me check our records. Yes, I see the initial order was for blue chairs. I apologize for the mix-up.\nW: How soon can you send the correct ones?\nM: We can ship them by express service, so you should have them by Friday.\nW: That would be great. Do I need to return the red chairs now?\nM: No, you can keep them until the blue ones arrive. We'll arrange a pickup later.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Organizing a team lunch",
+    "B": "Cancelling a project",
+    "C": "Booking a conference room",
+    "D": "Rescheduling a client meeting"
+  },
+  "answer": "D",
+  "explanation_zh": "答案是 D。主要話題是重新安排客戶會議。女性提到她收到客戶要求重新安排原定於下週一的會議，並與男性協商將會議改到星期三。選項 A、B 和 C 都不符合對話內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "reschedule",
+    "meeting",
+    "client"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-226",
+  "part": "Part 3",
+  "transcript": "W: I just got a call from our client about the meeting scheduled for next Monday. They need to reschedule.\nM: Oh, did they say why?\nW: Yes, their manager won't be available on that day. Could we move it to later in the week?\nM: How about Wednesday at 3 PM?\nW: That should work. I’ll confirm with them and send an updated invite.\nM: Great. Please let me know once it’s confirmed.\nW: Of course. I’ll also update the project timeline to reflect any changes.\nM: Thanks for handling this.\nW: No problem, I’ll email you the details once I have them.",
+  "question_order": 1
+},
+  {
+  "question": "Why does the client need to reschedule the meeting?",
+  "choices": {
+    "A": "The manager won't be available.",
+    "B": "The manager is on vacation.",
+    "C": "The meeting room is unavailable.",
+    "D": "The client's office is closed."
+  },
+  "answer": "A",
+  "explanation_zh": "答案是 A。客戶需要重新安排會議的原因是經理當天不可用。女性指出經理當天不能參加會議，所以需要重新安排。選項 B、C 和 D 都不符合對話內容。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "reschedule",
+    "manager",
+    "available"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-227",
+  "part": "Part 3",
+  "transcript": "W: I just got a call from our client about the meeting scheduled for next Monday. They need to reschedule.\nM: Oh, did they say why?\nW: Yes, their manager won't be available on that day. Could we move it to later in the week?\nM: How about Wednesday at 3 PM?\nW: That should work. I’ll confirm with them and send an updated invite.\nM: Great. Please let me know once it’s confirmed.\nW: Of course. I’ll also update the project timeline to reflect any changes.\nM: Thanks for handling this.\nW: No problem, I’ll email you the details once I have them.",
+  "question_order": 2
+},
+  {
+  "question": "What is likely the woman's immediate next step?",
+  "choices": {
+    "A": "Book a new meeting room",
+    "B": "Confirm the new time with the client",
+    "C": "Cancel the project timeline",
+    "D": "Send an email with project updates"
+  },
+  "answer": "B",
+  "explanation_zh": "答案是 B。女性的立即下一步是確認新的會議時間。女性提到她會跟客戶確認星期三下午三點的會議時間，並發送更新的邀請。選項 A、C 和 D 都不符合對話內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "confirm",
+    "invite",
+    "timeline"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-228",
+  "part": "Part 3",
+  "transcript": "W: I just got a call from our client about the meeting scheduled for next Monday. They need to reschedule.\nM: Oh, did they say why?\nW: Yes, their manager won't be available on that day. Could we move it to later in the week?\nM: How about Wednesday at 3 PM?\nW: That should work. I’ll confirm with them and send an updated invite.\nM: Great. Please let me know once it’s confirmed.\nW: Of course. I’ll also update the project timeline to reflect any changes.\nM: Thanks for handling this.\nW: No problem, I’ll email you the details once I have them.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "A delayed shipment.",
+    "B": "A new product launch.",
+    "C": "A meeting rescheduling.",
+    "D": "An office renovation."
+  },
+  "answer": "A",
+  "explanation_zh": "選項A「A delayed shipment（延遲的運輸）」是正確答案。對話一開始就提到\"Hi, I just checked the status of our shipment from GreenTech Supplies. It's showing a delay.\"可以明確得知這是關於運輸延遲的問題，排除選項B（新產品發布）、C（會議重新安排）和D（辦公室裝修），因為對話中沒有提到這些內容。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "shipment",
+    "delay",
+    "delivery"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-229",
+  "part": "Part 3",
+  "transcript": "W: Hi, I just checked the status of our shipment from GreenTech Supplies. It's showing a delay.\nM: Yes, I saw that too. The delivery was supposed to arrive today, but now it’s scheduled for Friday.\nW: Do they mention the reason for the delay?\nM: They said there was a mechanical issue with the delivery truck.\nW: Oh, that's unfortunate. We really need those parts for the assembly line.\nM: I’ll call them to see if there's a way to expedite.\nW: That would be great. Can you also ask if they can provide any compensation?\nM: Sure, I’ll handle it right away.",
+  "question_order": 1
+},
+  {
+  "question": "What is the cause of the shipment delay?",
+  "choices": {
+    "A": "Weather conditions.",
+    "B": "Mechanical issue with the truck.",
+    "C": "Wrong shipping address.",
+    "D": "Customs clearance."
+  },
+  "answer": "B",
+  "explanation_zh": "選項B「Mechanical issue with the truck（卡車的機械故障）」是正確答案。男士說\"They said there was a mechanical issue with the delivery truck.\"清楚指出運輸延遲的原因是卡車的機械故障。選項A（天氣狀況）、C（錯誤的運送地址）和D（通關清關）在對話中都未被提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "mechanical",
+    "issue",
+    "truck"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-230",
+  "part": "Part 3",
+  "transcript": "W: Hi, I just checked the status of our shipment from GreenTech Supplies. It's showing a delay.\nM: Yes, I saw that too. The delivery was supposed to arrive today, but now it’s scheduled for Friday.\nW: Do they mention the reason for the delay?\nM: They said there was a mechanical issue with the delivery truck.\nW: Oh, that's unfortunate. We really need those parts for the assembly line.\nM: I’ll call them to see if there's a way to expedite.\nW: That would be great. Can you also ask if they can provide any compensation?\nM: Sure, I’ll handle it right away.",
+  "question_order": 2
+},
+  {
+  "question": "What will the man most likely do next?",
+  "choices": {
+    "A": "Reschedule the delivery date.",
+    "B": "Inspect the assembly line.",
+    "C": "Call the supplier to expedite the shipment.",
+    "D": "Cancel the order."
+  },
+  "answer": "C",
+  "explanation_zh": "選項C「Call the supplier to expedite the shipment（打電話給供應商加快運輸）」是正確答案。男士說\"I’ll call them to see if there's a way to expedite.\"這表明他接下來要做的事情是打電話給供應商以加快運輸速度。選項A（重新安排送貨日期）、B（檢查裝配線）和D（取消訂單）都不符合對話內容，因為男士明確表示會打電話進行加急處理。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "expedite",
+    "compensation",
+    "handle"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-231",
+  "part": "Part 3",
+  "transcript": "W: Hi, I just checked the status of our shipment from GreenTech Supplies. It's showing a delay.\nM: Yes, I saw that too. The delivery was supposed to arrive today, but now it’s scheduled for Friday.\nW: Do they mention the reason for the delay?\nM: They said there was a mechanical issue with the delivery truck.\nW: Oh, that's unfortunate. We really need those parts for the assembly line.\nM: I’ll call them to see if there's a way to expedite.\nW: That would be great. Can you also ask if they can provide any compensation?\nM: Sure, I’ll handle it right away.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Ordering new equipment",
+    "B": "Repairing a projector",
+    "C": "Rescheduling a presentation",
+    "D": "Purchasing a laptop"
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B：修理投影機。對話的主題圍繞著投影機無法正常工作，並需要在下午的演示前修復。男士提到了要聯繫技術服務來修理，因此選擇B是正確的。選項A、C和D都沒有直接關聯到投影機的修理。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "projector",
+    "repair",
+    "presentation"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-232",
+  "part": "Part 3",
+  "transcript": "W: I just noticed the projector isn't working, and we need it for the presentation this afternoon. Is there anything we can do?\nM: Oh, that's not good. Let me check if the spare is available in storage.\nW: I checked earlier, but it was missing.\nM: In that case, I'll call the tech service right away. They usually respond quickly.\nW: Do you think we can get it fixed before the 3 PM presentation?\nM: I'll make it clear that it's urgent. Last time, they fixed a similar issue within an hour.\nW: Great, I’ll prepare the backup slides on my laptop just in case.\nM: Good idea. I'll update you as soon as I hear back from them.",
+  "question_order": 1
+},
+  {
+  "question": "What specific problem is mentioned in the conversation?",
+  "choices": {
+    "A": "The laptop is not charged",
+    "B": "The spare projector is damaged",
+    "C": "The projector is not working",
+    "D": "The presentation is rescheduled"
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C：投影機不工作。對話中女士明確指出投影機不工作，因此這是談話中提到的具體問題。選項A、B和D沒有提及具體的投影機故障問題。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "projector",
+    "spare",
+    "storage"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-233",
+  "part": "Part 3",
+  "transcript": "W: I just noticed the projector isn't working, and we need it for the presentation this afternoon. Is there anything we can do?\nM: Oh, that's not good. Let me check if the spare is available in storage.\nW: I checked earlier, but it was missing.\nM: In that case, I'll call the tech service right away. They usually respond quickly.\nW: Do you think we can get it fixed before the 3 PM presentation?\nM: I'll make it clear that it's urgent. Last time, they fixed a similar issue within an hour.\nW: Great, I’ll prepare the backup slides on my laptop just in case.\nM: Good idea. I'll update you as soon as I hear back from them.",
+  "question_order": 2
+},
+  {
+  "question": "What can be inferred from the conversation about the tech service?",
+  "choices": {
+    "A": "They are often late",
+    "B": "They provide spare equipment",
+    "C": "They need a week for repairs",
+    "D": "They respond quickly"
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D：他們回應迅速。男士提到技術服務通常回應迅速，而且上次在一小時內修理了類似的問題，因此可以推斷技術服務的回應是快速的。選項A、B和C與此推論不符。",
+  "difficulty": "B2",
+  "vocabulary": [
+    "urgent",
+    "respond",
+    "backup"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-234",
+  "part": "Part 3",
+  "transcript": "W: I just noticed the projector isn't working, and we need it for the presentation this afternoon. Is there anything we can do?\nM: Oh, that's not good. Let me check if the spare is available in storage.\nW: I checked earlier, but it was missing.\nM: In that case, I'll call the tech service right away. They usually respond quickly.\nW: Do you think we can get it fixed before the 3 PM presentation?\nM: I'll make it clear that it's urgent. Last time, they fixed a similar issue within an hour.\nW: Great, I’ll prepare the backup slides on my laptop just in case.\nM: Good idea. I'll update you as soon as I hear back from them.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Booking a flight",
+    "B": "Planning a vacation",
+    "C": "Updating conference registration",
+    "D": "Cancelling a conference session"
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C：更新會議註冊。對話內容涉及更新會議註冊，包括改變會議日期和更新聯繫信息，因此選擇C是正確的。選項A、B和D未提及更新註冊的內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "registration",
+    "conference",
+    "session"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-235",
+  "part": "Part 3",
+  "transcript": "W: Hello, I need to update my registration for the upcoming conference.\nM: Certainly. Do you know the new date or details you’d like to change to?\nW: Yes, I need to switch to the session on November 15th instead of the 14th.\nM: Let me check availability for that session.\nW: I’m also wondering if there’s an additional cost for changing the session date.\nM: Actually, there’s no extra fee for this change.\nW: Great, I also need to update my contact information.\nM: Could you provide the new details?\nW: Sure, I’ll email it to you right away.\nM: Perfect, I’ll confirm everything once I receive your email.",
+  "question_order": 1
+},
+  {
+  "question": "What specific change does the woman want to make?",
+  "choices": {
+    "A": "Change her flight",
+    "B": "Cancel her registration",
+    "C": "Switch to a different conference",
+    "D": "Change the session date"
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D：更改會議日期。女士提到她需要將會議日期從11月14日改為15日，因此她想做的具體更改是會議日期，選擇D是正確的。選項A、B和C沒有反映出對話中的具體更改。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "update",
+    "availability",
+    "fee"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-236",
+  "part": "Part 3",
+  "transcript": "W: Hello, I need to update my registration for the upcoming conference.\nM: Certainly. Do you know the new date or details you’d like to change to?\nW: Yes, I need to switch to the session on November 15th instead of the 14th.\nM: Let me check availability for that session.\nW: I’m also wondering if there’s an additional cost for changing the session date.\nM: Actually, there’s no extra fee for this change.\nW: Great, I also need to update my contact information.\nM: Could you provide the new details?\nW: Sure, I’ll email it to you right away.\nM: Perfect, I’ll confirm everything once I receive your email.",
+  "question_order": 2
+},
+  {
+  "question": "What is the woman most likely to do next?",
+  "choices": {
+    "A": "Send an email with updated contact details",
+    "B": "Call to confirm her registration",
+    "C": "Pay an extra fee for the date change",
+    "D": "Attend the conference on November 14th"
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A：發送更新聯繫信息的電子郵件。女士表示會立即發送電子郵件更新她的聯繫信息，因此她接下來最可能的行動是發送電子郵件，選擇A是正確的。選項B、C和D不符合對話結尾的行動。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "confirm",
+    "contact",
+    "email"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-237",
+  "part": "Part 3",
+  "transcript": "W: Hello, I need to update my registration for the upcoming conference.\nM: Certainly. Do you know the new date or details you’d like to change to?\nW: Yes, I need to switch to the session on November 15th instead of the 14th.\nM: Let me check availability for that session.\nW: I’m also wondering if there’s an additional cost for changing the session date.\nM: Actually, there’s no extra fee for this change.\nW: Great, I also need to update my contact information.\nM: Could you provide the new details?\nW: Sure, I’ll email it to you right away.\nM: Perfect, I’ll confirm everything once I receive your email.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of the conversation?",
+  "choices": {
+    "A": "To schedule a meeting",
+    "B": "To discuss a shipment delay",
+    "C": "To confirm a new order",
+    "D": "To correct an incorrect order"
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D：更正錯誤訂單。對話的主旨是女士收到錯誤尺寸的訂單並希望更正訂單，因此選擇D是正確的。選項A、B和C不符合對話的主旨。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "incorrect",
+    "replacement",
+    "shipment"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-238",
+  "part": "Part 3",
+  "transcript": "W: Hi, I received my order today, but there’s a problem. The size is incorrect. I ordered a medium, but got a large.\nM: I’m sorry for the inconvenience. Could you provide your order number?\nW: Sure, it’s 45872. I’d like a replacement before next Friday.\nM: I’ll arrange a new shipment today. You'll receive it by Wednesday.\nW: Great, do I need to return the incorrect item?\nM: Yes, please use the prepaid label included in your package.\nW: Thank you, I’ll do that.\nM: Thank you for your understanding. If you need more help, feel free to contact us again.",
+  "question_order": 1
+},
+  {
+  "question": "What was the specific problem with the order?",
+  "choices": {
+    "A": "The item was the wrong size",
+    "B": "The item was missing",
+    "C": "The item was the wrong color",
+    "D": "The item was damaged"
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A：商品尺寸錯誤。女士提到她訂購了中號但收到的是大號，這是訂單的具體問題，因此選擇A是正確的。選項B、C和D沒有提及商品尺寸的問題。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "order",
+    "size",
+    "medium"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-239",
+  "part": "Part 3",
+  "transcript": "W: Hi, I received my order today, but there’s a problem. The size is incorrect. I ordered a medium, but got a large.\nM: I’m sorry for the inconvenience. Could you provide your order number?\nW: Sure, it’s 45872. I’d like a replacement before next Friday.\nM: I’ll arrange a new shipment today. You'll receive it by Wednesday.\nW: Great, do I need to return the incorrect item?\nM: Yes, please use the prepaid label included in your package.\nW: Thank you, I’ll do that.\nM: Thank you for your understanding. If you need more help, feel free to contact us again.",
+  "question_order": 2
+},
+  {
+  "question": "What will the woman do with the incorrect item?",
+  "choices": {
+    "A": "Keep it",
+    "B": "Return it",
+    "C": "Exchange it in-store",
+    "D": "Discard it"
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B：退回商品。男士要求女士使用包裹中包含的預付費標籤退回錯誤商品，因此女士會退回商品，選擇B是正確的。選項A、C和D不符合對話中提到的處理方式。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "return",
+    "prepaid",
+    "label"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-240",
+  "part": "Part 3",
+  "transcript": "W: Hi, I received my order today, but there’s a problem. The size is incorrect. I ordered a medium, but got a large.\nM: I’m sorry for the inconvenience. Could you provide your order number?\nW: Sure, it’s 45872. I’d like a replacement before next Friday.\nM: I’ll arrange a new shipment today. You'll receive it by Wednesday.\nW: Great, do I need to return the incorrect item?\nM: Yes, please use the prepaid label included in your package.\nW: Thank you, I’ll do that.\nM: Thank you for your understanding. If you need more help, feel free to contact us again.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Rescheduling a client meeting.",
+    "B": "Cancelling a client meeting.",
+    "C": "Arranging a team lunch.",
+    "D": "Discussing a project deadline."
+  },
+  "answer": "A",
+  "explanation_zh": "A: The conversation revolves around changing the date of a client meeting. The woman mentions, 'I just got an email from our client requesting to reschedule our meeting.' This confirms the topic is about rescheduling, making A the correct choice. B is incorrect as they are not cancelling the meeting. C and D are not mentioned at all in the conversation.",
+  "difficulty": "A2",
+  "vocabulary": [
+    "reschedule",
+    "client",
+    "meeting"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-241",
+  "part": "Part 3",
+  "transcript": "W: I just got an email from our client requesting to reschedule our meeting. It was originally set for October 15th.\nM: Oh, right. Did they mention why they need to change the date?\nW: Yes, they have a conflict with another commitment on that day. They suggested October 18th instead.\nM: October 18th works for me. What time do they prefer?\nW: They're proposing 3 PM. Does that fit your schedule?\nM: Yes, that should be fine. I'll update the calendar and send a confirmation.\nW: Great. I'll notify the client. Anything else we need to prepare?\nM: No, we're all set. Thanks for handling this.",
+  "question_order": 1
+},
+  {
+  "question": "What explicitly caused the need to reschedule the meeting?",
+  "choices": {
+    "A": "The client had a personal emergency.",
+    "B": "The client had another commitment.",
+    "C": "The client wanted an earlier time.",
+    "D": "The meeting location was unavailable."
+  },
+  "answer": "B",
+  "explanation_zh": "B: The need to reschedule is due to 'a conflict with another commitment on that day,' as the woman states. This matches choice B. A is incorrect as there is no mention of a personal emergency. C and D are also incorrect as neither an earlier time nor a location issue is mentioned.",
+  "difficulty": "B1",
+  "vocabulary": [
+    "commitment",
+    "conflict",
+    "schedule"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-242",
+  "part": "Part 3",
+  "transcript": "W: I just got an email from our client requesting to reschedule our meeting. It was originally set for October 15th.\nM: Oh, right. Did they mention why they need to change the date?\nW: Yes, they have a conflict with another commitment on that day. They suggested October 18th instead.\nM: October 18th works for me. What time do they prefer?\nW: They're proposing 3 PM. Does that fit your schedule?\nM: Yes, that should be fine. I'll update the calendar and send a confirmation.\nW: Great. I'll notify the client. Anything else we need to prepare?\nM: No, we're all set. Thanks for handling this.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate next action by the man?",
+  "choices": {
+    "A": "The man will arrange a conference room.",
+    "B": "The woman will notify the client.",
+    "C": "The man will update the calendar.",
+    "D": "The woman will prepare meeting materials."
+  },
+  "answer": "C",
+  "explanation_zh": "C: The man says, 'I'll update the calendar and send a confirmation,' indicating his next action is updating the calendar. This matches choice C. B, although a likely subsequent action, is not the immediate next action. A and D are not mentioned in this context.",
+  "difficulty": "B1",
+  "vocabulary": [
+    "confirm",
+    "notify",
+    "calendar"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-243",
+  "part": "Part 3",
+  "transcript": "W: I just got an email from our client requesting to reschedule our meeting. It was originally set for October 15th.\nM: Oh, right. Did they mention why they need to change the date?\nW: Yes, they have a conflict with another commitment on that day. They suggested October 18th instead.\nM: October 18th works for me. What time do they prefer?\nW: They're proposing 3 PM. Does that fit your schedule?\nM: Yes, that should be fine. I'll update the calendar and send a confirmation.\nW: Great. I'll notify the client. Anything else we need to prepare?\nM: No, we're all set. Thanks for handling this.",
+  "question_order": 3
+},
+  {
+  "question": "What is the purpose of the conversation?",
+  "choices": {
+    "A": "To place a new order",
+    "B": "To discuss a delayed shipment",
+    "C": "To cancel an order",
+    "D": "To schedule a delivery"
+  },
+  "answer": "B",
+  "explanation_zh": "B: The woman calls to inquire about a shipment delay, stating, 'They were supposed to arrive yesterday, but we haven't received them yet.' The man's response about checking the status confirms the purpose is discussing the delayed shipment, making B correct. A, C, and D are not the focus of the conversation.",
+  "difficulty": "B1",
+  "vocabulary": [
+    "order",
+    "shipment",
+    "expedite"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-244",
+  "part": "Part 3",
+  "transcript": "W: Hi, I'm calling about our order of laptop stands. They were supposed to arrive yesterday, but we haven't received them yet.\nM: Oh, I apologize for the delay. Let me check the status for you.\nW: Thank you. We really need them by the end of the week for our office setup.\nM: I see the shipment is delayed due to a supply chain issue, but it's scheduled to arrive by Friday now.\nW: That's cutting it close. Is there any way to expedite the delivery?\nM: Unfortunately, we can't expedite it further, but I assure you it's prioritized.\nW: Alright, we'll make do. Can you confirm the quantity again?\nM: Sure, it's 20 units as per your original order.\nW: Great, I appreciate your help.\nM: No problem, thank you for your understanding.",
+  "question_order": 1
+},
+  {
+  "question": "What is the cause of the shipment delay?",
+  "choices": {
+    "A": "Incorrect address",
+    "B": "Weather conditions",
+    "C": "Supply chain issue",
+    "D": "Holiday schedule"
+  },
+  "answer": "C",
+  "explanation_zh": "C: The man specifies, 'the shipment is delayed due to a supply chain issue,' directly pointing to the cause of the delay, which matches choice C. A, B, and D are not mentioned or implied as causes in the conversation.",
+  "difficulty": "A2",
+  "vocabulary": [
+    "shipment",
+    "delay",
+    "supply chain"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-245",
+  "part": "Part 3",
+  "transcript": "W: Hi, I'm calling about our order of laptop stands. They were supposed to arrive yesterday, but we haven't received them yet.\nM: Oh, I apologize for the delay. Let me check the status for you.\nW: Thank you. We really need them by the end of the week for our office setup.\nM: I see the shipment is delayed due to a supply chain issue, but it's scheduled to arrive by Friday now.\nW: That's cutting it close. Is there any way to expedite the delivery?\nM: Unfortunately, we can't expedite it further, but I assure you it's prioritized.\nW: Alright, we'll make do. Can you confirm the quantity again?\nM: Sure, it's 20 units as per your original order.\nW: Great, I appreciate your help.\nM: No problem, thank you for your understanding.",
+  "question_order": 2
+},
+  {
+  "question": "What can be inferred about the delivery?",
+  "choices": {
+    "A": "It will arrive next week.",
+    "B": "The order was canceled.",
+    "C": "The quantity was incorrect.",
+    "D": "The delivery is prioritized."
+  },
+  "answer": "D",
+  "explanation_zh": "D: The man states, 'it's prioritized,' indicating that although the shipment is delayed, it is being given priority. This implies that even though it is late, efforts are being made to ensure it arrives soon, aligning with choice D. A, B, and C are incorrect inferences based on the transcript.",
+  "difficulty": "B2",
+  "vocabulary": [
+    "prioritized",
+    "delivery",
+    "quantity"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-246",
+  "part": "Part 3",
+  "transcript": "W: Hi, I'm calling about our order of laptop stands. They were supposed to arrive yesterday, but we haven't received them yet.\nM: Oh, I apologize for the delay. Let me check the status for you.\nW: Thank you. We really need them by the end of the week for our office setup.\nM: I see the shipment is delayed due to a supply chain issue, but it's scheduled to arrive by Friday now.\nW: That's cutting it close. Is there any way to expedite the delivery?\nM: Unfortunately, we can't expedite it further, but I assure you it's prioritized.\nW: Alright, we'll make do. Can you confirm the quantity again?\nM: Sure, it's 20 units as per your original order.\nW: Great, I appreciate your help.\nM: No problem, thank you for your understanding.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Booking a conference room",
+    "B": "Setting up a presentation",
+    "C": "Repairing a projector",
+    "D": "Ordering new equipment"
+  },
+  "answer": "C",
+  "explanation_zh": "C: The conversation focuses on solving the problem of a 'projector is not working,' as mentioned at the start. The discussion of repair services and checking availability of a spare confirms the main topic is about the projector issue, making C correct. A, B, and D are actions considered in the conversation but not the main topic.",
+  "difficulty": "B1",
+  "vocabulary": [
+    "projector",
+    "presentation",
+    "equipment"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-247",
+  "part": "Part 3",
+  "transcript": "W: I just noticed that the projector is not working. It's showing an error message.\nM: Oh no, that's a problem. We have an important presentation at 2 PM today.\nW: I know. Should we call the equipment repair service?\nM: Yes, but let's check if we can use the conference room on the third floor instead. They have a spare projector.\nW: Good idea, but I remember the room is booked this afternoon.\nM: Can we rent a replacement projector then?\nW: I’ll check with our usual supplier. They might have one available for immediate delivery.\nM: Please do that quickly so we don't delay the presentation.",
+  "question_order": 1
+},
+  {
+  "question": "What problem is explicitly mentioned in the conversation?",
+  "choices": {
+    "A": "The conference room is unavailable",
+    "B": "The spare projector is missing",
+    "C": "The repair service is closed",
+    "D": "The projector shows an error message"
+  },
+  "answer": "D",
+  "explanation_zh": "D: The woman states, 'It's showing an error message,' which explicitly describes the problem with the projector. This makes D correct. A, B, and C are not mentioned as the explicit problem in the conversation.",
+  "difficulty": "A2",
+  "vocabulary": [
+    "projector",
+    "error",
+    "service"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-248",
+  "part": "Part 3",
+  "transcript": "W: I just noticed that the projector is not working. It's showing an error message.\nM: Oh no, that's a problem. We have an important presentation at 2 PM today.\nW: I know. Should we call the equipment repair service?\nM: Yes, but let's check if we can use the conference room on the third floor instead. They have a spare projector.\nW: Good idea, but I remember the room is booked this afternoon.\nM: Can we rent a replacement projector then?\nW: I’ll check with our usual supplier. They might have one available for immediate delivery.\nM: Please do that quickly so we don't delay the presentation.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate next action?",
+  "choices": {
+    "A": "Check with the supplier for a replacement",
+    "B": "Cancel the presentation",
+    "C": "Call the repair service",
+    "D": "Reschedule the presentation"
+  },
+  "answer": "A",
+  "explanation_zh": "A: The immediate next action is for the woman to 'check with our usual supplier' for a replacement projector, as mentioned by the man. This makes A correct as it reflects the immediate next step. B, C, and D are considered possibilities but are not the immediate next action as per the conversation.",
+  "difficulty": "B1",
+  "vocabulary": [
+    "supplier",
+    "replacement",
+    "immediate"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-249",
+  "part": "Part 3",
+  "transcript": "W: I just noticed that the projector is not working. It's showing an error message.\nM: Oh no, that's a problem. We have an important presentation at 2 PM today.\nW: I know. Should we call the equipment repair service?\nM: Yes, but let's check if we can use the conference room on the third floor instead. They have a spare projector.\nW: Good idea, but I remember the room is booked this afternoon.\nM: Can we rent a replacement projector then?\nW: I’ll check with our usual supplier. They might have one available for immediate delivery.\nM: Please do that quickly so we don't delay the presentation.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Booking a flight to Chicago.",
+    "B": "Canceling a conference registration.",
+    "C": "Changing the location of a meeting.",
+    "D": "Modifying a conference registration date."
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D。主要話題涉及修改會議註冊日期。根據對話，女士想要改變出席日期，這表明她正在修改會議註冊日期。選項B取消註冊與對話不符，選項A和C與對話內容無關。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "registration",
+    "conference",
+    "slots"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-250",
+  "part": "Part 3",
+  "transcript": "W: Hi, I need to change my registration for the marketing conference next month in Chicago.\nM: Sure, I can help with that. Could you provide your registration ID?\nW: Yes, it's MK2023-789. I need to change the attendance date from March 5th to March 6th.\nM: Let me check... Unfortunately, the system shows no available slots on March 6th.\nW: Oh, that's inconvenient. Is there a waiting list?\nM: Yes, I can put you on it.\nW: Please do, and let me know if a spot opens up.\nM: Absolutely, I'll update you by email.\nW: Thank you.",
+  "question_order": 1
+},
+  {
+  "question": "What problem does the woman encounter?",
+  "choices": {
+    "A": "No slots available on the desired date.",
+    "B": "The registration ID is incorrect.",
+    "C": "The location has changed.",
+    "D": "The conference is canceled."
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A。女士遇到的問題是她想要改變出席日期，但系統顯示在新日期沒有可用的空位。選項B註冊ID錯誤在對話中未提及，選項C和D與對話內容無關。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "available",
+    "slots",
+    "system"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-251",
+  "part": "Part 3",
+  "transcript": "W: Hi, I need to change my registration for the marketing conference next month in Chicago.\nM: Sure, I can help with that. Could you provide your registration ID?\nW: Yes, it's MK2023-789. I need to change the attendance date from March 5th to March 6th.\nM: Let me check... Unfortunately, the system shows no available slots on March 6th.\nW: Oh, that's inconvenient. Is there a waiting list?\nM: Yes, I can put you on it.\nW: Please do, and let me know if a spot opens up.\nM: Absolutely, I'll update you by email.\nW: Thank you.",
+  "question_order": 2
+},
+  {
+  "question": "What will the man do next?",
+  "choices": {
+    "A": "Cancel the woman's registration.",
+    "B": "Add her to a waiting list.",
+    "C": "Book her a new flight.",
+    "D": "Call the conference organizer."
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B。男士下一步將把女士加入等待名單中。對話中提到男士會將女士加入等待名單，然後通過電子郵件通知她。選項A、C和D與對話不符。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "waiting list",
+    "notify",
+    "update"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-252",
+  "part": "Part 3",
+  "transcript": "W: Hi, I need to change my registration for the marketing conference next month in Chicago.\nM: Sure, I can help with that. Could you provide your registration ID?\nW: Yes, it's MK2023-789. I need to change the attendance date from March 5th to March 6th.\nM: Let me check... Unfortunately, the system shows no available slots on March 6th.\nW: Oh, that's inconvenient. Is there a waiting list?\nM: Yes, I can put you on it.\nW: Please do, and let me know if a spot opens up.\nM: Absolutely, I'll update you by email.\nW: Thank you.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Correcting a customer order",
+    "B": "Discussing a new product launch",
+    "C": "Confirming a meeting appointment",
+    "D": "Requesting a refund for a product"
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A。主要話題是訂正客戶訂單。對話中，女士提到她的筆記本訂單數量錯誤，而男士表示將發送缺少的筆記本。選項B、C和D與訂單錯誤無關。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "order",
+    "mistake",
+    "express",
+    "shipment"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-253",
+  "part": "Part 3",
+  "transcript": "W: I received the order today, but there seems to be a mistake. I ordered 50 blue notebooks, but only got 30.\nM: I apologize for the error. Let me check your order details.\nW: Sure, I placed the order on March 15th.\nM: OK, I see the issue now. We’ll send the missing 20 notebooks by express delivery. You should receive them by Thursday.\nW: That would be great. Do I need to return the incorrect shipment?\nM: No, you can keep it.\nW: Thanks, I appreciate the quick resolution.\nM: You're welcome. Let us know if there's anything else we can do.",
+  "question_order": 1
+},
+  {
+  "question": "What problem did the customer encounter with her order?",
+  "choices": {
+    "A": "The shipment was delayed",
+    "B": "The quantity of notebooks was incorrect",
+    "C": "The color of the notebooks was wrong",
+    "D": "The order was sent to the wrong address"
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B。客戶遇到的問題是她訂購了50本藍色筆記本，但只收到30本。選項A、C和D在對話中未被提及。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "order",
+    "quantity",
+    "notebooks"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-254",
+  "part": "Part 3",
+  "transcript": "W: I received the order today, but there seems to be a mistake. I ordered 50 blue notebooks, but only got 30.\nM: I apologize for the error. Let me check your order details.\nW: Sure, I placed the order on March 15th.\nM: OK, I see the issue now. We’ll send the missing 20 notebooks by express delivery. You should receive them by Thursday.\nW: That would be great. Do I need to return the incorrect shipment?\nM: No, you can keep it.\nW: Thanks, I appreciate the quick resolution.\nM: You're welcome. Let us know if there's anything else we can do.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate next action after the conversation ends?",
+  "choices": {
+    "A": "The customer will place a new order",
+    "B": "The company will process a refund",
+    "C": "The company will send the missing items",
+    "D": "The customer will return the incorrect items"
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C。對話結束後，公司最有可能的立即行動是發送缺少的筆記本。男士在對話中表示會用快遞發送缺少的筆記本。選項A、B和D與對話不符。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "express",
+    "delivery",
+    "resolution"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-255",
+  "part": "Part 3",
+  "transcript": "W: I received the order today, but there seems to be a mistake. I ordered 50 blue notebooks, but only got 30.\nM: I apologize for the error. Let me check your order details.\nW: Sure, I placed the order on March 15th.\nM: OK, I see the issue now. We’ll send the missing 20 notebooks by express delivery. You should receive them by Thursday.\nW: That would be great. Do I need to return the incorrect shipment?\nM: No, you can keep it.\nW: Thanks, I appreciate the quick resolution.\nM: You're welcome. Let us know if there's anything else we can do.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Cancelling a client meeting",
+    "B": "Rescheduling a client meeting",
+    "C": "Booking a new conference room",
+    "D": "Discussing a project deadline"
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B。主要話題是重新安排客戶會議。對話中提到會議需要重新安排到星期五。選項A、C和D不符合重新安排會議的主題。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "reschedule",
+    "client",
+    "confirm"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-256",
+  "part": "Part 3",
+  "transcript": "W: I wanted to confirm our meeting with the client on Thursday. Is everything set?\nM: Actually, there's been a change. The client requested to reschedule due to a conflict.\nW: Oh, when do they want to meet instead?\nM: They suggested moving it to Friday at 2 PM.\nW: That works for me. But does the conference room have availability then?\nM: Let me check... Yes, it's free on Friday at 2 PM.\nW: Perfect. I'll notify the team about the change.\nM: Great. I'll send an updated calendar invite to everyone involved.\nW: Thanks for handling this.\nM: No problem, happy to help.",
+  "question_order": 1
+},
+  {
+  "question": "What specific change did the client request?",
+  "choices": {
+    "A": "To cancel the meeting entirely",
+    "B": "To meet earlier on Thursday",
+    "C": "To reschedule to Friday at 2 PM",
+    "D": "To meet in a different location"
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C。客戶要求具體更改是將會議重新安排到星期五下午2點。對話中清楚指出了星期五2點的新時間。選項A、B和D與對話不符。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "conflict",
+    "suggested",
+    "availability"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-257",
+  "part": "Part 3",
+  "transcript": "W: I wanted to confirm our meeting with the client on Thursday. Is everything set?\nM: Actually, there's been a change. The client requested to reschedule due to a conflict.\nW: Oh, when do they want to meet instead?\nM: They suggested moving it to Friday at 2 PM.\nW: That works for me. But does the conference room have availability then?\nM: Let me check... Yes, it's free on Friday at 2 PM.\nW: Perfect. I'll notify the team about the change.\nM: Great. I'll send an updated calendar invite to everyone involved.\nW: Thanks for handling this.\nM: No problem, happy to help.",
+  "question_order": 2
+},
+  {
+  "question": "What will the woman do next?",
+  "choices": {
+    "A": "Check the conference room availability",
+    "B": "Call the client to confirm",
+    "C": "Cancel the meeting on Thursday",
+    "D": "Notify the team about the change"
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D。女士下一步將通知團隊有關會議日期的變更。對話中提到女士會通知團隊新的會議時間。選項A、B和C不符合她的行動。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "notify",
+    "calendar invite",
+    "confirm"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-258",
+  "part": "Part 3",
+  "transcript": "W: I wanted to confirm our meeting with the client on Thursday. Is everything set?\nM: Actually, there's been a change. The client requested to reschedule due to a conflict.\nW: Oh, when do they want to meet instead?\nM: They suggested moving it to Friday at 2 PM.\nW: That works for me. But does the conference room have availability then?\nM: Let me check... Yes, it's free on Friday at 2 PM.\nW: Perfect. I'll notify the team about the change.\nM: Great. I'll send an updated calendar invite to everyone involved.\nW: Thanks for handling this.\nM: No problem, happy to help.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Scheduling a new delivery",
+    "B": "Canceling an order",
+    "C": "Discussing a delayed shipment",
+    "D": "Confirming a payment"
+  },
+  "answer": "C",
+  "explanation_zh": "答案是 C。對話的主要內容是討論一個延遲的貨運。女方提到預期的貨物未到，而男方解釋延遲是因為倉庫受到暴風影響。這清楚地指出了對話的核心是在處理延遲的貨運。其他選項如安排新的交貨（A）、取消訂單（B）或確認付款（D）都不符合對話的內容。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "shipment",
+    "delay",
+    "warehouse"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-259",
+  "part": "Part 3",
+  "transcript": "W: Hi, I’m calling about the shipment we expected yesterday. It hasn’t arrived yet.\nM: I apologize. We experienced a delay due to a storm affecting our warehouse operations.\nW: Can you give me an estimated delivery date?\nM: Yes, it should arrive by Friday. I’ll send you a confirmation email shortly.\nW: Thank you. Is there any way to expedite it?\nM: Unfortunately, our policy doesn’t allow for expedited shipping on delayed items.\nW: I understand. I’ll wait for the email.\nM: You can also track it online with your order number.",
+  "question_order": 1
+},
+  {
+  "question": "What caused the delay in the shipment?",
+  "choices": {
+    "A": "A technical error",
+    "B": "Incorrect address",
+    "C": "Product unavailability",
+    "D": "A storm affecting operations"
+  },
+  "answer": "D",
+  "explanation_zh": "答案是 D。男方在對話中提到延遲是因為暴風影響了倉庫的運作。這是直接回答造成貨運延遲的原因。其他選項如技術錯誤（A）、地址錯誤（B）或產品不可用（C）在對話中沒有提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "delay",
+    "storm",
+    "operations"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-260",
+  "part": "Part 3",
+  "transcript": "W: Hi, I’m calling about the shipment we expected yesterday. It hasn’t arrived yet.\nM: I apologize. We experienced a delay due to a storm affecting our warehouse operations.\nW: Can you give me an estimated delivery date?\nM: Yes, it should arrive by Friday. I’ll send you a confirmation email shortly.\nW: Thank you. Is there any way to expedite it?\nM: Unfortunately, our policy doesn’t allow for expedited shipping on delayed items.\nW: I understand. I’ll wait for the email.\nM: You can also track it online with your order number.",
+  "question_order": 2
+},
+  {
+  "question": "What will the woman likely do next?",
+  "choices": {
+    "A": "Wait for a confirmation email",
+    "B": "Cancel the order",
+    "C": "Call the warehouse",
+    "D": "Request a refund"
+  },
+  "answer": "A",
+  "explanation_zh": "答案是 A。女方表示會等待確認電子郵件，並且男方也提到會發送確認郵件。這是對話中明確指出的下一步行動。取消訂單（B）、打電話給倉庫（C）或要求退款（D）並未在對話中提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "confirmation",
+    "expedite",
+    "email"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-261",
+  "part": "Part 3",
+  "transcript": "W: Hi, I’m calling about the shipment we expected yesterday. It hasn’t arrived yet.\nM: I apologize. We experienced a delay due to a storm affecting our warehouse operations.\nW: Can you give me an estimated delivery date?\nM: Yes, it should arrive by Friday. I’ll send you a confirmation email shortly.\nW: Thank you. Is there any way to expedite it?\nM: Unfortunately, our policy doesn’t allow for expedited shipping on delayed items.\nW: I understand. I’ll wait for the email.\nM: You can also track it online with your order number.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Arranging a meeting schedule",
+    "B": "Setting up a computer network",
+    "C": "Organizing room assignments",
+    "D": "Repairing equipment for a presentation"
+  },
+  "answer": "D",
+  "explanation_zh": "答案是 D。對話的主要內容是修理用於演示的設備。女方提到投影機出現故障，而男方則表示會檢查並嘗試更新軟件以解決問題。對話集中於修理設備以便在會議中使用，而非安排會議時間（A）、設置計算機網絡（B）或組織房間分配（C）。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "projector",
+    "meeting",
+    "connectivity"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-262",
+  "part": "Part 3",
+  "transcript": "W: I noticed the projector isn't working, and we need it for the meeting this afternoon. Can you take a look at it?\nM: Sure, I'll check it right away. Do you know what the problem might be?\nW: It seems like it's not connecting to the computer. We tried different cables, but nothing worked.\nM: I see. Let me try updating the software first. Sometimes that solves connectivity issues.\nW: Will it be ready by 2 PM?\nM: I'll do my best. If not, we might need to borrow one from conference room B.\nW: Okay, please keep me updated.\nM: Definitely. I'll let you know as soon as I have any news.",
+  "question_order": 1
+},
+  {
+  "question": "What problem is explicitly mentioned in the conversation?",
+  "choices": {
+    "A": "The projector isn't connecting to the computer.",
+    "B": "The meeting room is unavailable.",
+    "C": "The cables are missing.",
+    "D": "The projector bulb is burnt out."
+  },
+  "answer": "A",
+  "explanation_zh": "答案是 A。女方提到投影機未能連接到電腦，並嘗試了不同的線纜但無法解決問題。這是對話中明確提到的問題。其他選項如會議室不可用（B）、線纜丟失（C）或投影機燈泡燒壞（D）並未在對話中提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "projector",
+    "cables",
+    "computer"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-263",
+  "part": "Part 3",
+  "transcript": "W: I noticed the projector isn't working, and we need it for the meeting this afternoon. Can you take a look at it?\nM: Sure, I'll check it right away. Do you know what the problem might be?\nW: It seems like it's not connecting to the computer. We tried different cables, but nothing worked.\nM: I see. Let me try updating the software first. Sometimes that solves connectivity issues.\nW: Will it be ready by 2 PM?\nM: I'll do my best. If not, we might need to borrow one from conference room B.\nW: Okay, please keep me updated.\nM: Definitely. I'll let you know as soon as I have any news.",
+  "question_order": 2
+},
+  {
+  "question": "What is likely the first action the man will take?",
+  "choices": {
+    "A": "Contact technical support",
+    "B": "Try updating the software",
+    "C": "Purchase a new projector",
+    "D": "Check the cables again"
+  },
+  "answer": "B",
+  "explanation_zh": "答案是 B。男方表示首先會嘗試更新軟件，這有時能解決連接問題。這是對話中明確提到的下一步行動。聯繫技術支持（A）、購買新投影機（C）或再次檢查線纜（D）並未在對話中提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "software",
+    "update",
+    "connectivity"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-264",
+  "part": "Part 3",
+  "transcript": "W: I noticed the projector isn't working, and we need it for the meeting this afternoon. Can you take a look at it?\nM: Sure, I'll check it right away. Do you know what the problem might be?\nW: It seems like it's not connecting to the computer. We tried different cables, but nothing worked.\nM: I see. Let me try updating the software first. Sometimes that solves connectivity issues.\nW: Will it be ready by 2 PM?\nM: I'll do my best. If not, we might need to borrow one from conference room B.\nW: Okay, please keep me updated.\nM: Definitely. I'll let you know as soon as I have any news.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the conversation?",
+  "choices": {
+    "A": "Changing a conference registration",
+    "B": "Booking a hotel room",
+    "C": "Planning a business trip",
+    "D": "Discussing conference topics"
+  },
+  "answer": "A",
+  "explanation_zh": "答案是 A。女方提到需要更改即將到來的會議的註冊，男方則幫助她更新註冊信息。對話的核心是更改會議註冊，而不是預訂酒店房間（B）、計劃商務旅行（C）或討論會議主題（D）。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "conference",
+    "registration",
+    "session"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-265",
+  "part": "Part 3",
+  "transcript": "W: I need to change my registration for the upcoming conference.\nM: What seems to be the issue?\nW: I initially registered for the workshops on the first day, but now I need to attend a session on project management instead.\nM: No problem. I can update your registration. The project management session is on March 10.\nW: Great, will there be an additional fee for changing sessions?\nM: No, there's no extra charge for switching sessions.\nW: That's good to know. Will I get a new confirmation email?\nM: Yes, I'll send you a revised confirmation shortly.\nW: Thank you for the help. I'm looking forward to the conference now!\nM: You're welcome! Have a great day.",
+  "question_order": 1
+},
+  {
+  "question": "What detail does the woman need help with?",
+  "choices": {
+    "A": "Cancelling her registration",
+    "B": "Changing from workshops to a project management session",
+    "C": "Getting a ticket for a dinner event",
+    "D": "Finding accommodation for the conference"
+  },
+  "answer": "B",
+  "explanation_zh": "答案是 B。女方明確提到需要從第一天的工作坊改為參加專案管理的會議。這是對話中女方需要幫助的具體細節。其他選項如取消註冊（A）、獲得晚宴活動的票（C）或尋找會議住宿（D）並未在對話中提及。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "workshops",
+    "project management",
+    "session"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-266",
+  "part": "Part 3",
+  "transcript": "W: I need to change my registration for the upcoming conference.\nM: What seems to be the issue?\nW: I initially registered for the workshops on the first day, but now I need to attend a session on project management instead.\nM: No problem. I can update your registration. The project management session is on March 10.\nW: Great, will there be an additional fee for changing sessions?\nM: No, there's no extra charge for switching sessions.\nW: That's good to know. Will I get a new confirmation email?\nM: Yes, I'll send you a revised confirmation shortly.\nW: Thank you for the help. I'm looking forward to the conference now!\nM: You're welcome! Have a great day.",
+  "question_order": 2
+},
+  {
+  "question": "What is the man's most likely immediate next action?",
+  "choices": {
+    "A": "Cancel the woman's registration",
+    "B": "Charge an extra fee",
+    "C": "Send a revised confirmation email",
+    "D": "Arrange transportation for the woman"
+  },
+  "answer": "C",
+  "explanation_zh": "答案是 C。男方表示會很快發送修訂後的確認電子郵件，這是對話中明確提到的下一步行動。取消女人的註冊（A）、收取額外費用（B）或安排交通（D）並未在對話中提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "confirmation",
+    "email",
+    "registration"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p3-gen-267",
+  "part": "Part 3",
+  "transcript": "W: I need to change my registration for the upcoming conference.\nM: What seems to be the issue?\nW: I initially registered for the workshops on the first day, but now I need to attend a session on project management instead.\nM: No problem. I can update your registration. The project management session is on March 10.\nW: Great, will there be an additional fee for changing sessions?\nM: No, there's no extra charge for switching sessions.\nW: That's good to know. Will I get a new confirmation email?\nM: Yes, I'll send you a revised confirmation shortly.\nW: Thank you for the help. I'm looking forward to the conference now!\nM: You're welcome! Have a great day.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of the conversation?",
+  "choices": {
+    "A": "To discuss a new product launch.",
+    "B": "To correct a customer's order mistake.",
+    "C": "To compare different product prices.",
+    "D": "To schedule an appointment."
+  },
+  "answer": "B",
+  "explanation_zh": "B: The main purpose of the conversation is to correct a customer's order mistake. The woman mentions a problem with her order, stating 'I ordered twelve blue chairs, but I only got ten,' and the man responds by checking the order details and confirming the mistake. Distractors A, C, and D are not discussed in the conversation.",
+  "difficulty": "B1",
+  "vocabulary": [
+    "order",
+    "inconvenience",
+    "confirmation"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p3-gen-268",
+  "part": "Part 3",
+  "transcript": "W: Hi, I received my order from your store, but there's a problem. I ordered twelve blue chairs, but I only got ten.\nM: I'm sorry for the inconvenience. Let me check your order details. Can you confirm your order number?\nW: Sure, it's 45392.\nM: Thank you. I see the order for twelve chairs. It seems there was a mistake in packing.\nW: How soon can I get the missing chairs?\nM: We can ship them by express delivery, and they should arrive by Friday.\nW: Great, I appreciate your help.\nM: You're welcome. I'll send you a confirmation email shortly.",
+  "question_order": 1
+},
+  {
+  "question": "What was the specific problem with the order?",
+  "choices": {
+    "A": "The chairs were the wrong color.",
+    "B": "The chairs arrived late.",
+    "C": "The order was missing two chairs.",
+    "D": "The wrong item was delivered."
+  },
+  "answer": "C",
+  "explanation_zh": "C: The specific problem with the order is that it was missing two chairs. The woman clearly states, 'I ordered twelve blue chairs, but I only got ten,' indicating that two chairs are missing. Distractors A, B, and D are incorrect because there is no mention of wrong color, late arrival, or wrong item in the transcript.",
+  "difficulty": "A2",
+  "vocabulary": [
+    "order",
+    "missing",
+    "confirm"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p3-gen-269",
+  "part": "Part 3",
+  "transcript": "W: Hi, I received my order from your store, but there's a problem. I ordered twelve blue chairs, but I only got ten.\nM: I'm sorry for the inconvenience. Let me check your order details. Can you confirm your order number?\nW: Sure, it's 45392.\nM: Thank you. I see the order for twelve chairs. It seems there was a mistake in packing.\nW: How soon can I get the missing chairs?\nM: We can ship them by express delivery, and they should arrive by Friday.\nW: Great, I appreciate your help.\nM: You're welcome. I'll send you a confirmation email shortly.",
+  "question_order": 2
+},
+  {
+  "question": "What will the man do next?",
+  "choices": {
+    "A": "Send a refund to the customer.",
+    "B": "Call the customer to confirm the order.",
+    "C": "Offer a discount on the next purchase.",
+    "D": "Ship the missing chairs by express delivery."
+  },
+  "answer": "D",
+  "explanation_zh": "D: The man will ship the missing chairs by express delivery. He states, 'We can ship them by express delivery, and they should arrive by Friday.' This action directly addresses the woman's concern about receiving the missing chairs. Distractors A, B, and C are incorrect as there is no mention of a refund, a call to confirm, or a discount.",
+  "difficulty": "B1",
+  "vocabulary": [
+    "express",
+    "delivery",
+    "confirmation"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p3-gen-270",
+  "part": "Part 3",
+  "transcript": "W: Hi, I received my order from your store, but there's a problem. I ordered twelve blue chairs, but I only got ten.\nM: I'm sorry for the inconvenience. Let me check your order details. Can you confirm your order number?\nW: Sure, it's 45392.\nM: Thank you. I see the order for twelve chairs. It seems there was a mistake in packing.\nW: How soon can I get the missing chairs?\nM: We can ship them by express delivery, and they should arrive by Friday.\nW: Great, I appreciate your help.\nM: You're welcome. I'll send you a confirmation email shortly.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of this announcement?",
+  "choices": {
+    "A": "To cancel a train service",
+    "B": "To inform about a train delay",
+    "C": "To announce a special promotion",
+    "D": "To introduce a new train route"
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B的原因是因為公告中明確提到'This is an announcement regarding the delay of Train 742 bound for Boston'，這表明公告的主要目的是通知列車延誤。選項A、C和D都不符合因為沒有提到取消服務、促銷或新路線。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "delay",
+    "maintenance",
+    "platform",
+    "refreshments",
+    "assistance"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-112",
+  "part": "Part 4",
+  "transcript": "Good morning, passengers. This is an announcement regarding the delay of Train 742 bound for Boston. Due to unexpected maintenance on the tracks, the train will now depart at 10:30 AM instead of 9:15 AM. We apologize for the inconvenience this may cause. Please proceed to platform 5, where refreshments will be provided for your comfort. For further assistance or to change your ticket, visit the customer service desk located near exit B. Thank you for your patience and understanding.",
+  "question_order": 1
+},
+  {
+  "question": "Where should passengers go for refreshments?",
+  "choices": {
+    "A": "Platform 3",
+    "B": "Platform 7",
+    "C": "Platform 5",
+    "D": "Platform 8"
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C的原因是公告中提到'Please proceed to platform 5, where refreshments will be provided for your comfort'，這明確指出乘客應該前往5號月台。選項A、B和D都是干擾選項，因為公告中未提及。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "refreshments",
+    "platform",
+    "passengers",
+    "departure",
+    "service"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-113",
+  "part": "Part 4",
+  "transcript": "Good morning, passengers. This is an announcement regarding the delay of Train 742 bound for Boston. Due to unexpected maintenance on the tracks, the train will now depart at 10:30 AM instead of 9:15 AM. We apologize for the inconvenience this may cause. Please proceed to platform 5, where refreshments will be provided for your comfort. For further assistance or to change your ticket, visit the customer service desk located near exit B. Thank you for your patience and understanding.",
+  "question_order": 2
+},
+  {
+  "question": "Why might passengers visit the customer service desk?",
+  "choices": {
+    "A": "To buy souvenirs",
+    "B": "To report lost items",
+    "C": "To upgrade their seats",
+    "D": "To change their tickets"
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D的原因是公告中提到'For further assistance or to change your ticket, visit the customer service desk located near exit B'，這表明乘客可能會去服務台更改他們的票。選項A、B和C都不符合，因為公告中沒有提到購買紀念品、報告丟失物品或升級座位。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "customer service",
+    "tickets",
+    "assistance",
+    "platform",
+    "desk"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p4-gen-114",
+  "part": "Part 4",
+  "transcript": "Good morning, passengers. This is an announcement regarding the delay of Train 742 bound for Boston. Due to unexpected maintenance on the tracks, the train will now depart at 10:30 AM instead of 9:15 AM. We apologize for the inconvenience this may cause. Please proceed to platform 5, where refreshments will be provided for your comfort. For further assistance or to change your ticket, visit the customer service desk located near exit B. Thank you for your patience and understanding.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of this announcement?",
+  "choices": {
+    "A": "To inform about a new project deadline.",
+    "B": "To announce a change in team leadership.",
+    "C": "To remind staff about an upcoming training session.",
+    "D": "To discuss a recent safety incident."
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C的原因是因為公告中說'This is a reminder about the mandatory staff training session scheduled for this Friday'，這表明公告的目的是提醒員工即將到來的培訓課程。選項A、B和D都不正確，因為公告沒有提到項目截止日期、團隊領導變更或安全事件。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "mandatory",
+    "session",
+    "protocols",
+    "compliance",
+    "supervisor"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-115",
+  "part": "Part 4",
+  "transcript": "Good afternoon, everyone. This is a reminder about the mandatory staff training session scheduled for this Friday, October 13th. The training will take place in the main conference room on the second floor and will start at 9 a.m. sharp. It is essential that all team members attend as we will be covering new safety protocols and compliance guidelines. Please ensure you arrive on time as there will be a sign-in sheet at the entrance. If you have any scheduling conflicts, please inform your supervisor by tomorrow evening at the latest.",
+  "question_order": 1
+},
+  {
+  "question": "What deadline is mentioned in the announcement?",
+  "choices": {
+    "A": "The end of the month.",
+    "B": "Next Thursday morning.",
+    "C": "Friday at noon.",
+    "D": "Tomorrow evening."
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D的原因是因為公告中提到'If you have any scheduling conflicts, please inform your supervisor by tomorrow evening at the latest'，這表明截止日期是明天晚上。選項A、B和C都不正確，因為公告中沒有提到這些時間。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "mandatory",
+    "conference",
+    "inform",
+    "scheduling",
+    "conflicts"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-116",
+  "part": "Part 4",
+  "transcript": "Good afternoon, everyone. This is a reminder about the mandatory staff training session scheduled for this Friday, October 13th. The training will take place in the main conference room on the second floor and will start at 9 a.m. sharp. It is essential that all team members attend as we will be covering new safety protocols and compliance guidelines. Please ensure you arrive on time as there will be a sign-in sheet at the entrance. If you have any scheduling conflicts, please inform your supervisor by tomorrow evening at the latest.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely action for a staff member to take immediately after hearing this notice?",
+  "choices": {
+    "A": "Report any scheduling conflicts to their supervisor.",
+    "B": "Prepare a presentation for the training.",
+    "C": "Set up the room for the training.",
+    "D": "Read the new safety protocols."
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A的原因是公告中提到'If you have any scheduling conflicts, please inform your supervisor by tomorrow evening at the latest'，表明員工應該立即報告任何時間衝突。選項B、C和D都不正確，因為公告並未要求準備演講、佈置房間或閱讀安全協議。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "supervisor",
+    "inform",
+    "conference",
+    "compliance",
+    "guidelines"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p4-gen-117",
+  "part": "Part 4",
+  "transcript": "Good afternoon, everyone. This is a reminder about the mandatory staff training session scheduled for this Friday, October 13th. The training will take place in the main conference room on the second floor and will start at 9 a.m. sharp. It is essential that all team members attend as we will be covering new safety protocols and compliance guidelines. Please ensure you arrive on time as there will be a sign-in sheet at the entrance. If you have any scheduling conflicts, please inform your supervisor by tomorrow evening at the latest.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of this message?",
+  "choices": {
+    "A": "To offer a repair discount",
+    "B": "To confirm a new service request",
+    "C": "To announce a change in business hours",
+    "D": "To inform about a completed repair"
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D的原因是因為消息中說'We have completed the necessary repairs, and your device is ready for pickup'，這表明消息的主要目的是通知已完成的維修。選項A、B和C都不正確，因為消息中沒有提到打折、新服務請求或營業時間變更。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "repair",
+    "pickup",
+    "downtown",
+    "receipt",
+    "collect"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-118",
+  "part": "Part 4",
+  "transcript": "Hello, this is a message from QuickFix Electronics regarding your recent service request for your laptop repair. We have completed the necessary repairs, and your device is ready for pickup at our downtown location. You can collect it from Tuesday to Friday between 10 a.m. and 6 p.m. Please bring a valid ID and your receipt when you come. Note that the service charge is $75, payable upon collection. If you have any questions, feel free to call us at 555-0199. Thank you for choosing QuickFix Electronics.",
+  "question_order": 1
+},
+  {
+  "question": "What is mentioned about the service charge?",
+  "choices": {
+    "A": "It is $75 and payable upon collection",
+    "B": "It needs to be paid online",
+    "C": "It is waived for first-time customers",
+    "D": "It is included in the warranty"
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A的原因是因為消息中提到'Note that the service charge is $75, payable upon collection'，這說明服務費是75美元且需要在取件時支付。選項B、C和D都是干擾選項，因為消息中沒有提到這些支付方式或免除條件。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "service charge",
+    "payable",
+    "collection",
+    "valid",
+    "receipt"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-119",
+  "part": "Part 4",
+  "transcript": "Hello, this is a message from QuickFix Electronics regarding your recent service request for your laptop repair. We have completed the necessary repairs, and your device is ready for pickup at our downtown location. You can collect it from Tuesday to Friday between 10 a.m. and 6 p.m. Please bring a valid ID and your receipt when you come. Note that the service charge is $75, payable upon collection. If you have any questions, feel free to call us at 555-0199. Thank you for choosing QuickFix Electronics.",
+  "question_order": 2
+},
+  {
+  "question": "What can be inferred about the pickup location?",
+  "choices": {
+    "A": "It is located in a residential area",
+    "B": "It is likely busy during business hours",
+    "C": "It requires special access permission",
+    "D": "It is open 24 hours"
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B的原因是因為消息中說明取件時間是'Tuesday to Friday between 10 a.m. and 6 p.m.'，這表明在商業時間內，取件地點可能會很忙。選項A、C和D不正確，因為消息中沒有提到住宅區、特殊訪問權限或24小時開放。",
+  "difficulty": "B2",
+  "vocabulary": [
+    "pickup",
+    "location",
+    "business hours",
+    "valid ID",
+    "call"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p4-gen-120",
+  "part": "Part 4",
+  "transcript": "Hello, this is a message from QuickFix Electronics regarding your recent service request for your laptop repair. We have completed the necessary repairs, and your device is ready for pickup at our downtown location. You can collect it from Tuesday to Friday between 10 a.m. and 6 p.m. Please bring a valid ID and your receipt when you come. Note that the service charge is $75, payable upon collection. If you have any questions, feel free to call us at 555-0199. Thank you for choosing QuickFix Electronics.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the announcement?",
+  "choices": {
+    "A": "A new building access system",
+    "B": "The launch of a new security team",
+    "C": "Office relocation next month",
+    "D": "New parking regulations"
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A：公告的主要主題是關於新的大樓進入系統。公告中明確提到，從11月1日起，將實施新的主控系統。選項B、C、D中沒有提到新的安全團隊、辦公室搬遷或新的停車規定。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "access",
+    "control",
+    "security",
+    "ground floor",
+    "transition"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-121",
+  "part": "Part 4",
+  "transcript": "Attention, all employees. Starting November 1st, we will be implementing a new access control system for the main office building. Please note that your current access cards will no longer function after October 31st. You must obtain a new card from the security office on the ground floor by next Wednesday, October 25th. The office is open from 9 AM to 5 PM. This change is necessary to enhance security measures. If you have any questions, contact the security team. Thank you for your cooperation in this transition.",
+  "question_order": 1
+},
+  {
+  "question": "When is the deadline to obtain a new access card?",
+  "choices": {
+    "A": "October 31st",
+    "B": "October 25th",
+    "C": "November 1st",
+    "D": "Next Monday"
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B：公告中明確指出，員工必須在10月25日之前到安全辦公室獲取新卡。因此，10月25日是獲取新卡的截止日期。選項A、C、D的日期不正確。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "obtain",
+    "deadline",
+    "security",
+    "ground floor",
+    "transition"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-122",
+  "part": "Part 4",
+  "transcript": "Attention, all employees. Starting November 1st, we will be implementing a new access control system for the main office building. Please note that your current access cards will no longer function after October 31st. You must obtain a new card from the security office on the ground floor by next Wednesday, October 25th. The office is open from 9 AM to 5 PM. This change is necessary to enhance security measures. If you have any questions, contact the security team. Thank you for your cooperation in this transition.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate next action for employees?",
+  "choices": {
+    "A": "Continue using their current access cards",
+    "B": "Contact the security team for assistance",
+    "C": "Visit the security office to get a new access card",
+    "D": "Attend a meeting about security changes"
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C：公告中指出，員工需要去安全辦公室獲得新卡，這是最可能的即時行動。選項A不正確因為舊卡將在10月31日後失效。選項B是次要行動，只有在有問題時才聯繫安全團隊。選項D未提及會議。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "access card",
+    "security office",
+    "immediate",
+    "transition",
+    "enhance"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p4-gen-123",
+  "part": "Part 4",
+  "transcript": "Attention, all employees. Starting November 1st, we will be implementing a new access control system for the main office building. Please note that your current access cards will no longer function after October 31st. You must obtain a new card from the security office on the ground floor by next Wednesday, October 25th. The office is open from 9 AM to 5 PM. This change is necessary to enhance security measures. If you have any questions, contact the security team. Thank you for your cooperation in this transition.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of this announcement?",
+  "choices": {
+    "A": "To introduce new store products",
+    "B": "To inform about a store promotion",
+    "C": "To announce a new store opening",
+    "D": "To explain store membership benefits"
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B：公告的主要目的是通知商店促銷活動，從11月10日到15日，冬季服裝有30%的折扣。選項A、C、D與促銷活動無關。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "promotion",
+    "loyalty program",
+    "clearance",
+    "discount"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-124",
+  "part": "Part 4",
+  "transcript": "Hello shoppers! This is an announcement about our upcoming store promotion at Westview Mall. From November 10th to 15th, enjoy 30% off on all winter clothing, including jackets, hats, and scarves. Note that this offer is only valid for members of our loyalty program. If you're not a member yet, you can sign up at the customer service desk. Also, please remember that the discount does not apply to clearance items. Don't miss out on refreshing your winter wardrobe at a great price! Thank you for shopping with us.",
+  "question_order": 1
+},
+  {
+  "question": "Who is eligible for the discount mentioned in the announcement?",
+  "choices": {
+    "A": "All customers",
+    "B": "Customers purchasing clearance items",
+    "C": "Members of the loyalty program",
+    "D": "First-time shoppers"
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C：公告指出，30%的折扣僅適用於商店忠誠計劃的會員。選項A和D錯誤因為折扣只針對會員，選項B不正確因為折扣不適用於清倉商品。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "eligible",
+    "members",
+    "loyalty program",
+    "discount"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-125",
+  "part": "Part 4",
+  "transcript": "Hello shoppers! This is an announcement about our upcoming store promotion at Westview Mall. From November 10th to 15th, enjoy 30% off on all winter clothing, including jackets, hats, and scarves. Note that this offer is only valid for members of our loyalty program. If you're not a member yet, you can sign up at the customer service desk. Also, please remember that the discount does not apply to clearance items. Don't miss out on refreshing your winter wardrobe at a great price! Thank you for shopping with us.",
+  "question_order": 2
+},
+  {
+  "question": "What can shoppers do if they are not currently loyalty program members?",
+  "choices": {
+    "A": "Wait until the promotion ends",
+    "B": "Purchase clearance items instead",
+    "C": "Come back during the next promotion",
+    "D": "Sign up at the customer service desk"
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D：公告中明確提到，如果不是忠誠計劃的會員，可以在客服櫃檯註冊。因此，選擇D是正確的行動。選項A、B、C不能獲得促銷折扣。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "sign up",
+    "customer service",
+    "members",
+    "promotion"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p4-gen-126",
+  "part": "Part 4",
+  "transcript": "Hello shoppers! This is an announcement about our upcoming store promotion at Westview Mall. From November 10th to 15th, enjoy 30% off on all winter clothing, including jackets, hats, and scarves. Note that this offer is only valid for members of our loyalty program. If you're not a member yet, you can sign up at the customer service desk. Also, please remember that the discount does not apply to clearance items. Don't miss out on refreshing your winter wardrobe at a great price! Thank you for shopping with us.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of the announcement?",
+  "choices": {
+    "A": "To announce a new train route",
+    "B": "To inform about ticket prices",
+    "C": "To notify about a train delay",
+    "D": "To promote customer service options"
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C：公告的主要目的是通知乘客火車延誤。公告中提到，由於維修問題，火車將延遲。選項A、B、D未提及延誤。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "maintenance",
+    "delay",
+    "departure",
+    "customer service",
+    "inconvenience"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-127",
+  "part": "Part 4",
+  "transcript": "Attention passengers. Due to unexpected maintenance issues, the 2:30 p.m. train to Boston will be delayed. We anticipate a new departure time of 3:15 p.m. We apologize for any inconvenience this may cause. The maintenance team is working diligently to resolve the issue. If you have any urgent travel needs, please visit the customer service desk located next to Platform 4 for assistance. Remember to check the departure screens for the latest updates. Thank you for your patience and understanding.",
+  "question_order": 1
+},
+  {
+  "question": "What time is the train now expected to depart?",
+  "choices": {
+    "A": "2:30 p.m.",
+    "B": "3:00 p.m.",
+    "C": "4:00 p.m.",
+    "D": "3:15 p.m."
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D：公告中提到，火車預計新的出發時間是3:15 p.m.。選項A、B、C的時間不正確。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "departure",
+    "expected",
+    "time",
+    "maintenance",
+    "update"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-128",
+  "part": "Part 4",
+  "transcript": "Attention passengers. Due to unexpected maintenance issues, the 2:30 p.m. train to Boston will be delayed. We anticipate a new departure time of 3:15 p.m. We apologize for any inconvenience this may cause. The maintenance team is working diligently to resolve the issue. If you have any urgent travel needs, please visit the customer service desk located next to Platform 4 for assistance. Remember to check the departure screens for the latest updates. Thank you for your patience and understanding.",
+  "question_order": 2
+},
+  {
+  "question": "What should passengers do if they have urgent travel needs?",
+  "choices": {
+    "A": "Visit the customer service desk",
+    "B": "Check the departure screens",
+    "C": "Wait at Platform 4",
+    "D": "Contact the maintenance team"
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A：公告中建議有緊急旅行需求的乘客可以去平台4旁的客服櫃檯尋求協助。因此，選擇A是正確的行動。選項B、C、D未提供立即協助。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "urgent",
+    "customer service",
+    "platform",
+    "assistance",
+    "desk"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p4-gen-129",
+  "part": "Part 4",
+  "transcript": "Attention passengers. Due to unexpected maintenance issues, the 2:30 p.m. train to Boston will be delayed. We anticipate a new departure time of 3:15 p.m. We apologize for any inconvenience this may cause. The maintenance team is working diligently to resolve the issue. If you have any urgent travel needs, please visit the customer service desk located next to Platform 4 for assistance. Remember to check the departure screens for the latest updates. Thank you for your patience and understanding.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of this announcement?",
+  "choices": {
+    "A": "To introduce a new staff member",
+    "B": "To announce a company event",
+    "C": "To discuss a change in the work schedule",
+    "D": "To remind staff about a training session"
+  },
+  "answer": "D",
+  "explanation_zh": "D: The announcement's main purpose is to remind staff about a training session, which is explicitly stated at the beginning: 'This is a reminder about our staff training session.' Options A, B, and C do not match the content of the announcement, which focuses on the training session and its rescheduling.",
+  "difficulty": "A2",
+  "vocabulary": [
+    "reminder",
+    "session",
+    "venue",
+    "facilities",
+    "check in"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-130",
+  "part": "Part 4",
+  "transcript": "Good morning, everyone. This is a reminder about our staff training session originally set for the 15th of April. Due to unforeseen circumstances with our venue, the session will now be held at our downtown office on April 22nd. This change will give us access to better facilities and more space. The training will begin promptly at 9 a.m. Please ensure you arrive 15 minutes early to check in at the reception desk. If you have any questions, feel free to contact the HR department. Thank you for your understanding and cooperation.",
+  "question_order": 1
+},
+  {
+  "question": "When will the staff training session now take place?",
+  "choices": {
+    "A": "April 22nd",
+    "B": "April 15th",
+    "C": "April 8th",
+    "D": "April 30th"
+  },
+  "answer": "A",
+  "explanation_zh": "A: The rescheduled training session is now set for April 22nd, as stated: 'the session will now be held...on April 22nd.' Option B refers to the original date, and options C and D are not mentioned in the transcript.",
+  "difficulty": "B1",
+  "vocabulary": [
+    "training session",
+    "venue",
+    "downtown",
+    "facilities",
+    "check in"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-131",
+  "part": "Part 4",
+  "transcript": "Good morning, everyone. This is a reminder about our staff training session originally set for the 15th of April. Due to unforeseen circumstances with our venue, the session will now be held at our downtown office on April 22nd. This change will give us access to better facilities and more space. The training will begin promptly at 9 a.m. Please ensure you arrive 15 minutes early to check in at the reception desk. If you have any questions, feel free to contact the HR department. Thank you for your understanding and cooperation.",
+  "question_order": 2
+},
+  {
+  "question": "Why has the location of the training session changed?",
+  "choices": {
+    "A": "To accommodate more staff",
+    "B": "For better facilities and more space",
+    "C": "Due to a scheduling conflict",
+    "D": "To reduce travel time for attendees"
+  },
+  "answer": "B",
+  "explanation_zh": "B: The location change is due to 'better facilities and more space,' which is directly mentioned. Option A is not specified as a reason, option C is incorrect as no scheduling conflict is noted, and option D is not mentioned.",
+  "difficulty": "B2",
+  "vocabulary": [
+    "unforeseen",
+    "circumstances",
+    "venue",
+    "facilities",
+    "reception"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p4-gen-132",
+  "part": "Part 4",
+  "transcript": "Good morning, everyone. This is a reminder about our staff training session originally set for the 15th of April. Due to unforeseen circumstances with our venue, the session will now be held at our downtown office on April 22nd. This change will give us access to better facilities and more space. The training will begin promptly at 9 a.m. Please ensure you arrive 15 minutes early to check in at the reception desk. If you have any questions, feel free to contact the HR department. Thank you for your understanding and cooperation.",
+  "question_order": 3
+},
+  {
+  "question": "What is the purpose of this message?",
+  "choices": {
+    "A": "To inform about a completed repair",
+    "B": "To announce a new product",
+    "C": "To advertise a discount",
+    "D": "To cancel a service appointment"
+  },
+  "answer": "A",
+  "explanation_zh": "A: The message's purpose is to inform the customer about the completed laptop repair, as clearly stated: 'We want to inform you that your laptop repair has been completed ahead of schedule.' Options B, C, and D do not align with the content of the update regarding the repair status.",
+  "difficulty": "A2",
+  "vocabulary": [
+    "repair",
+    "service",
+    "completed"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-133",
+  "part": "Part 4",
+  "transcript": "Hello, this is a customer service update from GreenTech Electronics. We want to inform you that your laptop repair has been completed ahead of schedule. You can pick up your device from our downtown service center at 123 Main Street. Our office hours are Monday through Friday, 9 AM to 6 PM. Please bring your service receipt when you come. If you have any questions, feel free to call us at 555-0199. Thank you for choosing GreenTech Electronics.",
+  "question_order": 1
+},
+  {
+  "question": "Where can the customer pick up their repaired laptop?",
+  "choices": {
+    "A": "GreenTech Headquarters",
+    "B": "Downtown service center",
+    "C": "Shipping department",
+    "D": "Local retail store"
+  },
+  "answer": "B",
+  "explanation_zh": "B: The customer is instructed to pick up their laptop from the 'downtown service center,' as stated in the message. Option A is not mentioned, and options C and D do not align with the described pickup location.",
+  "difficulty": "A2",
+  "vocabulary": [
+    "pick up",
+    "service center",
+    "downtown"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-134",
+  "part": "Part 4",
+  "transcript": "Hello, this is a customer service update from GreenTech Electronics. We want to inform you that your laptop repair has been completed ahead of schedule. You can pick up your device from our downtown service center at 123 Main Street. Our office hours are Monday through Friday, 9 AM to 6 PM. Please bring your service receipt when you come. If you have any questions, feel free to call us at 555-0199. Thank you for choosing GreenTech Electronics.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate next action for the customer?",
+  "choices": {
+    "A": "Schedule another repair",
+    "B": "Purchase a new laptop",
+    "C": "Visit the service center",
+    "D": "Call customer service"
+  },
+  "answer": "C",
+  "explanation_zh": "C: The customer is most likely to 'Visit the service center' to collect the repaired laptop, as the message invites them to pick it up. Scheduling another repair, purchasing a new laptop, or calling customer service are not indicated as next actions.",
+  "difficulty": "A2",
+  "vocabulary": [
+    "immediate",
+    "next action",
+    "visit"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p4-gen-135",
+  "part": "Part 4",
+  "transcript": "Hello, this is a customer service update from GreenTech Electronics. We want to inform you that your laptop repair has been completed ahead of schedule. You can pick up your device from our downtown service center at 123 Main Street. Our office hours are Monday through Friday, 9 AM to 6 PM. Please bring your service receipt when you come. If you have any questions, feel free to call us at 555-0199. Thank you for choosing GreenTech Electronics.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of the announcement?",
+  "choices": {
+    "A": "To inform about a new office relocation.",
+    "B": "To announce a change in building access procedures.",
+    "C": "To introduce new staff members.",
+    "D": "To provide details on a company event."
+  },
+  "answer": "B",
+  "explanation_zh": "B: The announcement's main purpose is to inform staff about changes in building access procedures, specifically the requirement for a new security pass: 'access to the main building will require a new security pass.' Options A, C, and D are unrelated to the announcement's content.",
+  "difficulty": "B1",
+  "vocabulary": [
+    "access",
+    "security",
+    "valid"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-136",
+  "part": "Part 4",
+  "transcript": "Attention all staff. Starting April 15th, access to the main building will require a new security pass. Current passes will no longer be valid after April 14th. You can collect your new pass from the security office located on the first floor between 9 AM and 5 PM. Please note that the new passes are part of our enhanced security measures. If you have any questions, contact the security department by emailing security@ourcompany.com. Thank you for your cooperation in ensuring a safe working environment.",
+  "question_order": 1
+},
+  {
+  "question": "When will the current security passes become invalid?",
+  "choices": {
+    "A": "April 12th",
+    "B": "April 13th",
+    "C": "April 14th",
+    "D": "April 15th"
+  },
+  "answer": "C",
+  "explanation_zh": "C: Current security passes will be invalid after April 14th, as stated: 'Current passes will no longer be valid after April 14th.' Option D states when the new requirement begins, but C is when old passes become invalid. Options A and B are not mentioned.",
+  "difficulty": "A2",
+  "vocabulary": [
+    "current",
+    "invalid",
+    "effective"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-137",
+  "part": "Part 4",
+  "transcript": "Attention all staff. Starting April 15th, access to the main building will require a new security pass. Current passes will no longer be valid after April 14th. You can collect your new pass from the security office located on the first floor between 9 AM and 5 PM. Please note that the new passes are part of our enhanced security measures. If you have any questions, contact the security department by emailing security@ourcompany.com. Thank you for your cooperation in ensuring a safe working environment.",
+  "question_order": 2
+},
+  {
+  "question": "Where should staff pick up their new security passes?",
+  "choices": {
+    "A": "At the HR department",
+    "B": "On the second floor",
+    "C": "At the front desk",
+    "D": "At the security office"
+  },
+  "answer": "D",
+  "explanation_zh": "D: Staff should pick up new security passes at the 'security office,' as specified: 'You can collect your new pass from the security office located on the first floor.' Options A, B, and C are not mentioned as pickup locations.",
+  "difficulty": "B1",
+  "vocabulary": [
+    "collect",
+    "security office",
+    "first floor"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p4-gen-138",
+  "part": "Part 4",
+  "transcript": "Attention all staff. Starting April 15th, access to the main building will require a new security pass. Current passes will no longer be valid after April 14th. You can collect your new pass from the security office located on the first floor between 9 AM and 5 PM. Please note that the new passes are part of our enhanced security measures. If you have any questions, contact the security department by emailing security@ourcompany.com. Thank you for your cooperation in ensuring a safe working environment.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of this announcement?",
+  "choices": {
+    "A": "To announce a new product line",
+    "B": "To introduce a new store location",
+    "C": "To inform about a store promotion",
+    "D": "To highlight a customer feedback program"
+  },
+  "answer": "C",
+  "explanation_zh": "根據公告內容，主要目的是宣佈店內促銷活動：「We're excited to announce our special promotion at Maple Leaf Store.」可排除其他選項。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "promotion",
+    "discount",
+    "purchase"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-139",
+  "part": "Part 4",
+  "transcript": "Hello, shoppers! We're excited to announce our special promotion at Maple Leaf Store. From November 1st to November 15th, enjoy a 20% discount on all clothing items. Please note, this offer is valid only for in-store purchases and cannot be combined with other discounts or promotions. Remember, store hours are from 9 AM to 9 PM daily. Don't miss out on this opportunity to refresh your wardrobe for less. If you have any questions, feel free to ask our friendly staff. Happy shopping!",
+  "question_order": 1
+},
+  {
+  "question": "When does the promotion end?",
+  "choices": {
+    "A": "November 10th",
+    "B": "November 20th",
+    "C": "October 31st",
+    "D": "November 15th"
+  },
+  "answer": "D",
+  "explanation_zh": "公告中明確表示促銷活動至11月15日結束：「From November 1st to November 15th」可排除其他選擇。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "promotion",
+    "valid",
+    "opportunity"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-140",
+  "part": "Part 4",
+  "transcript": "Hello, shoppers! We're excited to announce our special promotion at Maple Leaf Store. From November 1st to November 15th, enjoy a 20% discount on all clothing items. Please note, this offer is valid only for in-store purchases and cannot be combined with other discounts or promotions. Remember, store hours are from 9 AM to 9 PM daily. Don't miss out on this opportunity to refresh your wardrobe for less. If you have any questions, feel free to ask our friendly staff. Happy shopping!",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate next action for a shopper interested in the promotion?",
+  "choices": {
+    "A": "Visit the store to make a purchase",
+    "B": "Sign up for a newsletter",
+    "C": "Call customer service for more information",
+    "D": "Check the store’s website for online deals"
+  },
+  "answer": "A",
+  "explanation_zh": "由於促銷活動僅限於店內購買，因此最可能的行動是去商店購物：「this offer is valid only for in-store purchases」。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "purchase",
+    "store",
+    "wardrobe"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p4-gen-141",
+  "part": "Part 4",
+  "transcript": "Hello, shoppers! We're excited to announce our special promotion at Maple Leaf Store. From November 1st to November 15th, enjoy a 20% discount on all clothing items. Please note, this offer is valid only for in-store purchases and cannot be combined with other discounts or promotions. Remember, store hours are from 9 AM to 9 PM daily. Don't miss out on this opportunity to refresh your wardrobe for less. If you have any questions, feel free to ask our friendly staff. Happy shopping!",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the announcement?",
+  "choices": {
+    "A": "A change in airport security procedures.",
+    "B": "An update on a ticket price increase.",
+    "C": "A new flight route introduction.",
+    "D": "A delay of a flight to Toronto."
+  },
+  "answer": "D",
+  "explanation_zh": "答案是D。公告的主要內容是航班延誤，\"the flight will be delayed\" 和 \"the new departure time is now set for 3:00 PM\" 明確指出了航班的延遲，而不是其他選項所提到的安全程序變更、票價更新或新航線。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "delay",
+    "departure",
+    "announcement"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-142",
+  "part": "Part 4",
+  "transcript": "This is an announcement for passengers on Flight 582 to Toronto. Unfortunately, due to severe weather conditions at the destination, the flight will be delayed. The new departure time is now set for 3:00 PM instead of the originally scheduled 1:30 PM. We apologize for the inconvenience and appreciate your patience. Passengers are encouraged to visit the customer service desk near Gate 14 for assistance or to inquire about alternative travel arrangements. Thank you for your understanding.",
+  "question_order": 1
+},
+  {
+  "question": "What time was the flight originally scheduled to depart?",
+  "choices": {
+    "A": "1:30 PM",
+    "B": "2:00 PM",
+    "C": "3:00 PM",
+    "D": "1:00 PM"
+  },
+  "answer": "A",
+  "explanation_zh": "答案是A。公告中明確提到 \"the originally scheduled 1:30 PM\"，表示航班原定於1:30 PM出發，排除了其他選項。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "originally",
+    "scheduled",
+    "departure"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-143",
+  "part": "Part 4",
+  "transcript": "This is an announcement for passengers on Flight 582 to Toronto. Unfortunately, due to severe weather conditions at the destination, the flight will be delayed. The new departure time is now set for 3:00 PM instead of the originally scheduled 1:30 PM. We apologize for the inconvenience and appreciate your patience. Passengers are encouraged to visit the customer service desk near Gate 14 for assistance or to inquire about alternative travel arrangements. Thank you for your understanding.",
+  "question_order": 2
+},
+  {
+  "question": "Where should passengers go for assistance?",
+  "choices": {
+    "A": "The information center at Gate 10.",
+    "B": "The customer service desk near Gate 14.",
+    "C": "The check-in counter in Terminal C.",
+    "D": "The baggage claim area."
+  },
+  "answer": "B",
+  "explanation_zh": "答案是B。公告指出乘客應該前往 \"the customer service desk near Gate 14\" 獲得協助，這與B選項直接對應，而不是其他選項提到的地點。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "customer service",
+    "assistance",
+    "passengers"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p4-gen-144",
+  "part": "Part 4",
+  "transcript": "This is an announcement for passengers on Flight 582 to Toronto. Unfortunately, due to severe weather conditions at the destination, the flight will be delayed. The new departure time is now set for 3:00 PM instead of the originally scheduled 1:30 PM. We apologize for the inconvenience and appreciate your patience. Passengers are encouraged to visit the customer service desk near Gate 14 for assistance or to inquire about alternative travel arrangements. Thank you for your understanding.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the announcement?",
+  "choices": {
+    "A": "A rescheduled training session",
+    "B": "A new employee orientation",
+    "C": "A customer feedback meeting",
+    "D": "A holiday party"
+  },
+  "answer": "A",
+  "explanation_zh": "答案是A。公告的主要目的在於通知客戶服務培訓課程的重新安排，\"our customer service training session has been rescheduled\"，排除掉其他選項中的新員工介紹會、客戶反饋會議或節日派對。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "rescheduled",
+    "conference",
+    "notebook"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-145",
+  "part": "Part 4",
+  "transcript": "Good morning, everyone. This is a reminder that our customer service training session has been rescheduled. Originally planned for this Thursday, it will now take place next Monday, October 9th, at 10 a.m. in the main conference room. Please make sure to bring your employee ID and notebook for taking notes. The change is due to a scheduling conflict with the sales team. We apologize for any inconvenience. If you have any questions, feel free to contact the HR department. Thank you for your understanding and cooperation.",
+  "question_order": 1
+},
+  {
+  "question": "When will the training session now take place?",
+  "choices": {
+    "A": "This Thursday",
+    "B": "Next Monday",
+    "C": "October 8th",
+    "D": "October 10th"
+  },
+  "answer": "B",
+  "explanation_zh": "答案是B。公告中提到 \"it will now take place next Monday, October 9th, at 10 a.m.\" 明確指出培訓課在下週一舉行，這與B選項相符，排除掉其他選項。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "rescheduled",
+    "Monday",
+    "conference"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-146",
+  "part": "Part 4",
+  "transcript": "Good morning, everyone. This is a reminder that our customer service training session has been rescheduled. Originally planned for this Thursday, it will now take place next Monday, October 9th, at 10 a.m. in the main conference room. Please make sure to bring your employee ID and notebook for taking notes. The change is due to a scheduling conflict with the sales team. We apologize for any inconvenience. If you have any questions, feel free to contact the HR department. Thank you for your understanding and cooperation.",
+  "question_order": 2
+},
+  {
+  "question": "What should listeners do next?",
+  "choices": {
+    "A": "Cancel their appointments",
+    "B": "Notify their supervisors",
+    "C": "Prepare their employee ID and notebook",
+    "D": "Contact the sales team"
+  },
+  "answer": "C",
+  "explanation_zh": "答案是C。公告中提到 \"Please make sure to bring your employee ID and notebook for taking notes.\"，這明確要求聽眾準備員工證和筆記本，而不是其他選項提到的行動。",
+  "difficulty": "B2",
+  "vocabulary": [
+    "employee ID",
+    "notebook",
+    "HR department"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p4-gen-147",
+  "part": "Part 4",
+  "transcript": "Good morning, everyone. This is a reminder that our customer service training session has been rescheduled. Originally planned for this Thursday, it will now take place next Monday, October 9th, at 10 a.m. in the main conference room. Please make sure to bring your employee ID and notebook for taking notes. The change is due to a scheduling conflict with the sales team. We apologize for any inconvenience. If you have any questions, feel free to contact the HR department. Thank you for your understanding and cooperation.",
+  "question_order": 3
+},
+  {
+  "question": "What is the purpose of this message?",
+  "choices": {
+    "A": "To announce a new product line",
+    "B": "To update on a repair status",
+    "C": "To promote a special offer",
+    "D": "To request customer feedback"
+  },
+  "answer": "B",
+  "explanation_zh": "答案是B。公告的目的是更新修理狀態，\"Your dishwasher repair is now complete\"，這與B選項相符，而非宣布新產品、促銷優惠或客戶反饋。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "repair",
+    "pickup",
+    "verification",
+    "backlog",
+    "inconvenience"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-148",
+  "part": "Part 4",
+  "transcript": "Hello, this is a customer-service update from Premier Appliance Repair. Your dishwasher repair is now complete and ready for pickup at our downtown service center. Please note, the pickup times have changed. You can collect your appliance Monday to Friday between 9 AM and 6 PM. Remember to bring your receipt for verification. Unfortunately, due to a parts backlog, the repair took longer than expected. We apologize for any inconvenience this may have caused and appreciate your patience. For further inquiries, call us at 1-800-555-0199.",
+  "question_order": 1
+},
+  {
+  "question": "What caused the delay in the repair?",
+  "choices": {
+    "A": "Employee shortage",
+    "B": "Technical issues",
+    "C": "Parts backlog",
+    "D": "Holiday closure"
+  },
+  "answer": "C",
+  "explanation_zh": "答案是C。公告中提到 \"due to a parts backlog, the repair took longer than expected\"，明確指出延誤的原因是零件積壓，排除了其他選項。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "delay",
+    "backlog",
+    "parts",
+    "verification",
+    "inconvenience"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-149",
+  "part": "Part 4",
+  "transcript": "Hello, this is a customer-service update from Premier Appliance Repair. Your dishwasher repair is now complete and ready for pickup at our downtown service center. Please note, the pickup times have changed. You can collect your appliance Monday to Friday between 9 AM and 6 PM. Remember to bring your receipt for verification. Unfortunately, due to a parts backlog, the repair took longer than expected. We apologize for any inconvenience this may have caused and appreciate your patience. For further inquiries, call us at 1-800-555-0199.",
+  "question_order": 2
+},
+  {
+  "question": "What can be inferred about the service center's operating hours?",
+  "choices": {
+    "A": "The service center is open on weekends.",
+    "B": "The service center closes early on Fridays.",
+    "C": "The service center is open 24 hours a day.",
+    "D": "The service center operates on weekdays only."
+  },
+  "answer": "D",
+  "explanation_zh": "答案是D。公告提到 \"You can collect your appliance Monday to Friday between 9 AM and 6 PM.\"，這表示服務中心只在工作日運營，這與D選項相符，排除其他選項。",
+  "difficulty": "B2",
+  "vocabulary": [
+    "operating hours",
+    "weekdays",
+    "weekends",
+    "pickup",
+    "verification"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p4-gen-150",
+  "part": "Part 4",
+  "transcript": "Hello, this is a customer-service update from Premier Appliance Repair. Your dishwasher repair is now complete and ready for pickup at our downtown service center. Please note, the pickup times have changed. You can collect your appliance Monday to Friday between 9 AM and 6 PM. Remember to bring your receipt for verification. Unfortunately, due to a parts backlog, the repair took longer than expected. We apologize for any inconvenience this may have caused and appreciate your patience. For further inquiries, call us at 1-800-555-0199.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the announcement?",
+  "choices": {
+    "A": "Staff meeting schedule",
+    "B": "New parking rules",
+    "C": "Building access change",
+    "D": "Renovation completion date"
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C是正確的，因為公告的主要內容是關於建築物的進出改變。公告中提到「Starting next Monday, October 16th, the main entrance to our building will be under renovation and closed. For access, please use the south entrance located next to the parking lot.」這明確指出進出路線的改變。選項A、B和D未提到建築物進出改變的內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "renovation",
+    "entrance",
+    "badge"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-151",
+  "part": "Part 4",
+  "transcript": "Attention all employees. Starting next Monday, October 16th, the main entrance to our building will be under renovation and closed. For access, please use the south entrance located next to the parking lot. Signs will be posted to guide you. This change is expected to last until November 10th. Remember to bring your ID badge for entry. If you have any questions, contact the Facilities Department at extension 104. Thank you for your cooperation during this period.",
+  "question_order": 1
+},
+  {
+  "question": "When is the renovation of the main entrance scheduled to begin?",
+  "choices": {
+    "A": "October 13th",
+    "B": "October 14th",
+    "C": "October 15th",
+    "D": "October 16th"
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D是正確的，因為公告明確指出「Starting next Monday, October 16th, the main entrance to our building will be under renovation and closed.」這表示翻修從10月16日開始。因此，10月16日為正確答案。選項A、B、C皆不符合公告內容。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "scheduled",
+    "begin",
+    "renovation"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-152",
+  "part": "Part 4",
+  "transcript": "Attention all employees. Starting next Monday, October 16th, the main entrance to our building will be under renovation and closed. For access, please use the south entrance located next to the parking lot. Signs will be posted to guide you. This change is expected to last until November 10th. Remember to bring your ID badge for entry. If you have any questions, contact the Facilities Department at extension 104. Thank you for your cooperation during this period.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate action employees should take after hearing this announcement?",
+  "choices": {
+    "A": "Use the south entrance",
+    "B": "Attend a meeting",
+    "C": "Contact the Facilities Department",
+    "D": "Submit renovation feedback"
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A是正確的，因為聽到公告後，員工最直接的行動應該是使用公告中提到的新入口。「For access, please use the south entrance located next to the parking lot.」這句話提示員工應該改用南側入口。選項B、C和D都不是立即需要的行動。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "access",
+    "entrance",
+    "guide"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p4-gen-153",
+  "part": "Part 4",
+  "transcript": "Attention all employees. Starting next Monday, October 16th, the main entrance to our building will be under renovation and closed. For access, please use the south entrance located next to the parking lot. Signs will be posted to guide you. This change is expected to last until November 10th. Remember to bring your ID badge for entry. If you have any questions, contact the Facilities Department at extension 104. Thank you for your cooperation during this period.",
+  "question_order": 3
+},
+  {
+  "question": "What is the purpose of the announcement?",
+  "choices": {
+    "A": "To introduce a new product line",
+    "B": "To announce a store relocation",
+    "C": "To remind about store hours",
+    "D": "To inform about a store promotion"
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D是正確的，因為公告的目的在於告知即將到來的促銷活動。「Good morning, shoppers! This is a special announcement about our upcoming Mega Sale at Downtown Electronics.」公告內容主要集中在促銷活動的訊息。選項A、B和C與公告內容不符。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "promotion",
+    "discount",
+    "valid",
+    "coupons",
+    "location"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-154",
+  "part": "Part 4",
+  "transcript": "Good morning, shoppers! This is a special announcement about our upcoming Mega Sale at Downtown Electronics. From November 10th to November 15th, enjoy discounts of up to 50% on select items throughout our store. Please note that these offers are valid only at our Downtown location and cannot be combined with any other promotions or coupons. Additionally, our extended store hours during the sale period will be from 9 AM to 9 PM daily. Don’t miss out on these amazing deals. We look forward to seeing you here!",
+  "question_order": 1
+},
+  {
+  "question": "Where will the promotion be valid?",
+  "choices": {
+    "A": "At the Downtown location",
+    "B": "Online only",
+    "C": "At the Uptown branch",
+    "D": "At all store locations"
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A是正確的，因為促銷僅在市中心的分店有效。「Please note that these offers are valid only at our Downtown location.」這明確指出促銷的有效地點。選項B、C和D不符合公告的實際內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "valid",
+    "location",
+    "promotion",
+    "branch"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-155",
+  "part": "Part 4",
+  "transcript": "Good morning, shoppers! This is a special announcement about our upcoming Mega Sale at Downtown Electronics. From November 10th to November 15th, enjoy discounts of up to 50% on select items throughout our store. Please note that these offers are valid only at our Downtown location and cannot be combined with any other promotions or coupons. Additionally, our extended store hours during the sale period will be from 9 AM to 9 PM daily. Don’t miss out on these amazing deals. We look forward to seeing you here!",
+  "question_order": 2
+},
+  {
+  "question": "What can listeners infer about the store during the sale period?",
+  "choices": {
+    "A": "It will close earlier than usual.",
+    "B": "It will have extended hours.",
+    "C": "It will offer free gifts.",
+    "D": "It will host special events."
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B是正確的，因為公告中提到「Additionally, our extended store hours during the sale period will be from 9 AM to 9 PM daily.」這表明在促銷期間營業時間會延長。選項A、C和D在公告中沒有提到。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "extended",
+    "hours",
+    "store",
+    "promotion"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p4-gen-156",
+  "part": "Part 4",
+  "transcript": "Good morning, shoppers! This is a special announcement about our upcoming Mega Sale at Downtown Electronics. From November 10th to November 15th, enjoy discounts of up to 50% on select items throughout our store. Please note that these offers are valid only at our Downtown location and cannot be combined with any other promotions or coupons. Additionally, our extended store hours during the sale period will be from 9 AM to 9 PM daily. Don’t miss out on these amazing deals. We look forward to seeing you here!",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of the announcement?",
+  "choices": {
+    "A": "To inform passengers of a flight delay.",
+    "B": "To announce a gate change.",
+    "C": "To promote a new flight service.",
+    "D": "To offer discounts on tickets."
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A是正確的，因為公告的主要目的是告知航班延誤。「We regret to inform you that your flight has been delayed due to severe weather conditions in the area.」這句話明確指出了延誤的訊息。選項B、C和D不符合公告的內容。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "delay",
+    "departure",
+    "complimentary",
+    "refreshments"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-157",
+  "part": "Part 4",
+  "transcript": "Attention passengers traveling on Flight 782 to Chicago. We regret to inform you that your flight has been delayed due to severe weather conditions in the area. The new departure time is now scheduled for 6:45 PM instead of the original 4:30 PM. We apologize for the inconvenience this may cause. Please proceed to Gate 14 for updated information and complimentary refreshments. We appreciate your understanding and patience during this delay. If you have further questions, our customer service representatives are available to assist you.",
+  "question_order": 1
+},
+  {
+  "question": "What is the new departure time for Flight 782 to Chicago?",
+  "choices": {
+    "A": "4:30 PM",
+    "B": "6:45 PM",
+    "C": "5:30 PM",
+    "D": "7:00 PM"
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B是正確的，因為公告中提到「The new departure time is now scheduled for 6:45 PM instead of the original 4:30 PM.」這表示新的起飛時間是6:45 PM。選項A、C和D都不符合公告內容。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "departure",
+    "scheduled",
+    "inconvenience",
+    "gate"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-158",
+  "part": "Part 4",
+  "transcript": "Attention passengers traveling on Flight 782 to Chicago. We regret to inform you that your flight has been delayed due to severe weather conditions in the area. The new departure time is now scheduled for 6:45 PM instead of the original 4:30 PM. We apologize for the inconvenience this may cause. Please proceed to Gate 14 for updated information and complimentary refreshments. We appreciate your understanding and patience during this delay. If you have further questions, our customer service representatives are available to assist you.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate next action for passengers?",
+  "choices": {
+    "A": "Find alternate transportation.",
+    "B": "Contact their travel agent.",
+    "C": "Visit Gate 14 for information and refreshments.",
+    "D": "Check into a nearby hotel."
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C是正確的，乘客最可能的下一步行動是前往14號登機口獲取資訊和享用免費的茶點。「Please proceed to Gate 14 for updated information and complimentary refreshments.」這句話說明了乘客應該採取的行動。選項A、B和D不符合乘客當前狀況。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "immediate",
+    "proceed",
+    "assist",
+    "representatives"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p4-gen-159",
+  "part": "Part 4",
+  "transcript": "Attention passengers traveling on Flight 782 to Chicago. We regret to inform you that your flight has been delayed due to severe weather conditions in the area. The new departure time is now scheduled for 6:45 PM instead of the original 4:30 PM. We apologize for the inconvenience this may cause. Please proceed to Gate 14 for updated information and complimentary refreshments. We appreciate your understanding and patience during this delay. If you have further questions, our customer service representatives are available to assist you.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the announcement?",
+  "choices": {
+    "A": "A new product launch",
+    "B": "A staff training session",
+    "C": "An office relocation",
+    "D": "A holiday schedule"
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B是正確的，因為公告的主要內容是關於即將舉行的員工培訓會議，而不是新產品發佈、辦公室搬遷或假期安排。其他選項均未在公告中提及。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "training",
+    "session",
+    "conference"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-160",
+  "part": "Part 4",
+  "transcript": "Hello everyone, this is a reminder about the upcoming staff training session scheduled for Thursday, October 12th. Please note that the session will start at 9:00 AM sharp, instead of the usual 10:00 AM, due to the availability of the guest speaker. The training will take place in the main conference room on the third floor. All employees are expected to attend, and please bring your laptops for the interactive workshop segment. If you have any questions, feel free to contact HR. Thank you, and see you there.",
+  "question_order": 1
+},
+  {
+  "question": "What time will the training session begin?",
+  "choices": {
+    "A": "10:00 AM",
+    "B": "11:00 AM",
+    "C": "9:00 AM",
+    "D": "8:00 AM"
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C是正確的，因為公告明確指出培訓會議將於上午9:00準時開始。選項A和其他時間均未被提及或與公告中的信息不符。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "time",
+    "begin",
+    "sharp"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-161",
+  "part": "Part 4",
+  "transcript": "Hello everyone, this is a reminder about the upcoming staff training session scheduled for Thursday, October 12th. Please note that the session will start at 9:00 AM sharp, instead of the usual 10:00 AM, due to the availability of the guest speaker. The training will take place in the main conference room on the third floor. All employees are expected to attend, and please bring your laptops for the interactive workshop segment. If you have any questions, feel free to contact HR. Thank you, and see you there.",
+  "question_order": 2
+},
+  {
+  "question": "What can be inferred about the guest speaker?",
+  "choices": {
+    "A": "They are unavailable on October 13th.",
+    "B": "They will speak at another company event.",
+    "C": "They require special equipment for the talk.",
+    "D": "Their schedule affected the session start time."
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D是正確的，因為公告指出會議提前開始是由於客座講者的時間安排問題。其他選項未在公告中提及或不相關。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "speaker",
+    "availability",
+    "schedule"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p4-gen-162",
+  "part": "Part 4",
+  "transcript": "Hello everyone, this is a reminder about the upcoming staff training session scheduled for Thursday, October 12th. Please note that the session will start at 9:00 AM sharp, instead of the usual 10:00 AM, due to the availability of the guest speaker. The training will take place in the main conference room on the third floor. All employees are expected to attend, and please bring your laptops for the interactive workshop segment. If you have any questions, feel free to contact HR. Thank you, and see you there.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of this message?",
+  "choices": {
+    "A": "To confirm a payment.",
+    "B": "To introduce a new product.",
+    "C": "To update on a repair schedule.",
+    "D": "To offer a discount."
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C是正確的，因為信息的主要目的是更新冰箱維修的日程，而不是確認付款、介紹新產品或提供折扣。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "update",
+    "reschedule",
+    "technician",
+    "available",
+    "repair"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-163",
+  "part": "Part 4",
+  "transcript": "Hello, this is a message from ClearFix Appliance Repair. We're calling to update you on the status of your refrigerator repair. The replacement part has arrived earlier than expected, so we have rescheduled the technician visit to this Friday, October 20th, between 2 p.m. and 4 p.m. instead of next week. Please ensure someone is available at home during this time. If you need to reschedule, give us a call at 555-0199. We look forward to completing the repair for you.",
+  "question_order": 1
+},
+  {
+  "question": "When is the technician now scheduled to visit?",
+  "choices": {
+    "A": "Next Monday.",
+    "B": "Thursday morning.",
+    "C": "This weekend.",
+    "D": "This Friday."
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D是正確的，因為信息中明確指出技術員將於星期五上門，而不是其他選項所述的日期。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "scheduled",
+    "visit",
+    "technician",
+    "Friday",
+    "reschedule"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-164",
+  "part": "Part 4",
+  "transcript": "Hello, this is a message from ClearFix Appliance Repair. We're calling to update you on the status of your refrigerator repair. The replacement part has arrived earlier than expected, so we have rescheduled the technician visit to this Friday, October 20th, between 2 p.m. and 4 p.m. instead of next week. Please ensure someone is available at home during this time. If you need to reschedule, give us a call at 555-0199. We look forward to completing the repair for you.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate action for the listener?",
+  "choices": {
+    "A": "To ensure availability on Friday.",
+    "B": "To purchase a new appliance.",
+    "C": "To contact the repair service.",
+    "D": "To cancel the repair."
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A是正確的，因為信息要求聽眾確保星期五有人在家，以便技術員能進行維修。其他選項與信息的要求不符。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "immediate",
+    "action",
+    "available",
+    "ensure",
+    "repair"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p4-gen-165",
+  "part": "Part 4",
+  "transcript": "Hello, this is a message from ClearFix Appliance Repair. We're calling to update you on the status of your refrigerator repair. The replacement part has arrived earlier than expected, so we have rescheduled the technician visit to this Friday, October 20th, between 2 p.m. and 4 p.m. instead of next week. Please ensure someone is available at home during this time. If you need to reschedule, give us a call at 555-0199. We look forward to completing the repair for you.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of the announcement?",
+  "choices": {
+    "A": "To announce a new employee policy",
+    "B": "To introduce a new security system",
+    "C": "To inform about a new entrance",
+    "D": "To notify about a temporary access change"
+  },
+  "answer": "D",
+  "explanation_zh": "選擇D是正確的，因為公告的主要目的是通知員工因為入口門的維修而需暫時更改進入方式，而非新政策或系統介紹。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "announcement",
+    "scheduled",
+    "maintenance",
+    "entrance",
+    "inconvenience"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-166",
+  "part": "Part 4",
+  "transcript": "Hello everyone, this is a building access announcement for all employees at the Greenfield Office Complex. Due to scheduled maintenance on the main entrance doors, employees are required to use the side entrance on Maple Avenue starting next Monday, October 16th. This change will be in effect for two weeks. Please ensure you have your employee ID ready for access at the side entrance. If you face any access issues, contact our security desk at extension 302. We apologize for any inconvenience this may cause and thank you for your cooperation.",
+  "question_order": 1
+},
+  {
+  "question": "When will the side entrance on Maple Avenue be used?",
+  "choices": {
+    "A": "Starting next Monday, October 16th",
+    "B": "On October 15th",
+    "C": "For one week",
+    "D": "Starting this week"
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A是正確的，因為公告明確表示從下週一（10月16日）開始使用側門。其他選項未正確反映公告中的日期。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "entrance",
+    "scheduled",
+    "maintenance",
+    "side",
+    "access"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-167",
+  "part": "Part 4",
+  "transcript": "Hello everyone, this is a building access announcement for all employees at the Greenfield Office Complex. Due to scheduled maintenance on the main entrance doors, employees are required to use the side entrance on Maple Avenue starting next Monday, October 16th. This change will be in effect for two weeks. Please ensure you have your employee ID ready for access at the side entrance. If you face any access issues, contact our security desk at extension 302. We apologize for any inconvenience this may cause and thank you for your cooperation.",
+  "question_order": 2
+},
+  {
+  "question": "What can employees do if they encounter access issues?",
+  "choices": {
+    "A": "Wait for maintenance to complete",
+    "B": "Contact the security desk",
+    "C": "Use another entrance",
+    "D": "Report to their manager"
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B是正確的，因為公告建議員工在遇到進入問題時聯絡保安部。其他選項未在公告中提供或不合適。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "access",
+    "issues",
+    "contact",
+    "security",
+    "extension"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p4-gen-168",
+  "part": "Part 4",
+  "transcript": "Hello everyone, this is a building access announcement for all employees at the Greenfield Office Complex. Due to scheduled maintenance on the main entrance doors, employees are required to use the side entrance on Maple Avenue starting next Monday, October 16th. This change will be in effect for two weeks. Please ensure you have your employee ID ready for access at the side entrance. If you face any access issues, contact our security desk at extension 302. We apologize for any inconvenience this may cause and thank you for your cooperation.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the announcement?",
+  "choices": {
+    "A": "A store promotion.",
+    "B": "A new product launch.",
+    "C": "A change in store location.",
+    "D": "A staff recruitment drive."
+  },
+  "answer": "A",
+  "explanation_zh": "選擇A: 宣告的主要內容是關於促銷活動。根據錄音稿，『This is a special announcement about our upcoming promotion at Greenfield Electronics.』強調的是促銷活動。選項B新產品發佈、C店址變更、D招聘資訊都未在錄音中提及，因此不正確。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "promotion",
+    "discount",
+    "store hours",
+    "clearance items"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-169",
+  "part": "Part 4",
+  "transcript": "Good afternoon, shoppers! This is a special announcement about our upcoming promotion at Greenfield Electronics. From October 15th to October 22nd, enjoy a 20% discount on all home appliances. Please note that the promotion is valid in-store only and excludes clearance items. Additionally, our store hours have been extended on weekends from 9 AM to 9 PM to accommodate your shopping needs. Don't miss this chance to upgrade your home with high-quality appliances at a reduced price. Thank you for shopping with us!",
+  "question_order": 1
+},
+  {
+  "question": "Which items are excluded from the promotion discount?",
+  "choices": {
+    "A": "Home appliances",
+    "B": "Clearance items",
+    "C": "Electronics",
+    "D": "Store accessories"
+  },
+  "answer": "B",
+  "explanation_zh": "選擇B: 錄音中清楚提到『Please note that the promotion is valid in-store only and excludes clearance items.』，因此排除項目是清倉商品。A家電是促銷項目，C電子產品和D店內配件未被提及為排除項目。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "promotion",
+    "excludes",
+    "clearance",
+    "discount"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-170",
+  "part": "Part 4",
+  "transcript": "Good afternoon, shoppers! This is a special announcement about our upcoming promotion at Greenfield Electronics. From October 15th to October 22nd, enjoy a 20% discount on all home appliances. Please note that the promotion is valid in-store only and excludes clearance items. Additionally, our store hours have been extended on weekends from 9 AM to 9 PM to accommodate your shopping needs. Don't miss this chance to upgrade your home with high-quality appliances at a reduced price. Thank you for shopping with us!",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate next action for shoppers?",
+  "choices": {
+    "A": "Call customer service.",
+    "B": "Sign up for the newsletter.",
+    "C": "Visit the store in person.",
+    "D": "Check the online catalog."
+  },
+  "answer": "C",
+  "explanation_zh": "選擇C: 錄音提到促銷在店內進行，且延長了週末營業時間，因此最可能的行動是親自到店。A聯絡客服、B訂閱電子報、D查看線上目錄都不是促銷的直接行動，因此不正確。",
+  "difficulty": "B2",
+  "vocabulary": [
+    "shop",
+    "in-store",
+    "promotion",
+    "visit"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p4-gen-171",
+  "part": "Part 4",
+  "transcript": "Good afternoon, shoppers! This is a special announcement about our upcoming promotion at Greenfield Electronics. From October 15th to October 22nd, enjoy a 20% discount on all home appliances. Please note that the promotion is valid in-store only and excludes clearance items. Additionally, our store hours have been extended on weekends from 9 AM to 9 PM to accommodate your shopping needs. Don't miss this chance to upgrade your home with high-quality appliances at a reduced price. Thank you for shopping with us!",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of the announcement?",
+  "choices": {
+    "A": "To advertise a new train service",
+    "B": "To inform about a train delay",
+    "C": "To announce a fare increase",
+    "D": "To introduce new safety measures"
+  },
+  "answer": "B",
+  "explanation_zh": "B：公告的主要目的是『通知列車延誤』。根據錄音內容，“This is an announcement regarding the delay of train service on the Northbound Line”，明確指出是關於列車延誤的通知。其他選項A、C、D沒有在公告中提到。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "passengers",
+    "maintenance",
+    "refreshments"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-172",
+  "part": "Part 4",
+  "transcript": "Good morning, passengers. This is an announcement regarding the delay of train service on the Northbound Line. Due to track maintenance work at Oakville Station, the 9:15 AM train will now depart at 10:00 AM. We apologize for the inconvenience this may cause. Please use this extra time to visit our customer service desk for complimentary refreshments or to receive updates on alternative transportation options. Thank you for your understanding and patience as we work to improve our service. We expect regular service to resume by noon today.",
+  "question_order": 1
+},
+  {
+  "question": "Why is the train delayed?",
+  "choices": {
+    "A": "Due to weather conditions",
+    "B": "Because of a staff shortage",
+    "C": "Due to track maintenance",
+    "D": "Because of a power outage"
+  },
+  "answer": "C",
+  "explanation_zh": "C：列車延誤的原因是『軌道維修』。錄音中明確提到“Due to track maintenance work at Oakville Station”，指出是因為軌道維修的關係。其他選項A、B、D與錄音內容不符。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "delay",
+    "track",
+    "maintenance"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-173",
+  "part": "Part 4",
+  "transcript": "Good morning, passengers. This is an announcement regarding the delay of train service on the Northbound Line. Due to track maintenance work at Oakville Station, the 9:15 AM train will now depart at 10:00 AM. We apologize for the inconvenience this may cause. Please use this extra time to visit our customer service desk for complimentary refreshments or to receive updates on alternative transportation options. Thank you for your understanding and patience as we work to improve our service. We expect regular service to resume by noon today.",
+  "question_order": 2
+},
+  {
+  "question": "What can passengers do during the delay?",
+  "choices": {
+    "A": "Request a refund",
+    "B": "Board an earlier train",
+    "C": "Switch to the Southbound Line",
+    "D": "Visit the customer service desk for refreshments"
+  },
+  "answer": "D",
+  "explanation_zh": "D：乘客在延誤期間可以去『客服櫃檯享用點心』。公告中提到“visit our customer service desk for complimentary refreshments”，這正是選項D所描述的。其他選項A、B、C在錄音中都未提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "refreshments",
+    "alternative",
+    "complimentary"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p4-gen-174",
+  "part": "Part 4",
+  "transcript": "Good morning, passengers. This is an announcement regarding the delay of train service on the Northbound Line. Due to track maintenance work at Oakville Station, the 9:15 AM train will now depart at 10:00 AM. We apologize for the inconvenience this may cause. Please use this extra time to visit our customer service desk for complimentary refreshments or to receive updates on alternative transportation options. Thank you for your understanding and patience as we work to improve our service. We expect regular service to resume by noon today.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of the announcement?",
+  "choices": {
+    "A": "Conference hall renovations",
+    "B": "Department head meeting",
+    "C": "Staff training session",
+    "D": "Room 305 reservations"
+  },
+  "answer": "C",
+  "explanation_zh": "C：公告的主要主題是『員工培訓會議』。錄音開頭說“This is a reminder about the staff training session”，明確指出是關於員工培訓的提醒。選項A、B、D只是附帶資訊，不是主要內容。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "session",
+    "scheduled",
+    "mandatory"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-175",
+  "part": "Part 4",
+  "transcript": "Good morning, everyone. This is a reminder about the staff training session scheduled for this Friday, November 10th. Please be aware that the location has been changed to Room 305 due to ongoing renovations in the conference hall. The session will begin at 9:00 AM and end at 3:00 PM. Lunch will be provided. It is mandatory for all staff members to attend. If you have any scheduling conflicts, please notify your department head by the end of today. Thank you for your cooperation.",
+  "question_order": 1
+},
+  {
+  "question": "Where will the staff training session be held?",
+  "choices": {
+    "A": "Conference hall",
+    "B": "Room 205",
+    "C": "Room 302",
+    "D": "Room 305"
+  },
+  "answer": "D",
+  "explanation_zh": "D：員工培訓會議將在『305號房間』舉行。錄音中指出“the location has been changed to Room 305”，這與選項D一致。其他選項A、B、C與錄音不符。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "location",
+    "renovations",
+    "conference"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-176",
+  "part": "Part 4",
+  "transcript": "Good morning, everyone. This is a reminder about the staff training session scheduled for this Friday, November 10th. Please be aware that the location has been changed to Room 305 due to ongoing renovations in the conference hall. The session will begin at 9:00 AM and end at 3:00 PM. Lunch will be provided. It is mandatory for all staff members to attend. If you have any scheduling conflicts, please notify your department head by the end of today. Thank you for your cooperation.",
+  "question_order": 2
+},
+  {
+  "question": "What should staff members do if they have a scheduling conflict?",
+  "choices": {
+    "A": "Notify their department head",
+    "B": "Skip the training session",
+    "C": "Reschedule the session",
+    "D": "Attend another session"
+  },
+  "answer": "A",
+  "explanation_zh": "A：如果員工有行程衝突，應該『通知他們的部門主管』。錄音中提到“If you have any scheduling conflicts, please notify your department head”，這與選項A一致。其他選項B、C、D都不是錄音所提到的建議。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "scheduling",
+    "conflict",
+    "notify"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p4-gen-177",
+  "part": "Part 4",
+  "transcript": "Good morning, everyone. This is a reminder about the staff training session scheduled for this Friday, November 10th. Please be aware that the location has been changed to Room 305 due to ongoing renovations in the conference hall. The session will begin at 9:00 AM and end at 3:00 PM. Lunch will be provided. It is mandatory for all staff members to attend. If you have any scheduling conflicts, please notify your department head by the end of today. Thank you for your cooperation.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of this message?",
+  "choices": {
+    "A": "To advertise a new product",
+    "B": "To confirm a completed repair",
+    "C": "To offer a discount on services",
+    "D": "To update on a repair status"
+  },
+  "answer": "D",
+  "explanation_zh": "D：消息的主要目的是『更新維修狀態』。錄音中提到“We’d like to inform you that the repair of your laptop...has been delayed”，清楚說明是在更新維修進度。其他選項A、B、C與錄音不符。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "repair",
+    "completion",
+    "confirmation",
+    "inquiries"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-178",
+  "part": "Part 4",
+  "transcript": "Hello, this is a customer service update from TechRepair Services. We’d like to inform you that the repair of your laptop, initially scheduled for completion on October 10th, has been delayed. Due to a shortage of parts, we expect the repairs to be finished by October 15th instead. We apologize for any inconvenience this may cause. Once the repair is complete, you will receive a confirmation email. For further inquiries, please contact us at 1-800-555-TECH. Thank you for your understanding and patience.",
+  "question_order": 1
+},
+  {
+  "question": "What is the new expected completion date for the repair?",
+  "choices": {
+    "A": "October 15th",
+    "B": "October 12th",
+    "C": "October 13th",
+    "D": "October 10th"
+  },
+  "answer": "A",
+  "explanation_zh": "A：新的預計完成日期是『10月15日』。錄音中提到“we expect the repairs to be finished by October 15th instead”，這與選項A一致。其他選項B、C、D與錄音不符。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "completion",
+    "delay",
+    "parts",
+    "inconvenience"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-179",
+  "part": "Part 4",
+  "transcript": "Hello, this is a customer service update from TechRepair Services. We’d like to inform you that the repair of your laptop, initially scheduled for completion on October 10th, has been delayed. Due to a shortage of parts, we expect the repairs to be finished by October 15th instead. We apologize for any inconvenience this may cause. Once the repair is complete, you will receive a confirmation email. For further inquiries, please contact us at 1-800-555-TECH. Thank you for your understanding and patience.",
+  "question_order": 2
+},
+  {
+  "question": "What can be inferred about TechRepair Services?",
+  "choices": {
+    "A": "They frequently offer discounts on repairs.",
+    "B": "They communicate repair updates via email.",
+    "C": "Their parts are sourced locally.",
+    "D": "They have no customer service hotline."
+  },
+  "answer": "B",
+  "explanation_zh": "B：可以推斷TechRepair Services『通過電子郵件進行維修更新』。錄音中提到“Once the repair is complete, you will receive a confirmation email”，這表明他們會用電子郵件通知客戶。其他選項與錄音內容不符。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "update",
+    "confirmation",
+    "contact",
+    "shortage"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p4-gen-180",
+  "part": "Part 4",
+  "transcript": "Hello, this is a customer service update from TechRepair Services. We’d like to inform you that the repair of your laptop, initially scheduled for completion on October 10th, has been delayed. Due to a shortage of parts, we expect the repairs to be finished by October 15th instead. We apologize for any inconvenience this may cause. Once the repair is complete, you will receive a confirmation email. For further inquiries, please contact us at 1-800-555-TECH. Thank you for your understanding and patience.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of this announcement?",
+  "choices": {
+    "A": "To inform about a security policy change.",
+    "B": "To announce a company event.",
+    "C": "To introduce new staff members.",
+    "D": "To inform about a new building opening."
+  },
+  "answer": "A",
+  "explanation_zh": "答案是 A。公告明確指出變更是因為安全政策更新，強調需要員工在正門使用 ID 卡進入，並提到側門將永久鎖上以提高工作場所安全。其他選項並未提及公告的主要內容。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "access",
+    "security",
+    "policy",
+    "ID card"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-181",
+  "part": "Part 4",
+  "transcript": "Attention all staff: Starting next Monday, access to the main office building will be restricted due to security updates. The new policy requires all employees to use their ID cards at the front entrance. The side door, previously used for entry, will be locked permanently. This change aims to enhance our workplace security. If you haven't received your ID card yet, please collect it from the reception by Friday. Remember, access will not be permitted without an ID card starting Monday. Thank you for your cooperation.",
+  "question_order": 1
+},
+  {
+  "question": "What detail is specifically mentioned in the announcement?",
+  "choices": {
+    "A": "The opening of a new office.",
+    "B": "The side door will be locked permanently.",
+    "C": "The ID card collection deadline is next Monday.",
+    "D": "The main office building is moving locations."
+  },
+  "answer": "B",
+  "explanation_zh": "答案是 B。公告中明確提到側門將永久鎖上，這是公告中特定提到的細節。選項 A、C 和 D 並未在公告中提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "side door",
+    "locked",
+    "permanently",
+    "security"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-182",
+  "part": "Part 4",
+  "transcript": "Attention all staff: Starting next Monday, access to the main office building will be restricted due to security updates. The new policy requires all employees to use their ID cards at the front entrance. The side door, previously used for entry, will be locked permanently. This change aims to enhance our workplace security. If you haven't received your ID card yet, please collect it from the reception by Friday. Remember, access will not be permitted without an ID card starting Monday. Thank you for your cooperation.",
+  "question_order": 2
+},
+  {
+  "question": "What should employees do if they haven't received their ID card yet?",
+  "choices": {
+    "A": "Wait until next Monday.",
+    "B": "Contact the security team.",
+    "C": "Collect it from the reception by Friday.",
+    "D": "Use the side door for entry."
+  },
+  "answer": "C",
+  "explanation_zh": "答案是 C。公告中指出，如果尚未領取 ID 卡，員工應在星期五之前到接待處領取。選項 A、B 和 D 與公告中的指示不符。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "collect",
+    "reception",
+    "ID card",
+    "Friday"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p4-gen-183",
+  "part": "Part 4",
+  "transcript": "Attention all staff: Starting next Monday, access to the main office building will be restricted due to security updates. The new policy requires all employees to use their ID cards at the front entrance. The side door, previously used for entry, will be locked permanently. This change aims to enhance our workplace security. If you haven't received your ID card yet, please collect it from the reception by Friday. Remember, access will not be permitted without an ID card starting Monday. Thank you for your cooperation.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of the announcement?",
+  "choices": {
+    "A": "To introduce a new store",
+    "B": "To promote a sale event",
+    "C": "To announce a store closure",
+    "D": "To discuss loyalty programs"
+  },
+  "answer": "B",
+  "explanation_zh": "答案是 B。公告的主要目的是宣傳年度春季促銷活動，提供高達 50% 的折扣。選項 A、C 和 D 都不是公告的重點內容。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "promotion",
+    "discount",
+    "loyalty card"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-184",
+  "part": "Part 4",
+  "transcript": "Hello shoppers! Welcome to Greenfield Mall. We are excited to announce our annual Spring Sale happening from March 15th to March 21st. During this week, enjoy discounts of up to 50% on selected items across our stores. Please note, this offer excludes electronics and already discounted merchandise. Additionally, loyalty cardholders can enjoy an extra 10% off on all purchases. Don’t miss out on these incredible deals! Visit us during regular mall hours from 10 AM to 9 PM. Thank you for shopping with us.",
+  "question_order": 1
+},
+  {
+  "question": "What is excluded from the sale offer?",
+  "choices": {
+    "A": "Clothing",
+    "B": "Loyalty cardholders",
+    "C": "Electronics",
+    "D": "Furniture"
+  },
+  "answer": "C",
+  "explanation_zh": "答案是 C。公告中明確指出電子產品以及已經打折的商品不包含在促銷範圍內。選項 A、B 和 D 並未在公告中提到被排除。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "exclude",
+    "electronics",
+    "merchandise"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-185",
+  "part": "Part 4",
+  "transcript": "Hello shoppers! Welcome to Greenfield Mall. We are excited to announce our annual Spring Sale happening from March 15th to March 21st. During this week, enjoy discounts of up to 50% on selected items across our stores. Please note, this offer excludes electronics and already discounted merchandise. Additionally, loyalty cardholders can enjoy an extra 10% off on all purchases. Don’t miss out on these incredible deals! Visit us during regular mall hours from 10 AM to 9 PM. Thank you for shopping with us.",
+  "question_order": 2
+},
+  {
+  "question": "What can loyalty cardholders do during the sale?",
+  "choices": {
+    "A": "Get a free gift",
+    "B": "Shop outside regular hours",
+    "C": "Access a private sale",
+    "D": "Receive an additional discount"
+  },
+  "answer": "D",
+  "explanation_zh": "答案是 D。公告指出忠誠卡持有者在購物時可享受額外 10% 的折扣。選項 A、B 和 C 並未在公告中提及。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "loyalty card",
+    "extra",
+    "purchase"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p4-gen-186",
+  "part": "Part 4",
+  "transcript": "Hello shoppers! Welcome to Greenfield Mall. We are excited to announce our annual Spring Sale happening from March 15th to March 21st. During this week, enjoy discounts of up to 50% on selected items across our stores. Please note, this offer excludes electronics and already discounted merchandise. Additionally, loyalty cardholders can enjoy an extra 10% off on all purchases. Don’t miss out on these incredible deals! Visit us during regular mall hours from 10 AM to 9 PM. Thank you for shopping with us.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main topic of this announcement?",
+  "choices": {
+    "A": "Flight boarding instructions.",
+    "B": "New security measures.",
+    "C": "A flight delay.",
+    "D": "A terminal change."
+  },
+  "answer": "C",
+  "explanation_zh": "答案是 C。公告的主要內容是通知航班因天氣原因延誤，因此航班延誤是公告的主題。選項 A、B 和 D 並不符合公告的內容。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "departure",
+    "terminal",
+    "announcement"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-187",
+  "part": "Part 4",
+  "transcript": "Attention passengers of Flight 562 to Toronto. We regret to inform you that your flight will be delayed due to unexpected weather conditions. The new departure time is now scheduled for 6:30 PM, instead of the original 5:00 PM. Passengers are advised to remain in the terminal and listen for further announcements. We apologize for any inconvenience this may cause and appreciate your understanding. Our customer service desk is available to assist with any questions or concerns you may have regarding connecting flights.",
+  "question_order": 1
+},
+  {
+  "question": "What detail is explicitly mentioned in the announcement?",
+  "choices": {
+    "A": "The original departure gate.",
+    "B": "The new arrival time.",
+    "C": "The boarding time.",
+    "D": "The reason for the delay."
+  },
+  "answer": "D",
+  "explanation_zh": "答案是 D。公告中明確說明航班延誤的原因是因為意外的天氣狀況。選項 A、B 和 C 未在公告中提到。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "weather conditions",
+    "departure",
+    "customer service"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-188",
+  "part": "Part 4",
+  "transcript": "Attention passengers of Flight 562 to Toronto. We regret to inform you that your flight will be delayed due to unexpected weather conditions. The new departure time is now scheduled for 6:30 PM, instead of the original 5:00 PM. Passengers are advised to remain in the terminal and listen for further announcements. We apologize for any inconvenience this may cause and appreciate your understanding. Our customer service desk is available to assist with any questions or concerns you may have regarding connecting flights.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely immediate next action for passengers?",
+  "choices": {
+    "A": "Listen for further announcements.",
+    "B": "Leave the terminal.",
+    "C": "Report to the customer service desk.",
+    "D": "Check baggage claim."
+  },
+  "answer": "A",
+  "explanation_zh": "答案是 A。公告建議乘客留在航廈並聆聽進一步的公告，因此最可能的立即行動是聽取進一步通知。選項 B、C 和 D 並不是公告中建議的行動。",
+  "difficulty": "B2",
+  "vocabulary": [
+    "terminal",
+    "announcement",
+    "connecting flights"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p4-gen-189",
+  "part": "Part 4",
+  "transcript": "Attention passengers of Flight 562 to Toronto. We regret to inform you that your flight will be delayed due to unexpected weather conditions. The new departure time is now scheduled for 6:30 PM, instead of the original 5:00 PM. Passengers are advised to remain in the terminal and listen for further announcements. We apologize for any inconvenience this may cause and appreciate your understanding. Our customer service desk is available to assist with any questions or concerns you may have regarding connecting flights.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of the announcement?",
+  "choices": {
+    "A": "To announce a new company policy.",
+    "B": "To introduce a new HR manager.",
+    "C": "To cancel a training session.",
+    "D": "To remind staff of a training session."
+  },
+  "answer": "D",
+  "explanation_zh": "答案是 D。公告的主要目的是提醒員工參加即將到來的培訓課程。公告中明確提到“a quick reminder that our staff training session will take place this Friday”, 顯示這是一個提醒通知。選項 A、B 和 C 都不符合公告內容，因為公告並沒有提到新的公司政策、新的 HR 經理，或者取消培訓。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "training",
+    "session",
+    "conference room"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-190",
+  "part": "Part 4",
+  "transcript": "Hello everyone, a quick reminder that our staff training session will take place this Friday, October 15th, at 9 AM in the main conference room. Note that the date has changed from Thursday to Friday due to a scheduling conflict. Please make sure to bring your laptops, as the training will involve interactive activities. Also, remember to complete the pre-training assessment by Wednesday. If you have any questions, feel free to contact HR. We look forward to seeing you all there and hope you find the session valuable.",
+  "question_order": 1
+},
+  {
+  "question": "What change is mentioned in the announcement?",
+  "choices": {
+    "A": "The training date has changed.",
+    "B": "The training time has changed.",
+    "C": "The training topic has changed.",
+    "D": "The training location has changed."
+  },
+  "answer": "A",
+  "explanation_zh": "答案是 A。公告中提到“the date has changed from Thursday to Friday”，明確指出培訓日期已經更改。選項 B 誤導，因為時間沒有改變；選項 C 和 D 也不正確，因為公告並未提到主題或地點的更改。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "date",
+    "scheduling",
+    "conference room"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-191",
+  "part": "Part 4",
+  "transcript": "Hello everyone, a quick reminder that our staff training session will take place this Friday, October 15th, at 9 AM in the main conference room. Note that the date has changed from Thursday to Friday due to a scheduling conflict. Please make sure to bring your laptops, as the training will involve interactive activities. Also, remember to complete the pre-training assessment by Wednesday. If you have any questions, feel free to contact HR. We look forward to seeing you all there and hope you find the session valuable.",
+  "question_order": 2
+},
+  {
+  "question": "What can be inferred about the training session?",
+  "choices": {
+    "A": "It will be a passive lecture.",
+    "B": "It will involve interactive activities.",
+    "C": "It will be held online.",
+    "D": "It will be postponed."
+  },
+  "answer": "B",
+  "explanation_zh": "答案是 B。公告中提到“Please make sure to bring your laptops, as the training will involve interactive activities”，明確表示培訓將包含互動活動。選項 A 描述了被動講座，與公告中的互動活動不符；選項 C 和 D 不正確，公告中未提到培訓會在線進行或被推遲。",
+  "difficulty": "B2",
+  "vocabulary": [
+    "interactive",
+    "assessment",
+    "session"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p4-gen-192",
+  "part": "Part 4",
+  "transcript": "Hello everyone, a quick reminder that our staff training session will take place this Friday, October 15th, at 9 AM in the main conference room. Note that the date has changed from Thursday to Friday due to a scheduling conflict. Please make sure to bring your laptops, as the training will involve interactive activities. Also, remember to complete the pre-training assessment by Wednesday. If you have any questions, feel free to contact HR. We look forward to seeing you all there and hope you find the session valuable.",
+  "question_order": 3
+},
+  {
+  "question": "What is the purpose of this message?",
+  "choices": {
+    "A": "To inform about the completion of a repair.",
+    "B": "To announce new business hours.",
+    "C": "To advertise a new product.",
+    "D": "To offer a discount on services."
+  },
+  "answer": "A",
+  "explanation_zh": "答案是 A。訊息的主要目的是通知客戶洗碗機的修理已經提前完成。訊息中說到“your dishwasher repair has been completed ahead of schedule”，顯示這個信息是關於修理的完成。選項 B、C 和 D 都不正確，因為訊息中並沒有提到營業時間的變更、新產品的廣告或服務優惠。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "repair",
+    "completion",
+    "schedule",
+    "service center"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-193",
+  "part": "Part 4",
+  "transcript": "Hello, this is a customer service update from GreenTech Appliances. We are pleased to inform you that your dishwasher repair has been completed ahead of schedule. You can now pick it up at our downtown service center at 123 Maple Street during our regular business hours. Please remember to bring your service receipt for verification. Our hours are Monday through Friday, 9 a.m. to 6 p.m. We apologize for any inconvenience caused by the earlier delay and thank you for your patience. If you have any questions, feel free to call us at 555-0199.",
+  "question_order": 1
+},
+  {
+  "question": "Where can the dishwasher be picked up?",
+  "choices": {
+    "A": "At the main office.",
+    "B": "At the downtown service center.",
+    "C": "At the Maple Street store.",
+    "D": "At the warehouse."
+  },
+  "answer": "B",
+  "explanation_zh": "答案是 B。訊息中提到“You can now pick it up at our downtown service center at 123 Maple Street”，明確指出洗碗機可以在市中心的服務中心取回。選項 A 和 C 可能會迷惑人，但訊息中特別說明是“downtown service center”。選項 D 不正確，因為未提及倉庫。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "service center",
+    "pickup",
+    "verification",
+    "receipt"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-194",
+  "part": "Part 4",
+  "transcript": "Hello, this is a customer service update from GreenTech Appliances. We are pleased to inform you that your dishwasher repair has been completed ahead of schedule. You can now pick it up at our downtown service center at 123 Maple Street during our regular business hours. Please remember to bring your service receipt for verification. Our hours are Monday through Friday, 9 a.m. to 6 p.m. We apologize for any inconvenience caused by the earlier delay and thank you for your patience. If you have any questions, feel free to call us at 555-0199.",
+  "question_order": 2
+},
+  {
+  "question": "What is the most likely next action for the listener?",
+  "choices": {
+    "A": "Schedule another repair.",
+    "B": "Call the service center.",
+    "C": "Pick up the dishwasher.",
+    "D": "Visit the website."
+  },
+  "answer": "C",
+  "explanation_zh": "答案是 C。訊息中提到“You can now pick it up”，暗示最可能的下一步行動是提取洗碗機。選項 A、B 和 D 不符合邏輯，因為訊息沒有暗示需要安排新的修理、聯絡服務中心或造訪網站。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "pick up",
+    "verification",
+    "business hours",
+    "inconvenience"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p4-gen-195",
+  "part": "Part 4",
+  "transcript": "Hello, this is a customer service update from GreenTech Appliances. We are pleased to inform you that your dishwasher repair has been completed ahead of schedule. You can now pick it up at our downtown service center at 123 Maple Street during our regular business hours. Please remember to bring your service receipt for verification. Our hours are Monday through Friday, 9 a.m. to 6 p.m. We apologize for any inconvenience caused by the earlier delay and thank you for your patience. If you have any questions, feel free to call us at 555-0199.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of the announcement?",
+  "choices": {
+    "A": "To announce a new employee ID policy",
+    "B": "To inform about building access changes",
+    "C": "To notify about a new security team",
+    "D": "To update on a parking fee increase"
+  },
+  "answer": "B",
+  "explanation_zh": "答案是 B。公告的主要目的是告知員工主建築物的進出限制變更。公告中明確提到“access to the main building will be restricted due to ongoing renovation work”。選項 A、C 和 D 都不正確，因為公告並沒有提及新的員工 ID 政策、新的安全團隊，或者停車費增加。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "restricted",
+    "ongoing",
+    "renovation"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-196",
+  "part": "Part 4",
+  "transcript": "Attention, all employees. This is a reminder that starting from Monday, November 6th, access to the main building will be restricted due to ongoing renovation work. Only the north entrance will remain open for entry and exit. Please ensure you have your employee ID with you at all times as security checks will be heightened. Additionally, the parking lot on the east side will be closed for the duration of the project, which is expected to last until December 15th. We apologize for any inconvenience and appreciate your cooperation during this period.",
+  "question_order": 1
+},
+  {
+  "question": "What will happen to the east side parking lot?",
+  "choices": {
+    "A": "It will have a new fee",
+    "B": "It will be expanded",
+    "C": "It will be closed",
+    "D": "It will be repaved"
+  },
+  "answer": "C",
+  "explanation_zh": "答案是 C。公告中提到“the parking lot on the east side will be closed”，清楚說明東側停車場將關閉。選項 A、B 和 D 都不正確，因為公告沒有提及新的費用、擴建或重鋪。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "parking lot",
+    "duration",
+    "project"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-197",
+  "part": "Part 4",
+  "transcript": "Attention, all employees. This is a reminder that starting from Monday, November 6th, access to the main building will be restricted due to ongoing renovation work. Only the north entrance will remain open for entry and exit. Please ensure you have your employee ID with you at all times as security checks will be heightened. Additionally, the parking lot on the east side will be closed for the duration of the project, which is expected to last until December 15th. We apologize for any inconvenience and appreciate your cooperation during this period.",
+  "question_order": 2
+},
+  {
+  "question": "What can be inferred about employee ID use during this period?",
+  "choices": {
+    "A": "Employees will need to update their ID cards",
+    "B": "ID cards will be checked less frequently",
+    "C": "Security will be less strict",
+    "D": "ID cards are necessary for entering the building"
+  },
+  "answer": "D",
+  "explanation_zh": "答案是 D。公告中提到“Please ensure you have your employee ID with you at all times as security checks will be heightened”，顯示進入建築物時需要使用員工 ID。選項 A 和 B 是誤導，公告未提及更新 ID 卡或減少檢查；選項 C 錯誤，因為公告提到了更嚴格的安檢。",
+  "difficulty": "B2",
+  "vocabulary": [
+    "security checks",
+    "heightened",
+    "cooperation"
+  ],
+  "skill_tag": "listening_inference",
+  "id": "p4-gen-198",
+  "part": "Part 4",
+  "transcript": "Attention, all employees. This is a reminder that starting from Monday, November 6th, access to the main building will be restricted due to ongoing renovation work. Only the north entrance will remain open for entry and exit. Please ensure you have your employee ID with you at all times as security checks will be heightened. Additionally, the parking lot on the east side will be closed for the duration of the project, which is expected to last until December 15th. We apologize for any inconvenience and appreciate your cooperation during this period.",
+  "question_order": 3
+},
+  {
+  "question": "What is the main purpose of the announcement?",
+  "choices": {
+    "A": "To announce a new store opening",
+    "B": "To introduce a new clothing line",
+    "C": "To inform about a store promotion",
+    "D": "To detail a return policy update"
+  },
+  "answer": "C",
+  "explanation_zh": "此公告的主要目的是告知顧客店鋪促銷活動，因為提到了年度夏季促銷和折扣。其他選項未在內容中提及。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "annual",
+    "discount",
+    "final"
+  ],
+  "skill_tag": "listening_main_idea",
+  "id": "p4-gen-199",
+  "part": "Part 4",
+  "transcript": "Good morning, shoppers! We're excited to announce our annual Summer Sale, which starts tomorrow, July 15th, and runs through July 21st. Enjoy discounts of up to 50% on selected summer clothing and accessories. Please note that the sale is available only at our downtown location on Main Street, and not online. Additionally, remember that all sale items are final and cannot be returned or exchanged. Make sure to visit early for the best selection. Thank you for shopping with us, and we hope to see you soon!",
+  "question_order": 1
+},
+  {
+  "question": "When does the Summer Sale begin?",
+  "choices": {
+    "A": "July 14th",
+    "B": "July 16th",
+    "C": "July 21st",
+    "D": "July 15th"
+  },
+  "answer": "D",
+  "explanation_zh": "促銷活動自7月15日開始，這在公告中明確提及。其他日期未在公告中提到。",
+  "difficulty": "A2",
+  "vocabulary": [
+    "announce",
+    "selected",
+    "location"
+  ],
+  "skill_tag": "listening_detail",
+  "id": "p4-gen-200",
+  "part": "Part 4",
+  "transcript": "Good morning, shoppers! We're excited to announce our annual Summer Sale, which starts tomorrow, July 15th, and runs through July 21st. Enjoy discounts of up to 50% on selected summer clothing and accessories. Please note that the sale is available only at our downtown location on Main Street, and not online. Additionally, remember that all sale items are final and cannot be returned or exchanged. Make sure to visit early for the best selection. Thank you for shopping with us, and we hope to see you soon!",
+  "question_order": 2
+},
+  {
+  "question": "What should shoppers most likely do next?",
+  "choices": {
+    "A": "Visit the downtown store",
+    "B": "Check for online deals",
+    "C": "Return items to the store",
+    "D": "Call customer service"
+  },
+  "answer": "A",
+  "explanation_zh": "公告中建議顧客及早到店內選購，因此最可能的下一步是前往市中心商店。其他選項未在公告中建議。",
+  "difficulty": "B1",
+  "vocabulary": [
+    "visit",
+    "selection",
+    "hope"
+  ],
+  "skill_tag": "listening_next_action",
+  "id": "p4-gen-201",
+  "part": "Part 4",
+  "transcript": "Good morning, shoppers! We're excited to announce our annual Summer Sale, which starts tomorrow, July 15th, and runs through July 21st. Enjoy discounts of up to 50% on selected summer clothing and accessories. Please note that the sale is available only at our downtown location on Main Street, and not online. Additionally, remember that all sale items are final and cannot be returned or exchanged. Make sure to visit early for the best selection. Thank you for shopping with us, and we hope to see you soon!",
+  "question_order": 3
+},
+  {
+  "id": "p5-gen-054",
+  "part": "Part 5",
+  "question": "The meeting agenda _______ by the administrative assistant before the conference begins.",
+  "choices": {
+    "A": "will be distributed",
+    "B": "will distribute",
+    "C": "has distributed",
+    "D": "is distributing"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。主詞「agenda」是「被分發」，需用被動語態；時間副詞子句「before the conference begins」表示未來，故用未來被動「will be distributed」。B是主動未來、C是主動現在完成、D是主動現在進行，皆不符合。",
+  "skill_tag": "passive_voice",
+  "difficulty": "B1",
+  "vocabulary": [
+    "meeting agenda",
+    "administrative assistant",
+    "conference",
+    "distributed"
+  ]
+},
+  {
+  "id": "p5-gen-055",
+  "part": "Part 5",
+  "question": "All purchase orders _______ by the manager before they can be processed.",
+  "choices": {
+    "A": "must approve",
+    "B": "must be approved",
+    "C": "must approved",
+    "D": "must approving"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為B。主詞「orders」是「被批准」，需用被動語態；「must」後接原形動詞，故「must be approved」正確。A是主動、C少了be、D動名詞形式，皆錯誤。",
+  "skill_tag": "passive_voice",
+  "difficulty": "B1",
+  "vocabulary": [
+    "purchase orders",
+    "manager",
+    "processed",
+    "approved"
+  ]
+},
+  {
+  "id": "p5-gen-056",
+  "part": "Part 5",
+  "question": "The quarterly report _______ by the accounting team since last week.",
+  "choices": {
+    "A": "will be prepared",
+    "B": "is preparing",
+    "C": "has been prepared",
+    "D": "prepared"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為C。時間副詞「since last week」表示從過去持續到現在，需用現在完成式；主詞「report」是「被準備」，故用現在完成被動「has been prepared」。A是未來、B是主動進行、D是過去式，皆不符。",
+  "skill_tag": "passive_voice",
+  "difficulty": "B1",
+  "vocabulary": [
+    "quarterly report",
+    "accounting team",
+    "prepared",
+    "since last week"
+  ]
+},
+  {
+  "id": "p5-gen-057",
+  "part": "Part 5",
+  "question": "The new office policy _______ to all employees during the meeting tomorrow morning.",
+  "choices": {
+    "A": "is explaining",
+    "B": "explains",
+    "C": "has explained",
+    "D": "will be explained"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為D。時間副詞「tomorrow morning」表示未來；主詞「policy」是「被解釋」，需用未來被動「will be explained」。A、B、C皆為主動語態，錯誤。",
+  "skill_tag": "passive_voice",
+  "difficulty": "B1",
+  "vocabulary": [
+    "office policy",
+    "employees",
+    "meeting",
+    "explained"
+  ]
+},
+  {
+  "id": "p5-gen-058",
+  "part": "Part 5",
+  "question": "The shipment of parts _______ by the supplier due to the holiday schedule.",
+  "choices": {
+    "A": "has been delayed",
+    "B": "has delayed",
+    "C": "is delaying",
+    "D": "delays"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。主詞「shipment」是「被延遲」，需用被動語態；「due to the holiday schedule」說明原因，用現在完成被動「has been delayed」表示已發生的影響。B、C、D皆為主動語態，錯誤。",
+  "skill_tag": "passive_voice",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shipment",
+    "supplier",
+    "holiday schedule",
+    "delayed"
+  ]
+},
+  {
+  "id": "p5-gen-059",
+  "part": "Part 5",
+  "question": "The quarterly report showed a _______ increase in sales, exceeding all targets.",
+  "choices": {
+    "A": "competitively",
+    "B": "competitive",
+    "C": "competition",
+    "D": "compete"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為 B。空格前有冠詞 a 和名詞 increase，因此需要形容詞 competitive 來修飾 increase，表示「具競爭力的增長」。其他選項：A competitively 是副詞，不能修飾名詞；C competition 是名詞；D compete 是動詞，均不符合語法。",
+  "skill_tag": "word_form",
+  "difficulty": "B1",
+  "vocabulary": [
+    "quarterly report",
+    "increase",
+    "competitive",
+    "exceeding",
+    "targets"
+  ]
+},
+  {
+  "id": "p5-gen-060",
+  "part": "Part 5",
+  "question": "The marketing team's _______ presentation left a strong impression on the clients.",
+  "choices": {
+    "A": "impressively",
+    "B": "impression",
+    "C": "impressive",
+    "D": "impress"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為 C。空格後有名詞 presentation，需要形容詞 impressive 來修飾，表示「令人印象深刻的簡報」。其他選項：A impressively 是副詞；B impression 是名詞；D impress 是動詞，均無法修飾名詞。",
+  "skill_tag": "word_form",
+  "difficulty": "B1",
+  "vocabulary": [
+    "marketing team",
+    "presentation",
+    "impressive",
+    "impression",
+    "clients"
+  ]
+},
+  {
+  "id": "p5-gen-061",
+  "part": "Part 5",
+  "question": "The company's _______ strategy has led to higher profit margins this year.",
+  "choices": {
+    "A": "productively",
+    "B": "product",
+    "C": "productivity",
+    "D": "productive"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為 D。空格後有名詞 strategy，需要形容詞 productive 來修飾，表示「富有成效的策略」。其他選項：A productively 是副詞；B product 是名詞；C productivity 也是名詞，均不符合語法。",
+  "skill_tag": "word_form",
+  "difficulty": "B1",
+  "vocabulary": [
+    "strategy",
+    "productive",
+    "profit margins",
+    "company",
+    "year"
+  ]
+},
+  {
+  "id": "p5-gen-062",
+  "part": "Part 5",
+  "question": "The manager requested a detailed _______ of the project before the deadline.",
+  "choices": {
+    "A": "analysis",
+    "B": "analyze",
+    "C": "analytical",
+    "D": "analytically"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為 A。空格前有形容詞 detailed 和冠詞 a，需要名詞 analysis 作為 requested 的受詞，表示「詳細的分析」。其他選項：B analyze 是動詞；C analytical 是形容詞；D analytically 是副詞，均無法放在此位置。",
+  "skill_tag": "word_form",
+  "difficulty": "B1",
+  "vocabulary": [
+    "manager",
+    "detailed",
+    "analysis",
+    "project",
+    "deadline"
+  ]
+},
+  {
+  "id": "p5-gen-063",
+  "part": "Part 5",
+  "question": "The new software improved the team's _______ by automating routine tasks.",
+  "choices": {
+    "A": "efficient",
+    "B": "efficiency",
+    "C": "efficiently",
+    "D": "efficiencies"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為 B。空格前有所有格 the team's，需要名詞 efficiency 來表示「效率」，improved the team's efficiency 意為「提升了團隊的效率」。其他選項：A efficient 是形容詞；C efficiently 是副詞；D efficiencies 是複數名詞，但此處效率為不可數概念，故選 B。",
+  "skill_tag": "word_form",
+  "difficulty": "B1",
+  "vocabulary": [
+    "software",
+    "efficiency",
+    "automating",
+    "routine tasks",
+    "team"
+  ]
+},
+  {
+  "id": "p5-gen-064",
+  "part": "Part 5",
+  "question": "The project team _______ the software testing phase since last Monday.",
+  "choices": {
+    "A": "is completing",
+    "B": "completed",
+    "C": "has been completing",
+    "D": "has completed"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為C。since last Monday表示從過去持續到現在的時間點，需用現在完成進行式has been completing，強調動作仍在進行。A選項is completing是現在進行式，無法搭配since；B選項completed是過去式，與since衝突；D選項has completed是現在完成式，但未強調持續進行。",
+  "skill_tag": "tense",
+  "difficulty": "B1",
+  "vocabulary": [
+    "project team",
+    "software testing",
+    "phase",
+    "since",
+    "completing"
+  ]
+},
+  {
+  "id": "p5-gen-065",
+  "part": "Part 5",
+  "question": "We _______ the quarterly report to the board yet, but we will send it by Friday.",
+  "choices": {
+    "A": "hadn't submitted",
+    "B": "didn't submit",
+    "C": "don't submit",
+    "D": "haven't submitted"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為D。yet常用於否定句，表示「尚未」，需搭配現在完成式haven't submitted。A選項hadn't submitted是過去完成式，與現在時間不符；B選項didn't submit是過去式，無法與yet連用；C選項don't submit是現在簡單式，不適用於yet。",
+  "skill_tag": "tense",
+  "difficulty": "B1",
+  "vocabulary": [
+    "quarterly report",
+    "board",
+    "submit",
+    "yet",
+    "Friday"
+  ]
+},
+  {
+  "id": "p5-gen-066",
+  "part": "Part 5",
+  "question": "The marketing department _______ three new campaigns already this quarter.",
+  "choices": {
+    "A": "has launched",
+    "B": "launched",
+    "C": "is launching",
+    "D": "had launched"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。already this quarter表示到目前為止已完成，需用現在完成式has launched。B選項launched是過去式，無法與already搭配；C選項is launching是現在進行式，強調進行而非完成；D選項had launched是過去完成式，與this quarter時間點不符。",
+  "skill_tag": "tense",
+  "difficulty": "B1",
+  "vocabulary": [
+    "marketing department",
+    "campaigns",
+    "launched",
+    "quarter",
+    "already"
+  ]
+},
+  {
+  "id": "p5-gen-067",
+  "part": "Part 5",
+  "question": "Since the new policy was introduced, employee productivity _______ significantly.",
+  "choices": {
+    "A": "improved",
+    "B": "has been improving",
+    "C": "improves",
+    "D": "had improved"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為B。Since引導時間從句，主句需用現在完成進行式has been improving，強調從過去到現在持續改善。A選項improved是過去式，無法與since連用；C選項improves是現在簡單式，不適用於持續時間；D選項had improved是過去完成式，與since衝突。",
+  "skill_tag": "tense",
+  "difficulty": "B1",
+  "vocabulary": [
+    "policy",
+    "introduced",
+    "employee productivity",
+    "significantly",
+    "improving"
+  ]
+},
+  {
+  "id": "p5-gen-068",
+  "part": "Part 5",
+  "question": "The research team _______ the final results for the client presentation last week.",
+  "choices": {
+    "A": "has prepared",
+    "B": "has been preparing",
+    "C": "prepared",
+    "D": "prepares"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為C。last week是明確的過去時間點，需用過去式prepared。A選項has prepared是現在完成式，與last week衝突；B選項has been preparing是現在完成進行式，強調持續進行，但last week表示已完成；D選項prepares是現在簡單式，時間不符。",
+  "skill_tag": "tense",
+  "difficulty": "B1",
+  "vocabulary": [
+    "research team",
+    "final results",
+    "client presentation",
+    "prepared",
+    "last week"
+  ]
+},
+  {
+  "id": "p5-gen-069",
+  "part": "Part 5",
+  "question": "The shipment is scheduled to arrive _______ Friday afternoon.",
+  "choices": {
+    "A": "in",
+    "B": "by",
+    "C": "at",
+    "D": "on"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為 D。表示特定日期或特定日期的上下午、晚上時，應使用介係詞 on。選項 A (in) 用於較長的時間段（如月份、年份）；B (by) 表示「不遲於」；C (at) 用於具體時間點。",
+  "skill_tag": "preposition",
+  "difficulty": "A2",
+  "vocabulary": [
+    "shipment",
+    "scheduled",
+    "arrive",
+    "Friday afternoon"
+  ]
+},
+  {
+  "id": "p5-gen-070",
+  "part": "Part 5",
+  "question": "Please submit the report _______ the end of the day.",
+  "choices": {
+    "A": "by",
+    "B": "on",
+    "C": "at",
+    "D": "in"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為 A。by the end of the day 是固定搭配，表示「在當天結束之前」。選項 B (on) 用於特定日期；C (at) 用於時間點；D (in) 用於較長時間段。",
+  "skill_tag": "preposition",
+  "difficulty": "A2",
+  "vocabulary": [
+    "submit",
+    "report",
+    "end of the day"
+  ]
+},
+  {
+  "id": "p5-gen-071",
+  "part": "Part 5",
+  "question": "The meeting will be held _______ the main conference room.",
+  "choices": {
+    "A": "on",
+    "B": "in",
+    "C": "at",
+    "D": "by"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為 B。表示在「會議室」這個有範圍的空間內，應使用介係詞 in。選項 A (on) 用於表面；C (at) 用於地點或場合；D (by) 表示「在…旁邊」或「經由」。",
+  "skill_tag": "preposition",
+  "difficulty": "A2",
+  "vocabulary": [
+    "meeting",
+    "held",
+    "conference room"
+  ]
+},
+  {
+  "id": "p5-gen-072",
+  "part": "Part 5",
+  "question": "The deadline for the application is _______ March 15th.",
+  "choices": {
+    "A": "in",
+    "B": "at",
+    "C": "on",
+    "D": "by"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為 C。表示特定日期（March 15th）時，應使用介係詞 on。選項 A (in) 用於月份或年份；B (at) 用於時間點；D (by) 表示「不遲於」，但此處強調日期本身。",
+  "skill_tag": "preposition",
+  "difficulty": "A2",
+  "vocabulary": [
+    "deadline",
+    "application",
+    "March 15th"
+  ]
+},
+  {
+  "id": "p5-gen-073",
+  "part": "Part 5",
+  "question": "The training session will last _______ two hours.",
+  "choices": {
+    "A": "in",
+    "B": "on",
+    "C": "during",
+    "D": "for"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為 D。表示持續一段時間時，應使用介係詞 for。選項 A (in) 用於時間段內；B (on) 用於特定日期；C (during) 表示「在…期間」，但通常不與具體時長連用。",
+  "skill_tag": "preposition",
+  "difficulty": "A2",
+  "vocabulary": [
+    "training session",
+    "last",
+    "two hours"
+  ]
+},
+  {
+  "id": "p5-gen-074",
+  "part": "Part 5",
+  "question": "_______ the budget cuts, the marketing department decided to proceed with the new campaign.",
+  "choices": {
+    "A": "Despite",
+    "B": "Although",
+    "C": "Because",
+    "D": "Unless"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。Despite 是介係詞，後接名詞片語 the budget cuts，表示「儘管預算削減」，符合句意。Although 雖表「雖然」，但需接子句；Because 表「因為」；Unless 表「除非」，皆不符。",
+  "skill_tag": "conjunction",
+  "difficulty": "B1",
+  "vocabulary": [
+    "budget cuts",
+    "marketing department",
+    "proceed with",
+    "campaign"
+  ]
+},
+  {
+  "id": "p5-gen-075",
+  "part": "Part 5",
+  "question": "The project deadline was extended _______ the technical difficulties encountered by the team.",
+  "choices": {
+    "A": "because",
+    "B": "due to",
+    "C": "although",
+    "D": "however"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為B。due to 是介係詞片語，後接名詞片語 the technical difficulties，表示「由於技術困難」，符合句意。because 需接子句；although 表「雖然」；however 表「然而」，皆不符。",
+  "skill_tag": "conjunction",
+  "difficulty": "B1",
+  "vocabulary": [
+    "project deadline",
+    "extended",
+    "technical difficulties",
+    "encountered"
+  ]
+},
+  {
+  "id": "p5-gen-076",
+  "part": "Part 5",
+  "question": "The new policy will not be implemented _______ all departments approve the changes.",
+  "choices": {
+    "A": "although",
+    "B": "if",
+    "C": "unless",
+    "D": "because"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為C。unless 是連接詞，引導條件子句，表示「除非所有部門批准」，符合句意。although 表「雖然」；if 表「如果」；because 表「因為」，皆不符。",
+  "skill_tag": "conjunction",
+  "difficulty": "B1",
+  "vocabulary": [
+    "implemented",
+    "departments",
+    "approve",
+    "changes"
+  ]
+},
+  {
+  "id": "p5-gen-077",
+  "part": "Part 5",
+  "question": "Sales figures have improved significantly; _______, the company still faces challenges in the international market.",
+  "choices": {
+    "A": "therefore",
+    "B": "unless",
+    "C": "because",
+    "D": "however"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為D。however 是副詞，表示轉折「然而」，連接前後對比句意。therefore 表「因此」；unless 表「除非」；because 表「因為」，皆不符。",
+  "skill_tag": "conjunction",
+  "difficulty": "B1",
+  "vocabulary": [
+    "sales figures",
+    "improved",
+    "faces challenges",
+    "international market"
+  ]
+},
+  {
+  "id": "p5-gen-078",
+  "part": "Part 5",
+  "question": "_______ the initial investment was high, the board decided to fund the new project due to its long-term potential.",
+  "choices": {
+    "A": "Although",
+    "B": "Despite",
+    "C": "Because of",
+    "D": "Unless"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。Although 是連接詞，引導子句 the initial investment was high，表示「雖然初始投資很高」，符合句意。Despite 需接名詞片語；Because of 表「因為」；Unless 表「除非」，皆不符。",
+  "skill_tag": "conjunction",
+  "difficulty": "B1",
+  "vocabulary": [
+    "initial investment",
+    "board",
+    "fund",
+    "long-term potential"
+  ]
+},
+  {
+  "id": "p5-gen-079",
+  "part": "Part 5",
+  "question": "The marketing team submitted _______ report to the regional director yesterday.",
+  "choices": {
+    "A": "they",
+    "B": "their",
+    "C": "them",
+    "D": "theirs"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為 B。「their」是所有格形容詞，修飾後面的名詞 report，表示「他們的報告」。A「they」是主格，C「them」是受格，D「theirs」是獨立所有格，均不能直接修飾名詞。",
+  "skill_tag": "pronoun",
+  "difficulty": "B1",
+  "vocabulary": [
+    "marketing team",
+    "report",
+    "regional director",
+    "submitted"
+  ]
+},
+  {
+  "id": "p5-gen-080",
+  "part": "Part 5",
+  "question": "Ms. Chen is the consultant with _______ we discussed the new project timeline.",
+  "choices": {
+    "A": "who",
+    "B": "whose",
+    "C": "whom",
+    "D": "which"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為 C。「with whom」是介係詞 + 關係代名詞的用法，whom 指人（consultant）且作為受格。A「who」為主格，B「whose」為所有格，D「which」用於事物。",
+  "skill_tag": "pronoun",
+  "difficulty": "B1",
+  "vocabulary": [
+    "consultant",
+    "project timeline",
+    "discussed",
+    "new"
+  ]
+},
+  {
+  "id": "p5-gen-081",
+  "part": "Part 5",
+  "question": "The IT department fixed the server issue _______, avoiding any downtime.",
+  "choices": {
+    "A": "them",
+    "B": "its",
+    "C": "it",
+    "D": "itself"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為 D。「itself」是反身代名詞，強調主詞 the IT department 自己完成了動作，表示「自行地」。A「them」、B「its」、C「it」均無法表達反身強調的語意。",
+  "skill_tag": "pronoun",
+  "difficulty": "B1",
+  "vocabulary": [
+    "IT department",
+    "server issue",
+    "downtime",
+    "avoiding"
+  ]
+},
+  {
+  "id": "p5-gen-082",
+  "part": "Part 5",
+  "question": "All team members must ensure _______ timesheets are submitted by Friday.",
+  "choices": {
+    "A": "their",
+    "B": "them",
+    "C": "they",
+    "D": "theirs"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為 A。「their」是所有格形容詞，修飾 timesheets，表示「他們的工時表」。B「them」是受格，C「they」是主格，D「theirs」是獨立所有格，均不能直接放在名詞前。",
+  "skill_tag": "pronoun",
+  "difficulty": "B1",
+  "vocabulary": [
+    "team members",
+    "timesheets",
+    "submitted",
+    "ensure"
+  ]
+},
+  {
+  "id": "p5-gen-083",
+  "part": "Part 5",
+  "question": "The new policy applies to any employee _______ works from home more than two days a week.",
+  "choices": {
+    "A": "whom",
+    "B": "who",
+    "C": "whose",
+    "D": "which"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為 B。「who」是主格關係代名詞，在子句中擔任主詞，指人（employee）。A「whom」為受格，C「whose」為所有格，D「which」用於事物。",
+  "skill_tag": "pronoun",
+  "difficulty": "B1",
+  "vocabulary": [
+    "policy",
+    "employee",
+    "works from home",
+    "applies to"
+  ]
+},
+  {
+  "id": "p6-gen-117",
+  "part": "Part 6",
+  "passage": "To: All Staff\nFrom: Human Resources\nSubject: Updated Remote Work Policy\n\nDear Team,\n\nWe are pleased to announce an updated remote work policy, effective from March 1st. This new policy aims to provide greater ____(A)____ for employees while maintaining productivity. To participate, you must submit a formal request at least two weeks in advance. ____(B)____, all requests will be reviewed by your department manager and the HR team. You are required to ensure a stable internet connection and a dedicated workspace. Please note that equipment must be returned ____(C)____ your resignation or transfer to a different department. We encourage you to read the full policy document attached to this email. If you have any questions, ____(D)____ do not hesitate to contact the HR office. We believe this change will benefit everyone.\n\nBest regards,\nHR Department",
+  "question": "____(A)____",
+  "choices": {
+    "A": "flexibility",
+    "B": "flexible",
+    "C": "flexibly",
+    "D": "inflexibility"
+  },
+  "answer": "A",
+  "explanation_zh": "選項 A 正確。空格前是動詞 provide，後面需要一個名詞作為受詞。flexibility（靈活性）是名詞，符合語法，且句意為「為員工提供更大的靈活性」，與政策目標一致。B flexible 是形容詞，不能放在動詞後作受詞；C flexibly 是副詞，不適用；D inflexibility（缺乏彈性）意思相反，不符合政策目的。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "productivity",
+    "submit",
+    "resignation",
+    "transfer",
+    "policy"
+  ],
+  "passage_group_id": "p6-030",
+  "question_order": 1
+},
+  {
+  "id": "p6-gen-118",
+  "part": "Part 6",
+  "passage": "To: All Staff\nFrom: Human Resources\nSubject: Updated Remote Work Policy\n\nDear Team,\n\nWe are pleased to announce an updated remote work policy, effective from March 1st. This new policy aims to provide greater ____(A)____ for employees while maintaining productivity. To participate, you must submit a formal request at least two weeks in advance. ____(B)____, all requests will be reviewed by your department manager and the HR team. You are required to ensure a stable internet connection and a dedicated workspace. Please note that equipment must be returned ____(C)____ your resignation or transfer to a different department. We encourage you to read the full policy document attached to this email. If you have any questions, ____(D)____ do not hesitate to contact the HR office. We believe this change will benefit everyone.\n\nBest regards,\nHR Department",
+  "question": "____(B)____",
+  "choices": {
+    "A": "Therefore",
+    "B": "Furthermore",
+    "C": "However",
+    "D": "Nevertheless"
+  },
+  "answer": "B",
+  "explanation_zh": "選項 B 正確。前句說明需提前兩週提交申請，此句補充所有申請將由主管和 HR 審查，兩句間是附加說明關係。Furthermore（此外）表示遞進，符合邏輯。A Therefore（因此）表因果，但前句非原因；C However 和 D Nevertheless 表轉折，與上下文不符。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "productivity",
+    "submit",
+    "resignation",
+    "transfer",
+    "policy"
+  ],
+  "passage_group_id": "p6-030",
+  "question_order": 2
+},
+  {
+  "id": "p6-gen-119",
+  "part": "Part 6",
+  "passage": "To: All Staff\nFrom: Human Resources\nSubject: Updated Remote Work Policy\n\nDear Team,\n\nWe are pleased to announce an updated remote work policy, effective from March 1st. This new policy aims to provide greater ____(A)____ for employees while maintaining productivity. To participate, you must submit a formal request at least two weeks in advance. ____(B)____, all requests will be reviewed by your department manager and the HR team. You are required to ensure a stable internet connection and a dedicated workspace. Please note that equipment must be returned ____(C)____ your resignation or transfer to a different department. We encourage you to read the full policy document attached to this email. If you have any questions, ____(D)____ do not hesitate to contact the HR office. We believe this change will benefit everyone.\n\nBest regards,\nHR Department",
+  "question": "____(C)____",
+  "choices": {
+    "A": "in",
+    "B": "on",
+    "C": "upon",
+    "D": "at"
+  },
+  "answer": "C",
+  "explanation_zh": "選項 C 正確。upon 表示「在……之時」，與 your resignation or transfer 搭配，意為「在離職或調職時歸還設備」，符合正式書面語。A in 和 D at 無法表達此時間點；B on 雖可表時間，但 upon 更正式且常見於政策文件。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "productivity",
+    "submit",
+    "resignation",
+    "transfer",
+    "policy"
+  ],
+  "passage_group_id": "p6-030",
+  "question_order": 3
+},
+  {
+  "id": "p6-gen-120",
+  "part": "Part 6",
+  "passage": "To: All Staff\nFrom: Human Resources\nSubject: Updated Remote Work Policy\n\nDear Team,\n\nWe are pleased to announce an updated remote work policy, effective from March 1st. This new policy aims to provide greater ____(A)____ for employees while maintaining productivity. To participate, you must submit a formal request at least two weeks in advance. ____(B)____, all requests will be reviewed by your department manager and the HR team. You are required to ensure a stable internet connection and a dedicated workspace. Please note that equipment must be returned ____(C)____ your resignation or transfer to a different department. We encourage you to read the full policy document attached to this email. If you have any questions, ____(D)____ do not hesitate to contact the HR office. We believe this change will benefit everyone.\n\nBest regards,\nHR Department",
+  "question": "____(D)____",
+  "choices": {
+    "A": "pleasure",
+    "B": "pleasing",
+    "C": "pleased",
+    "D": "please"
+  },
+  "answer": "D",
+  "explanation_zh": "選項 D 正確。此處為祈使句，需用動詞原形 please（請）引導請求，構成「請不要猶豫」的慣用語。A pleasure 是名詞；B pleasing 是形容詞或現在分詞；C pleased 是形容詞或過去分詞，均無法用於祈使句開頭。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "productivity",
+    "submit",
+    "resignation",
+    "transfer",
+    "policy"
+  ],
+  "passage_group_id": "p6-030",
+  "question_order": 4
+},
+  {
+  "id": "p6-gen-121",
+  "part": "Part 6",
+  "passage": "To: All Staff\nFrom: Facilities Management\nDate: March 15, 2025\nSubject: Updated Fire Safety Procedure\n\nPlease be advised that the new fire evacuation protocol will take effect on April 1, 2025. All employees must review the updated ____(A)____ posted on the intranet and near each exit. The primary assembly point has been relocated to the north parking lot. ____(B)____, the secondary assembly point remains near the main entrance for those who cannot reach the north lot. Safety officers will conduct a mandatory drill on March 28 at 10:00 AM. During the drill, please proceed ____(C)____ the nearest exit in an orderly manner. No one should use elevators during an evacuation. The company ____(D)____ that all personnel complete a brief online training module by March 25 to ensure compliance with the new guidelines.",
+  "question": "____(A)____",
+  "choices": {
+    "A": "guideline",
+    "B": "guidelines",
+    "C": "guiding",
+    "D": "guided"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為B。空格前有形容詞「updated」，後接名詞，且「guidelines」為複數名詞，符合語意「更新的指南」。選項A「guideline」為單數，但文中指多項指南；C「guiding」為動名詞或形容詞，不適合；D「guided」為過去分詞，無法直接受形容詞修飾。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "evacuation",
+    "protocol",
+    "assembly point",
+    "mandatory",
+    "compliance",
+    "module"
+  ],
+  "passage_group_id": "p6-031",
+  "question_order": 1
+},
+  {
+  "id": "p6-gen-122",
+  "part": "Part 6",
+  "passage": "To: All Staff\nFrom: Facilities Management\nDate: March 15, 2025\nSubject: Updated Fire Safety Procedure\n\nPlease be advised that the new fire evacuation protocol will take effect on April 1, 2025. All employees must review the updated ____(A)____ posted on the intranet and near each exit. The primary assembly point has been relocated to the north parking lot. ____(B)____, the secondary assembly point remains near the main entrance for those who cannot reach the north lot. Safety officers will conduct a mandatory drill on March 28 at 10:00 AM. During the drill, please proceed ____(C)____ the nearest exit in an orderly manner. No one should use elevators during an evacuation. The company ____(D)____ that all personnel complete a brief online training module by March 25 to ensure compliance with the new guidelines.",
+  "question": "____(B)____",
+  "choices": {
+    "A": "Therefore",
+    "B": "However",
+    "C": "Moreover",
+    "D": "Consequently"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為C。前句說明主要集合點移至北停車場，後句補充次要集合點仍保留，兩者為並列補充關係。「Moreover」表示「此外」，符合邏輯。A「Therefore」表因果，B「However」表轉折，D「Consequently」表結果，均不適用。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "evacuation",
+    "protocol",
+    "assembly point",
+    "mandatory",
+    "compliance",
+    "module"
+  ],
+  "passage_group_id": "p6-031",
+  "question_order": 2
+},
+  {
+  "id": "p6-gen-123",
+  "part": "Part 6",
+  "passage": "To: All Staff\nFrom: Facilities Management\nDate: March 15, 2025\nSubject: Updated Fire Safety Procedure\n\nPlease be advised that the new fire evacuation protocol will take effect on April 1, 2025. All employees must review the updated ____(A)____ posted on the intranet and near each exit. The primary assembly point has been relocated to the north parking lot. ____(B)____, the secondary assembly point remains near the main entrance for those who cannot reach the north lot. Safety officers will conduct a mandatory drill on March 28 at 10:00 AM. During the drill, please proceed ____(C)____ the nearest exit in an orderly manner. No one should use elevators during an evacuation. The company ____(D)____ that all personnel complete a brief online training module by March 25 to ensure compliance with the new guidelines.",
+  "question": "____(C)____",
+  "choices": {
+    "A": "into",
+    "B": "along",
+    "C": "through",
+    "D": "toward"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為D。動詞「proceed」後接方向，表示「朝……前進」。「toward」意為「朝、向」，符合語境「朝最近的出口前進」。A「into」表進入內部，B「along」表沿著，C「through」表穿過，均不精確。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "evacuation",
+    "protocol",
+    "assembly point",
+    "mandatory",
+    "compliance",
+    "module"
+  ],
+  "passage_group_id": "p6-031",
+  "question_order": 3
+},
+  {
+  "id": "p6-gen-124",
+  "part": "Part 6",
+  "passage": "To: All Staff\nFrom: Facilities Management\nDate: March 15, 2025\nSubject: Updated Fire Safety Procedure\n\nPlease be advised that the new fire evacuation protocol will take effect on April 1, 2025. All employees must review the updated ____(A)____ posted on the intranet and near each exit. The primary assembly point has been relocated to the north parking lot. ____(B)____, the secondary assembly point remains near the main entrance for those who cannot reach the north lot. Safety officers will conduct a mandatory drill on March 28 at 10:00 AM. During the drill, please proceed ____(C)____ the nearest exit in an orderly manner. No one should use elevators during an evacuation. The company ____(D)____ that all personnel complete a brief online training module by March 25 to ensure compliance with the new guidelines.",
+  "question": "____(D)____",
+  "choices": {
+    "A": "requires",
+    "B": "require",
+    "C": "requiring",
+    "D": "required"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。主詞「The company」為第三人稱單數，需搭配單數動詞「requires」，表示「公司要求」。B「require」為複數動詞，C「requiring」為分詞，D「required」為過去式或被動，均不符合主詞一致原則。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "evacuation",
+    "protocol",
+    "assembly point",
+    "mandatory",
+    "compliance",
+    "module"
+  ],
+  "passage_group_id": "p6-031",
+  "question_order": 4
+},
+  {
+  "id": "p6-gen-125",
+  "part": "Part 6",
+  "passage": "Dear Valued Customers,\n\nWe are writing to inform you of a ____(A)____ change to our store hours. Starting next Monday, March 15th, our store will open at 9:00 AM instead of 8:00 AM. This adjustment is necessary to allow our staff additional time for cleaning and restocking.\n\n____(B)____, we will now close at 8:00 PM, which is one hour later than before. This new schedule will be in effect ____(C)____ the end of the month. We believe these changes will improve your shopping experience.\n\nIf you have any questions, ____(D)____ feel free to contact our customer service team at 555-1234. We appreciate your understanding.\n\nSincerely,\nGreenMart Management",
+  "question": "____(A)____",
+  "choices": {
+    "A": "temporary",
+    "B": "permanent",
+    "C": "slight",
+    "D": "large"
+  },
+  "answer": "C",
+  "explanation_zh": "此处需要一个形容词修饰'change'。'slight'表示微小的变化，符合礼貌通知中淡化负面影响的语气。'temporary'和'permanent'虽然语法正确，但文中未明确说明变化是临时还是永久。'large'语气过强，不适合礼貌的客户通知。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "valued",
+    "adjustment",
+    "restocking",
+    "schedule",
+    "appreciate"
+  ],
+  "passage_group_id": "p6-032",
+  "question_order": 1
+},
+  {
+  "id": "p6-gen-126",
+  "part": "Part 6",
+  "passage": "Dear Valued Customers,\n\nWe are writing to inform you of a ____(A)____ change to our store hours. Starting next Monday, March 15th, our store will open at 9:00 AM instead of 8:00 AM. This adjustment is necessary to allow our staff additional time for cleaning and restocking.\n\n____(B)____, we will now close at 8:00 PM, which is one hour later than before. This new schedule will be in effect ____(C)____ the end of the month. We believe these changes will improve your shopping experience.\n\nIf you have any questions, ____(D)____ feel free to contact our customer service team at 555-1234. We appreciate your understanding.\n\nSincerely,\nGreenMart Management",
+  "question": "____(B)____",
+  "choices": {
+    "A": "However",
+    "B": "Therefore",
+    "C": "Meanwhile",
+    "D": "Additionally"
+  },
+  "answer": "D",
+  "explanation_zh": "此处需要表示附加信息的连接词。'Additionally'表示'此外'，用来列出另一个变化（营业结束时间延后）。'However'表示转折，但前后是并列关系。'Therefore'表示因果，但这里不是结果。'Meanwhile'表示同时发生，逻辑不符。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "valued",
+    "adjustment",
+    "restocking",
+    "schedule",
+    "appreciate"
+  ],
+  "passage_group_id": "p6-032",
+  "question_order": 2
+},
+  {
+  "id": "p6-gen-127",
+  "part": "Part 6",
+  "passage": "Dear Valued Customers,\n\nWe are writing to inform you of a ____(A)____ change to our store hours. Starting next Monday, March 15th, our store will open at 9:00 AM instead of 8:00 AM. This adjustment is necessary to allow our staff additional time for cleaning and restocking.\n\n____(B)____, we will now close at 8:00 PM, which is one hour later than before. This new schedule will be in effect ____(C)____ the end of the month. We believe these changes will improve your shopping experience.\n\nIf you have any questions, ____(D)____ feel free to contact our customer service team at 555-1234. We appreciate your understanding.\n\nSincerely,\nGreenMart Management",
+  "question": "____(C)____",
+  "choices": {
+    "A": "until",
+    "B": "by",
+    "C": "for",
+    "D": "since"
+  },
+  "answer": "A",
+  "explanation_zh": "此处需要表示时间持续到某个时间点的介词。'until'表示'直到……为止'，符合'从3月15日到月底'的时间范围。'by'表示'在……之前'，不表示持续。'for'后接时间段，不接具体时间点。'since'表示'自……以来'，需搭配完成时态。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "valued",
+    "adjustment",
+    "restocking",
+    "schedule",
+    "appreciate"
+  ],
+  "passage_group_id": "p6-032",
+  "question_order": 3
+},
+  {
+  "id": "p6-gen-128",
+  "part": "Part 6",
+  "passage": "Dear Valued Customers,\n\nWe are writing to inform you of a ____(A)____ change to our store hours. Starting next Monday, March 15th, our store will open at 9:00 AM instead of 8:00 AM. This adjustment is necessary to allow our staff additional time for cleaning and restocking.\n\n____(B)____, we will now close at 8:00 PM, which is one hour later than before. This new schedule will be in effect ____(C)____ the end of the month. We believe these changes will improve your shopping experience.\n\nIf you have any questions, ____(D)____ feel free to contact our customer service team at 555-1234. We appreciate your understanding.\n\nSincerely,\nGreenMart Management",
+  "question": "____(D)____",
+  "choices": {
+    "A": "must",
+    "B": "should",
+    "C": "would",
+    "D": "do"
+  },
+  "answer": "B",
+  "explanation_zh": "此处需要情态动词表示礼貌建议。'should'意为'应该'，用于建议客户联系客服。'must'语气太强，不适合礼貌通知。'would'虽礼貌，但'would feel free'不自然。'do'在祈使句中常用，但'do feel free'是口语化强调，不如'should feel free'正式礼貌。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "valued",
+    "adjustment",
+    "restocking",
+    "schedule",
+    "appreciate"
+  ],
+  "passage_group_id": "p6-032",
+  "question_order": 4
+},
+  {
+  "id": "p6-gen-129",
+  "part": "Part 6",
+  "passage": "Dear Ms. Albright,\n\nI am writing on behalf of Apex Solutions to express our keen interest in exploring a potential partnership with Orion Technologies. Your company's expertise in renewable energy systems is highly ____(A)____ by our team, and we believe a collaboration could yield significant mutual benefits.\n\nWe have reviewed your recent developments in solar storage technology. ____(B)____, we propose a meeting to discuss how our respective strengths might complement each other. Specifically, we see an opportunity to integrate our distribution network with your innovative products.\n\nWe would be delighted to schedule a conference call next week. Please let us know if you are interested ____(C)____ exploring this opportunity further. Our senior management is available at your earliest convenience to discuss the details.\n\nWe look forward to a positive response. Should you agree, we ____(D)____ a formal proposal outlining the terms of our potential collaboration within two weeks.\n\nSincerely,\nJames Whitfield\nDirector of Business Development\nApex Solutions",
+  "question": "____(A)____",
+  "choices": {
+    "A": "dismissed",
+    "B": "ignored",
+    "C": "overlooked",
+    "D": "regarded"
+  },
+  "answer": "D",
+  "explanation_zh": "正確答案為 D「regarded」。空格前的「highly」與「regarded」搭配形成「highly regarded」這個常見片語，表示「高度重視」，符合信中對 Orion Technologies 專業知識的讚賞語氣。其他選項：A「dismissed」（駁回）、B「ignored」（忽略）、C「overlooked」（忽視）均帶有負面含義，與上下文表達的正面評價相矛盾。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "partnership",
+    "expertise",
+    "collaboration",
+    "distribution",
+    "proposal"
+  ],
+  "passage_group_id": "p6-033",
+  "question_order": 1
+},
+  {
+  "id": "p6-gen-130",
+  "part": "Part 6",
+  "passage": "Dear Ms. Albright,\n\nI am writing on behalf of Apex Solutions to express our keen interest in exploring a potential partnership with Orion Technologies. Your company's expertise in renewable energy systems is highly ____(A)____ by our team, and we believe a collaboration could yield significant mutual benefits.\n\nWe have reviewed your recent developments in solar storage technology. ____(B)____, we propose a meeting to discuss how our respective strengths might complement each other. Specifically, we see an opportunity to integrate our distribution network with your innovative products.\n\nWe would be delighted to schedule a conference call next week. Please let us know if you are interested ____(C)____ exploring this opportunity further. Our senior management is available at your earliest convenience to discuss the details.\n\nWe look forward to a positive response. Should you agree, we ____(D)____ a formal proposal outlining the terms of our potential collaboration within two weeks.\n\nSincerely,\nJames Whitfield\nDirector of Business Development\nApex Solutions",
+  "question": "____(B)____",
+  "choices": {
+    "A": "Therefore",
+    "B": "However",
+    "C": "Nevertheless",
+    "D": "Meanwhile"
+  },
+  "answer": "A",
+  "explanation_zh": "正確答案為 A「Therefore」。前句提到已審查對方技術發展，後句提出開會建議，兩者為因果關係，因此用「Therefore」（因此）連接。B「However」（然而）和 C「Nevertheless」（儘管如此）表示轉折，D「Meanwhile」（同時）表示時間並行，均不符合此處的邏輯順序。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "partnership",
+    "expertise",
+    "collaboration",
+    "distribution",
+    "proposal"
+  ],
+  "passage_group_id": "p6-033",
+  "question_order": 2
+},
+  {
+  "id": "p6-gen-131",
+  "part": "Part 6",
+  "passage": "Dear Ms. Albright,\n\nI am writing on behalf of Apex Solutions to express our keen interest in exploring a potential partnership with Orion Technologies. Your company's expertise in renewable energy systems is highly ____(A)____ by our team, and we believe a collaboration could yield significant mutual benefits.\n\nWe have reviewed your recent developments in solar storage technology. ____(B)____, we propose a meeting to discuss how our respective strengths might complement each other. Specifically, we see an opportunity to integrate our distribution network with your innovative products.\n\nWe would be delighted to schedule a conference call next week. Please let us know if you are interested ____(C)____ exploring this opportunity further. Our senior management is available at your earliest convenience to discuss the details.\n\nWe look forward to a positive response. Should you agree, we ____(D)____ a formal proposal outlining the terms of our potential collaboration within two weeks.\n\nSincerely,\nJames Whitfield\nDirector of Business Development\nApex Solutions",
+  "question": "____(C)____",
+  "choices": {
+    "A": "for",
+    "B": "in",
+    "C": "to",
+    "D": "on"
+  },
+  "answer": "B",
+  "explanation_zh": "正確答案為 B「in」。固定搭配「interested in + 動名詞」表示「對……感興趣」，此處「interested in exploring」符合文法。A「for」、C「to」、D「on」均無法與「interested」形成正確的介係詞搭配。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "partnership",
+    "expertise",
+    "collaboration",
+    "distribution",
+    "proposal"
+  ],
+  "passage_group_id": "p6-033",
+  "question_order": 3
+},
+  {
+  "id": "p6-gen-132",
+  "part": "Part 6",
+  "passage": "Dear Ms. Albright,\n\nI am writing on behalf of Apex Solutions to express our keen interest in exploring a potential partnership with Orion Technologies. Your company's expertise in renewable energy systems is highly ____(A)____ by our team, and we believe a collaboration could yield significant mutual benefits.\n\nWe have reviewed your recent developments in solar storage technology. ____(B)____, we propose a meeting to discuss how our respective strengths might complement each other. Specifically, we see an opportunity to integrate our distribution network with your innovative products.\n\nWe would be delighted to schedule a conference call next week. Please let us know if you are interested ____(C)____ exploring this opportunity further. Our senior management is available at your earliest convenience to discuss the details.\n\nWe look forward to a positive response. Should you agree, we ____(D)____ a formal proposal outlining the terms of our potential collaboration within two weeks.\n\nSincerely,\nJames Whitfield\nDirector of Business Development\nApex Solutions",
+  "question": "____(D)____",
+  "choices": {
+    "A": "prepared",
+    "B": "have prepared",
+    "C": "will prepare",
+    "D": "are preparing"
+  },
+  "answer": "C",
+  "explanation_zh": "正確答案為 C「will prepare」。主句「Should you agree」為條件句（相當於 If you agree），根據條件句規則，主要子句應使用未來式「will prepare」表示「將準備」。A「prepared」為過去式，B「have prepared」為現在完成式，D「are preparing」為現在進行式，均不符合條件句的時態要求。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "partnership",
+    "expertise",
+    "collaboration",
+    "distribution",
+    "proposal"
+  ],
+  "passage_group_id": "p6-033",
+  "question_order": 4
+},
+  {
+  "id": "p7-gen-245",
+  "part": "Part 7",
+  "passage": "Subject: Rescheduling of Quarterly Review Meeting\n\nDear Team,\n\nThis is to inform you that the quarterly review meeting originally scheduled for Friday, March 15th has been rescheduled. The new meeting will take place on Tuesday, March 19th, at 10:00 AM in Conference Room B. Please note that the location has changed from Conference Room A due to a scheduling conflict.\n\nDuring the meeting, we will review the Q1 sales figures, discuss the marketing campaign updates, and outline priorities for Q2. A remote attendance option via video conference will be available for those who cannot be present in person. Please confirm your attendance (in-person or remote) by March 14th so we can finalize arrangements.\n\nThank you for your understanding.\n\nBest regards,\nJennifer Collins\nOperations Coordinator",
+  "question": "What is the main purpose of this email?",
+  "choices": {
+    "A": "To inform staff about a change in the meeting schedule and location",
+    "B": "To announce the cancellation of the quarterly review meeting",
+    "C": "To request feedback on the Q1 sales figures",
+    "D": "To introduce a new meeting format for remote teams"
+  },
+  "answer": "A",
+  "explanation_zh": "這封郵件的主要目的是通知團隊季度檢討會議已改期，並更改了會議地點。文中明確指出「原定於3月15日星期五的會議已改期，新會議將於3月19日星期二上午10點在B會議室舉行」，且「地點從A會議室更改」。選項B（取消會議）錯誤，因為會議並未取消；選項C（要求對Q1銷售數據提供回饋）錯誤，因為郵件僅提及將審查數據，未要求回饋；選項D（介紹遠距團隊的新會議形式）錯誤，因為遠端選項僅是附加安排，非主要目的。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "A2",
+  "vocabulary": [
+    "rescheduled",
+    "quarterly",
+    "review",
+    "attendance",
+    "finalize"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-011"
+},
+  {
+  "id": "p7-gen-246",
+  "part": "Part 7",
+  "passage": "Subject: Rescheduling of Quarterly Review Meeting\n\nDear Team,\n\nThis is to inform you that the quarterly review meeting originally scheduled for Friday, March 15th has been rescheduled. The new meeting will take place on Tuesday, March 19th, at 10:00 AM in Conference Room B. Please note that the location has changed from Conference Room A due to a scheduling conflict.\n\nDuring the meeting, we will review the Q1 sales figures, discuss the marketing campaign updates, and outline priorities for Q2. A remote attendance option via video conference will be available for those who cannot be present in person. Please confirm your attendance (in-person or remote) by March 14th so we can finalize arrangements.\n\nThank you for your understanding.\n\nBest regards,\nJennifer Collins\nOperations Coordinator",
+  "question": "What is the new date and time for the meeting?",
+  "choices": {
+    "A": "Friday, March 15th, at 10:00 AM",
+    "B": "Tuesday, March 19th, at 10:00 AM",
+    "C": "Tuesday, March 19th, at 2:00 PM",
+    "D": "Friday, March 15th, at 2:00 PM"
+  },
+  "answer": "B",
+  "explanation_zh": "會議的新日期和時間是3月19日星期二上午10點。文中明確指出「新會議將於3月19日星期二上午10點在B會議室舉行」。選項A（3月15日星期五上午10點）是原定時間；選項C（3月19日星期二下午2點）時間錯誤；選項D（3月15日星期五下午2點）日期和時間均錯誤。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "originally",
+    "scheduled",
+    "rescheduled",
+    "conference",
+    "confirm"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-011"
+},
+  {
+  "id": "p7-gen-247",
+  "part": "Part 7",
+  "passage": "To: All Staff\nFrom: Facilities Management\nDate: March 15, 2024\nSubject: Temporary Office Closure\n\nDue to essential electrical maintenance, the main office building will be closed from 6:00 PM on Friday, March 22, until 8:00 AM on Monday, March 25. During this time, all work areas on floors 1 through 5 will be inaccessible. The parking garage will remain open. Employees who need to work during this period should arrange to work remotely. For those who require on-site access to the server room on floor 6, please contact IT Support in advance to schedule an appointment. We apologize for any inconvenience.",
+  "question": "What is the main purpose of this memo?",
+  "choices": {
+    "A": "To announce a change in parking garage hours",
+    "B": "To inform staff about a temporary office closure due to maintenance",
+    "C": "To schedule appointments with IT Support",
+    "D": "To remind employees about remote work policies"
+  },
+  "answer": "B",
+  "explanation_zh": "這份備忘錄的主要目的是通知員工，由於必要的電力維護，辦公大樓將暫時關閉。文中明確指出「主辦公大樓將從3月22日星期五下午6點關閉至3月25日星期一上午8點」，因此選項B正確。選項A（停車場營業時間變更）與文中「停車場將保持開放」不符；選項C（與IT支援預約）僅針對需要進入6樓伺服器室的員工，非主要目的；選項D（提醒遠距工作政策）雖有提及，但非核心主旨。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "A2",
+  "vocabulary": [
+    "closure",
+    "maintenance",
+    "inaccessible",
+    "remotely"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-012"
+},
+  {
+  "id": "p7-gen-248",
+  "part": "Part 7",
+  "passage": "To: All Staff\nFrom: Facilities Management\nDate: March 15, 2024\nSubject: Temporary Office Closure\n\nDue to essential electrical maintenance, the main office building will be closed from 6:00 PM on Friday, March 22, until 8:00 AM on Monday, March 25. During this time, all work areas on floors 1 through 5 will be inaccessible. The parking garage will remain open. Employees who need to work during this period should arrange to work remotely. For those who require on-site access to the server room on floor 6, please contact IT Support in advance to schedule an appointment. We apologize for any inconvenience.",
+  "question": "At what time will the office reopen?",
+  "choices": {
+    "A": "6:00 PM on Friday, March 22",
+    "B": "6:00 PM on Sunday, March 24",
+    "C": "8:00 AM on Monday, March 25",
+    "D": "8:00 AM on Tuesday, March 26"
+  },
+  "answer": "C",
+  "explanation_zh": "辦公室重新開放的時間是3月25日星期一上午8點。文中明確說明「主辦公大樓將從3月22日星期五下午6點關閉至3月25日星期一上午8點」，因此選項C正確。選項A（3月22日下午6點）是關閉開始時間；選項B（3月24日下午6點）和選項D（3月26日上午8點）均未在文中提及。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "reopen",
+    "schedule",
+    "appointment",
+    "inconvenience"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-012"
+},
+  {
+  "id": "p7-gen-249",
+  "part": "Part 7",
+  "passage": "To: All Staff\nFrom: Facilities Management\nDate: March 15, 2024\nSubject: Temporary Office Closure\n\nDue to essential electrical maintenance, the main office building will be closed from 6:00 PM on Friday, March 22, until 8:00 AM on Monday, March 25. During this time, all work areas on floors 1 through 5 will be inaccessible. The parking garage will remain open. Employees who need to work during this period should arrange to work remotely. For those who require on-site access to the server room on floor 6, please contact IT Support in advance to schedule an appointment. We apologize for any inconvenience.",
+  "question": "What can be inferred about employees who need to work during the closure?",
+  "choices": {
+    "A": "They will be required to take paid leave.",
+    "B": "They must schedule an appointment with IT Support.",
+    "C": "They can use the parking garage as usual.",
+    "D": "They will mostly need to work from home."
+  },
+  "answer": "D",
+  "explanation_zh": "可以推斷，在關閉期間需要工作的員工大多必須在家工作。文中提到「在此期間需要工作的員工應安排遠距工作」，這意味著主要方式是居家辦公，因此選項D正確。選項A（帶薪休假）未提及；選項B（與IT支援預約）僅適用於需要進入6樓伺服器室者，非所有員工；選項C（可照常使用停車場）雖為事實，但與「需要工作」的推斷無直接關聯。",
+  "skill_tag": "reading_inference",
+  "difficulty": "A2",
+  "vocabulary": [
+    "inferred",
+    "remote",
+    "onsite",
+    "schedule"
+  ],
+  "passage_group_type": "single",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-012"
+},
+  {
+  "id": "p7-gen-250",
+  "part": "Part 7",
+  "passage": "Introducing the EcoCharge Pro, the ultimate portable power station for your home and outdoor adventures. This compact device packs a 1000Wh lithium battery, capable of charging laptops, phones, and even small appliances. Key features include three AC outlets, four USB ports (including two USB-C), and a built-in LED flashlight. The EcoCharge Pro can be recharged via solar panels (sold separately) or a standard wall outlet in just 4 hours. It comes with a 2-year warranty and is currently on sale for $799, down from the regular price of $999. Order now at www.ecocharge.com or call 1-800-555-0199. Free shipping on all orders over $500.",
+  "question": "What is the main purpose of this passage?",
+  "choices": {
+    "A": "To announce a new solar panel product",
+    "B": "To provide instructions for using a battery charger",
+    "C": "To advertise a portable power station for sale",
+    "D": "To compare different types of power stations"
+  },
+  "answer": "C",
+  "explanation_zh": "本文的主要目的是推廣一款名為EcoCharge Pro的可攜式電源供應站，並提供其銷售資訊。文中提到「Introducing the EcoCharge Pro, the ultimate portable power station for your home and outdoor adventures.」以及「currently on sale for $799」，明確顯示這是廣告。選項A「宣布新太陽能板產品」錯誤，因太陽能板為選購配件；選項B「提供電池充電器使用說明」錯誤，本文未提供操作指南；選項D「比較不同類型電源站」錯誤，本文僅介紹單一產品。因此正確答案為C。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B1",
+  "vocabulary": [
+    "portable",
+    "adventures",
+    "compact",
+    "warranty"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-013"
+},
+  {
+  "id": "p7-gen-251",
+  "part": "Part 7",
+  "passage": "Introducing the EcoCharge Pro, the ultimate portable power station for your home and outdoor adventures. This compact device packs a 1000Wh lithium battery, capable of charging laptops, phones, and even small appliances. Key features include three AC outlets, four USB ports (including two USB-C), and a built-in LED flashlight. The EcoCharge Pro can be recharged via solar panels (sold separately) or a standard wall outlet in just 4 hours. It comes with a 2-year warranty and is currently on sale for $799, down from the regular price of $999. Order now at www.ecocharge.com or call 1-800-555-0199. Free shipping on all orders over $500.",
+  "question": "How much does the EcoCharge Pro currently cost?",
+  "choices": {
+    "A": "$500",
+    "B": "$1,000",
+    "C": "$999",
+    "D": "$799"
+  },
+  "answer": "D",
+  "explanation_zh": "EcoCharge Pro目前的價格為799美元。文中明確指出「currently on sale for $799, down from the regular price of $999」。選項A「$500」為免運費門檻；選項B「$1,000」未出現；選項C「$999」為原價。因此正確答案為D。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "recharged",
+    "standard",
+    "outlet",
+    "regular"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-013"
+},
+  {
+  "id": "p7-gen-252",
+  "part": "Part 7",
+  "passage": "Introducing the EcoCharge Pro, the ultimate portable power station for your home and outdoor adventures. This compact device packs a 1000Wh lithium battery, capable of charging laptops, phones, and even small appliances. Key features include three AC outlets, four USB ports (including two USB-C), and a built-in LED flashlight. The EcoCharge Pro can be recharged via solar panels (sold separately) or a standard wall outlet in just 4 hours. It comes with a 2-year warranty and is currently on sale for $799, down from the regular price of $999. Order now at www.ecocharge.com or call 1-800-555-0199. Free shipping on all orders over $500.",
+  "question": "What can be inferred about the seller?",
+  "choices": {
+    "A": "The seller wants to attract customers who enjoy outdoor activities.",
+    "B": "The seller is discontinuing the EcoCharge Pro model.",
+    "C": "The seller primarily sells solar panels.",
+    "D": "The seller only accepts online orders."
+  },
+  "answer": "A",
+  "explanation_zh": "從文中可推斷賣家希望吸引喜愛戶外活動的顧客。文中提到「for your home and outdoor adventures」以及「can be recharged via solar panels」，顯示產品適合戶外使用。選項B「賣家正停產此型號」無依據；選項C「賣家主要銷售太陽能板」錯誤，太陽能板為選購配件；選項D「賣家僅接受線上訂單」錯誤，文中提供電話訂購方式。因此正確答案為A。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B1",
+  "vocabulary": [
+    "inferred",
+    "attract",
+    "activities",
+    "primarily"
+  ],
+  "passage_group_type": "single",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-013"
+},
+  {
+  "id": "p7-gen-253",
+  "part": "Part 7",
+  "passage": "NOTICE: Community Room Reservation\n\nThe Greenfield Community Center is pleased to announce that its main hall is now available for public reservation. The room can accommodate up to 80 people and is ideal for meetings, workshops, and small social gatherings. Reservations are free for Greenfield residents; non-residents must pay a fee of $50 per booking. To reserve, please visit our website at www.greenfieldcc.org and complete the online form at least two weeks in advance. All requests are subject to approval by the center director. Food and drinks are permitted, but alcohol is strictly prohibited. For questions, contact the front desk at (555) 123-4567 during regular business hours.",
+  "question": "What is the main purpose of this notice?",
+  "choices": {
+    "A": "To announce a schedule change for the community center",
+    "B": "To inform residents about a new fee for room use",
+    "C": "To request volunteers for an upcoming event",
+    "D": "To advertise that the main hall can be booked by the public"
+  },
+  "answer": "D",
+  "explanation_zh": "本公告的主要目的是告知公众，格林菲尔德社区中心的主厅现在可供公众预订。文中明确提到「main hall is now available for public reservation」，因此选项 D 正确。选项 A 错误，因为公告未提及时间表变更；选项 B 错误，因为费用仅针对非居民，并非新收费；选项 C 错误，因为公告未请求志愿者。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B1",
+  "vocabulary": [
+    "accommodate",
+    "reservation",
+    "subject to approval",
+    "prohibited"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-014"
+},
+  {
+  "id": "p7-gen-254",
+  "part": "Part 7",
+  "passage": "NOTICE: Community Room Reservation\n\nThe Greenfield Community Center is pleased to announce that its main hall is now available for public reservation. The room can accommodate up to 80 people and is ideal for meetings, workshops, and small social gatherings. Reservations are free for Greenfield residents; non-residents must pay a fee of $50 per booking. To reserve, please visit our website at www.greenfieldcc.org and complete the online form at least two weeks in advance. All requests are subject to approval by the center director. Food and drinks are permitted, but alcohol is strictly prohibited. For questions, contact the front desk at (555) 123-4567 during regular business hours.",
+  "question": "What requirement must be met when submitting a reservation request?",
+  "choices": {
+    "A": "The request must be made at least two weeks before the event",
+    "B": "The form must be submitted in person at the front desk",
+    "C": "A fee of $50 must be paid by all applicants",
+    "D": "The room capacity must exceed 80 people"
+  },
+  "answer": "A",
+  "explanation_zh": "提交预订请求时，必须至少提前两周完成在线表格。文中指出「complete the online form at least two weeks in advance」，因此选项 A 正确。选项 B 错误，因为表格需在线提交，而非亲自到前台；选项 C 错误，因为仅非居民需支付 50 美元费用；选项 D 错误，因为房间最多容纳 80 人，而非要求超过 80 人。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "submit",
+    "in advance",
+    "capacity",
+    "applicant"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-014"
+},
+  {
+  "id": "p7-gen-255",
+  "part": "Part 7",
+  "passage": "NOTICE: Community Room Reservation\n\nThe Greenfield Community Center is pleased to announce that its main hall is now available for public reservation. The room can accommodate up to 80 people and is ideal for meetings, workshops, and small social gatherings. Reservations are free for Greenfield residents; non-residents must pay a fee of $50 per booking. To reserve, please visit our website at www.greenfieldcc.org and complete the online form at least two weeks in advance. All requests are subject to approval by the center director. Food and drinks are permitted, but alcohol is strictly prohibited. For questions, contact the front desk at (555) 123-4567 during regular business hours.",
+  "question": "According to the notice, what can be inferred about the intended audience?",
+  "choices": {
+    "A": "The notice is targeted only at residents of Greenfield",
+    "B": "The notice is aimed at people planning private celebrations",
+    "C": "The notice is primarily for commercial event organizers",
+    "D": "The notice is directed at local school administrators"
+  },
+  "answer": "B",
+  "explanation_zh": "根据公告，可推断目标受众是计划举办私人庆祝活动的人。文中提到房间适合「meetings, workshops, and small social gatherings」，且允许食物和饮料，但禁止酒精，这符合私人聚会的常见需求，因此选项 B 正确。选项 A 错误，因为公告也面向非居民；选项 C 错误，因为公告未提及商业活动；选项 D 错误，因为公告未针对学校管理人员。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "targeted",
+    "private celebration",
+    "commercial",
+    "administrator"
+  ],
+  "passage_group_type": "single",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-014"
+},
+  {
+  "id": "p7-gen-256",
+  "part": "Part 7",
+  "passage": "NOTICE: Community Room Reservation\n\nThe Greenfield Community Center is pleased to announce that its main hall is now available for public reservation. The room can accommodate up to 80 people and is ideal for meetings, workshops, and small social gatherings. Reservations are free for Greenfield residents; non-residents must pay a fee of $50 per booking. To reserve, please visit our website at www.greenfieldcc.org and complete the online form at least two weeks in advance. All requests are subject to approval by the center director. Food and drinks are permitted, but alcohol is strictly prohibited. For questions, contact the front desk at (555) 123-4567 during regular business hours.",
+  "question": "What is stated about the use of the room?",
+  "choices": {
+    "A": "Alcoholic beverages are allowed with a special permit",
+    "B": "Food and drinks are not permitted inside the hall",
+    "C": "Alcohol is not allowed under any circumstances",
+    "D": "Only non-residents are allowed to bring food"
+  },
+  "answer": "C",
+  "explanation_zh": "关于房间使用，公告明确说明「alcohol is strictly prohibited」，即任何情况下都禁止酒精，因此选项 C 正确。选项 A 错误，因为酒精不允许，即使有特别许可；选项 B 错误，因为食物和饮料是允许的；选项 D 错误，因为公告未限制谁可以带食物。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B1",
+  "vocabulary": [
+    "stated",
+    "alcoholic beverages",
+    "permit",
+    "circumstances"
+  ],
+  "passage_group_type": "single",
+  "question_order": 4,
+  "passage_group_id": "p7-exp-014"
+},
+  {
+  "id": "p7-gen-257",
+  "part": "Part 7",
+  "passage": "Mercor Industries, a mid-sized logistics company based in Chicago, announced on Monday the acquisition of TransGlide Shipping, a smaller freight firm headquartered in Atlanta. The deal, valued at $45 million, is expected to close by the end of the second quarter. Mercor CEO Linda Hartwell stated that the acquisition will expand the company's presence in the southeastern United States and strengthen its ground transport network. TransGlide, which reported $12 million in revenue last year, operates 15 distribution centers across five states. Industry analysts note that the combined entity will handle over 200,000 shipments annually. Mercor plans to integrate TransGlide’s operations into its existing system by September, but will retain the TransGlide brand for at least two years to maintain customer loyalty. Shares of Mercor rose 3% following the announcement, reflecting investor optimism about the strategic move.",
+  "question": "What is the main topic of the article?",
+  "choices": {
+    "A": "An acquisition of TransGlide Shipping by Mercor Industries",
+    "B": "A new product launch by TransGlide Shipping",
+    "C": "A leadership change at Mercor Industries",
+    "D": "A financial report on Mercor Industries’ quarterly earnings"
+  },
+  "answer": "A",
+  "explanation_zh": "本文主要討論Mercor Industries收購TransGlide Shipping一事。文章開頭即明確指出「Mercor Industries... announced on Monday the acquisition of TransGlide Shipping」，並後續詳述收購金額、影響及計畫，因此選項A「Mercor Industries收購TransGlide Shipping」為正確答案。選項B「TransGlide Shipping推出新產品」、C「Mercor Industries領導層變動」及D「Mercor Industries季度財報」均未在文中提及，屬於干擾選項。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B1",
+  "vocabulary": [
+    "acquisition",
+    "freight",
+    "integrate",
+    "optimism"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-015"
+},
+  {
+  "id": "p7-gen-258",
+  "part": "Part 7",
+  "passage": "Mercor Industries, a mid-sized logistics company based in Chicago, announced on Monday the acquisition of TransGlide Shipping, a smaller freight firm headquartered in Atlanta. The deal, valued at $45 million, is expected to close by the end of the second quarter. Mercor CEO Linda Hartwell stated that the acquisition will expand the company's presence in the southeastern United States and strengthen its ground transport network. TransGlide, which reported $12 million in revenue last year, operates 15 distribution centers across five states. Industry analysts note that the combined entity will handle over 200,000 shipments annually. Mercor plans to integrate TransGlide’s operations into its existing system by September, but will retain the TransGlide brand for at least two years to maintain customer loyalty. Shares of Mercor rose 3% following the announcement, reflecting investor optimism about the strategic move.",
+  "question": "How much revenue did TransGlide Shipping report last year?",
+  "choices": {
+    "A": "$45 million",
+    "B": "$12 million",
+    "C": "$200,000",
+    "D": "3% of Mercor’s revenue"
+  },
+  "answer": "B",
+  "explanation_zh": "文中明確指出「TransGlide, which reported $12 million in revenue last year」，因此TransGlide Shipping去年營收為1200萬美元，選項B「$12 million」為正確答案。選項A「$45 million」為收購金額，選項C「$200,000」為合併後年處理貨運量（200,000 shipments），選項D「3% of Mercor’s revenue」則為Mercor股價漲幅，均非營收數字，屬於干擾選項。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "revenue",
+    "distribution",
+    "integrate",
+    "retain"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-015"
+},
+  {
+  "id": "p7-gen-259",
+  "part": "Part 7",
+  "passage": "Annual Marketing Workshop\n\nDate: March 15, 2025\nLocation: City Convention Center\n\nTime & Session:\n9:00 AM - 10:30 AM: Digital Trends (Room A) - Speaker: Lisa Chen\n10:30 AM - 11:00 AM: Coffee Break (Lobby)\n11:00 AM - 12:30 PM: Branding Strategies (Room B) - Speaker: Mark Davis\n12:30 PM - 1:30 PM: Lunch (Cafeteria)\n1:30 PM - 3:00 PM: Social Media Analytics (Room C) - Speaker: Nina Patel\n3:00 PM - 3:30 PM: Networking Break (Lobby)\n3:30 PM - 5:00 PM: Panel Discussion (Room A) - All speakers",
+  "question": "What is the main purpose of this schedule?",
+  "choices": {
+    "A": "To advertise a new conference center",
+    "B": "To describe a day-long marketing training event",
+    "C": "To list the speakers' biographies",
+    "D": "To announce a change in room assignments"
+  },
+  "answer": "B",
+  "explanation_zh": "這份日程表的主要目的是描述一個為期一整天的行銷培訓活動。文中列出了從上午9:00到下午5:00的各個時段、主題、地點與講者，例如「Digital Trends」、「Branding Strategies」等，因此正確答案為B。選項A（宣傳新會議中心）未提及，C（列出講者傳記）僅有姓名無背景，D（宣布更換房間）文中無相關資訊。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "A2",
+  "vocabulary": [
+    "workshop",
+    "itinerary",
+    "session",
+    "networking"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-016"
+},
+  {
+  "id": "p7-gen-260",
+  "part": "Part 7",
+  "passage": "Annual Marketing Workshop\n\nDate: March 15, 2025\nLocation: City Convention Center\n\nTime & Session:\n9:00 AM - 10:30 AM: Digital Trends (Room A) - Speaker: Lisa Chen\n10:30 AM - 11:00 AM: Coffee Break (Lobby)\n11:00 AM - 12:30 PM: Branding Strategies (Room B) - Speaker: Mark Davis\n12:30 PM - 1:30 PM: Lunch (Cafeteria)\n1:30 PM - 3:00 PM: Social Media Analytics (Room C) - Speaker: Nina Patel\n3:00 PM - 3:30 PM: Networking Break (Lobby)\n3:30 PM - 5:00 PM: Panel Discussion (Room A) - All speakers",
+  "question": "At what time does the session on Branding Strategies begin?",
+  "choices": {
+    "A": "9:00 AM",
+    "B": "10:30 AM",
+    "C": "11:00 AM",
+    "D": "1:30 PM"
+  },
+  "answer": "C",
+  "explanation_zh": "品牌策略（Branding Strategies）的開始時間是上午11:00。日程表明確列出「11:00 AM - 12:30 PM: Branding Strategies (Room B)」，因此正確答案為C。選項A（9:00 AM）是數位趨勢，B（10:30 AM）是咖啡休息時間，D（1:30 PM）是社交媒體分析。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "branding",
+    "strategy",
+    "session",
+    "begin"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-016"
+},
+  {
+  "id": "p7-gen-261",
+  "part": "Part 7",
+  "passage": "Annual Marketing Workshop\n\nDate: March 15, 2025\nLocation: City Convention Center\n\nTime & Session:\n9:00 AM - 10:30 AM: Digital Trends (Room A) - Speaker: Lisa Chen\n10:30 AM - 11:00 AM: Coffee Break (Lobby)\n11:00 AM - 12:30 PM: Branding Strategies (Room B) - Speaker: Mark Davis\n12:30 PM - 1:30 PM: Lunch (Cafeteria)\n1:30 PM - 3:00 PM: Social Media Analytics (Room C) - Speaker: Nina Patel\n3:00 PM - 3:30 PM: Networking Break (Lobby)\n3:30 PM - 5:00 PM: Panel Discussion (Room A) - All speakers",
+  "question": "If a participant wants to attend both Digital Trends and Social Media Analytics, what must they do?",
+  "choices": {
+    "A": "Skip the coffee break",
+    "B": "Leave early for lunch",
+    "C": "Stay in Room A all day",
+    "D": "Change rooms between sessions"
+  },
+  "answer": "D",
+  "explanation_zh": "如果參加者想同時參加數位趨勢（Room A）和社交媒體分析（Room C），他們必須在不同時段更換房間。數位趨勢在上午9:00-10:30於Room A，社交媒體分析在下午1:30-3:00於Room C，因此正確答案為D。選項A（跳過咖啡休息）不必要，B（提早午餐）無關，C（整天待在Room A）無法參加Room C的活動。",
+  "skill_tag": "reading_inference",
+  "difficulty": "A2",
+  "vocabulary": [
+    "participant",
+    "attend",
+    "session",
+    "change"
+  ],
+  "passage_group_type": "single",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-016"
+},
+  {
+  "id": "p7-gen-262",
+  "part": "Part 7",
+  "passage": "Invoice #INV-2024-789\n\nOrder Confirmation\n\nThank you for your order placed on October 12, 2024.\n\nBill To: Mark Chen\n123 Oak Street, Springfield, IL 62701\n\nItems Ordered:\n- Desk Lamp (Model DL-200) x 2 @ $35.00 each\n- Office Chair (Model OC-500) x 1 @ $150.00 each\n- Wireless Mouse (Model WM-10) x 3 @ $20.00 each\n\nPayment Method: Credit Card (Visa ending in 4321)\n\nShipping Method: Standard (5-7 business days)\n\nTotal Amount: $310.00\n\nPlease allow up to 2 business days for order processing before shipment.",
+  "question": "What is the main purpose of this document?",
+  "choices": {
+    "A": "To advertise office furniture and accessories",
+    "B": "To request payment for an outstanding invoice",
+    "C": "To confirm an order and provide order details",
+    "D": "To announce a change in shipping policy"
+  },
+  "answer": "C",
+  "explanation_zh": "本文件的主要目的是確認訂單並提供訂單詳細資訊。文中明確標題為「Order Confirmation」，並列出訂購項目、數量、價格及付款方式等細節，因此選項C正確。選項A（廣告家具）錯誤，因文件非推銷用途；選項B（要求付款）錯誤，因已標示付款方式；選項D（變更運送政策）錯誤，文件未提及政策變更。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B1",
+  "vocabulary": [
+    "invoice",
+    "confirmation",
+    "shipping",
+    "processing",
+    "outstanding"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-017"
+},
+  {
+  "id": "p7-gen-263",
+  "part": "Part 7",
+  "passage": "Invoice #INV-2024-789\n\nOrder Confirmation\n\nThank you for your order placed on October 12, 2024.\n\nBill To: Mark Chen\n123 Oak Street, Springfield, IL 62701\n\nItems Ordered:\n- Desk Lamp (Model DL-200) x 2 @ $35.00 each\n- Office Chair (Model OC-500) x 1 @ $150.00 each\n- Wireless Mouse (Model WM-10) x 3 @ $20.00 each\n\nPayment Method: Credit Card (Visa ending in 4321)\n\nShipping Method: Standard (5-7 business days)\n\nTotal Amount: $310.00\n\nPlease allow up to 2 business days for order processing before shipment.",
+  "question": "How many wireless mice were ordered?",
+  "choices": {
+    "A": "1",
+    "B": "2",
+    "C": "4",
+    "D": "3"
+  },
+  "answer": "D",
+  "explanation_zh": "訂購的無線滑鼠數量為3個。文中「Items Ordered」部分明確列出「Wireless Mouse (Model WM-10) x 3 @ $20.00 each」，因此選項D正確。選項A（1個）、B（2個）、C（4個）均與文中數量不符。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "quantity",
+    "wireless",
+    "mouse",
+    "item",
+    "order"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-017"
+},
+  {
+  "id": "p7-gen-264",
+  "part": "Part 7",
+  "passage": "Invoice #INV-2024-789\n\nOrder Confirmation\n\nThank you for your order placed on October 12, 2024.\n\nBill To: Mark Chen\n123 Oak Street, Springfield, IL 62701\n\nItems Ordered:\n- Desk Lamp (Model DL-200) x 2 @ $35.00 each\n- Office Chair (Model OC-500) x 1 @ $150.00 each\n- Wireless Mouse (Model WM-10) x 3 @ $20.00 each\n\nPayment Method: Credit Card (Visa ending in 4321)\n\nShipping Method: Standard (5-7 business days)\n\nTotal Amount: $310.00\n\nPlease allow up to 2 business days for order processing before shipment.",
+  "question": "What can be inferred about the shipment?",
+  "choices": {
+    "A": "The items will likely be shipped after October 14.",
+    "B": "The customer will need to pay additional shipping fees.",
+    "C": "The order will arrive by October 14.",
+    "D": "The customer has already received the package."
+  },
+  "answer": "A",
+  "explanation_zh": "可推斷貨物將在10月14日之後出貨。文中提到「Please allow up to 2 business days for order processing before shipment」，訂單日期為10月12日（星期六），因此處理時間為10月14日（星期一）起的2個工作日，出貨日最早為10月15日，故選項A正確。選項B（需付額外運費）錯誤，文中未提及；選項C（10月14日前送達）錯誤，因處理後才出貨；選項D（已收到包裹）錯誤，訂單剛確認。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B1",
+  "vocabulary": [
+    "shipment",
+    "processing",
+    "business days",
+    "arrive",
+    "additional"
+  ],
+  "passage_group_type": "single",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-017"
+},
+  {
+  "id": "p7-gen-265",
+  "part": "Part 7",
+  "passage": "Subject: Rescheduling of Project Kickoff Meeting\n\nDear Team,\n\nThis is to inform you that the project kickoff meeting originally scheduled for Tuesday, March 12th at 10:00 AM in Conference Room A has been rescheduled. The new meeting will take place on Thursday, March 14th at 2:00 PM in Conference Room B.\n\nThe change is necessary due to a scheduling conflict with our external consultant. We will still cover the key agenda items: project timeline, budget overview, and team roles. Please note that remote attendance via video conference is available. Kindly confirm your availability by March 11th.\n\nBest regards,\nSarah Chen\nProject Coordinator",
+  "question": "What is the main purpose of this email?",
+  "choices": {
+    "A": "To announce a new project timeline",
+    "B": "To request feedback on the budget overview",
+    "C": "To introduce a new external consultant",
+    "D": "To inform recipients about a meeting date and time change"
+  },
+  "answer": "D",
+  "explanation_zh": "這封郵件的主要目的是通知收件人會議日期和時間的變更。文中明確指出「原定於3月12日星期二上午10:00在A會議室舉行的專案啟動會議已重新安排」，並提供了新的會議時間為3月14日星期四下午2:00在B會議室。選項A（宣布新的專案時間表）是會議議程的一部分，非主要目的；選項B（請求對預算概覽的回饋）未提及；選項C（介紹新的外部顧問）錯誤，顧問是導致變更的原因，非介紹對象。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "A2",
+  "vocabulary": [
+    "reschedule",
+    "kickoff",
+    "scheduling conflict",
+    "consultant"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-018"
+},
+  {
+  "id": "p7-gen-266",
+  "part": "Part 7",
+  "passage": "Subject: Rescheduling of Project Kickoff Meeting\n\nDear Team,\n\nThis is to inform you that the project kickoff meeting originally scheduled for Tuesday, March 12th at 10:00 AM in Conference Room A has been rescheduled. The new meeting will take place on Thursday, March 14th at 2:00 PM in Conference Room B.\n\nThe change is necessary due to a scheduling conflict with our external consultant. We will still cover the key agenda items: project timeline, budget overview, and team roles. Please note that remote attendance via video conference is available. Kindly confirm your availability by March 11th.\n\nBest regards,\nSarah Chen\nProject Coordinator",
+  "question": "On which date and at what time will the rescheduled meeting take place?",
+  "choices": {
+    "A": "Thursday, March 14th at 2:00 PM",
+    "B": "Tuesday, March 12th at 10:00 AM",
+    "C": "Thursday, March 14th at 10:00 AM",
+    "D": "Tuesday, March 12th at 2:00 PM"
+  },
+  "answer": "A",
+  "explanation_zh": "重新安排的會議將於3月14日星期四下午2:00舉行。文中明確指出「新的會議將於3月14日星期四下午2:00在B會議室舉行」。選項B（3月12日星期二上午10:00）是原定時間；選項C（3月14日星期四上午10:00）時間錯誤；選項D（3月12日星期二下午2:00）日期和時間均錯誤。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "rescheduled",
+    "conference room",
+    "remote attendance",
+    "confirm"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-018"
+},
+  {
+  "id": "p7-gen-267",
+  "part": "Part 7",
+  "passage": "Subject: Rescheduling of Project Kickoff Meeting\n\nDear Team,\n\nThis is to inform you that the project kickoff meeting originally scheduled for Tuesday, March 12th at 10:00 AM in Conference Room A has been rescheduled. The new meeting will take place on Thursday, March 14th at 2:00 PM in Conference Room B.\n\nThe change is necessary due to a scheduling conflict with our external consultant. We will still cover the key agenda items: project timeline, budget overview, and team roles. Please note that remote attendance via video conference is available. Kindly confirm your availability by March 11th.\n\nBest regards,\nSarah Chen\nProject Coordinator",
+  "question": "Why was the meeting rescheduled?",
+  "choices": {
+    "A": "Because Conference Room A was unavailable",
+    "B": "Because the external consultant had a scheduling conflict",
+    "C": "Because the project timeline was not ready",
+    "D": "Because team members preferred a later time"
+  },
+  "answer": "B",
+  "explanation_zh": "會議重新安排是因為外部顧問的時間衝突。文中說明「變更是必要的，因為我們的外部顧問有時間衝突」。選項A（A會議室無法使用）未提及；選項C（專案時間表未準備好）是會議議程之一，非原因；選項D（團隊成員偏好較晚時間）無根據。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "scheduling conflict",
+    "external consultant",
+    "unavailable",
+    "prefer"
+  ],
+  "passage_group_type": "single",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-018"
+},
+  {
+  "id": "p7-gen-268",
+  "part": "Part 7",
+  "passage": "Subject: Rescheduling of Project Kickoff Meeting\n\nDear Team,\n\nThis is to inform you that the project kickoff meeting originally scheduled for Tuesday, March 12th at 10:00 AM in Conference Room A has been rescheduled. The new meeting will take place on Thursday, March 14th at 2:00 PM in Conference Room B.\n\nThe change is necessary due to a scheduling conflict with our external consultant. We will still cover the key agenda items: project timeline, budget overview, and team roles. Please note that remote attendance via video conference is available. Kindly confirm your availability by March 11th.\n\nBest regards,\nSarah Chen\nProject Coordinator",
+  "question": "What can be inferred about the recipients of this email?",
+  "choices": {
+    "A": "They are all required to attend in person.",
+    "B": "They were not informed about the original meeting date.",
+    "C": "They must respond to confirm their attendance by March 11th.",
+    "D": "They will not be able to attend the rescheduled meeting."
+  },
+  "answer": "C",
+  "explanation_zh": "可以推斷收件人必須在3月11日前回覆確認出席。文中要求「請在3月11日前確認您的出席情況」。選項A（所有人都必須親自出席）錯誤，因為文中提供遠端視訊會議選項；選項B（他們未被告知原定會議日期）錯誤，文中提及原定日期；選項D（他們無法參加重新安排的會議）無根據。",
+  "skill_tag": "reading_inference",
+  "difficulty": "A2",
+  "vocabulary": [
+    "recipient",
+    "infer",
+    "confirm",
+    "attendance"
+  ],
+  "passage_group_type": "single",
+  "question_order": 4,
+  "passage_group_id": "p7-exp-018"
+},
+  {
+  "id": "p7-gen-269",
+  "part": "Part 7",
+  "passage": "To: All Staff\nFrom: Facilities Management\nDate: October 10, 2023\nSubject: Temporary Closure of West Wing\n\nDue to urgent plumbing repairs, the West Wing of our main office building will be closed from October 15 to October 18. During this period, all employees assigned to the West Wing should work in the East Wing conference rooms, which have been reserved for your use. Please note that the cafeteria will remain open as usual. Access to the West Wing will be restricted to authorized maintenance personnel only. We apologize for any inconvenience and appreciate your cooperation.",
+  "question": "What is the main purpose of this memo?",
+  "choices": {
+    "A": "To inform staff about a temporary closure and alternative arrangements",
+    "B": "To announce the opening of a new cafeteria",
+    "C": "To request volunteers for plumbing repairs",
+    "D": "To schedule a staff meeting in the West Wing"
+  },
+  "answer": "A",
+  "explanation_zh": "這份備忘錄的主要目的是通知員工西翼將暫時關閉，並提供替代工作安排。文中明確指出「西翼將從10月15日至10月18日關閉」，且「所有分配到西翼的員工應在東翼會議室工作」，因此選項A正確。選項B（宣布新自助餐廳開幕）與文中「自助餐廳將照常開放」不符；選項C（徵求志願者進行水管維修）文中未提及；選項D（安排西翼員工會議）與實際安排（移至東翼）矛盾。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "A2",
+  "vocabulary": [
+    "temporary",
+    "closure",
+    "plumbing",
+    "restricted"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-019"
+},
+  {
+  "id": "p7-gen-270",
+  "part": "Part 7",
+  "passage": "To: All Staff\nFrom: Facilities Management\nDate: October 10, 2023\nSubject: Temporary Closure of West Wing\n\nDue to urgent plumbing repairs, the West Wing of our main office building will be closed from October 15 to October 18. During this period, all employees assigned to the West Wing should work in the East Wing conference rooms, which have been reserved for your use. Please note that the cafeteria will remain open as usual. Access to the West Wing will be restricted to authorized maintenance personnel only. We apologize for any inconvenience and appreciate your cooperation.",
+  "question": "For how many days will the West Wing be closed?",
+  "choices": {
+    "A": "Three days",
+    "B": "Four days",
+    "C": "Five days",
+    "D": "Two days"
+  },
+  "answer": "B",
+  "explanation_zh": "西翼關閉的天數為四天。文中明確指出「西翼將從10月15日至10月18日關閉」，從10月15日到10月18日（含首尾兩天）共計四天，因此選項B正確。選項A（三天）、C（五天）和D（兩天）均與文中日期範圍不符。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "assigned",
+    "conference",
+    "restricted",
+    "maintenance"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-019"
+},
+  {
+  "id": "p7-gen-271",
+  "part": "Part 7",
+  "passage": "Discover the ultimate in personal comfort with the new AirGlide Pro Cooling Fan. This sleek, portable device features a powerful, whisper-quiet motor that delivers a steady stream of cool air, perfect for your office desk, bedside table, or outdoor patio. With three adjustable speed settings and a 90-degree oscillation function, you can customize the airflow to suit your needs. The AirGlide Pro is also energy-efficient, consuming up to 40% less power than traditional fans. It comes with a one-year limited warranty and is available now at a special introductory price of just $39.99 (regular price $59.99). Order online at www.airglidepro.com or call 1-800-555-0199. Free shipping on all orders placed before March 15th.",
+  "question": "What is being advertised?",
+  "choices": {
+    "A": "A new line of office furniture",
+    "B": "A portable and energy-efficient cooling fan",
+    "C": "An air conditioning service for offices",
+    "D": "A subscription to a climate control system"
+  },
+  "answer": "B",
+  "explanation_zh": "本題問的是廣告內容。文中第一句提到「Discover the ultimate in personal comfort with the new AirGlide Pro Cooling Fan」，並描述其為「sleek, portable device」且「energy-efficient」，因此選項 B「一款可攜式且節能的冷卻風扇」正確。選項 A「新系列辦公家具」、C「辦公室空調服務」、D「氣候控制系統訂閱」均與廣告內容不符。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B1",
+  "vocabulary": [
+    "sleek",
+    "portable",
+    "oscillation",
+    "introductory"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-020"
+},
+  {
+  "id": "p7-gen-272",
+  "part": "Part 7",
+  "passage": "Discover the ultimate in personal comfort with the new AirGlide Pro Cooling Fan. This sleek, portable device features a powerful, whisper-quiet motor that delivers a steady stream of cool air, perfect for your office desk, bedside table, or outdoor patio. With three adjustable speed settings and a 90-degree oscillation function, you can customize the airflow to suit your needs. The AirGlide Pro is also energy-efficient, consuming up to 40% less power than traditional fans. It comes with a one-year limited warranty and is available now at a special introductory price of just $39.99 (regular price $59.99). Order online at www.airglidepro.com or call 1-800-555-0199. Free shipping on all orders placed before March 15th.",
+  "question": "What is the special introductory price of the AirGlide Pro?",
+  "choices": {
+    "A": "$59.99",
+    "B": "$79.98",
+    "C": "$39.99",
+    "D": "$19.99"
+  },
+  "answer": "C",
+  "explanation_zh": "本題問的是 AirGlide Pro 的特別優惠價格。文中明確指出「at a special introductory price of just $39.99 (regular price $59.99)」，因此選項 C「$39.99」正確。選項 A「$59.99」為原價，B「$79.98」與 D「$19.99」均未在文中提及。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "introductory",
+    "regular price",
+    "warranty",
+    "free shipping"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-020"
+},
+  {
+  "id": "p7-gen-273",
+  "part": "Part 7",
+  "passage": "Discover the ultimate in personal comfort with the new AirGlide Pro Cooling Fan. This sleek, portable device features a powerful, whisper-quiet motor that delivers a steady stream of cool air, perfect for your office desk, bedside table, or outdoor patio. With three adjustable speed settings and a 90-degree oscillation function, you can customize the airflow to suit your needs. The AirGlide Pro is also energy-efficient, consuming up to 40% less power than traditional fans. It comes with a one-year limited warranty and is available now at a special introductory price of just $39.99 (regular price $59.99). Order online at www.airglidepro.com or call 1-800-555-0199. Free shipping on all orders placed before March 15th.",
+  "question": "What can be inferred about the seller?",
+  "choices": {
+    "A": "The seller is primarily targeting large corporations for bulk orders.",
+    "B": "The seller requires customers to pay for shipping on all orders.",
+    "C": "The seller has been in the cooling fan business for over twenty years.",
+    "D": "The seller is offering a temporary discount to encourage quick purchases."
+  },
+  "answer": "D",
+  "explanation_zh": "本題要求推論賣家的資訊。文中提到「Free shipping on all orders placed before March 15th」及「special introductory price of just $39.99」，顯示賣家提供限時免運費與折扣，以鼓勵顧客盡快購買，因此選項 D「賣家提供暫時性折扣以鼓勵快速購買」正確。選項 A「主要針對大公司大量訂購」文中未提及；B「所有訂單均需付運費」與免運費資訊矛盾；C「從事風扇業務超過二十年」文中無相關資訊。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B1",
+  "vocabulary": [
+    "inferred",
+    "temporary",
+    "discount",
+    "bulk"
+  ],
+  "passage_group_type": "single",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-020"
+},
+  {
+  "id": "p7-gen-274",
+  "part": "Part 7",
+  "passage": "Email 1 (From customer):\nSubject: Order #3821 – Missing items\nDear Customer Service,\nI received my order this morning, but it is incomplete. I ordered a set of 4 office chairs (Model BC-200) and a desk lamp (Model DL-50). However, only 3 chairs and the desk lamp were delivered. The missing chair is urgent because we are setting up a new workspace for a visiting consultant. Could you please arrange to send the missing item as soon as possible? I would appreciate confirmation of the delivery date.\n\nThank you,\nMark Harrison\n\nEmail 2 (From customer service):\nSubject: Re: Order #3821 – Missing items\nDear Mr. Harrison,\nThank you for contacting us. I apologize for the inconvenience regarding your order. We checked our warehouse records and found that the fourth chair was placed in a separate shipment due to an inventory error. The missing chair (Model BC-200) is now scheduled for delivery this Friday. You will receive a tracking number by email once it is dispatched.\n\nWe have also applied a 15% discount to your next order as a gesture of goodwill. Please let us know if there is anything else we can assist you with.\n\nBest regards,\nSarah Chen\nCustomer Service Manager",
+  "question": "What is the main purpose of Mark Harrison's email?",
+  "choices": {
+    "A": "To report a delivery problem and request a resolution",
+    "B": "To cancel an order",
+    "C": "To inquire about product availability",
+    "D": "To complain about the quality of the chairs"
+  },
+  "answer": "A",
+  "explanation_zh": "馬克·哈里森的主要目的是回報運送問題並要求解決方案。第一封郵件中，他明確指出訂單不完整，只收到3張椅子而非4張，並要求盡快補寄遺漏的椅子，因此答案為A。選項B（取消訂單）、C（詢問產品庫存）和D（抱怨椅子品質）均與郵件內容不符。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B1",
+  "vocabulary": [
+    "incomplete",
+    "urgent",
+    "confirm",
+    "goodwill",
+    "dispatch"
+  ],
+  "passage_group_type": "double",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-021"
+},
+  {
+  "id": "p7-gen-275",
+  "part": "Part 7",
+  "passage": "Email 1 (From customer):\nSubject: Order #3821 – Missing items\nDear Customer Service,\nI received my order this morning, but it is incomplete. I ordered a set of 4 office chairs (Model BC-200) and a desk lamp (Model DL-50). However, only 3 chairs and the desk lamp were delivered. The missing chair is urgent because we are setting up a new workspace for a visiting consultant. Could you please arrange to send the missing item as soon as possible? I would appreciate confirmation of the delivery date.\n\nThank you,\nMark Harrison\n\nEmail 2 (From customer service):\nSubject: Re: Order #3821 – Missing items\nDear Mr. Harrison,\nThank you for contacting us. I apologize for the inconvenience regarding your order. We checked our warehouse records and found that the fourth chair was placed in a separate shipment due to an inventory error. The missing chair (Model BC-200) is now scheduled for delivery this Friday. You will receive a tracking number by email once it is dispatched.\n\nWe have also applied a 15% discount to your next order as a gesture of goodwill. Please let us know if there is anything else we can assist you with.\n\nBest regards,\nSarah Chen\nCustomer Service Manager",
+  "question": "What item was not included in Mark Harrison's initial delivery?",
+  "choices": {
+    "A": "A desk lamp",
+    "B": "One office chair",
+    "C": "All 4 office chairs",
+    "D": "The tracking number"
+  },
+  "answer": "B",
+  "explanation_zh": "馬克·哈里森最初收到的貨物中缺少一張辦公椅。他在第一封郵件中說明訂購了4張椅子（型號BC-200）和一盞檯燈，但只收到3張椅子和檯燈，因此答案為B。選項A（檯燈）已送達，選項C（全部4張椅子）不正確，選項D（追蹤號碼）是後續提供的資訊。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "incomplete",
+    "urgent",
+    "confirm",
+    "goodwill",
+    "dispatch"
+  ],
+  "passage_group_type": "double",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-021"
+},
+  {
+  "id": "p7-gen-276",
+  "part": "Part 7",
+  "passage": "Email 1 (From customer):\nSubject: Order #3821 – Missing items\nDear Customer Service,\nI received my order this morning, but it is incomplete. I ordered a set of 4 office chairs (Model BC-200) and a desk lamp (Model DL-50). However, only 3 chairs and the desk lamp were delivered. The missing chair is urgent because we are setting up a new workspace for a visiting consultant. Could you please arrange to send the missing item as soon as possible? I would appreciate confirmation of the delivery date.\n\nThank you,\nMark Harrison\n\nEmail 2 (From customer service):\nSubject: Re: Order #3821 – Missing items\nDear Mr. Harrison,\nThank you for contacting us. I apologize for the inconvenience regarding your order. We checked our warehouse records and found that the fourth chair was placed in a separate shipment due to an inventory error. The missing chair (Model BC-200) is now scheduled for delivery this Friday. You will receive a tracking number by email once it is dispatched.\n\nWe have also applied a 15% discount to your next order as a gesture of goodwill. Please let us know if there is anything else we can assist you with.\n\nBest regards,\nSarah Chen\nCustomer Service Manager",
+  "question": "What compensation does Sarah Chen offer to Mark Harrison?",
+  "choices": {
+    "A": "A full refund",
+    "B": "A free replacement chair",
+    "C": "A discount on a future purchase",
+    "D": "Free shipping on the next order"
+  },
+  "answer": "C",
+  "explanation_zh": "莎拉·陳提供的是下次購物15%的折扣作為補償。她在第二封郵件中明確寫道：「我們已對您的下一筆訂單提供15%的折扣」，因此答案為C。選項A（全額退款）、B（免費更換椅子）和D（下次訂單免運費）均未提及。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "incomplete",
+    "urgent",
+    "confirm",
+    "goodwill",
+    "dispatch"
+  ],
+  "passage_group_type": "double",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-021"
+},
+  {
+  "id": "p7-gen-277",
+  "part": "Part 7",
+  "passage": "Email 1 (From customer):\nSubject: Order #3821 – Missing items\nDear Customer Service,\nI received my order this morning, but it is incomplete. I ordered a set of 4 office chairs (Model BC-200) and a desk lamp (Model DL-50). However, only 3 chairs and the desk lamp were delivered. The missing chair is urgent because we are setting up a new workspace for a visiting consultant. Could you please arrange to send the missing item as soon as possible? I would appreciate confirmation of the delivery date.\n\nThank you,\nMark Harrison\n\nEmail 2 (From customer service):\nSubject: Re: Order #3821 – Missing items\nDear Mr. Harrison,\nThank you for contacting us. I apologize for the inconvenience regarding your order. We checked our warehouse records and found that the fourth chair was placed in a separate shipment due to an inventory error. The missing chair (Model BC-200) is now scheduled for delivery this Friday. You will receive a tracking number by email once it is dispatched.\n\nWe have also applied a 15% discount to your next order as a gesture of goodwill. Please let us know if there is anything else we can assist you with.\n\nBest regards,\nSarah Chen\nCustomer Service Manager",
+  "question": "What can be inferred about the delivery of the missing chair?",
+  "choices": {
+    "A": "It was shipped on the same day as the initial order",
+    "B": "The tracking number has already been provided",
+    "C": "It was sent to the wrong address",
+    "D": "It will be delivered later than the customer had hoped"
+  },
+  "answer": "D",
+  "explanation_zh": "可以推斷遺漏的椅子將比客戶期望的時間更晚送達。馬克·哈里森在第一封郵件中強調椅子很緊急，因為要為來訪顧問設置工作空間，而莎拉·陳回覆說椅子將於本週五送達，這比客戶期望的立即送達更晚，因此答案為D。選項A（與初始訂單同日運送）錯誤，選項B（追蹤號碼已提供）尚未發生，選項C（寄錯地址）未提及。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B1",
+  "vocabulary": [
+    "incomplete",
+    "urgent",
+    "confirm",
+    "goodwill",
+    "dispatch"
+  ],
+  "passage_group_type": "double",
+  "question_order": 4,
+  "passage_group_id": "p7-exp-021"
+},
+  {
+  "id": "p7-gen-278",
+  "part": "Part 7",
+  "passage": "Email 1 (From customer):\nSubject: Order #3821 – Missing items\nDear Customer Service,\nI received my order this morning, but it is incomplete. I ordered a set of 4 office chairs (Model BC-200) and a desk lamp (Model DL-50). However, only 3 chairs and the desk lamp were delivered. The missing chair is urgent because we are setting up a new workspace for a visiting consultant. Could you please arrange to send the missing item as soon as possible? I would appreciate confirmation of the delivery date.\n\nThank you,\nMark Harrison\n\nEmail 2 (From customer service):\nSubject: Re: Order #3821 – Missing items\nDear Mr. Harrison,\nThank you for contacting us. I apologize for the inconvenience regarding your order. We checked our warehouse records and found that the fourth chair was placed in a separate shipment due to an inventory error. The missing chair (Model BC-200) is now scheduled for delivery this Friday. You will receive a tracking number by email once it is dispatched.\n\nWe have also applied a 15% discount to your next order as a gesture of goodwill. Please let us know if there is anything else we can assist you with.\n\nBest regards,\nSarah Chen\nCustomer Service Manager",
+  "question": "What is the reason given by Sarah Chen for the missing chair?",
+  "choices": {
+    "A": "An inventory error caused it to be shipped separately",
+    "B": "The delivery driver made a mistake",
+    "C": "The warehouse was out of stock",
+    "D": "Mark Harrison ordered the wrong model"
+  },
+  "answer": "A",
+  "explanation_zh": "莎拉·陳解釋遺漏椅子的原因是庫存錯誤導致分開運送。她在第二封郵件中寫道：「我們檢查倉庫記錄後發現，第四張椅子因庫存錯誤被分開運送」，因此答案為A。選項B（送貨司機失誤）、C（倉庫缺貨）和D（馬克訂錯型號）均未在郵件中提及。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "incomplete",
+    "urgent",
+    "confirm",
+    "goodwill",
+    "dispatch"
+  ],
+  "passage_group_type": "double",
+  "question_order": 5,
+  "passage_group_id": "p7-exp-021"
+},
+  {
+  "id": "p7-gen-279",
+  "part": "Part 7",
+  "passage": "Text 1: Order Confirmation\nFrom: orders@brightsolutions.com\nTo: jane.doe@example.com\nDate: March 10, 2025\nSubject: Your Order #BR-8842 Confirmed\n\nDear Ms. Doe,\nThank you for your order of 50 units of the BrightPro X200 wireless headsets (Item #BP-X200). Your order number is BR-8842. The total amount of $4,250 has been processed. We estimate shipment on March 15, 2025, via ExpressPost. Delivery is expected within 3–5 business days after shipment. You will receive tracking details once the package is dispatched.\n\nIf you have any questions, please contact our sales team at 1-800-555-0199.\n\nBest regards,\nMark Chen\nSales Manager\n\nText 2: Complaint Inquiry\nFrom: jane.doe@example.com\nTo: support@brightsolutions.com\nDate: March 22, 2025\nSubject: Missing Order #BR-8842\n\nDear Bright Solutions Support,\nI am writing regarding order #BR-8842 placed on March 10. According to your confirmation, the items were to be shipped by March 15, with delivery by March 20 at the latest. Today is March 22, and I have not received the headsets. I have also not received any tracking information. Please confirm the status of my order and provide an updated delivery date.\n\nThank you,\nJane Doe\n\nText 3: Resolution Reply\nFrom: support@brightsolutions.com\nTo: jane.doe@example.com\nDate: March 23, 2025\nSubject: Update on Order #BR-8842\n\nDear Ms. Doe,\nWe apologize for the delay. Our records show that your order was shipped on March 18, one day later than planned due to a temporary stock shortage. The shipment was sent via ExpressPost with tracking number EP-7890X. We have confirmed that the package was delivered to your address on March 22. Please check your premises or with building management. If you still cannot locate it, we will initiate a replacement shipment immediately.\n\nAgain, we regret the inconvenience.\nSincerely,\nAnna Lee\nCustomer Service Team\nBright Solutions",
+  "question": "What is the main reason Jane Doe contacted Bright Solutions?",
+  "choices": {
+    "A": "To cancel her order",
+    "B": "To inquire about a delayed delivery",
+    "C": "To complain about a defective product",
+    "D": "To request a refund"
+  },
+  "answer": "B",
+  "explanation_zh": "答案是 B。Jane Doe 在第二封邮件中写道“Today is March 22, and I have not received the headsets”，并请求“confirm the status of my order and provide an updated delivery date”，因此她联系 Bright Solutions 的主要原因是询问延迟交货。选项 A（取消订单）、C（投诉产品缺陷）和 D（要求退款）在邮件中均未提及，故排除。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B2",
+  "vocabulary": [
+    "confirmation",
+    "shipment",
+    "tracking",
+    "premises"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-022"
+},
+  {
+  "id": "p7-gen-280",
+  "part": "Part 7",
+  "passage": "Text 1: Order Confirmation\nFrom: orders@brightsolutions.com\nTo: jane.doe@example.com\nDate: March 10, 2025\nSubject: Your Order #BR-8842 Confirmed\n\nDear Ms. Doe,\nThank you for your order of 50 units of the BrightPro X200 wireless headsets (Item #BP-X200). Your order number is BR-8842. The total amount of $4,250 has been processed. We estimate shipment on March 15, 2025, via ExpressPost. Delivery is expected within 3–5 business days after shipment. You will receive tracking details once the package is dispatched.\n\nIf you have any questions, please contact our sales team at 1-800-555-0199.\n\nBest regards,\nMark Chen\nSales Manager\n\nText 2: Complaint Inquiry\nFrom: jane.doe@example.com\nTo: support@brightsolutions.com\nDate: March 22, 2025\nSubject: Missing Order #BR-8842\n\nDear Bright Solutions Support,\nI am writing regarding order #BR-8842 placed on March 10. According to your confirmation, the items were to be shipped by March 15, with delivery by March 20 at the latest. Today is March 22, and I have not received the headsets. I have also not received any tracking information. Please confirm the status of my order and provide an updated delivery date.\n\nThank you,\nJane Doe\n\nText 3: Resolution Reply\nFrom: support@brightsolutions.com\nTo: jane.doe@example.com\nDate: March 23, 2025\nSubject: Update on Order #BR-8842\n\nDear Ms. Doe,\nWe apologize for the delay. Our records show that your order was shipped on March 18, one day later than planned due to a temporary stock shortage. The shipment was sent via ExpressPost with tracking number EP-7890X. We have confirmed that the package was delivered to your address on March 22. Please check your premises or with building management. If you still cannot locate it, we will initiate a replacement shipment immediately.\n\nAgain, we regret the inconvenience.\nSincerely,\nAnna Lee\nCustomer Service Team\nBright Solutions",
+  "question": "What was the original expected delivery date for the order?",
+  "choices": {
+    "A": "March 15",
+    "B": "March 18",
+    "C": "March 20",
+    "D": "March 22"
+  },
+  "answer": "C",
+  "explanation_zh": "答案是 C。第一封邮件中明确说明“Delivery is expected within 3–5 business days after shipment”，而发货日期为 March 15，因此预计交货日期为 March 20（3月15日加3-5个工作日）。选项 A（March 15）是发货日期，B（March 18）是实际发货日期，D（March 22）是实际交货日期，均不符合原始预计交货日期。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "expected",
+    "delivery",
+    "business days",
+    "dispatched"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-022"
+},
+  {
+  "id": "p7-gen-281",
+  "part": "Part 7",
+  "passage": "Text 1: Order Confirmation\nFrom: orders@brightsolutions.com\nTo: jane.doe@example.com\nDate: March 10, 2025\nSubject: Your Order #BR-8842 Confirmed\n\nDear Ms. Doe,\nThank you for your order of 50 units of the BrightPro X200 wireless headsets (Item #BP-X200). Your order number is BR-8842. The total amount of $4,250 has been processed. We estimate shipment on March 15, 2025, via ExpressPost. Delivery is expected within 3–5 business days after shipment. You will receive tracking details once the package is dispatched.\n\nIf you have any questions, please contact our sales team at 1-800-555-0199.\n\nBest regards,\nMark Chen\nSales Manager\n\nText 2: Complaint Inquiry\nFrom: jane.doe@example.com\nTo: support@brightsolutions.com\nDate: March 22, 2025\nSubject: Missing Order #BR-8842\n\nDear Bright Solutions Support,\nI am writing regarding order #BR-8842 placed on March 10. According to your confirmation, the items were to be shipped by March 15, with delivery by March 20 at the latest. Today is March 22, and I have not received the headsets. I have also not received any tracking information. Please confirm the status of my order and provide an updated delivery date.\n\nThank you,\nJane Doe\n\nText 3: Resolution Reply\nFrom: support@brightsolutions.com\nTo: jane.doe@example.com\nDate: March 23, 2025\nSubject: Update on Order #BR-8842\n\nDear Ms. Doe,\nWe apologize for the delay. Our records show that your order was shipped on March 18, one day later than planned due to a temporary stock shortage. The shipment was sent via ExpressPost with tracking number EP-7890X. We have confirmed that the package was delivered to your address on March 22. Please check your premises or with building management. If you still cannot locate it, we will initiate a replacement shipment immediately.\n\nAgain, we regret the inconvenience.\nSincerely,\nAnna Lee\nCustomer Service Team\nBright Solutions",
+  "question": "Why was the shipment delayed according to the company's reply?",
+  "choices": {
+    "A": "The carrier ExpressPost had a system error",
+    "B": "The order was processed late by the sales team",
+    "C": "Jane Doe provided an incorrect address",
+    "D": "There was a temporary shortage of stock"
+  },
+  "answer": "D",
+  "explanation_zh": "答案是 D。第三封邮件中 Anna Lee 写道“due to a temporary stock shortage”，明确说明延迟原因是临时库存短缺。选项 A（快递公司系统错误）、B（销售团队处理延迟）和 C（地址错误）在邮件中均未提及，故排除。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "temporary",
+    "shortage",
+    "stock",
+    "initiate"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-022"
+},
+  {
+  "id": "p7-gen-282",
+  "part": "Part 7",
+  "passage": "Text 1: Order Confirmation\nFrom: orders@brightsolutions.com\nTo: jane.doe@example.com\nDate: March 10, 2025\nSubject: Your Order #BR-8842 Confirmed\n\nDear Ms. Doe,\nThank you for your order of 50 units of the BrightPro X200 wireless headsets (Item #BP-X200). Your order number is BR-8842. The total amount of $4,250 has been processed. We estimate shipment on March 15, 2025, via ExpressPost. Delivery is expected within 3–5 business days after shipment. You will receive tracking details once the package is dispatched.\n\nIf you have any questions, please contact our sales team at 1-800-555-0199.\n\nBest regards,\nMark Chen\nSales Manager\n\nText 2: Complaint Inquiry\nFrom: jane.doe@example.com\nTo: support@brightsolutions.com\nDate: March 22, 2025\nSubject: Missing Order #BR-8842\n\nDear Bright Solutions Support,\nI am writing regarding order #BR-8842 placed on March 10. According to your confirmation, the items were to be shipped by March 15, with delivery by March 20 at the latest. Today is March 22, and I have not received the headsets. I have also not received any tracking information. Please confirm the status of my order and provide an updated delivery date.\n\nThank you,\nJane Doe\n\nText 3: Resolution Reply\nFrom: support@brightsolutions.com\nTo: jane.doe@example.com\nDate: March 23, 2025\nSubject: Update on Order #BR-8842\n\nDear Ms. Doe,\nWe apologize for the delay. Our records show that your order was shipped on March 18, one day later than planned due to a temporary stock shortage. The shipment was sent via ExpressPost with tracking number EP-7890X. We have confirmed that the package was delivered to your address on March 22. Please check your premises or with building management. If you still cannot locate it, we will initiate a replacement shipment immediately.\n\nAgain, we regret the inconvenience.\nSincerely,\nAnna Lee\nCustomer Service Team\nBright Solutions",
+  "question": "What can be inferred about the tracking information?",
+  "choices": {
+    "A": "It was sent to Jane Doe on March 18",
+    "B": "Jane Doe received it on March 15",
+    "C": "It was never provided to Jane Doe at any point",
+    "D": "It was included in the initial confirmation email"
+  },
+  "answer": "A",
+  "explanation_zh": "答案是 A。第三封邮件中 Anna Lee 提到“The shipment was sent via ExpressPost with tracking number EP-7890X”，并说明发货日期为 March 18，因此可以推断追踪信息在 March 18 发送给了 Jane Doe。选项 B（Jane 在 March 15 收到）错误，因为发货日期是 March 18；选项 C（从未提供）错误，因为公司已提供追踪号码；选项 D（包含在初始确认邮件中）错误，因为第一封邮件只提到“You will receive tracking details once the package is dispatched”，并未包含追踪信息。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B2",
+  "vocabulary": [
+    "tracking",
+    "dispatched",
+    "premises",
+    "initiate"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 4,
+  "passage_group_id": "p7-exp-022"
+},
+  {
+  "id": "p7-gen-283",
+  "part": "Part 7",
+  "passage": "Text 1: Order Confirmation\nFrom: orders@brightsolutions.com\nTo: jane.doe@example.com\nDate: March 10, 2025\nSubject: Your Order #BR-8842 Confirmed\n\nDear Ms. Doe,\nThank you for your order of 50 units of the BrightPro X200 wireless headsets (Item #BP-X200). Your order number is BR-8842. The total amount of $4,250 has been processed. We estimate shipment on March 15, 2025, via ExpressPost. Delivery is expected within 3–5 business days after shipment. You will receive tracking details once the package is dispatched.\n\nIf you have any questions, please contact our sales team at 1-800-555-0199.\n\nBest regards,\nMark Chen\nSales Manager\n\nText 2: Complaint Inquiry\nFrom: jane.doe@example.com\nTo: support@brightsolutions.com\nDate: March 22, 2025\nSubject: Missing Order #BR-8842\n\nDear Bright Solutions Support,\nI am writing regarding order #BR-8842 placed on March 10. According to your confirmation, the items were to be shipped by March 15, with delivery by March 20 at the latest. Today is March 22, and I have not received the headsets. I have also not received any tracking information. Please confirm the status of my order and provide an updated delivery date.\n\nThank you,\nJane Doe\n\nText 3: Resolution Reply\nFrom: support@brightsolutions.com\nTo: jane.doe@example.com\nDate: March 23, 2025\nSubject: Update on Order #BR-8842\n\nDear Ms. Doe,\nWe apologize for the delay. Our records show that your order was shipped on March 18, one day later than planned due to a temporary stock shortage. The shipment was sent via ExpressPost with tracking number EP-7890X. We have confirmed that the package was delivered to your address on March 22. Please check your premises or with building management. If you still cannot locate it, we will initiate a replacement shipment immediately.\n\nAgain, we regret the inconvenience.\nSincerely,\nAnna Lee\nCustomer Service Team\nBright Solutions",
+  "question": "How did the actual delivery date compare to the date mentioned in Jane's complaint?",
+  "choices": {
+    "A": "It was earlier than the date Jane mentioned",
+    "B": "It was exactly the same as the date Jane mentioned",
+    "C": "It was later than the date Jane mentioned",
+    "D": "It was not specified in any of the texts"
+  },
+  "answer": "B",
+  "explanation_zh": "答案是 B。Jane 在第二封邮件中写道“delivery by March 20 at the latest”，而第三封邮件显示实际交货日期为 March 22，因此实际交货日期与 Jane 提到的日期相同（均为 March 22）。选项 A（更早）、C（更晚）和 D（未指定）均与事实不符，故排除。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "complaint",
+    "actual",
+    "compared",
+    "specified"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 5,
+  "passage_group_id": "p7-exp-022"
+},
+  {
+  "id": "p7-gen-284",
+  "part": "Part 7",
+  "passage": "Text 1: Order Confirmation\nFrom: orders@peakfurniture.com\nTo: janet.morris@greenfieldinteriors.com\nSubject: Order #PF-4821 Confirmation\nDate: March 5, 2024\n\nDear Ms. Morris,\n\nThank you for your order with Peak Furniture. We are pleased to confirm your order #PF-4821 placed on March 4, 2024.\n\nOrder Details:\n- Item: 20 units of \"Maple Executive Desk\" (Model: MD-300)\n- Unit Price: $450\n- Total: $9,000\n- Delivery Date: March 20, 2024\n- Shipping Address: 142 Oak Avenue, Suite 200, Springfield\n\nPlease note that delivery may be subject to a 3-business-day delay due to warehouse relocation. We will notify you if any changes occur.\n\nBest regards,\nPeak Furniture Customer Service\n\n\nText 2: Complaint/Inquiry\nFrom: janet.morris@greenfieldinteriors.com\nTo: support@peakfurniture.com\nSubject: Issue with Order #PF-4821\nDate: March 25, 2024\n\nDear Peak Furniture Team,\n\nI am writing regarding order #PF-4821 for 20 Maple Executive Desks. According to your confirmation, delivery was scheduled for March 20, 2024. However, as of today, March 25, we have not received any items or updates. This delay is impacting our office renovation schedule.\n\nCould you please provide an updated delivery timeline and confirm if the desks have been shipped? We need the items urgently.\n\nThank you for your prompt attention.\n\nSincerely,\nJanet Morris\nGreenfield Interiors\n\n\nText 3: Resolution Reply\nFrom: support@peakfurniture.com\nTo: janet.morris@greenfieldinteriors.com\nSubject: Re: Issue with Order #PF-4821\nDate: March 26, 2024\n\nDear Ms. Morris,\n\nWe sincerely apologize for the delay with order #PF-4821. Due to our recent warehouse relocation, shipment was delayed. We now confirm that your 20 Maple Executive Desks (Model: MD-300) were dispatched on March 24, 2024, via Speedy Logistics, with tracking number SP-88901.\n\nUpdated Delivery Estimate: March 28, 2024.\n\nWe have also issued a 10% discount on your next order as compensation for the inconvenience.\n\nWe appreciate your understanding.\n\nBest regards,\nPeak Furniture Support Team",
+  "question": "What is the main purpose of this set of communications?",
+  "choices": {
+    "A": "To advertise a new line of office desks",
+    "B": "To request a refund for a delayed order",
+    "C": "To report a shipping problem and its resolution",
+    "D": "To change the delivery address for an order"
+  },
+  "answer": "C",
+  "explanation_zh": "答案是 C。這組通訊的主要目的是報告運送問題及其解決方案。Text 2 是顧客 Janet Morris 投訴訂單延遲，Text 3 是 Peak Furniture 的回覆，解釋延遲原因、提供新的運送資訊，並提出補償方案。選項 A「宣傳新辦公桌系列」、B「要求退款」、D「更改送貨地址」均與內容不符。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B2",
+  "vocabulary": [
+    "confirmation",
+    "dispatch",
+    "compensation",
+    "timeline"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-023"
+},
+  {
+  "id": "p7-gen-285",
+  "part": "Part 7",
+  "passage": "Text 1: Order Confirmation\nFrom: orders@peakfurniture.com\nTo: janet.morris@greenfieldinteriors.com\nSubject: Order #PF-4821 Confirmation\nDate: March 5, 2024\n\nDear Ms. Morris,\n\nThank you for your order with Peak Furniture. We are pleased to confirm your order #PF-4821 placed on March 4, 2024.\n\nOrder Details:\n- Item: 20 units of \"Maple Executive Desk\" (Model: MD-300)\n- Unit Price: $450\n- Total: $9,000\n- Delivery Date: March 20, 2024\n- Shipping Address: 142 Oak Avenue, Suite 200, Springfield\n\nPlease note that delivery may be subject to a 3-business-day delay due to warehouse relocation. We will notify you if any changes occur.\n\nBest regards,\nPeak Furniture Customer Service\n\n\nText 2: Complaint/Inquiry\nFrom: janet.morris@greenfieldinteriors.com\nTo: support@peakfurniture.com\nSubject: Issue with Order #PF-4821\nDate: March 25, 2024\n\nDear Peak Furniture Team,\n\nI am writing regarding order #PF-4821 for 20 Maple Executive Desks. According to your confirmation, delivery was scheduled for March 20, 2024. However, as of today, March 25, we have not received any items or updates. This delay is impacting our office renovation schedule.\n\nCould you please provide an updated delivery timeline and confirm if the desks have been shipped? We need the items urgently.\n\nThank you for your prompt attention.\n\nSincerely,\nJanet Morris\nGreenfield Interiors\n\n\nText 3: Resolution Reply\nFrom: support@peakfurniture.com\nTo: janet.morris@greenfieldinteriors.com\nSubject: Re: Issue with Order #PF-4821\nDate: March 26, 2024\n\nDear Ms. Morris,\n\nWe sincerely apologize for the delay with order #PF-4821. Due to our recent warehouse relocation, shipment was delayed. We now confirm that your 20 Maple Executive Desks (Model: MD-300) were dispatched on March 24, 2024, via Speedy Logistics, with tracking number SP-88901.\n\nUpdated Delivery Estimate: March 28, 2024.\n\nWe have also issued a 10% discount on your next order as compensation for the inconvenience.\n\nWe appreciate your understanding.\n\nBest regards,\nPeak Furniture Support Team",
+  "question": "According to the order confirmation, what was the original delivery date for order #PF-4821?",
+  "choices": {
+    "A": "March 4, 2024",
+    "B": "March 28, 2024",
+    "C": "March 24, 2024",
+    "D": "March 20, 2024"
+  },
+  "answer": "D",
+  "explanation_zh": "答案是 D。根據 Text 1 的訂單確認信，原始送貨日期為 March 20, 2024（Delivery Date: March 20, 2024）。選項 A 為訂購日期，B 為更新後的預計送達日，C 為實際出貨日。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "delivery",
+    "schedule",
+    "original",
+    "confirmation"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-023"
+},
+  {
+  "id": "p7-gen-286",
+  "part": "Part 7",
+  "passage": "Text 1: Order Confirmation\nFrom: orders@peakfurniture.com\nTo: janet.morris@greenfieldinteriors.com\nSubject: Order #PF-4821 Confirmation\nDate: March 5, 2024\n\nDear Ms. Morris,\n\nThank you for your order with Peak Furniture. We are pleased to confirm your order #PF-4821 placed on March 4, 2024.\n\nOrder Details:\n- Item: 20 units of \"Maple Executive Desk\" (Model: MD-300)\n- Unit Price: $450\n- Total: $9,000\n- Delivery Date: March 20, 2024\n- Shipping Address: 142 Oak Avenue, Suite 200, Springfield\n\nPlease note that delivery may be subject to a 3-business-day delay due to warehouse relocation. We will notify you if any changes occur.\n\nBest regards,\nPeak Furniture Customer Service\n\n\nText 2: Complaint/Inquiry\nFrom: janet.morris@greenfieldinteriors.com\nTo: support@peakfurniture.com\nSubject: Issue with Order #PF-4821\nDate: March 25, 2024\n\nDear Peak Furniture Team,\n\nI am writing regarding order #PF-4821 for 20 Maple Executive Desks. According to your confirmation, delivery was scheduled for March 20, 2024. However, as of today, March 25, we have not received any items or updates. This delay is impacting our office renovation schedule.\n\nCould you please provide an updated delivery timeline and confirm if the desks have been shipped? We need the items urgently.\n\nThank you for your prompt attention.\n\nSincerely,\nJanet Morris\nGreenfield Interiors\n\n\nText 3: Resolution Reply\nFrom: support@peakfurniture.com\nTo: janet.morris@greenfieldinteriors.com\nSubject: Re: Issue with Order #PF-4821\nDate: March 26, 2024\n\nDear Ms. Morris,\n\nWe sincerely apologize for the delay with order #PF-4821. Due to our recent warehouse relocation, shipment was delayed. We now confirm that your 20 Maple Executive Desks (Model: MD-300) were dispatched on March 24, 2024, via Speedy Logistics, with tracking number SP-88901.\n\nUpdated Delivery Estimate: March 28, 2024.\n\nWe have also issued a 10% discount on your next order as compensation for the inconvenience.\n\nWe appreciate your understanding.\n\nBest regards,\nPeak Furniture Support Team",
+  "question": "In the resolution reply, what compensation did Peak Furniture offer?",
+  "choices": {
+    "A": "A 10% discount on the next order",
+    "B": "Free shipping on the current order",
+    "C": "A full refund of $9,000",
+    "D": "An additional 5 units of desks"
+  },
+  "answer": "A",
+  "explanation_zh": "答案是 A。Text 3 的 Resolution Reply 中明確提到「We have also issued a 10% discount on your next order as compensation for the inconvenience.」，即提供下次訂單 10% 的折扣。選項 B、C、D 均未提及。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "compensation",
+    "discount",
+    "inconvenience",
+    "resolution"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-023"
+},
+  {
+  "id": "p7-gen-287",
+  "part": "Part 7",
+  "passage": "Text 1: Order Confirmation\nFrom: orders@peakfurniture.com\nTo: janet.morris@greenfieldinteriors.com\nSubject: Order #PF-4821 Confirmation\nDate: March 5, 2024\n\nDear Ms. Morris,\n\nThank you for your order with Peak Furniture. We are pleased to confirm your order #PF-4821 placed on March 4, 2024.\n\nOrder Details:\n- Item: 20 units of \"Maple Executive Desk\" (Model: MD-300)\n- Unit Price: $450\n- Total: $9,000\n- Delivery Date: March 20, 2024\n- Shipping Address: 142 Oak Avenue, Suite 200, Springfield\n\nPlease note that delivery may be subject to a 3-business-day delay due to warehouse relocation. We will notify you if any changes occur.\n\nBest regards,\nPeak Furniture Customer Service\n\n\nText 2: Complaint/Inquiry\nFrom: janet.morris@greenfieldinteriors.com\nTo: support@peakfurniture.com\nSubject: Issue with Order #PF-4821\nDate: March 25, 2024\n\nDear Peak Furniture Team,\n\nI am writing regarding order #PF-4821 for 20 Maple Executive Desks. According to your confirmation, delivery was scheduled for March 20, 2024. However, as of today, March 25, we have not received any items or updates. This delay is impacting our office renovation schedule.\n\nCould you please provide an updated delivery timeline and confirm if the desks have been shipped? We need the items urgently.\n\nThank you for your prompt attention.\n\nSincerely,\nJanet Morris\nGreenfield Interiors\n\n\nText 3: Resolution Reply\nFrom: support@peakfurniture.com\nTo: janet.morris@greenfieldinteriors.com\nSubject: Re: Issue with Order #PF-4821\nDate: March 26, 2024\n\nDear Ms. Morris,\n\nWe sincerely apologize for the delay with order #PF-4821. Due to our recent warehouse relocation, shipment was delayed. We now confirm that your 20 Maple Executive Desks (Model: MD-300) were dispatched on March 24, 2024, via Speedy Logistics, with tracking number SP-88901.\n\nUpdated Delivery Estimate: March 28, 2024.\n\nWe have also issued a 10% discount on your next order as compensation for the inconvenience.\n\nWe appreciate your understanding.\n\nBest regards,\nPeak Furniture Support Team",
+  "question": "What can be inferred about the warehouse relocation mentioned in the order confirmation?",
+  "choices": {
+    "A": "It caused the desks to be shipped from a different location",
+    "B": "It resulted in a shipping delay",
+    "C": "It was completed before March 20, 2024",
+    "D": "It was planned after March 24, 2024"
+  },
+  "answer": "B",
+  "explanation_zh": "答案是 B。Text 1 的訂單確認信中提到「delivery may be subject to a 3-business-day delay due to warehouse relocation」，而 Text 3 也說明延遲原因是「Due to our recent warehouse relocation, shipment was delayed」，因此可推斷倉庫搬遷導致運送延遲。選項 A 未提及，C 和 D 與事實相反。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B2",
+  "vocabulary": [
+    "relocation",
+    "delay",
+    "subject to",
+    "infer"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 4,
+  "passage_group_id": "p7-exp-023"
+},
+  {
+  "id": "p7-gen-288",
+  "part": "Part 7",
+  "passage": "Text 1: Order Confirmation\nFrom: orders@peakfurniture.com\nTo: janet.morris@greenfieldinteriors.com\nSubject: Order #PF-4821 Confirmation\nDate: March 5, 2024\n\nDear Ms. Morris,\n\nThank you for your order with Peak Furniture. We are pleased to confirm your order #PF-4821 placed on March 4, 2024.\n\nOrder Details:\n- Item: 20 units of \"Maple Executive Desk\" (Model: MD-300)\n- Unit Price: $450\n- Total: $9,000\n- Delivery Date: March 20, 2024\n- Shipping Address: 142 Oak Avenue, Suite 200, Springfield\n\nPlease note that delivery may be subject to a 3-business-day delay due to warehouse relocation. We will notify you if any changes occur.\n\nBest regards,\nPeak Furniture Customer Service\n\n\nText 2: Complaint/Inquiry\nFrom: janet.morris@greenfieldinteriors.com\nTo: support@peakfurniture.com\nSubject: Issue with Order #PF-4821\nDate: March 25, 2024\n\nDear Peak Furniture Team,\n\nI am writing regarding order #PF-4821 for 20 Maple Executive Desks. According to your confirmation, delivery was scheduled for March 20, 2024. However, as of today, March 25, we have not received any items or updates. This delay is impacting our office renovation schedule.\n\nCould you please provide an updated delivery timeline and confirm if the desks have been shipped? We need the items urgently.\n\nThank you for your prompt attention.\n\nSincerely,\nJanet Morris\nGreenfield Interiors\n\n\nText 3: Resolution Reply\nFrom: support@peakfurniture.com\nTo: janet.morris@greenfieldinteriors.com\nSubject: Re: Issue with Order #PF-4821\nDate: March 26, 2024\n\nDear Ms. Morris,\n\nWe sincerely apologize for the delay with order #PF-4821. Due to our recent warehouse relocation, shipment was delayed. We now confirm that your 20 Maple Executive Desks (Model: MD-300) were dispatched on March 24, 2024, via Speedy Logistics, with tracking number SP-88901.\n\nUpdated Delivery Estimate: March 28, 2024.\n\nWe have also issued a 10% discount on your next order as compensation for the inconvenience.\n\nWe appreciate your understanding.\n\nBest regards,\nPeak Furniture Support Team",
+  "question": "How did the actual shipping date (Text 3) compare with the original delivery date mentioned in Text 1?",
+  "choices": {
+    "A": "The desks were shipped on the original delivery date",
+    "B": "The desks were shipped before the original delivery date",
+    "C": "The desks were shipped four days after the original delivery date",
+    "D": "The desks were shipped on the same day as the complaint"
+  },
+  "answer": "C",
+  "explanation_zh": "答案是 C。Text 1 的原始送貨日期是 March 20，Text 3 指出實際出貨日期是 March 24，因此 desks 是在原始送貨日期之後 4 天才出貨。選項 A、B、D 均與實際情況不符。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "actual",
+    "original",
+    "compare",
+    "shipping date"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 5,
+  "passage_group_id": "p7-exp-023"
+},
+  {
+  "id": "p7-gen-289",
+  "part": "Part 7",
+  "passage": "Text 1\n\nJob Advertisement: Regional Sales Manager\n\nCompany: Apex Logistics Group\nLocation: Chicago, IL\n\nApex Logistics Group is seeking an experienced Regional Sales Manager to lead our Midwest sales team. This role requires a minimum of 5 years of sales management experience in the logistics or supply chain industry.\n\nKey Responsibilities:\n- Develop and execute regional sales strategies to achieve revenue targets.\n- Manage and mentor a team of 8–10 sales representatives.\n- Build and maintain strong relationships with key corporate clients.\n- Analyze market trends and competitor activity to identify growth opportunities.\n\nQualifications:\n- Bachelor's degree in Business Administration or related field required; MBA preferred.\n- Proven track record of exceeding sales quotas.\n- Excellent leadership and communication skills.\n- Proficiency in CRM software and Microsoft Office Suite.\n- Willingness to travel up to 30% of the time.\n\nTo apply, please send your resume and a cover letter to careers@apexlogistics.com by March 15.\n\n---\n\nText 2\n\nEmail from Applicant\n\nTo: careers@apexlogistics.com\nFrom: jennifer.lee@email.com\nSubject: Application for Regional Sales Manager Position\n\nDear Hiring Team,\n\nI am writing to express my strong interest in the Regional Sales Manager position at Apex Logistics Group, as advertised on your company website.\n\nWith over six years of sales management experience in the logistics industry, I have consistently led teams to exceed their quarterly targets. In my current role at SwiftCargo Inc., I manage a team of 12 sales representatives and have increased our regional revenue by 25% over the past two years. I hold a Bachelor's degree in Business Administration and am currently pursuing an Executive MBA.\n\nI am proficient in Salesforce CRM and all Microsoft Office applications. I am also comfortable with the travel requirement. I have attached my resume for your review and am available for an interview at your earliest convenience.\n\nThank you for considering my application.\n\nSincerely,\nJennifer Lee",
+  "question": "What position is Jennifer Lee applying for?",
+  "choices": {
+    "A": "Logistics Coordinator at SwiftCargo Inc.",
+    "B": "Regional Sales Manager at SwiftCargo Inc.",
+    "C": "Sales Representative at Apex Logistics Group",
+    "D": "Regional Sales Manager at Apex Logistics Group"
+  },
+  "answer": "D",
+  "explanation_zh": "答案是 D。Text 1 的職位是「Regional Sales Manager at Apex Logistics Group」，而 Text 2 中 Jennifer Lee 在信件主旨寫明「Application for Regional Sales Manager Position」，並在內文提到「Apex Logistics Group」，因此她應徵的是 Apex Logistics Group 的區域銷售經理。選項 A、B、C 分別錯誤地指向 SwiftCargo Inc. 或 Apex Logistics Group 的其他職位。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B2",
+  "vocabulary": [
+    "regional",
+    "logistics",
+    "cover letter",
+    "Executive MBA"
+  ],
+  "passage_group_type": "double",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-024"
+},
+  {
+  "id": "p7-gen-290",
+  "part": "Part 7",
+  "passage": "Text 1\n\nJob Advertisement: Regional Sales Manager\n\nCompany: Apex Logistics Group\nLocation: Chicago, IL\n\nApex Logistics Group is seeking an experienced Regional Sales Manager to lead our Midwest sales team. This role requires a minimum of 5 years of sales management experience in the logistics or supply chain industry.\n\nKey Responsibilities:\n- Develop and execute regional sales strategies to achieve revenue targets.\n- Manage and mentor a team of 8–10 sales representatives.\n- Build and maintain strong relationships with key corporate clients.\n- Analyze market trends and competitor activity to identify growth opportunities.\n\nQualifications:\n- Bachelor's degree in Business Administration or related field required; MBA preferred.\n- Proven track record of exceeding sales quotas.\n- Excellent leadership and communication skills.\n- Proficiency in CRM software and Microsoft Office Suite.\n- Willingness to travel up to 30% of the time.\n\nTo apply, please send your resume and a cover letter to careers@apexlogistics.com by March 15.\n\n---\n\nText 2\n\nEmail from Applicant\n\nTo: careers@apexlogistics.com\nFrom: jennifer.lee@email.com\nSubject: Application for Regional Sales Manager Position\n\nDear Hiring Team,\n\nI am writing to express my strong interest in the Regional Sales Manager position at Apex Logistics Group, as advertised on your company website.\n\nWith over six years of sales management experience in the logistics industry, I have consistently led teams to exceed their quarterly targets. In my current role at SwiftCargo Inc., I manage a team of 12 sales representatives and have increased our regional revenue by 25% over the past two years. I hold a Bachelor's degree in Business Administration and am currently pursuing an Executive MBA.\n\nI am proficient in Salesforce CRM and all Microsoft Office applications. I am also comfortable with the travel requirement. I have attached my resume for your review and am available for an interview at your earliest convenience.\n\nThank you for considering my application.\n\nSincerely,\nJennifer Lee",
+  "question": "What is one requirement mentioned in the job posting that Jennifer Lee does NOT explicitly mention having in her application?",
+  "choices": {
+    "A": "An MBA degree",
+    "B": "Experience in the logistics industry",
+    "C": "A proven track record of exceeding sales quotas",
+    "D": "A Bachelor's degree in Business Administration"
+  },
+  "answer": "A",
+  "explanation_zh": "答案是 A。Text 1 的求職條件列出「MBA preferred」，但 Jennifer Lee 在 Text 2 中只說「currently pursuing an Executive MBA」，並未明確表示已取得 MBA 學位。選項 B 和 D 她都有提及（物流業經驗和企管學士學位），選項 C 她也提到「consistently led teams to exceed their quarterly targets」，因此 A 是唯一未明確提及的條件。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "requirement",
+    "track record",
+    "proficiency",
+    "exceed"
+  ],
+  "passage_group_type": "double",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-024"
+},
+  {
+  "id": "p7-gen-291",
+  "part": "Part 7",
+  "passage": "Text 1\n\nJob Advertisement: Regional Sales Manager\n\nCompany: Apex Logistics Group\nLocation: Chicago, IL\n\nApex Logistics Group is seeking an experienced Regional Sales Manager to lead our Midwest sales team. This role requires a minimum of 5 years of sales management experience in the logistics or supply chain industry.\n\nKey Responsibilities:\n- Develop and execute regional sales strategies to achieve revenue targets.\n- Manage and mentor a team of 8–10 sales representatives.\n- Build and maintain strong relationships with key corporate clients.\n- Analyze market trends and competitor activity to identify growth opportunities.\n\nQualifications:\n- Bachelor's degree in Business Administration or related field required; MBA preferred.\n- Proven track record of exceeding sales quotas.\n- Excellent leadership and communication skills.\n- Proficiency in CRM software and Microsoft Office Suite.\n- Willingness to travel up to 30% of the time.\n\nTo apply, please send your resume and a cover letter to careers@apexlogistics.com by March 15.\n\n---\n\nText 2\n\nEmail from Applicant\n\nTo: careers@apexlogistics.com\nFrom: jennifer.lee@email.com\nSubject: Application for Regional Sales Manager Position\n\nDear Hiring Team,\n\nI am writing to express my strong interest in the Regional Sales Manager position at Apex Logistics Group, as advertised on your company website.\n\nWith over six years of sales management experience in the logistics industry, I have consistently led teams to exceed their quarterly targets. In my current role at SwiftCargo Inc., I manage a team of 12 sales representatives and have increased our regional revenue by 25% over the past two years. I hold a Bachelor's degree in Business Administration and am currently pursuing an Executive MBA.\n\nI am proficient in Salesforce CRM and all Microsoft Office applications. I am also comfortable with the travel requirement. I have attached my resume for your review and am available for an interview at your earliest convenience.\n\nThank you for considering my application.\n\nSincerely,\nJennifer Lee",
+  "question": "What is the main purpose of Text 2?",
+  "choices": {
+    "A": "To request an interview with the hiring team",
+    "B": "To apply for a job advertised by Apex Logistics Group",
+    "C": "To inquire about the qualifications for a position",
+    "D": "To recommend a candidate for the Regional Sales Manager role"
+  },
+  "answer": "B",
+  "explanation_zh": "答案是 B。Text 2 是一封求職信，Jennifer Lee 在信件主旨和內文明確表示要申請 Apex Logistics Group 的 Regional Sales Manager 職位，並附上履歷。選項 A 雖提到請求面試，但這只是申請過程的一部分，並非主要目的；選項 C 和 D 分別是詢問資格或推薦他人，與信件內容不符。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "purpose",
+    "apply",
+    "advertised",
+    "candidate"
+  ],
+  "passage_group_type": "double",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-024"
+},
+  {
+  "id": "p7-gen-292",
+  "part": "Part 7",
+  "passage": "Text 1\n\nJob Advertisement: Regional Sales Manager\n\nCompany: Apex Logistics Group\nLocation: Chicago, IL\n\nApex Logistics Group is seeking an experienced Regional Sales Manager to lead our Midwest sales team. This role requires a minimum of 5 years of sales management experience in the logistics or supply chain industry.\n\nKey Responsibilities:\n- Develop and execute regional sales strategies to achieve revenue targets.\n- Manage and mentor a team of 8–10 sales representatives.\n- Build and maintain strong relationships with key corporate clients.\n- Analyze market trends and competitor activity to identify growth opportunities.\n\nQualifications:\n- Bachelor's degree in Business Administration or related field required; MBA preferred.\n- Proven track record of exceeding sales quotas.\n- Excellent leadership and communication skills.\n- Proficiency in CRM software and Microsoft Office Suite.\n- Willingness to travel up to 30% of the time.\n\nTo apply, please send your resume and a cover letter to careers@apexlogistics.com by March 15.\n\n---\n\nText 2\n\nEmail from Applicant\n\nTo: careers@apexlogistics.com\nFrom: jennifer.lee@email.com\nSubject: Application for Regional Sales Manager Position\n\nDear Hiring Team,\n\nI am writing to express my strong interest in the Regional Sales Manager position at Apex Logistics Group, as advertised on your company website.\n\nWith over six years of sales management experience in the logistics industry, I have consistently led teams to exceed their quarterly targets. In my current role at SwiftCargo Inc., I manage a team of 12 sales representatives and have increased our regional revenue by 25% over the past two years. I hold a Bachelor's degree in Business Administration and am currently pursuing an Executive MBA.\n\nI am proficient in Salesforce CRM and all Microsoft Office applications. I am also comfortable with the travel requirement. I have attached my resume for your review and am available for an interview at your earliest convenience.\n\nThank you for considering my application.\n\nSincerely,\nJennifer Lee",
+  "question": "Which of the following can be inferred about Jennifer Lee's current job?",
+  "choices": {
+    "A": "She has worked at SwiftCargo Inc. for over six years.",
+    "B": "She manages a smaller team than the one described in the job posting.",
+    "C": "She has experience exceeding sales targets.",
+    "D": "She is not required to travel in her current role."
+  },
+  "answer": "C",
+  "explanation_zh": "答案是 C。Text 2 中 Jennifer Lee 提到「consistently led teams to exceed their quarterly targets」，這表示她有超額完成銷售目標的經驗。選項 A 無法推斷，因為她只說有六年經驗，但未說明在 SwiftCargo Inc. 的年資；選項 B 錯誤，她管理 12 人團隊，比職位要求的 8-10 人更大；選項 D 無法推斷，因為她只說自己接受出差要求，未提及現職是否需出差。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B2",
+  "vocabulary": [
+    "inferred",
+    "current",
+    "exceed",
+    "targets"
+  ],
+  "passage_group_type": "double",
+  "question_order": 4,
+  "passage_group_id": "p7-exp-024"
+},
+  {
+  "id": "p7-gen-293",
+  "part": "Part 7",
+  "passage": "Text 1\n\nJob Advertisement: Regional Sales Manager\n\nCompany: Apex Logistics Group\nLocation: Chicago, IL\n\nApex Logistics Group is seeking an experienced Regional Sales Manager to lead our Midwest sales team. This role requires a minimum of 5 years of sales management experience in the logistics or supply chain industry.\n\nKey Responsibilities:\n- Develop and execute regional sales strategies to achieve revenue targets.\n- Manage and mentor a team of 8–10 sales representatives.\n- Build and maintain strong relationships with key corporate clients.\n- Analyze market trends and competitor activity to identify growth opportunities.\n\nQualifications:\n- Bachelor's degree in Business Administration or related field required; MBA preferred.\n- Proven track record of exceeding sales quotas.\n- Excellent leadership and communication skills.\n- Proficiency in CRM software and Microsoft Office Suite.\n- Willingness to travel up to 30% of the time.\n\nTo apply, please send your resume and a cover letter to careers@apexlogistics.com by March 15.\n\n---\n\nText 2\n\nEmail from Applicant\n\nTo: careers@apexlogistics.com\nFrom: jennifer.lee@email.com\nSubject: Application for Regional Sales Manager Position\n\nDear Hiring Team,\n\nI am writing to express my strong interest in the Regional Sales Manager position at Apex Logistics Group, as advertised on your company website.\n\nWith over six years of sales management experience in the logistics industry, I have consistently led teams to exceed their quarterly targets. In my current role at SwiftCargo Inc., I manage a team of 12 sales representatives and have increased our regional revenue by 25% over the past two years. I hold a Bachelor's degree in Business Administration and am currently pursuing an Executive MBA.\n\nI am proficient in Salesforce CRM and all Microsoft Office applications. I am also comfortable with the travel requirement. I have attached my resume for your review and am available for an interview at your earliest convenience.\n\nThank you for considering my application.\n\nSincerely,\nJennifer Lee",
+  "question": "According to the job posting, which of the following is a responsibility of the Regional Sales Manager?",
+  "choices": {
+    "A": "Recruiting new sales representatives",
+    "B": "Managing the company's overall budget",
+    "C": "Overseeing customer service operations",
+    "D": "Analyzing competitor activity"
+  },
+  "answer": "D",
+  "explanation_zh": "答案是 D。Text 1 的「Key Responsibilities」中明確列出「Analyze market trends and competitor activity to identify growth opportunities」，因此分析競爭對手活動是職責之一。選項 A、B、C 分別是招募銷售代表、管理公司整體預算、監督客服營運，這些在職責列表中均未提及。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "according to",
+    "responsibility",
+    "overseeing",
+    "competitor"
+  ],
+  "passage_group_type": "double",
+  "question_order": 5,
+  "passage_group_id": "p7-exp-024"
+},
+  {
+  "id": "p7-gen-294",
+  "part": "Part 7",
+  "passage": "**Text 1: Order Confirmation**\nFrom: orders@greentechsupply.com\nTo: j.chen@a1electronics.com\nDate: March 10, 2025\nSubject: Order #GT-4827 Confirmation\n\nDear Mr. Chen,\n\nThank you for your order of 500 units of Model X1000 Solar Chargers (unit price: $45.00) on March 8, 2025. We confirm that the shipment is scheduled to leave our warehouse on March 15, 2025, via FastTrack Logistics, with an estimated delivery to your facility on March 20, 2025. The total invoice amount is $22,500.00. Payment terms are net 30 days.\n\nPlease note that all items are covered by our standard 12-month warranty against manufacturing defects. If you have any questions, please contact our customer service team.\n\nBest regards,\nSarah Miller\nShipping Coordinator\nGreenTech Supply Inc.\n\n**Text 2: Complaint Inquiry**\nFrom: j.chen@a1electronics.com\nTo: support@greentechsupply.com\nDate: March 22, 2025\nSubject: Order #GT-4827 – Damaged Goods\n\nDear GreenTech Supply,\n\nWe received the shipment for Order #GT-4827 on March 20, 2025. Upon inspection, we discovered that 30 units of the Model X1000 Solar Chargers were damaged due to improper packaging. The outer boxes were crushed, and the chargers inside were scratched and non-functional. We request a replacement for the damaged items or a refund of $1,350.00 (30 units x $45.00). Please advise on how to proceed.\n\nWe have attached photos of the damage for your reference.\n\nSincerely,\nJames Chen\nProcurement Manager\nA1 Electronics\n\n**Text 3: Resolution Reply**\nFrom: s.miller@greentechsupply.com\nTo: j.chen@a1electronics.com\nDate: March 25, 2025\nSubject: RE: Order #GT-4827 – Damaged Goods\n\nDear Mr. Chen,\n\nWe sincerely apologize for the issue with your order. After reviewing your complaint and the photos, we have authorized a full replacement of the 30 damaged units. The replacement shipment will be sent via ExpressTrack Shipping and is expected to arrive by March 30, 2025. You do not need to return the damaged items; we will process a refund for the $1,350.00, which will be credited to your account within 5-7 business days.\n\nWe have also contacted FastTrack Logistics to investigate the handling issue. Please let us know if you require further assistance.\n\nBest regards,\nSarah Miller\nShipping Coordinator\nGreenTech Supply Inc.",
+  "question": "What is the main issue described in the passage?",
+  "choices": {
+    "A": "Some items in a delivery arrived damaged, and the supplier is resolving it.",
+    "B": "A shipment was delayed, causing inconvenience to the buyer.",
+    "C": "A customer is requesting a refund for an incorrect order.",
+    "D": "The supplier is disputing the buyer's claim about the product quality."
+  },
+  "answer": "A",
+  "explanation_zh": "答案是 A。根據 Text 2，James Chen 報告收到 30 個損壞的太陽能充電器，而 Text 3 中 Sarah Miller 授權更換並退款，因此主要問題是貨物損壞及供應商正在解決。選項 B 錯誤，因為沒有提到延遲；選項 C 錯誤，因為不是訂錯貨；選項 D 錯誤，因為供應商沒有爭議索賠。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B2",
+  "vocabulary": [
+    "shipment",
+    "damaged",
+    "inspection",
+    "replacement",
+    "refund"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-025"
+},
+  {
+  "id": "p7-gen-295",
+  "part": "Part 7",
+  "passage": "**Text 1: Order Confirmation**\nFrom: orders@greentechsupply.com\nTo: j.chen@a1electronics.com\nDate: March 10, 2025\nSubject: Order #GT-4827 Confirmation\n\nDear Mr. Chen,\n\nThank you for your order of 500 units of Model X1000 Solar Chargers (unit price: $45.00) on March 8, 2025. We confirm that the shipment is scheduled to leave our warehouse on March 15, 2025, via FastTrack Logistics, with an estimated delivery to your facility on March 20, 2025. The total invoice amount is $22,500.00. Payment terms are net 30 days.\n\nPlease note that all items are covered by our standard 12-month warranty against manufacturing defects. If you have any questions, please contact our customer service team.\n\nBest regards,\nSarah Miller\nShipping Coordinator\nGreenTech Supply Inc.\n\n**Text 2: Complaint Inquiry**\nFrom: j.chen@a1electronics.com\nTo: support@greentechsupply.com\nDate: March 22, 2025\nSubject: Order #GT-4827 – Damaged Goods\n\nDear GreenTech Supply,\n\nWe received the shipment for Order #GT-4827 on March 20, 2025. Upon inspection, we discovered that 30 units of the Model X1000 Solar Chargers were damaged due to improper packaging. The outer boxes were crushed, and the chargers inside were scratched and non-functional. We request a replacement for the damaged items or a refund of $1,350.00 (30 units x $45.00). Please advise on how to proceed.\n\nWe have attached photos of the damage for your reference.\n\nSincerely,\nJames Chen\nProcurement Manager\nA1 Electronics\n\n**Text 3: Resolution Reply**\nFrom: s.miller@greentechsupply.com\nTo: j.chen@a1electronics.com\nDate: March 25, 2025\nSubject: RE: Order #GT-4827 – Damaged Goods\n\nDear Mr. Chen,\n\nWe sincerely apologize for the issue with your order. After reviewing your complaint and the photos, we have authorized a full replacement of the 30 damaged units. The replacement shipment will be sent via ExpressTrack Shipping and is expected to arrive by March 30, 2025. You do not need to return the damaged items; we will process a refund for the $1,350.00, which will be credited to your account within 5-7 business days.\n\nWe have also contacted FastTrack Logistics to investigate the handling issue. Please let us know if you require further assistance.\n\nBest regards,\nSarah Miller\nShipping Coordinator\nGreenTech Supply Inc.",
+  "question": "According to Text 1, what is the delivery date for the original shipment?",
+  "choices": {
+    "A": "March 8, 2025",
+    "B": "March 20, 2025",
+    "C": "March 15, 2025",
+    "D": "March 22, 2025"
+  },
+  "answer": "B",
+  "explanation_zh": "答案是 B。Text 1 明確指出「estimated delivery to your facility on March 20, 2025」，因此原始送貨日期是 3 月 20 日。選項 A 是訂購日期；選項 C 是出貨日期；選項 D 是投訴日期。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "delivery",
+    "estimated",
+    "shipment",
+    "warehouse",
+    "invoice"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-025"
+},
+  {
+  "id": "p7-gen-296",
+  "part": "Part 7",
+  "passage": "**Text 1: Order Confirmation**\nFrom: orders@greentechsupply.com\nTo: j.chen@a1electronics.com\nDate: March 10, 2025\nSubject: Order #GT-4827 Confirmation\n\nDear Mr. Chen,\n\nThank you for your order of 500 units of Model X1000 Solar Chargers (unit price: $45.00) on March 8, 2025. We confirm that the shipment is scheduled to leave our warehouse on March 15, 2025, via FastTrack Logistics, with an estimated delivery to your facility on March 20, 2025. The total invoice amount is $22,500.00. Payment terms are net 30 days.\n\nPlease note that all items are covered by our standard 12-month warranty against manufacturing defects. If you have any questions, please contact our customer service team.\n\nBest regards,\nSarah Miller\nShipping Coordinator\nGreenTech Supply Inc.\n\n**Text 2: Complaint Inquiry**\nFrom: j.chen@a1electronics.com\nTo: support@greentechsupply.com\nDate: March 22, 2025\nSubject: Order #GT-4827 – Damaged Goods\n\nDear GreenTech Supply,\n\nWe received the shipment for Order #GT-4827 on March 20, 2025. Upon inspection, we discovered that 30 units of the Model X1000 Solar Chargers were damaged due to improper packaging. The outer boxes were crushed, and the chargers inside were scratched and non-functional. We request a replacement for the damaged items or a refund of $1,350.00 (30 units x $45.00). Please advise on how to proceed.\n\nWe have attached photos of the damage for your reference.\n\nSincerely,\nJames Chen\nProcurement Manager\nA1 Electronics\n\n**Text 3: Resolution Reply**\nFrom: s.miller@greentechsupply.com\nTo: j.chen@a1electronics.com\nDate: March 25, 2025\nSubject: RE: Order #GT-4827 – Damaged Goods\n\nDear Mr. Chen,\n\nWe sincerely apologize for the issue with your order. After reviewing your complaint and the photos, we have authorized a full replacement of the 30 damaged units. The replacement shipment will be sent via ExpressTrack Shipping and is expected to arrive by March 30, 2025. You do not need to return the damaged items; we will process a refund for the $1,350.00, which will be credited to your account within 5-7 business days.\n\nWe have also contacted FastTrack Logistics to investigate the handling issue. Please let us know if you require further assistance.\n\nBest regards,\nSarah Miller\nShipping Coordinator\nGreenTech Supply Inc.",
+  "question": "In Text 2, what does James Chen request regarding the damaged items?",
+  "choices": {
+    "A": "A full refund for the entire order",
+    "B": "An apology from the shipping company",
+    "C": "A replacement of the damaged units or a refund of $1,350",
+    "D": "A discount on future purchases"
+  },
+  "answer": "C",
+  "explanation_zh": "答案是 C。Text 2 中 James Chen 寫道「We request a replacement for the damaged items or a refund of $1,350.00」，因此他要求更換或退款。選項 A 錯誤，因為他沒有要求全額退款；選項 B 錯誤，因為他沒有要求道歉；選項 D 錯誤，因為他沒有要求折扣。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "damaged",
+    "replacement",
+    "refund",
+    "inspection",
+    "improper"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-025"
+},
+  {
+  "id": "p7-gen-297",
+  "part": "Part 7",
+  "passage": "**Text 1: Order Confirmation**\nFrom: orders@greentechsupply.com\nTo: j.chen@a1electronics.com\nDate: March 10, 2025\nSubject: Order #GT-4827 Confirmation\n\nDear Mr. Chen,\n\nThank you for your order of 500 units of Model X1000 Solar Chargers (unit price: $45.00) on March 8, 2025. We confirm that the shipment is scheduled to leave our warehouse on March 15, 2025, via FastTrack Logistics, with an estimated delivery to your facility on March 20, 2025. The total invoice amount is $22,500.00. Payment terms are net 30 days.\n\nPlease note that all items are covered by our standard 12-month warranty against manufacturing defects. If you have any questions, please contact our customer service team.\n\nBest regards,\nSarah Miller\nShipping Coordinator\nGreenTech Supply Inc.\n\n**Text 2: Complaint Inquiry**\nFrom: j.chen@a1electronics.com\nTo: support@greentechsupply.com\nDate: March 22, 2025\nSubject: Order #GT-4827 – Damaged Goods\n\nDear GreenTech Supply,\n\nWe received the shipment for Order #GT-4827 on March 20, 2025. Upon inspection, we discovered that 30 units of the Model X1000 Solar Chargers were damaged due to improper packaging. The outer boxes were crushed, and the chargers inside were scratched and non-functional. We request a replacement for the damaged items or a refund of $1,350.00 (30 units x $45.00). Please advise on how to proceed.\n\nWe have attached photos of the damage for your reference.\n\nSincerely,\nJames Chen\nProcurement Manager\nA1 Electronics\n\n**Text 3: Resolution Reply**\nFrom: s.miller@greentechsupply.com\nTo: j.chen@a1electronics.com\nDate: March 25, 2025\nSubject: RE: Order #GT-4827 – Damaged Goods\n\nDear Mr. Chen,\n\nWe sincerely apologize for the issue with your order. After reviewing your complaint and the photos, we have authorized a full replacement of the 30 damaged units. The replacement shipment will be sent via ExpressTrack Shipping and is expected to arrive by March 30, 2025. You do not need to return the damaged items; we will process a refund for the $1,350.00, which will be credited to your account within 5-7 business days.\n\nWe have also contacted FastTrack Logistics to investigate the handling issue. Please let us know if you require further assistance.\n\nBest regards,\nSarah Miller\nShipping Coordinator\nGreenTech Supply Inc.",
+  "question": "What can be inferred about the original shipping company based on Text 3?",
+  "choices": {
+    "A": "The replacement shipment will use FastTrack Logistics.",
+    "B": "ExpressTrack Shipping handled the original delivery.",
+    "C": "FastTrack Logistics has already resolved the issue.",
+    "D": "FastTrack Logistics is being investigated for the damage."
+  },
+  "answer": "D",
+  "explanation_zh": "答案是 D。Text 3 中 Sarah Miller 寫道「We have also contacted FastTrack Logistics to investigate the handling issue」，因此可以推斷 FastTrack Logistics 正在被調查。選項 A 錯誤，因為更換貨物使用 ExpressTrack Shipping；選項 B 錯誤，因為原始運送由 FastTrack Logistics 負責；選項 C 錯誤，因為問題尚未解決。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B2",
+  "vocabulary": [
+    "investigate",
+    "handling",
+    "logistics",
+    "authorized",
+    "credited"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 4,
+  "passage_group_id": "p7-exp-025"
+},
+  {
+  "id": "p7-gen-298",
+  "part": "Part 7",
+  "passage": "**Text 1: Order Confirmation**\nFrom: orders@greentechsupply.com\nTo: j.chen@a1electronics.com\nDate: March 10, 2025\nSubject: Order #GT-4827 Confirmation\n\nDear Mr. Chen,\n\nThank you for your order of 500 units of Model X1000 Solar Chargers (unit price: $45.00) on March 8, 2025. We confirm that the shipment is scheduled to leave our warehouse on March 15, 2025, via FastTrack Logistics, with an estimated delivery to your facility on March 20, 2025. The total invoice amount is $22,500.00. Payment terms are net 30 days.\n\nPlease note that all items are covered by our standard 12-month warranty against manufacturing defects. If you have any questions, please contact our customer service team.\n\nBest regards,\nSarah Miller\nShipping Coordinator\nGreenTech Supply Inc.\n\n**Text 2: Complaint Inquiry**\nFrom: j.chen@a1electronics.com\nTo: support@greentechsupply.com\nDate: March 22, 2025\nSubject: Order #GT-4827 – Damaged Goods\n\nDear GreenTech Supply,\n\nWe received the shipment for Order #GT-4827 on March 20, 2025. Upon inspection, we discovered that 30 units of the Model X1000 Solar Chargers were damaged due to improper packaging. The outer boxes were crushed, and the chargers inside were scratched and non-functional. We request a replacement for the damaged items or a refund of $1,350.00 (30 units x $45.00). Please advise on how to proceed.\n\nWe have attached photos of the damage for your reference.\n\nSincerely,\nJames Chen\nProcurement Manager\nA1 Electronics\n\n**Text 3: Resolution Reply**\nFrom: s.miller@greentechsupply.com\nTo: j.chen@a1electronics.com\nDate: March 25, 2025\nSubject: RE: Order #GT-4827 – Damaged Goods\n\nDear Mr. Chen,\n\nWe sincerely apologize for the issue with your order. After reviewing your complaint and the photos, we have authorized a full replacement of the 30 damaged units. The replacement shipment will be sent via ExpressTrack Shipping and is expected to arrive by March 30, 2025. You do not need to return the damaged items; we will process a refund for the $1,350.00, which will be credited to your account within 5-7 business days.\n\nWe have also contacted FastTrack Logistics to investigate the handling issue. Please let us know if you require further assistance.\n\nBest regards,\nSarah Miller\nShipping Coordinator\nGreenTech Supply Inc.",
+  "question": "How does the resolution in Text 3 differ from what James Chen requested in Text 2?",
+  "choices": {
+    "A": "Text 3 provides both a replacement and a refund, while Text 2 requested either one.",
+    "B": "Text 3 offers a replacement, while Text 2 only asked for a refund.",
+    "C": "Text 3 denies the request and offers a discount instead.",
+    "D": "Text 3 requires the damaged items to be returned, which Text 2 did not mention."
+  },
+  "answer": "A",
+  "explanation_zh": "答案是 A。Text 2 中 James Chen 要求「a replacement or a refund」，而 Text 3 中 Sarah Miller 提供「a full replacement」和「a refund」，因此解決方案同時提供了兩者。選項 B 錯誤，因為 Text 2 也要求退款；選項 C 錯誤，因為沒有拒絕；選項 D 錯誤，因為 Text 3 說「You do not need to return the damaged items」。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "resolution",
+    "replacement",
+    "refund",
+    "credited",
+    "authorized"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 5,
+  "passage_group_id": "p7-exp-025"
+},
+  {
+  "id": "p5-gen-084",
+  "part": "Part 5",
+  "question": "The quarterly financial report _______ by the accounting department before the board meeting.",
+  "choices": {
+    "A": "will be completed",
+    "B": "will complete",
+    "C": "has completed",
+    "D": "is completing"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。被動語態「will be completed」表示「將被完成」，主詞「report」是動作承受者，符合語境。B「will complete」為主動，C「has completed」為主動完成，D「is completing」為現在進行主動，皆不正確。",
+  "skill_tag": "passive_voice",
+  "difficulty": "B1",
+  "vocabulary": [
+    "quarterly",
+    "financial report",
+    "accounting department",
+    "board meeting"
+  ]
+},
+  {
+  "id": "p5-gen-085",
+  "part": "Part 5",
+  "question": "All new employee handbooks _______ to the staff by the end of this week.",
+  "choices": {
+    "A": "have distributed",
+    "B": "will be distributed",
+    "C": "are distributing",
+    "D": "distribute"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為B。被動語態「will be distributed」表示「將被分發」，主詞「handbooks」是動作承受者，且「by the end of this week」指未來時間。A「have distributed」為主動完成，C「are distributing」為現在進行主動，D「distribute」為現在式主動，皆不正確。",
+  "skill_tag": "passive_voice",
+  "difficulty": "B1",
+  "vocabulary": [
+    "employee handbooks",
+    "staff",
+    "distributed",
+    "by the end of"
+  ]
+},
+  {
+  "id": "p5-gen-086",
+  "part": "Part 5",
+  "question": "The project proposal _______ by the management team at the moment.",
+  "choices": {
+    "A": "will review",
+    "B": "has reviewed",
+    "C": "is being reviewed",
+    "D": "reviews"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為C。被動進行式「is being reviewed」表示「正在被審查」，主詞「proposal」是動作承受者，且「at the moment」指現在進行。A「will review」為未來主動，B「has reviewed」為主動完成，D「reviews」為現在式主動，皆不正確。",
+  "skill_tag": "passive_voice",
+  "difficulty": "B1",
+  "vocabulary": [
+    "project proposal",
+    "management team",
+    "reviewed",
+    "at the moment"
+  ]
+},
+  {
+  "id": "p5-gen-087",
+  "part": "Part 5",
+  "question": "The new office policy _______ to all employees in the meeting yesterday.",
+  "choices": {
+    "A": "explains",
+    "B": "has explained",
+    "C": "is explaining",
+    "D": "was explained"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為D。被動過去式「was explained」表示「被解釋」，主詞「policy」是動作承受者，且「yesterday」指過去時間。A「explains」為現在式主動，B「has explained」為主動完成，C「is explaining」為現在進行主動，皆不正確。",
+  "skill_tag": "passive_voice",
+  "difficulty": "B1",
+  "vocabulary": [
+    "office policy",
+    "employees",
+    "explained",
+    "yesterday"
+  ]
+},
+  {
+  "id": "p5-gen-088",
+  "part": "Part 5",
+  "question": "The invoice for the consulting services _______ yet, so we cannot proceed with payment.",
+  "choices": {
+    "A": "has not been received",
+    "B": "has not received",
+    "C": "is not receiving",
+    "D": "will not receive"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。被動完成式「has not been received」表示「尚未被收到」，主詞「invoice」是動作承受者，且「yet」常用於完成式否定句。B「has not received」為主動完成，C「is not receiving」為現在進行主動，D「will not receive」為未來主動，皆不正確。",
+  "skill_tag": "passive_voice",
+  "difficulty": "B1",
+  "vocabulary": [
+    "invoice",
+    "consulting services",
+    "received",
+    "proceed with payment"
+  ]
+},
+  {
+  "id": "p5-gen-089",
+  "part": "Part 5",
+  "question": "The quarterly report showed a _______ increase in revenue, largely due to the new marketing strategy.",
+  "choices": {
+    "A": "compete",
+    "B": "competitive",
+    "C": "competitively",
+    "D": "competition"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為B。空格前有冠詞a，後有名詞increase，因此需填入形容詞competitive修飾increase，表示「有競爭力的增長」。compete是動詞，competitively是副詞，competition是名詞，均不符合語法。",
+  "skill_tag": "word_form",
+  "difficulty": "B1",
+  "vocabulary": [
+    "quarterly report",
+    "increase",
+    "revenue",
+    "marketing strategy",
+    "competitive"
+  ]
+},
+  {
+  "id": "p5-gen-090",
+  "part": "Part 5",
+  "question": "The analysis of market trends provided _______ insights for the upcoming product launch.",
+  "choices": {
+    "A": "value",
+    "B": "valuably",
+    "C": "valuable",
+    "D": "valuing"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為C。空格後有名詞insights，需用形容詞valuable修飾，表示「有價值的見解」。value是名詞或動詞，valuably是副詞，valuing是動詞現在分詞，均不正確。",
+  "skill_tag": "word_form",
+  "difficulty": "B1",
+  "vocabulary": [
+    "analysis",
+    "market trends",
+    "insights",
+    "product launch",
+    "valuable"
+  ]
+},
+  {
+  "id": "p5-gen-091",
+  "part": "Part 5",
+  "question": "The team's _______ performance during the last quarter was acknowledged by senior management.",
+  "choices": {
+    "A": "impress",
+    "B": "impression",
+    "C": "impressively",
+    "D": "impressive"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為D。空格後有名詞performance，需用形容詞impressive修飾，表示「令人印象深刻的表現」。impress是動詞，impression是名詞，impressively是副詞，均不符合。",
+  "skill_tag": "word_form",
+  "difficulty": "B1",
+  "vocabulary": [
+    "team",
+    "performance",
+    "quarter",
+    "senior management",
+    "impressive"
+  ]
+},
+  {
+  "id": "p5-gen-092",
+  "part": "Part 5",
+  "question": "The report concluded that the company's new software was highly _______ in streamlining operations.",
+  "choices": {
+    "A": "effective",
+    "B": "effect",
+    "C": "effectively",
+    "D": "effectiveness"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。空格前有副詞highly，後需接形容詞effective構成「highly effective」片語，表示「非常有效」。effect是名詞，effectively是副詞，effectiveness是名詞，均不正確。",
+  "skill_tag": "word_form",
+  "difficulty": "B1",
+  "vocabulary": [
+    "report",
+    "software",
+    "streamlining operations",
+    "effective",
+    "highly"
+  ]
+},
+  {
+  "id": "p5-gen-093",
+  "part": "Part 5",
+  "question": "The marketing department's _______ approach to social media engagement led to a higher customer retention rate.",
+  "choices": {
+    "A": "create",
+    "B": "creative",
+    "C": "creatively",
+    "D": "creation"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為B。空格後有名詞approach，需用形容詞creative修飾，表示「創新的方法」。create是動詞，creatively是副詞，creation是名詞，均不符合語法。",
+  "skill_tag": "word_form",
+  "difficulty": "B1",
+  "vocabulary": [
+    "marketing department",
+    "approach",
+    "social media engagement",
+    "customer retention rate",
+    "creative"
+  ]
+},
+  {
+  "id": "p5-gen-094",
+  "part": "Part 5",
+  "question": "The marketing team _______ the new campaign strategy since last quarter.",
+  "choices": {
+    "A": "develops",
+    "B": "developed",
+    "C": "has been developing",
+    "D": "is developing"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為C。since last quarter（從上季開始）表示動作從過去持續到現在，且可能仍在進行，因此需用現在完成進行式has been developing。A develops為現在式，不符時間範圍；B developed為過去式，無法表達持續至今；D is developing為現在進行式，無法強調從過去開始的持續性。",
+  "skill_tag": "tense",
+  "difficulty": "B1",
+  "vocabulary": [
+    "marketing team",
+    "campaign",
+    "strategy",
+    "quarter"
+  ]
+},
+  {
+  "id": "p5-gen-095",
+  "part": "Part 5",
+  "question": "Ms. Chen _______ three progress reports for the board meeting this morning.",
+  "choices": {
+    "A": "is preparing",
+    "B": "prepares",
+    "C": "prepared",
+    "D": "has prepared"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為D。this morning（今早）若說話時仍在上午，則需用現在完成式has prepared，強調動作已完成且與現在相關。A is preparing為現在進行式，暗示仍在準備中；B prepares為現在式，不符時間點；C prepared為過去式，若說話時已過上午則可用，但題目未明確，故D更佳。",
+  "skill_tag": "tense",
+  "difficulty": "B1",
+  "vocabulary": [
+    "progress reports",
+    "board meeting",
+    "prepared"
+  ]
+},
+  {
+  "id": "p5-gen-096",
+  "part": "Part 5",
+  "question": "The project manager _______ the team about the deadline change yet.",
+  "choices": {
+    "A": "has not informed",
+    "B": "did not inform",
+    "C": "does not inform",
+    "D": "is not informing"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。yet（尚未）常用於否定句或疑問句，與現在完成式搭配，表示到目前為止未發生，因此需用has not informed。B did not inform為過去式，無法表達與現在的關聯；C does not inform為現在式，不符yet的用法；D is not informing為現在進行式，不適用於yet。",
+  "skill_tag": "tense",
+  "difficulty": "B1",
+  "vocabulary": [
+    "project manager",
+    "deadline",
+    "inform"
+  ]
+},
+  {
+  "id": "p5-gen-097",
+  "part": "Part 5",
+  "question": "We _______ the quarterly sales figures last week, not this week.",
+  "choices": {
+    "A": "have reviewed",
+    "B": "reviewed",
+    "C": "review",
+    "D": "are reviewing"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為B。last week（上週）為明確的過去時間點，需用過去式reviewed。A have reviewed為現在完成式，不能與特定過去時間連用；C review為現在式；D are reviewing為現在進行式，均不符。",
+  "skill_tag": "tense",
+  "difficulty": "B1",
+  "vocabulary": [
+    "quarterly",
+    "sales figures",
+    "reviewed"
+  ]
+},
+  {
+  "id": "p5-gen-098",
+  "part": "Part 5",
+  "question": "The IT department _______ the system upgrade for three hours already.",
+  "choices": {
+    "A": "completed",
+    "B": "completes",
+    "C": "has been completing",
+    "D": "is completing"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為C。for three hours already（已經三小時）表示動作從過去開始持續到現在，且可能仍在進行，因此需用現在完成進行式has been completing。A completed為過去式，無法表達持續；B completes為現在式；D is completing為現在進行式，無法強調持續時間。",
+  "skill_tag": "tense",
+  "difficulty": "B1",
+  "vocabulary": [
+    "IT department",
+    "system upgrade",
+    "completed"
+  ]
+},
+  {
+  "id": "p5-gen-099",
+  "part": "Part 5",
+  "question": "The team meeting is scheduled _______ 10:00 AM in the main conference room.",
+  "choices": {
+    "A": "in",
+    "B": "on",
+    "C": "by",
+    "D": "at"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為D。表示特定時間點（10:00 AM）使用介係詞at。A選項in用於較長時間（如月份、年份）；B選項on用於特定日期；C選項by表示截止時間，不符合此處時間點用法。",
+  "skill_tag": "preposition",
+  "difficulty": "A2",
+  "vocabulary": [
+    "meeting",
+    "scheduled",
+    "conference room"
+  ]
+},
+  {
+  "id": "p5-gen-100",
+  "part": "Part 5",
+  "question": "Please submit your expense report _______ Friday to ensure timely reimbursement.",
+  "choices": {
+    "A": "by",
+    "B": "until",
+    "C": "in",
+    "D": "at"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。by Friday表示「在星期五之前」，強調截止期限。B選項until表示「直到…為止」，需搭配持續性動作；C選項in和D選項at無法表達截止概念。",
+  "skill_tag": "preposition",
+  "difficulty": "A2",
+  "vocabulary": [
+    "submit",
+    "expense report",
+    "timely",
+    "reimbursement"
+  ]
+},
+  {
+  "id": "p5-gen-101",
+  "part": "Part 5",
+  "question": "The training workshop will be held _______ the third floor of the downtown office.",
+  "choices": {
+    "A": "at",
+    "B": "on",
+    "C": "in",
+    "D": "by"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為B。表示建築物的特定樓層（the third floor）使用介係詞on。A選項at用於具體地點或地址；C選項in用於較大空間或區域；D選項by表示「在…旁邊」，不符合語境。",
+  "skill_tag": "preposition",
+  "difficulty": "A2",
+  "vocabulary": [
+    "training workshop",
+    "held",
+    "floor",
+    "downtown office"
+  ]
+},
+  {
+  "id": "p5-gen-102",
+  "part": "Part 5",
+  "question": "The client will arrive _______ the afternoon of March 15th for the project review.",
+  "choices": {
+    "A": "in",
+    "B": "at",
+    "C": "on",
+    "D": "by"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為C。表示特定日期（March 15th）的下午使用介係詞on。A選項in用於泛指下午或較長時間；B選項at用於具體時間點；D選項by表示截止時間，不符合語境。",
+  "skill_tag": "preposition",
+  "difficulty": "A2",
+  "vocabulary": [
+    "client",
+    "arrive",
+    "project review"
+  ]
+},
+  {
+  "id": "p5-gen-103",
+  "part": "Part 5",
+  "question": "We need to finalize the budget report _______ the end of the month.",
+  "choices": {
+    "A": "until",
+    "B": "at",
+    "C": "in",
+    "D": "by"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為D。by the end of the month表示「在月底之前」，強調截止期限。A選項until表示「直到…為止」，需搭配持續性動作；B選項at用於時間點；C選項in用於較長時間，無法表達截止概念。",
+  "skill_tag": "preposition",
+  "difficulty": "A2",
+  "vocabulary": [
+    "finalize",
+    "budget report",
+    "end of the month"
+  ]
+},
+  {
+  "id": "p5-gen-104",
+  "part": "Part 5",
+  "question": "_______ the new software was initially difficult for employees to learn, it eventually increased overall productivity.",
+  "choices": {
+    "A": "Although",
+    "B": "Despite",
+    "C": "Because",
+    "D": "Unless"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。Although 引導讓步副詞子句，表示「雖然新軟體起初對員工來說難以學習」，與主要子句的「最終提高了整體生產力」形成對比。Despite 是介係詞，後面需接名詞或動名詞，不能接子句；Because 表示原因，語意不符；Unless 表示條件，也不合邏輯。",
+  "skill_tag": "conjunction",
+  "difficulty": "B1",
+  "vocabulary": [
+    "software",
+    "employees",
+    "productivity"
+  ]
+},
+  {
+  "id": "p5-gen-105",
+  "part": "Part 5",
+  "question": "The project was postponed _______ unexpected budget cuts that affected several departments.",
+  "choices": {
+    "A": "because",
+    "B": "due to",
+    "C": "although",
+    "D": "however"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為B。due to 是介係詞片語，後面接名詞片語「unexpected budget cuts」，表示「由於意外的預算削減」。because 是連接詞，需接子句；although 表示讓步；however 是副詞，均不符合此處語法結構。",
+  "skill_tag": "conjunction",
+  "difficulty": "B1",
+  "vocabulary": [
+    "project",
+    "postponed",
+    "budget cuts",
+    "departments"
+  ]
+},
+  {
+  "id": "p5-gen-106",
+  "part": "Part 5",
+  "question": "The company will not offer discounts to new clients _______ they sign a long-term contract.",
+  "choices": {
+    "A": "because",
+    "B": "if",
+    "C": "unless",
+    "D": "although"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為C。unless 引導條件副詞子句，表示「除非他們簽署長期合約」，與主要子句「公司不會提供折扣」形成條件關係。because 表示原因；if 表示如果，語意相反；although 表示讓步，均不正確。",
+  "skill_tag": "conjunction",
+  "difficulty": "B1",
+  "vocabulary": [
+    "discounts",
+    "clients",
+    "long-term contract"
+  ]
+},
+  {
+  "id": "p5-gen-107",
+  "part": "Part 5",
+  "question": "Sales figures dropped significantly last quarter; _______, the marketing team launched a new campaign to boost revenue.",
+  "choices": {
+    "A": "however",
+    "B": "despite",
+    "C": "although",
+    "D": "therefore"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為D。therefore 是副詞，表示因果關係，連接前句「銷售數字大幅下降」和後句「行銷團隊發起新活動以提升營收」。however 表示轉折；despite 是介係詞；although 是連接詞，均不符合此處邏輯。",
+  "skill_tag": "conjunction",
+  "difficulty": "B1",
+  "vocabulary": [
+    "sales figures",
+    "marketing team",
+    "campaign",
+    "revenue"
+  ]
+},
+  {
+  "id": "p5-gen-108",
+  "part": "Part 5",
+  "question": "_______ the manager approved the request, the employee decided to proceed with the plan.",
+  "choices": {
+    "A": "Once",
+    "B": "As long as",
+    "C": "Because of",
+    "D": "Despite"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。Once 引導時間副詞子句，表示「一旦經理批准了請求」，與主要子句「員工決定繼續執行計畫」形成時間順序關係。As long as 表示條件；Because of 是介係詞片語；Despite 表示讓步，均不適用。",
+  "skill_tag": "conjunction",
+  "difficulty": "B1",
+  "vocabulary": [
+    "manager",
+    "approved",
+    "request",
+    "employee",
+    "proceed"
+  ]
+},
+  {
+  "id": "p5-gen-109",
+  "part": "Part 5",
+  "question": "The marketing team will present the quarterly report to _______ managers tomorrow morning.",
+  "choices": {
+    "A": "them",
+    "B": "their",
+    "C": "they",
+    "D": "themselves"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為B。空格後有名詞 managers，需用所有格代名詞 their 修飾，表示「他們的經理」。A them（受格）、C they（主格）、D themselves（反身代名詞）均無法修飾名詞。",
+  "skill_tag": "pronoun",
+  "difficulty": "B1",
+  "vocabulary": [
+    "marketing team",
+    "quarterly report",
+    "managers"
+  ]
+},
+  {
+  "id": "p5-gen-110",
+  "part": "Part 5",
+  "question": "Ms. Chen is the consultant _______ we hired to improve our customer service procedures.",
+  "choices": {
+    "A": "who",
+    "B": "whose",
+    "C": "whom",
+    "D": "which"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為C。空格在關代子句中作 hired 的受詞，指人時應用受格 whom。A who（主格）、B whose（所有格）、D which（指物）皆不符合。",
+  "skill_tag": "pronoun",
+  "difficulty": "B1",
+  "vocabulary": [
+    "consultant",
+    "customer service",
+    "procedures"
+  ]
+},
+  {
+  "id": "p5-gen-111",
+  "part": "Part 5",
+  "question": "The new software will update _______ automatically every night to ensure data accuracy.",
+  "choices": {
+    "A": "it",
+    "B": "its",
+    "C": "them",
+    "D": "itself"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為D。主詞 the new software 與受詞為同一事物，需用反身代名詞 itself 表示「自動更新自己」。A it（受格）、B its（所有格）、C them（複數）均不正確。",
+  "skill_tag": "pronoun",
+  "difficulty": "B1",
+  "vocabulary": [
+    "software",
+    "automatically",
+    "data accuracy"
+  ]
+},
+  {
+  "id": "p5-gen-112",
+  "part": "Part 5",
+  "question": "Neither the sales team nor the product developers have completed _______ reports for the project review.",
+  "choices": {
+    "A": "their",
+    "B": "them",
+    "C": "theirs",
+    "D": "they"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。主詞為 Neither...nor... 結構，動詞依最近名詞 developers 用複數，所有格代名詞需用 their 修飾 reports。B them（受格）、C theirs（獨立所有格）、D they（主格）皆無法修飾名詞。",
+  "skill_tag": "pronoun",
+  "difficulty": "B1",
+  "vocabulary": [
+    "sales team",
+    "product developers",
+    "project review"
+  ]
+},
+  {
+  "id": "p5-gen-113",
+  "part": "Part 5",
+  "question": "The director asked _______ staff to submit the budget proposals by Friday.",
+  "choices": {
+    "A": "she",
+    "B": "her",
+    "C": "hers",
+    "D": "herself"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為B。空格後有名詞 staff，需用所有格代名詞 her 修飾，表示「她的員工」。A she（主格）、C hers（獨立所有格）、D herself（反身代名詞）均無法修飾名詞。",
+  "skill_tag": "pronoun",
+  "difficulty": "B1",
+  "vocabulary": [
+    "director",
+    "staff",
+    "budget proposals"
+  ]
+},
+  {
+  "id": "p6-gen-133",
+  "part": "Part 6",
+  "passage": "To: All Staff\nFrom: Human Resources\nSubject: Update to Remote Work Policy\n\nDear Team,\n\nWe are writing to inform you of an important ____(A)____ to our remote work policy, effective April 1st. This change is part of our ongoing effort to enhance team collaboration and productivity. Under the new policy, all department members are required to work from the office every Tuesday and Wednesday. ____(B)____, you may work remotely on the remaining weekdays, subject to manager approval. Please note that all remote work requests must be submitted ____(C)____ the online portal at least 48 hours in advance. We believe this balanced approach will maintain flexibility while strengthening our office culture. If you have any questions, please do not hesitate ____(D)____ your department manager or a member of the HR team.",
+  "question": "____(A)____",
+  "choices": {
+    "A": "adjustment",
+    "B": "revise",
+    "C": "adjustable",
+    "D": "adjusts"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。空格前有冠詞an，後有名詞to our remote work policy，需要一個名詞。adjustment（調整）符合語境，表示政策的重要調整。revise（修訂）是動詞，adjustable（可調整的）是形容詞，adjusts（調整）是動詞第三人稱單數，均不適合此處。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "policy",
+    "collaboration",
+    "productivity",
+    "remote",
+    "portal"
+  ],
+  "passage_group_id": "p6-034",
+  "question_order": 1
+},
+  {
+  "id": "p6-gen-134",
+  "part": "Part 6",
+  "passage": "To: All Staff\nFrom: Human Resources\nSubject: Update to Remote Work Policy\n\nDear Team,\n\nWe are writing to inform you of an important ____(A)____ to our remote work policy, effective April 1st. This change is part of our ongoing effort to enhance team collaboration and productivity. Under the new policy, all department members are required to work from the office every Tuesday and Wednesday. ____(B)____, you may work remotely on the remaining weekdays, subject to manager approval. Please note that all remote work requests must be submitted ____(C)____ the online portal at least 48 hours in advance. We believe this balanced approach will maintain flexibility while strengthening our office culture. If you have any questions, please do not hesitate ____(D)____ your department manager or a member of the HR team.",
+  "question": "____(B)____",
+  "choices": {
+    "A": "Therefore",
+    "B": "However",
+    "C": "Moreover",
+    "D": "Similarly"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為B。前句要求週二週三進辦公室，後句說其餘工作日可遠程工作，兩者形成對比。However（然而）表示轉折，符合邏輯。Therefore（因此）表因果，Moreover（此外）表遞進，Similarly（相似地）表類比，均不正確。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "policy",
+    "collaboration",
+    "productivity",
+    "remote",
+    "portal"
+  ],
+  "passage_group_id": "p6-034",
+  "question_order": 2
+},
+  {
+  "id": "p6-gen-135",
+  "part": "Part 6",
+  "passage": "To: All Staff\nFrom: Human Resources\nSubject: Update to Remote Work Policy\n\nDear Team,\n\nWe are writing to inform you of an important ____(A)____ to our remote work policy, effective April 1st. This change is part of our ongoing effort to enhance team collaboration and productivity. Under the new policy, all department members are required to work from the office every Tuesday and Wednesday. ____(B)____, you may work remotely on the remaining weekdays, subject to manager approval. Please note that all remote work requests must be submitted ____(C)____ the online portal at least 48 hours in advance. We believe this balanced approach will maintain flexibility while strengthening our office culture. If you have any questions, please do not hesitate ____(D)____ your department manager or a member of the HR team.",
+  "question": "____(C)____",
+  "choices": {
+    "A": "on",
+    "B": "at",
+    "C": "through",
+    "D": "with"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為C。空格前動詞submitted（提交）與後文the online portal（線上入口）搭配，through（透過）表示經由某種方式或管道，符合語境。on（在...上）、at（在...處）、with（用...）均不適合此搭配。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "policy",
+    "collaboration",
+    "productivity",
+    "remote",
+    "portal"
+  ],
+  "passage_group_id": "p6-034",
+  "question_order": 3
+},
+  {
+  "id": "p6-gen-136",
+  "part": "Part 6",
+  "passage": "To: All Staff\nFrom: Human Resources\nSubject: Update to Remote Work Policy\n\nDear Team,\n\nWe are writing to inform you of an important ____(A)____ to our remote work policy, effective April 1st. This change is part of our ongoing effort to enhance team collaboration and productivity. Under the new policy, all department members are required to work from the office every Tuesday and Wednesday. ____(B)____, you may work remotely on the remaining weekdays, subject to manager approval. Please note that all remote work requests must be submitted ____(C)____ the online portal at least 48 hours in advance. We believe this balanced approach will maintain flexibility while strengthening our office culture. If you have any questions, please do not hesitate ____(D)____ your department manager or a member of the HR team.",
+  "question": "____(D)____",
+  "choices": {
+    "A": "contact",
+    "B": "contacting",
+    "C": "contacted",
+    "D": "to contact"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為D。空格前為hesitate（猶豫），固定搭配為hesitate to + 動詞原形，表示猶豫做某事。to contact（聯繫）符合此結構。contact（聯繫）是動詞原形但缺少to，contacting（聯繫中）是動名詞，contacted（被聯繫）是過去分詞，均不正確。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "policy",
+    "collaboration",
+    "productivity",
+    "remote",
+    "portal"
+  ],
+  "passage_group_id": "p6-034",
+  "question_order": 4
+},
+  {
+  "id": "p6-gen-137",
+  "part": "Part 6",
+  "passage": "To: All Warehouse Staff\nFrom: Janice Morales, Safety Coordinator\nDate: March 15, 2025\nSubject: Updated Forklift Safety Protocol\n\nPlease be advised that new safety measures for forklift operation will take effect on April 1, 2025. All operators must complete a mandatory refresher training session by March 28. The training will cover proper load balancing, speed limits in designated zones, and the correct ____(A)____ of safety harnesses. ____(B)____, we have installed additional mirrors at blind corners to improve visibility. Operators are required to park all forklifts ____(C)____ the designated charging stations after each shift. Any employee who fails to complete the training ____(D)____ not permitted to operate heavy machinery until further notice. Thank you for your cooperation in maintaining a safe work environment.",
+  "question": "____(A)____",
+  "choices": {
+    "A": "usefulness",
+    "B": "usage",
+    "C": "uselessness",
+    "D": "using"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為B「usage」。空格前為形容詞「correct」，需接名詞；「usage」意為「使用方式」，符合語境指安全帶的正確使用方法。A「usefulness」（有用性）不合語意；C「uselessness」（無用）與安全措施矛盾；D「using」為動名詞，但形容詞後通常接名詞而非動名詞。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "mandatory",
+    "refresher",
+    "designated",
+    "visibility",
+    "harnesses"
+  ],
+  "passage_group_id": "p6-035",
+  "question_order": 1
+},
+  {
+  "id": "p6-gen-138",
+  "part": "Part 6",
+  "passage": "To: All Warehouse Staff\nFrom: Janice Morales, Safety Coordinator\nDate: March 15, 2025\nSubject: Updated Forklift Safety Protocol\n\nPlease be advised that new safety measures for forklift operation will take effect on April 1, 2025. All operators must complete a mandatory refresher training session by March 28. The training will cover proper load balancing, speed limits in designated zones, and the correct ____(A)____ of safety harnesses. ____(B)____, we have installed additional mirrors at blind corners to improve visibility. Operators are required to park all forklifts ____(C)____ the designated charging stations after each shift. Any employee who fails to complete the training ____(D)____ not permitted to operate heavy machinery until further notice. Thank you for your cooperation in maintaining a safe work environment.",
+  "question": "____(B)____",
+  "choices": {
+    "A": "However",
+    "B": "Therefore",
+    "C": "Additionally",
+    "D": "Nevertheless"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為C「Additionally」。前句說明訓練內容，後句補充安裝鏡子的措施，屬並列補充關係。A「However」表轉折；B「Therefore」表因果；D「Nevertheless」表讓步，均不符邏輯。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "mandatory",
+    "refresher",
+    "designated",
+    "visibility",
+    "harnesses"
+  ],
+  "passage_group_id": "p6-035",
+  "question_order": 2
+},
+  {
+  "id": "p6-gen-139",
+  "part": "Part 6",
+  "passage": "To: All Warehouse Staff\nFrom: Janice Morales, Safety Coordinator\nDate: March 15, 2025\nSubject: Updated Forklift Safety Protocol\n\nPlease be advised that new safety measures for forklift operation will take effect on April 1, 2025. All operators must complete a mandatory refresher training session by March 28. The training will cover proper load balancing, speed limits in designated zones, and the correct ____(A)____ of safety harnesses. ____(B)____, we have installed additional mirrors at blind corners to improve visibility. Operators are required to park all forklifts ____(C)____ the designated charging stations after each shift. Any employee who fails to complete the training ____(D)____ not permitted to operate heavy machinery until further notice. Thank you for your cooperation in maintaining a safe work environment.",
+  "question": "____(C)____",
+  "choices": {
+    "A": "on",
+    "B": "by",
+    "C": "in",
+    "D": "at"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為D「at」。固定搭配「park at」表示停在特定地點；「charging stations」為具體位置。A「on」用於表面；B「by」表旁邊；C「in」表內部，均不適用。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "mandatory",
+    "refresher",
+    "designated",
+    "visibility",
+    "harnesses"
+  ],
+  "passage_group_id": "p6-035",
+  "question_order": 3
+},
+  {
+  "id": "p6-gen-140",
+  "part": "Part 6",
+  "passage": "To: All Warehouse Staff\nFrom: Janice Morales, Safety Coordinator\nDate: March 15, 2025\nSubject: Updated Forklift Safety Protocol\n\nPlease be advised that new safety measures for forklift operation will take effect on April 1, 2025. All operators must complete a mandatory refresher training session by March 28. The training will cover proper load balancing, speed limits in designated zones, and the correct ____(A)____ of safety harnesses. ____(B)____, we have installed additional mirrors at blind corners to improve visibility. Operators are required to park all forklifts ____(C)____ the designated charging stations after each shift. Any employee who fails to complete the training ____(D)____ not permitted to operate heavy machinery until further notice. Thank you for your cooperation in maintaining a safe work environment.",
+  "question": "____(D)____",
+  "choices": {
+    "A": "is",
+    "B": "are",
+    "C": "have",
+    "D": "will"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A「is」。主詞「any employee」為單數，需搭配單數動詞；「fail to complete」為動詞片語，主句時態為現在式。B「are」用於複數；C「have」需搭配過去分詞；D「will」表未來，不符語境。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "mandatory",
+    "refresher",
+    "designated",
+    "visibility",
+    "harnesses"
+  ],
+  "passage_group_id": "p6-035",
+  "question_order": 4
+},
+  {
+  "id": "p6-gen-141",
+  "part": "Part 6",
+  "passage": "Dear Ms. Chen,\n\nWe are writing to express our sincere interest in exploring a potential ____(A)____ between Apex Global Logistics and your firm, Horizon Supply Chain Solutions. Your company’s reputation for innovative warehousing technology is highly regarded in the industry.\n\nWe believe that by combining our extensive distribution network with your advanced inventory management systems, we can create a unique service offering. ____(B)____, we propose a preliminary meeting to discuss the scope of collaboration in greater detail.\n\nThis partnership would allow both organizations to expand into new markets while sharing operational expertise. We are particularly interested ____(C)____ your cloud-based tracking platform.\n\nIf this proposal aligns with your strategic goals, we would be delighted to schedule a video conference next month. We look forward to your favorable consideration and hope that a mutually beneficial relationship ____(D)____ from this initial inquiry.\n\nSincerely,\nJames Sterling\nDirector of Strategic Partnerships\nApex Global Logistics",
+  "question": "____(A)____",
+  "choices": {
+    "A": "competition",
+    "B": "disagreement",
+    "C": "partnership",
+    "D": "conflict"
+  },
+  "answer": "C",
+  "explanation_zh": "空白(A)的正確答案是C「partnership」。信件開頭表達對探索潛在合作的興趣，且後文提到「結合我們的配送網絡與你們的庫存管理系統」，這與「合作」的語意一致。其他選項A「競爭」、B「分歧」、D「衝突」均與信件中積極合作的語氣矛盾。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "partnership",
+    "distribution network",
+    "inventory management",
+    "collaboration",
+    "strategic goals"
+  ],
+  "passage_group_id": "p6-036",
+  "question_order": 1
+},
+  {
+  "id": "p6-gen-142",
+  "part": "Part 6",
+  "passage": "Dear Ms. Chen,\n\nWe are writing to express our sincere interest in exploring a potential ____(A)____ between Apex Global Logistics and your firm, Horizon Supply Chain Solutions. Your company’s reputation for innovative warehousing technology is highly regarded in the industry.\n\nWe believe that by combining our extensive distribution network with your advanced inventory management systems, we can create a unique service offering. ____(B)____, we propose a preliminary meeting to discuss the scope of collaboration in greater detail.\n\nThis partnership would allow both organizations to expand into new markets while sharing operational expertise. We are particularly interested ____(C)____ your cloud-based tracking platform.\n\nIf this proposal aligns with your strategic goals, we would be delighted to schedule a video conference next month. We look forward to your favorable consideration and hope that a mutually beneficial relationship ____(D)____ from this initial inquiry.\n\nSincerely,\nJames Sterling\nDirector of Strategic Partnerships\nApex Global Logistics",
+  "question": "____(B)____",
+  "choices": {
+    "A": "However",
+    "B": "Nevertheless",
+    "C": "Therefore",
+    "D": "To this end"
+  },
+  "answer": "D",
+  "explanation_zh": "空白(B)的正確答案是D「To this end」。前句說明合作能創造獨特服務，後句提出召開初步會議的具體行動，因此需要一個表示「為了達成此目的」的連接詞。A「However」和B「Nevertheless」表示轉折，C「Therefore」表示因果，但不如D精確對應「為此目的」。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "preliminary meeting",
+    "collaboration",
+    "operational expertise",
+    "proposal",
+    "mutually beneficial"
+  ],
+  "passage_group_id": "p6-036",
+  "question_order": 2
+},
+  {
+  "id": "p6-gen-143",
+  "part": "Part 6",
+  "passage": "Dear Ms. Chen,\n\nWe are writing to express our sincere interest in exploring a potential ____(A)____ between Apex Global Logistics and your firm, Horizon Supply Chain Solutions. Your company’s reputation for innovative warehousing technology is highly regarded in the industry.\n\nWe believe that by combining our extensive distribution network with your advanced inventory management systems, we can create a unique service offering. ____(B)____, we propose a preliminary meeting to discuss the scope of collaboration in greater detail.\n\nThis partnership would allow both organizations to expand into new markets while sharing operational expertise. We are particularly interested ____(C)____ your cloud-based tracking platform.\n\nIf this proposal aligns with your strategic goals, we would be delighted to schedule a video conference next month. We look forward to your favorable consideration and hope that a mutually beneficial relationship ____(D)____ from this initial inquiry.\n\nSincerely,\nJames Sterling\nDirector of Strategic Partnerships\nApex Global Logistics",
+  "question": "____(C)____",
+  "choices": {
+    "A": "in",
+    "B": "on",
+    "C": "for",
+    "D": "at"
+  },
+  "answer": "A",
+  "explanation_zh": "空白(C)的正確答案是A「in」。固定搭配「interested in」表示「對……感興趣」，後接名詞片語「your cloud-based tracking platform」。B「on」、C「for」、D「at」均不符合此慣用語法。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "interested in",
+    "cloud-based",
+    "tracking platform",
+    "warehousing",
+    "supply chain"
+  ],
+  "passage_group_id": "p6-036",
+  "question_order": 3
+},
+  {
+  "id": "p6-gen-144",
+  "part": "Part 6",
+  "passage": "Dear Ms. Chen,\n\nWe are writing to express our sincere interest in exploring a potential ____(A)____ between Apex Global Logistics and your firm, Horizon Supply Chain Solutions. Your company’s reputation for innovative warehousing technology is highly regarded in the industry.\n\nWe believe that by combining our extensive distribution network with your advanced inventory management systems, we can create a unique service offering. ____(B)____, we propose a preliminary meeting to discuss the scope of collaboration in greater detail.\n\nThis partnership would allow both organizations to expand into new markets while sharing operational expertise. We are particularly interested ____(C)____ your cloud-based tracking platform.\n\nIf this proposal aligns with your strategic goals, we would be delighted to schedule a video conference next month. We look forward to your favorable consideration and hope that a mutually beneficial relationship ____(D)____ from this initial inquiry.\n\nSincerely,\nJames Sterling\nDirector of Strategic Partnerships\nApex Global Logistics",
+  "question": "____(D)____",
+  "choices": {
+    "A": "develops",
+    "B": "will develop",
+    "C": "has developed",
+    "D": "developed"
+  },
+  "answer": "B",
+  "explanation_zh": "空白(D)的正確答案是B「will develop」。句子描述從初步詢問中「將發展出」互利關係，這是對未來的預期，因此需用未來式。A「develops」為現在式，C「has developed」為現在完成式，D「developed」為過去式，皆與時間邏輯不符。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "mutually beneficial",
+    "initial inquiry",
+    "strategic goals",
+    "favorable consideration",
+    "video conference"
+  ],
+  "passage_group_id": "p6-036",
+  "question_order": 4
+},
+  {
+  "id": "p6-gen-145",
+  "part": "Part 6",
+  "passage": "Dear Team,\n\nWe are writing to inform you of a ____(A)____ update to our remote work policy, effective January 15, 2025. All employees must now submit a weekly work plan to their supervisors. ____(B)____, you are required to attend a mandatory virtual training session on the new time-tracking system. This session will be held on January 10 at 10:00 AM. Please register ____(C)____ the HR portal by January 8. If you have any scheduling conflicts, you ____(D)____ to contact your department manager directly to arrange an alternative session. We appreciate your cooperation in ensuring a smooth transition.\n\nBest regards,\n\nMartha Chen\nVP of Human Resources",
+  "question": "____(A)____",
+  "choices": {
+    "A": "significance",
+    "B": "significantly",
+    "C": "more significant",
+    "D": "significant"
+  },
+  "answer": "D",
+  "explanation_zh": "空格前是冠词 'a'，后是名词 'update'，因此需要一个形容词来修饰名词。'significant' 是形容词，意为“重要的”，符合语法和语境。'significance' 是名词，不能修饰 'update'；'significantly' 是副词；'more significant' 是比较级，但此处没有比较含义。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "update",
+    "remote work policy",
+    "mandatory",
+    "virtual training",
+    "transition",
+    "scheduling conflicts"
+  ],
+  "passage_group_id": "p6-037",
+  "question_order": 1
+},
+  {
+  "id": "p6-gen-146",
+  "part": "Part 6",
+  "passage": "Dear Team,\n\nWe are writing to inform you of a ____(A)____ update to our remote work policy, effective January 15, 2025. All employees must now submit a weekly work plan to their supervisors. ____(B)____, you are required to attend a mandatory virtual training session on the new time-tracking system. This session will be held on January 10 at 10:00 AM. Please register ____(C)____ the HR portal by January 8. If you have any scheduling conflicts, you ____(D)____ to contact your department manager directly to arrange an alternative session. We appreciate your cooperation in ensuring a smooth transition.\n\nBest regards,\n\nMartha Chen\nVP of Human Resources",
+  "question": "____(B)____",
+  "choices": {
+    "A": "Additionally",
+    "B": "However",
+    "C": "Therefore",
+    "D": "Meanwhile"
+  },
+  "answer": "A",
+  "explanation_zh": "前句提到提交工作计划，后句提出参加培训的要求，两者是并列的额外要求，因此需要表示“此外”的过渡词。'Additionally' 符合添加信息的逻辑。'However' 表示转折，'Therefore' 表示因果，'Meanwhile' 表示同时，都不符合上下文关系。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "update",
+    "remote work policy",
+    "mandatory",
+    "virtual training",
+    "transition",
+    "scheduling conflicts"
+  ],
+  "passage_group_id": "p6-037",
+  "question_order": 2
+},
+  {
+  "id": "p6-gen-147",
+  "part": "Part 6",
+  "passage": "Dear Team,\n\nWe are writing to inform you of a ____(A)____ update to our remote work policy, effective January 15, 2025. All employees must now submit a weekly work plan to their supervisors. ____(B)____, you are required to attend a mandatory virtual training session on the new time-tracking system. This session will be held on January 10 at 10:00 AM. Please register ____(C)____ the HR portal by January 8. If you have any scheduling conflicts, you ____(D)____ to contact your department manager directly to arrange an alternative session. We appreciate your cooperation in ensuring a smooth transition.\n\nBest regards,\n\nMartha Chen\nVP of Human Resources",
+  "question": "____(C)____",
+  "choices": {
+    "A": "on",
+    "B": "through",
+    "C": "at",
+    "D": "for"
+  },
+  "answer": "B",
+  "explanation_zh": "固定搭配 'register through a portal' 意为“通过门户网站注册”。'through' 表示通过某种渠道或系统。'on' 有时也可用于网站，但'through the portal' 更常见于正式通知；'at' 和 'for' 与 'portal' 搭配不自然。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "update",
+    "remote work policy",
+    "mandatory",
+    "virtual training",
+    "transition",
+    "scheduling conflicts"
+  ],
+  "passage_group_id": "p6-037",
+  "question_order": 3
+},
+  {
+  "id": "p6-gen-148",
+  "part": "Part 6",
+  "passage": "Dear Team,\n\nWe are writing to inform you of a ____(A)____ update to our remote work policy, effective January 15, 2025. All employees must now submit a weekly work plan to their supervisors. ____(B)____, you are required to attend a mandatory virtual training session on the new time-tracking system. This session will be held on January 10 at 10:00 AM. Please register ____(C)____ the HR portal by January 8. If you have any scheduling conflicts, you ____(D)____ to contact your department manager directly to arrange an alternative session. We appreciate your cooperation in ensuring a smooth transition.\n\nBest regards,\n\nMartha Chen\nVP of Human Resources",
+  "question": "____(D)____",
+  "choices": {
+    "A": "must",
+    "B": "should",
+    "C": "are required",
+    "D": "have"
+  },
+  "answer": "C",
+  "explanation_zh": "主语 'you' 与谓语动词需要构成被动语态或固定结构。'are required to' 表示“被要求做某事”，符合正式通知的被动语气。'must' 和 'should' 是情态动词，后面接动词原形，不能直接接 'to'；'have' 缺少 'to' 且不构成正确结构。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "update",
+    "remote work policy",
+    "mandatory",
+    "virtual training",
+    "transition",
+    "scheduling conflicts"
+  ],
+  "passage_group_id": "p6-037",
+  "question_order": 4
+},
+  {
+  "id": "p7-gen-299",
+  "part": "Part 7",
+  "passage": "Subject: Meeting Rescheduled\n\nDear Team,\n\nPlease be informed that the quarterly project review meeting originally scheduled for Friday, March 15 at 10:00 AM has been rescheduled. The new date is Wednesday, March 20, and the meeting will start at 2:00 PM. The location remains the same: Conference Room B on the second floor. We will discuss the Q1 progress reports, upcoming milestones, and budget updates. Remote attendance is available via the company’s video conferencing system. Please confirm your availability by replying to this email by March 18. If you have any questions, feel free to contact me.\n\nBest regards,\n\nAnna Chen\nProject Coordinator",
+  "question": "What is the main purpose of this email?",
+  "choices": {
+    "A": "To inform recipients about a change in the meeting schedule",
+    "B": "To cancel the quarterly project review meeting",
+    "C": "To announce a new project for the team",
+    "D": "To request feedback on the meeting agenda"
+  },
+  "answer": "A",
+  "explanation_zh": "這封郵件的主要目的是通知收件人會議時間的變更。文中明確指出「原定於3月15日（星期五）上午10:00的季度專案檢討會議已重新安排」，新時間為「3月20日（星期三）下午2:00」，因此選項A正確。選項B（取消會議）與事實不符；選項C（宣布新專案）未提及；選項D（請求會議議程回饋）也非主要目的。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "A2",
+  "vocabulary": [
+    "rescheduled",
+    "quarterly",
+    "milestones",
+    "availability"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-026"
+},
+  {
+  "id": "p7-gen-300",
+  "part": "Part 7",
+  "passage": "Subject: Meeting Rescheduled\n\nDear Team,\n\nPlease be informed that the quarterly project review meeting originally scheduled for Friday, March 15 at 10:00 AM has been rescheduled. The new date is Wednesday, March 20, and the meeting will start at 2:00 PM. The location remains the same: Conference Room B on the second floor. We will discuss the Q1 progress reports, upcoming milestones, and budget updates. Remote attendance is available via the company’s video conferencing system. Please confirm your availability by replying to this email by March 18. If you have any questions, feel free to contact me.\n\nBest regards,\n\nAnna Chen\nProject Coordinator",
+  "question": "What is the new time for the meeting?",
+  "choices": {
+    "A": "10:00 AM on March 15",
+    "B": "2:00 PM on March 20",
+    "C": "10:00 AM on March 20",
+    "D": "2:00 PM on March 15"
+  },
+  "answer": "B",
+  "explanation_zh": "會議的新時間是3月20日下午2:00。文中說明「新日期是3月20日（星期三），會議將於下午2:00開始」，因此選項B正確。選項A（3月15日上午10:00）為原時間；選項C（3月20日上午10:00）時間錯誤；選項D（3月15日下午2:00）日期與時間皆不符。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "rescheduled",
+    "quarterly",
+    "milestones",
+    "availability"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-026"
+},
+  {
+  "id": "p7-gen-301",
+  "part": "Part 7",
+  "passage": "TO: All Staff Members\nFROM: Facilities Management\nDATE: April 10, 2025\nSUBJECT: Temporary Closure of East Wing\n\nPlease be informed that the East Wing of the headquarters building will be closed from April 20 to April 25, 2025, due to scheduled maintenance of the HVAC system. During this period, all employees assigned to the East Wing must work from the West Wing temporary workstations on the second floor. Access to the East Wing will be restricted for safety reasons. Please ensure that you collect any essential documents or equipment from your East Wing desk before April 18. Normal operations in the East Wing will resume on April 26. We apologize for any inconvenience this may cause.",
+  "question": "What is the main purpose of this memo?",
+  "choices": {
+    "A": "To announce a change in office hours",
+    "B": "To inform staff about a temporary facility closure",
+    "C": "To request feedback on the HVAC system",
+    "D": "To schedule a safety training session"
+  },
+  "answer": "B",
+  "explanation_zh": "本備忘錄的主要目的是通知員工東翼將因空調系統維護而暫時關閉。文中明確指出「東翼將於2025年4月20日至4月25日關閉」，因此選項B「告知員工臨時設施關閉」為正確答案。選項A「宣布辦公時間變更」、C「徵求空調系統意見」及D「安排安全訓練」均未在文中提及。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "A2",
+  "vocabulary": [
+    "closure",
+    "maintenance",
+    "temporary",
+    "restricted"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-027"
+},
+  {
+  "id": "p7-gen-302",
+  "part": "Part 7",
+  "passage": "TO: All Staff Members\nFROM: Facilities Management\nDATE: April 10, 2025\nSUBJECT: Temporary Closure of East Wing\n\nPlease be informed that the East Wing of the headquarters building will be closed from April 20 to April 25, 2025, due to scheduled maintenance of the HVAC system. During this period, all employees assigned to the East Wing must work from the West Wing temporary workstations on the second floor. Access to the East Wing will be restricted for safety reasons. Please ensure that you collect any essential documents or equipment from your East Wing desk before April 18. Normal operations in the East Wing will resume on April 26. We apologize for any inconvenience this may cause.",
+  "question": "By what date should employees collect their belongings from the East Wing?",
+  "choices": {
+    "A": "April 10",
+    "B": "April 20",
+    "C": "April 18",
+    "D": "April 26"
+  },
+  "answer": "C",
+  "explanation_zh": "員工應在4月18日前從東翼辦公桌取回個人物品。文中明確指出「請確保在4月18日前從東翼辦公桌取回任何必要文件或設備」，因此選項C「4月18日」為正確答案。選項A「4月10日」為備忘錄日期、B「4月20日」為關閉開始日、D「4月26日」為恢復正常運作日，均非取回物品的截止日期。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "essential",
+    "equipment",
+    "collect",
+    "resume"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-027"
+},
+  {
+  "id": "p7-gen-303",
+  "part": "Part 7",
+  "passage": "TO: All Staff Members\nFROM: Facilities Management\nDATE: April 10, 2025\nSUBJECT: Temporary Closure of East Wing\n\nPlease be informed that the East Wing of the headquarters building will be closed from April 20 to April 25, 2025, due to scheduled maintenance of the HVAC system. During this period, all employees assigned to the East Wing must work from the West Wing temporary workstations on the second floor. Access to the East Wing will be restricted for safety reasons. Please ensure that you collect any essential documents or equipment from your East Wing desk before April 18. Normal operations in the East Wing will resume on April 26. We apologize for any inconvenience this may cause.",
+  "question": "What can be inferred about the West Wing temporary workstations?",
+  "choices": {
+    "A": "They have better HVAC systems than the East Wing.",
+    "B": "They are normally used for storage purposes.",
+    "C": "They are located on the first floor of the building.",
+    "D": "They will be available for East Wing employees during the closure."
+  },
+  "answer": "D",
+  "explanation_zh": "從文中可推斷西翼臨時工作站將在東翼關閉期間提供給東翼員工使用。文中指出「所有分配到東翼的員工必須在西翼二樓的臨時工作站工作」，因此選項D「在關閉期間可供東翼員工使用」為正確答案。選項A「空調系統較好」、B「通常用於儲存」及C「位於一樓」均未在文中提及或推斷。",
+  "skill_tag": "reading_inference",
+  "difficulty": "A2",
+  "vocabulary": [
+    "workstations",
+    "assigned",
+    "period",
+    "inconvenience"
+  ],
+  "passage_group_type": "single",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-027"
+},
+  {
+  "id": "p7-gen-304",
+  "part": "Part 7",
+  "passage": "Revitalize your home office with the new ErgoPro Standing Desk Converter! This innovative device transforms any standard desk into a height-adjustable workstation in seconds. Featuring a gas-spring lift mechanism, the ErgoPro allows smooth transitions between sitting and standing positions. It supports monitors up to 32 inches and holds up to 35 lbs. The spacious keyboard tray accommodates full-size keyboards and mice. Built with a durable steel frame and a scratch-resistant surface, it ensures long-lasting use. Priced at just $249.99, it includes a 5-year warranty and free shipping within the continental US. Order now to boost your productivity and comfort! Call 1-800-555-0199 or visit www.ergopro.com. Limited stock available—act fast!",
+  "question": "What is the primary purpose of this advertisement?",
+  "choices": {
+    "A": "To announce a new office furniture store",
+    "B": "To explain the benefits of standing while working",
+    "C": "To promote a device that makes desks adjustable",
+    "D": "To compare different types of standing desks"
+  },
+  "answer": "C",
+  "explanation_zh": "本廣告的主要目的是推廣一款能讓標準辦公桌變為可調節高度工作站的裝置（ErgoPro站立式辦公桌轉換器）。文中明確指出「This innovative device transforms any standard desk into a height-adjustable workstation」，並未提及開設新家具店（A）、單純解釋站立工作的好處（B），或比較不同站立桌（D），因此C為正確答案。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B1",
+  "vocabulary": [
+    "revitalize",
+    "innovative",
+    "gas-spring",
+    "scratch-resistant"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-028"
+},
+  {
+  "id": "p7-gen-305",
+  "part": "Part 7",
+  "passage": "Revitalize your home office with the new ErgoPro Standing Desk Converter! This innovative device transforms any standard desk into a height-adjustable workstation in seconds. Featuring a gas-spring lift mechanism, the ErgoPro allows smooth transitions between sitting and standing positions. It supports monitors up to 32 inches and holds up to 35 lbs. The spacious keyboard tray accommodates full-size keyboards and mice. Built with a durable steel frame and a scratch-resistant surface, it ensures long-lasting use. Priced at just $249.99, it includes a 5-year warranty and free shipping within the continental US. Order now to boost your productivity and comfort! Call 1-800-555-0199 or visit www.ergopro.com. Limited stock available—act fast!",
+  "question": "What is the maximum weight the ErgoPro can support?",
+  "choices": {
+    "A": "32 lbs",
+    "B": "50 lbs",
+    "C": "45 lbs",
+    "D": "35 lbs"
+  },
+  "answer": "D",
+  "explanation_zh": "ErgoPro可支援的最大重量為35磅。文中明確說明「It supports monitors up to 32 inches and holds up to 35 lbs」，因此D為正確答案。選項A（32磅）是螢幕尺寸上限，B（50磅）與C（45磅）均未在文中提及。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "holds",
+    "monitors",
+    "lbs",
+    "warranty"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-028"
+},
+  {
+  "id": "p7-gen-306",
+  "part": "Part 7",
+  "passage": "Revitalize your home office with the new ErgoPro Standing Desk Converter! This innovative device transforms any standard desk into a height-adjustable workstation in seconds. Featuring a gas-spring lift mechanism, the ErgoPro allows smooth transitions between sitting and standing positions. It supports monitors up to 32 inches and holds up to 35 lbs. The spacious keyboard tray accommodates full-size keyboards and mice. Built with a durable steel frame and a scratch-resistant surface, it ensures long-lasting use. Priced at just $249.99, it includes a 5-year warranty and free shipping within the continental US. Order now to boost your productivity and comfort! Call 1-800-555-0199 or visit www.ergopro.com. Limited stock available—act fast!",
+  "question": "What can be inferred about the seller's marketing strategy?",
+  "choices": {
+    "A": "They want to create a sense of urgency to encourage quick purchases",
+    "B": "They are targeting only large corporations",
+    "C": "They offer the product for sale in physical stores only",
+    "D": "They are discontinuing the product soon"
+  },
+  "answer": "A",
+  "explanation_zh": "從廣告結尾的「Limited stock available—act fast!」可推斷賣家試圖營造急迫感以鼓勵消費者快速購買。文中未提及僅針對大型企業（B）、僅在實體店銷售（C）或即將停產（D），因此A為正確答案。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B1",
+  "vocabulary": [
+    "inferred",
+    "strategy",
+    "sense of urgency",
+    "discontinuing"
+  ],
+  "passage_group_type": "single",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-028"
+},
+  {
+  "id": "p7-gen-307",
+  "part": "Part 7",
+  "passage": "Community Board Notice: Free Computer Literacy Workshop\n\nThe Greenfield Community Center is pleased to offer a free Computer Literacy Workshop for residents aged 18 and over. The workshop will cover basic computer skills, including using email, navigating the internet, and creating simple documents. Sessions will be held every Tuesday and Thursday from 6:00 PM to 8:00 PM, starting on March 5th and continuing until April 11th. Space is limited to 20 participants per session. To register, please visit our website at www.greenfieldcc.org or call (555) 123-4567. Walk-in registrations are not accepted. Participants are required to bring their own laptop, though a limited number of tablets may be borrowed from the center upon request. For more information, contact Maria Lopez at maria.lopez@greenfieldcc.org.",
+  "question": "What is the main purpose of this notice?",
+  "choices": {
+    "A": "To announce a new laptop rental service for residents",
+    "B": "To request volunteers for a community technology event",
+    "C": "To inform residents about a change in the workshop schedule",
+    "D": "To advertise a free computer skills training program"
+  },
+  "answer": "D",
+  "explanation_zh": "答案是D。公告開頭明確指出「提供免費電腦素養工作坊」，並說明涵蓋基本電腦技能，因此主要目的是宣傳免費電腦技能培訓課程。A選項「宣布新的筆電租借服務」錯誤，公告僅提到可借用少量平板，並非主要目的。B選項「招募志工」未提及。C選項「通知時間變更」與公告內容不符。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B1",
+  "vocabulary": [
+    "literacy",
+    "workshop",
+    "navigate",
+    "register"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-029"
+},
+  {
+  "id": "p7-gen-308",
+  "part": "Part 7",
+  "passage": "Community Board Notice: Free Computer Literacy Workshop\n\nThe Greenfield Community Center is pleased to offer a free Computer Literacy Workshop for residents aged 18 and over. The workshop will cover basic computer skills, including using email, navigating the internet, and creating simple documents. Sessions will be held every Tuesday and Thursday from 6:00 PM to 8:00 PM, starting on March 5th and continuing until April 11th. Space is limited to 20 participants per session. To register, please visit our website at www.greenfieldcc.org or call (555) 123-4567. Walk-in registrations are not accepted. Participants are required to bring their own laptop, though a limited number of tablets may be borrowed from the center upon request. For more information, contact Maria Lopez at maria.lopez@greenfieldcc.org.",
+  "question": "According to the notice, what is required to participate in the workshop?",
+  "choices": {
+    "A": "Bringing your own laptop",
+    "B": "Registering in person at the community center",
+    "C": "Being a Greenfield resident of any age",
+    "D": "Paying a small registration fee"
+  },
+  "answer": "A",
+  "explanation_zh": "答案是A。公告中明確寫道「參與者需自備筆記型電腦」，因此A選項正確。B選項「親自到中心註冊」錯誤，公告指出不接受現場報名。C選項「任何年齡的居民」錯誤，限18歲以上。D選項「支付註冊費」錯誤，工作坊是免費的。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "participant",
+    "required",
+    "borrow",
+    "upon request"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-029"
+},
+  {
+  "id": "p7-gen-309",
+  "part": "Part 7",
+  "passage": "Community Board Notice: Free Computer Literacy Workshop\n\nThe Greenfield Community Center is pleased to offer a free Computer Literacy Workshop for residents aged 18 and over. The workshop will cover basic computer skills, including using email, navigating the internet, and creating simple documents. Sessions will be held every Tuesday and Thursday from 6:00 PM to 8:00 PM, starting on March 5th and continuing until April 11th. Space is limited to 20 participants per session. To register, please visit our website at www.greenfieldcc.org or call (555) 123-4567. Walk-in registrations are not accepted. Participants are required to bring their own laptop, though a limited number of tablets may be borrowed from the center upon request. For more information, contact Maria Lopez at maria.lopez@greenfieldcc.org.",
+  "question": "Which of the following is NOT mentioned as a workshop topic?",
+  "choices": {
+    "A": "Using email",
+    "B": "Installing software",
+    "C": "Creating simple documents",
+    "D": "Navigating the internet"
+  },
+  "answer": "B",
+  "explanation_zh": "答案是B。公告列舉的主題包括「使用電子郵件」、「瀏覽網路」和「建立簡單文件」，但未提及「安裝軟體」，因此B選項是未提到的內容。A、C、D選項均為公告中明確提到的主題。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "cover",
+    "skill",
+    "navigate",
+    "document"
+  ],
+  "passage_group_type": "single",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-029"
+},
+  {
+  "id": "p7-gen-310",
+  "part": "Part 7",
+  "passage": "Community Board Notice: Free Computer Literacy Workshop\n\nThe Greenfield Community Center is pleased to offer a free Computer Literacy Workshop for residents aged 18 and over. The workshop will cover basic computer skills, including using email, navigating the internet, and creating simple documents. Sessions will be held every Tuesday and Thursday from 6:00 PM to 8:00 PM, starting on March 5th and continuing until April 11th. Space is limited to 20 participants per session. To register, please visit our website at www.greenfieldcc.org or call (555) 123-4567. Walk-in registrations are not accepted. Participants are required to bring their own laptop, though a limited number of tablets may be borrowed from the center upon request. For more information, contact Maria Lopez at maria.lopez@greenfieldcc.org.",
+  "question": "What can be inferred about the intended audience for this workshop?",
+  "choices": {
+    "A": "It is intended for experienced computer users who want to upgrade their skills.",
+    "B": "It is targeted at teenagers who are interested in programming.",
+    "C": "It is designed for residents who have little or no experience with computers.",
+    "D": "It is meant for business professionals who need advanced training."
+  },
+  "answer": "C",
+  "explanation_zh": "答案是C。公告說明工作坊涵蓋「基本電腦技能」，且對象為18歲以上居民，暗示針對缺乏經驗的初學者。A選項「有經驗的使用者」與「基本技能」矛盾。B選項「青少年」與年齡限制不符。D選項「商業專業人士」與初級內容不符。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B1",
+  "vocabulary": [
+    "targeted",
+    "experience",
+    "programming",
+    "advanced"
+  ],
+  "passage_group_type": "single",
+  "question_order": 4,
+  "passage_group_id": "p7-exp-029"
+},
+  {
+  "id": "p7-gen-311",
+  "part": "Part 7",
+  "passage": "Apex Digital Solutions, a mid-sized software developer based in Austin, Texas, announced today its acquisition of NovaTech Analytics, a smaller data analytics firm headquartered in Denver, Colorado. The deal, valued at $120 million, is expected to close by the end of the third quarter of 2024. Apex CEO Maria Chen stated that the acquisition will strengthen the company’s capabilities in artificial intelligence and machine learning, particularly for the healthcare sector. NovaTech’s team of 85 data scientists will join Apex's existing workforce of 1,200 employees. Industry analysts note that the move reflects a broader trend of consolidation in the tech industry, as companies seek to integrate AI tools into their existing products. Apex’s stock price rose 4% following the announcement, indicating positive investor sentiment. The combined entity is projected to generate annual revenues of $450 million in the next fiscal year.",
+  "question": "What is the main topic of the article?",
+  "choices": {
+    "A": "The acquisition of NovaTech Analytics by Apex Digital Solutions",
+    "B": "A leadership change at Apex Digital Solutions",
+    "C": "A decline in stock prices for tech companies",
+    "D": "The launch of a new AI product for healthcare"
+  },
+  "answer": "A",
+  "explanation_zh": "本文主要報導 Apex Digital Solutions 收購 NovaTech Analytics 一事。文章開頭即明確指出「Apex Digital Solutions...announced today its acquisition of NovaTech Analytics」，全文圍繞此收購案的細節、影響及市場反應進行說明。選項 B「領導層變動」、C「科技公司股價下跌」及 D「推出醫療保健新 AI 產品」均非文章主軸，故正確答案為 A。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B1",
+  "vocabulary": [
+    "acquisition",
+    "analytics",
+    "consolidation",
+    "entity"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-030"
+},
+  {
+  "id": "p7-gen-312",
+  "part": "Part 7",
+  "passage": "Apex Digital Solutions, a mid-sized software developer based in Austin, Texas, announced today its acquisition of NovaTech Analytics, a smaller data analytics firm headquartered in Denver, Colorado. The deal, valued at $120 million, is expected to close by the end of the third quarter of 2024. Apex CEO Maria Chen stated that the acquisition will strengthen the company’s capabilities in artificial intelligence and machine learning, particularly for the healthcare sector. NovaTech’s team of 85 data scientists will join Apex's existing workforce of 1,200 employees. Industry analysts note that the move reflects a broader trend of consolidation in the tech industry, as companies seek to integrate AI tools into their existing products. Apex’s stock price rose 4% following the announcement, indicating positive investor sentiment. The combined entity is projected to generate annual revenues of $450 million in the next fiscal year.",
+  "question": "How many employees will Apex Digital Solutions have after the acquisition?",
+  "choices": {
+    "A": "85",
+    "B": "1,285",
+    "C": "1,200",
+    "D": "450"
+  },
+  "answer": "B",
+  "explanation_zh": "收購後 Apex 的總員工人數為 1,285 人。文中指出「NovaTech’s team of 85 data scientists will join Apex's existing workforce of 1,200 employees」，將兩者相加（1,200 + 85）即得 1,285 人。選項 A「85」僅為 NovaTech 員工人數，選項 C「1,200」為 Apex 原有員工人數，選項 D「450」為預估年營收（百萬美元），均非員工人數，故正確答案為 B。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "workforce",
+    "projected",
+    "sentiment",
+    "integrate"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-030"
+},
+  {
+  "id": "p7-gen-313",
+  "part": "Part 7",
+  "passage": "TechConnect Conference 2025\nFriday, March 14\n\n9:00–10:00 AM: Registration and Welcome Coffee (Lobby)\n10:00–11:30 AM: Keynote Speech: \"The Future of AI\" – Dr. Sarah Chen (Room A)\n11:30 AM–12:30 PM: Networking Lunch (Cafeteria)\n12:30–2:00 PM: Workshop: \"Cybersecurity Basics\" – Mark Davis (Room B)\n2:00–3:00 PM: Break\n3:00–4:00 PM: Panel Discussion: \"Cloud Solutions\" – Linda Park, James Lee (Room A)\n4:00–5:00 PM: Closing Remarks and Q&A (Room A)",
+  "question": "What is the main purpose of the TechConnect Conference 2025?",
+  "choices": {
+    "A": "To introduce a new software product",
+    "B": "To provide a full day of training on various technology topics",
+    "C": "To celebrate the anniversary of the company",
+    "D": "To discuss only cybersecurity issues"
+  },
+  "answer": "B",
+  "explanation_zh": "本題問的是TechConnect Conference 2025的主要目的。根據行程表，會議包含主題演講、工作坊、小組討論等多個科技相關環節，涵蓋AI、網路安全、雲端解決方案等主題，因此正確答案為B「提供一整天關於各種科技主題的培訓」。A「介紹新軟體產品」、C「慶祝公司週年」、D「僅討論網路安全議題」均未在行程中提及，故為錯誤選項。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "A2",
+  "vocabulary": [
+    "conference",
+    "keynote",
+    "workshop",
+    "panel discussion"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-031"
+},
+  {
+  "id": "p7-gen-314",
+  "part": "Part 7",
+  "passage": "TechConnect Conference 2025\nFriday, March 14\n\n9:00–10:00 AM: Registration and Welcome Coffee (Lobby)\n10:00–11:30 AM: Keynote Speech: \"The Future of AI\" – Dr. Sarah Chen (Room A)\n11:30 AM–12:30 PM: Networking Lunch (Cafeteria)\n12:30–2:00 PM: Workshop: \"Cybersecurity Basics\" – Mark Davis (Room B)\n2:00–3:00 PM: Break\n3:00–4:00 PM: Panel Discussion: \"Cloud Solutions\" – Linda Park, James Lee (Room A)\n4:00–5:00 PM: Closing Remarks and Q&A (Room A)",
+  "question": "At what time does the workshop on cybersecurity begin?",
+  "choices": {
+    "A": "10:00 AM",
+    "B": "11:30 AM",
+    "C": "12:30 PM",
+    "D": "2:00 PM"
+  },
+  "answer": "C",
+  "explanation_zh": "本題問的是網路安全工作坊的開始時間。根據行程表，工作坊「Cybersecurity Basics」安排在12:30–2:00 PM，因此正確答案為C「12:30 PM」。A「10:00 AM」是主題演講時間，B「11:30 AM」是聯誼午餐時間，D「2:00 PM」是休息時間，均與工作坊時間不符。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "workshop",
+    "cybersecurity",
+    "begin",
+    "schedule"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-031"
+},
+  {
+  "id": "p7-gen-315",
+  "part": "Part 7",
+  "passage": "TechConnect Conference 2025\nFriday, March 14\n\n9:00–10:00 AM: Registration and Welcome Coffee (Lobby)\n10:00–11:30 AM: Keynote Speech: \"The Future of AI\" – Dr. Sarah Chen (Room A)\n11:30 AM–12:30 PM: Networking Lunch (Cafeteria)\n12:30–2:00 PM: Workshop: \"Cybersecurity Basics\" – Mark Davis (Room B)\n2:00–3:00 PM: Break\n3:00–4:00 PM: Panel Discussion: \"Cloud Solutions\" – Linda Park, James Lee (Room A)\n4:00–5:00 PM: Closing Remarks and Q&A (Room A)",
+  "question": "If a participant is interested in both artificial intelligence and cloud computing, which session would they most likely attend after the lunch break?",
+  "choices": {
+    "A": "The keynote speech at 10:00 AM",
+    "B": "The cybersecurity workshop at 12:30 PM",
+    "C": "The closing remarks at 4:00 PM",
+    "D": "The panel discussion on cloud solutions at 3:00 PM"
+  },
+  "answer": "D",
+  "explanation_zh": "本題問的是對人工智慧和雲端運算都有興趣的參與者，在午餐休息後最可能參加哪個環節。根據行程表，午餐休息後有12:30 PM的網路安全工作坊和3:00 PM的雲端解決方案小組討論，後者與雲端運算直接相關，且參與者已對AI有興趣（上午已聽過主題演講），因此正確答案為D「下午3:00的雲端解決方案小組討論」。A「上午10:00的主題演講」在午餐前，B「下午12:30的網路安全工作坊」與雲端運算無關，C「下午4:00的閉幕致詞」不針對特定主題，故均為錯誤選項。",
+  "skill_tag": "reading_inference",
+  "difficulty": "A2",
+  "vocabulary": [
+    "participant",
+    "interested in",
+    "attend",
+    "session"
+  ],
+  "passage_group_type": "single",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-031"
+},
+  {
+  "id": "p7-gen-316",
+  "part": "Part 7",
+  "passage": "INVOICE #INV-2024-0987\n\nOrder Date: November 12, 2024\n\nBill To:\nJames Wilson\n42 Oak Avenue, Suite 200\nSpringfield, IL 62701\n\nShip To:\nJames Wilson\n42 Oak Avenue, Suite 200\nSpringfield, IL 62701\n\nPayment Method: Credit Card (Visa ending in 4321)\n\nItems Ordered:\n- 10 units of Wireless Mouse Model WM-200 @ $25.00 each\n- 5 units of USB-C Hub Model UH-150 @ $45.00 each\n- 2 units of Laptop Stand Model LS-300 @ $60.00 each\n\nSubtotal: $595.00\nShipping: $15.00\nTax (8%): $47.60\nTotal: $657.60\n\nStatus: Paid in full. Estimated delivery: November 18-20, 2024.",
+  "question": "What is the main purpose of this document?",
+  "choices": {
+    "A": "To request payment for an order",
+    "B": "To advertise new computer accessories",
+    "C": "To confirm an order and provide payment details",
+    "D": "To notify about a shipping delay"
+  },
+  "answer": "C",
+  "explanation_zh": "這份文件的主要目的是確認訂單並提供付款明細。文中顯示訂單已全額付清（Status: Paid in full），並列出商品、金額及預計送達日期，因此選項C正確。選項A（要求付款）與已付清狀態不符；選項B（廣告）非文件重點；選項D（延遲通知）未提及。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B1",
+  "vocabulary": [
+    "invoice",
+    "subtotal",
+    "estimated delivery",
+    "paid in full"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-032"
+},
+  {
+  "id": "p7-gen-317",
+  "part": "Part 7",
+  "passage": "INVOICE #INV-2024-0987\n\nOrder Date: November 12, 2024\n\nBill To:\nJames Wilson\n42 Oak Avenue, Suite 200\nSpringfield, IL 62701\n\nShip To:\nJames Wilson\n42 Oak Avenue, Suite 200\nSpringfield, IL 62701\n\nPayment Method: Credit Card (Visa ending in 4321)\n\nItems Ordered:\n- 10 units of Wireless Mouse Model WM-200 @ $25.00 each\n- 5 units of USB-C Hub Model UH-150 @ $45.00 each\n- 2 units of Laptop Stand Model LS-300 @ $60.00 each\n\nSubtotal: $595.00\nShipping: $15.00\nTax (8%): $47.60\nTotal: $657.60\n\nStatus: Paid in full. Estimated delivery: November 18-20, 2024.",
+  "question": "How many USB-C hubs were ordered?",
+  "choices": {
+    "A": "2",
+    "B": "15",
+    "C": "10",
+    "D": "5"
+  },
+  "answer": "D",
+  "explanation_zh": "訂購的USB-C集線器數量為5個。文中明確列出「5 units of USB-C Hub Model UH-150」，因此選項D正確。選項A（2）為筆電支架數量；選項B（15）為總商品數；選項C（10）為無線滑鼠數量。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "units",
+    "model",
+    "items ordered",
+    "hub"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-032"
+},
+  {
+  "id": "p7-gen-318",
+  "part": "Part 7",
+  "passage": "INVOICE #INV-2024-0987\n\nOrder Date: November 12, 2024\n\nBill To:\nJames Wilson\n42 Oak Avenue, Suite 200\nSpringfield, IL 62701\n\nShip To:\nJames Wilson\n42 Oak Avenue, Suite 200\nSpringfield, IL 62701\n\nPayment Method: Credit Card (Visa ending in 4321)\n\nItems Ordered:\n- 10 units of Wireless Mouse Model WM-200 @ $25.00 each\n- 5 units of USB-C Hub Model UH-150 @ $45.00 each\n- 2 units of Laptop Stand Model LS-300 @ $60.00 each\n\nSubtotal: $595.00\nShipping: $15.00\nTax (8%): $47.60\nTotal: $657.60\n\nStatus: Paid in full. Estimated delivery: November 18-20, 2024.",
+  "question": "What can be inferred about the customer's next step?",
+  "choices": {
+    "A": "He will likely contact the company if the package does not arrive by November 20.",
+    "B": "He needs to call the company to arrange payment.",
+    "C": "He must provide a different shipping address.",
+    "D": "He should order more items to qualify for free shipping."
+  },
+  "answer": "A",
+  "explanation_zh": "可推斷顧客若在11月20日前未收到包裹，很可能會聯繫公司。文中預計送達日期為11月18-20日（Estimated delivery: November 18-20, 2024），且訂單已全額付清，因此若未按時送達，顧客自然會追蹤，選項A正確。選項B（安排付款）與已付清矛盾；選項C（更改地址）無依據；選項D（再訂購免運費）未提及。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B1",
+  "vocabulary": [
+    "infer",
+    "estimated delivery",
+    "contact",
+    "arrive"
+  ],
+  "passage_group_type": "single",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-032"
+},
+  {
+  "id": "p7-gen-319",
+  "part": "Part 7",
+  "passage": "Dear Team Members,\n\nThis email is to inform you that the project kickoff meeting originally scheduled for Friday, March 12th at 10:00 AM has been rescheduled. The new meeting will be held on Tuesday, March 16th at 2:00 PM in Conference Room B, instead of the previously planned Room A. The change is due to a scheduling conflict with the executive review session.\n\nThe agenda will cover the project timeline, resource allocation, and key milestones. All team members are expected to attend in person. If you have a conflict with the new time, please notify me by Wednesday, March 10th so alternative arrangements can be made.\n\nThank you for your flexibility.\n\nBest regards,\nSarah Jenkins\nProject Coordinator",
+  "question": "What is the main purpose of this email?",
+  "choices": {
+    "A": "To announce the cancellation of the project kickoff meeting",
+    "B": "To confirm the attendance of all team members",
+    "C": "To request feedback on the project timeline",
+    "D": "To inform team members about a change in the meeting schedule"
+  },
+  "answer": "D",
+  "explanation_zh": "本郵件的主要目的是通知團隊成員會議時間與地點的變更。文中明確指出原訂於3月12日（星期五）上午10:00的專案啟動會議已重新安排，改為3月16日（星期二）下午2:00在B會議室舉行。因此，選項D「通知團隊成員會議時間的變更」為正確答案。選項A「宣布取消會議」錯誤，因為會議並未取消而是改期；選項B「確認所有成員出席」未在文中提及；選項C「請求對專案時間表提供回饋」也非郵件主旨。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "A2",
+  "vocabulary": [
+    "rescheduled",
+    "scheduling conflict",
+    "alternative arrangements",
+    "flexibility"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-033"
+},
+  {
+  "id": "p7-gen-320",
+  "part": "Part 7",
+  "passage": "Dear Team Members,\n\nThis email is to inform you that the project kickoff meeting originally scheduled for Friday, March 12th at 10:00 AM has been rescheduled. The new meeting will be held on Tuesday, March 16th at 2:00 PM in Conference Room B, instead of the previously planned Room A. The change is due to a scheduling conflict with the executive review session.\n\nThe agenda will cover the project timeline, resource allocation, and key milestones. All team members are expected to attend in person. If you have a conflict with the new time, please notify me by Wednesday, March 10th so alternative arrangements can be made.\n\nThank you for your flexibility.\n\nBest regards,\nSarah Jenkins\nProject Coordinator",
+  "question": "Where will the rescheduled meeting take place?",
+  "choices": {
+    "A": "Conference Room B",
+    "B": "Conference Room A",
+    "C": "The executive review session room",
+    "D": "An unspecified location"
+  },
+  "answer": "A",
+  "explanation_zh": "重新安排的會議將在B會議室舉行。文中明確指出「新會議將於3月16日（星期二）下午2:00在B會議室舉行，而非原先計畫的A會議室」。因此，選項A「B會議室」為正確答案。選項B「A會議室」是原訂地點；選項C「高層審查會議室」是造成衝突的會議；選項D「未指定地點」與文中資訊不符。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "rescheduled",
+    "scheduling conflict",
+    "alternative arrangements",
+    "flexibility"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-033"
+},
+  {
+  "id": "p7-gen-321",
+  "part": "Part 7",
+  "passage": "Dear Team Members,\n\nThis email is to inform you that the project kickoff meeting originally scheduled for Friday, March 12th at 10:00 AM has been rescheduled. The new meeting will be held on Tuesday, March 16th at 2:00 PM in Conference Room B, instead of the previously planned Room A. The change is due to a scheduling conflict with the executive review session.\n\nThe agenda will cover the project timeline, resource allocation, and key milestones. All team members are expected to attend in person. If you have a conflict with the new time, please notify me by Wednesday, March 10th so alternative arrangements can be made.\n\nThank you for your flexibility.\n\nBest regards,\nSarah Jenkins\nProject Coordinator",
+  "question": "What can be inferred about the original meeting arrangements?",
+  "choices": {
+    "A": "It was scheduled for a Tuesday afternoon.",
+    "B": "It was planned to be held in Conference Room A.",
+    "C": "Remote attendance was available for the original meeting.",
+    "D": "The meeting was cancelled due to low attendance."
+  },
+  "answer": "B",
+  "explanation_zh": "關於原訂會議安排，可以推斷原訂在A會議室舉行。文中提到「新會議將在B會議室舉行，而非原先計畫的A會議室」，這暗示原訂地點是A會議室。因此，選項B「原訂在A會議室舉行」為正確答案。選項A「原訂在星期二下午」錯誤，因為原訂時間是星期五上午；選項C「原訂會議可遠端參加」未在文中提及；選項D「會議因出席人數不足而取消」也無根據。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "rescheduled",
+    "scheduling conflict",
+    "alternative arrangements",
+    "flexibility"
+  ],
+  "passage_group_type": "single",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-033"
+},
+  {
+  "id": "p7-gen-322",
+  "part": "Part 7",
+  "passage": "Dear Team Members,\n\nThis email is to inform you that the project kickoff meeting originally scheduled for Friday, March 12th at 10:00 AM has been rescheduled. The new meeting will be held on Tuesday, March 16th at 2:00 PM in Conference Room B, instead of the previously planned Room A. The change is due to a scheduling conflict with the executive review session.\n\nThe agenda will cover the project timeline, resource allocation, and key milestones. All team members are expected to attend in person. If you have a conflict with the new time, please notify me by Wednesday, March 10th so alternative arrangements can be made.\n\nThank you for your flexibility.\n\nBest regards,\nSarah Jenkins\nProject Coordinator",
+  "question": "What is the deadline for informing Sarah about a scheduling conflict?",
+  "choices": {
+    "A": "Friday, March 12th",
+    "B": "Tuesday, March 16th",
+    "C": "Wednesday, March 10th",
+    "D": "Thursday, March 11th"
+  },
+  "answer": "C",
+  "explanation_zh": "通知Sarah時間衝突的最後期限是3月10日（星期三）。文中明確指出「如果您與新時間有衝突，請在3月10日（星期三）之前通知我，以便做出其他安排」。因此，選項C「3月10日（星期三）」為正確答案。選項A「3月12日（星期五）」是原訂會議日期；選項B「3月16日（星期二）」是新會議日期；選項D「3月11日（星期四）」未在文中提及。",
+  "skill_tag": "reading_inference",
+  "difficulty": "A2",
+  "vocabulary": [
+    "rescheduled",
+    "scheduling conflict",
+    "alternative arrangements",
+    "flexibility"
+  ],
+  "passage_group_type": "single",
+  "question_order": 4,
+  "passage_group_id": "p7-exp-033"
+},
+  {
+  "id": "p7-gen-323",
+  "part": "Part 7",
+  "passage": "To: All Staff\nFrom: Facilities Management\nDate: October 10, 2023\nSubject: Temporary Closure of Building B\n\nDue to scheduled maintenance of the air conditioning system, Building B will be closed from October 15 to October 17. During this period, all employees assigned to Building B are asked to work from the annex building located at 45 Oak Street. The annex is equipped with workstations and Wi-Fi. Please collect any essential files or equipment from your desks before October 14. For questions, contact the Facilities Help Desk at extension 456.",
+  "question": "What is the main purpose of this memo?",
+  "choices": {
+    "A": "To inform staff about a temporary building closure and alternative arrangements",
+    "B": "To announce a permanent closure of Building B",
+    "C": "To request employees to move to a new office permanently",
+    "D": "To provide instructions for using the air conditioning system"
+  },
+  "answer": "A",
+  "explanation_zh": "這份備忘錄的主要目的是通知員工B棟大樓因空調系統定期維護而暫時關閉，並提供替代工作安排。文中明確指出「Building B will be closed from October 15 to October 17」以及「all employees assigned to Building B are asked to work from the annex building」，因此選項A正確。選項B（永久關閉）與「temporary closure」矛盾；選項C（永久搬遷）與「temporary」不符；選項D（空調使用說明）並非主旨。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "A2",
+  "vocabulary": [
+    "closure",
+    "maintenance",
+    "annex",
+    "essential"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-034"
+},
+  {
+  "id": "p7-gen-324",
+  "part": "Part 7",
+  "passage": "To: All Staff\nFrom: Facilities Management\nDate: October 10, 2023\nSubject: Temporary Closure of Building B\n\nDue to scheduled maintenance of the air conditioning system, Building B will be closed from October 15 to October 17. During this period, all employees assigned to Building B are asked to work from the annex building located at 45 Oak Street. The annex is equipped with workstations and Wi-Fi. Please collect any essential files or equipment from your desks before October 14. For questions, contact the Facilities Help Desk at extension 456.",
+  "question": "Until what date should employees remove their belongings from Building B?",
+  "choices": {
+    "A": "October 15",
+    "B": "October 14",
+    "C": "October 17",
+    "D": "October 10"
+  },
+  "answer": "B",
+  "explanation_zh": "員工應在10月14日前從B棟大樓取走個人物品。文中明確指示「Please collect any essential files or equipment from your desks before October 14」，因此選項B正確。選項A（10月15日）為關閉起始日，已超過期限；選項C（10月17日）為關閉結束日；選項D（10月10日）為備忘錄日期，均非最後期限。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "assigned",
+    "workstations",
+    "equipment",
+    "desk"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-034"
+},
+  {
+  "id": "p7-gen-325",
+  "part": "Part 7",
+  "passage": "Introducing the CleanSweep Pro 3000, the ultimate robotic vacuum for busy professionals. This advanced model features a 2500Pa suction power, capable of removing pet hair and fine dust from both hardwood floors and carpets. Its smart navigation system uses laser mapping to clean every corner efficiently, and it automatically returns to its charging dock when the battery is low. The CleanSweep Pro 3000 is now available for a limited-time price of $399, regularly $499. It comes with a one-year warranty and free shipping. Order today at www.cleansweep.com or call 1-800-555-0199. Act now—supplies are limited!",
+  "question": "What is being advertised?",
+  "choices": {
+    "A": "A new type of battery",
+    "B": "A robotic vacuum cleaner",
+    "C": "A laser mapping service",
+    "D": "A cleaning service for offices"
+  },
+  "answer": "B",
+  "explanation_zh": "廣告的產品是「CleanSweep Pro 3000」，文中第一句明確指出這是「the ultimate robotic vacuum for busy professionals」，因此選項 B「A robotic vacuum cleaner」為正確答案。選項 A「一種新型電池」、C「雷射測繪服務」、D「辦公室清潔服務」均與廣告內容不符。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B1",
+  "vocabulary": [
+    "robotic",
+    "vacuum",
+    "suction",
+    "navigation"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-035"
+},
+  {
+  "id": "p7-gen-326",
+  "part": "Part 7",
+  "passage": "Introducing the CleanSweep Pro 3000, the ultimate robotic vacuum for busy professionals. This advanced model features a 2500Pa suction power, capable of removing pet hair and fine dust from both hardwood floors and carpets. Its smart navigation system uses laser mapping to clean every corner efficiently, and it automatically returns to its charging dock when the battery is low. The CleanSweep Pro 3000 is now available for a limited-time price of $399, regularly $499. It comes with a one-year warranty and free shipping. Order today at www.cleansweep.com or call 1-800-555-0199. Act now—supplies are limited!",
+  "question": "What is the regular price of the CleanSweep Pro 3000?",
+  "choices": {
+    "A": "$399",
+    "B": "$599",
+    "C": "$499",
+    "D": "$250"
+  },
+  "answer": "C",
+  "explanation_zh": "文中提到「regularly $499」，即原價為 499 美元，因此選項 C「$499」為正確答案。選項 A「$399」是限時特價，B「$599」與 D「$250」均未在文中出現。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "limited-time",
+    "regularly",
+    "warranty",
+    "shipping"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-035"
+},
+  {
+  "id": "p7-gen-327",
+  "part": "Part 7",
+  "passage": "Introducing the CleanSweep Pro 3000, the ultimate robotic vacuum for busy professionals. This advanced model features a 2500Pa suction power, capable of removing pet hair and fine dust from both hardwood floors and carpets. Its smart navigation system uses laser mapping to clean every corner efficiently, and it automatically returns to its charging dock when the battery is low. The CleanSweep Pro 3000 is now available for a limited-time price of $399, regularly $499. It comes with a one-year warranty and free shipping. Order today at www.cleansweep.com or call 1-800-555-0199. Act now—supplies are limited!",
+  "question": "What can be inferred about the seller?",
+  "choices": {
+    "A": "They have many products in stock.",
+    "B": "They do not offer any warranty.",
+    "C": "They only sell to professionals.",
+    "D": "They want to sell quickly."
+  },
+  "answer": "D",
+  "explanation_zh": "文中結尾強調「Act now—supplies are limited!」，暗示庫存有限，鼓勵顧客立即購買，因此可推斷賣方希望快速銷售，選項 D「They want to sell quickly」為正確答案。選項 A「庫存充足」與「supplies are limited」矛盾；B「不提供保固」與「one-year warranty」不符；C「只賣給專業人士」文中未提及，且廣告對象為忙碌專業人士，但未限制購買資格。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B1",
+  "vocabulary": [
+    "limited",
+    "supplies",
+    "infer",
+    "stock"
+  ],
+  "passage_group_type": "single",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-035"
+},
+  {
+  "id": "p7-gen-328",
+  "part": "Part 7",
+  "passage": "From: jennifer.harris@greenleaf.com\nTo: support@evergreenoffice.com\nSubject: Incorrect item received\n\nDear Customer Support,\n\nI am writing to express my disappointment regarding my recent order (Order #GHL-8921) placed on March 5, 2025. I ordered a set of 12 ergonomic office chairs (model: Ergo-Pro 2000) for my company, Greenleaf Consulting. However, when the delivery arrived on March 10, I received a set of 12 standard office chairs (model: Basic-Sit 100) instead. The boxes were labeled correctly, but the contents did not match the order.\n\nThis error has caused significant inconvenience, as I had scheduled a team meeting for March 12 to introduce the new chairs. I request that you arrange for the correct chairs to be delivered as soon as possible and provide a return label for the incorrect items. I expect a prompt resolution.\n\nThank you,\nJennifer Harris\nOffice Manager, Greenleaf Consulting\n\n---\n\nFrom: support@evergreenoffice.com\nTo: jennifer.harris@greenleaf.com\nSubject: Re: Incorrect item received\n\nDear Ms. Harris,\n\nThank you for contacting us. We sincerely apologize for the mistake with your order #GHL-8921. We understand how frustrating this must be, especially with your scheduled team meeting.\n\nTo resolve this issue, we will dispatch the correct Ergo-Pro 2000 chairs immediately via express shipping, with an estimated delivery by March 11. You will receive a prepaid return label via email to send back the Basic-Sit 100 chairs. Additionally, we have issued a 15% discount on your current order as a gesture of goodwill.\n\nWe appreciate your patience and hope this resolves the matter to your satisfaction.\n\nBest regards,\nMichael Chen\nCustomer Service Supervisor, Evergreen Office Supplies",
+  "question": "What is the main issue described in the email exchange?",
+  "choices": {
+    "A": "A customer was sent the wrong model of chairs.",
+    "B": "A customer received damaged office chairs.",
+    "C": "A customer's order was delivered late.",
+    "D": "A customer's payment was not processed correctly."
+  },
+  "answer": "A",
+  "explanation_zh": "答案是A。根據Jennifer Harris的郵件，她訂購的是12張Ergo-Pro 2000人體工學椅，但收到的卻是12張Basic-Sit 100標準椅，因此主要問題是客戶收到了錯誤型號的椅子。選項B（椅子損壞）、C（延遲送達）和D（付款問題）均未在郵件中被提及。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B1",
+  "vocabulary": [
+    "disappointment",
+    "ergonomic",
+    "dispatch",
+    "goodwill"
+  ],
+  "passage_group_type": "double",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-036"
+},
+  {
+  "id": "p7-gen-329",
+  "part": "Part 7",
+  "passage": "From: jennifer.harris@greenleaf.com\nTo: support@evergreenoffice.com\nSubject: Incorrect item received\n\nDear Customer Support,\n\nI am writing to express my disappointment regarding my recent order (Order #GHL-8921) placed on March 5, 2025. I ordered a set of 12 ergonomic office chairs (model: Ergo-Pro 2000) for my company, Greenleaf Consulting. However, when the delivery arrived on March 10, I received a set of 12 standard office chairs (model: Basic-Sit 100) instead. The boxes were labeled correctly, but the contents did not match the order.\n\nThis error has caused significant inconvenience, as I had scheduled a team meeting for March 12 to introduce the new chairs. I request that you arrange for the correct chairs to be delivered as soon as possible and provide a return label for the incorrect items. I expect a prompt resolution.\n\nThank you,\nJennifer Harris\nOffice Manager, Greenleaf Consulting\n\n---\n\nFrom: support@evergreenoffice.com\nTo: jennifer.harris@greenleaf.com\nSubject: Re: Incorrect item received\n\nDear Ms. Harris,\n\nThank you for contacting us. We sincerely apologize for the mistake with your order #GHL-8921. We understand how frustrating this must be, especially with your scheduled team meeting.\n\nTo resolve this issue, we will dispatch the correct Ergo-Pro 2000 chairs immediately via express shipping, with an estimated delivery by March 11. You will receive a prepaid return label via email to send back the Basic-Sit 100 chairs. Additionally, we have issued a 15% discount on your current order as a gesture of goodwill.\n\nWe appreciate your patience and hope this resolves the matter to your satisfaction.\n\nBest regards,\nMichael Chen\nCustomer Service Supervisor, Evergreen Office Supplies",
+  "question": "What did Jennifer Harris order originally?",
+  "choices": {
+    "A": "12 Basic-Sit 100 chairs",
+    "B": "12 Ergo-Pro 2000 chairs",
+    "C": "15% discount on office chairs",
+    "D": "A return label for incorrect items"
+  },
+  "answer": "B",
+  "explanation_zh": "答案是B。Jennifer Harris在郵件中明確寫道：「I ordered a set of 12 ergonomic office chairs (model: Ergo-Pro 2000)」，因此她原本訂購的是12張Ergo-Pro 2000椅子。選項A（Basic-Sit 100）是她收到的錯誤商品，選項C（15%折扣）是客服提供的補償，選項D（退貨標籤）是客服後續提供的服務，均非原始訂單內容。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "express shipping",
+    "prepaid",
+    "resolution",
+    "inconvenience"
+  ],
+  "passage_group_type": "double",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-036"
+},
+  {
+  "id": "p7-gen-330",
+  "part": "Part 7",
+  "passage": "From: jennifer.harris@greenleaf.com\nTo: support@evergreenoffice.com\nSubject: Incorrect item received\n\nDear Customer Support,\n\nI am writing to express my disappointment regarding my recent order (Order #GHL-8921) placed on March 5, 2025. I ordered a set of 12 ergonomic office chairs (model: Ergo-Pro 2000) for my company, Greenleaf Consulting. However, when the delivery arrived on March 10, I received a set of 12 standard office chairs (model: Basic-Sit 100) instead. The boxes were labeled correctly, but the contents did not match the order.\n\nThis error has caused significant inconvenience, as I had scheduled a team meeting for March 12 to introduce the new chairs. I request that you arrange for the correct chairs to be delivered as soon as possible and provide a return label for the incorrect items. I expect a prompt resolution.\n\nThank you,\nJennifer Harris\nOffice Manager, Greenleaf Consulting\n\n---\n\nFrom: support@evergreenoffice.com\nTo: jennifer.harris@greenleaf.com\nSubject: Re: Incorrect item received\n\nDear Ms. Harris,\n\nThank you for contacting us. We sincerely apologize for the mistake with your order #GHL-8921. We understand how frustrating this must be, especially with your scheduled team meeting.\n\nTo resolve this issue, we will dispatch the correct Ergo-Pro 2000 chairs immediately via express shipping, with an estimated delivery by March 11. You will receive a prepaid return label via email to send back the Basic-Sit 100 chairs. Additionally, we have issued a 15% discount on your current order as a gesture of goodwill.\n\nWe appreciate your patience and hope this resolves the matter to your satisfaction.\n\nBest regards,\nMichael Chen\nCustomer Service Supervisor, Evergreen Office Supplies",
+  "question": "What resolution did Evergreen Office Supplies offer?",
+  "choices": {
+    "A": "A full refund for the incorrect order",
+    "B": "A discount on the next purchase only",
+    "C": "Replacement chairs with express shipping and a discount",
+    "D": "A return label but no replacement"
+  },
+  "answer": "C",
+  "explanation_zh": "答案是C。客服Michael Chen在回覆中提出：「we will dispatch the correct Ergo-Pro 2000 chairs immediately via express shipping」以及「we have issued a 15% discount」，因此解決方案包括更換椅子並提供快速送貨和折扣。選項A（全額退款）和B（僅下次購買折扣）未提及，選項D（僅退貨標籤無更換）與實際提供的服務不符。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "dispatch",
+    "express shipping",
+    "prepaid",
+    "goodwill"
+  ],
+  "passage_group_type": "double",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-036"
+},
+  {
+  "id": "p7-gen-331",
+  "part": "Part 7",
+  "passage": "From: jennifer.harris@greenleaf.com\nTo: support@evergreenoffice.com\nSubject: Incorrect item received\n\nDear Customer Support,\n\nI am writing to express my disappointment regarding my recent order (Order #GHL-8921) placed on March 5, 2025. I ordered a set of 12 ergonomic office chairs (model: Ergo-Pro 2000) for my company, Greenleaf Consulting. However, when the delivery arrived on March 10, I received a set of 12 standard office chairs (model: Basic-Sit 100) instead. The boxes were labeled correctly, but the contents did not match the order.\n\nThis error has caused significant inconvenience, as I had scheduled a team meeting for March 12 to introduce the new chairs. I request that you arrange for the correct chairs to be delivered as soon as possible and provide a return label for the incorrect items. I expect a prompt resolution.\n\nThank you,\nJennifer Harris\nOffice Manager, Greenleaf Consulting\n\n---\n\nFrom: support@evergreenoffice.com\nTo: jennifer.harris@greenleaf.com\nSubject: Re: Incorrect item received\n\nDear Ms. Harris,\n\nThank you for contacting us. We sincerely apologize for the mistake with your order #GHL-8921. We understand how frustrating this must be, especially with your scheduled team meeting.\n\nTo resolve this issue, we will dispatch the correct Ergo-Pro 2000 chairs immediately via express shipping, with an estimated delivery by March 11. You will receive a prepaid return label via email to send back the Basic-Sit 100 chairs. Additionally, we have issued a 15% discount on your current order as a gesture of goodwill.\n\nWe appreciate your patience and hope this resolves the matter to your satisfaction.\n\nBest regards,\nMichael Chen\nCustomer Service Supervisor, Evergreen Office Supplies",
+  "question": "What can be inferred about Jennifer's team meeting?",
+  "choices": {
+    "A": "It was canceled due to the error.",
+    "B": "It was held without the chairs.",
+    "C": "It was rescheduled to March 11.",
+    "D": "It was scheduled before the correct chairs arrived."
+  },
+  "answer": "D",
+  "explanation_zh": "答案是D。Jennifer Harris在郵件中提到：「I had scheduled a team meeting for March 12 to introduce the new chairs」，而客服回覆中表示正確椅子預計在3月11日送達，因此會議是在正確椅子到達之前安排的。選項A（會議取消）、B（無椅子舉行會議）和C（會議改期至3月11日）均無法從郵件中推斷。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B1",
+  "vocabulary": [
+    "scheduled",
+    "inference",
+    "dispatch",
+    "estimated"
+  ],
+  "passage_group_type": "double",
+  "question_order": 4,
+  "passage_group_id": "p7-exp-036"
+},
+  {
+  "id": "p7-gen-332",
+  "part": "Part 7",
+  "passage": "From: jennifer.harris@greenleaf.com\nTo: support@evergreenoffice.com\nSubject: Incorrect item received\n\nDear Customer Support,\n\nI am writing to express my disappointment regarding my recent order (Order #GHL-8921) placed on March 5, 2025. I ordered a set of 12 ergonomic office chairs (model: Ergo-Pro 2000) for my company, Greenleaf Consulting. However, when the delivery arrived on March 10, I received a set of 12 standard office chairs (model: Basic-Sit 100) instead. The boxes were labeled correctly, but the contents did not match the order.\n\nThis error has caused significant inconvenience, as I had scheduled a team meeting for March 12 to introduce the new chairs. I request that you arrange for the correct chairs to be delivered as soon as possible and provide a return label for the incorrect items. I expect a prompt resolution.\n\nThank you,\nJennifer Harris\nOffice Manager, Greenleaf Consulting\n\n---\n\nFrom: support@evergreenoffice.com\nTo: jennifer.harris@greenleaf.com\nSubject: Re: Incorrect item received\n\nDear Ms. Harris,\n\nThank you for contacting us. We sincerely apologize for the mistake with your order #GHL-8921. We understand how frustrating this must be, especially with your scheduled team meeting.\n\nTo resolve this issue, we will dispatch the correct Ergo-Pro 2000 chairs immediately via express shipping, with an estimated delivery by March 11. You will receive a prepaid return label via email to send back the Basic-Sit 100 chairs. Additionally, we have issued a 15% discount on your current order as a gesture of goodwill.\n\nWe appreciate your patience and hope this resolves the matter to your satisfaction.\n\nBest regards,\nMichael Chen\nCustomer Service Supervisor, Evergreen Office Supplies",
+  "question": "What did the customer service representative acknowledge in the reply?",
+  "choices": {
+    "A": "The mistake was inconvenient because of the meeting.",
+    "B": "The shipment was delayed due to weather.",
+    "C": "The error was caused by incorrect labeling.",
+    "D": "The customer would receive a full refund."
+  },
+  "answer": "A",
+  "explanation_zh": "答案是A。客服Michael Chen在回覆中寫道：「We understand how frustrating this must be, especially with your scheduled team meeting」，直接承認了錯誤因會議安排而造成不便。選項B（天氣延誤）未提及，選項C（錯誤由標籤問題引起）是客戶的猜測而非客服的承認，選項D（全額退款）未在回覆中出現。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "acknowledged",
+    "inconvenient",
+    "gesture",
+    "goodwill"
+  ],
+  "passage_group_type": "double",
+  "question_order": 5,
+  "passage_group_id": "p7-exp-036"
+},
+  {
+  "id": "p7-gen-333",
+  "part": "Part 7",
+  "passage": "Text 1: Order Confirmation\nFrom: orders@brightlighting.com\nTo: sarah.chen@greenfieldhotel.com\nDate: March 10, 2024\nSubject: Order #BL-8842 Confirmation\n\nDear Ms. Chen,\n\nThank you for your order. This email confirms your purchase of 200 units of the 'Lumina Pro' LED ceiling light (Model LP-2200) at $45.00 per unit, for a total of $9,000.00. The items are scheduled for delivery by March 25, 2024, to your hotel at 45 Park Avenue, New York, NY 10022. Payment was processed via invoice (INV-7721) due net 30 days. Please review the details and contact us if corrections are needed.\n\nBest regards,\nJames Turner\nCustomer Service Manager\nBright Lighting Inc.\n\nText 2: Follow-up Complaint\nFrom: sarah.chen@greenfieldhotel.com\nTo: support@brightlighting.com\nDate: March 28, 2024\nSubject: Order #BL-8842 – Missing Items and Damage\n\nDear Bright Lighting Team,\n\nWe received a shipment on March 22, 2024, but it was incomplete and had damaged items. Of the 200 'Lumina Pro' units ordered, only 150 were delivered. Additionally, 12 of those 150 units arrived with cracked casings. We need these issues resolved immediately as our hotel renovation is scheduled for completion on April 5, 2024. Please arrange for the missing 50 units and replacements for the damaged ones to be sent by April 1, 2024. We also request a partial refund or credit for the inconvenience.\n\nThank you,\nSarah Chen\nGeneral Manager\nGreenfield Hotel\n\nText 3: Company Resolution\nFrom: james.turner@brightlighting.com\nTo: sarah.chen@greenfieldhotel.com\nDate: March 30, 2024\nSubject: Re: Order #BL-8842 – Resolution\n\nDear Ms. Chen,\n\nWe sincerely apologize for the issues with your order. After reviewing our records, we confirm that 50 units were mistakenly held at our warehouse due to a system error. We have dispatched all 50 missing units via expedited shipping, and they are expected to arrive by April 2, 2024. For the 12 damaged units, we are issuing a full refund of $540.00, which will be credited to your account within 5-7 business days. Additionally, we are waiving the shipping fee for this order. We value your business and hope this resolves the matter.\n\nSincerely,\nJames Turner\nCustomer Service Manager\nBright Lighting Inc.",
+  "question": "What is the overall situation described in the three texts?",
+  "choices": {
+    "A": "A hotel placed an order for lights, but the delivery was late and incomplete, leading to a cancellation of the order.",
+    "B": "A hotel ordered lights, received a partial shipment with some damage, and the company is addressing the issues by sending missing items and issuing a refund.",
+    "C": "A lighting company shipped incorrect items, and the hotel is requesting a full refund for the entire order.",
+    "D": "A hotel ordered lights, but the shipment was lost in transit, so the company is sending a replacement order."
+  },
+  "answer": "B",
+  "explanation_zh": "答案是B。三封邮件描述了酒店订购灯具，收到部分货物且有损坏，公司通过补发缺失物品和退款来解决问题的整体情况。文本1确认订单，文本2投诉缺失和损坏，文本3提出补发50件并退还12件损坏品的款项，因此B正确。A错误，因为订单并未取消；C错误，因为公司未发错物品，也未全额退款；D错误，因为货物未丢失，而是部分被扣留。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B2",
+  "vocabulary": [
+    "dispatch",
+    "expedited",
+    "partial refund",
+    "resolution"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-037"
+},
+  {
+  "id": "p7-gen-334",
+  "part": "Part 7",
+  "passage": "Text 1: Order Confirmation\nFrom: orders@brightlighting.com\nTo: sarah.chen@greenfieldhotel.com\nDate: March 10, 2024\nSubject: Order #BL-8842 Confirmation\n\nDear Ms. Chen,\n\nThank you for your order. This email confirms your purchase of 200 units of the 'Lumina Pro' LED ceiling light (Model LP-2200) at $45.00 per unit, for a total of $9,000.00. The items are scheduled for delivery by March 25, 2024, to your hotel at 45 Park Avenue, New York, NY 10022. Payment was processed via invoice (INV-7721) due net 30 days. Please review the details and contact us if corrections are needed.\n\nBest regards,\nJames Turner\nCustomer Service Manager\nBright Lighting Inc.\n\nText 2: Follow-up Complaint\nFrom: sarah.chen@greenfieldhotel.com\nTo: support@brightlighting.com\nDate: March 28, 2024\nSubject: Order #BL-8842 – Missing Items and Damage\n\nDear Bright Lighting Team,\n\nWe received a shipment on March 22, 2024, but it was incomplete and had damaged items. Of the 200 'Lumina Pro' units ordered, only 150 were delivered. Additionally, 12 of those 150 units arrived with cracked casings. We need these issues resolved immediately as our hotel renovation is scheduled for completion on April 5, 2024. Please arrange for the missing 50 units and replacements for the damaged ones to be sent by April 1, 2024. We also request a partial refund or credit for the inconvenience.\n\nThank you,\nSarah Chen\nGeneral Manager\nGreenfield Hotel\n\nText 3: Company Resolution\nFrom: james.turner@brightlighting.com\nTo: sarah.chen@greenfieldhotel.com\nDate: March 30, 2024\nSubject: Re: Order #BL-8842 – Resolution\n\nDear Ms. Chen,\n\nWe sincerely apologize for the issues with your order. After reviewing our records, we confirm that 50 units were mistakenly held at our warehouse due to a system error. We have dispatched all 50 missing units via expedited shipping, and they are expected to arrive by April 2, 2024. For the 12 damaged units, we are issuing a full refund of $540.00, which will be credited to your account within 5-7 business days. Additionally, we are waiving the shipping fee for this order. We value your business and hope this resolves the matter.\n\nSincerely,\nJames Turner\nCustomer Service Manager\nBright Lighting Inc.",
+  "question": "According to Text 1, what is the delivery deadline for the initial order?",
+  "choices": {
+    "A": "March 22, 2024",
+    "B": "April 1, 2024",
+    "C": "March 25, 2024",
+    "D": "April 2, 2024"
+  },
+  "answer": "C",
+  "explanation_zh": "答案是C。文本1明确说明交货日期为2024年3月25日（原文：'The items are scheduled for delivery by March 25, 2024'）。A是实际收货日期（文本2），B是酒店要求的补货截止日（文本2），D是补发预计到达日（文本3），均非初始订单的交货期限。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "deadline",
+    "scheduled",
+    "delivery",
+    "initial"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-037"
+},
+  {
+  "id": "p7-gen-335",
+  "part": "Part 7",
+  "passage": "Text 1: Order Confirmation\nFrom: orders@brightlighting.com\nTo: sarah.chen@greenfieldhotel.com\nDate: March 10, 2024\nSubject: Order #BL-8842 Confirmation\n\nDear Ms. Chen,\n\nThank you for your order. This email confirms your purchase of 200 units of the 'Lumina Pro' LED ceiling light (Model LP-2200) at $45.00 per unit, for a total of $9,000.00. The items are scheduled for delivery by March 25, 2024, to your hotel at 45 Park Avenue, New York, NY 10022. Payment was processed via invoice (INV-7721) due net 30 days. Please review the details and contact us if corrections are needed.\n\nBest regards,\nJames Turner\nCustomer Service Manager\nBright Lighting Inc.\n\nText 2: Follow-up Complaint\nFrom: sarah.chen@greenfieldhotel.com\nTo: support@brightlighting.com\nDate: March 28, 2024\nSubject: Order #BL-8842 – Missing Items and Damage\n\nDear Bright Lighting Team,\n\nWe received a shipment on March 22, 2024, but it was incomplete and had damaged items. Of the 200 'Lumina Pro' units ordered, only 150 were delivered. Additionally, 12 of those 150 units arrived with cracked casings. We need these issues resolved immediately as our hotel renovation is scheduled for completion on April 5, 2024. Please arrange for the missing 50 units and replacements for the damaged ones to be sent by April 1, 2024. We also request a partial refund or credit for the inconvenience.\n\nThank you,\nSarah Chen\nGeneral Manager\nGreenfield Hotel\n\nText 3: Company Resolution\nFrom: james.turner@brightlighting.com\nTo: sarah.chen@greenfieldhotel.com\nDate: March 30, 2024\nSubject: Re: Order #BL-8842 – Resolution\n\nDear Ms. Chen,\n\nWe sincerely apologize for the issues with your order. After reviewing our records, we confirm that 50 units were mistakenly held at our warehouse due to a system error. We have dispatched all 50 missing units via expedited shipping, and they are expected to arrive by April 2, 2024. For the 12 damaged units, we are issuing a full refund of $540.00, which will be credited to your account within 5-7 business days. Additionally, we are waiving the shipping fee for this order. We value your business and hope this resolves the matter.\n\nSincerely,\nJames Turner\nCustomer Service Manager\nBright Lighting Inc.",
+  "question": "Why did Bright Lighting Inc. fail to deliver the complete order initially?",
+  "choices": {
+    "A": "The items were lost during transit.",
+    "B": "The hotel provided an incorrect shipping address.",
+    "C": "The order was placed after the production cutoff date.",
+    "D": "The company's warehouse had a system error that held back 50 units."
+  },
+  "answer": "D",
+  "explanation_zh": "答案是D。文本3中公司解释原因：'50 units were mistakenly held at our warehouse due to a system error'（50件因系统错误被扣留在仓库）。A错误，因为货物未被运输中丢失；B错误，地址正确（文本1）；C错误，未提及生产截止日期。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "warehouse",
+    "system error",
+    "held back",
+    "transit"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-037"
+},
+  {
+  "id": "p7-gen-336",
+  "part": "Part 7",
+  "passage": "Text 1: Order Confirmation\nFrom: orders@brightlighting.com\nTo: sarah.chen@greenfieldhotel.com\nDate: March 10, 2024\nSubject: Order #BL-8842 Confirmation\n\nDear Ms. Chen,\n\nThank you for your order. This email confirms your purchase of 200 units of the 'Lumina Pro' LED ceiling light (Model LP-2200) at $45.00 per unit, for a total of $9,000.00. The items are scheduled for delivery by March 25, 2024, to your hotel at 45 Park Avenue, New York, NY 10022. Payment was processed via invoice (INV-7721) due net 30 days. Please review the details and contact us if corrections are needed.\n\nBest regards,\nJames Turner\nCustomer Service Manager\nBright Lighting Inc.\n\nText 2: Follow-up Complaint\nFrom: sarah.chen@greenfieldhotel.com\nTo: support@brightlighting.com\nDate: March 28, 2024\nSubject: Order #BL-8842 – Missing Items and Damage\n\nDear Bright Lighting Team,\n\nWe received a shipment on March 22, 2024, but it was incomplete and had damaged items. Of the 200 'Lumina Pro' units ordered, only 150 were delivered. Additionally, 12 of those 150 units arrived with cracked casings. We need these issues resolved immediately as our hotel renovation is scheduled for completion on April 5, 2024. Please arrange for the missing 50 units and replacements for the damaged ones to be sent by April 1, 2024. We also request a partial refund or credit for the inconvenience.\n\nThank you,\nSarah Chen\nGeneral Manager\nGreenfield Hotel\n\nText 3: Company Resolution\nFrom: james.turner@brightlighting.com\nTo: sarah.chen@greenfieldhotel.com\nDate: March 30, 2024\nSubject: Re: Order #BL-8842 – Resolution\n\nDear Ms. Chen,\n\nWe sincerely apologize for the issues with your order. After reviewing our records, we confirm that 50 units were mistakenly held at our warehouse due to a system error. We have dispatched all 50 missing units via expedited shipping, and they are expected to arrive by April 2, 2024. For the 12 damaged units, we are issuing a full refund of $540.00, which will be credited to your account within 5-7 business days. Additionally, we are waiving the shipping fee for this order. We value your business and hope this resolves the matter.\n\nSincerely,\nJames Turner\nCustomer Service Manager\nBright Lighting Inc.",
+  "question": "What can be inferred about the hotel renovation timeline from Text 2 and Text 3?",
+  "choices": {
+    "A": "The hotel needed the lights by April 5, but the replacement will arrive just before that.",
+    "B": "The renovation deadline was extended due to the shipping delays.",
+    "C": "The renovation was completed before the lights arrived.",
+    "D": "The renovation was postponed indefinitely."
+  },
+  "answer": "A",
+  "explanation_zh": "答案是A。文本2显示酒店装修计划于4月5日完成，并要求4月1日前补发；文本3中补发预计4月2日到达，早于4月5日，因此可推断补发在装修截止前到达。B错误，文本未提及延期；C错误，装修未完成；D错误，未无限期推迟。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B2",
+  "vocabulary": [
+    "timeline",
+    "renovation",
+    "deadline",
+    "replacement"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 4,
+  "passage_group_id": "p7-exp-037"
+},
+  {
+  "id": "p7-gen-337",
+  "part": "Part 7",
+  "passage": "Text 1: Order Confirmation\nFrom: orders@brightlighting.com\nTo: sarah.chen@greenfieldhotel.com\nDate: March 10, 2024\nSubject: Order #BL-8842 Confirmation\n\nDear Ms. Chen,\n\nThank you for your order. This email confirms your purchase of 200 units of the 'Lumina Pro' LED ceiling light (Model LP-2200) at $45.00 per unit, for a total of $9,000.00. The items are scheduled for delivery by March 25, 2024, to your hotel at 45 Park Avenue, New York, NY 10022. Payment was processed via invoice (INV-7721) due net 30 days. Please review the details and contact us if corrections are needed.\n\nBest regards,\nJames Turner\nCustomer Service Manager\nBright Lighting Inc.\n\nText 2: Follow-up Complaint\nFrom: sarah.chen@greenfieldhotel.com\nTo: support@brightlighting.com\nDate: March 28, 2024\nSubject: Order #BL-8842 – Missing Items and Damage\n\nDear Bright Lighting Team,\n\nWe received a shipment on March 22, 2024, but it was incomplete and had damaged items. Of the 200 'Lumina Pro' units ordered, only 150 were delivered. Additionally, 12 of those 150 units arrived with cracked casings. We need these issues resolved immediately as our hotel renovation is scheduled for completion on April 5, 2024. Please arrange for the missing 50 units and replacements for the damaged ones to be sent by April 1, 2024. We also request a partial refund or credit for the inconvenience.\n\nThank you,\nSarah Chen\nGeneral Manager\nGreenfield Hotel\n\nText 3: Company Resolution\nFrom: james.turner@brightlighting.com\nTo: sarah.chen@greenfieldhotel.com\nDate: March 30, 2024\nSubject: Re: Order #BL-8842 – Resolution\n\nDear Ms. Chen,\n\nWe sincerely apologize for the issues with your order. After reviewing our records, we confirm that 50 units were mistakenly held at our warehouse due to a system error. We have dispatched all 50 missing units via expedited shipping, and they are expected to arrive by April 2, 2024. For the 12 damaged units, we are issuing a full refund of $540.00, which will be credited to your account within 5-7 business days. Additionally, we are waiving the shipping fee for this order. We value your business and hope this resolves the matter.\n\nSincerely,\nJames Turner\nCustomer Service Manager\nBright Lighting Inc.",
+  "question": "How does the refund amount mentioned in Text 3 relate to the information in Text 1?",
+  "choices": {
+    "A": "The refund is for the total amount of the order.",
+    "B": "The refund is equal to the cost of 12 damaged units at the unit price in Text 1.",
+    "C": "The refund is half the value of the missing items.",
+    "D": "The refund includes additional compensation beyond the damaged units."
+  },
+  "answer": "B",
+  "explanation_zh": "答案是B。文本1中单价为$45.00，12件损坏品总价为$540.00（12 × $45 = $540），与文本3的退款金额一致。A错误，退款不是全额；C错误，不是缺失件的一半；D错误，未包含额外补偿。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "refund amount",
+    "unit price",
+    "relate to",
+    "compensation"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 5,
+  "passage_group_id": "p7-exp-037"
+},
+  {
+  "id": "p7-gen-338",
+  "part": "Part 7",
+  "passage": "Text 1\nFrom: orders@northpeak.com\nTo: jane.chen@brightway.com\nSubject: Order Confirmation #NP-7841\n\nDear Ms. Chen,\n\nThank you for your order of 150 units of the NP-3000 Wireless Mouse (Model #WM-230), placed on March 10, 2025. This confirms that your order has been processed and is scheduled for shipment within 3-5 business days. The estimated delivery date is March 18, 2025.\n\nYour shipping address: Brightway Office Supplies, 42 Oak Avenue, Suite 300, Portland, OR 97201.\n\nIf you have any questions regarding this order, please contact our customer service team at support@northpeak.com or call 1-800-555-0199.\n\nBest regards,\nOliver Grant\nOrder Fulfillment Team\nNorthPeak Electronics\n\nText 2\nFrom: jane.chen@brightway.com\nTo: support@northpeak.com\nSubject: Inquiry about Order #NP-7841\n\nDear NorthPeak Support,\n\nI am writing regarding order #NP-7841 for 150 units of the NP-3000 Wireless Mouse. According to your confirmation email, the shipment was scheduled for delivery on March 18. However, as of March 20, we have received only 120 units. The missing 30 units have not arrived, and we urgently need them for a client project.\n\nCould you please check the status of the remaining items and arrange for immediate shipment? Please confirm the expected delivery date for the missing units.\n\nThank you for your prompt assistance.\n\nSincerely,\nJane Chen\nProcurement Manager\nBrightway Office Supplies\n\nText 3\nFrom: oliver.grant@northpeak.com\nTo: jane.chen@brightway.com\nSubject: Re: Inquiry about Order #NP-7841\n\nDear Ms. Chen,\n\nThank you for reaching out. We apologize for the inconvenience regarding your order #NP-7841.\n\nAfter reviewing our records, we found that the initial shipment of 150 units was split into two batches due to a warehouse error. The first batch of 120 units was dispatched on March 12 and delivered as scheduled. The second batch of 30 units was delayed due to a labeling mistake and was only shipped on March 19. The tracking number for this batch is NP-TRK-8823.\n\nWe expect the second batch to arrive at your address by March 22. Please accept our sincere apologies for the delay. We have also issued a 10% discount on your next order as compensation.\n\nIf you have any further questions, please let us know.\n\nBest regards,\nOliver Grant\nCustomer Service Manager\nNorthPeak Electronics",
+  "question": "What is the main issue described in the correspondence?",
+  "choices": {
+    "A": "The entire order of 150 wireless mice was canceled due to a warehouse error.",
+    "B": "The customer mistakenly ordered 150 units instead of 120 units.",
+    "C": "A partial shipment of an order was delayed, and the customer is seeking resolution.",
+    "D": "The delivery address for the order was incorrect, causing a delay."
+  },
+  "answer": "C",
+  "explanation_zh": "答案是C。信件中，Jane Chen在Text 2中反映只收到120台，缺少30台，而Oliver Grant在Text 3中解釋這是因為倉庫錯誤導致訂單被分為兩批，第二批延遲出貨。因此，主要問題是部分貨物延遲，客戶正在尋求解決方案。選項A（整批取消）錯誤，因為訂單並未被取消；選項B（客戶誤訂）錯誤，因為客戶訂購的是150台；選項D（地址錯誤）錯誤，因為延遲原因是標籤錯誤，而非地址問題。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B2",
+  "vocabulary": [
+    "batch",
+    "dispatched",
+    "labeling",
+    "compensation"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-038"
+},
+  {
+  "id": "p7-gen-339",
+  "part": "Part 7",
+  "passage": "Text 1\nFrom: orders@northpeak.com\nTo: jane.chen@brightway.com\nSubject: Order Confirmation #NP-7841\n\nDear Ms. Chen,\n\nThank you for your order of 150 units of the NP-3000 Wireless Mouse (Model #WM-230), placed on March 10, 2025. This confirms that your order has been processed and is scheduled for shipment within 3-5 business days. The estimated delivery date is March 18, 2025.\n\nYour shipping address: Brightway Office Supplies, 42 Oak Avenue, Suite 300, Portland, OR 97201.\n\nIf you have any questions regarding this order, please contact our customer service team at support@northpeak.com or call 1-800-555-0199.\n\nBest regards,\nOliver Grant\nOrder Fulfillment Team\nNorthPeak Electronics\n\nText 2\nFrom: jane.chen@brightway.com\nTo: support@northpeak.com\nSubject: Inquiry about Order #NP-7841\n\nDear NorthPeak Support,\n\nI am writing regarding order #NP-7841 for 150 units of the NP-3000 Wireless Mouse. According to your confirmation email, the shipment was scheduled for delivery on March 18. However, as of March 20, we have received only 120 units. The missing 30 units have not arrived, and we urgently need them for a client project.\n\nCould you please check the status of the remaining items and arrange for immediate shipment? Please confirm the expected delivery date for the missing units.\n\nThank you for your prompt assistance.\n\nSincerely,\nJane Chen\nProcurement Manager\nBrightway Office Supplies\n\nText 3\nFrom: oliver.grant@northpeak.com\nTo: jane.chen@brightway.com\nSubject: Re: Inquiry about Order #NP-7841\n\nDear Ms. Chen,\n\nThank you for reaching out. We apologize for the inconvenience regarding your order #NP-7841.\n\nAfter reviewing our records, we found that the initial shipment of 150 units was split into two batches due to a warehouse error. The first batch of 120 units was dispatched on March 12 and delivered as scheduled. The second batch of 30 units was delayed due to a labeling mistake and was only shipped on March 19. The tracking number for this batch is NP-TRK-8823.\n\nWe expect the second batch to arrive at your address by March 22. Please accept our sincere apologies for the delay. We have also issued a 10% discount on your next order as compensation.\n\nIf you have any further questions, please let us know.\n\nBest regards,\nOliver Grant\nCustomer Service Manager\nNorthPeak Electronics",
+  "question": "According to Text 1, what is the estimated delivery date for the original order?",
+  "choices": {
+    "A": "March 12, 2025",
+    "B": "March 22, 2025",
+    "C": "March 19, 2025",
+    "D": "March 18, 2025"
+  },
+  "answer": "D",
+  "explanation_zh": "答案是D。Text 1明確指出：「The estimated delivery date is March 18, 2025.」因此原始訂單的預計送達日期是2025年3月18日。選項A（3月12日）是第一批貨物的出貨日期；選項B（3月22日）是第二批貨物的預計送達日期；選項C（3月19日）是第二批貨物的出貨日期。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "estimated",
+    "scheduled",
+    "processed",
+    "shipment"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-038"
+},
+  {
+  "id": "p7-gen-340",
+  "part": "Part 7",
+  "passage": "Text 1\nFrom: orders@northpeak.com\nTo: jane.chen@brightway.com\nSubject: Order Confirmation #NP-7841\n\nDear Ms. Chen,\n\nThank you for your order of 150 units of the NP-3000 Wireless Mouse (Model #WM-230), placed on March 10, 2025. This confirms that your order has been processed and is scheduled for shipment within 3-5 business days. The estimated delivery date is March 18, 2025.\n\nYour shipping address: Brightway Office Supplies, 42 Oak Avenue, Suite 300, Portland, OR 97201.\n\nIf you have any questions regarding this order, please contact our customer service team at support@northpeak.com or call 1-800-555-0199.\n\nBest regards,\nOliver Grant\nOrder Fulfillment Team\nNorthPeak Electronics\n\nText 2\nFrom: jane.chen@brightway.com\nTo: support@northpeak.com\nSubject: Inquiry about Order #NP-7841\n\nDear NorthPeak Support,\n\nI am writing regarding order #NP-7841 for 150 units of the NP-3000 Wireless Mouse. According to your confirmation email, the shipment was scheduled for delivery on March 18. However, as of March 20, we have received only 120 units. The missing 30 units have not arrived, and we urgently need them for a client project.\n\nCould you please check the status of the remaining items and arrange for immediate shipment? Please confirm the expected delivery date for the missing units.\n\nThank you for your prompt assistance.\n\nSincerely,\nJane Chen\nProcurement Manager\nBrightway Office Supplies\n\nText 3\nFrom: oliver.grant@northpeak.com\nTo: jane.chen@brightway.com\nSubject: Re: Inquiry about Order #NP-7841\n\nDear Ms. Chen,\n\nThank you for reaching out. We apologize for the inconvenience regarding your order #NP-7841.\n\nAfter reviewing our records, we found that the initial shipment of 150 units was split into two batches due to a warehouse error. The first batch of 120 units was dispatched on March 12 and delivered as scheduled. The second batch of 30 units was delayed due to a labeling mistake and was only shipped on March 19. The tracking number for this batch is NP-TRK-8823.\n\nWe expect the second batch to arrive at your address by March 22. Please accept our sincere apologies for the delay. We have also issued a 10% discount on your next order as compensation.\n\nIf you have any further questions, please let us know.\n\nBest regards,\nOliver Grant\nCustomer Service Manager\nNorthPeak Electronics",
+  "question": "According to Text 3, what caused the delay of the second batch?",
+  "choices": {
+    "A": "A labeling mistake occurred in the warehouse.",
+    "B": "The shipping address was incorrectly printed on the label.",
+    "C": "The warehouse had insufficient stock of the wireless mouse.",
+    "D": "The order was placed after the shipment deadline."
+  },
+  "answer": "A",
+  "explanation_zh": "答案是A。Text 3中Oliver Grant說明：「The second batch of 30 units was delayed due to a labeling mistake and was only shipped on March 19.」因此延遲原因是倉庫的標籤錯誤。選項B（地址印錯）錯誤，文中僅提到標籤錯誤，未具體說明是地址；選項C（庫存不足）錯誤，文中未提及；選項D（訂單超過截止日期）錯誤，文中未提及。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "labeling",
+    "batch",
+    "dispatched",
+    "warehouse"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-038"
+},
+  {
+  "id": "p7-gen-341",
+  "part": "Part 7",
+  "passage": "Text 1\nFrom: orders@northpeak.com\nTo: jane.chen@brightway.com\nSubject: Order Confirmation #NP-7841\n\nDear Ms. Chen,\n\nThank you for your order of 150 units of the NP-3000 Wireless Mouse (Model #WM-230), placed on March 10, 2025. This confirms that your order has been processed and is scheduled for shipment within 3-5 business days. The estimated delivery date is March 18, 2025.\n\nYour shipping address: Brightway Office Supplies, 42 Oak Avenue, Suite 300, Portland, OR 97201.\n\nIf you have any questions regarding this order, please contact our customer service team at support@northpeak.com or call 1-800-555-0199.\n\nBest regards,\nOliver Grant\nOrder Fulfillment Team\nNorthPeak Electronics\n\nText 2\nFrom: jane.chen@brightway.com\nTo: support@northpeak.com\nSubject: Inquiry about Order #NP-7841\n\nDear NorthPeak Support,\n\nI am writing regarding order #NP-7841 for 150 units of the NP-3000 Wireless Mouse. According to your confirmation email, the shipment was scheduled for delivery on March 18. However, as of March 20, we have received only 120 units. The missing 30 units have not arrived, and we urgently need them for a client project.\n\nCould you please check the status of the remaining items and arrange for immediate shipment? Please confirm the expected delivery date for the missing units.\n\nThank you for your prompt assistance.\n\nSincerely,\nJane Chen\nProcurement Manager\nBrightway Office Supplies\n\nText 3\nFrom: oliver.grant@northpeak.com\nTo: jane.chen@brightway.com\nSubject: Re: Inquiry about Order #NP-7841\n\nDear Ms. Chen,\n\nThank you for reaching out. We apologize for the inconvenience regarding your order #NP-7841.\n\nAfter reviewing our records, we found that the initial shipment of 150 units was split into two batches due to a warehouse error. The first batch of 120 units was dispatched on March 12 and delivered as scheduled. The second batch of 30 units was delayed due to a labeling mistake and was only shipped on March 19. The tracking number for this batch is NP-TRK-8823.\n\nWe expect the second batch to arrive at your address by March 22. Please accept our sincere apologies for the delay. We have also issued a 10% discount on your next order as compensation.\n\nIf you have any further questions, please let us know.\n\nBest regards,\nOliver Grant\nCustomer Service Manager\nNorthPeak Electronics",
+  "question": "What can be inferred about the shipment of the first 120 units?",
+  "choices": {
+    "A": "It was shipped later than the original schedule.",
+    "B": "It was delivered on time according to the original estimate.",
+    "C": "It was sent to the wrong address.",
+    "D": "It included a tracking number that was not provided."
+  },
+  "answer": "B",
+  "explanation_zh": "答案是B。Text 1指出訂單預計在3月18日送達，而Text 3提到第一批120台在3月12日出貨並按時送達（「dispatched on March 12 and delivered as scheduled」），因此可推斷第一批貨物按原定時間送達。選項A（比原定時間晚）錯誤；選項C（寄錯地址）錯誤；選項D（未提供追蹤號碼）錯誤，文中未提及第一批的追蹤號碼。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B2",
+  "vocabulary": [
+    "inferred",
+    "as scheduled",
+    "dispatched",
+    "estimate"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 4,
+  "passage_group_id": "p7-exp-038"
+},
+  {
+  "id": "p7-gen-342",
+  "part": "Part 7",
+  "passage": "Text 1\nFrom: orders@northpeak.com\nTo: jane.chen@brightway.com\nSubject: Order Confirmation #NP-7841\n\nDear Ms. Chen,\n\nThank you for your order of 150 units of the NP-3000 Wireless Mouse (Model #WM-230), placed on March 10, 2025. This confirms that your order has been processed and is scheduled for shipment within 3-5 business days. The estimated delivery date is March 18, 2025.\n\nYour shipping address: Brightway Office Supplies, 42 Oak Avenue, Suite 300, Portland, OR 97201.\n\nIf you have any questions regarding this order, please contact our customer service team at support@northpeak.com or call 1-800-555-0199.\n\nBest regards,\nOliver Grant\nOrder Fulfillment Team\nNorthPeak Electronics\n\nText 2\nFrom: jane.chen@brightway.com\nTo: support@northpeak.com\nSubject: Inquiry about Order #NP-7841\n\nDear NorthPeak Support,\n\nI am writing regarding order #NP-7841 for 150 units of the NP-3000 Wireless Mouse. According to your confirmation email, the shipment was scheduled for delivery on March 18. However, as of March 20, we have received only 120 units. The missing 30 units have not arrived, and we urgently need them for a client project.\n\nCould you please check the status of the remaining items and arrange for immediate shipment? Please confirm the expected delivery date for the missing units.\n\nThank you for your prompt assistance.\n\nSincerely,\nJane Chen\nProcurement Manager\nBrightway Office Supplies\n\nText 3\nFrom: oliver.grant@northpeak.com\nTo: jane.chen@brightway.com\nSubject: Re: Inquiry about Order #NP-7841\n\nDear Ms. Chen,\n\nThank you for reaching out. We apologize for the inconvenience regarding your order #NP-7841.\n\nAfter reviewing our records, we found that the initial shipment of 150 units was split into two batches due to a warehouse error. The first batch of 120 units was dispatched on March 12 and delivered as scheduled. The second batch of 30 units was delayed due to a labeling mistake and was only shipped on March 19. The tracking number for this batch is NP-TRK-8823.\n\nWe expect the second batch to arrive at your address by March 22. Please accept our sincere apologies for the delay. We have also issued a 10% discount on your next order as compensation.\n\nIf you have any further questions, please let us know.\n\nBest regards,\nOliver Grant\nCustomer Service Manager\nNorthPeak Electronics",
+  "question": "How does the compensation offered in Text 3 relate to the customer's request in Text 2?",
+  "choices": {
+    "A": "The customer requested a discount, and the company granted it.",
+    "B": "The customer asked for an explanation, and the company provided it without compensation.",
+    "C": "The company offered a discount proactively, even though the customer did not ask for one.",
+    "D": "The customer demanded a full refund, but the company only offered a discount."
+  },
+  "answer": "C",
+  "explanation_zh": "答案是C。Text 2中Jane Chen僅要求檢查剩餘貨物狀態並安排立即出貨，並未要求折扣或賠償。而Text 3中Oliver Grant主動提供下次訂單10%折扣作為補償。因此，公司是主動提供折扣，客戶並未要求。選項A（客戶要求折扣）錯誤；選項B（公司僅提供解釋無補償）錯誤，因為公司提供了折扣；選項D（客戶要求全額退款）錯誤，客戶並未要求退款。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "compensation",
+    "proactively",
+    "discount",
+    "inquiry"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 5,
+  "passage_group_id": "p7-exp-038"
+},
+  {
+  "id": "p7-gen-343",
+  "part": "Part 7",
+  "passage": "We are seeking an experienced Digital Marketing Specialist to join our growing team at NovaTech Solutions. The ideal candidate will have at least 3 years of proven experience in managing PPC campaigns and SEO strategies. Responsibilities include optimizing online advertising budgets, analyzing web traffic data, and collaborating with content teams to improve organic search rankings. Proficiency in Google Analytics and AdWords is required. A bachelor's degree in Marketing or a related field is preferred. We offer a competitive salary, health benefits, and opportunities for professional development. To apply, please send your resume and a cover letter highlighting your relevant experience to careers@novatech.com by August 15, 2024.\n\nDear Hiring Manager,\n\nI am writing to express my strong interest in the Digital Marketing Specialist position at NovaTech Solutions, as advertised on your company website. With over four years of experience in digital marketing, I have successfully managed PPC campaigns across multiple platforms and developed SEO strategies that increased organic traffic by 40% at my previous company. I am proficient in Google Analytics and AdWords, and I hold a Bachelor's degree in Business Administration with a focus on Marketing. I am eager to bring my skills to NovaTech and help drive your online presence. Please find my resume attached. I look forward to the opportunity to discuss my application further. Thank you for your time and consideration.\n\nSincerely,\nAlex Chen",
+  "question": "What is the main purpose of the job posting?",
+  "choices": {
+    "A": "To announce a new marketing campaign",
+    "B": "To describe the company's history",
+    "C": "To provide tips for PPC management",
+    "D": "To advertise an open position and invite applications"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為(D)。求職公告的主要目的是招募人才，文中明確寫道「We are seeking an experienced Digital Marketing Specialist...To apply, please send your resume...」，因此(D)「廣告一個職缺並邀請申請」正確。(A)宣布新行銷活動、(B)描述公司歷史、(C)提供PPC管理技巧，均非公告主旨。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B2",
+  "vocabulary": [
+    "seeking",
+    "experienced",
+    "specialist",
+    "proficiency"
+  ],
+  "passage_group_type": "double",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-039"
+},
+  {
+  "id": "p7-gen-344",
+  "part": "Part 7",
+  "passage": "We are seeking an experienced Digital Marketing Specialist to join our growing team at NovaTech Solutions. The ideal candidate will have at least 3 years of proven experience in managing PPC campaigns and SEO strategies. Responsibilities include optimizing online advertising budgets, analyzing web traffic data, and collaborating with content teams to improve organic search rankings. Proficiency in Google Analytics and AdWords is required. A bachelor's degree in Marketing or a related field is preferred. We offer a competitive salary, health benefits, and opportunities for professional development. To apply, please send your resume and a cover letter highlighting your relevant experience to careers@novatech.com by August 15, 2024.\n\nDear Hiring Manager,\n\nI am writing to express my strong interest in the Digital Marketing Specialist position at NovaTech Solutions, as advertised on your company website. With over four years of experience in digital marketing, I have successfully managed PPC campaigns across multiple platforms and developed SEO strategies that increased organic traffic by 40% at my previous company. I am proficient in Google Analytics and AdWords, and I hold a Bachelor's degree in Business Administration with a focus on Marketing. I am eager to bring my skills to NovaTech and help drive your online presence. Please find my resume attached. I look forward to the opportunity to discuss my application further. Thank you for your time and consideration.\n\nSincerely,\nAlex Chen",
+  "question": "According to the job posting, what is one of the responsibilities of the position?",
+  "choices": {
+    "A": "Optimizing online advertising budgets",
+    "B": "Managing customer service inquiries",
+    "C": "Designing company logos",
+    "D": "Writing product descriptions"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為(A)。工作職責中明確列出「Responsibilities include optimizing online advertising budgets」，因此(A)「優化線上廣告預算」正確。(B)管理客服詢問、(C)設計公司標誌、(D)撰寫產品描述，文中均未提及。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "optimizing",
+    "budgets",
+    "responsibilities",
+    "collaborating"
+  ],
+  "passage_group_type": "double",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-039"
+},
+  {
+  "id": "p7-gen-345",
+  "part": "Part 7",
+  "passage": "We are seeking an experienced Digital Marketing Specialist to join our growing team at NovaTech Solutions. The ideal candidate will have at least 3 years of proven experience in managing PPC campaigns and SEO strategies. Responsibilities include optimizing online advertising budgets, analyzing web traffic data, and collaborating with content teams to improve organic search rankings. Proficiency in Google Analytics and AdWords is required. A bachelor's degree in Marketing or a related field is preferred. We offer a competitive salary, health benefits, and opportunities for professional development. To apply, please send your resume and a cover letter highlighting your relevant experience to careers@novatech.com by August 15, 2024.\n\nDear Hiring Manager,\n\nI am writing to express my strong interest in the Digital Marketing Specialist position at NovaTech Solutions, as advertised on your company website. With over four years of experience in digital marketing, I have successfully managed PPC campaigns across multiple platforms and developed SEO strategies that increased organic traffic by 40% at my previous company. I am proficient in Google Analytics and AdWords, and I hold a Bachelor's degree in Business Administration with a focus on Marketing. I am eager to bring my skills to NovaTech and help drive your online presence. Please find my resume attached. I look forward to the opportunity to discuss my application further. Thank you for your time and consideration.\n\nSincerely,\nAlex Chen",
+  "question": "Which requirement from the job posting is directly addressed in the applicant's cover letter?",
+  "choices": {
+    "A": "A bachelor's degree in Marketing",
+    "B": "At least 3 years of experience in PPC and SEO",
+    "C": "Knowledge of social media trends",
+    "D": "Experience with email marketing"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為(B)。求職公告要求「at least 3 years of proven experience in managing PPC campaigns and SEO strategies」，而求職信提到「With over four years of experience...successfully managed PPC campaigns...developed SEO strategies」，直接回應了此要求，故(B)正確。(A)學位要求為「preferred」而非強制，且求職者學位為Business Administration，非Marketing；(C)社交媒體趨勢、(D)電子郵件行銷經驗，文中均未提及。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "addressed",
+    "requirement",
+    "applicant",
+    "cover letter"
+  ],
+  "passage_group_type": "double",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-039"
+},
+  {
+  "id": "p7-gen-346",
+  "part": "Part 7",
+  "passage": "We are seeking an experienced Digital Marketing Specialist to join our growing team at NovaTech Solutions. The ideal candidate will have at least 3 years of proven experience in managing PPC campaigns and SEO strategies. Responsibilities include optimizing online advertising budgets, analyzing web traffic data, and collaborating with content teams to improve organic search rankings. Proficiency in Google Analytics and AdWords is required. A bachelor's degree in Marketing or a related field is preferred. We offer a competitive salary, health benefits, and opportunities for professional development. To apply, please send your resume and a cover letter highlighting your relevant experience to careers@novatech.com by August 15, 2024.\n\nDear Hiring Manager,\n\nI am writing to express my strong interest in the Digital Marketing Specialist position at NovaTech Solutions, as advertised on your company website. With over four years of experience in digital marketing, I have successfully managed PPC campaigns across multiple platforms and developed SEO strategies that increased organic traffic by 40% at my previous company. I am proficient in Google Analytics and AdWords, and I hold a Bachelor's degree in Business Administration with a focus on Marketing. I am eager to bring my skills to NovaTech and help drive your online presence. Please find my resume attached. I look forward to the opportunity to discuss my application further. Thank you for your time and consideration.\n\nSincerely,\nAlex Chen",
+  "question": "What can be inferred about the applicant's qualifications based on the cover letter?",
+  "choices": {
+    "A": "The applicant has exactly 3 years of experience",
+    "B": "The applicant's degree is in Marketing, as preferred",
+    "C": "The applicant has more experience than the minimum required",
+    "D": "The applicant has no experience with Google Analytics"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為(C)。求職信開頭即說「With over four years of experience」，而公告最低要求為3年，因此可推斷求職者經驗超過最低要求，故(C)正確。(A)求職者經驗超過3年，非正好3年；(B)求職者學位為Business Administration，非Marketing；(D)求職者明確表示「proficient in Google Analytics」，故不正確。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B2",
+  "vocabulary": [
+    "inferred",
+    "qualifications",
+    "minimum",
+    "proficient"
+  ],
+  "passage_group_type": "double",
+  "question_order": 4,
+  "passage_group_id": "p7-exp-039"
+},
+  {
+  "id": "p7-gen-347",
+  "part": "Part 7",
+  "passage": "We are seeking an experienced Digital Marketing Specialist to join our growing team at NovaTech Solutions. The ideal candidate will have at least 3 years of proven experience in managing PPC campaigns and SEO strategies. Responsibilities include optimizing online advertising budgets, analyzing web traffic data, and collaborating with content teams to improve organic search rankings. Proficiency in Google Analytics and AdWords is required. A bachelor's degree in Marketing or a related field is preferred. We offer a competitive salary, health benefits, and opportunities for professional development. To apply, please send your resume and a cover letter highlighting your relevant experience to careers@novatech.com by August 15, 2024.\n\nDear Hiring Manager,\n\nI am writing to express my strong interest in the Digital Marketing Specialist position at NovaTech Solutions, as advertised on your company website. With over four years of experience in digital marketing, I have successfully managed PPC campaigns across multiple platforms and developed SEO strategies that increased organic traffic by 40% at my previous company. I am proficient in Google Analytics and AdWords, and I hold a Bachelor's degree in Business Administration with a focus on Marketing. I am eager to bring my skills to NovaTech and help drive your online presence. Please find my resume attached. I look forward to the opportunity to discuss my application further. Thank you for your time and consideration.\n\nSincerely,\nAlex Chen",
+  "question": "Based on the job posting and cover letter, which of the following statements is most accurate?",
+  "choices": {
+    "A": "The job posting requires a degree in Marketing, which the applicant has",
+    "B": "The applicant applied for a different position",
+    "C": "The application deadline has already passed",
+    "D": "The applicant's experience in SEO meets the job's requirements"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為(D)。求職公告要求SEO策略經驗，求職信則提到「developed SEO strategies that increased organic traffic by 40%」，證明其SEO經驗符合要求，故(D)正確。(A)公告偏好Marketing學位，但求職者學位為Business Administration，不符；(B)求職者明確應徵Digital Marketing Specialist職位；(C)截止日期為2024年8月15日，文中未提及已過期。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "accurate",
+    "requirements",
+    "deadline",
+    "application"
+  ],
+  "passage_group_type": "double",
+  "question_order": 5,
+  "passage_group_id": "p7-exp-039"
+},
+  {
+  "id": "p7-gen-348",
+  "part": "Part 7",
+  "passage": "Text 1: Initial Order Confirmation\nFrom: orders@primeoffice.com\nTo: j.wilson@brightsolutions.com\nSubject: Order Confirmation #PO-4821\nDate: February 12, 2025\n\nDear Mr. Wilson,\n\nThank you for your order placed on February 10, 2025. This email confirms your purchase of the following items:\n- 15 units of Model A4 Laser Printers (Item #LP-204) at $299 each\n- 20 units of Model X7 Office Chairs (Item #OC-102) at $189 each\n- 5 units of Model D3 Document Shredders (Item #DS-009) at $89 each\n\nYour order total is $8,365.00, including shipping and handling. Estimated delivery date: February 20, 2025. The items will be shipped to your office at 123 Business Park Drive, Suite 400, Springfield.\n\nIf you have any questions, please contact our customer service team at support@primeoffice.com.\n\nBest regards,\nSarah Mitchell\nOrder Processing Department\nPrimeOffice Supplies\n\nText 2: Follow-up Complaint\nFrom: j.wilson@brightsolutions.com\nTo: support@primeoffice.com\nSubject: Order #PO-4821 – Missing Items\nDate: February 22, 2025\n\nDear PrimeOffice Team,\n\nI am writing to report a problem with my recent order (PO-4821). The package arrived on February 21, 2025, but it contained only 10 office chairs instead of the 20 I ordered. All 15 printers and 5 shredders were delivered correctly. However, the chairs that arrived are Model Y2 (Item #OC-115), not the Model X7 I requested. I need the correct chairs as soon as possible for my office setup.\n\nPlease advise on how you will resolve this issue. I expect either a full replacement of the missing and incorrect chairs or a refund for the chair portion of my order.\n\nThank you,\nJames Wilson\nBright Solutions Inc.\n\nText 3: Resolution Reply\nFrom: support@primeoffice.com\nTo: j.wilson@brightsolutions.com\nSubject: Resolution for Order #PO-4821\nDate: February 24, 2025\n\nDear Mr. Wilson,\n\nThank you for contacting us regarding order PO-4821. We sincerely apologize for the error. After investigating, we found that our warehouse mistakenly sent 10 units of Model Y2 chairs instead of the correct Model X7. The remaining 10 chairs were not shipped due to a counting error.\n\nTo resolve this, we will:\n1. Ship 20 correct Model X7 chairs (Item #OC-102) to you at no extra cost. They will arrive by March 2, 2025.\n2. Arrange a pickup for the incorrect Model Y2 chairs on February 26, 2025. You do not need to return them before the new ones arrive.\n3. Issue a 15% discount on your next order as compensation.\n\nWe appreciate your patience and hope to restore your confidence in our service. If you have any further concerns, please reach out.\n\nSincerely,\nMaria Chen\nCustomer Service Manager\nPrimeOffice Supplies",
+  "question": "What is the main issue described across these three texts?",
+  "choices": {
+    "A": "The customer received incorrect and incomplete chair items.",
+    "B": "The delivery of printers was delayed by two weeks.",
+    "C": "The customer ordered the wrong model of office chairs.",
+    "D": "The company overcharged for the shredders in the order."
+  },
+  "answer": "A",
+  "explanation_zh": "正確答案為 A。三封郵件描述了客戶 James Wilson 訂購了 20 張 Model X7 辦公椅，但實際收到的是 10 張錯誤型號的 Model Y2 椅子，且數量不足。這正是「收到不正確且不完整的椅子」的問題。選項 B 的印表機延遲、C 的客戶訂錯型號、D 的碎紙機超收費用，均未在文中提及。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B2",
+  "vocabulary": [
+    "confirmation",
+    "complaint",
+    "resolution",
+    "compensation"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-040"
+},
+  {
+  "id": "p7-gen-349",
+  "part": "Part 7",
+  "passage": "Text 1: Initial Order Confirmation\nFrom: orders@primeoffice.com\nTo: j.wilson@brightsolutions.com\nSubject: Order Confirmation #PO-4821\nDate: February 12, 2025\n\nDear Mr. Wilson,\n\nThank you for your order placed on February 10, 2025. This email confirms your purchase of the following items:\n- 15 units of Model A4 Laser Printers (Item #LP-204) at $299 each\n- 20 units of Model X7 Office Chairs (Item #OC-102) at $189 each\n- 5 units of Model D3 Document Shredders (Item #DS-009) at $89 each\n\nYour order total is $8,365.00, including shipping and handling. Estimated delivery date: February 20, 2025. The items will be shipped to your office at 123 Business Park Drive, Suite 400, Springfield.\n\nIf you have any questions, please contact our customer service team at support@primeoffice.com.\n\nBest regards,\nSarah Mitchell\nOrder Processing Department\nPrimeOffice Supplies\n\nText 2: Follow-up Complaint\nFrom: j.wilson@brightsolutions.com\nTo: support@primeoffice.com\nSubject: Order #PO-4821 – Missing Items\nDate: February 22, 2025\n\nDear PrimeOffice Team,\n\nI am writing to report a problem with my recent order (PO-4821). The package arrived on February 21, 2025, but it contained only 10 office chairs instead of the 20 I ordered. All 15 printers and 5 shredders were delivered correctly. However, the chairs that arrived are Model Y2 (Item #OC-115), not the Model X7 I requested. I need the correct chairs as soon as possible for my office setup.\n\nPlease advise on how you will resolve this issue. I expect either a full replacement of the missing and incorrect chairs or a refund for the chair portion of my order.\n\nThank you,\nJames Wilson\nBright Solutions Inc.\n\nText 3: Resolution Reply\nFrom: support@primeoffice.com\nTo: j.wilson@brightsolutions.com\nSubject: Resolution for Order #PO-4821\nDate: February 24, 2025\n\nDear Mr. Wilson,\n\nThank you for contacting us regarding order PO-4821. We sincerely apologize for the error. After investigating, we found that our warehouse mistakenly sent 10 units of Model Y2 chairs instead of the correct Model X7. The remaining 10 chairs were not shipped due to a counting error.\n\nTo resolve this, we will:\n1. Ship 20 correct Model X7 chairs (Item #OC-102) to you at no extra cost. They will arrive by March 2, 2025.\n2. Arrange a pickup for the incorrect Model Y2 chairs on February 26, 2025. You do not need to return them before the new ones arrive.\n3. Issue a 15% discount on your next order as compensation.\n\nWe appreciate your patience and hope to restore your confidence in our service. If you have any further concerns, please reach out.\n\nSincerely,\nMaria Chen\nCustomer Service Manager\nPrimeOffice Supplies",
+  "question": "According to the first email, what was the total cost of the order placed by James Wilson?",
+  "choices": {
+    "A": "$8,265.00",
+    "B": "$8,365.00",
+    "C": "$8,500.00",
+    "D": "$7,980.00"
+  },
+  "answer": "B",
+  "explanation_zh": "正確答案為 B。第一封郵件明確指出訂單總額為 $8,365.00，包含運費和手續費。選項 A 的 $8,265.00、C 的 $8,500.00、D 的 $7,980.00 均與原文不符。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "confirmation",
+    "total",
+    "shipping",
+    "handling"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-040"
+},
+  {
+  "id": "p7-gen-350",
+  "part": "Part 7",
+  "passage": "Text 1: Initial Order Confirmation\nFrom: orders@primeoffice.com\nTo: j.wilson@brightsolutions.com\nSubject: Order Confirmation #PO-4821\nDate: February 12, 2025\n\nDear Mr. Wilson,\n\nThank you for your order placed on February 10, 2025. This email confirms your purchase of the following items:\n- 15 units of Model A4 Laser Printers (Item #LP-204) at $299 each\n- 20 units of Model X7 Office Chairs (Item #OC-102) at $189 each\n- 5 units of Model D3 Document Shredders (Item #DS-009) at $89 each\n\nYour order total is $8,365.00, including shipping and handling. Estimated delivery date: February 20, 2025. The items will be shipped to your office at 123 Business Park Drive, Suite 400, Springfield.\n\nIf you have any questions, please contact our customer service team at support@primeoffice.com.\n\nBest regards,\nSarah Mitchell\nOrder Processing Department\nPrimeOffice Supplies\n\nText 2: Follow-up Complaint\nFrom: j.wilson@brightsolutions.com\nTo: support@primeoffice.com\nSubject: Order #PO-4821 – Missing Items\nDate: February 22, 2025\n\nDear PrimeOffice Team,\n\nI am writing to report a problem with my recent order (PO-4821). The package arrived on February 21, 2025, but it contained only 10 office chairs instead of the 20 I ordered. All 15 printers and 5 shredders were delivered correctly. However, the chairs that arrived are Model Y2 (Item #OC-115), not the Model X7 I requested. I need the correct chairs as soon as possible for my office setup.\n\nPlease advise on how you will resolve this issue. I expect either a full replacement of the missing and incorrect chairs or a refund for the chair portion of my order.\n\nThank you,\nJames Wilson\nBright Solutions Inc.\n\nText 3: Resolution Reply\nFrom: support@primeoffice.com\nTo: j.wilson@brightsolutions.com\nSubject: Resolution for Order #PO-4821\nDate: February 24, 2025\n\nDear Mr. Wilson,\n\nThank you for contacting us regarding order PO-4821. We sincerely apologize for the error. After investigating, we found that our warehouse mistakenly sent 10 units of Model Y2 chairs instead of the correct Model X7. The remaining 10 chairs were not shipped due to a counting error.\n\nTo resolve this, we will:\n1. Ship 20 correct Model X7 chairs (Item #OC-102) to you at no extra cost. They will arrive by March 2, 2025.\n2. Arrange a pickup for the incorrect Model Y2 chairs on February 26, 2025. You do not need to return them before the new ones arrive.\n3. Issue a 15% discount on your next order as compensation.\n\nWe appreciate your patience and hope to restore your confidence in our service. If you have any further concerns, please reach out.\n\nSincerely,\nMaria Chen\nCustomer Service Manager\nPrimeOffice Supplies",
+  "question": "In the complaint email, what does James Wilson say about the printers and shredders?",
+  "choices": {
+    "A": "They were damaged during shipping.",
+    "B": "They were delivered on time but missing parts.",
+    "C": "They were delivered correctly without issues.",
+    "D": "They were not included in the package."
+  },
+  "answer": "C",
+  "explanation_zh": "正確答案為 C。在投訴郵件中，James Wilson 寫道：「All 15 printers and 5 shredders were delivered correctly.」表示印表機和碎紙機都正確送達，沒有問題。選項 A 的運送損壞、B 的零件缺失、D 的未包含在包裹中，均與原文相反。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "complaint",
+    "delivered",
+    "correctly",
+    "missing"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-040"
+},
+  {
+  "id": "p7-gen-351",
+  "part": "Part 7",
+  "passage": "Text 1: Initial Order Confirmation\nFrom: orders@primeoffice.com\nTo: j.wilson@brightsolutions.com\nSubject: Order Confirmation #PO-4821\nDate: February 12, 2025\n\nDear Mr. Wilson,\n\nThank you for your order placed on February 10, 2025. This email confirms your purchase of the following items:\n- 15 units of Model A4 Laser Printers (Item #LP-204) at $299 each\n- 20 units of Model X7 Office Chairs (Item #OC-102) at $189 each\n- 5 units of Model D3 Document Shredders (Item #DS-009) at $89 each\n\nYour order total is $8,365.00, including shipping and handling. Estimated delivery date: February 20, 2025. The items will be shipped to your office at 123 Business Park Drive, Suite 400, Springfield.\n\nIf you have any questions, please contact our customer service team at support@primeoffice.com.\n\nBest regards,\nSarah Mitchell\nOrder Processing Department\nPrimeOffice Supplies\n\nText 2: Follow-up Complaint\nFrom: j.wilson@brightsolutions.com\nTo: support@primeoffice.com\nSubject: Order #PO-4821 – Missing Items\nDate: February 22, 2025\n\nDear PrimeOffice Team,\n\nI am writing to report a problem with my recent order (PO-4821). The package arrived on February 21, 2025, but it contained only 10 office chairs instead of the 20 I ordered. All 15 printers and 5 shredders were delivered correctly. However, the chairs that arrived are Model Y2 (Item #OC-115), not the Model X7 I requested. I need the correct chairs as soon as possible for my office setup.\n\nPlease advise on how you will resolve this issue. I expect either a full replacement of the missing and incorrect chairs or a refund for the chair portion of my order.\n\nThank you,\nJames Wilson\nBright Solutions Inc.\n\nText 3: Resolution Reply\nFrom: support@primeoffice.com\nTo: j.wilson@brightsolutions.com\nSubject: Resolution for Order #PO-4821\nDate: February 24, 2025\n\nDear Mr. Wilson,\n\nThank you for contacting us regarding order PO-4821. We sincerely apologize for the error. After investigating, we found that our warehouse mistakenly sent 10 units of Model Y2 chairs instead of the correct Model X7. The remaining 10 chairs were not shipped due to a counting error.\n\nTo resolve this, we will:\n1. Ship 20 correct Model X7 chairs (Item #OC-102) to you at no extra cost. They will arrive by March 2, 2025.\n2. Arrange a pickup for the incorrect Model Y2 chairs on February 26, 2025. You do not need to return them before the new ones arrive.\n3. Issue a 15% discount on your next order as compensation.\n\nWe appreciate your patience and hope to restore your confidence in our service. If you have any further concerns, please reach out.\n\nSincerely,\nMaria Chen\nCustomer Service Manager\nPrimeOffice Supplies",
+  "question": "What can be inferred about the delivery date mentioned in the first email compared to the actual arrival date?",
+  "choices": {
+    "A": "The delivery arrived exactly on the estimated date.",
+    "B": "The delivery arrived three days after the estimated date.",
+    "C": "The delivery arrived two days earlier than estimated.",
+    "D": "The delivery arrived one day later than estimated."
+  },
+  "answer": "D",
+  "explanation_zh": "正確答案為 D。第一封郵件預估送達日期為 February 20, 2025，而投訴郵件指出包裹於 February 21, 2025 到達，比預估日期晚了一天。選項 A 的準時送達、B 的晚三天、C 的早兩天，均與實際情況不符。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B2",
+  "vocabulary": [
+    "estimated",
+    "actual",
+    "delivery",
+    "arrival"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 4,
+  "passage_group_id": "p7-exp-040"
+},
+  {
+  "id": "p7-gen-352",
+  "part": "Part 7",
+  "passage": "Text 1: Initial Order Confirmation\nFrom: orders@primeoffice.com\nTo: j.wilson@brightsolutions.com\nSubject: Order Confirmation #PO-4821\nDate: February 12, 2025\n\nDear Mr. Wilson,\n\nThank you for your order placed on February 10, 2025. This email confirms your purchase of the following items:\n- 15 units of Model A4 Laser Printers (Item #LP-204) at $299 each\n- 20 units of Model X7 Office Chairs (Item #OC-102) at $189 each\n- 5 units of Model D3 Document Shredders (Item #DS-009) at $89 each\n\nYour order total is $8,365.00, including shipping and handling. Estimated delivery date: February 20, 2025. The items will be shipped to your office at 123 Business Park Drive, Suite 400, Springfield.\n\nIf you have any questions, please contact our customer service team at support@primeoffice.com.\n\nBest regards,\nSarah Mitchell\nOrder Processing Department\nPrimeOffice Supplies\n\nText 2: Follow-up Complaint\nFrom: j.wilson@brightsolutions.com\nTo: support@primeoffice.com\nSubject: Order #PO-4821 – Missing Items\nDate: February 22, 2025\n\nDear PrimeOffice Team,\n\nI am writing to report a problem with my recent order (PO-4821). The package arrived on February 21, 2025, but it contained only 10 office chairs instead of the 20 I ordered. All 15 printers and 5 shredders were delivered correctly. However, the chairs that arrived are Model Y2 (Item #OC-115), not the Model X7 I requested. I need the correct chairs as soon as possible for my office setup.\n\nPlease advise on how you will resolve this issue. I expect either a full replacement of the missing and incorrect chairs or a refund for the chair portion of my order.\n\nThank you,\nJames Wilson\nBright Solutions Inc.\n\nText 3: Resolution Reply\nFrom: support@primeoffice.com\nTo: j.wilson@brightsolutions.com\nSubject: Resolution for Order #PO-4821\nDate: February 24, 2025\n\nDear Mr. Wilson,\n\nThank you for contacting us regarding order PO-4821. We sincerely apologize for the error. After investigating, we found that our warehouse mistakenly sent 10 units of Model Y2 chairs instead of the correct Model X7. The remaining 10 chairs were not shipped due to a counting error.\n\nTo resolve this, we will:\n1. Ship 20 correct Model X7 chairs (Item #OC-102) to you at no extra cost. They will arrive by March 2, 2025.\n2. Arrange a pickup for the incorrect Model Y2 chairs on February 26, 2025. You do not need to return them before the new ones arrive.\n3. Issue a 15% discount on your next order as compensation.\n\nWe appreciate your patience and hope to restore your confidence in our service. If you have any further concerns, please reach out.\n\nSincerely,\nMaria Chen\nCustomer Service Manager\nPrimeOffice Supplies",
+  "question": "Comparing the complaint email and the resolution reply, what action did the company promise that was NOT requested by the customer?",
+  "choices": {
+    "A": "A 15% discount on the next order",
+    "B": "A refund for the chair portion of the order",
+    "C": "A full replacement of the missing chairs",
+    "D": "A pickup of the incorrect chairs"
+  },
+  "answer": "A",
+  "explanation_zh": "正確答案為 A。客戶在投訴郵件中要求「full replacement of the missing and incorrect chairs or a refund for the chair portion」，而公司回覆中除了提供替換和安排回收外，還額外承諾了「15% discount on your next order」，這是客戶未要求的補償。選項 B 的退款、C 的替換、D 的回收，都是客戶有要求或公司直接回應的內容。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "requested",
+    "promised",
+    "compensation",
+    "resolution"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 5,
+  "passage_group_id": "p7-exp-040"
+},
+  {
+  "id": "p5-gen-114",
+  "part": "Part 5",
+  "question": "All purchase orders _______ by the procurement team before they are sent to the supplier.",
+  "choices": {
+    "A": "will be reviewed",
+    "B": "will review",
+    "C": "have reviewed",
+    "D": "are reviewing"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。句子主詞「All purchase orders」是「被審查」的對象，需用被動語態；「will be reviewed」表示未來被動，符合語意。其他選項：B「will review」為主動，C「have reviewed」為主動完成，D「are reviewing」為現在進行主動，皆不符合被動需求。",
+  "skill_tag": "passive_voice",
+  "difficulty": "B1",
+  "vocabulary": [
+    "purchase orders",
+    "procurement team",
+    "supplier",
+    "reviewed"
+  ]
+},
+  {
+  "id": "p5-gen-115",
+  "part": "Part 5",
+  "question": "The quarterly financial report _______ to the board of directors by the accounting department last week.",
+  "choices": {
+    "A": "has been submitted",
+    "B": "was submitted",
+    "C": "is submitted",
+    "D": "will be submitted"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為B。時間副詞「last week」表示過去，主詞「The quarterly financial report」是被提交的對象，需用過去被動式「was submitted」。其他選項：A「has been submitted」為現在完成被動，不符過去時間；C「is submitted」為現在被動；D「will be submitted」為未來被動，皆不正確。",
+  "skill_tag": "passive_voice",
+  "difficulty": "B1",
+  "vocabulary": [
+    "quarterly financial report",
+    "board of directors",
+    "accounting department",
+    "submitted"
+  ]
+},
+  {
+  "id": "p5-gen-116",
+  "part": "Part 5",
+  "question": "The new office policy _______ to all employees during the staff meeting this afternoon.",
+  "choices": {
+    "A": "is explaining",
+    "B": "explains",
+    "C": "is being explained",
+    "D": "has explained"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為C。主詞「The new office policy」是被解釋的對象，需用被動語態；「this afternoon」表示未來時間，但「is being explained」為現在進行被動，在此可表示即將發生或已安排的動作。其他選項：A「is explaining」、B「explains」、D「has explained」皆為主動，不符合被動需求。",
+  "skill_tag": "passive_voice",
+  "difficulty": "B1",
+  "vocabulary": [
+    "office policy",
+    "employees",
+    "staff meeting",
+    "explained"
+  ]
+},
+  {
+  "id": "p5-gen-117",
+  "part": "Part 5",
+  "question": "The project deadline _______ by the client, so the team must adjust the schedule accordingly.",
+  "choices": {
+    "A": "extends",
+    "B": "has extended",
+    "C": "is extending",
+    "D": "has been extended"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為D。主詞「The project deadline」是被延長的對象，需用被動語態；「has been extended」為現在完成被動，表示過去動作對現在的影響。其他選項：A「extends」、B「has extended」、C「is extending」皆為主動，不符合被動需求。",
+  "skill_tag": "passive_voice",
+  "difficulty": "B1",
+  "vocabulary": [
+    "project deadline",
+    "client",
+    "adjust the schedule",
+    "extended"
+  ]
+},
+  {
+  "id": "p5-gen-118",
+  "part": "Part 5",
+  "question": "All invoices _______ before the end of the month to avoid late fees.",
+  "choices": {
+    "A": "must be paid",
+    "B": "must pay",
+    "C": "must have paid",
+    "D": "must paying"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。主詞「All invoices」是被支付的對象，需用被動語態；「must be paid」表示必須被支付，符合語意。其他選項：B「must pay」為主動，C「must have paid」為主動完成，D「must paying」為錯誤文法，皆不正確。",
+  "skill_tag": "passive_voice",
+  "difficulty": "B1",
+  "vocabulary": [
+    "invoices",
+    "late fees",
+    "paid",
+    "end of the month"
+  ]
+},
+  {
+  "id": "p5-gen-119",
+  "part": "Part 5",
+  "question": "The customer survey showed a _______ improvement in response times after the new ticketing system was introduced.",
+  "choices": {
+    "A": "measurement",
+    "B": "measurable",
+    "C": "measurably",
+    "D": "measure"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為B。空格後是名詞 improvement，需要形容詞 measurable 來修飾，表示「可衡量的改善」。A是名詞，C是副詞，D是動詞，皆不符合此處語法。",
+  "skill_tag": "word_form",
+  "difficulty": "B1",
+  "vocabulary": [
+    "customer survey",
+    "measurable",
+    "improvement",
+    "response times",
+    "ticketing system"
+  ]
+},
+  {
+  "id": "p5-gen-120",
+  "part": "Part 5",
+  "question": "The management team was _______ by the employee's dedication to the project.",
+  "choices": {
+    "A": "impression",
+    "B": "impressive",
+    "C": "impressed",
+    "D": "impressively"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為C。主詞The management team是被員工的奉獻所感動，需用被動語態，故選過去分詞impressed（感到印象深刻的）。A為名詞，B為形容詞（令人印象深刻的），D為副詞，皆不適用。",
+  "skill_tag": "word_form",
+  "difficulty": "B1",
+  "vocabulary": [
+    "management team",
+    "dedication",
+    "project",
+    "impressed",
+    "employee"
+  ]
+},
+  {
+  "id": "p5-gen-121",
+  "part": "Part 5",
+  "question": "The new software has greatly improved the _______ of our data analysis.",
+  "choices": {
+    "A": "efficient",
+    "B": "efficacious",
+    "C": "efficiently",
+    "D": "efficiency"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為D。空格前有定冠詞the和介詞of，需填入名詞efficiency（效率）作為improved的受詞。A和B為形容詞，C為副詞，均不符合詞性要求。",
+  "skill_tag": "word_form",
+  "difficulty": "B1",
+  "vocabulary": [
+    "software",
+    "improved",
+    "efficiency",
+    "data analysis",
+    "greatly"
+  ]
+},
+  {
+  "id": "p5-gen-122",
+  "part": "Part 5",
+  "question": "The marketing team presented a _______ analysis of the market trends.",
+  "choices": {
+    "A": "comprehensive",
+    "B": "comprehend",
+    "C": "comprehension",
+    "D": "comprehensively"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。空格後有名詞analysis，需用形容詞comprehensive（全面的）來修飾。B為動詞，C為名詞，D為副詞，皆不正確。",
+  "skill_tag": "word_form",
+  "difficulty": "B1",
+  "vocabulary": [
+    "marketing team",
+    "comprehensive",
+    "analysis",
+    "market trends",
+    "presented"
+  ]
+},
+  {
+  "id": "p5-gen-123",
+  "part": "Part 5",
+  "question": "The company's _______ to customer service has resulted in high satisfaction ratings.",
+  "choices": {
+    "A": "commit",
+    "B": "commitment",
+    "C": "committed",
+    "D": "committing"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為B。空格前有所有格company's，後有介詞to，需填入名詞commitment（承諾）作為主詞。A為動詞原形，C為過去分詞或形容詞，D為動名詞，均不符合語法。",
+  "skill_tag": "word_form",
+  "difficulty": "B1",
+  "vocabulary": [
+    "company",
+    "commitment",
+    "customer service",
+    "satisfaction",
+    "ratings"
+  ]
+},
+  {
+  "id": "p5-gen-124",
+  "part": "Part 5",
+  "question": "The project team _______ the quarterly report yet, so the deadline has been extended.",
+  "choices": {
+    "A": "didn't finish",
+    "B": "isn't finishing",
+    "C": "hasn't finished",
+    "D": "hadn't finished"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為 C。句中「yet」表示「尚未」，通常與現在完成式連用，強調到目前為止動作未完成，故選「hasn't finished」。A 過去式不搭配 yet；B 現在進行式不符語意；D 過去完成式需有過去時間點對比。",
+  "skill_tag": "tense",
+  "difficulty": "B1",
+  "vocabulary": [
+    "project team",
+    "quarterly report",
+    "deadline",
+    "extended"
+  ]
+},
+  {
+  "id": "p5-gen-125",
+  "part": "Part 5",
+  "question": "Since the new software was installed, the IT department _______ several issues with the server.",
+  "choices": {
+    "A": "reported",
+    "B": "is reporting",
+    "C": "reports",
+    "D": "has reported"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為 D。「Since + 過去時間點」引導從句時，主句常用現在完成式，表示從過去到現在的影響，故選「has reported」。A 過去式不強調持續；B 現在進行式不符；C 現在式不適用。",
+  "skill_tag": "tense",
+  "difficulty": "B1",
+  "vocabulary": [
+    "software",
+    "IT department",
+    "server",
+    "issues"
+  ]
+},
+  {
+  "id": "p5-gen-126",
+  "part": "Part 5",
+  "question": "We _______ the budget proposal for the new marketing campaign last week.",
+  "choices": {
+    "A": "submitted",
+    "B": "have submitted",
+    "C": "were submitting",
+    "D": "submit"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為 A。句中「last week」是明確的過去時間，應使用過去簡單式，故選「submitted」。B 現在完成式不與過去時間連用；C 過去進行式不必要；D 現在式不符。",
+  "skill_tag": "tense",
+  "difficulty": "B1",
+  "vocabulary": [
+    "budget proposal",
+    "marketing campaign",
+    "submitted"
+  ]
+},
+  {
+  "id": "p5-gen-127",
+  "part": "Part 5",
+  "question": "The engineers _______ the prototype for three months, and it is finally ready for testing.",
+  "choices": {
+    "A": "developed",
+    "B": "have been developing",
+    "C": "are developing",
+    "D": "had developed"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為 B。「for three months」表示持續一段時間且至今仍在進行，應用現在完成進行式強調動作的連續性，故選「have been developing」。A 過去式不強調持續；C 現在進行式未涵蓋過去；D 過去完成式需過去時間點。",
+  "skill_tag": "tense",
+  "difficulty": "B1",
+  "vocabulary": [
+    "engineers",
+    "prototype",
+    "testing",
+    "ready"
+  ]
+},
+  {
+  "id": "p5-gen-128",
+  "part": "Part 5",
+  "question": "By the time the manager arrives, the team _______ the project status report already.",
+  "choices": {
+    "A": "prepared",
+    "B": "had prepared",
+    "C": "has prepared",
+    "D": "prepares"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為 C。「By the time + 現在式子句」表示未來時間點，主句用現在完成式強調在該時間前已完成，故選「has prepared」。A 過去式不符；B 過去完成式需過去時間；D 現在式不表完成。",
+  "skill_tag": "tense",
+  "difficulty": "B1",
+  "vocabulary": [
+    "manager",
+    "project status report",
+    "prepared"
+  ]
+},
+  {
+  "id": "p5-gen-129",
+  "part": "Part 5",
+  "question": "The project review meeting is scheduled _______ 10:00 AM on Monday.",
+  "choices": {
+    "A": "in",
+    "B": "by",
+    "C": "on",
+    "D": "at"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為D。表示「在特定時間點」應用介系詞at，10:00 AM是具體時間點。A選項in用於較長時間段（如月份、年份），B選項by表示「不遲於」，C選項on用於特定日期或星期幾，均不符合此處語境。",
+  "skill_tag": "preposition",
+  "difficulty": "A2",
+  "vocabulary": [
+    "project review",
+    "meeting",
+    "scheduled",
+    "Monday"
+  ]
+},
+  {
+  "id": "p5-gen-130",
+  "part": "Part 5",
+  "question": "Please submit the quarterly report _______ the end of the business day on Friday.",
+  "choices": {
+    "A": "by",
+    "B": "for",
+    "C": "until",
+    "D": "during"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。by表示「在……之前」或「不遲於」，強調截止時間點。B選項for表示「為了」或持續一段時間，C選項until表示「直到……為止」，D選項during表示「在……期間」，均不符合「在週五營業日結束前提交」的語意。",
+  "skill_tag": "preposition",
+  "difficulty": "A2",
+  "vocabulary": [
+    "quarterly report",
+    "submit",
+    "business day",
+    "end"
+  ]
+},
+  {
+  "id": "p5-gen-131",
+  "part": "Part 5",
+  "question": "The marketing team will hold the strategy session _______ the main conference room on the third floor.",
+  "choices": {
+    "A": "at",
+    "B": "in",
+    "C": "on",
+    "D": "by"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為B。表示「在某個房間或空間內」應用in，the main conference room是具體房間。A選項at用於較小地點或點狀位置，C選項on用於表面或樓層，D選項by表示「在……旁邊」，均不適用於此處。",
+  "skill_tag": "preposition",
+  "difficulty": "A2",
+  "vocabulary": [
+    "marketing team",
+    "strategy session",
+    "conference room",
+    "third floor"
+  ]
+},
+  {
+  "id": "p5-gen-132",
+  "part": "Part 5",
+  "question": "The shipment is expected to arrive _______ the warehouse by the end of this week.",
+  "choices": {
+    "A": "on",
+    "B": "in",
+    "C": "at",
+    "D": "until"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為C。表示「到達某個地點」時，arrive at用於較小地點（如車站、機場），arrive in用於較大地點（如城市、國家），arrive on用於特定表面或場所。warehouse（倉庫）視為具體點狀地點，故用at。A選項on、B選項in、D選項until均不符合搭配。",
+  "skill_tag": "preposition",
+  "difficulty": "A2",
+  "vocabulary": [
+    "shipment",
+    "expected",
+    "arrive",
+    "warehouse"
+  ]
+},
+  {
+  "id": "p5-gen-133",
+  "part": "Part 5",
+  "question": "Please ensure that all invoices are processed _______ the end of the month.",
+  "choices": {
+    "A": "during",
+    "B": "for",
+    "C": "until",
+    "D": "by"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為D。by表示「在……之前」或「不遲於」，強調月底前完成。A選項during表示「在……期間」，B選項for表示「為了」或持續時間，C選項until表示「直到……為止」，均無法表達「在月底前完成」的截止意義。",
+  "skill_tag": "preposition",
+  "difficulty": "A2",
+  "vocabulary": [
+    "invoices",
+    "processed",
+    "ensure",
+    "end of the month"
+  ]
+},
+  {
+  "id": "p5-gen-134",
+  "part": "Part 5",
+  "question": "_______ the supplier confirmed the delay, the purchasing team notified all branch managers.",
+  "choices": {
+    "A": "Once",
+    "B": "Despite",
+    "C": "Unless",
+    "D": "Whereas"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。Once 表示「一旦」，連接供應商確認延遲與採購團隊通知分店經理這兩個先後動作。Despite 後面需接名詞片語，Unless 表條件，Whereas 表對比，皆不合句意。",
+  "skill_tag": "conjunction",
+  "difficulty": "B1",
+  "vocabulary": [
+    "supplier",
+    "confirmed",
+    "delay",
+    "purchasing team",
+    "branch managers"
+  ]
+},
+  {
+  "id": "p5-gen-135",
+  "part": "Part 5",
+  "question": "The project deadline was extended _______ the team encountered unexpected technical issues.",
+  "choices": {
+    "A": "because of",
+    "B": "because",
+    "C": "despite",
+    "D": "although"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為B。Because 是連接詞，後接完整子句 the team encountered...，表示「因為團隊遇到技術問題」，符合因果關係。Because of 後需接名詞；Despite 和 Although 表轉折，不符。",
+  "skill_tag": "conjunction",
+  "difficulty": "B1",
+  "vocabulary": [
+    "project deadline",
+    "extended",
+    "encountered",
+    "technical issues"
+  ]
+},
+  {
+  "id": "p5-gen-136",
+  "part": "Part 5",
+  "question": "Employees can work remotely _______ they meet their weekly performance targets.",
+  "choices": {
+    "A": "unless",
+    "B": "although",
+    "C": "as long as",
+    "D": "despite"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為C。As long as 是連接詞片語，表示「只要」，引導條件子句 they meet...，符合句意「只要達成目標就能遠距工作」。Unless 表「除非」；Although 表轉折；Despite 後需接名詞，均不符。",
+  "skill_tag": "conjunction",
+  "difficulty": "B1",
+  "vocabulary": [
+    "work remotely",
+    "meet",
+    "performance targets"
+  ]
+},
+  {
+  "id": "p5-gen-137",
+  "part": "Part 5",
+  "question": "Sales figures declined last quarter; _______, the company plans to introduce a new product line.",
+  "choices": {
+    "A": "although",
+    "B": "therefore",
+    "C": "because",
+    "D": "however"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為D。However 是副詞，表示轉折「然而」，連接前句銷售下滑與後句推出新產品線的對比。Although 是連接詞，需接子句；Therefore 表結果；Because 表原因，均不符。",
+  "skill_tag": "conjunction",
+  "difficulty": "B1",
+  "vocabulary": [
+    "sales figures",
+    "declined",
+    "introduce",
+    "product line"
+  ]
+},
+  {
+  "id": "p5-gen-138",
+  "part": "Part 5",
+  "question": "The contract will be signed _______ both parties agree to the revised terms.",
+  "choices": {
+    "A": "provided that",
+    "B": "despite",
+    "C": "unless",
+    "D": "although"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。Provided that 是連接詞片語，表示「只要」，引導條件子句 both parties agree...，符合句意「只要雙方同意就會簽約」。Despite 後需接名詞；Unless 表「除非」；Although 表轉折，均不符。",
+  "skill_tag": "conjunction",
+  "difficulty": "B1",
+  "vocabulary": [
+    "contract",
+    "signed",
+    "parties",
+    "agree to",
+    "revised terms"
+  ]
+},
+  {
+  "id": "p5-gen-139",
+  "part": "Part 5",
+  "question": "The project manager asked both Sarah and _______ to prepare the quarterly report.",
+  "choices": {
+    "A": "I",
+    "B": "me",
+    "C": "my",
+    "D": "myself"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為B。介係詞「between...and...」後須接受格代名詞，故選「me」。A「I」為主格，C「my」為所有格，D「myself」為反身代名詞，皆不符合文法。",
+  "skill_tag": "pronoun",
+  "difficulty": "B1",
+  "vocabulary": [
+    "project manager",
+    "quarterly report",
+    "prepare"
+  ]
+},
+  {
+  "id": "p5-gen-140",
+  "part": "Part 5",
+  "question": "The client expressed dissatisfaction with the service, but the team was unable to identify _______ was responsible for the error.",
+  "choices": {
+    "A": "whose",
+    "B": "whom",
+    "C": "who",
+    "D": "which"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為C。空格在動詞「identify」後，作為主詞補語，需用主格關係代名詞「who」引導名詞子句。A「whose」表所有格，B「whom」為受格，D「which」用於事物，皆不適用。",
+  "skill_tag": "pronoun",
+  "difficulty": "B1",
+  "vocabulary": [
+    "client",
+    "dissatisfaction",
+    "responsible",
+    "error"
+  ]
+},
+  {
+  "id": "p5-gen-141",
+  "part": "Part 5",
+  "question": "The marketing department will present _______ proposal to the board next Monday.",
+  "choices": {
+    "A": "them",
+    "B": "they",
+    "C": "theirs",
+    "D": "their"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為D。空格後有名詞「proposal」，需用所有格代名詞「their」修飾。A「them」為受格，B「they」為主格，C「theirs」為獨立所有格，皆無法直接修飾名詞。",
+  "skill_tag": "pronoun",
+  "difficulty": "B1",
+  "vocabulary": [
+    "marketing department",
+    "proposal",
+    "board"
+  ]
+},
+  {
+  "id": "p5-gen-142",
+  "part": "Part 5",
+  "question": "The new software allows users to update the database by _______ without assistance from the IT team.",
+  "choices": {
+    "A": "themselves",
+    "B": "their",
+    "C": "them",
+    "D": "they"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為A。介係詞「by」後接反身代名詞「themselves」，表示「由他們自己」更新資料庫。B「their」為所有格，C「them」為受格，D「they」為主格，皆不符合語意。",
+  "skill_tag": "pronoun",
+  "difficulty": "B1",
+  "vocabulary": [
+    "software",
+    "database",
+    "assistance",
+    "IT team"
+  ]
+},
+  {
+  "id": "p5-gen-143",
+  "part": "Part 5",
+  "question": "The consultant, _______ expertise was highly valued, was asked to lead the training session.",
+  "choices": {
+    "A": "who",
+    "B": "whose",
+    "C": "whom",
+    "D": "which"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為B。空格後有名詞「expertise」，需用所有格關係代名詞「whose」表示「其專業知識」。A「who」為主格，C「whom」為受格，D「which」用於事物，皆不正確。",
+  "skill_tag": "pronoun",
+  "difficulty": "B1",
+  "vocabulary": [
+    "consultant",
+    "expertise",
+    "valued",
+    "training session"
+  ]
+},
+  {
+  "id": "p6-gen-149",
+  "part": "Part 6",
+  "passage": "To: All Staff\nFrom: Human Resources Department\nDate: March 15, 2024\nSubject: Update to Remote Work Policy\n\nDear Team,\n\nWe are writing to inform you of an important ____(A)____ to our Remote Work Policy, effective April 1, 2024. After careful review of employee feedback and operational needs, we have decided to implement a hybrid work model. Under this new arrangement, all employees are required to work from the office every Tuesday and Wednesday. ____(B)____, you may work remotely for the remaining three days of the week, provided that your role allows for it. Please note that prior approval from your supervisor is necessary ____(C)____ any changes to your scheduled office days. We believe this approach will enhance collaboration while maintaining flexibility. To ensure a smooth transition, a detailed FAQ document ____(D)____ on the company intranet next Monday. Thank you for your continued cooperation.\n\nBest regards,\nHuman Resources Department",
+  "question": "____(A)____",
+  "choices": {
+    "A": "update",
+    "B": "challenge",
+    "C": "problem",
+    "D": "delay"
+  },
+  "answer": "A",
+  "explanation_zh": "正確答案為 (A) update。空格前後文提到「重要____」和「遠距工作政策」，且後句說明將實施混合工作模式，因此此處應指政策的「更新」。(B) challenge（挑戰）、(C) problem（問題）、(D) delay（延遲）均不符合語意，因為政策是正向調整，而非負面或延誤。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "hybrid",
+    "flexibility",
+    "transition",
+    "collaboration",
+    "intranet"
+  ],
+  "passage_group_id": "p6-038",
+  "question_order": 1
+},
+  {
+  "id": "p6-gen-150",
+  "part": "Part 6",
+  "passage": "To: All Staff\nFrom: Human Resources Department\nDate: March 15, 2024\nSubject: Update to Remote Work Policy\n\nDear Team,\n\nWe are writing to inform you of an important ____(A)____ to our Remote Work Policy, effective April 1, 2024. After careful review of employee feedback and operational needs, we have decided to implement a hybrid work model. Under this new arrangement, all employees are required to work from the office every Tuesday and Wednesday. ____(B)____, you may work remotely for the remaining three days of the week, provided that your role allows for it. Please note that prior approval from your supervisor is necessary ____(C)____ any changes to your scheduled office days. We believe this approach will enhance collaboration while maintaining flexibility. To ensure a smooth transition, a detailed FAQ document ____(D)____ on the company intranet next Monday. Thank you for your continued cooperation.\n\nBest regards,\nHuman Resources Department",
+  "question": "____(B)____",
+  "choices": {
+    "A": "Therefore",
+    "B": "However",
+    "C": "Moreover",
+    "D": "Meanwhile"
+  },
+  "answer": "B",
+  "explanation_zh": "正確答案為 (B) However。前句要求員工每週二、三進辦公室，後句則說其餘三天可遠距工作，兩者形成對比，因此需用轉折詞「However（然而）」。(A) Therefore（因此）表因果、(C) Moreover（此外）表遞進、(D) Meanwhile（同時）表時間並行，均不適合此對比關係。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "hybrid",
+    "flexibility",
+    "transition",
+    "collaboration",
+    "intranet"
+  ],
+  "passage_group_id": "p6-038",
+  "question_order": 2
+},
+  {
+  "id": "p6-gen-151",
+  "part": "Part 6",
+  "passage": "To: All Staff\nFrom: Human Resources Department\nDate: March 15, 2024\nSubject: Update to Remote Work Policy\n\nDear Team,\n\nWe are writing to inform you of an important ____(A)____ to our Remote Work Policy, effective April 1, 2024. After careful review of employee feedback and operational needs, we have decided to implement a hybrid work model. Under this new arrangement, all employees are required to work from the office every Tuesday and Wednesday. ____(B)____, you may work remotely for the remaining three days of the week, provided that your role allows for it. Please note that prior approval from your supervisor is necessary ____(C)____ any changes to your scheduled office days. We believe this approach will enhance collaboration while maintaining flexibility. To ensure a smooth transition, a detailed FAQ document ____(D)____ on the company intranet next Monday. Thank you for your continued cooperation.\n\nBest regards,\nHuman Resources Department",
+  "question": "____(C)____",
+  "choices": {
+    "A": "by",
+    "B": "to",
+    "C": "for",
+    "D": "about"
+  },
+  "answer": "C",
+  "explanation_zh": "正確答案為 (C) for。空格前為「necessary」，後接「any changes」，固定搭配為「necessary for...」，表示「對……是必要的」。(A) by（經由）、(B) to（向）、(D) about（關於）均無法與「necessary」形成正確介係詞搭配。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "hybrid",
+    "flexibility",
+    "transition",
+    "collaboration",
+    "intranet"
+  ],
+  "passage_group_id": "p6-038",
+  "question_order": 3
+},
+  {
+  "id": "p6-gen-152",
+  "part": "Part 6",
+  "passage": "To: All Staff\nFrom: Human Resources Department\nDate: March 15, 2024\nSubject: Update to Remote Work Policy\n\nDear Team,\n\nWe are writing to inform you of an important ____(A)____ to our Remote Work Policy, effective April 1, 2024. After careful review of employee feedback and operational needs, we have decided to implement a hybrid work model. Under this new arrangement, all employees are required to work from the office every Tuesday and Wednesday. ____(B)____, you may work remotely for the remaining three days of the week, provided that your role allows for it. Please note that prior approval from your supervisor is necessary ____(C)____ any changes to your scheduled office days. We believe this approach will enhance collaboration while maintaining flexibility. To ensure a smooth transition, a detailed FAQ document ____(D)____ on the company intranet next Monday. Thank you for your continued cooperation.\n\nBest regards,\nHuman Resources Department",
+  "question": "____(D)____",
+  "choices": {
+    "A": "is posting",
+    "B": "has been posted",
+    "C": "was posted",
+    "D": "will be posted"
+  },
+  "answer": "D",
+  "explanation_zh": "正確答案為 (D) will be posted。文中提到「next Monday（下週一）」，表示未來時間，且主詞「FAQ document」是被張貼的對象，需用未來被動態。(A) is posting（現在進行主動）語態錯誤、(B) has been posted（現在完成被動）時間不符、(C) was posted（過去被動）時間錯誤。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "hybrid",
+    "flexibility",
+    "transition",
+    "collaboration",
+    "intranet"
+  ],
+  "passage_group_id": "p6-038",
+  "question_order": 4
+},
+  {
+  "id": "p6-gen-153",
+  "part": "Part 6",
+  "passage": "To: All Warehouse Staff\nFrom: Maria Chen, Safety Coordinator\nDate: March 14, 2025\nSubject: Updated Forklift Loading Procedure\n\nEffective immediately, all forklift operators must complete a pre-shift ____(A)____ of their vehicle before entering the loading bay. The inspection checklist is available at the supervisor’s desk. ____(B)____, any operator who fails to submit the signed form by 9:00 AM will be assigned non-driving duties for that shift. Please park all forklifts ____(C)____ the designated yellow line when not in use, and ensure the engine is turned off. The maintenance team ____(D)____ scheduled to inspect the battery terminals and tire pressure every Tuesday. Your cooperation is essential for maintaining a safe work environment.",
+  "question": "____(A)____",
+  "choices": {
+    "A": "construction",
+    "B": "inspection",
+    "C": "instruction",
+    "D": "injection"
+  },
+  "answer": "B",
+  "explanation_zh": "答案為 B。空格前提到『完成一項預先輪班的____』，後文說明檢查表單在主管桌上，且需簽名提交，因此『inspection（檢查）』最符合語境，指對車輛進行檢查。其他選項：A construction（建造）、C instruction（指示）、D injection（注射）均與車輛檢查無關。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "forklift",
+    "inspection",
+    "checklist",
+    "supervisor",
+    "maintenance"
+  ],
+  "passage_group_id": "p6-039",
+  "question_order": 1
+},
+  {
+  "id": "p6-gen-154",
+  "part": "Part 6",
+  "passage": "To: All Warehouse Staff\nFrom: Maria Chen, Safety Coordinator\nDate: March 14, 2025\nSubject: Updated Forklift Loading Procedure\n\nEffective immediately, all forklift operators must complete a pre-shift ____(A)____ of their vehicle before entering the loading bay. The inspection checklist is available at the supervisor’s desk. ____(B)____, any operator who fails to submit the signed form by 9:00 AM will be assigned non-driving duties for that shift. Please park all forklifts ____(C)____ the designated yellow line when not in use, and ensure the engine is turned off. The maintenance team ____(D)____ scheduled to inspect the battery terminals and tire pressure every Tuesday. Your cooperation is essential for maintaining a safe work environment.",
+  "question": "____(B)____",
+  "choices": {
+    "A": "Nevertheless",
+    "B": "However",
+    "C": "Furthermore",
+    "D": "Therefore"
+  },
+  "answer": "C",
+  "explanation_zh": "答案為 C。前句說明檢查表單位置，後句進一步補充未提交表單的後果，『Furthermore（此外）』用於添加相關資訊，符合邏輯。A Nevertheless（然而）和 B However（但是）表示轉折，但此處無對比；D Therefore（因此）表示因果，但前後句非因果關係。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "forklift",
+    "inspection",
+    "checklist",
+    "supervisor",
+    "maintenance"
+  ],
+  "passage_group_id": "p6-039",
+  "question_order": 2
+},
+  {
+  "id": "p6-gen-155",
+  "part": "Part 6",
+  "passage": "To: All Warehouse Staff\nFrom: Maria Chen, Safety Coordinator\nDate: March 14, 2025\nSubject: Updated Forklift Loading Procedure\n\nEffective immediately, all forklift operators must complete a pre-shift ____(A)____ of their vehicle before entering the loading bay. The inspection checklist is available at the supervisor’s desk. ____(B)____, any operator who fails to submit the signed form by 9:00 AM will be assigned non-driving duties for that shift. Please park all forklifts ____(C)____ the designated yellow line when not in use, and ensure the engine is turned off. The maintenance team ____(D)____ scheduled to inspect the battery terminals and tire pressure every Tuesday. Your cooperation is essential for maintaining a safe work environment.",
+  "question": "____(C)____",
+  "choices": {
+    "A": "above",
+    "B": "across",
+    "C": "beneath",
+    "D": "behind"
+  },
+  "answer": "D",
+  "explanation_zh": "答案為 D。空格前提到『將堆高機停放在____指定黃線』，後文要求關閉引擎，通常堆高機應停在黃線後方以避免阻擋通道。『behind（在…後面）』符合此意。A above（在…上方）、B across（橫越）、C beneath（在…下方）均不符合停放位置。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "forklift",
+    "inspection",
+    "checklist",
+    "supervisor",
+    "maintenance"
+  ],
+  "passage_group_id": "p6-039",
+  "question_order": 3
+},
+  {
+  "id": "p6-gen-156",
+  "part": "Part 6",
+  "passage": "To: All Warehouse Staff\nFrom: Maria Chen, Safety Coordinator\nDate: March 14, 2025\nSubject: Updated Forklift Loading Procedure\n\nEffective immediately, all forklift operators must complete a pre-shift ____(A)____ of their vehicle before entering the loading bay. The inspection checklist is available at the supervisor’s desk. ____(B)____, any operator who fails to submit the signed form by 9:00 AM will be assigned non-driving duties for that shift. Please park all forklifts ____(C)____ the designated yellow line when not in use, and ensure the engine is turned off. The maintenance team ____(D)____ scheduled to inspect the battery terminals and tire pressure every Tuesday. Your cooperation is essential for maintaining a safe work environment.",
+  "question": "____(D)____",
+  "choices": {
+    "A": "is",
+    "B": "are",
+    "C": "has",
+    "D": "have"
+  },
+  "answer": "A",
+  "explanation_zh": "答案為 A。主詞『The maintenance team』為單數集合名詞，在美式英語中通常視為單數，且後接被動語態『scheduled to inspect』，需搭配單數助動詞『is』。B are 用於複數主詞；C has 和 D have 為完成式助動詞，與被動結構不符。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "forklift",
+    "inspection",
+    "checklist",
+    "supervisor",
+    "maintenance"
+  ],
+  "passage_group_id": "p6-039",
+  "question_order": 4
+},
+  {
+  "id": "p6-gen-157",
+  "part": "Part 6",
+  "passage": "Dear Ms. Nakamura,\n\nI am writing on behalf of OrionTech Solutions to express our strong interest in exploring a strategic partnership with your company, Apex Dynamics. We have been following your recent advancements in renewable energy systems with great ____(A)____.\n\nOur team specializes in industrial automation software that complements your hardware solutions. ____(B)____, we believe a collaboration could yield significant mutual benefits, particularly in the smart grid sector. We would like to propose an initial meeting to discuss potential synergies.\n\nWe are committed ____(C)____ a long-term relationship that aligns with both companies' growth strategies. Should this proposal interest you, we would be happy to provide a detailed presentation of our capabilities.\n\nIf you are available, we ____(D)____ a preliminary video conference next month at your earliest convenience. Please let us know your thoughts.\n\nSincerely,\nJames Whitfield\nDirector of Business Development\nOrionTech Solutions",
+  "question": "____(A)____",
+  "choices": {
+    "A": "doubt",
+    "B": "reluctance",
+    "C": "admiration",
+    "D": "indifference"
+  },
+  "answer": "C",
+  "explanation_zh": "空白(A)的正確答案是C「admiration」。句子表達對Apex Dynamics在可再生能源系統方面最新進展的強烈興趣，因此「admiration」（讚賞）符合上下文，表示正面評價。其他選項：A「doubt」（懷疑）和B「reluctance」（不情願）帶有負面含義，與「strong interest」矛盾；D「indifference」（冷漠）則完全相反，無法表達興趣。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "partnership",
+    "advancements",
+    "collaboration",
+    "synergies",
+    "preliminary",
+    "capabilities"
+  ],
+  "passage_group_id": "p6-040",
+  "question_order": 1
+},
+  {
+  "id": "p6-gen-158",
+  "part": "Part 6",
+  "passage": "Dear Ms. Nakamura,\n\nI am writing on behalf of OrionTech Solutions to express our strong interest in exploring a strategic partnership with your company, Apex Dynamics. We have been following your recent advancements in renewable energy systems with great ____(A)____.\n\nOur team specializes in industrial automation software that complements your hardware solutions. ____(B)____, we believe a collaboration could yield significant mutual benefits, particularly in the smart grid sector. We would like to propose an initial meeting to discuss potential synergies.\n\nWe are committed ____(C)____ a long-term relationship that aligns with both companies' growth strategies. Should this proposal interest you, we would be happy to provide a detailed presentation of our capabilities.\n\nIf you are available, we ____(D)____ a preliminary video conference next month at your earliest convenience. Please let us know your thoughts.\n\nSincerely,\nJames Whitfield\nDirector of Business Development\nOrionTech Solutions",
+  "question": "____(B)____",
+  "choices": {
+    "A": "However",
+    "B": "In contrast",
+    "C": "As a result",
+    "D": "Furthermore"
+  },
+  "answer": "D",
+  "explanation_zh": "空白(B)的正確答案是D「Furthermore」。前句提到OrionTech專注於工業自動化軟體，與Apex的硬體解決方案互補，後句進一步說明合作能帶來共同利益，因此「Furthermore」（此外）用於添加支持性論點。其他選項：A「However」（然而）和B「In contrast」（相比之下）表示轉折或對比，但此處無矛盾；C「As a result」（因此）暗示因果關係，但前後句並非直接因果。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "partnership",
+    "advancements",
+    "collaboration",
+    "synergies",
+    "preliminary",
+    "capabilities"
+  ],
+  "passage_group_id": "p6-040",
+  "question_order": 2
+},
+  {
+  "id": "p6-gen-159",
+  "part": "Part 6",
+  "passage": "Dear Ms. Nakamura,\n\nI am writing on behalf of OrionTech Solutions to express our strong interest in exploring a strategic partnership with your company, Apex Dynamics. We have been following your recent advancements in renewable energy systems with great ____(A)____.\n\nOur team specializes in industrial automation software that complements your hardware solutions. ____(B)____, we believe a collaboration could yield significant mutual benefits, particularly in the smart grid sector. We would like to propose an initial meeting to discuss potential synergies.\n\nWe are committed ____(C)____ a long-term relationship that aligns with both companies' growth strategies. Should this proposal interest you, we would be happy to provide a detailed presentation of our capabilities.\n\nIf you are available, we ____(D)____ a preliminary video conference next month at your earliest convenience. Please let us know your thoughts.\n\nSincerely,\nJames Whitfield\nDirector of Business Development\nOrionTech Solutions",
+  "question": "____(C)____",
+  "choices": {
+    "A": "to",
+    "B": "for",
+    "C": "on",
+    "D": "with"
+  },
+  "answer": "A",
+  "explanation_zh": "空白(C)的正確答案是A「to」。固定搭配「be committed to」表示「致力於」，後接名詞或動名詞，此處「a long-term relationship」為名詞短語，符合語法。其他選項：B「for」、C「on」、D「with」均無法與「committed」形成正確搭配，且不符合慣用表達。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "partnership",
+    "advancements",
+    "collaboration",
+    "synergies",
+    "preliminary",
+    "capabilities"
+  ],
+  "passage_group_id": "p6-040",
+  "question_order": 3
+},
+  {
+  "id": "p6-gen-160",
+  "part": "Part 6",
+  "passage": "Dear Ms. Nakamura,\n\nI am writing on behalf of OrionTech Solutions to express our strong interest in exploring a strategic partnership with your company, Apex Dynamics. We have been following your recent advancements in renewable energy systems with great ____(A)____.\n\nOur team specializes in industrial automation software that complements your hardware solutions. ____(B)____, we believe a collaboration could yield significant mutual benefits, particularly in the smart grid sector. We would like to propose an initial meeting to discuss potential synergies.\n\nWe are committed ____(C)____ a long-term relationship that aligns with both companies' growth strategies. Should this proposal interest you, we would be happy to provide a detailed presentation of our capabilities.\n\nIf you are available, we ____(D)____ a preliminary video conference next month at your earliest convenience. Please let us know your thoughts.\n\nSincerely,\nJames Whitfield\nDirector of Business Development\nOrionTech Solutions",
+  "question": "____(D)____",
+  "choices": {
+    "A": "arranged",
+    "B": "would arrange",
+    "C": "have arranged",
+    "D": "are arranging"
+  },
+  "answer": "B",
+  "explanation_zh": "空白(D)的正確答案是B「would arrange」。句子為條件句（If you are available...），主句需用「would + 動詞原形」表示未來可能發生的動作，符合禮貌提議的語氣。其他選項：A「arranged」（過去式）和C「have arranged」（現在完成式）表示已安排，與條件句矛盾；D「are arranging」（現在進行式）表示正在安排，但此處為提議而非已確定行動。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "partnership",
+    "advancements",
+    "collaboration",
+    "synergies",
+    "preliminary",
+    "capabilities"
+  ],
+  "passage_group_id": "p6-040",
+  "question_order": 4
+},
+  {
+  "id": "p6-gen-161",
+  "part": "Part 6",
+  "passage": "Dear Team,\n\nI am writing to inform you about an important update to our expense reimbursement policy, effective January 15th. The new policy introduces a streamlined digital submission process, which will significantly reduce processing time. All employees must now submit requests through the online portal rather than using paper forms. This change is part of our ongoing effort to improve ____(A)____ and reduce administrative costs.\n\n____(B)____, please note that receipts for amounts over $50 are still required for any claim. The previous threshold of $25 has been increased to simplify reporting for smaller purchases. We believe this adjustment will make the process more efficient for everyone.\n\nTo ensure compliance, we ask that you familiarize yourself ____(C)____ the updated guidelines posted on the intranet. Training sessions will be held next week to address any questions. Please make sure you ____(D)____ one of these sessions before the end of the month.\n\nThank you for your cooperation.\n\nBest regards,\nJane Mitchell\nHR Department",
+  "question": "____(A)____",
+  "choices": {
+    "A": "inefficient",
+    "B": "efficient",
+    "C": "efficiently",
+    "D": "efficiency"
+  },
+  "answer": "D",
+  "explanation_zh": "空白(A)的正確答案是D「efficiency」。此處需要一個名詞作為動詞「improve」的受詞，表示「提高效率」。選項A「inefficient」是形容詞，B「efficient」也是形容詞，C「efficiently」是副詞，均不符合語法要求。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "reimbursement",
+    "streamlined",
+    "portal",
+    "threshold",
+    "compliance",
+    "guidelines"
+  ],
+  "passage_group_id": "p6-041",
+  "question_order": 1
+},
+  {
+  "id": "p6-gen-162",
+  "part": "Part 6",
+  "passage": "Dear Team,\n\nI am writing to inform you about an important update to our expense reimbursement policy, effective January 15th. The new policy introduces a streamlined digital submission process, which will significantly reduce processing time. All employees must now submit requests through the online portal rather than using paper forms. This change is part of our ongoing effort to improve ____(A)____ and reduce administrative costs.\n\n____(B)____, please note that receipts for amounts over $50 are still required for any claim. The previous threshold of $25 has been increased to simplify reporting for smaller purchases. We believe this adjustment will make the process more efficient for everyone.\n\nTo ensure compliance, we ask that you familiarize yourself ____(C)____ the updated guidelines posted on the intranet. Training sessions will be held next week to address any questions. Please make sure you ____(D)____ one of these sessions before the end of the month.\n\nThank you for your cooperation.\n\nBest regards,\nJane Mitchell\nHR Department",
+  "question": "____(B)____",
+  "choices": {
+    "A": "However",
+    "B": "Therefore",
+    "C": "Moreover",
+    "D": "Nevertheless"
+  },
+  "answer": "A",
+  "explanation_zh": "空白(B)的正確答案是A「However」。前文提到新政策帶來的好處，此處轉折說明仍需注意事項（超過50美元的收據仍須提交），因此需要轉折副詞。選項B「Therefore」表示因果，C「Moreover」表示遞進，D「Nevertheless」雖表轉折但語氣較強，此處用「However」最自然。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "reimbursement",
+    "streamlined",
+    "portal",
+    "threshold",
+    "compliance",
+    "guidelines"
+  ],
+  "passage_group_id": "p6-041",
+  "question_order": 2
+},
+  {
+  "id": "p6-gen-163",
+  "part": "Part 6",
+  "passage": "Dear Team,\n\nI am writing to inform you about an important update to our expense reimbursement policy, effective January 15th. The new policy introduces a streamlined digital submission process, which will significantly reduce processing time. All employees must now submit requests through the online portal rather than using paper forms. This change is part of our ongoing effort to improve ____(A)____ and reduce administrative costs.\n\n____(B)____, please note that receipts for amounts over $50 are still required for any claim. The previous threshold of $25 has been increased to simplify reporting for smaller purchases. We believe this adjustment will make the process more efficient for everyone.\n\nTo ensure compliance, we ask that you familiarize yourself ____(C)____ the updated guidelines posted on the intranet. Training sessions will be held next week to address any questions. Please make sure you ____(D)____ one of these sessions before the end of the month.\n\nThank you for your cooperation.\n\nBest regards,\nJane Mitchell\nHR Department",
+  "question": "____(C)____",
+  "choices": {
+    "A": "to",
+    "B": "with",
+    "C": "on",
+    "D": "for"
+  },
+  "answer": "B",
+  "explanation_zh": "空白(C)的正確答案是B「with」。固定搭配「familiarize oneself with」意為「使自己熟悉……」，符合語境。選項A「to」、C「on」、D「for」均無法與「familiarize」構成正確搭配。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "reimbursement",
+    "streamlined",
+    "portal",
+    "threshold",
+    "compliance",
+    "guidelines"
+  ],
+  "passage_group_id": "p6-041",
+  "question_order": 3
+},
+  {
+  "id": "p6-gen-164",
+  "part": "Part 6",
+  "passage": "Dear Team,\n\nI am writing to inform you about an important update to our expense reimbursement policy, effective January 15th. The new policy introduces a streamlined digital submission process, which will significantly reduce processing time. All employees must now submit requests through the online portal rather than using paper forms. This change is part of our ongoing effort to improve ____(A)____ and reduce administrative costs.\n\n____(B)____, please note that receipts for amounts over $50 are still required for any claim. The previous threshold of $25 has been increased to simplify reporting for smaller purchases. We believe this adjustment will make the process more efficient for everyone.\n\nTo ensure compliance, we ask that you familiarize yourself ____(C)____ the updated guidelines posted on the intranet. Training sessions will be held next week to address any questions. Please make sure you ____(D)____ one of these sessions before the end of the month.\n\nThank you for your cooperation.\n\nBest regards,\nJane Mitchell\nHR Department",
+  "question": "____(D)____",
+  "choices": {
+    "A": "will attend",
+    "B": "attended",
+    "C": "attend",
+    "D": "are attending"
+  },
+  "answer": "C",
+  "explanation_zh": "空白(D)的正確答案是C「attend」。此處為「make sure」後接省略that的從句，從句需用現在式動詞表示要求或建議，且主詞「you」對應原形動詞。選項A「will attend」為未來式，B「attended」為過去式，D「are attending」為現在進行式，均不符合「make sure」後接現在式原形動詞的用法。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "reimbursement",
+    "streamlined",
+    "portal",
+    "threshold",
+    "compliance",
+    "guidelines"
+  ],
+  "passage_group_id": "p6-041",
+  "question_order": 4
+},
+  {
+  "id": "p7-gen-353",
+  "part": "Part 7",
+  "passage": "To: All Project Team Members\nFrom: Sarah Chen, Project Coordinator\nSubject: Rescheduled Project Meeting – New Date and Location\n\nDear Team,\n\nPlease be advised that our upcoming project status meeting, originally scheduled for Friday, March 15 at 10:00 AM in Conference Room A, has been rescheduled. The new meeting will take place on Tuesday, March 19 at 2:00 PM in Conference Room B.\n\nWe will discuss the Q2 budget proposal and the timeline for the software rollout. Please prepare any relevant updates for these items.\n\nFor those unable to attend in person, a virtual attendance option via video link will be available. Please confirm your attendance (in-person or virtual) by March 15 so I can finalize the arrangements.\n\nBest regards,\nSarah Chen",
+  "question": "What is the main purpose of this email?",
+  "choices": {
+    "A": "To inform team members about a change in meeting arrangements",
+    "B": "To announce a new project team member",
+    "C": "To request approval for the Q2 budget proposal",
+    "D": "To provide an agenda for the software rollout"
+  },
+  "answer": "A",
+  "explanation_zh": "主要目的是通知團隊成員會議時間與地點的變更。信件開頭明確指出原訂於3月15日的會議已改期至3月19日，並從A會議室改至B會議室，因此選項A正確。選項B（宣布新成員）、C（要求批准預算）及D（提供軟體發布議程）均非信件主旨。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "A2",
+  "vocabulary": [
+    "rescheduled",
+    "arrangements",
+    "agenda",
+    "virtual"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-041"
+},
+  {
+  "id": "p7-gen-354",
+  "part": "Part 7",
+  "passage": "To: All Project Team Members\nFrom: Sarah Chen, Project Coordinator\nSubject: Rescheduled Project Meeting – New Date and Location\n\nDear Team,\n\nPlease be advised that our upcoming project status meeting, originally scheduled for Friday, March 15 at 10:00 AM in Conference Room A, has been rescheduled. The new meeting will take place on Tuesday, March 19 at 2:00 PM in Conference Room B.\n\nWe will discuss the Q2 budget proposal and the timeline for the software rollout. Please prepare any relevant updates for these items.\n\nFor those unable to attend in person, a virtual attendance option via video link will be available. Please confirm your attendance (in-person or virtual) by March 15 so I can finalize the arrangements.\n\nBest regards,\nSarah Chen",
+  "question": "What should team members do by March 15?",
+  "choices": {
+    "A": "Submit their budget proposals",
+    "B": "Confirm whether they will attend in person or virtually",
+    "C": "Prepare updates for the software rollout",
+    "D": "Reserve Conference Room B for the meeting"
+  },
+  "answer": "B",
+  "explanation_zh": "團隊成員需在3月15日前回覆是否親自出席或線上參與。信件末段明確要求「請在3月15日前確認您的出席方式（親自或線上）」，因此選項B正確。選項A（提交預算提案）、C（準備軟體發布更新）及D（預訂B會議室）均非信件要求的行動。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "confirm",
+    "attendance",
+    "finalize",
+    "arrangements"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-041"
+},
+  {
+  "id": "p7-gen-355",
+  "part": "Part 7",
+  "passage": "To: All Staff\nFrom: Facilities Management\nDate: October 15, 2024\nSubject: Temporary Office Closure - November 5\n\nDue to essential electrical maintenance, the entire office building will be closed on Tuesday, November 5, 2024. All staff must work remotely on this day. The affected areas include all floors and the parking garage. The cafeteria will also be closed. Please ensure you have your laptop and necessary files for remote work. IT will provide remote access instructions by email on November 1. The building will reopen at 8:00 AM on Wednesday, November 6. For any questions, contact Facilities Management at ext. 4500.",
+  "question": "What is the main purpose of this memo?",
+  "choices": {
+    "A": "To announce a change in cafeteria hours",
+    "B": "To inform staff about a temporary office closure",
+    "C": "To remind staff to park elsewhere",
+    "D": "To introduce new IT policies"
+  },
+  "answer": "B",
+  "explanation_zh": "這份備忘錄的主要目的是通知員工辦公室將暫時關閉。文中明確指出「整個辦公大樓將於2024年11月5日星期二關閉」，因此選項B正確。選項A（更改自助餐廳營業時間）僅為附帶資訊，非主要目的；選項C（提醒員工改停他處）未提及；選項D（推出新IT政策）與主旨不符。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "A2",
+  "vocabulary": [
+    "closure",
+    "essential",
+    "maintenance",
+    "remotely"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-042"
+},
+  {
+  "id": "p7-gen-356",
+  "part": "Part 7",
+  "passage": "To: All Staff\nFrom: Facilities Management\nDate: October 15, 2024\nSubject: Temporary Office Closure - November 5\n\nDue to essential electrical maintenance, the entire office building will be closed on Tuesday, November 5, 2024. All staff must work remotely on this day. The affected areas include all floors and the parking garage. The cafeteria will also be closed. Please ensure you have your laptop and necessary files for remote work. IT will provide remote access instructions by email on November 1. The building will reopen at 8:00 AM on Wednesday, November 6. For any questions, contact Facilities Management at ext. 4500.",
+  "question": "On what date will the building reopen?",
+  "choices": {
+    "A": "November 1",
+    "B": "November 5",
+    "C": "November 6",
+    "D": "October 15"
+  },
+  "answer": "C",
+  "explanation_zh": "大樓重新開放的日期是11月6日。文中寫道「大樓將於11月6日星期三上午8:00重新開放」，因此選項C正確。選項A（11月1日）是IT提供遠端存取說明的日期；選項B（11月5日）是關閉日；選項D（10月15日）是備忘錄日期。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "reopen",
+    "remote",
+    "instructions",
+    "affected"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-042"
+},
+  {
+  "id": "p7-gen-357",
+  "part": "Part 7",
+  "passage": "To: All Staff\nFrom: Facilities Management\nDate: October 15, 2024\nSubject: Temporary Office Closure - November 5\n\nDue to essential electrical maintenance, the entire office building will be closed on Tuesday, November 5, 2024. All staff must work remotely on this day. The affected areas include all floors and the parking garage. The cafeteria will also be closed. Please ensure you have your laptop and necessary files for remote work. IT will provide remote access instructions by email on November 1. The building will reopen at 8:00 AM on Wednesday, November 6. For any questions, contact Facilities Management at ext. 4500.",
+  "question": "What can be inferred about the staff's work on November 5?",
+  "choices": {
+    "A": "They will have the day off with pay.",
+    "B": "They need to bring their own power tools.",
+    "C": "They can use the cafeteria as usual.",
+    "D": "They will be required to work from home."
+  },
+  "answer": "D",
+  "explanation_zh": "關於11月5日的工作安排，可推斷員工需在家工作。文中要求「所有員工必須在當天遠端工作」，並提到「請確保您有筆記型電腦和必要檔案」，因此選項D正確。選項A（帶薪休假）與遠端工作指示矛盾；選項B（自備電動工具）無關；選項C（可使用自助餐廳）與「自助餐廳也將關閉」衝突。",
+  "skill_tag": "reading_inference",
+  "difficulty": "A2",
+  "vocabulary": [
+    "inferred",
+    "required",
+    "remotely",
+    "unavailable"
+  ],
+  "passage_group_type": "single",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-042"
+},
+  {
+  "id": "p7-gen-358",
+  "part": "Part 7",
+  "passage": "Are you tired of waking up to a messy, tangled web of cables every morning? The new CableMate Pro is here to revolutionize your desk setup. This sleek, compact cable management box organizes up to six charging cables and devices simultaneously. Made from durable, flame-retardant ABS plastic, it features a weighted base to prevent tipping. Each unit includes three adjustable dividers and a built-in cooling fan to keep your devices from overheating. The CableMate Pro is available now for just $29.99, a 25% discount off the regular price of $39.99. Each purchase comes with a 2-year warranty and free shipping. Order today at www.cablematepro.com or call 1-800-555-0199. Supplies are limited!",
+  "question": "What is the main purpose of this advertisement?",
+  "choices": {
+    "A": "To explain the dangers of cable tangles",
+    "B": "To compare different types of cable organizers",
+    "C": "To announce a new cable management product for sale",
+    "D": "To promote a subscription service for cable accessories"
+  },
+  "answer": "C",
+  "explanation_zh": "本題問廣告的主要目的。文中明確指出「The new CableMate Pro is here to revolutionize your desk setup」及「The CableMate Pro is available now for just $29.99」，並提供購買方式，因此主要目的是推銷新上市的線材管理產品。選項A（解釋線材纏繞的危險）僅為引言，非主要目的；選項B（比較不同線材整理器）文中未提及；選項D（推廣線材配件訂閱服務）與內容不符。故答案為C。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B1",
+  "vocabulary": [
+    "cable",
+    "organize",
+    "discount",
+    "warranty"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-043"
+},
+  {
+  "id": "p7-gen-359",
+  "part": "Part 7",
+  "passage": "Are you tired of waking up to a messy, tangled web of cables every morning? The new CableMate Pro is here to revolutionize your desk setup. This sleek, compact cable management box organizes up to six charging cables and devices simultaneously. Made from durable, flame-retardant ABS plastic, it features a weighted base to prevent tipping. Each unit includes three adjustable dividers and a built-in cooling fan to keep your devices from overheating. The CableMate Pro is available now for just $29.99, a 25% discount off the regular price of $39.99. Each purchase comes with a 2-year warranty and free shipping. Order today at www.cablematepro.com or call 1-800-555-0199. Supplies are limited!",
+  "question": "What is the sale price of the CableMate Pro?",
+  "choices": {
+    "A": "$19.99",
+    "B": "$39.99",
+    "C": "$25.00",
+    "D": "$29.99"
+  },
+  "answer": "D",
+  "explanation_zh": "本題問CableMate Pro的售價。文中明確寫道「The CableMate Pro is available now for just $29.99」，因此特價為29.99美元。選項A（$19.99）未出現；選項B（$39.99）為原價；選項C（$25.00）為折扣金額而非售價。故答案為D。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "cable",
+    "organize",
+    "discount",
+    "warranty"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-043"
+},
+  {
+  "id": "p7-gen-360",
+  "part": "Part 7",
+  "passage": "Are you tired of waking up to a messy, tangled web of cables every morning? The new CableMate Pro is here to revolutionize your desk setup. This sleek, compact cable management box organizes up to six charging cables and devices simultaneously. Made from durable, flame-retardant ABS plastic, it features a weighted base to prevent tipping. Each unit includes three adjustable dividers and a built-in cooling fan to keep your devices from overheating. The CableMate Pro is available now for just $29.99, a 25% discount off the regular price of $39.99. Each purchase comes with a 2-year warranty and free shipping. Order today at www.cablematepro.com or call 1-800-555-0199. Supplies are limited!",
+  "question": "What can be inferred about the seller of the CableMate Pro?",
+  "choices": {
+    "A": "The seller expects high demand for the product.",
+    "B": "The seller is likely trying to clear out old inventory.",
+    "C": "The seller does not offer any customer support.",
+    "D": "The seller only sells cable management products."
+  },
+  "answer": "A",
+  "explanation_zh": "本題推論賣家情況。文中最後一句「Supplies are limited!」暗示庫存有限，賣家預期產品需求高，因此鼓勵顧客盡快購買。選項B（清倉）文中無證據；選項C（無客服）與提供2年保固及免費運送矛盾；選項D（只賣線材管理產品）文中未提及。故答案為A。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B1",
+  "vocabulary": [
+    "cable",
+    "organize",
+    "discount",
+    "warranty"
+  ],
+  "passage_group_type": "single",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-043"
+},
+  {
+  "id": "p7-gen-361",
+  "part": "Part 7",
+  "passage": "The Greenfield Community Center will host a free Digital Literacy Workshop for seniors on Saturday, March 15, from 10:00 AM to 1:00 PM in Room 201. The workshop covers basic smartphone use, social media safety, and online banking. Participants must be 60 years or older and register in advance. Space is limited to 25 attendees. To register, call (555) 123-4567 or visit the center’s front desk by March 10. A valid ID is required at check-in. Light refreshments will be provided.",
+  "question": "What is the main purpose of this notice?",
+  "choices": {
+    "A": "To announce a change in the center’s operating hours",
+    "B": "To remind members about membership renewal",
+    "C": "To request volunteers for a senior event",
+    "D": "To advertise a free technology workshop for older adults"
+  },
+  "answer": "D",
+  "explanation_zh": "這則通知的主要目的是宣傳一場為年長者舉辦的免費數位素養工作坊。文中明確指出「The Greenfield Community Center will host a free Digital Literacy Workshop for seniors」，因此選項D正確。選項A（更改中心營業時間）、B（提醒會員續約）及C（招募志工）均未在文中提及，屬於干擾選項。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B1",
+  "vocabulary": [
+    "digital literacy",
+    "workshop",
+    "register",
+    "refreshments"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-044"
+},
+  {
+  "id": "p7-gen-362",
+  "part": "Part 7",
+  "passage": "The Greenfield Community Center will host a free Digital Literacy Workshop for seniors on Saturday, March 15, from 10:00 AM to 1:00 PM in Room 201. The workshop covers basic smartphone use, social media safety, and online banking. Participants must be 60 years or older and register in advance. Space is limited to 25 attendees. To register, call (555) 123-4567 or visit the center’s front desk by March 10. A valid ID is required at check-in. Light refreshments will be provided.",
+  "question": "What is one requirement to attend the workshop?",
+  "choices": {
+    "A": "Attendees must be at least 60 years old",
+    "B": "Participants must bring their own smartphones",
+    "C": "Registration must be done online only",
+    "D": "A membership card is needed for entry"
+  },
+  "answer": "A",
+  "explanation_zh": "參加工作坊的其中一項要求是「Participants must be 60 years or older」，即參加者必須年滿60歲，因此選項A正確。選項B（自備智慧型手機）未強制要求，C（僅限線上報名）與文中「call (555) 123-4567 or visit the center’s front desk」不符，D（需會員卡）與「A valid ID is required」不同，均為干擾選項。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "participant",
+    "register in advance",
+    "valid ID",
+    "check-in"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-044"
+},
+  {
+  "id": "p7-gen-363",
+  "part": "Part 7",
+  "passage": "The Greenfield Community Center will host a free Digital Literacy Workshop for seniors on Saturday, March 15, from 10:00 AM to 1:00 PM in Room 201. The workshop covers basic smartphone use, social media safety, and online banking. Participants must be 60 years or older and register in advance. Space is limited to 25 attendees. To register, call (555) 123-4567 or visit the center’s front desk by March 10. A valid ID is required at check-in. Light refreshments will be provided.",
+  "question": "How can someone register for the workshop?",
+  "choices": {
+    "A": "By sending an email to the center",
+    "B": "By calling a phone number or visiting in person",
+    "C": "By mailing a registration form",
+    "D": "By signing up on the day of the event"
+  },
+  "answer": "B",
+  "explanation_zh": "報名方式為「call (555) 123-4567 or visit the center’s front desk」，即打電話或親自前往，因此選項B正確。選項A（發送電子郵件）、C（郵寄表格）及D（活動當天報名）均未在文中提及，屬於干擾選項。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "register",
+    "front desk",
+    "attendee",
+    "limited"
+  ],
+  "passage_group_type": "single",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-044"
+},
+  {
+  "id": "p7-gen-364",
+  "part": "Part 7",
+  "passage": "The Greenfield Community Center will host a free Digital Literacy Workshop for seniors on Saturday, March 15, from 10:00 AM to 1:00 PM in Room 201. The workshop covers basic smartphone use, social media safety, and online banking. Participants must be 60 years or older and register in advance. Space is limited to 25 attendees. To register, call (555) 123-4567 or visit the center’s front desk by March 10. A valid ID is required at check-in. Light refreshments will be provided.",
+  "question": "What can be inferred about the intended audience of this workshop?",
+  "choices": {
+    "A": "The workshop is for teenagers who want to learn coding",
+    "B": "The workshop is designed for professional IT workers",
+    "C": "The workshop targets older adults who may not be familiar with digital tools",
+    "D": "The workshop is open to all age groups without restriction"
+  },
+  "answer": "C",
+  "explanation_zh": "工作坊的目標對象是年長者，文中提到「Digital Literacy Workshop for seniors」及「basic smartphone use, social media safety, and online banking」，暗示參加者可能不熟悉數位工具，因此選項C正確。選項A（青少年學程式）、B（專業IT人員）及D（開放所有年齡）均與文中「seniors」及年齡限制不符，屬於干擾選項。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B1",
+  "vocabulary": [
+    "intended audience",
+    "digital tools",
+    "social media safety",
+    "online banking"
+  ],
+  "passage_group_type": "single",
+  "question_order": 4,
+  "passage_group_id": "p7-exp-044"
+},
+  {
+  "id": "p7-gen-365",
+  "part": "Part 7",
+  "passage": "NovaTech Solutions, a software firm based in Austin, Texas, announced on March 15 its acquisition of CloudSync Inc., a smaller data analytics company headquartered in Seattle. The deal, valued at $450 million, is expected to close by the end of June. NovaTech CEO Sarah Chen stated that the acquisition will strengthen the company's cloud computing division and expand its market presence in the Asia-Pacific region. CloudSync's technology, which specializes in real-time data processing, will be integrated into NovaTech's existing product line. Industry analysts have noted that this move comes as NovaTech faces increasing competition from larger rivals like OmniData Corp. The acquisition is anticipated to boost NovaTech's annual revenue by approximately 15% and create 200 new jobs at its Austin headquarters. However, some analysts have expressed concerns about potential integration challenges, given the different corporate cultures of the two companies.",
+  "question": "What is the main topic of the article?",
+  "choices": {
+    "A": "The acquisition of CloudSync Inc. by NovaTech Solutions",
+    "B": "The expansion of OmniData Corp. into the Asia-Pacific market",
+    "C": "The financial difficulties faced by NovaTech Solutions",
+    "D": "The launch of a new product by CloudSync Inc."
+  },
+  "answer": "A",
+  "explanation_zh": "文章主要討論NovaTech Solutions收購CloudSync Inc.一事。文中明確指出「NovaTech Solutions...announced...its acquisition of CloudSync Inc.」，並詳細說明收購金額、預期完成時間及影響，因此正確答案為A。選項B（OmniData Corp.擴張）僅作為競爭背景提及，非主題；選項C（NovaTech財務困難）與文中「收購將提升營收」矛盾；選項D（CloudSync推出新產品）未在文中出現。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B1",
+  "vocabulary": [
+    "acquisition",
+    "integrated",
+    "analysts",
+    "revenue"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-045"
+},
+  {
+  "id": "p7-gen-366",
+  "part": "Part 7",
+  "passage": "NovaTech Solutions, a software firm based in Austin, Texas, announced on March 15 its acquisition of CloudSync Inc., a smaller data analytics company headquartered in Seattle. The deal, valued at $450 million, is expected to close by the end of June. NovaTech CEO Sarah Chen stated that the acquisition will strengthen the company's cloud computing division and expand its market presence in the Asia-Pacific region. CloudSync's technology, which specializes in real-time data processing, will be integrated into NovaTech's existing product line. Industry analysts have noted that this move comes as NovaTech faces increasing competition from larger rivals like OmniData Corp. The acquisition is anticipated to boost NovaTech's annual revenue by approximately 15% and create 200 new jobs at its Austin headquarters. However, some analysts have expressed concerns about potential integration challenges, given the different corporate cultures of the two companies.",
+  "question": "When is the acquisition expected to be completed?",
+  "choices": {
+    "A": "March 15",
+    "B": "By the end of June",
+    "C": "By the end of the year",
+    "D": "Within 200 days"
+  },
+  "answer": "B",
+  "explanation_zh": "收購預計在六月底前完成。文中明確指出「The deal...is expected to close by the end of June」，因此正確答案為B。選項A（3月15日）是宣布收購的日期，非完成日期；選項C（年底前）未提及；選項D（200天內）與文中「200個新工作」混淆，非時間資訊。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "acquisition",
+    "headquartered",
+    "integration",
+    "rivals"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-045"
+},
+  {
+  "id": "p7-gen-367",
+  "part": "Part 7",
+  "passage": "TechConnect Conference – Day 2 Schedule\n\n9:00–10:15 AM – Keynote: \"The Future of AI\" by Dr. Sarah Chen, Main Hall\n10:30–11:45 AM – Workshop A: \"Cloud Computing Basics\" by Mark Lee, Room 201\n10:30–11:45 AM – Workshop B: \"Cybersecurity Trends\" by Anna Patel, Room 202\n12:00–1:15 PM – Lunch Break (Cafeteria)\n1:30–2:45 PM – Panel Discussion: \"Data Privacy Challenges\" with Dr. Chen, Mark Lee, and Anna Patel, Main Hall\n3:00–4:00 PM – Networking Session, Lobby",
+  "question": "What is the main purpose of this document?",
+  "choices": {
+    "A": "To advertise a technology product launch",
+    "B": "To provide a schedule for a conference day",
+    "C": "To describe a company's training program",
+    "D": "To announce a change in event location"
+  },
+  "answer": "B",
+  "explanation_zh": "這份文件的主要目的是提供會議第二天的行程安排。文中列出了從上午9:00的主題演講到下午4:00的交流環節等各項活動，因此選項B正確。選項A（宣傳科技產品發布）、C（描述公司培訓計劃）和D（宣布活動地點變更）均未在文中提及。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "A2",
+  "vocabulary": [
+    "keynote",
+    "workshop",
+    "panel discussion",
+    "networking"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-046"
+},
+  {
+  "id": "p7-gen-368",
+  "part": "Part 7",
+  "passage": "TechConnect Conference – Day 2 Schedule\n\n9:00–10:15 AM – Keynote: \"The Future of AI\" by Dr. Sarah Chen, Main Hall\n10:30–11:45 AM – Workshop A: \"Cloud Computing Basics\" by Mark Lee, Room 201\n10:30–11:45 AM – Workshop B: \"Cybersecurity Trends\" by Anna Patel, Room 202\n12:00–1:15 PM – Lunch Break (Cafeteria)\n1:30–2:45 PM – Panel Discussion: \"Data Privacy Challenges\" with Dr. Chen, Mark Lee, and Anna Patel, Main Hall\n3:00–4:00 PM – Networking Session, Lobby",
+  "question": "At what time does the workshop on cybersecurity begin?",
+  "choices": {
+    "A": "9:00 AM",
+    "B": "12:00 PM",
+    "C": "10:30 AM",
+    "D": "1:30 PM"
+  },
+  "answer": "C",
+  "explanation_zh": "網路安全研討會於上午10:30開始。文中明確寫道「10:30–11:45 AM – Workshop B: \"Cybersecurity Trends\" by Anna Patel, Room 202」，因此選項C正確。選項A（上午9:00）是主題演講時間，B（中午12:00）是午餐時間，D（下午1:30）是小組討論時間。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "cybersecurity",
+    "workshop",
+    "schedule",
+    "session"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-046"
+},
+  {
+  "id": "p7-gen-369",
+  "part": "Part 7",
+  "passage": "TechConnect Conference – Day 2 Schedule\n\n9:00–10:15 AM – Keynote: \"The Future of AI\" by Dr. Sarah Chen, Main Hall\n10:30–11:45 AM – Workshop A: \"Cloud Computing Basics\" by Mark Lee, Room 201\n10:30–11:45 AM – Workshop B: \"Cybersecurity Trends\" by Anna Patel, Room 202\n12:00–1:15 PM – Lunch Break (Cafeteria)\n1:30–2:45 PM – Panel Discussion: \"Data Privacy Challenges\" with Dr. Chen, Mark Lee, and Anna Patel, Main Hall\n3:00–4:00 PM – Networking Session, Lobby",
+  "question": "If a participant is interested in both cloud computing and cybersecurity, what can be inferred?",
+  "choices": {
+    "A": "They can ask the speakers to repeat the sessions during lunch.",
+    "B": "They can attend both workshops since they are in the same room.",
+    "C": "They can attend Workshop A first and then Workshop B in the afternoon.",
+    "D": "They must choose one workshop because both occur at the same time."
+  },
+  "answer": "D",
+  "explanation_zh": "如果參與者對雲端運算和網路安全都有興趣，可以推斷他們必須選擇其中一個研討會，因為兩者同時舉行。文中顯示Workshop A和Workshop B的時間均為上午10:30–11:45，因此選項D正確。選項A（要求講者在午餐時重複）文中未提及，B（在同一房間）錯誤，因為兩者在不同房間（Room 201和Room 202），C（先參加A再在下午參加B）錯誤，因為B也在上午舉行。",
+  "skill_tag": "reading_inference",
+  "difficulty": "A2",
+  "vocabulary": [
+    "infer",
+    "schedule conflict",
+    "session",
+    "attend"
+  ],
+  "passage_group_type": "single",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-046"
+},
+  {
+  "id": "p7-gen-370",
+  "part": "Part 7",
+  "passage": "INVOICE #2024-0851\nDate: March 15, 2024\n\nBill To:\nSarah Jenkins\n42 Oakwood Drive\nPortland, OR 97201\n\nShip To:\nSame as above\n\nPayment Method: Credit Card (Visa ending in 4421)\n\nItems Ordered:\n- 2x Wireless Mouse (Model WM-300) @ $25.99 each\n- 1x Laptop Stand (Model LS-200) @ $39.99\n- 3x USB-C Hub (Model UH-150) @ $18.50 each\n\nSubtotal: $130.47\nShipping: Free\nTax (8%): $10.44\nTotal: $140.91\n\nOrder Status: Shipped via UPS on March 16, 2024. Estimated delivery: March 20, 2024.",
+  "question": "What does this document represent?",
+  "choices": {
+    "A": "A shipping label for a package",
+    "B": "A credit card statement",
+    "C": "An invoice for an online order",
+    "D": "A product catalog"
+  },
+  "answer": "C",
+  "explanation_zh": "這是一張線上訂單的發票。文件標題為「INVOICE #2024-0851」，詳細列出了客戶資訊、訂購項目、金額、稅金及總額，並顯示訂單已透過UPS出貨，因此選項C正確。選項A「運送標籤」錯誤，因為文件是發票而非標籤；選項B「信用卡帳單」錯誤，因為它僅列出付款方式為信用卡，並非銀行帳單；選項D「產品目錄」錯誤，因為它記錄的是實際訂單而非產品列表。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B1",
+  "vocabulary": [
+    "invoice",
+    "subtotal",
+    "shipped",
+    "estimated delivery"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-047"
+},
+  {
+  "id": "p7-gen-371",
+  "part": "Part 7",
+  "passage": "INVOICE #2024-0851\nDate: March 15, 2024\n\nBill To:\nSarah Jenkins\n42 Oakwood Drive\nPortland, OR 97201\n\nShip To:\nSame as above\n\nPayment Method: Credit Card (Visa ending in 4421)\n\nItems Ordered:\n- 2x Wireless Mouse (Model WM-300) @ $25.99 each\n- 1x Laptop Stand (Model LS-200) @ $39.99\n- 3x USB-C Hub (Model UH-150) @ $18.50 each\n\nSubtotal: $130.47\nShipping: Free\nTax (8%): $10.44\nTotal: $140.91\n\nOrder Status: Shipped via UPS on March 16, 2024. Estimated delivery: March 20, 2024.",
+  "question": "How many USB-C hubs were ordered?",
+  "choices": {
+    "A": "One",
+    "B": "Two",
+    "C": "Four",
+    "D": "Three"
+  },
+  "answer": "D",
+  "explanation_zh": "訂購了三個USB-C集線器。發票中「Items Ordered」部分明確列出「3x USB-C Hub (Model UH-150) @ $18.50 each」，因此數量為三個，選項D正確。選項A「一個」、選項B「兩個」、選項C「四個」均與文件內容不符。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "USB-C hub",
+    "model",
+    "quantity"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-047"
+},
+  {
+  "id": "p7-gen-372",
+  "part": "Part 7",
+  "passage": "INVOICE #2024-0851\nDate: March 15, 2024\n\nBill To:\nSarah Jenkins\n42 Oakwood Drive\nPortland, OR 97201\n\nShip To:\nSame as above\n\nPayment Method: Credit Card (Visa ending in 4421)\n\nItems Ordered:\n- 2x Wireless Mouse (Model WM-300) @ $25.99 each\n- 1x Laptop Stand (Model LS-200) @ $39.99\n- 3x USB-C Hub (Model UH-150) @ $18.50 each\n\nSubtotal: $130.47\nShipping: Free\nTax (8%): $10.44\nTotal: $140.91\n\nOrder Status: Shipped via UPS on March 16, 2024. Estimated delivery: March 20, 2024.",
+  "question": "What can be inferred about the customer's next step?",
+  "choices": {
+    "A": "She should expect the package within the next few days.",
+    "B": "She will need to pay the invoice upon delivery.",
+    "C": "She must contact the seller to arrange shipping.",
+    "D": "She will receive a refund for the items."
+  },
+  "answer": "A",
+  "explanation_zh": "客戶應在未來幾天內收到包裹。發票顯示「Order Status: Shipped via UPS on March 16, 2024. Estimated delivery: March 20, 2024」，表示已於3月16日出貨，預計3月20日送達，因此可推斷客戶很快會收到包裹，選項A正確。選項B「需在送達時付款」錯誤，因為付款方式為信用卡且已處理；選項C「必須聯絡賣家安排運送」錯誤，因為運送已安排；選項D「將收到退款」錯誤，因為文件未提及退款。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B1",
+  "vocabulary": [
+    "inferred",
+    "delivery",
+    "package",
+    "shipped"
+  ],
+  "passage_group_type": "single",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-047"
+},
+  {
+  "id": "p7-gen-373",
+  "part": "Part 7",
+  "passage": "Dear Team,\n\nThis is to inform you that the monthly progress meeting originally scheduled for Friday, March 15th, at 10:00 AM in Conference Room B has been rescheduled. The new meeting will take place on Tuesday, March 19th, at 2:00 PM in Conference Room A.\n\nThe change is necessary due to a scheduling conflict with the quarterly audit presentation. Please note that remote attendance via video conference will be available for those who cannot attend in person. The agenda will include updates on the Q1 sales figures, the new client onboarding process, and the marketing campaign review.\n\nPlease confirm your attendance by March 14th. If you have any questions, contact me directly.\n\nBest regards,\nSarah Chen\nProject Coordinator",
+  "question": "What is the main purpose of this email?",
+  "choices": {
+    "A": "To introduce a new project coordinator to the team",
+    "B": "To provide instructions for the quarterly audit presentation",
+    "C": "To request feedback on the new client onboarding process",
+    "D": "To announce a change in the meeting schedule and location"
+  },
+  "answer": "D",
+  "explanation_zh": "主要目的是通知會議時間與地點的變更。信件開頭明確指出原訂於3月15日（週五）上午10點在B會議室舉行的月進度會議已改期，新會議將於3月19日（週二）下午2點在A會議室舉行。選項A（介紹新專案協調員）、B（提供季度稽核簡報的指示）和C（請求對新客戶入職流程的回饋）均非信件主旨。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "A2",
+  "vocabulary": [
+    "rescheduled",
+    "scheduling conflict",
+    "quarterly",
+    "onboarding"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-048"
+},
+  {
+  "id": "p7-gen-374",
+  "part": "Part 7",
+  "passage": "Dear Team,\n\nThis is to inform you that the monthly progress meeting originally scheduled for Friday, March 15th, at 10:00 AM in Conference Room B has been rescheduled. The new meeting will take place on Tuesday, March 19th, at 2:00 PM in Conference Room A.\n\nThe change is necessary due to a scheduling conflict with the quarterly audit presentation. Please note that remote attendance via video conference will be available for those who cannot attend in person. The agenda will include updates on the Q1 sales figures, the new client onboarding process, and the marketing campaign review.\n\nPlease confirm your attendance by March 14th. If you have any questions, contact me directly.\n\nBest regards,\nSarah Chen\nProject Coordinator",
+  "question": "What is the new date and time for the meeting?",
+  "choices": {
+    "A": "Tuesday, March 19th, at 2:00 PM",
+    "B": "Friday, March 15th, at 10:00 AM",
+    "C": "Wednesday, March 20th, at 2:00 PM",
+    "D": "Thursday, March 14th, at 10:00 AM"
+  },
+  "answer": "A",
+  "explanation_zh": "新會議日期與時間為3月19日（週二）下午2點。信件第二句明確寫道：「The new meeting will take place on Tuesday, March 19th, at 2:00 PM in Conference Room A.」選項B（原訂時間）、C（3月20日）和D（3月14日）均與信件內容不符。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "originally",
+    "rescheduled",
+    "quarterly",
+    "agenda"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-048"
+},
+  {
+  "id": "p7-gen-375",
+  "part": "Part 7",
+  "passage": "Dear Team,\n\nThis is to inform you that the monthly progress meeting originally scheduled for Friday, March 15th, at 10:00 AM in Conference Room B has been rescheduled. The new meeting will take place on Tuesday, March 19th, at 2:00 PM in Conference Room A.\n\nThe change is necessary due to a scheduling conflict with the quarterly audit presentation. Please note that remote attendance via video conference will be available for those who cannot attend in person. The agenda will include updates on the Q1 sales figures, the new client onboarding process, and the marketing campaign review.\n\nPlease confirm your attendance by March 14th. If you have any questions, contact me directly.\n\nBest regards,\nSarah Chen\nProject Coordinator",
+  "question": "According to the email, what is on the agenda for the meeting?",
+  "choices": {
+    "A": "Quarterly audit presentation only",
+    "B": "Sales figures, client onboarding, and marketing review",
+    "C": "Project coordinator introduction and team updates",
+    "D": "Video conference setup and attendance confirmation"
+  },
+  "answer": "B",
+  "explanation_zh": "會議議程包括第一季銷售數據、新客戶入職流程及行銷活動檢討。信件提到：「The agenda will include updates on the Q1 sales figures, the new client onboarding process, and the marketing campaign review.」選項A（僅季度稽核簡報）、C（專案協調員介紹與團隊更新）和D（視訊會議設定與出席確認）均未涵蓋所有議程項目。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "agenda",
+    "onboarding",
+    "campaign",
+    "quarterly"
+  ],
+  "passage_group_type": "single",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-048"
+},
+  {
+  "id": "p7-gen-376",
+  "part": "Part 7",
+  "passage": "Dear Team,\n\nThis is to inform you that the monthly progress meeting originally scheduled for Friday, March 15th, at 10:00 AM in Conference Room B has been rescheduled. The new meeting will take place on Tuesday, March 19th, at 2:00 PM in Conference Room A.\n\nThe change is necessary due to a scheduling conflict with the quarterly audit presentation. Please note that remote attendance via video conference will be available for those who cannot attend in person. The agenda will include updates on the Q1 sales figures, the new client onboarding process, and the marketing campaign review.\n\nPlease confirm your attendance by March 14th. If you have any questions, contact me directly.\n\nBest regards,\nSarah Chen\nProject Coordinator",
+  "question": "What can be inferred about the quarterly audit presentation?",
+  "choices": {
+    "A": "It has been cancelled due to the scheduling conflict.",
+    "B": "It will be discussed during the rescheduled meeting.",
+    "C": "It is taking place at the same time as the originally scheduled meeting.",
+    "D": "It requires all team members to attend in person."
+  },
+  "answer": "C",
+  "explanation_zh": "可推斷季度稽核簡報與原訂會議時間衝突。信件說明改期原因是「due to a scheduling conflict with the quarterly audit presentation」，暗示該簡報安排在3月15日上午10點，與原會議時間重疊。選項A（取消）未提及；選項B（在改期會議中討論）無根據；選項D（要求親自出席）與信件中提供遠端參與的資訊矛盾。",
+  "skill_tag": "reading_inference",
+  "difficulty": "A2",
+  "vocabulary": [
+    "scheduling conflict",
+    "quarterly",
+    "audit",
+    "in person"
+  ],
+  "passage_group_type": "single",
+  "question_order": 4,
+  "passage_group_id": "p7-exp-048"
+},
+  {
+  "id": "p7-gen-377",
+  "part": "Part 7",
+  "passage": "To: All Staff\nFrom: Facilities Management\nDate: April 3, 2025\nSubject: Temporary Closure of Meeting Room B\n\nPlease be informed that Meeting Room B on the second floor will be closed for renovations from April 10 to April 14. During this period, the room will be unavailable for any bookings or use. The renovations are necessary to upgrade the audiovisual equipment and improve soundproofing. As an alternative, employees may reserve Meeting Room C on the third floor or the small conference room next to the cafeteria. We apologize for any inconvenience this may cause. Please contact Facilities Management if you have any questions.",
+  "question": "What is the main reason for this memo?",
+  "choices": {
+    "A": "To inform staff about the temporary closure of Meeting Room B",
+    "B": "To announce the opening of a new meeting room",
+    "C": "To request feedback on office renovations",
+    "D": "To schedule a staff meeting about audiovisual upgrades"
+  },
+  "answer": "A",
+  "explanation_zh": "這份備忘錄的主要目的是通知員工會議室B將暫時關閉進行翻修。文中明確指出「Meeting Room B on the second floor will be closed for renovations from April 10 to April 14」，因此選項A「告知員工會議室B暫時關閉」為正確答案。選項B「宣布新會議室開放」、C「請求對辦公室翻修提供意見」及D「安排關於視聽設備升級的員工會議」均與內容不符。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "A2",
+  "vocabulary": [
+    "renovation",
+    "unavailable",
+    "soundproofing",
+    "alternative"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-049"
+},
+  {
+  "id": "p7-gen-378",
+  "part": "Part 7",
+  "passage": "To: All Staff\nFrom: Facilities Management\nDate: April 3, 2025\nSubject: Temporary Closure of Meeting Room B\n\nPlease be informed that Meeting Room B on the second floor will be closed for renovations from April 10 to April 14. During this period, the room will be unavailable for any bookings or use. The renovations are necessary to upgrade the audiovisual equipment and improve soundproofing. As an alternative, employees may reserve Meeting Room C on the third floor or the small conference room next to the cafeteria. We apologize for any inconvenience this may cause. Please contact Facilities Management if you have any questions.",
+  "question": "For how many days will Meeting Room B be closed?",
+  "choices": {
+    "A": "Three days",
+    "B": "Five days",
+    "C": "Four days",
+    "D": "Seven days"
+  },
+  "answer": "B",
+  "explanation_zh": "會議室B關閉的天數為五天。文中提到關閉期間為「from April 10 to April 14」，從4月10日到14日共計五天，因此選項B「五天」為正確答案。選項A「三天」、C「四天」及D「七天」均與實際天數不符。",
+  "skill_tag": "reading_detail",
+  "difficulty": "A2",
+  "vocabulary": [
+    "renovation",
+    "unavailable",
+    "soundproofing",
+    "alternative"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-049"
+},
+  {
+  "id": "p7-gen-379",
+  "part": "Part 7",
+  "passage": "Looking for a reliable and powerful laptop for your small business? The ProTech X500 is now available at a special introductory price of $899 (regularly $1,199). This lightweight model weighs only 2.8 pounds and features a 14-inch high-resolution display, 16 GB of RAM, and a 512 GB solid-state drive. It comes with a one-year warranty on parts and labor, extendable to three years for an additional $99. The battery life lasts up to 10 hours on a single charge, making it perfect for professionals on the go. Order online at www.protech.com or call 1-800-555-0199. Free shipping is included for all orders placed before March 31st. Don't miss this limited-time offer!",
+  "question": "What is the main purpose of this advertisement?",
+  "choices": {
+    "A": "To announce a new laptop model's release date",
+    "B": "To promote a discounted laptop for business users",
+    "C": "To compare different laptop brands",
+    "D": "To provide warranty repair instructions"
+  },
+  "answer": "B",
+  "explanation_zh": "本題答案為B。廣告開頭即詢問「正在為您的小型企業尋找一台可靠且強大的筆記型電腦嗎？」，接著介紹ProTech X500以特價899美元（原價1,199美元）販售，並強調輕量、長效電池等適合商務人士的特性，因此主要目的是推廣針對商業用戶的折扣筆記型電腦。選項A（宣布新機型發售日期）未提及具體日期；選項C（比較不同品牌）僅介紹單一產品；選項D（提供保固維修說明）僅簡述保固政策，非主要目的。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B1",
+  "vocabulary": [
+    "introductory",
+    "warranty",
+    "solid-state drive",
+    "limited-time"
+  ],
+  "passage_group_type": "single",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-050"
+},
+  {
+  "id": "p7-gen-380",
+  "part": "Part 7",
+  "passage": "Looking for a reliable and powerful laptop for your small business? The ProTech X500 is now available at a special introductory price of $899 (regularly $1,199). This lightweight model weighs only 2.8 pounds and features a 14-inch high-resolution display, 16 GB of RAM, and a 512 GB solid-state drive. It comes with a one-year warranty on parts and labor, extendable to three years for an additional $99. The battery life lasts up to 10 hours on a single charge, making it perfect for professionals on the go. Order online at www.protech.com or call 1-800-555-0199. Free shipping is included for all orders placed before March 31st. Don't miss this limited-time offer!",
+  "question": "How much does it cost to extend the warranty to three years?",
+  "choices": {
+    "A": "$1,199",
+    "B": "$899",
+    "C": "$99",
+    "D": "Free"
+  },
+  "answer": "C",
+  "explanation_zh": "本題答案為C。文中明確指出「可延長至三年，需額外支付99美元」，因此延長保固至三年的費用為99美元。選項A（1,199美元）為原價；選項B（899美元）為特價；選項D（免費）與文中「additional $99」不符。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "extendable",
+    "additional",
+    "regularly",
+    "battery life"
+  ],
+  "passage_group_type": "single",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-050"
+},
+  {
+  "id": "p7-gen-381",
+  "part": "Part 7",
+  "passage": "Looking for a reliable and powerful laptop for your small business? The ProTech X500 is now available at a special introductory price of $899 (regularly $1,199). This lightweight model weighs only 2.8 pounds and features a 14-inch high-resolution display, 16 GB of RAM, and a 512 GB solid-state drive. It comes with a one-year warranty on parts and labor, extendable to three years for an additional $99. The battery life lasts up to 10 hours on a single charge, making it perfect for professionals on the go. Order online at www.protech.com or call 1-800-555-0199. Free shipping is included for all orders placed before March 31st. Don't miss this limited-time offer!",
+  "question": "What can be inferred about the seller from the advertisement?",
+  "choices": {
+    "A": "The seller is trying to attract customers who need a heavy-duty gaming laptop.",
+    "B": "The seller only accepts online orders.",
+    "C": "The seller has been selling laptops for over 20 years.",
+    "D": "The seller is likely targeting small business owners who travel frequently."
+  },
+  "answer": "D",
+  "explanation_zh": "本題答案為D。廣告開頭鎖定「小型企業」用戶，並強調「輕量僅2.8磅」、「電池續航長達10小時」、「適合行動專業人士」，暗示賣家針對經常出差的小型企業主。選項A（重型遊戲筆電）與輕量設計矛盾；選項B（僅接受線上訂購）文中同時提供電話訂購；選項C（銷售超過20年）文中未提及任何歷史資訊。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B1",
+  "vocabulary": [
+    "inferred",
+    "targeting",
+    "professionals",
+    "on the go"
+  ],
+  "passage_group_type": "single",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-050"
+},
+  {
+  "id": "p7-gen-382",
+  "part": "Part 7",
+  "passage": "Email 1\nTo: support@greenleaf.com\nFrom: maria.chen@example.com\nSubject: Incorrect order received\n\nDear GreenLeaf Support,\n\nI am writing to express my disappointment with my recent order (Order #GL-4782) placed on November 5. I ordered a set of four ceramic planters in the \"Sage Green\" color, but the package I received today contains only three planters, and they are in \"Terracotta Orange.\" This is not what I ordered, and I need this resolved quickly as I am decorating my new café, which opens next week. Please advise on how to proceed with a return or replacement.\n\nBest regards,\nMaria Chen\n\nEmail 2\nTo: maria.chen@example.com\nFrom: support@greenleaf.com\nSubject: Re: Incorrect order received\n\nDear Ms. Chen,\n\nThank you for contacting us. We sincerely apologize for the mix-up with your order. We have checked our inventory and will send you the correct set of four Sage Green planters immediately via express shipping. You should receive them by November 12. Please keep the Terracotta planters as a gesture of our apology. We have also issued a full refund for the shipping cost. We hope this resolves the issue to your satisfaction.\n\nIf you have any further questions, please do not hesitate to reply.\n\nSincerely,\nDavid Lee\nCustomer Service Manager\nGreenLeaf Home & Garden",
+  "question": "What is the main problem Maria Chen is reporting?",
+  "choices": {
+    "A": "She received the wrong items and incorrect quantity.",
+    "B": "Her order was delivered late.",
+    "C": "She received a damaged product.",
+    "D": "She could not track her order."
+  },
+  "answer": "A",
+  "explanation_zh": "問題是瑪麗亞·陳回報的主要問題是什麼？答案是A。根據Email 1，她寫道：「我訂購了一組四個陶瓷花盆，顏色是『鼠尾草綠』，但我今天收到的包裹裡只有三個花盆，而且顏色是『陶土橙』。」這明確指出她收到錯誤的商品（顏色不對）且數量不足（訂購四個，收到三個）。選項B（延遲送達）未提及，選項C（產品損壞）未提及，選項D（無法追蹤訂單）也未提及。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B1",
+  "vocabulary": [
+    "ceramic",
+    "planter",
+    "apologize",
+    "inventory"
+  ],
+  "passage_group_type": "double",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-051"
+},
+  {
+  "id": "p7-gen-383",
+  "part": "Part 7",
+  "passage": "Email 1\nTo: support@greenleaf.com\nFrom: maria.chen@example.com\nSubject: Incorrect order received\n\nDear GreenLeaf Support,\n\nI am writing to express my disappointment with my recent order (Order #GL-4782) placed on November 5. I ordered a set of four ceramic planters in the \"Sage Green\" color, but the package I received today contains only three planters, and they are in \"Terracotta Orange.\" This is not what I ordered, and I need this resolved quickly as I am decorating my new café, which opens next week. Please advise on how to proceed with a return or replacement.\n\nBest regards,\nMaria Chen\n\nEmail 2\nTo: maria.chen@example.com\nFrom: support@greenleaf.com\nSubject: Re: Incorrect order received\n\nDear Ms. Chen,\n\nThank you for contacting us. We sincerely apologize for the mix-up with your order. We have checked our inventory and will send you the correct set of four Sage Green planters immediately via express shipping. You should receive them by November 12. Please keep the Terracotta planters as a gesture of our apology. We have also issued a full refund for the shipping cost. We hope this resolves the issue to your satisfaction.\n\nIf you have any further questions, please do not hesitate to reply.\n\nSincerely,\nDavid Lee\nCustomer Service Manager\nGreenLeaf Home & Garden",
+  "question": "According to Maria's email, what is her deadline for needing the planters?",
+  "choices": {
+    "A": "November 5",
+    "B": "The following week",
+    "C": "November 12",
+    "D": "She did not specify a deadline."
+  },
+  "answer": "B",
+  "explanation_zh": "根據瑪麗亞的電子郵件，她需要花盆的截止日期是什麼？答案是B。她在Email 1中寫道：「我需要在這個問題上迅速解決，因為我正在裝潢我的新咖啡館，下週就要開幕。」「下週」即為截止日期。選項A（11月5日）是訂購日期，選項C（11月12日）是大衛·李承諾送達的日期，選項D（她未指定截止日期）與原文不符。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "deadline",
+    "resolve",
+    "decorating",
+    "café"
+  ],
+  "passage_group_type": "double",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-051"
+},
+  {
+  "id": "p7-gen-384",
+  "part": "Part 7",
+  "passage": "Email 1\nTo: support@greenleaf.com\nFrom: maria.chen@example.com\nSubject: Incorrect order received\n\nDear GreenLeaf Support,\n\nI am writing to express my disappointment with my recent order (Order #GL-4782) placed on November 5. I ordered a set of four ceramic planters in the \"Sage Green\" color, but the package I received today contains only three planters, and they are in \"Terracotta Orange.\" This is not what I ordered, and I need this resolved quickly as I am decorating my new café, which opens next week. Please advise on how to proceed with a return or replacement.\n\nBest regards,\nMaria Chen\n\nEmail 2\nTo: maria.chen@example.com\nFrom: support@greenleaf.com\nSubject: Re: Incorrect order received\n\nDear Ms. Chen,\n\nThank you for contacting us. We sincerely apologize for the mix-up with your order. We have checked our inventory and will send you the correct set of four Sage Green planters immediately via express shipping. You should receive them by November 12. Please keep the Terracotta planters as a gesture of our apology. We have also issued a full refund for the shipping cost. We hope this resolves the issue to your satisfaction.\n\nIf you have any further questions, please do not hesitate to reply.\n\nSincerely,\nDavid Lee\nCustomer Service Manager\nGreenLeaf Home & Garden",
+  "question": "What action did David Lee take regarding the incorrect planters?",
+  "choices": {
+    "A": "He asked Maria to return them for a refund.",
+    "B": "He arranged a pickup for the wrong items.",
+    "C": "He told Maria to keep them as compensation.",
+    "D": "He offered a discount on a future order."
+  },
+  "answer": "C",
+  "explanation_zh": "大衛·李對錯誤花盆採取了什麼行動？答案是C。他在Email 2中寫道：「請保留陶土橙花盆，作為我們道歉的表示。」這表示他讓瑪麗亞保留花盆作為補償。選項A（要求退貨退款）與此相反，選項B（安排取回錯誤商品）未提及，選項D（提供未來訂單折扣）也未提及。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "gesture",
+    "compensation",
+    "apology",
+    "refund"
+  ],
+  "passage_group_type": "double",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-051"
+},
+  {
+  "id": "p7-gen-385",
+  "part": "Part 7",
+  "passage": "Email 1\nTo: support@greenleaf.com\nFrom: maria.chen@example.com\nSubject: Incorrect order received\n\nDear GreenLeaf Support,\n\nI am writing to express my disappointment with my recent order (Order #GL-4782) placed on November 5. I ordered a set of four ceramic planters in the \"Sage Green\" color, but the package I received today contains only three planters, and they are in \"Terracotta Orange.\" This is not what I ordered, and I need this resolved quickly as I am decorating my new café, which opens next week. Please advise on how to proceed with a return or replacement.\n\nBest regards,\nMaria Chen\n\nEmail 2\nTo: maria.chen@example.com\nFrom: support@greenleaf.com\nSubject: Re: Incorrect order received\n\nDear Ms. Chen,\n\nThank you for contacting us. We sincerely apologize for the mix-up with your order. We have checked our inventory and will send you the correct set of four Sage Green planters immediately via express shipping. You should receive them by November 12. Please keep the Terracotta planters as a gesture of our apology. We have also issued a full refund for the shipping cost. We hope this resolves the issue to your satisfaction.\n\nIf you have any further questions, please do not hesitate to reply.\n\nSincerely,\nDavid Lee\nCustomer Service Manager\nGreenLeaf Home & Garden",
+  "question": "What can be inferred about the original shipping cost?",
+  "choices": {
+    "A": "It was higher than usual because of express shipping.",
+    "B": "The shipping cost was included in the product price.",
+    "C": "David Lee paid it out of his own pocket.",
+    "D": "Maria had already paid for it, and it is now being refunded."
+  },
+  "answer": "D",
+  "explanation_zh": "關於原始運費，可以推斷出什麼？答案是D。大衛·李在Email 2中寫道：「我們也已全額退還運費。」這暗示瑪麗亞原本已支付運費，現在被退還。選項A（運費因快遞而較高）未提及，選項B（運費包含在產品價格中）與退款行為矛盾，選項C（大衛自掏腰包）無證據支持。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B1",
+  "vocabulary": [
+    "infer",
+    "refund",
+    "shipping",
+    "compensation"
+  ],
+  "passage_group_type": "double",
+  "question_order": 4,
+  "passage_group_id": "p7-exp-051"
+},
+  {
+  "id": "p7-gen-386",
+  "part": "Part 7",
+  "passage": "Email 1\nTo: support@greenleaf.com\nFrom: maria.chen@example.com\nSubject: Incorrect order received\n\nDear GreenLeaf Support,\n\nI am writing to express my disappointment with my recent order (Order #GL-4782) placed on November 5. I ordered a set of four ceramic planters in the \"Sage Green\" color, but the package I received today contains only three planters, and they are in \"Terracotta Orange.\" This is not what I ordered, and I need this resolved quickly as I am decorating my new café, which opens next week. Please advise on how to proceed with a return or replacement.\n\nBest regards,\nMaria Chen\n\nEmail 2\nTo: maria.chen@example.com\nFrom: support@greenleaf.com\nSubject: Re: Incorrect order received\n\nDear Ms. Chen,\n\nThank you for contacting us. We sincerely apologize for the mix-up with your order. We have checked our inventory and will send you the correct set of four Sage Green planters immediately via express shipping. You should receive them by November 12. Please keep the Terracotta planters as a gesture of our apology. We have also issued a full refund for the shipping cost. We hope this resolves the issue to your satisfaction.\n\nIf you have any further questions, please do not hesitate to reply.\n\nSincerely,\nDavid Lee\nCustomer Service Manager\nGreenLeaf Home & Garden",
+  "question": "How does the resolution offered by David Lee differ from what Maria requested in her original email?",
+  "choices": {
+    "A": "Maria asked for advice on returning the items, while David told her to keep them.",
+    "B": "Maria asked for a refund, but David offered a replacement.",
+    "C": "Maria wanted express shipping, but David used standard delivery.",
+    "D": "Maria requested a discount, and David gave her a full refund."
+  },
+  "answer": "A",
+  "explanation_zh": "大衛·李提供的解決方案與瑪麗亞原始郵件中的要求有何不同？答案是A。瑪麗亞在Email 1中要求：「請告知如何進行退貨或換貨。」她詢問如何退回商品。而大衛在Email 2中回覆：「請保留陶土橙花盆。」他告訴她保留商品，而非退回。選項B（瑪麗亞要求退款，大衛提供換貨）不準確，因為瑪麗亞並未要求退款，而是詢問退貨或換貨流程；大衛則提供了換貨（寄送正確商品）並退款運費。選項C（瑪麗亞要求快遞，大衛使用標準配送）錯誤，大衛使用了快遞。選項D（瑪麗亞要求折扣，大衛提供全額退款）錯誤，瑪麗亞未要求折扣。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B1",
+  "vocabulary": [
+    "resolution",
+    "request",
+    "compensation",
+    "policy"
+  ],
+  "passage_group_type": "double",
+  "question_order": 5,
+  "passage_group_id": "p7-exp-051"
+},
+  {
+  "id": "p7-gen-387",
+  "part": "Part 7",
+  "passage": "Text 1: Order Confirmation\nFrom: orders@novatech.com\nTo: jennifer.wong@globaltech.com\nSubject: Order #NT-4582 Confirmation\nDate: March 10, 2025\n\nDear Ms. Wong,\n\nThank you for your order with NovaTech Solutions. We are pleased to confirm the details of your recent purchase:\n\n- Order Number: NT-4582\n- Product: QuantumPro X Server Rack (Model QPX-200)\n- Quantity: 3 units\n- Unit Price: $4,500.00\n- Total Amount: $13,500.00\n- Delivery Address: 88 Park Avenue, Suite 400, New York, NY 10016\n- Estimated Delivery: March 25, 2025\n\nPayment was processed successfully via credit card ending in 7890. You will receive a shipping notification once your order is dispatched.\n\nShould you have any questions, please contact our customer service team at support@novatech.com or call 1-800-555-0199.\n\nSincerely,\n\nMichael Chen\nCustomer Service Manager\nNovaTech Solutions\n\n---\n\nText 2: Complaint Inquiry\nFrom: jennifer.wong@globaltech.com\nTo: support@novatech.com\nSubject: Urgent: Order #NT-4582 – Incorrect Items Delivered\nDate: March 28, 2025\n\nDear NovaTech Support Team,\n\nI am writing to report a serious issue with my recent order (NT-4582). The delivery arrived on March 27, but the package contained only 2 units of the QuantumPro X Server Rack (Model QPX-200) instead of the 3 units I ordered. Additionally, the units delivered appear to be the older model, QPX-100, not the QPX-200 I requested.\n\nOur data center upgrade is scheduled for April 5, and we urgently need the correct items. Please advise on how to proceed with a replacement or refund.\n\nThank you,\n\nJennifer Wong\nIT Procurement Manager\nGlobalTech Inc.\n\n---\n\nText 3: Resolution Reply\nFrom: support@novatech.com\nTo: jennifer.wong@globaltech.com\nSubject: RE: Urgent: Order #NT-4582 – Incorrect Items Delivered\nDate: March 29, 2025\n\nDear Ms. Wong,\n\nWe sincerely apologize for the error with your order. We have investigated the issue and found that a warehouse mix-up caused the wrong model and quantity to be shipped.\n\nTo resolve this, we will dispatch 3 units of the correct model (QuantumPro X Server Rack, Model QPX-200) today via express shipping. The estimated delivery is April 2, 2025. Please keep the incorrectly delivered units for collection by our courier within the next 5 business days; you will not be charged for them.\n\nAdditionally, we are issuing a $500 credit to your account as compensation for the inconvenience.\n\nWe appreciate your patience and regret any disruption to your schedule.\n\nBest regards,\n\nSarah Lee\nSenior Support Specialist\nNovaTech Solutions",
+  "question": "What is the main issue described in the texts?",
+  "choices": {
+    "A": "The payment for order NT-4582 was not processed correctly.",
+    "B": "The wrong product model and quantity were delivered to the customer.",
+    "C": "The delivery address for the order was incorrect.",
+    "D": "The estimated delivery date was changed without notice."
+  },
+  "answer": "B",
+  "explanation_zh": "答案是 B。主要問題是客戶收到的產品型號錯誤（QPX-100 而非 QPX-200）且數量不足（2 台而非 3 台），這在 Text 2 的投訴中明確指出，並由 Text 3 的客服回覆確認。選項 A 錯誤，因為 Text 1 顯示付款成功；選項 C 錯誤，因為地址正確；選項 D 錯誤，因為交貨延遲是結果而非問題本身。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B2",
+  "vocabulary": [
+    "dispatched",
+    "inquiry",
+    "resolution",
+    "compensation"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-052"
+},
+  {
+  "id": "p7-gen-388",
+  "part": "Part 7",
+  "passage": "Text 1: Order Confirmation\nFrom: orders@novatech.com\nTo: jennifer.wong@globaltech.com\nSubject: Order #NT-4582 Confirmation\nDate: March 10, 2025\n\nDear Ms. Wong,\n\nThank you for your order with NovaTech Solutions. We are pleased to confirm the details of your recent purchase:\n\n- Order Number: NT-4582\n- Product: QuantumPro X Server Rack (Model QPX-200)\n- Quantity: 3 units\n- Unit Price: $4,500.00\n- Total Amount: $13,500.00\n- Delivery Address: 88 Park Avenue, Suite 400, New York, NY 10016\n- Estimated Delivery: March 25, 2025\n\nPayment was processed successfully via credit card ending in 7890. You will receive a shipping notification once your order is dispatched.\n\nShould you have any questions, please contact our customer service team at support@novatech.com or call 1-800-555-0199.\n\nSincerely,\n\nMichael Chen\nCustomer Service Manager\nNovaTech Solutions\n\n---\n\nText 2: Complaint Inquiry\nFrom: jennifer.wong@globaltech.com\nTo: support@novatech.com\nSubject: Urgent: Order #NT-4582 – Incorrect Items Delivered\nDate: March 28, 2025\n\nDear NovaTech Support Team,\n\nI am writing to report a serious issue with my recent order (NT-4582). The delivery arrived on March 27, but the package contained only 2 units of the QuantumPro X Server Rack (Model QPX-200) instead of the 3 units I ordered. Additionally, the units delivered appear to be the older model, QPX-100, not the QPX-200 I requested.\n\nOur data center upgrade is scheduled for April 5, and we urgently need the correct items. Please advise on how to proceed with a replacement or refund.\n\nThank you,\n\nJennifer Wong\nIT Procurement Manager\nGlobalTech Inc.\n\n---\n\nText 3: Resolution Reply\nFrom: support@novatech.com\nTo: jennifer.wong@globaltech.com\nSubject: RE: Urgent: Order #NT-4582 – Incorrect Items Delivered\nDate: March 29, 2025\n\nDear Ms. Wong,\n\nWe sincerely apologize for the error with your order. We have investigated the issue and found that a warehouse mix-up caused the wrong model and quantity to be shipped.\n\nTo resolve this, we will dispatch 3 units of the correct model (QuantumPro X Server Rack, Model QPX-200) today via express shipping. The estimated delivery is April 2, 2025. Please keep the incorrectly delivered units for collection by our courier within the next 5 business days; you will not be charged for them.\n\nAdditionally, we are issuing a $500 credit to your account as compensation for the inconvenience.\n\nWe appreciate your patience and regret any disruption to your schedule.\n\nBest regards,\n\nSarah Lee\nSenior Support Specialist\nNovaTech Solutions",
+  "question": "According to the order confirmation (Text 1), what was the total amount charged for the order?",
+  "choices": {
+    "A": "$4,500.00",
+    "B": "$9,000.00",
+    "C": "$13,500.00",
+    "D": "$14,000.00"
+  },
+  "answer": "C",
+  "explanation_zh": "答案是 C。Text 1 的訂單確認信中明確列出總金額為 $13,500.00（3 台 x $4,500.00）。選項 A 是單價，選項 B 是 2 台的價格，選項 D 是錯誤金額。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "charged",
+    "total amount",
+    "unit price",
+    "confirmed"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-052"
+},
+  {
+  "id": "p7-gen-389",
+  "part": "Part 7",
+  "passage": "Text 1: Order Confirmation\nFrom: orders@novatech.com\nTo: jennifer.wong@globaltech.com\nSubject: Order #NT-4582 Confirmation\nDate: March 10, 2025\n\nDear Ms. Wong,\n\nThank you for your order with NovaTech Solutions. We are pleased to confirm the details of your recent purchase:\n\n- Order Number: NT-4582\n- Product: QuantumPro X Server Rack (Model QPX-200)\n- Quantity: 3 units\n- Unit Price: $4,500.00\n- Total Amount: $13,500.00\n- Delivery Address: 88 Park Avenue, Suite 400, New York, NY 10016\n- Estimated Delivery: March 25, 2025\n\nPayment was processed successfully via credit card ending in 7890. You will receive a shipping notification once your order is dispatched.\n\nShould you have any questions, please contact our customer service team at support@novatech.com or call 1-800-555-0199.\n\nSincerely,\n\nMichael Chen\nCustomer Service Manager\nNovaTech Solutions\n\n---\n\nText 2: Complaint Inquiry\nFrom: jennifer.wong@globaltech.com\nTo: support@novatech.com\nSubject: Urgent: Order #NT-4582 – Incorrect Items Delivered\nDate: March 28, 2025\n\nDear NovaTech Support Team,\n\nI am writing to report a serious issue with my recent order (NT-4582). The delivery arrived on March 27, but the package contained only 2 units of the QuantumPro X Server Rack (Model QPX-200) instead of the 3 units I ordered. Additionally, the units delivered appear to be the older model, QPX-100, not the QPX-200 I requested.\n\nOur data center upgrade is scheduled for April 5, and we urgently need the correct items. Please advise on how to proceed with a replacement or refund.\n\nThank you,\n\nJennifer Wong\nIT Procurement Manager\nGlobalTech Inc.\n\n---\n\nText 3: Resolution Reply\nFrom: support@novatech.com\nTo: jennifer.wong@globaltech.com\nSubject: RE: Urgent: Order #NT-4582 – Incorrect Items Delivered\nDate: March 29, 2025\n\nDear Ms. Wong,\n\nWe sincerely apologize for the error with your order. We have investigated the issue and found that a warehouse mix-up caused the wrong model and quantity to be shipped.\n\nTo resolve this, we will dispatch 3 units of the correct model (QuantumPro X Server Rack, Model QPX-200) today via express shipping. The estimated delivery is April 2, 2025. Please keep the incorrectly delivered units for collection by our courier within the next 5 business days; you will not be charged for them.\n\nAdditionally, we are issuing a $500 credit to your account as compensation for the inconvenience.\n\nWe appreciate your patience and regret any disruption to your schedule.\n\nBest regards,\n\nSarah Lee\nSenior Support Specialist\nNovaTech Solutions",
+  "question": "In Text 2, what does Jennifer Wong say is the reason for the urgency of her complaint?",
+  "choices": {
+    "A": "She needs to return the old server racks by a deadline.",
+    "B": "She is moving to a new office and needs the equipment quickly.",
+    "C": "The credit card payment was declined.",
+    "D": "Her company has a data center upgrade planned for April 5."
+  },
+  "answer": "D",
+  "explanation_zh": "答案是 D。Text 2 中 Jennifer Wong 明確表示「Our data center upgrade is scheduled for April 5」，因此急需正確商品。選項 A 未提及，選項 B 無關，選項 C 與付款成功的事實矛盾。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "urgency",
+    "scheduled",
+    "upgrade",
+    "complaint"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-052"
+},
+  {
+  "id": "p7-gen-390",
+  "part": "Part 7",
+  "passage": "Text 1: Order Confirmation\nFrom: orders@novatech.com\nTo: jennifer.wong@globaltech.com\nSubject: Order #NT-4582 Confirmation\nDate: March 10, 2025\n\nDear Ms. Wong,\n\nThank you for your order with NovaTech Solutions. We are pleased to confirm the details of your recent purchase:\n\n- Order Number: NT-4582\n- Product: QuantumPro X Server Rack (Model QPX-200)\n- Quantity: 3 units\n- Unit Price: $4,500.00\n- Total Amount: $13,500.00\n- Delivery Address: 88 Park Avenue, Suite 400, New York, NY 10016\n- Estimated Delivery: March 25, 2025\n\nPayment was processed successfully via credit card ending in 7890. You will receive a shipping notification once your order is dispatched.\n\nShould you have any questions, please contact our customer service team at support@novatech.com or call 1-800-555-0199.\n\nSincerely,\n\nMichael Chen\nCustomer Service Manager\nNovaTech Solutions\n\n---\n\nText 2: Complaint Inquiry\nFrom: jennifer.wong@globaltech.com\nTo: support@novatech.com\nSubject: Urgent: Order #NT-4582 – Incorrect Items Delivered\nDate: March 28, 2025\n\nDear NovaTech Support Team,\n\nI am writing to report a serious issue with my recent order (NT-4582). The delivery arrived on March 27, but the package contained only 2 units of the QuantumPro X Server Rack (Model QPX-200) instead of the 3 units I ordered. Additionally, the units delivered appear to be the older model, QPX-100, not the QPX-200 I requested.\n\nOur data center upgrade is scheduled for April 5, and we urgently need the correct items. Please advise on how to proceed with a replacement or refund.\n\nThank you,\n\nJennifer Wong\nIT Procurement Manager\nGlobalTech Inc.\n\n---\n\nText 3: Resolution Reply\nFrom: support@novatech.com\nTo: jennifer.wong@globaltech.com\nSubject: RE: Urgent: Order #NT-4582 – Incorrect Items Delivered\nDate: March 29, 2025\n\nDear Ms. Wong,\n\nWe sincerely apologize for the error with your order. We have investigated the issue and found that a warehouse mix-up caused the wrong model and quantity to be shipped.\n\nTo resolve this, we will dispatch 3 units of the correct model (QuantumPro X Server Rack, Model QPX-200) today via express shipping. The estimated delivery is April 2, 2025. Please keep the incorrectly delivered units for collection by our courier within the next 5 business days; you will not be charged for them.\n\nAdditionally, we are issuing a $500 credit to your account as compensation for the inconvenience.\n\nWe appreciate your patience and regret any disruption to your schedule.\n\nBest regards,\n\nSarah Lee\nSenior Support Specialist\nNovaTech Solutions",
+  "question": "Based on the texts, what can be inferred about the delivery schedule?",
+  "choices": {
+    "A": "The replacement items will be delivered before the April 5 upgrade deadline.",
+    "B": "The replacement delivery is scheduled for the same date as the original estimated delivery.",
+    "C": "The correct items will arrive after the customer's data center upgrade.",
+    "D": "The courier will collect the incorrect items before the replacement arrives."
+  },
+  "answer": "A",
+  "explanation_zh": "答案是 A。Text 3 指出更換商品將於 4 月 2 日送達，早於 Text 2 提到的 4 月 5 日升級截止日。選項 B 錯誤，因為原始預計交貨日為 3 月 25 日；選項 C 與事實相反；選項 D 無法推斷，因為快遞收貨時間未明確。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B2",
+  "vocabulary": [
+    "inferred",
+    "deadline",
+    "replacement",
+    "schedule"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 4,
+  "passage_group_id": "p7-exp-052"
+},
+  {
+  "id": "p7-gen-391",
+  "part": "Part 7",
+  "passage": "Text 1: Order Confirmation\nFrom: orders@novatech.com\nTo: jennifer.wong@globaltech.com\nSubject: Order #NT-4582 Confirmation\nDate: March 10, 2025\n\nDear Ms. Wong,\n\nThank you for your order with NovaTech Solutions. We are pleased to confirm the details of your recent purchase:\n\n- Order Number: NT-4582\n- Product: QuantumPro X Server Rack (Model QPX-200)\n- Quantity: 3 units\n- Unit Price: $4,500.00\n- Total Amount: $13,500.00\n- Delivery Address: 88 Park Avenue, Suite 400, New York, NY 10016\n- Estimated Delivery: March 25, 2025\n\nPayment was processed successfully via credit card ending in 7890. You will receive a shipping notification once your order is dispatched.\n\nShould you have any questions, please contact our customer service team at support@novatech.com or call 1-800-555-0199.\n\nSincerely,\n\nMichael Chen\nCustomer Service Manager\nNovaTech Solutions\n\n---\n\nText 2: Complaint Inquiry\nFrom: jennifer.wong@globaltech.com\nTo: support@novatech.com\nSubject: Urgent: Order #NT-4582 – Incorrect Items Delivered\nDate: March 28, 2025\n\nDear NovaTech Support Team,\n\nI am writing to report a serious issue with my recent order (NT-4582). The delivery arrived on March 27, but the package contained only 2 units of the QuantumPro X Server Rack (Model QPX-200) instead of the 3 units I ordered. Additionally, the units delivered appear to be the older model, QPX-100, not the QPX-200 I requested.\n\nOur data center upgrade is scheduled for April 5, and we urgently need the correct items. Please advise on how to proceed with a replacement or refund.\n\nThank you,\n\nJennifer Wong\nIT Procurement Manager\nGlobalTech Inc.\n\n---\n\nText 3: Resolution Reply\nFrom: support@novatech.com\nTo: jennifer.wong@globaltech.com\nSubject: RE: Urgent: Order #NT-4582 – Incorrect Items Delivered\nDate: March 29, 2025\n\nDear Ms. Wong,\n\nWe sincerely apologize for the error with your order. We have investigated the issue and found that a warehouse mix-up caused the wrong model and quantity to be shipped.\n\nTo resolve this, we will dispatch 3 units of the correct model (QuantumPro X Server Rack, Model QPX-200) today via express shipping. The estimated delivery is April 2, 2025. Please keep the incorrectly delivered units for collection by our courier within the next 5 business days; you will not be charged for them.\n\nAdditionally, we are issuing a $500 credit to your account as compensation for the inconvenience.\n\nWe appreciate your patience and regret any disruption to your schedule.\n\nBest regards,\n\nSarah Lee\nSenior Support Specialist\nNovaTech Solutions",
+  "question": "How does the compensation offered in Text 3 relate to the details in Text 1?",
+  "choices": {
+    "A": "The compensation amount is equal to the unit price of one server rack.",
+    "B": "The compensation is a credit, while the original payment was by credit card.",
+    "C": "The compensation is a partial refund of the total order amount.",
+    "D": "The compensation replaces the need for the original delivery."
+  },
+  "answer": "B",
+  "explanation_zh": "答案是 B。Text 3 提供的補償是帳戶信用額度（credit），而 Text 1 顯示原始付款方式為信用卡（credit card），兩者形式不同。選項 A 錯誤，因為補償 $500 不等於單價 $4,500；選項 C 錯誤，因為補償是信用額度而非退款；選項 D 錯誤，因為補償不取代原始交貨。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "compensation",
+    "credit",
+    "refund",
+    "partial"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 5,
+  "passage_group_id": "p7-exp-052"
+},
+  {
+  "id": "p7-gen-392",
+  "part": "Part 7",
+  "passage": "Text 1\nFrom: orders@greenleafsupplies.com\nTo: jennifer.chen@techsolutions.co\nSubject: Order Confirmation – GL-8842\nDate: March 10, 2025\n\nDear Ms. Chen,\n\nThank you for your order placed on March 8, 2025. Below are the details of your purchase:\n\nOrder Number: GL-8842\nProduct: Eco-Friendly Desk Lamp (Model EFL-200)\nQuantity: 50 units\nUnit Price: $34.50\nTotal: $1,725.00\nShipping Method: Standard (5–7 business days)\nEstimated Delivery: March 17, 2025\n\nYour order is currently being processed. We will notify you once it has been shipped.\n\nBest regards,\nMarcus Webb\nCustomer Service Manager\nGreenLeaf Supplies\n\nText 2\nFrom: jennifer.chen@techsolutions.co\nTo: support@greenleafsupplies.com\nSubject: Inquiry Regarding Order GL-8842\nDate: March 18, 2025\n\nDear Support Team,\n\nI am writing regarding order GL-8842 for 50 Eco-Friendly Desk Lamps (Model EFL-200). According to your confirmation email, the estimated delivery date was March 17, 2025. As of today, March 18, the shipment has not arrived, and I have not received any tracking information or shipping notice.\n\nWe need these lamps for an office renovation scheduled to begin on March 20. Please advise on the current status and expected delivery time. If there has been a delay, I would appreciate an explanation and an updated timeline.\n\nThank you for your prompt attention to this matter.\n\nSincerely,\nJennifer Chen\nOffice Manager\nTechSolutions Co.\n\nText 3\nFrom: support@greenleafsupplies.com\nTo: jennifer.chen@techsolutions.co\nSubject: Resolution for Order GL-8842\nDate: March 19, 2025\n\nDear Ms. Chen,\n\nThank you for reaching out. We sincerely apologize for the delay. Upon investigation, we found that your order was shipped on March 15 via FastTrack Logistics (tracking number: FT-987654). However, due to a system error, the shipping confirmation was not sent to you.\n\nThe package is currently in transit and is expected to arrive by March 21. To compensate for the inconvenience, we have issued a 15% refund on the total order amount, which will be credited to your original payment method within 5–7 business days.\n\nWe value your business and hope this resolution is satisfactory.\n\nBest regards,\nMarcus Webb\nCustomer Service Manager\nGreenLeaf Supplies",
+  "question": "What is the main issue described in the three texts?",
+  "choices": {
+    "A": "The lamps were defective and needed to be returned.",
+    "B": "The order was canceled due to a product shortage.",
+    "C": "The shipment was delayed and the customer was not notified.",
+    "D": "The customer ordered the wrong product model."
+  },
+  "answer": "C",
+  "explanation_zh": "正確答案為C。第一封郵件確認訂單並預計3月17日送達，第二封郵件指出截至3月18日貨物未到且未收到通知，第三封郵件承認因系統錯誤未發送出貨通知，導致延遲。A選項（燈具瑕疵需退貨）和B選項（訂單因缺貨取消）文中未提及；D選項（客戶訂錯型號）與事實不符。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B2",
+  "vocabulary": [
+    "renovation",
+    "compensate",
+    "investigation",
+    "resolution"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-053"
+},
+  {
+  "id": "p7-gen-393",
+  "part": "Part 7",
+  "passage": "Text 1\nFrom: orders@greenleafsupplies.com\nTo: jennifer.chen@techsolutions.co\nSubject: Order Confirmation – GL-8842\nDate: March 10, 2025\n\nDear Ms. Chen,\n\nThank you for your order placed on March 8, 2025. Below are the details of your purchase:\n\nOrder Number: GL-8842\nProduct: Eco-Friendly Desk Lamp (Model EFL-200)\nQuantity: 50 units\nUnit Price: $34.50\nTotal: $1,725.00\nShipping Method: Standard (5–7 business days)\nEstimated Delivery: March 17, 2025\n\nYour order is currently being processed. We will notify you once it has been shipped.\n\nBest regards,\nMarcus Webb\nCustomer Service Manager\nGreenLeaf Supplies\n\nText 2\nFrom: jennifer.chen@techsolutions.co\nTo: support@greenleafsupplies.com\nSubject: Inquiry Regarding Order GL-8842\nDate: March 18, 2025\n\nDear Support Team,\n\nI am writing regarding order GL-8842 for 50 Eco-Friendly Desk Lamps (Model EFL-200). According to your confirmation email, the estimated delivery date was March 17, 2025. As of today, March 18, the shipment has not arrived, and I have not received any tracking information or shipping notice.\n\nWe need these lamps for an office renovation scheduled to begin on March 20. Please advise on the current status and expected delivery time. If there has been a delay, I would appreciate an explanation and an updated timeline.\n\nThank you for your prompt attention to this matter.\n\nSincerely,\nJennifer Chen\nOffice Manager\nTechSolutions Co.\n\nText 3\nFrom: support@greenleafsupplies.com\nTo: jennifer.chen@techsolutions.co\nSubject: Resolution for Order GL-8842\nDate: March 19, 2025\n\nDear Ms. Chen,\n\nThank you for reaching out. We sincerely apologize for the delay. Upon investigation, we found that your order was shipped on March 15 via FastTrack Logistics (tracking number: FT-987654). However, due to a system error, the shipping confirmation was not sent to you.\n\nThe package is currently in transit and is expected to arrive by March 21. To compensate for the inconvenience, we have issued a 15% refund on the total order amount, which will be credited to your original payment method within 5–7 business days.\n\nWe value your business and hope this resolution is satisfactory.\n\nBest regards,\nMarcus Webb\nCustomer Service Manager\nGreenLeaf Supplies",
+  "question": "What was the estimated delivery date for order GL-8842?",
+  "choices": {
+    "A": "March 8, 2025",
+    "B": "March 15, 2025",
+    "C": "March 21, 2025",
+    "D": "March 17, 2025"
+  },
+  "answer": "D",
+  "explanation_zh": "正確答案為D。第一封郵件明確寫道「Estimated Delivery: March 17, 2025」。A選項（3月8日）為訂購日期；B選項（3月15日）為實際出貨日期；C選項（3月21日）為延遲後的新預計送達日期。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "estimated",
+    "inquiry",
+    "compensate",
+    "resolution"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-053"
+},
+  {
+  "id": "p7-gen-394",
+  "part": "Part 7",
+  "passage": "Text 1\nFrom: orders@greenleafsupplies.com\nTo: jennifer.chen@techsolutions.co\nSubject: Order Confirmation – GL-8842\nDate: March 10, 2025\n\nDear Ms. Chen,\n\nThank you for your order placed on March 8, 2025. Below are the details of your purchase:\n\nOrder Number: GL-8842\nProduct: Eco-Friendly Desk Lamp (Model EFL-200)\nQuantity: 50 units\nUnit Price: $34.50\nTotal: $1,725.00\nShipping Method: Standard (5–7 business days)\nEstimated Delivery: March 17, 2025\n\nYour order is currently being processed. We will notify you once it has been shipped.\n\nBest regards,\nMarcus Webb\nCustomer Service Manager\nGreenLeaf Supplies\n\nText 2\nFrom: jennifer.chen@techsolutions.co\nTo: support@greenleafsupplies.com\nSubject: Inquiry Regarding Order GL-8842\nDate: March 18, 2025\n\nDear Support Team,\n\nI am writing regarding order GL-8842 for 50 Eco-Friendly Desk Lamps (Model EFL-200). According to your confirmation email, the estimated delivery date was March 17, 2025. As of today, March 18, the shipment has not arrived, and I have not received any tracking information or shipping notice.\n\nWe need these lamps for an office renovation scheduled to begin on March 20. Please advise on the current status and expected delivery time. If there has been a delay, I would appreciate an explanation and an updated timeline.\n\nThank you for your prompt attention to this matter.\n\nSincerely,\nJennifer Chen\nOffice Manager\nTechSolutions Co.\n\nText 3\nFrom: support@greenleafsupplies.com\nTo: jennifer.chen@techsolutions.co\nSubject: Resolution for Order GL-8842\nDate: March 19, 2025\n\nDear Ms. Chen,\n\nThank you for reaching out. We sincerely apologize for the delay. Upon investigation, we found that your order was shipped on March 15 via FastTrack Logistics (tracking number: FT-987654). However, due to a system error, the shipping confirmation was not sent to you.\n\nThe package is currently in transit and is expected to arrive by March 21. To compensate for the inconvenience, we have issued a 15% refund on the total order amount, which will be credited to your original payment method within 5–7 business days.\n\nWe value your business and hope this resolution is satisfactory.\n\nBest regards,\nMarcus Webb\nCustomer Service Manager\nGreenLeaf Supplies",
+  "question": "What compensation did GreenLeaf Supplies offer for the delay?",
+  "choices": {
+    "A": "A 15% refund on the total amount",
+    "B": "Free shipping on the next order",
+    "C": "A full refund on the order",
+    "D": "An upgraded shipping method"
+  },
+  "answer": "A",
+  "explanation_zh": "正確答案為A。第三封郵件提到「we have issued a 15% refund on the total order amount」。B選項（下次訂單免運費）、C選項（全額退款）、D選項（升級運送方式）均未提及。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "compensation",
+    "refund",
+    "investigation",
+    "transit"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-053"
+},
+  {
+  "id": "p7-gen-395",
+  "part": "Part 7",
+  "passage": "Text 1\nFrom: orders@greenleafsupplies.com\nTo: jennifer.chen@techsolutions.co\nSubject: Order Confirmation – GL-8842\nDate: March 10, 2025\n\nDear Ms. Chen,\n\nThank you for your order placed on March 8, 2025. Below are the details of your purchase:\n\nOrder Number: GL-8842\nProduct: Eco-Friendly Desk Lamp (Model EFL-200)\nQuantity: 50 units\nUnit Price: $34.50\nTotal: $1,725.00\nShipping Method: Standard (5–7 business days)\nEstimated Delivery: March 17, 2025\n\nYour order is currently being processed. We will notify you once it has been shipped.\n\nBest regards,\nMarcus Webb\nCustomer Service Manager\nGreenLeaf Supplies\n\nText 2\nFrom: jennifer.chen@techsolutions.co\nTo: support@greenleafsupplies.com\nSubject: Inquiry Regarding Order GL-8842\nDate: March 18, 2025\n\nDear Support Team,\n\nI am writing regarding order GL-8842 for 50 Eco-Friendly Desk Lamps (Model EFL-200). According to your confirmation email, the estimated delivery date was March 17, 2025. As of today, March 18, the shipment has not arrived, and I have not received any tracking information or shipping notice.\n\nWe need these lamps for an office renovation scheduled to begin on March 20. Please advise on the current status and expected delivery time. If there has been a delay, I would appreciate an explanation and an updated timeline.\n\nThank you for your prompt attention to this matter.\n\nSincerely,\nJennifer Chen\nOffice Manager\nTechSolutions Co.\n\nText 3\nFrom: support@greenleafsupplies.com\nTo: jennifer.chen@techsolutions.co\nSubject: Resolution for Order GL-8842\nDate: March 19, 2025\n\nDear Ms. Chen,\n\nThank you for reaching out. We sincerely apologize for the delay. Upon investigation, we found that your order was shipped on March 15 via FastTrack Logistics (tracking number: FT-987654). However, due to a system error, the shipping confirmation was not sent to you.\n\nThe package is currently in transit and is expected to arrive by March 21. To compensate for the inconvenience, we have issued a 15% refund on the total order amount, which will be credited to your original payment method within 5–7 business days.\n\nWe value your business and hope this resolution is satisfactory.\n\nBest regards,\nMarcus Webb\nCustomer Service Manager\nGreenLeaf Supplies",
+  "question": "Why did Jennifer Chen need the lamps by March 20?",
+  "choices": {
+    "A": "To fulfill a client order",
+    "B": "For an office renovation",
+    "C": "To replace defective units",
+    "D": "For a product launch event"
+  },
+  "answer": "B",
+  "explanation_zh": "正確答案為B。第二封郵件中Jennifer Chen寫道「We need these lamps for an office renovation scheduled to begin on March 20」。A選項（履行客戶訂單）、C選項（更換瑕疵品）、D選項（產品發布活動）均非文中所述原因。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B2",
+  "vocabulary": [
+    "renovation",
+    "scheduled",
+    "inquiry",
+    "timeline"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 4,
+  "passage_group_id": "p7-exp-053"
+},
+  {
+  "id": "p7-gen-396",
+  "part": "Part 7",
+  "passage": "Text 1\nFrom: orders@greenleafsupplies.com\nTo: jennifer.chen@techsolutions.co\nSubject: Order Confirmation – GL-8842\nDate: March 10, 2025\n\nDear Ms. Chen,\n\nThank you for your order placed on March 8, 2025. Below are the details of your purchase:\n\nOrder Number: GL-8842\nProduct: Eco-Friendly Desk Lamp (Model EFL-200)\nQuantity: 50 units\nUnit Price: $34.50\nTotal: $1,725.00\nShipping Method: Standard (5–7 business days)\nEstimated Delivery: March 17, 2025\n\nYour order is currently being processed. We will notify you once it has been shipped.\n\nBest regards,\nMarcus Webb\nCustomer Service Manager\nGreenLeaf Supplies\n\nText 2\nFrom: jennifer.chen@techsolutions.co\nTo: support@greenleafsupplies.com\nSubject: Inquiry Regarding Order GL-8842\nDate: March 18, 2025\n\nDear Support Team,\n\nI am writing regarding order GL-8842 for 50 Eco-Friendly Desk Lamps (Model EFL-200). According to your confirmation email, the estimated delivery date was March 17, 2025. As of today, March 18, the shipment has not arrived, and I have not received any tracking information or shipping notice.\n\nWe need these lamps for an office renovation scheduled to begin on March 20. Please advise on the current status and expected delivery time. If there has been a delay, I would appreciate an explanation and an updated timeline.\n\nThank you for your prompt attention to this matter.\n\nSincerely,\nJennifer Chen\nOffice Manager\nTechSolutions Co.\n\nText 3\nFrom: support@greenleafsupplies.com\nTo: jennifer.chen@techsolutions.co\nSubject: Resolution for Order GL-8842\nDate: March 19, 2025\n\nDear Ms. Chen,\n\nThank you for reaching out. We sincerely apologize for the delay. Upon investigation, we found that your order was shipped on March 15 via FastTrack Logistics (tracking number: FT-987654). However, due to a system error, the shipping confirmation was not sent to you.\n\nThe package is currently in transit and is expected to arrive by March 21. To compensate for the inconvenience, we have issued a 15% refund on the total order amount, which will be credited to your original payment method within 5–7 business days.\n\nWe value your business and hope this resolution is satisfactory.\n\nBest regards,\nMarcus Webb\nCustomer Service Manager\nGreenLeaf Supplies",
+  "question": "According to the texts, what caused the customer not to receive a shipping notification?",
+  "choices": {
+    "A": "The order was shipped late by the logistics company.",
+    "B": "The customer provided an incorrect email address.",
+    "C": "A system error prevented the notification from being sent.",
+    "D": "The shipping method did not include tracking."
+  },
+  "answer": "C",
+  "explanation_zh": "正確答案為C。第三封郵件說明「due to a system error, the shipping confirmation was not sent to you」。A選項（物流公司延遲出貨）與實際3月15日出貨不符；B選項（客戶提供錯誤電郵）文中未提；D選項（運送方式不含追蹤）與提供追蹤號碼的事實矛盾。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "system error",
+    "notification",
+    "tracking",
+    "compensate"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 5,
+  "passage_group_id": "p7-exp-053"
+},
+  {
+  "id": "p7-gen-397",
+  "part": "Part 7",
+  "passage": "Job Posting: Marketing Coordinator\n\nCompany: GreenLeaf Solutions Inc.\nLocation: Chicago, IL (Hybrid)\n\nGreenLeaf Solutions is seeking a Marketing Coordinator to join our growing team. The ideal candidate will have at least two years of experience in digital marketing, strong project management skills, and proficiency in social media analytics tools.\n\nResponsibilities include:\n- Managing social media accounts and content calendars\n- Analyzing campaign performance using Google Analytics and Hootsuite\n- Coordinating with external vendors for promotional materials\n- Assisting in the development of quarterly marketing reports\n\nTo apply, send your resume and a cover letter to careers@greenleafsolutions.com. Applications should highlight experience with SEO and content creation. Deadline: October 15, 2023.\n\n---\n\nApplication Email\n\nFrom: Sarah Chen\nTo: careers@greenleafsolutions.com\nSubject: Application for Marketing Coordinator\n\nDear Hiring Team,\n\nI am writing to apply for the Marketing Coordinator position at GreenLeaf Solutions. I have three years of experience as a digital marketing assistant at Horizon Media, where I managed social media campaigns and used tools like Google Analytics to track performance. I also hold a certificate in Content Marketing from Coursera.\n\nI have attached my resume and cover letter as requested. I am particularly excited about GreenLeaf's focus on sustainability and believe my skills in content creation and SEO align well with this role.\n\nThank you for your consideration.\n\nBest regards,\nSarah Chen",
+  "question": "What position is Sarah Chen applying for?",
+  "choices": {
+    "A": "Digital Marketing Assistant at Horizon Media",
+    "B": "Social Media Manager",
+    "C": "Content Marketing Specialist",
+    "D": "Marketing Coordinator at GreenLeaf Solutions"
+  },
+  "answer": "D",
+  "explanation_zh": "答案是 D。求職信開頭明確寫道：「I am writing to apply for the Marketing Coordinator position at GreenLeaf Solutions」，因此 Sarah 應徵的職位是 GreenLeaf Solutions 的行銷協調員。選項 A 是她目前的工作，選項 B 和 C 並非職位名稱。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B2",
+  "vocabulary": [
+    "coordinator",
+    "deadline",
+    "proficiency",
+    "sustainability"
+  ],
+  "passage_group_type": "double",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-054"
+},
+  {
+  "id": "p7-gen-398",
+  "part": "Part 7",
+  "passage": "Job Posting: Marketing Coordinator\n\nCompany: GreenLeaf Solutions Inc.\nLocation: Chicago, IL (Hybrid)\n\nGreenLeaf Solutions is seeking a Marketing Coordinator to join our growing team. The ideal candidate will have at least two years of experience in digital marketing, strong project management skills, and proficiency in social media analytics tools.\n\nResponsibilities include:\n- Managing social media accounts and content calendars\n- Analyzing campaign performance using Google Analytics and Hootsuite\n- Coordinating with external vendors for promotional materials\n- Assisting in the development of quarterly marketing reports\n\nTo apply, send your resume and a cover letter to careers@greenleafsolutions.com. Applications should highlight experience with SEO and content creation. Deadline: October 15, 2023.\n\n---\n\nApplication Email\n\nFrom: Sarah Chen\nTo: careers@greenleafsolutions.com\nSubject: Application for Marketing Coordinator\n\nDear Hiring Team,\n\nI am writing to apply for the Marketing Coordinator position at GreenLeaf Solutions. I have three years of experience as a digital marketing assistant at Horizon Media, where I managed social media campaigns and used tools like Google Analytics to track performance. I also hold a certificate in Content Marketing from Coursera.\n\nI have attached my resume and cover letter as requested. I am particularly excited about GreenLeaf's focus on sustainability and believe my skills in content creation and SEO align well with this role.\n\nThank you for your consideration.\n\nBest regards,\nSarah Chen",
+  "question": "According to the job posting, which of the following is NOT a responsibility of the Marketing Coordinator?",
+  "choices": {
+    "A": "Developing new product strategies",
+    "B": "Analyzing campaign performance",
+    "C": "Managing social media accounts",
+    "D": "Coordinating with external vendors"
+  },
+  "answer": "A",
+  "explanation_zh": "答案是 A。職位說明中列出的職責包括「Managing social media accounts and content calendars」（選項 C）、「Analyzing campaign performance using Google Analytics and Hootsuite」（選項 B）以及「Coordinating with external vendors for promotional materials」（選項 D），但完全沒有提到「Developing new product strategies」，因此 A 不是該職位的職責。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "responsibilities",
+    "campaign",
+    "vendor",
+    "quarterly"
+  ],
+  "passage_group_type": "double",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-054"
+},
+  {
+  "id": "p7-gen-399",
+  "part": "Part 7",
+  "passage": "Job Posting: Marketing Coordinator\n\nCompany: GreenLeaf Solutions Inc.\nLocation: Chicago, IL (Hybrid)\n\nGreenLeaf Solutions is seeking a Marketing Coordinator to join our growing team. The ideal candidate will have at least two years of experience in digital marketing, strong project management skills, and proficiency in social media analytics tools.\n\nResponsibilities include:\n- Managing social media accounts and content calendars\n- Analyzing campaign performance using Google Analytics and Hootsuite\n- Coordinating with external vendors for promotional materials\n- Assisting in the development of quarterly marketing reports\n\nTo apply, send your resume and a cover letter to careers@greenleafsolutions.com. Applications should highlight experience with SEO and content creation. Deadline: October 15, 2023.\n\n---\n\nApplication Email\n\nFrom: Sarah Chen\nTo: careers@greenleafsolutions.com\nSubject: Application for Marketing Coordinator\n\nDear Hiring Team,\n\nI am writing to apply for the Marketing Coordinator position at GreenLeaf Solutions. I have three years of experience as a digital marketing assistant at Horizon Media, where I managed social media campaigns and used tools like Google Analytics to track performance. I also hold a certificate in Content Marketing from Coursera.\n\nI have attached my resume and cover letter as requested. I am particularly excited about GreenLeaf's focus on sustainability and believe my skills in content creation and SEO align well with this role.\n\nThank you for your consideration.\n\nBest regards,\nSarah Chen",
+  "question": "What can be inferred about Sarah Chen's qualifications?",
+  "choices": {
+    "A": "She has more than five years of experience in digital marketing.",
+    "B": "She has experience with tools mentioned in the job posting.",
+    "C": "She does not meet the minimum experience requirement for the position.",
+    "D": "She previously worked for GreenLeaf Solutions."
+  },
+  "answer": "B",
+  "explanation_zh": "答案是 B。Sarah 在求職信中表示她「used tools like Google Analytics to track performance」，而職位說明要求「proficiency in social media analytics tools」並提及 Google Analytics，因此可推斷她具備職位說明中提到的工具經驗。選項 A 錯誤，因為她只有三年經驗；選項 C 錯誤，因為她符合至少兩年的要求；選項 D 錯誤，因為她從未在 GreenLeaf 工作過。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "qualifications",
+    "requirement",
+    "analytics",
+    "certificate"
+  ],
+  "passage_group_type": "double",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-054"
+},
+  {
+  "id": "p7-gen-400",
+  "part": "Part 7",
+  "passage": "Job Posting: Marketing Coordinator\n\nCompany: GreenLeaf Solutions Inc.\nLocation: Chicago, IL (Hybrid)\n\nGreenLeaf Solutions is seeking a Marketing Coordinator to join our growing team. The ideal candidate will have at least two years of experience in digital marketing, strong project management skills, and proficiency in social media analytics tools.\n\nResponsibilities include:\n- Managing social media accounts and content calendars\n- Analyzing campaign performance using Google Analytics and Hootsuite\n- Coordinating with external vendors for promotional materials\n- Assisting in the development of quarterly marketing reports\n\nTo apply, send your resume and a cover letter to careers@greenleafsolutions.com. Applications should highlight experience with SEO and content creation. Deadline: October 15, 2023.\n\n---\n\nApplication Email\n\nFrom: Sarah Chen\nTo: careers@greenleafsolutions.com\nSubject: Application for Marketing Coordinator\n\nDear Hiring Team,\n\nI am writing to apply for the Marketing Coordinator position at GreenLeaf Solutions. I have three years of experience as a digital marketing assistant at Horizon Media, where I managed social media campaigns and used tools like Google Analytics to track performance. I also hold a certificate in Content Marketing from Coursera.\n\nI have attached my resume and cover letter as requested. I am particularly excited about GreenLeaf's focus on sustainability and believe my skills in content creation and SEO align well with this role.\n\nThank you for your consideration.\n\nBest regards,\nSarah Chen",
+  "question": "Based on the job posting and application, which of the following is a requirement from the posting that Sarah does NOT clearly address in her email?",
+  "choices": {
+    "A": "Experience with SEO",
+    "B": "Proficiency in social media analytics tools",
+    "C": "Strong project management skills",
+    "D": "Content creation experience"
+  },
+  "answer": "C",
+  "explanation_zh": "答案是 C。職位說明要求「strong project management skills」，但 Sarah 的求職信中完全沒有提到任何與專案管理相關的經驗或技能。選項 A（SEO 經驗）和選項 D（內容創作經驗）她在信中都有提及，選項 B（社交媒體分析工具熟練度）她也提到了使用 Google Analytics。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B2",
+  "vocabulary": [
+    "requirement",
+    "proficiency",
+    "project management",
+    "address"
+  ],
+  "passage_group_type": "double",
+  "question_order": 4,
+  "passage_group_id": "p7-exp-054"
+},
+  {
+  "id": "p7-gen-401",
+  "part": "Part 7",
+  "passage": "Job Posting: Marketing Coordinator\n\nCompany: GreenLeaf Solutions Inc.\nLocation: Chicago, IL (Hybrid)\n\nGreenLeaf Solutions is seeking a Marketing Coordinator to join our growing team. The ideal candidate will have at least two years of experience in digital marketing, strong project management skills, and proficiency in social media analytics tools.\n\nResponsibilities include:\n- Managing social media accounts and content calendars\n- Analyzing campaign performance using Google Analytics and Hootsuite\n- Coordinating with external vendors for promotional materials\n- Assisting in the development of quarterly marketing reports\n\nTo apply, send your resume and a cover letter to careers@greenleafsolutions.com. Applications should highlight experience with SEO and content creation. Deadline: October 15, 2023.\n\n---\n\nApplication Email\n\nFrom: Sarah Chen\nTo: careers@greenleafsolutions.com\nSubject: Application for Marketing Coordinator\n\nDear Hiring Team,\n\nI am writing to apply for the Marketing Coordinator position at GreenLeaf Solutions. I have three years of experience as a digital marketing assistant at Horizon Media, where I managed social media campaigns and used tools like Google Analytics to track performance. I also hold a certificate in Content Marketing from Coursera.\n\nI have attached my resume and cover letter as requested. I am particularly excited about GreenLeaf's focus on sustainability and believe my skills in content creation and SEO align well with this role.\n\nThank you for your consideration.\n\nBest regards,\nSarah Chen",
+  "question": "What is the main purpose of the job posting?",
+  "choices": {
+    "A": "To announce a new marketing campaign",
+    "B": "To introduce a company's sustainability initiatives",
+    "C": "To provide guidelines for submitting reports",
+    "D": "To advertise an open position and attract applicants"
+  },
+  "answer": "D",
+  "explanation_zh": "答案是 D。職位說明的標題為「Job Posting: Marketing Coordinator」，內容詳細描述了職位要求、職責以及申請方式與截止日期，其主要目的是公開招聘並吸引求職者。選項 A、B、C 分別涉及行銷活動、永續發展倡議和報告提交指南，均非本文主旨。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "purpose",
+    "advertise",
+    "applicant",
+    "initiative"
+  ],
+  "passage_group_type": "double",
+  "question_order": 5,
+  "passage_group_id": "p7-exp-054"
+},
+  {
+  "id": "p7-gen-402",
+  "part": "Part 7",
+  "passage": "Text 1\nFrom: orders@brightoffice.com\nTo: jennifer.chen@globaltech.com\nSubject: Order Confirmation #BO-8923\nDate: October 10, 2023\n\nDear Ms. Chen,\n\nThank you for your order placed on October 8, 2023. This email confirms your purchase of the following items:\n\n- 20 units of ErgoDesk Pro Standing Desk (Model ED-2000) at $299 each\n- 10 units of BrightView Monitor Arm (Model BM-150) at $45 each\n\nOrder Total: $6,430.00\nShipping Method: Standard (3-5 business days)\nEstimated Delivery: October 15-17, 2023\nShipping Address: 456 Innovation Drive, Suite 200, San Jose, CA 95110\n\nPayment: Processed via credit card ending in 7890.\n\nPlease note that all items are in stock and will be shipped within 24 hours. You will receive a tracking number once the package is dispatched.\n\nIf you have any questions, please contact our customer service team at support@brightoffice.com or call 1-800-555-0199.\n\nBest regards,\nBrightOffice Customer Service\n\nText 2\nFrom: jennifer.chen@globaltech.com\nTo: support@brightoffice.com\nSubject: Issue with Order #BO-8923\nDate: October 20, 2023\n\nDear BrightOffice Team,\n\nI am writing to report a problem with my recent order (Order #BO-8923). The package arrived on October 16, 2023, but upon inspection, I found that the shipment contained only 15 ErgoDesk Pro Standing Desks and 10 BrightView Monitor Arms. Five desks are missing from the delivery.\n\nAdditionally, the monitor arms appear to be the wrong model. I ordered the BM-150 model, but the units received are labeled BM-120, which is a lower-end version. This is causing a delay in our office setup project.\n\nI kindly request that you send the missing desks and the correct monitor arms as soon as possible. Please confirm by October 23, 2023, how you will resolve this issue.\n\nThank you for your prompt attention.\n\nBest regards,\nJennifer Chen\nOffice Manager, GlobalTech Solutions\n\nText 3\nFrom: support@brightoffice.com\nTo: jennifer.chen@globaltech.com\nSubject: Resolution for Order #BO-8923\nDate: October 22, 2023\n\nDear Ms. Chen,\n\nThank you for bringing this issue to our attention. We sincerely apologize for the inconvenience caused by the error in your shipment.\n\nAfter reviewing your order and our warehouse records, we confirm the following:\n\n- 5 missing ErgoDesk Pro Standing Desks (Model ED-2000) will be shipped today via express delivery. Estimated arrival: October 24, 2023.\n- The monitor arms you received (BM-120) were shipped by mistake. We are arranging a pickup of the incorrect items and will send 10 units of the correct model (BM-150) via express delivery, also arriving by October 24, 2023.\n\nTo compensate for the error, we have issued a full refund of the shipping costs ($50) and a 10% discount on your next order. These adjustments will be reflected in your account within 3-5 business days.\n\nWe appreciate your patience and hope this resolves the matter to your satisfaction.\n\nShould you have further questions, please do not hesitate to contact us.\n\nBest regards,\nBrightOffice Customer Support",
+  "question": "What is the main issue described in the three texts?",
+  "choices": {
+    "A": "The customer received the wrong model of monitor arms and a partial shipment of desks.",
+    "B": "The customer's payment was not processed correctly.",
+    "C": "The delivery was delayed by several weeks.",
+    "D": "The customer ordered the wrong items and requested a return."
+  },
+  "answer": "A",
+  "explanation_zh": "答案是 A。根據 Text 2，Jennifer Chen 回報收到的貨物中缺少 5 張 ErgoDesk Pro 桌子，且收到的 BM-120 螢幕支架是錯誤型號（她訂購的是 BM-150）。Text 3 的回覆也確認了這兩項問題。選項 B（付款問題）、C（延遲數週）和 D（訂錯商品要求退貨）均與內文不符。",
+  "skill_tag": "reading_main_idea",
+  "difficulty": "B2",
+  "vocabulary": [
+    "shipment",
+    "inspection",
+    "resolution",
+    "compensate"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 1,
+  "passage_group_id": "p7-exp-055"
+},
+  {
+  "id": "p7-gen-403",
+  "part": "Part 7",
+  "passage": "Text 1\nFrom: orders@brightoffice.com\nTo: jennifer.chen@globaltech.com\nSubject: Order Confirmation #BO-8923\nDate: October 10, 2023\n\nDear Ms. Chen,\n\nThank you for your order placed on October 8, 2023. This email confirms your purchase of the following items:\n\n- 20 units of ErgoDesk Pro Standing Desk (Model ED-2000) at $299 each\n- 10 units of BrightView Monitor Arm (Model BM-150) at $45 each\n\nOrder Total: $6,430.00\nShipping Method: Standard (3-5 business days)\nEstimated Delivery: October 15-17, 2023\nShipping Address: 456 Innovation Drive, Suite 200, San Jose, CA 95110\n\nPayment: Processed via credit card ending in 7890.\n\nPlease note that all items are in stock and will be shipped within 24 hours. You will receive a tracking number once the package is dispatched.\n\nIf you have any questions, please contact our customer service team at support@brightoffice.com or call 1-800-555-0199.\n\nBest regards,\nBrightOffice Customer Service\n\nText 2\nFrom: jennifer.chen@globaltech.com\nTo: support@brightoffice.com\nSubject: Issue with Order #BO-8923\nDate: October 20, 2023\n\nDear BrightOffice Team,\n\nI am writing to report a problem with my recent order (Order #BO-8923). The package arrived on October 16, 2023, but upon inspection, I found that the shipment contained only 15 ErgoDesk Pro Standing Desks and 10 BrightView Monitor Arms. Five desks are missing from the delivery.\n\nAdditionally, the monitor arms appear to be the wrong model. I ordered the BM-150 model, but the units received are labeled BM-120, which is a lower-end version. This is causing a delay in our office setup project.\n\nI kindly request that you send the missing desks and the correct monitor arms as soon as possible. Please confirm by October 23, 2023, how you will resolve this issue.\n\nThank you for your prompt attention.\n\nBest regards,\nJennifer Chen\nOffice Manager, GlobalTech Solutions\n\nText 3\nFrom: support@brightoffice.com\nTo: jennifer.chen@globaltech.com\nSubject: Resolution for Order #BO-8923\nDate: October 22, 2023\n\nDear Ms. Chen,\n\nThank you for bringing this issue to our attention. We sincerely apologize for the inconvenience caused by the error in your shipment.\n\nAfter reviewing your order and our warehouse records, we confirm the following:\n\n- 5 missing ErgoDesk Pro Standing Desks (Model ED-2000) will be shipped today via express delivery. Estimated arrival: October 24, 2023.\n- The monitor arms you received (BM-120) were shipped by mistake. We are arranging a pickup of the incorrect items and will send 10 units of the correct model (BM-150) via express delivery, also arriving by October 24, 2023.\n\nTo compensate for the error, we have issued a full refund of the shipping costs ($50) and a 10% discount on your next order. These adjustments will be reflected in your account within 3-5 business days.\n\nWe appreciate your patience and hope this resolves the matter to your satisfaction.\n\nShould you have further questions, please do not hesitate to contact us.\n\nBest regards,\nBrightOffice Customer Support",
+  "question": "How many ErgoDesk Pro desks did the customer actually receive in the first shipment?",
+  "choices": {
+    "A": "20",
+    "B": "15",
+    "C": "10",
+    "D": "5"
+  },
+  "answer": "B",
+  "explanation_zh": "答案是 B。Text 2 中 Jennifer Chen 明確指出：「the shipment contained only 15 ErgoDesk Pro Standing Desks」，因此她實際收到 15 張桌子。選項 A（20 張）是訂購總數，選項 C（10 張）和 D（5 張）均與內文不符。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "shipment",
+    "inspection",
+    "resolution",
+    "compensate"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 2,
+  "passage_group_id": "p7-exp-055"
+},
+  {
+  "id": "p7-gen-404",
+  "part": "Part 7",
+  "passage": "Text 1\nFrom: orders@brightoffice.com\nTo: jennifer.chen@globaltech.com\nSubject: Order Confirmation #BO-8923\nDate: October 10, 2023\n\nDear Ms. Chen,\n\nThank you for your order placed on October 8, 2023. This email confirms your purchase of the following items:\n\n- 20 units of ErgoDesk Pro Standing Desk (Model ED-2000) at $299 each\n- 10 units of BrightView Monitor Arm (Model BM-150) at $45 each\n\nOrder Total: $6,430.00\nShipping Method: Standard (3-5 business days)\nEstimated Delivery: October 15-17, 2023\nShipping Address: 456 Innovation Drive, Suite 200, San Jose, CA 95110\n\nPayment: Processed via credit card ending in 7890.\n\nPlease note that all items are in stock and will be shipped within 24 hours. You will receive a tracking number once the package is dispatched.\n\nIf you have any questions, please contact our customer service team at support@brightoffice.com or call 1-800-555-0199.\n\nBest regards,\nBrightOffice Customer Service\n\nText 2\nFrom: jennifer.chen@globaltech.com\nTo: support@brightoffice.com\nSubject: Issue with Order #BO-8923\nDate: October 20, 2023\n\nDear BrightOffice Team,\n\nI am writing to report a problem with my recent order (Order #BO-8923). The package arrived on October 16, 2023, but upon inspection, I found that the shipment contained only 15 ErgoDesk Pro Standing Desks and 10 BrightView Monitor Arms. Five desks are missing from the delivery.\n\nAdditionally, the monitor arms appear to be the wrong model. I ordered the BM-150 model, but the units received are labeled BM-120, which is a lower-end version. This is causing a delay in our office setup project.\n\nI kindly request that you send the missing desks and the correct monitor arms as soon as possible. Please confirm by October 23, 2023, how you will resolve this issue.\n\nThank you for your prompt attention.\n\nBest regards,\nJennifer Chen\nOffice Manager, GlobalTech Solutions\n\nText 3\nFrom: support@brightoffice.com\nTo: jennifer.chen@globaltech.com\nSubject: Resolution for Order #BO-8923\nDate: October 22, 2023\n\nDear Ms. Chen,\n\nThank you for bringing this issue to our attention. We sincerely apologize for the inconvenience caused by the error in your shipment.\n\nAfter reviewing your order and our warehouse records, we confirm the following:\n\n- 5 missing ErgoDesk Pro Standing Desks (Model ED-2000) will be shipped today via express delivery. Estimated arrival: October 24, 2023.\n- The monitor arms you received (BM-120) were shipped by mistake. We are arranging a pickup of the incorrect items and will send 10 units of the correct model (BM-150) via express delivery, also arriving by October 24, 2023.\n\nTo compensate for the error, we have issued a full refund of the shipping costs ($50) and a 10% discount on your next order. These adjustments will be reflected in your account within 3-5 business days.\n\nWe appreciate your patience and hope this resolves the matter to your satisfaction.\n\nShould you have further questions, please do not hesitate to contact us.\n\nBest regards,\nBrightOffice Customer Support",
+  "question": "What compensation did BrightOffice offer to the customer?",
+  "choices": {
+    "A": "A full refund of the order total and a 20% discount on next purchase.",
+    "B": "Free express shipping and a 10% discount on the current order.",
+    "C": "A full refund of shipping costs and a 10% discount on the next order.",
+    "D": "A replacement of all items at no extra cost."
+  },
+  "answer": "C",
+  "explanation_zh": "答案是 C。Text 3 中 BrightOffice 回覆：「we have issued a full refund of the shipping costs ($50) and a 10% discount on your next order」，即全額退還運費並提供下次訂單 10% 折扣。選項 A（全額退款及 20% 折扣）、B（免費快遞及本次訂單 10% 折扣）和 D（免費更換所有商品）均與內文不符。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "shipment",
+    "inspection",
+    "resolution",
+    "compensate"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 3,
+  "passage_group_id": "p7-exp-055"
+},
+  {
+  "id": "p7-gen-405",
+  "part": "Part 7",
+  "passage": "Text 1\nFrom: orders@brightoffice.com\nTo: jennifer.chen@globaltech.com\nSubject: Order Confirmation #BO-8923\nDate: October 10, 2023\n\nDear Ms. Chen,\n\nThank you for your order placed on October 8, 2023. This email confirms your purchase of the following items:\n\n- 20 units of ErgoDesk Pro Standing Desk (Model ED-2000) at $299 each\n- 10 units of BrightView Monitor Arm (Model BM-150) at $45 each\n\nOrder Total: $6,430.00\nShipping Method: Standard (3-5 business days)\nEstimated Delivery: October 15-17, 2023\nShipping Address: 456 Innovation Drive, Suite 200, San Jose, CA 95110\n\nPayment: Processed via credit card ending in 7890.\n\nPlease note that all items are in stock and will be shipped within 24 hours. You will receive a tracking number once the package is dispatched.\n\nIf you have any questions, please contact our customer service team at support@brightoffice.com or call 1-800-555-0199.\n\nBest regards,\nBrightOffice Customer Service\n\nText 2\nFrom: jennifer.chen@globaltech.com\nTo: support@brightoffice.com\nSubject: Issue with Order #BO-8923\nDate: October 20, 2023\n\nDear BrightOffice Team,\n\nI am writing to report a problem with my recent order (Order #BO-8923). The package arrived on October 16, 2023, but upon inspection, I found that the shipment contained only 15 ErgoDesk Pro Standing Desks and 10 BrightView Monitor Arms. Five desks are missing from the delivery.\n\nAdditionally, the monitor arms appear to be the wrong model. I ordered the BM-150 model, but the units received are labeled BM-120, which is a lower-end version. This is causing a delay in our office setup project.\n\nI kindly request that you send the missing desks and the correct monitor arms as soon as possible. Please confirm by October 23, 2023, how you will resolve this issue.\n\nThank you for your prompt attention.\n\nBest regards,\nJennifer Chen\nOffice Manager, GlobalTech Solutions\n\nText 3\nFrom: support@brightoffice.com\nTo: jennifer.chen@globaltech.com\nSubject: Resolution for Order #BO-8923\nDate: October 22, 2023\n\nDear Ms. Chen,\n\nThank you for bringing this issue to our attention. We sincerely apologize for the inconvenience caused by the error in your shipment.\n\nAfter reviewing your order and our warehouse records, we confirm the following:\n\n- 5 missing ErgoDesk Pro Standing Desks (Model ED-2000) will be shipped today via express delivery. Estimated arrival: October 24, 2023.\n- The monitor arms you received (BM-120) were shipped by mistake. We are arranging a pickup of the incorrect items and will send 10 units of the correct model (BM-150) via express delivery, also arriving by October 24, 2023.\n\nTo compensate for the error, we have issued a full refund of the shipping costs ($50) and a 10% discount on your next order. These adjustments will be reflected in your account within 3-5 business days.\n\nWe appreciate your patience and hope this resolves the matter to your satisfaction.\n\nShould you have further questions, please do not hesitate to contact us.\n\nBest regards,\nBrightOffice Customer Support",
+  "question": "What can be inferred about the monitor arms the customer received?",
+  "choices": {
+    "A": "They were the correct model but damaged during shipping.",
+    "B": "They were a more expensive version than what was ordered.",
+    "C": "They were an upgraded version sent by mistake.",
+    "D": "They were a lower-end model than the one ordered."
+  },
+  "answer": "D",
+  "explanation_zh": "答案是 D。Text 2 中 Jennifer Chen 說明收到的螢幕支架是 BM-120，而她訂購的是 BM-150，並指出 BM-120 是「a lower-end version」（較低階版本）。Text 3 也確認這是錯誤出貨。選項 A（正確型號但運送中損壞）、B（更昂貴版本）和 C（升級版本）均與內文不符。",
+  "skill_tag": "reading_inference",
+  "difficulty": "B2",
+  "vocabulary": [
+    "shipment",
+    "inspection",
+    "resolution",
+    "compensate"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 4,
+  "passage_group_id": "p7-exp-055"
+},
+  {
+  "id": "p7-gen-406",
+  "part": "Part 7",
+  "passage": "Text 1\nFrom: orders@brightoffice.com\nTo: jennifer.chen@globaltech.com\nSubject: Order Confirmation #BO-8923\nDate: October 10, 2023\n\nDear Ms. Chen,\n\nThank you for your order placed on October 8, 2023. This email confirms your purchase of the following items:\n\n- 20 units of ErgoDesk Pro Standing Desk (Model ED-2000) at $299 each\n- 10 units of BrightView Monitor Arm (Model BM-150) at $45 each\n\nOrder Total: $6,430.00\nShipping Method: Standard (3-5 business days)\nEstimated Delivery: October 15-17, 2023\nShipping Address: 456 Innovation Drive, Suite 200, San Jose, CA 95110\n\nPayment: Processed via credit card ending in 7890.\n\nPlease note that all items are in stock and will be shipped within 24 hours. You will receive a tracking number once the package is dispatched.\n\nIf you have any questions, please contact our customer service team at support@brightoffice.com or call 1-800-555-0199.\n\nBest regards,\nBrightOffice Customer Service\n\nText 2\nFrom: jennifer.chen@globaltech.com\nTo: support@brightoffice.com\nSubject: Issue with Order #BO-8923\nDate: October 20, 2023\n\nDear BrightOffice Team,\n\nI am writing to report a problem with my recent order (Order #BO-8923). The package arrived on October 16, 2023, but upon inspection, I found that the shipment contained only 15 ErgoDesk Pro Standing Desks and 10 BrightView Monitor Arms. Five desks are missing from the delivery.\n\nAdditionally, the monitor arms appear to be the wrong model. I ordered the BM-150 model, but the units received are labeled BM-120, which is a lower-end version. This is causing a delay in our office setup project.\n\nI kindly request that you send the missing desks and the correct monitor arms as soon as possible. Please confirm by October 23, 2023, how you will resolve this issue.\n\nThank you for your prompt attention.\n\nBest regards,\nJennifer Chen\nOffice Manager, GlobalTech Solutions\n\nText 3\nFrom: support@brightoffice.com\nTo: jennifer.chen@globaltech.com\nSubject: Resolution for Order #BO-8923\nDate: October 22, 2023\n\nDear Ms. Chen,\n\nThank you for bringing this issue to our attention. We sincerely apologize for the inconvenience caused by the error in your shipment.\n\nAfter reviewing your order and our warehouse records, we confirm the following:\n\n- 5 missing ErgoDesk Pro Standing Desks (Model ED-2000) will be shipped today via express delivery. Estimated arrival: October 24, 2023.\n- The monitor arms you received (BM-120) were shipped by mistake. We are arranging a pickup of the incorrect items and will send 10 units of the correct model (BM-150) via express delivery, also arriving by October 24, 2023.\n\nTo compensate for the error, we have issued a full refund of the shipping costs ($50) and a 10% discount on your next order. These adjustments will be reflected in your account within 3-5 business days.\n\nWe appreciate your patience and hope this resolves the matter to your satisfaction.\n\nShould you have further questions, please do not hesitate to contact us.\n\nBest regards,\nBrightOffice Customer Support",
+  "question": "How long after the customer's complaint did BrightOffice respond?",
+  "choices": {
+    "A": "2 days",
+    "B": "4 days",
+    "C": "6 days",
+    "D": "8 days"
+  },
+  "answer": "A",
+  "explanation_zh": "答案是 A。Jennifer Chen 的投訴信（Text 2）日期為 2023 年 10 月 20 日，BrightOffice 的回覆（Text 3）日期為 2023 年 10 月 22 日，相隔 2 天。選項 B（4 天）、C（6 天）和 D（8 天）均與實際天數不符。",
+  "skill_tag": "reading_detail",
+  "difficulty": "B2",
+  "vocabulary": [
+    "shipment",
+    "inspection",
+    "resolution",
+    "compensate"
+  ],
+  "passage_group_type": "triple",
+  "question_order": 5,
+  "passage_group_id": "p7-exp-055"
+}
 ];

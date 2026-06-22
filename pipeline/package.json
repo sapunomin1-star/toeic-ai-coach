@@ -9,6 +9,8 @@
     "check-media": "npx tsx src/check-media.ts",
     "dry-run": "npx tsx run-pipeline.ts --dry-run",
     "generate-audio": "npx tsx src/generate-audio.ts",
+    "generate-listening-expansion": "npx tsx src/generate-listening-expansion.ts",
+    "generate-part7-single-reading": "npx tsx src/generate-part7-single-reading.ts",
     "generate-images": "npx tsx src/generate-images.ts",
     "recompress-images": "npx tsx src/recompress-images.ts"
   },

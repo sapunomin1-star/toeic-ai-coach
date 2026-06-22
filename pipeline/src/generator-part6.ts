@@ -3,6 +3,7 @@ import * as path from "path";
 import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 import { deepseek, parseGeneratedJson } from "./llm-client";
+import { readingTemplatePrompt } from "./reading-template-library";
 import { validateQuestion, validateQuestionGroup } from "./validator";
 import type { Pattern, RawGeneratedQuestion } from "./types";
 
@@ -46,7 +47,7 @@ export async function generatePart6(
     .replace(/\{\{few_shot_examples\}\}/g, PART6_PATTERN_EXAMPLE)
     .replace(
       /\{\{generation_instruction\}\}/g,
-      pattern.generation_instruction
+      `${pattern.generation_instruction}\n\n${readingTemplatePrompt("Part 6")}`
     ) + answerPlanInstruction;
 
   console.log(`  Generating Part 6 passage via DeepSeek...`);

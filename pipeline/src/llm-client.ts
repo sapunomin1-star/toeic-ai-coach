@@ -29,7 +29,7 @@ async function chatCompletion(
   model: string,
   messages: ChatMessage[],
   temperature = 0.7,
-  maxTokens = 4096
+  maxTokens = 8192
 ): Promise<LLMResponse> {
   const response = await fetch(`${baseUrl}/chat/completions`, {
     method: "POST",
@@ -96,7 +96,7 @@ export async function deepseek(
       { role: "user", content: userPrompt },
     ],
     temperature,
-    4096
+    8192
   );
 }
 
@@ -143,7 +143,7 @@ export const hy3 = openrouter;
 export function extractJsonArray(text: string): string {
   // Try to find JSON array inside markdown code fences
   const fenceMatch = text.match(/```(?:json)?\s*([\s\S]*?)```/);
-  if (fenceMatch) return fenceMatch[1].trim();
+  if (fenceMatch) return fenceMatch[1].replace(/^json\s*/i, "").trim();
 
   // Strip leading "json" or other prefix before the array
   const stripped = text.replace(/^json\s*/i, "").trim();

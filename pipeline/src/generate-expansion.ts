@@ -697,9 +697,13 @@ async function generateBatch(part: SupportedPart, count: number): Promise<Expans
       result.push(...accepted);
     }
   } else if (part === "6") {
-    // The existing advertisement pattern repeatedly returns sub-80-word copy,
-    // below the enforced TOEIC-style passage floor for this expansion.
-    const patterns = readPatterns("6").filter((pattern) => pattern.subtype !== "advertisement");
+    // The advertisement pattern repeatedly returns sub-80-word copy, and the
+    // customer_notice pattern often creates weak modal/transition keys under
+    // the strict reviewer. Keep the more stable email/memo/letter templates
+    // for high-volume expansion batches.
+    const patterns = readPatterns("6").filter(
+      (pattern) => !["advertisement", "customer_notice"].includes(pattern.subtype),
+    );
     const answerPlans: Array<Array<RawGeneratedQuestion["answer"]>> = [
       ["A", "B", "C", "D"],
       ["B", "C", "D", "A"],
@@ -757,9 +761,19 @@ async function generateBatch(part: SupportedPart, count: number): Promise<Expans
     }
     setPassageGroups(result, "6");
   } else {
-    const multiPassagePatterns = readPatterns("7").filter(
-      (pattern) => pattern.document_type !== "single-passage",
+    const doublePassagePatterns = readPatterns("7").filter(
+      (pattern) => pattern.document_type === "double-passage",
     );
+    const triplePassagePatterns = readPatterns("7").filter(
+      (pattern) => pattern.document_type === "triple-passage",
+    );
+    const part7MultiPattern = (groupIndex: number): Pattern => {
+      const slot = groupIndex % 5;
+      if (slot === 0 || slot === 3) {
+        return doublePassagePatterns[Math.floor(groupIndex / 5 + slot) % doublePassagePatterns.length];
+      }
+      return triplePassagePatterns[Math.floor(groupIndex / 5 + slot) % triplePassagePatterns.length];
+    };
     const answerPlans = [
       ["A", "B", "C", "D", "A"],
       ["B", "C", "D", "A", "B"],
@@ -767,7 +781,7 @@ async function generateBatch(part: SupportedPart, count: number): Promise<Expans
       ["D", "A", "B", "C", "D"],
     ];
     for (let i = 0; i < count / 5; i++) {
-      const pattern = multiPassagePatterns[i % multiPassagePatterns.length];
+      const pattern = part7MultiPattern(i);
       let accepted: ExpansionQuestion[] = [];
       for (let attempt = 1; attempt <= 5; attempt++) {
         let generated: ExpansionQuestion[];

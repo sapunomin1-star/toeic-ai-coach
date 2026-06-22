@@ -1,6 +1,6 @@
 #!/usr/bin/env npx tsx
 /**
- * Generate reviewed P2/P3/P4 listening additions using GPT-4o.
+ * Generate reviewed P2/P3/P4 listening additions from abstract template patterns.
  *
  * Generation:
  *   npx tsx src/generate-listening-expansion.ts --part 2 --questions 50
@@ -18,6 +18,7 @@ import OpenAI from "openai";
 import { QUESTIONS } from "../../data/questions";
 import type { Choice } from "../../types/question";
 import { deepseek, getLlmUsage } from "./llm-client";
+import { listeningTemplatePrompt } from "./listening-template-library";
 import type { RawGeneratedQuestion } from "./types";
 import { validateQuestion, validateQuestionGroup } from "./validator";
 
@@ -209,10 +210,12 @@ The required prompt form for this item is: ${questionForms[itemOffset % question
 Vary the situation using item index ${batch * 10 + itemOffset + 1}: office supplies, shipping and logistics, business travel, facilities or building maintenance, hiring, staff training, restaurant or hotel reservations, customer service, IT equipment, or marketing events.
 Never set the scene around scheduling a meeting or around invoices/billing; those contexts are overrepresented in the existing bank.
 Use Traditional Chinese explanations that state transcript logic and why distractors fail. Vocabulary is 3-5 English terms.
+${listeningTemplatePrompt("Part 2", { includeAccentPolicy: true })}
 Do not use recalled exam material. No fourth choice.`;
 }
 
 function groupsPrompt(part: "3" | "4", firstGroup: number, groups: number): string {
+  const templatePart = `Part ${part}` as "Part 3" | "Part 4";
   const kind = part === "3" ? "conversation between W: and M:" : "single-speaker talk";
   const scenario =
     part === "3"
@@ -254,6 +257,7 @@ For question 2, prefer an explicitly stated cause, date, location, quantity, or 
 ${part === "4" ? "For Part 4 question 2, ask a factual detail such as time, location, eligibility, price, instruction, or deadline. Do not ask for a problem unless the talk explicitly announces a failure, cancellation, or delay." : ""}
 Use Traditional Chinese explanations citing exact transcript evidence and rejecting distractors. Vocabulary is 3-5 English terms.
 Required correct-answer letters per group in order are: ${plans.map((p, i) => `group ${i + 1}: ${p}`).join("; ")}.
+${listeningTemplatePrompt(templatePart, { includeAccentPolicy: true })}
 No recalled exam material, and no ambiguous distractors.`;
 }
 
@@ -340,6 +344,11 @@ function reviewerAccepts(review: { score: number; note: string }): boolean {
     .replace(/\bno [^.]*\b(?:ambiguity|unsupported|incorrect|contradictions?)[^.]*\.?/gi, "")
     .replace(/\bnot defensible\b/gi, "")
     .replace(/\bnot ambiguous\b/gi, "")
+    .replace(/\bno [^.]*\b(?:ambiguity|ambiguous|defensible (?:wrong choices?|distractors?|alternatives?)|unsupported|issues?)[^.]*\.?/gi, "")
+    .replace(/\b(?:wrong choices?|distractors?)[^.]*\b(?:uniquely|clearly) elimin[a-z]*[^.]*\.?/gi, "")
+    .replace(/\bcould be argued as[^.]*however[^.]*\b(?:acceptable|supported|specified)[^.]*\.?/gi, "")
+    .replace(/\border is slightly ambiguous[^.]*but[^.]*\b(?:correct|defensible|supported)[^.]*\.?/gi, "")
+    .replace(/\bambiguous between[^.]*but[^.]*\b(?:correct|defensible|supported)[^.]*\.?/gi, "")
     .replace(/\bcould be slightly ambiguous if[^.]*however[^.]*supports[^.]*\.?/gi, "")
     // Positive confirmations that echo the reviewer instructions ("each wrong
     // choice is uniquely eliminable", "answers are uniquely supported") would

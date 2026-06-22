@@ -78,6 +78,36 @@ function checkGroupStructure(questions: Question[]): string[] {
 }
 
 /**
+ * Explanation/answer-consistency guard. The documented failure mode of AI-
+ * generated items is an `answer` field that disagrees with the letter the
+ * Chinese explanation actually argues for (e.g. answer:"C" while the rationale
+ * concludes 「正確答案為 A」). Structural checks miss this because both the
+ * letter and the choice text are individually valid. We only flag when the
+ * explanation states a letter with a strong lead-in ("正解/答案為 X"), and only
+ * when none of the stated letters match `answer` — so prose that merely
+ * mentions other options in passing does not trip the guard.
+ */
+function checkExplanationAnswerConsistency(questions: Question[]): string[] {
+  const declareRe =
+    /(?:正確答案|正解|正答|答案|應選|故選|因此選|所以選|答案應為|答案應該為|答案選)\s*(?:為|是|应为|應為|選|:|：)?\s*[「『"'（(]?\s*([A-D])(?![0-9A-Za-z])/g;
+  const violations: string[] = [];
+  for (const q of questions) {
+    const text = q.explanation_zh ?? "";
+    if (!text) continue;
+    const declared = new Set<string>();
+    let m: RegExpExecArray | null;
+    declareRe.lastIndex = 0;
+    while ((m = declareRe.exec(text)) !== null) declared.add(m[1]);
+    if (declared.size > 0 && !declared.has(q.answer)) {
+      violations.push(
+        `${q.id}: answer=${q.answer} but explanation declares ${[...declared].join("/")}`,
+      );
+    }
+  }
+  return violations;
+}
+
+/**
  * Duplicate-stem guard. For Part 2 the question text IS the spoken stem and
  * for Part 5 it is the full test sentence — exact duplicates mean the student
  * can meet the same item twice in one mock. (Other parts legitimately repeat
@@ -171,6 +201,7 @@ export function runIntegrityCheck(questions: Question[]): IntegrityReport {
     ...checkGroupStructure(questions),
     ...checkDuplicateStems(questions),
   ];
+  const explanationAnswerMismatches = checkExplanationAnswerConsistency(questions);
 
   const passed =
     duplicateIds.length === 0 &&
@@ -181,7 +212,8 @@ export function runIntegrityCheck(questions: Question[]): IntegrityReport {
     missingTranscript.length === 0 &&
     missingPassage.length === 0 &&
     answerBalanceViolations.length === 0 &&
-    groupStructureViolations.length === 0;
+    groupStructureViolations.length === 0 &&
+    explanationAnswerMismatches.length === 0;
 
   return {
     duplicateIds,
@@ -193,6 +225,7 @@ export function runIntegrityCheck(questions: Question[]): IntegrityReport {
     missingPassage,
     answerBalanceViolations,
     groupStructureViolations,
+    explanationAnswerMismatches,
     totalQuestions: questions.length,
     passed,
   };
@@ -225,6 +258,9 @@ export function printIntegrityReport(report: IntegrityReport): void {
     `  Group structure issues: ${report.groupStructureViolations.length}`
   );
   console.log(
+    `  Explanation/answer mismatches: ${report.explanationAnswerMismatches.length}`
+  );
+  console.log(
     `  Status: ${report.passed ? "PASSED" : "FAILED"}`
   );
 
@@ -253,6 +289,10 @@ export function printIntegrityReport(report: IntegrityReport): void {
     if (report.groupStructureViolations.length > 0)
       console.log(
         `  - Group structure:\n      ${report.groupStructureViolations.join("\n      ")}`
+      );
+    if (report.explanationAnswerMismatches.length > 0)
+      console.log(
+        `  - Explanation/answer mismatches:\n      ${report.explanationAnswerMismatches.join("\n      ")}`
       );
   }
   console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");

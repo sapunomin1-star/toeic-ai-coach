@@ -1,5 +1,6 @@
 import { fileURLToPath } from "url";
 import { deepseek, parseGeneratedJson } from "./llm-client";
+import { listeningTemplatePrompt } from "./listening-template-library";
 import { saveToJson } from "./questions-writer";
 import { validateQuestion } from "./validator";
 import type { RawGeneratedQuestion } from "./types";
@@ -26,12 +27,16 @@ Rules:
 - B1/B2 business contexts (offices, meetings, factories, transport, restaurants, retail)
 - Distractors should be wrong because of: incorrect tense, wrong action, wrong number, wrong location, wrong object
 - Distribute answer key across A/B/C/D over a batch (each 20-30%)
-- Do NOT generate the actual photo
+- Do NOT generate the actual photo in this JSON step; write imageAlt as a clean prompt seed for OpenAI gpt-image-1
+- Do not copy, translate, or reconstruct any source photo or source question
 - Use Traditional Chinese (zh-Hant) for explanation_zh
 - Output JSON only, no markdown fences or extra text`;
 
 export async function generatePart1(count: number): Promise<RawGeneratedQuestion[]> {
-  const userPrompt = `Generate ${count} TOEIC Part 1 questions.`;
+  const userPrompt = `Generate ${count} original TOEIC Part 1 questions.\n\n${listeningTemplatePrompt("Part 1", {
+    includeAccentPolicy: true,
+    includeImagePolicy: true,
+  })}`;
   console.log(`  Calling DeepSeek for ${count} Part 1 questions...`);
   const response = await deepseek(PART1_SYSTEM_PROMPT, userPrompt);
   console.log(`  DeepSeek returned ${response.content.length} chars`);

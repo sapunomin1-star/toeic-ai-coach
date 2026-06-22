@@ -1,5 +1,6 @@
 import { fileURLToPath } from "url";
 import { deepseek, parseGeneratedJson } from "./llm-client";
+import { listeningTemplatePrompt } from "./listening-template-library";
 import { saveToJson } from "./questions-writer";
 import { validateQuestion } from "./validator";
 import type { RawGeneratedQuestion } from "./types";
@@ -26,11 +27,14 @@ Rules:
 - One distractor phonetically similar to question, one answers different question, one plausible but wrong follow-up
 - Distribute answer key A/B/C over a batch (each 30-40%)
 - NO choices.D
+- Do not copy, translate, or paraphrase any source prompt, response, answer, or explanation
 - Use Traditional Chinese (zh-Hant) for explanation_zh
 - Output JSON only`;
 
 export async function generatePart2(count: number): Promise<RawGeneratedQuestion[]> {
-  const userPrompt = `Generate ${count} TOEIC Part 2 questions.`;
+  const userPrompt = `Generate ${count} original TOEIC Part 2 questions.\n\n${listeningTemplatePrompt("Part 2", {
+    includeAccentPolicy: true,
+  })}`;
   console.log(`  Calling DeepSeek for ${count} Part 2 questions...`);
   const response = await deepseek(PART2_SYSTEM_PROMPT, userPrompt);
   console.log(`  DeepSeek returned ${response.content.length} chars`);
