@@ -12,6 +12,7 @@
     "generate-listening-expansion": "npx tsx src/generate-listening-expansion.ts",
     "generate-part7-single-reading": "npx tsx src/generate-part7-single-reading.ts",
     "generate-images": "npx tsx src/generate-images.ts",
+    "generate-vocabulary": "npx tsx src/generate-vocabulary.ts",
     "recompress-images": "npx tsx src/recompress-images.ts"
   },
   "dependencies": {

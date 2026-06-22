@@ -1,6 +1,10 @@
 import type { VocabularyItem } from "@/types/vocabulary";
+import { VOCABULARY_GENERATED } from "./vocabulary-generated";
 
-export const VOCABULARY: VocabularyItem[] = [
+// Hand-curated bank. AI-generated items live in vocabulary-generated.ts and are
+// concatenated below; keeping them in separate array literals also stays under
+// TypeScript's union-complexity limit (TS2590) at 1500+ items.
+const VOCABULARY_CORE: VocabularyItem[] = [
   {
     id: "vocab-001",
     word: "confirm",
@@ -10462,4 +10466,9 @@ export const VOCABULARY: VocabularyItem[] = [
     difficulty: "B1",
     category: "security",
   },
+];
+
+export const VOCABULARY: VocabularyItem[] = [
+  ...VOCABULARY_CORE,
+  ...VOCABULARY_GENERATED,
 ];

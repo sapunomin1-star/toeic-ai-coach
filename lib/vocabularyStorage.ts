@@ -15,11 +15,14 @@ import { STORAGE_KEYS, isBrowser, writeJSON } from "@/lib/storageCore";
 
 const VOCABULARY_PROGRESS_KEY = STORAGE_KEYS.vocabularyProgress;
 const DAILY_SESSION_KEY = STORAGE_KEYS.vocabularyDailySession;
-const MAX_DAILY_ITEMS = 25;
+// Daily intake target is 20 NEW words/day. MAX_DAILY_ITEMS must leave room for
+// 20 new on top of due/mastered reviews, and SUPPRESS_NEW_THRESHOLD must sit
+// above that review load so new words are only deferred on heavy-backlog days.
+const MAX_DAILY_ITEMS = 35;
 const MAX_DUE_ITEMS = 8;
 const MAX_MASTERED_REVIEW_ITEMS = 3;
-const MAX_NEW_ITEMS = 5;
-const SUPPRESS_NEW_THRESHOLD = 15;
+const MAX_NEW_ITEMS = 20;
+const SUPPRESS_NEW_THRESHOLD = 25;
 const MAX_REINFORCEMENT_ROUNDS = 2;
 const SRS_INTERVALS = [0, 1, 3, 7, 14, 30] as const;
 
