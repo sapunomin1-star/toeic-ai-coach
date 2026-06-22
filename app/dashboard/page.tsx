@@ -12,6 +12,7 @@ import {
 } from "@/components/dashboard/MockSections";
 import {
   OverviewStats,
+  PartAccuracySummary,
   PartPerformanceSection,
   ReadingPerformanceSection,
   SkillErrorChart,
@@ -164,30 +165,8 @@ export default function DashboardPage() {
         </p>
       </header>
 
-      <OverviewStats stats={metrics.stats} />
-      <PartPerformanceSection metrics={metrics} />
-      <ReadingPerformanceSection metrics={metrics} />
-      <VocabProgressSection metrics={metrics} />
-      <SpeedSection metrics={metrics} />
-      <WeaknessSection metrics={metrics} />
-      <VocabQuizSection
-        quizStats={quizStats}
-        dailyQuizStats={dailyQuizStats}
-        randomQuizStats={randomQuizStats}
-        reinforcementQuizStats={reinforcementQuizStats}
-      />
-      <ReasonBreakdownSection
-        reasonBreakdown={metrics.reasonBreakdown}
-        reasonInsight={metrics.reasonInsight}
-        grammarWeakSkills={metrics.grammarWeakSkills}
-        onStartGrammarVariantPractice={handleStartGrammarVariantPractice}
-      />
+      {/* ① 今天該做什麼（一句話行動）+ 主要操作 */}
       <TomorrowRecommendation recommendation={metrics.recommendation} />
-      <SkillErrorChart metrics={metrics} />
-      <FullMockEntry result={recentFullMockResult} />
-      <ReadingMockEntry result={recentMockResult} />
-      <ListeningMockEntry result={recentListeningMockResult} />
-
       <div className="grid grid-cols-2 gap-3">
         <Link
           href="/practice"
@@ -203,19 +182,59 @@ export default function DashboardPage() {
         </Link>
       </div>
 
-      <BackupSection onExport={handleExport} onImport={handleImport} />
+      {/* ② 關鍵數字 */}
+      <OverviewStats stats={metrics.stats} />
+      <PartAccuracySummary metrics={metrics} />
 
-      {(records.length > 0 ||
-        recentFullMockResult ||
-        recentMockResult ||
-        recentListeningMockResult) && (
-        <button
-          onClick={handleReset}
-          className="block w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-center text-xs font-medium text-slate-500"
-        >
-          清除所有學習紀錄
-        </button>
-      )}
+      {/* ③ Top 5 弱點 */}
+      <SkillErrorChart metrics={metrics} limit={5} title="主要弱點 · Top 5" />
+
+      {/* ④ 模考入口 */}
+      <FullMockEntry result={recentFullMockResult} />
+      <ReadingMockEntry result={recentMockResult} />
+      <ListeningMockEntry result={recentListeningMockResult} />
+
+      {/* ⑤ 其餘細節（預設收合） */}
+      <details className="group rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3 text-sm font-semibold text-slate-700">
+          展開看細節
+          <span className="text-xs text-slate-400 transition-transform group-open:rotate-180">
+            ▾
+          </span>
+        </summary>
+        <div className="space-y-5 border-t border-slate-100 p-4">
+          <PartPerformanceSection metrics={metrics} />
+          <ReadingPerformanceSection metrics={metrics} />
+          <SpeedSection metrics={metrics} />
+          <WeaknessSection metrics={metrics} />
+          <VocabProgressSection metrics={metrics} />
+          <VocabQuizSection
+            quizStats={quizStats}
+            dailyQuizStats={dailyQuizStats}
+            randomQuizStats={randomQuizStats}
+            reinforcementQuizStats={reinforcementQuizStats}
+          />
+          <ReasonBreakdownSection
+            reasonBreakdown={metrics.reasonBreakdown}
+            reasonInsight={metrics.reasonInsight}
+            grammarWeakSkills={metrics.grammarWeakSkills}
+            onStartGrammarVariantPractice={handleStartGrammarVariantPractice}
+          />
+          <SkillErrorChart metrics={metrics} />
+          <BackupSection onExport={handleExport} onImport={handleImport} />
+          {(records.length > 0 ||
+            recentFullMockResult ||
+            recentMockResult ||
+            recentListeningMockResult) && (
+            <button
+              onClick={handleReset}
+              className="block w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-center text-xs font-medium text-slate-500"
+            >
+              清除所有學習紀錄
+            </button>
+          )}
+        </div>
+      </details>
     </div>
   );
 }

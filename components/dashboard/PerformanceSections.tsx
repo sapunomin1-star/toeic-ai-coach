@@ -50,6 +50,57 @@ export function OverviewStats({ stats }: { stats: DashboardMetrics["stats"] }) {
   );
 }
 
+/** Compact one-row accuracy strip (Part 5 / 6 / 7 / 聽力) for the slim view. */
+export function PartAccuracySummary({ metrics }: { metrics: DashboardMetrics }) {
+  const {
+    stats,
+    part5Accuracy,
+    part5Total,
+    part6Accuracy,
+    part6Total,
+    readingAccuracy,
+    readingTotal,
+    listeningAccuracy,
+    listeningTotal,
+  } = metrics;
+
+  if (stats.total === 0) return null;
+
+  const cells = [
+    { label: "Part 5", acc: part5Accuracy, total: part5Total },
+    { label: "Part 6", acc: part6Accuracy, total: part6Total },
+    { label: "Part 7", acc: readingAccuracy, total: readingTotal },
+    { label: "聽力", acc: listeningAccuracy, total: listeningTotal },
+  ];
+
+  return (
+    <section className="grid grid-cols-4 gap-2">
+      {cells.map(({ label, acc, total }) => (
+        <div
+          key={label}
+          className="rounded-2xl border border-slate-200 bg-white p-3 text-center shadow-sm"
+        >
+          <p className="text-[10px] uppercase tracking-wider text-slate-500">
+            {label}
+          </p>
+          <p
+            className={`mt-1 text-lg font-bold ${
+              total === 0
+                ? "text-slate-400"
+                : acc >= 70
+                  ? "text-emerald-600"
+                  : "text-rose-600"
+            }`}
+          >
+            {total > 0 ? `${acc}%` : "—"}
+          </p>
+          <p className="mt-0.5 text-[10px] text-slate-400">{total} 題</p>
+        </div>
+      ))}
+    </section>
+  );
+}
+
 export function PartPerformanceSection({ metrics }: { metrics: DashboardMetrics }) {
   const {
     stats,
@@ -420,19 +471,34 @@ export function WeaknessSection({ metrics }: { metrics: DashboardMetrics }) {
   );
 }
 
-export function SkillErrorChart({ metrics }: { metrics: DashboardMetrics }) {
+export function SkillErrorChart({
+  metrics,
+  limit,
+  title = "各 Skill 錯題分佈",
+}: {
+  metrics: DashboardMetrics;
+  /** When set, show only the top N skills with at least one mistake. */
+  limit?: number;
+  title?: string;
+}) {
   const { stats, orderedSkills, maxMistakes } = metrics;
+  const rows =
+    limit != null
+      ? orderedSkills.filter(([, count]) => count > 0).slice(0, limit)
+      : orderedSkills;
 
   return (
     <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-      <h2 className="mb-3 text-sm font-semibold">各 Skill 錯題分佈</h2>
+      <h2 className="mb-3 text-sm font-semibold">{title}</h2>
       {stats.total === 0 ? (
         <p className="text-sm text-slate-500">
           還沒有作答紀錄，先去做今日訓練吧。
         </p>
+      ) : rows.length === 0 ? (
+        <p className="text-sm text-slate-500">目前沒有錯題，繼續保持！</p>
       ) : (
         <ul className="space-y-2">
-          {orderedSkills.map(([skill, count]) => (
+          {rows.map(([skill, count]) => (
             <li key={skill}>
               <div className="flex items-center justify-between text-xs">
                 <span className="font-medium text-slate-700">
