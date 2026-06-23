@@ -1677,7 +1677,7 @@ export const QUESTIONS_LISTENING: Question[] = [
       "D": "The waiter carried a tray with plates of food."
     },
     "answer": "C",
-    "explanation_zh": "照片中服務生正端著放有餐點的託盤，因此 (C) 正確。(A) 的動作錯誤，他沒有在擦桌子。(B) 的動作錯誤，顧客不是在結帳。(D) 的時態錯誤，使用過去式 'carried' 而非現在進行式。",
+    "explanation_zh": "照片中服務生正端著放有餐點的托盤，因此 (C) 正確。(A) 的動作錯誤，他沒有在擦桌子。(B) 的動作錯誤，顧客不是在結帳。(D) 的時態錯誤，使用過去式 'carried' 而非現在進行式。",
     "skill_tag": "listening_photo",
     "difficulty": "A2",
     "vocabulary": [

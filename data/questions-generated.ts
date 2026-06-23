@@ -7434,7 +7434,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "D": "She is paying the bill."
     },
     "answer": "B",
-    "explanation_zh": "正確答案是 B。照片中女服務生穿著圍裙，端著託盤，上面有兩杯咖啡和一盤三明治，因此「她正端著託盤」與畫面完全相符。A 選項「她正在清理桌子」不正確，因為她沒有擦拭或收拾的動作。C 選項「她正在看菜單」不正確，因為她手中是託盤而非菜單。D 選項「她正在付帳」不正確，因為她沒有拿錢或帳單。",
+    "explanation_zh": "正確答案是 B。照片中女服務生穿著圍裙，端著托盤，上面有兩杯咖啡和一盤三明治，因此「她正端著托盤」與畫面完全相符。A 選項「她正在清理桌子」不正確，因為她沒有擦拭或收拾的動作。C 選項「她正在看菜單」不正確，因為她手中是托盤而非菜單。D 選項「她正在付帳」不正確，因為她沒有拿錢或帳單。",
     "skill_tag": "listening_photo",
     "difficulty": "A2",
     "vocabulary": [
@@ -7671,7 +7671,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "D": "The woman is carrying a tray with food to a table."
     },
     "answer": "D",
-    "explanation_zh": "答案是D。照片中一名女子在餐廳端著託盤，託盤上有食物盤子，並在桌子間行走，這與選項D的描述完全一致。選項A（女子正在接受顧客點餐）不正確，因為她沒有在點餐。選項B（她正在清理桌子上的空盤子）不正確，因為託盤上有食物。選項C（她正在桌上擺放花朵）不正確，因為沒有花朵。",
+    "explanation_zh": "答案是D。照片中一名女子在餐廳端著托盤，托盤上有食物盤子，並在桌子間行走，這與選項D的描述完全一致。選項A（女子正在接受顧客點餐）不正確，因為她沒有在點餐。選項B（她正在清理桌子上的空盤子）不正確，因為托盤上有食物。選項C（她正在桌上擺放花朵）不正確，因為沒有花朵。",
     "skill_tag": "listening_photo",
     "difficulty": "B1",
     "vocabulary": [
@@ -16892,7 +16892,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "C": "It's right next to the entrance on the first floor."
   },
   "answer": "C",
-  "explanation_zh": "問題詢問顧客服務櫃檯的位置。選項C提供了具體位置資訊：在一樓入口旁邊。而選項A只提到顧客服務團隊的幫助，没有回答位置問題，儘管提及了\"customer service\"這個詞。選項B回答了開放時間而非位置。",
+  "explanation_zh": "問題詢問顧客服務櫃檯的位置。選項C提供了具體位置資訊：在一樓入口旁邊。而選項A只提到顧客服務團隊的幫助，沒有回答位置問題，儘管提及了\"customer service\"這個詞。選項B回答了開放時間而非位置。",
   "difficulty": "A2",
   "vocabulary": [
     "customer",
@@ -17599,7 +17599,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "C": "I ordered them last year."
   },
   "answer": "A",
-  "explanation_zh": "這個問題是詢問是否已經訂購了新的辦公用品。選項 A 直接回答了這個問題，說明已經訂購了，並且提供了到貨日期。選項 B 虽然提到 'supplies' 這個詞，但它回答的是辦公用品的位置，而不是是否訂購。選項 C 則回答了何時訂購，而不是是否已經訂購。",
+  "explanation_zh": "這個問題是詢問是否已經訂購了新的辦公用品。選項 A 直接回答了這個問題，說明已經訂購了，並且提供了到貨日期。選項 B 雖然提到 'supplies' 這個詞，但它回答的是辦公用品的位置，而不是是否訂購。選項 C 則回答了何時訂購，而不是是否已經訂購。",
   "difficulty": "A2",
   "vocabulary": [
     "order",
@@ -23695,7 +23695,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "large"
   },
   "answer": "C",
-  "explanation_zh": "此处需要一个形容词修饰'change'。'slight'表示微小的变化，符合礼貌通知中淡化负面影响的语气。'temporary'和'permanent'虽然语法正确，但文中未明确说明变化是临时还是永久。'large'语气过强，不适合礼貌的客户通知。",
+  "explanation_zh": "此處需要一個形容詞修飾'change'。'slight'表示微小的變化，符合禮貌通知中淡化負面影響的語氣。'temporary'和'permanent'雖然語法正確，但文中未明確說明變化是臨時還是永久。'large'語氣過強，不適合禮貌的客戶通知。",
   "skill_tag": "reading_detail",
   "difficulty": "A2",
   "vocabulary": [
@@ -23720,7 +23720,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "Additionally"
   },
   "answer": "D",
-  "explanation_zh": "此处需要表示附加信息的连接词。'Additionally'表示'此外'，用来列出另一个变化（营业结束时间延后）。'However'表示转折，但前后是并列关系。'Therefore'表示因果，但这里不是结果。'Meanwhile'表示同时发生，逻辑不符。",
+  "explanation_zh": "此處需要表示附加信息的連接詞。'Additionally'表示'此外'，用來列出另一個變化（營業結束時間延後）。'However'表示轉折，但前後是並列關係。'Therefore'表示因果，但這里不是結果。'Meanwhile'表示同時發生，邏輯不符。",
   "skill_tag": "reading_detail",
   "difficulty": "A2",
   "vocabulary": [
@@ -23745,7 +23745,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "since"
   },
   "answer": "A",
-  "explanation_zh": "此处需要表示时间持续到某个时间点的介词。'until'表示'直到……为止'，符合'从3月15日到月底'的时间范围。'by'表示'在……之前'，不表示持续。'for'后接时间段，不接具体时间点。'since'表示'自……以来'，需搭配完成时态。",
+  "explanation_zh": "此處需要表示時間持續到某個時間點的介詞。'until'表示'直到……為止'，符合'從3月15日到月底'的時間範圍。'by'表示'在……之前'，不表示持續。'for'後接時間段，不接具體時間點。'since'表示'自……以來'，需搭配完成時態。",
   "skill_tag": "reading_detail",
   "difficulty": "A2",
   "vocabulary": [
@@ -23770,7 +23770,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "do"
   },
   "answer": "B",
-  "explanation_zh": "此处需要情态动词表示礼貌建议。'should'意为'应该'，用于建议客户联系客服。'must'语气太强，不适合礼貌通知。'would'虽礼貌，但'would feel free'不自然。'do'在祈使句中常用，但'do feel free'是口语化强调，不如'should feel free'正式礼貌。",
+  "explanation_zh": "此處需要情態動詞表示禮貌建議。'should'意為'應該'，用於建議客戶聯繫客服。'must'語氣太強，不適合禮貌通知。'would'雖禮貌，但'would feel free'不自然。'do'在祈使句中常用，但'do feel free'是口語化強調，不如'should feel free'正式禮貌。",
   "skill_tag": "reading_detail",
   "difficulty": "A2",
   "vocabulary": [
@@ -24097,7 +24097,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "To advertise that the main hall can be booked by the public"
   },
   "answer": "D",
-  "explanation_zh": "本公告的主要目的是告知公众，格林菲尔德社区中心的主厅现在可供公众预订。文中明确提到「main hall is now available for public reservation」，因此选项 D 正确。选项 A 错误，因为公告未提及时间表变更；选项 B 错误，因为费用仅针对非居民，并非新收费；选项 C 错误，因为公告未请求志愿者。",
+  "explanation_zh": "本公告的主要目的是告知公眾，格林菲爾德社區中心的主廳現在可供公眾預訂。文中明確提到「main hall is now available for public reservation」，因此選項 D 正確。選項 A 錯誤，因為公告未提及時間表變更；選項 B 錯誤，因為費用僅針對非居民，並非新收費；選項 C 錯誤，因為公告未請求志願者。",
   "skill_tag": "reading_main_idea",
   "difficulty": "B1",
   "vocabulary": [
@@ -24122,7 +24122,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "The room capacity must exceed 80 people"
   },
   "answer": "A",
-  "explanation_zh": "提交预订请求时，必须至少提前两周完成在线表格。文中指出「complete the online form at least two weeks in advance」，因此选项 A 正确。选项 B 错误，因为表格需在线提交，而非亲自到前台；选项 C 错误，因为仅非居民需支付 50 美元费用；选项 D 错误，因为房间最多容纳 80 人，而非要求超过 80 人。",
+  "explanation_zh": "提交預訂請求時，必須至少提前兩周完成在線表格。文中指出「complete the online form at least two weeks in advance」，因此選項 A 正確。選項 B 錯誤，因為表格需在線提交，而非親自到前台；選項 C 錯誤，因為僅非居民需支付 50 美元費用；選項 D 錯誤，因為房間最多容納 80 人，而非要求超過 80 人。",
   "skill_tag": "reading_detail",
   "difficulty": "B1",
   "vocabulary": [
@@ -24147,7 +24147,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "The notice is directed at local school administrators"
   },
   "answer": "B",
-  "explanation_zh": "根据公告，可推断目标受众是计划举办私人庆祝活动的人。文中提到房间适合「meetings, workshops, and small social gatherings」，且允许食物和饮料，但禁止酒精，这符合私人聚会的常见需求，因此选项 B 正确。选项 A 错误，因为公告也面向非居民；选项 C 错误，因为公告未提及商业活动；选项 D 错误，因为公告未针对学校管理人员。",
+  "explanation_zh": "根據公告，可推斷目標受眾是計劃舉辦私人慶祝活動的人。文中提到房間適合「meetings, workshops, and small social gatherings」，且允許食物和飲料，但禁止酒精，這符合私人聚會的常見需求，因此選項 B 正確。選項 A 錯誤，因為公告也面向非居民；選項 C 錯誤，因為公告未提及商業活動；選項 D 錯誤，因為公告未針對學校管理人員。",
   "skill_tag": "reading_detail",
   "difficulty": "B1",
   "vocabulary": [
@@ -24172,7 +24172,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "Only non-residents are allowed to bring food"
   },
   "answer": "C",
-  "explanation_zh": "关于房间使用，公告明确说明「alcohol is strictly prohibited」，即任何情况下都禁止酒精，因此选项 C 正确。选项 A 错误，因为酒精不允许，即使有特别许可；选项 B 错误，因为食物和饮料是允许的；选项 D 错误，因为公告未限制谁可以带食物。",
+  "explanation_zh": "關於房間使用，公告明確說明「alcohol is strictly prohibited」，即任何情況下都禁止酒精，因此選項 C 正確。選項 A 錯誤，因為酒精不允許，即使有特別許可；選項 B 錯誤，因為食物和飲料是允許的；選項 D 錯誤，因為公告未限制誰可以帶食物。",
   "skill_tag": "reading_inference",
   "difficulty": "B1",
   "vocabulary": [
@@ -24755,7 +24755,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "To request a refund"
   },
   "answer": "B",
-  "explanation_zh": "答案是 B。Jane Doe 在第二封邮件中写道“Today is March 22, and I have not received the headsets”，并请求“confirm the status of my order and provide an updated delivery date”，因此她联系 Bright Solutions 的主要原因是询问延迟交货。选项 A（取消订单）、C（投诉产品缺陷）和 D（要求退款）在邮件中均未提及，故排除。",
+  "explanation_zh": "答案是 B。Jane Doe 在第二封郵件中寫道“Today is March 22, and I have not received the headsets”，並請求“confirm the status of my order and provide an updated delivery date”，因此她聯繫 Bright Solutions 的主要原因是詢問延遲交貨。選項 A（取消訂單）、C（投訴產品缺陷）和 D（要求退款）在郵件中均未提及，故排除。",
   "skill_tag": "reading_main_idea",
   "difficulty": "B2",
   "vocabulary": [
@@ -24780,7 +24780,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "March 22"
   },
   "answer": "C",
-  "explanation_zh": "答案是 C。第一封邮件中明确说明“Delivery is expected within 3–5 business days after shipment”，而发货日期为 March 15，因此预计交货日期为 March 20（3月15日加3-5个工作日）。选项 A（March 15）是发货日期，B（March 18）是实际发货日期，D（March 22）是实际交货日期，均不符合原始预计交货日期。",
+  "explanation_zh": "答案是 C。第一封郵件中明確說明“Delivery is expected within 3–5 business days after shipment”，而發貨日期為 March 15，因此預計交貨日期為 March 20（3月15日加3-5個工作日）。選項 A（March 15）是發貨日期，B（March 18）是實際發貨日期，D（March 22）是實際交貨日期，均不符合原始預計交貨日期。",
   "skill_tag": "reading_detail",
   "difficulty": "B2",
   "vocabulary": [
@@ -24805,7 +24805,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "There was a temporary shortage of stock"
   },
   "answer": "D",
-  "explanation_zh": "答案是 D。第三封邮件中 Anna Lee 写道“due to a temporary stock shortage”，明确说明延迟原因是临时库存短缺。选项 A（快递公司系统错误）、B（销售团队处理延迟）和 C（地址错误）在邮件中均未提及，故排除。",
+  "explanation_zh": "答案是 D。第三封郵件中 Anna Lee 寫道“due to a temporary stock shortage”，明確說明延遲原因是臨時庫存短缺。選項 A（快遞公司系統錯誤）、B（銷售團隊處理延遲）和 C（地址錯誤）在郵件中均未提及，故排除。",
   "skill_tag": "reading_detail",
   "difficulty": "B2",
   "vocabulary": [
@@ -24830,7 +24830,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "It was included in the initial confirmation email"
   },
   "answer": "A",
-  "explanation_zh": "答案是 A。第三封邮件中 Anna Lee 提到“The shipment was sent via ExpressPost with tracking number EP-7890X”，并说明发货日期为 March 18，因此可以推断追踪信息在 March 18 发送给了 Jane Doe。选项 B（Jane 在 March 15 收到）错误，因为发货日期是 March 18；选项 C（从未提供）错误，因为公司已提供追踪号码；选项 D（包含在初始确认邮件中）错误，因为第一封邮件只提到“You will receive tracking details once the package is dispatched”，并未包含追踪信息。",
+  "explanation_zh": "答案是 A。第三封郵件中 Anna Lee 提到“The shipment was sent via ExpressPost with tracking number EP-7890X”，並說明發貨日期為 March 18，因此可以推斷追蹤信息在 March 18 發送給了 Jane Doe。選項 B（Jane 在 March 15 收到）錯誤，因為發貨日期是 March 18；選項 C（從未提供）錯誤，因為公司已提供追蹤號碼；選項 D（包含在初始確認郵件中）錯誤，因為第一封郵件只提到“You will receive tracking details once the package is dispatched”，並未包含追蹤信息。",
   "skill_tag": "reading_inference",
   "difficulty": "B2",
   "vocabulary": [
@@ -24855,7 +24855,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "It was not specified in any of the texts"
   },
   "answer": "B",
-  "explanation_zh": "答案是 B。Jane 在第二封邮件中写道“delivery by March 20 at the latest”，而第三封邮件显示实际交货日期为 March 22，因此实际交货日期与 Jane 提到的日期相同（均为 March 22）。选项 A（更早）、C（更晚）和 D（未指定）均与事实不符，故排除。",
+  "explanation_zh": "答案是 B。Jane 在第二封郵件中寫道“delivery by March 20 at the latest”，而第三封郵件顯示實際交貨日期為 March 22，因此實際交貨日期與 Jane 提到的日期相同（均為 March 22）。選項 A（更早）、C（更晚）和 D（未指定）均與事實不符，故排除。",
   "skill_tag": "reading_detail",
   "difficulty": "B2",
   "vocabulary": [
@@ -26182,7 +26182,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "significant"
   },
   "answer": "D",
-  "explanation_zh": "空格前是冠词 'a'，后是名词 'update'，因此需要一个形容词来修饰名词。'significant' 是形容词，意为“重要的”，符合语法和语境。'significance' 是名词，不能修饰 'update'；'significantly' 是副词；'more significant' 是比较级，但此处没有比较含义。",
+  "explanation_zh": "空格前是冠詞 'a'，後是名詞 'update'，因此需要一個形容詞來修飾名詞。'significant' 是形容詞，意為“重要的”，符合語法和語境。'significance' 是名詞，不能修飾 'update'；'significantly' 是副詞；'more significant' 是比較級，但此處沒有比較含義。",
   "skill_tag": "reading_detail",
   "difficulty": "B1",
   "vocabulary": [
@@ -26208,7 +26208,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "Meanwhile"
   },
   "answer": "A",
-  "explanation_zh": "前句提到提交工作计划，后句提出参加培训的要求，两者是并列的额外要求，因此需要表示“此外”的过渡词。'Additionally' 符合添加信息的逻辑。'However' 表示转折，'Therefore' 表示因果，'Meanwhile' 表示同时，都不符合上下文关系。",
+  "explanation_zh": "前句提到提交工作計劃，後句提出參加培訓的要求，兩者是並列的額外要求，因此需要表示“此外”的過渡詞。'Additionally' 符合添加信息的邏輯。'However' 表示轉折，'Therefore' 表示因果，'Meanwhile' 表示同時，都不符合上下文關係。",
   "skill_tag": "reading_detail",
   "difficulty": "B1",
   "vocabulary": [
@@ -26234,7 +26234,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "for"
   },
   "answer": "B",
-  "explanation_zh": "固定搭配 'register through a portal' 意为“通过门户网站注册”。'through' 表示通过某种渠道或系统。'on' 有时也可用于网站，但'through the portal' 更常见于正式通知；'at' 和 'for' 与 'portal' 搭配不自然。",
+  "explanation_zh": "固定搭配 'register through a portal' 意為“通過門戶網站注冊”。'through' 表示通過某種渠道或系統。'on' 有時也可用於網站，但'through the portal' 更常見於正式通知；'at' 和 'for' 與 'portal' 搭配不自然。",
   "skill_tag": "reading_detail",
   "difficulty": "B1",
   "vocabulary": [
@@ -26260,7 +26260,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "have"
   },
   "answer": "C",
-  "explanation_zh": "主语 'you' 与谓语动词需要构成被动语态或固定结构。'are required to' 表示“被要求做某事”，符合正式通知的被动语气。'must' 和 'should' 是情态动词，后面接动词原形，不能直接接 'to'；'have' 缺少 'to' 且不构成正确结构。",
+  "explanation_zh": "主語 'you' 與謂語動詞需要構成被動語態或固定結構。'are required to' 表示“被要求做某事”，符合正式通知的被動語氣。'must' 和 'should' 是情態動詞，後面接動詞原形，不能直接接 'to'；'have' 缺少 'to' 且不構成正確結構。",
   "skill_tag": "reading_detail",
   "difficulty": "B1",
   "vocabulary": [
@@ -27136,7 +27136,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "A hotel ordered lights, but the shipment was lost in transit, so the company is sending a replacement order."
   },
   "answer": "B",
-  "explanation_zh": "答案是B。三封邮件描述了酒店订购灯具，收到部分货物且有损坏，公司通过补发缺失物品和退款来解决问题的整体情况。文本1确认订单，文本2投诉缺失和损坏，文本3提出补发50件并退还12件损坏品的款项，因此B正确。A错误，因为订单并未取消；C错误，因为公司未发错物品，也未全额退款；D错误，因为货物未丢失，而是部分被扣留。",
+  "explanation_zh": "答案是B。三封郵件描述了酒店訂購燈具，收到部分貨物且有損壞，公司通過補發缺失物品和退款來解決問題的整體情況。文本1確認訂單，文本2投訴缺失和損壞，文本3提出補發50件並退還12件損壞品的款項，因此B正確。A錯誤，因為訂單並未取消；C錯誤，因為公司未發錯物品，也未全額退款；D錯誤，因為貨物未丟失，而是部分被扣留。",
   "skill_tag": "reading_main_idea",
   "difficulty": "B2",
   "vocabulary": [
@@ -27161,7 +27161,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "April 2, 2024"
   },
   "answer": "C",
-  "explanation_zh": "答案是C。文本1明确说明交货日期为2024年3月25日（原文：'The items are scheduled for delivery by March 25, 2024'）。A是实际收货日期（文本2），B是酒店要求的补货截止日（文本2），D是补发预计到达日（文本3），均非初始订单的交货期限。",
+  "explanation_zh": "答案是C。文本1明確說明交貨日期為2024年3月25日（原文：'The items are scheduled for delivery by March 25, 2024'）。A是實際收貨日期（文本2），B是酒店要求的補貨截止日（文本2），D是補發預計到達日（文本3），均非初始訂單的交貨期限。",
   "skill_tag": "reading_detail",
   "difficulty": "B2",
   "vocabulary": [
@@ -27186,7 +27186,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "The company's warehouse had a system error that held back 50 units."
   },
   "answer": "D",
-  "explanation_zh": "答案是D。文本3中公司解释原因：'50 units were mistakenly held at our warehouse due to a system error'（50件因系统错误被扣留在仓库）。A错误，因为货物未被运输中丢失；B错误，地址正确（文本1）；C错误，未提及生产截止日期。",
+  "explanation_zh": "答案是D。文本3中公司解釋原因：'50 units were mistakenly held at our warehouse due to a system error'（50件因系統錯誤被扣留在倉庫）。A錯誤，因為貨物未被運輸中丟失；B錯誤，地址正確（文本1）；C錯誤，未提及生產截止日期。",
   "skill_tag": "reading_detail",
   "difficulty": "B2",
   "vocabulary": [
@@ -27211,7 +27211,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "The renovation was postponed indefinitely."
   },
   "answer": "A",
-  "explanation_zh": "答案是A。文本2显示酒店装修计划于4月5日完成，并要求4月1日前补发；文本3中补发预计4月2日到达，早于4月5日，因此可推断补发在装修截止前到达。B错误，文本未提及延期；C错误，装修未完成；D错误，未无限期推迟。",
+  "explanation_zh": "答案是A。文本2顯示酒店裝修計劃於4月5日完成，並要求4月1日前補發；文本3中補發預計4月2日到達，早於4月5日，因此可推斷補發在裝修截止前到達。B錯誤，文本未提及延期；C錯誤，裝修未完成；D錯誤，未無限期推遲。",
   "skill_tag": "reading_inference",
   "difficulty": "B2",
   "vocabulary": [
@@ -27236,7 +27236,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "D": "The refund includes additional compensation beyond the damaged units."
   },
   "answer": "B",
-  "explanation_zh": "答案是B。文本1中单价为$45.00，12件损坏品总价为$540.00（12 × $45 = $540），与文本3的退款金额一致。A错误，退款不是全额；C错误，不是缺失件的一半；D错误，未包含额外补偿。",
+  "explanation_zh": "答案是B。文本1中單價為$45.00，12件損壞品總價為$540.00（12 × $45 = $540），與文本3的退款金額一致。A錯誤，退款不是全額；C錯誤，不是缺失件的一半；D錯誤，未包含額外補償。",
   "skill_tag": "reading_detail",
   "difficulty": "B2",
   "vocabulary": [

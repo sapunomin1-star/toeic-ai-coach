@@ -6609,7 +6609,7 @@ export const QUESTIONS_PART5: Question[] = [
       "D": "about"
     },
     "answer": "B",
-    "explanation_zh": "正确答案是 'with'，因为 'familiar with' 是固定搭配，表示熟悉某事。'familiar to' 表示某事对某人熟悉，主语和宾语颠倒；'of' 和 'about' 不能与 familiar 搭配。",
+    "explanation_zh": "正確答案是 'with'，因為 'familiar with' 是固定搭配，表示熟悉某事。'familiar to' 表示某事對某人熟悉，主語和賓語顛倒；'of' 和 'about' 不能與 familiar 搭配。",
     "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
@@ -6629,7 +6629,7 @@ export const QUESTIONS_PART5: Question[] = [
       "D": "about"
     },
     "answer": "C",
-    "explanation_zh": "正确答案是 'in'，因为 'interested in' 是固定搭配，表示对某事感兴趣。'interested for' 和 'interested about' 都是错误搭配；'interested to' 后面接动词原形，但此处需介词。",
+    "explanation_zh": "正確答案是 'in'，因為 'interested in' 是固定搭配，表示對某事感興趣。'interested for' 和 'interested about' 都是錯誤搭配；'interested to' 後面接動詞原形，但此處需介詞。",
     "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
@@ -6863,7 +6863,7 @@ export const QUESTIONS_PART5: Question[] = [
       "D": "regardless of"
     },
     "answer": "B",
-    "explanation_zh": "正确答案是B，'with regard to'表示‘关于’，用于引出话题。A 'in addition to'意为‘除…之外’，不符合语境；C 'on behalf of'意为‘代表’，主语是人时可使用但这里强调谈论内容；D 'regardless of'意为‘不管’，逻辑不符。",
+    "explanation_zh": "正確答案是B，'with regard to'表示‘關於’，用於引出話題。A 'in addition to'意為‘除…之外’，不符合語境；C 'on behalf of'意為‘代表’，主語是人時可使用但這里強調談論內容；D 'regardless of'意為‘不管’，邏輯不符。",
     "skill_tag": "preposition",
     "difficulty": "B2",
     "vocabulary": [

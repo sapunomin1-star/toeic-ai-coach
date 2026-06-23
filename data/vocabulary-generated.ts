@@ -1979,7 +1979,7 @@ export const VOCABULARY_GENERATED: VocabularyItem[] = [
     partOfSpeech: "adjective",
     meaning_zh: "法定的",
     example: "Employers must comply with statutory health and safety requirements.",
-    example_zh: "雇主必須遵守法定的健康與安全要求。",
+    example_zh: "僱主必須遵守法定的健康與安全要求。",
     collocations: ["statutory obligation","statutory requirement","statutory holiday"],
     difficulty: "B2",
     category: "legal",
