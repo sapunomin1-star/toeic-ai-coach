@@ -9,6 +9,7 @@
 import * as fs from "fs";
 import * as path from "path";
 import { fileURLToPath } from "url";
+import { traditionalizeDeep } from "./traditionalize";
 
 import { QUESTIONS } from "../../data/questions";
 import type { Choice } from "../../types/question";
@@ -137,8 +138,8 @@ async function conformAnswerPlan(
     0.2,
   );
   try {
-    const explanations = JSON.parse(
-      response.content.replace(/```(?:json)?|```/g, "").trim(),
+    const explanations = traditionalizeDeep(
+      JSON.parse(response.content.replace(/```(?:json)?|```/g, "").trim()),
     ) as unknown;
     if (
       !Array.isArray(explanations) ||

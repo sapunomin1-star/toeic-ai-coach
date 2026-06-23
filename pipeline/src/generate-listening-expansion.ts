@@ -10,6 +10,7 @@
  *   npx tsx src/generate-listening-expansion.ts --promote output/listening-p2-....json
  */
 import "dotenv/config";
+import { traditionalizeDeep } from "./traditionalize";
 import * as fs from "fs";
 import * as path from "path";
 import { fileURLToPath } from "url";
@@ -91,7 +92,7 @@ function assignIds(questions: ListeningQuestion[], part: ListeningPart): void {
 
 function stripJson(text: string): unknown {
   const cleaned = text.replace(/```(?:json)?|```/g, "").trim();
-  return JSON.parse(cleaned);
+  return traditionalizeDeep(JSON.parse(cleaned));
 }
 
 async function gptJson(

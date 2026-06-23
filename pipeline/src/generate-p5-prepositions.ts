@@ -30,6 +30,7 @@ import { QUESTIONS } from "../../data/questions";
 import type { Choice } from "../../types/question";
 import { generatePart5 } from "./generator-part5";
 import { deepseek, getLlmUsage } from "./llm-client";
+import { traditionalizeDeep } from "./traditionalize";
 import type { Pattern, RawGeneratedQuestion } from "./types";
 import { validateQuestion } from "./validator";
 
@@ -132,7 +133,9 @@ async function gptJson(
   usage.output += result.usage?.completion_tokens ?? 0;
   const content = result.choices[0]?.message.content;
   if (!content) throw new Error("GPT-4o returned no content");
-  return JSON.parse(content.replace(/```(?:json)?|```/g, "").trim()) as Record<string, unknown>;
+  return traditionalizeDeep(
+    JSON.parse(content.replace(/```(?:json)?|```/g, "").trim()),
+  ) as Record<string, unknown>;
 }
 
 /** Fill a bucket to `count` valid, non-duplicate questions (max 4 attempts). */
@@ -225,8 +228,8 @@ async function rewriteMovedExplanations(
       }))),
     0.3,
   );
-  const parsed = JSON.parse(
-    response.content.replace(/```(?:json)?|```/g, "").trim(),
+  const parsed = traditionalizeDeep(
+    JSON.parse(response.content.replace(/```(?:json)?|```/g, "").trim()),
   ) as { explanations?: unknown[] };
   const explanations = parsed.explanations ?? [];
   if (!Array.isArray(explanations) || explanations.length !== moved.length) {

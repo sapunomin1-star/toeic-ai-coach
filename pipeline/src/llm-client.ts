@@ -1,4 +1,5 @@
 import { config } from "./config";
+import { traditionalizeDeep } from "./traditionalize";
 
 type ChatMessage = {
   role: "system" | "user" | "assistant";
@@ -160,13 +161,13 @@ export function extractJsonArray(text: string): string {
 export function parseGeneratedJson(text: string): unknown[] {
   const cleaned = extractJsonArray(text);
   try {
-    return JSON.parse(cleaned) as unknown[];
+    return traditionalizeDeep(JSON.parse(cleaned) as unknown[]);
   } catch {
     // Try repairing common issues
     const repaired = cleaned
       .replace(/,\s*]/g, "]") // trailing comma before ]
       .replace(/,\s*}/g, "}") // trailing comma before }
       .replace(/```/g, ""); // stray backticks
-    return JSON.parse(repaired) as unknown[];
+    return traditionalizeDeep(JSON.parse(repaired) as unknown[]);
   }
 }
