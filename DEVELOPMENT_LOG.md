@@ -6,9 +6,10 @@
 
 - Added a pronunciation button to every vocabulary flashcard without revealing the meaning.
 - Added sentence narration after a flashcard is expanded.
-- Vocabulary speech uses the browser's English speech synthesis at a fixed `1x` rate.
+- Vocabulary speech uses the browser's English speech synthesis at a fixed `0.8x` rate.
 - Word and sentence speech can be replayed without a limit; starting another item stops the current narration cleanly.
 - The voice selector prefers a stable US English system voice and gracefully disables the controls when speech synthesis is unavailable.
+- Simplified the sentence narration control to show only the speaker icon and `朗讀例句`, without a speed badge.
 
 ### Files Changed
 

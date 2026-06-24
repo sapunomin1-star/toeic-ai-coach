@@ -19,6 +19,8 @@ const PREFERRED_US_VOICES = [
   "Alex",
 ];
 
+const VOCABULARY_SPEECH_RATE = 0.8;
+
 function getPreferredVoice(): SpeechSynthesisVoice | undefined {
   const voices = window.speechSynthesis.getVoices();
   const usVoices = voices.filter((voice) => voice.lang.toLowerCase() === "en-us");
@@ -89,7 +91,7 @@ export default function VocabularySpeechButton({
     const voice = getPreferredVoice();
     if (voice) utterance.voice = voice;
     utterance.lang = "en-US";
-    utterance.rate = 1;
+    utterance.rate = VOCABULARY_SPEECH_RATE;
     utterance.pitch = 1;
     utterance.volume = 1;
 
@@ -117,7 +119,7 @@ export default function VocabularySpeechButton({
   }
 
   const accessibleLabel = supported
-    ? `${status === "playing" ? "重新播放" : "播放"}${label}，固定 1 倍速`
+    ? `${status === "playing" ? "重新播放" : "播放"}${label}，固定 0.8 倍速`
     : "此瀏覽器不支援語音播放";
 
   if (variant === "text") {
@@ -140,7 +142,6 @@ export default function VocabularySpeechButton({
           {status === "error" ? "↻" : "🔊"}
         </span>
         <span>{status === "error" ? "重試例句" : label}</span>
-        <span className="rounded bg-white/80 px-1.5 py-0.5 text-[10px]">1x</span>
       </button>
     );
   }
