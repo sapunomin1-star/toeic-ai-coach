@@ -62,7 +62,8 @@
 | `toeic_listening_mock_results_v1` | Listening 模擬考結果 |
 | `toeic_full_mock_session_v1` | 完整模擬考 session |
 | `toeic_full_mock_results_v1` | 完整模擬考結果 |
-| `toeic_mock_review_snapshots_v1` | 模考考後檢討 snapshot（最多保留 10 筆） |
+| `toeic_mock_review_snapshots_v1` | 模考考後檢討 snapshot（最多保留 20 筆） |
+| `toeic_mock_seen_ids_v1` | 模考已出現題目 ID（避免新模考反覆抽同題） |
 
 ## 模擬考與檢討
 

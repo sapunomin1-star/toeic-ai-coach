@@ -11,20 +11,27 @@ import {
   getQuestionById,
 } from "@/data/questions";
 import { getAudioUrl, getImageUrl, getQuestionAudioUrl, hasMediaSupport } from "@/lib/media";
+import { getAudioOwnerQuestion } from "@/lib/audioOwner";
 import { audioGroupKey, formatTime, getGroupPosition, makeBreakdown } from "@/lib/mockShared";
 import {
   buildMockReviewSnapshot,
   saveMockReviewSnapshot,
 } from "@/lib/mockReviewStorage";
-import { getMockSeenQuestionIds, saveAnswer as saveDailyAnswer } from "@/lib/storage";
+import {
+  getMockSeenQuestionIds,
+  markMockQuestionsSeen,
+  saveAnswer as saveDailyAnswer,
+} from "@/lib/storage";
 import {
   clearMockSession,
   getMockDurationMs,
   getMockSession,
   markAudioGroupPlayed,
   markQuestionAudioPlayed,
+  saveCurrentIndex as saveMockCurrentIndex,
   saveAnswer as saveMockAnswer,
   saveMockResult,
+  saveResponseTime as saveMockResponseTime,
   startMockSession,
 } from "@/lib/mockStorage";
 import {
@@ -102,10 +109,12 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Partial<Record<string, Choice>>>({});
+  const [responseTimes, setResponseTimes] = useState<Partial<Record<string, number>>>({});
   const [endTime, setEndTime] = useState(0);
   const [remainingMs, setRemainingMs] = useState(config.durationMs);
   const [result, setResult] = useState<MockTestResult | null>(null);
   const submittedRef = useRef(false);
+  const questionStartTime = useRef(0);
   const choiceKeys: Choice[] = ["A", "B", "C", "D"];
 
   function start() {
@@ -114,6 +123,11 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
       setQuestions(plan);
       const session = startMockSession(plan.map((q) => q.id), mode);
       setEndTime(new Date(session.endTime).getTime());
+      setCurrentIndex(0);
+      setAnswers({});
+      setResponseTimes({});
+      submittedRef.current = false;
+      questionStartTime.current = new Date().getTime();
       resetForStart();
       setPhase("testing");
     } catch (e) {
@@ -126,15 +140,27 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
     if (!nextQuestion) return;
     if (index !== currentIndex) {
       resetQuestionPacing();
+      questionStartTime.current = new Date().getTime();
     }
     syncActiveGroupOnNavigate(audioGroupKey(nextQuestion));
+    saveMockCurrentIndex(index, mode);
     setCurrentIndex(index);
   }
 
   function pick(questionId: string, choice: Choice) {
     const next = { ...answers, [questionId]: choice };
+    const nowMs = new Date().getTime();
+    const responseTimeMs = Math.max(
+      0,
+      nowMs - (questionStartTime.current || nowMs),
+    );
     setAnswers(next);
+    setResponseTimes((previous) => ({
+      ...previous,
+      [questionId]: responseTimeMs,
+    }));
     saveMockAnswer(questionId, choice, mode);
+    saveMockResponseTime(questionId, responseTimeMs, mode);
   }
 
   const submit = useCallback(() => {
@@ -157,6 +183,7 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
 
     // Save wrong answers to wrong book with mock source
     const now = new Date().toISOString();
+    markMockQuestionsSeen(questions.map((q) => q.id));
     for (const q of questions) {
       const ua = answers[q.id];
       if (ua && ua !== q.answer) {
@@ -198,6 +225,7 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
       mode,
       questions,
       answers,
+      responseTimes,
       startedAt,
       submittedAt: now,
     });
@@ -209,15 +237,20 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
     clearMockSession(mode);
     setResult(mockResult);
     setPhase("result");
-  }, [answers, config.durationMs, config.parts, endTime, mode, questions]);
+  }, [answers, config.durationMs, config.parts, endTime, mode, questions, responseTimes]);
 
   const onCountdownAdvance = useCallback(() => {
     if (currentIndex < questions.length - 1) {
-      setCurrentIndex((previous) => Math.min(questions.length - 1, previous + 1));
+      setCurrentIndex((previous) => {
+        const next = Math.min(questions.length - 1, previous + 1);
+        saveMockCurrentIndex(next, mode);
+        questionStartTime.current = new Date().getTime();
+        return next;
+      });
     } else {
       submit();
     }
-  }, [currentIndex, questions.length, submit]);
+  }, [currentIndex, mode, questions.length, submit]);
 
   const {
     failedAudioGroups,
@@ -259,7 +292,14 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
         if (qs.length === session.questionIds.length) {
           setQuestions(qs);
           setAnswers(session.answers ?? {});
+          setResponseTimes(session.responseTimes ?? {});
           setEndTime(new Date(session.endTime).getTime());
+          const restoredIndex =
+            typeof session.currentIndex === "number"
+              ? Math.min(Math.max(0, session.currentIndex), qs.length - 1)
+              : 0;
+          setCurrentIndex(restoredIndex);
+          questionStartTime.current = new Date().getTime();
           hydrateFromSession({
             playedAudioGroups: session.playedAudioGroups,
             playedQuestionAudioIds: session.playedQuestionAudioIds,
@@ -350,23 +390,7 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
     const mediaSupport = hasMediaSupport(q);
     const groupKey = audioGroupKey(q);
     const groupPosition = getGroupPosition(questions, q);
-    // Audio resolution: the pipeline uploads P3/P4 group audio only to the
-    // canonical (smallest-id) member of each transcript group via the
-    // `--group-primary` flag in pipeline/src/generate-audio.ts. The find()
-    // below relies on plan-internal group ordering equalling full-bank ID
-    // order, which holds today because:
-    //   1. buildListeningMockPlan / buildMockTestPlan extract groups via
-    //      groupByTranscript / groupByPassage (stable sort by question_order).
-    //   2. New P3/P4 generated in commit 1d2768f lack question_order, so the
-    //      sort tie-breaks by push order (= ID order in questions-generated.ts).
-    // If a future plan builder shuffles group members, or new questions add a
-    // non-trivial question_order that diverges from ID order, replace this
-    // find() with getAudioOwnerQuestion() from app/quiz/page.tsx (full-bank
-    // canonical lookup independent of plan order).
-    const audioQuestion =
-      q.part === "Part 3" || q.part === "Part 4"
-        ? questions.find((candidate) => audioGroupKey(candidate) === groupKey) ?? q
-        : q;
+    const audioQuestion = getAudioOwnerQuestion(q);
     const audioUrl = getAudioUrl(audioQuestion);
     const audioFailed = failedAudioGroups.has(groupKey);
     const audioAlreadyPlayed = playedGroups.has(groupKey);

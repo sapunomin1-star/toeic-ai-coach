@@ -19,6 +19,18 @@ function isValidAnswers(value: unknown): value is Partial<Record<string, Choice>
   );
 }
 
+function isValidResponseTimes(value: unknown): value is Partial<Record<string, number>> {
+  if (value === undefined || value === null) return true;
+  if (typeof value !== "object" || Array.isArray(value)) return false;
+  return Object.entries(value).every(
+    ([questionId, ms]) =>
+      typeof questionId === "string" &&
+      typeof ms === "number" &&
+      Number.isFinite(ms) &&
+      ms >= 0,
+  );
+}
+
 function isValidRange(value: unknown): boolean {
   if (!value || typeof value !== "object") return false;
   const range = value as Record<string, unknown>;
@@ -44,6 +56,13 @@ function validateFullSession(raw: unknown): FullMockSession | null {
   if (!isValidDate(session.startedAt)) return null;
   if (!isValidDate(session.listeningEndsAt)) return null;
   if (!isValidDate(session.endTime)) return null;
+  if (
+    session.currentIndex !== undefined &&
+    (!Number.isInteger(session.currentIndex) || (session.currentIndex as number) < 0)
+  ) {
+    return null;
+  }
+  if (!isValidResponseTimes(session.responseTimes)) return null;
   if (session.submittedAt !== undefined && !isValidDate(session.submittedAt)) return null;
   if (
     session.playedAudioGroups !== undefined &&
@@ -141,6 +160,8 @@ export function startFullMockSession(questionIds: string[]): FullMockSession {
     startedAt: new Date(now).toISOString(),
     listeningEndsAt: new Date(now + FULL_LISTENING_DURATION_MS).toISOString(),
     endTime: new Date(now + FULL_MOCK_DURATION_MS).toISOString(),
+    currentIndex: 0,
+    responseTimes: {},
     playedAudioGroups: [],
     playedQuestionAudioIds: [],
     leftAppDuringTest: false,
@@ -152,6 +173,17 @@ export function startFullMockSession(questionIds: string[]): FullMockSession {
 
 export function saveFullMockAnswer(questionId: string, choice: Choice | null): void {
   store.saveAnswer(questionId, choice);
+}
+
+export function saveFullMockCurrentIndex(index: number): void {
+  store.saveCurrentIndex(index);
+}
+
+export function saveFullMockResponseTime(
+  questionId: string,
+  responseTimeMs: number,
+): void {
+  store.saveResponseTime(questionId, responseTimeMs);
 }
 
 export function markFullMockAudioGroupPlayed(groupKey: string): void {

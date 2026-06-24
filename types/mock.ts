@@ -21,6 +21,10 @@ export type MockTestSession = {
   unansweredIds: string[];
   startedAt: string;
   endTime: string;
+  /** Last question index shown in the test runner. Optional for legacy sessions. */
+  currentIndex?: number;
+  /** Per-question response time in ms, recorded when an answer is selected. */
+  responseTimes?: Partial<Record<string, number>>;
   submittedAt?: string;
   /**
    * Group keys whose audio playback has started. Listening mock only.
@@ -116,6 +120,10 @@ export type FullMockSession = {
   startedAt: string;
   listeningEndsAt: string;
   endTime: string;
+  /** Last question index shown in the full-test runner. Optional for legacy sessions. */
+  currentIndex?: number;
+  /** Per-question response time in ms, recorded when an answer is selected. */
+  responseTimes?: Partial<Record<string, number>>;
   submittedAt?: string;
   /** Audio consumed in Listening; identical no-replay rule to listening mock. */
   playedAudioGroups?: string[];

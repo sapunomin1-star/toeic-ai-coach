@@ -6,7 +6,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import AudioPlayer from "@/components/AudioPlayer";
 import MistakeReasonChips from "@/components/quiz/MistakeReasonChips";
-import { buildDailyPlan, getQuestionById, getQuestionsByPart } from "@/data/questions";
+import { buildDailyPlan, getQuestionById } from "@/data/questions";
+import { getAudioOwnerQuestion, getListeningGroupKey } from "@/lib/audioOwner";
 import {
   clearDailyPlan,
   clearWrongPracticePlan,
@@ -39,44 +40,11 @@ type Status = "loading" | "answering" | "answered" | "finished" | "no-plan";
 
 const CHOICES: Choice[] = ["A", "B", "C", "D"];
 
-function getListeningGroupKey(question: Question): string | null {
-  if (
-    (question.part !== "Part 3" && question.part !== "Part 4") ||
-    !question.transcript
-  ) {
-    return null;
-  }
-  const canonicalQuestionId =
-    getQuestionsByPart(question.part)
-      .filter((q) => q.transcript === question.transcript)
-      .map((q) => q.id)
-      .sort()[0] ?? question.id;
-  return `${question.part}:${canonicalQuestionId}`;
-}
-
-/**
- * For P3/P4 group questions, audio is uploaded only once per group under the
- * canonical (smallest-id) question's URL. Returns the question whose id owns
- * the shared audio file so non-canonical group members don't 404.
- * Falls back to the input question for non-grouped parts.
- */
-function getAudioOwnerQuestion(question: Question): Question {
-  if (
-    (question.part !== "Part 3" && question.part !== "Part 4") ||
-    !question.transcript
-  ) {
-    return question;
-  }
-  const sameGroup = getQuestionsByPart(question.part)
-    .filter((q) => q.transcript === question.transcript)
-    .sort((a, b) => a.id.localeCompare(b.id));
-  return sameGroup[0] ?? question;
-}
-
 export default function QuizPage() {
   const router = useRouter();
   const [status, setStatus] = useState<Status>("loading");
   const [planIds, setPlanIds] = useState<string[]>([]);
+  const [planCreatedAt, setPlanCreatedAt] = useState<string | null>(null);
   const [cursor, setCursor] = useState(0);
   const [selected, setSelected] = useState<Choice | null>(null);
   const [submittedChoice, setSubmittedChoice] = useState<Choice | null>(null);
@@ -117,6 +85,7 @@ export default function QuizPage() {
       const { plan, source } = quizPlan;
       planSource.current = source;
       setPlanIds(plan.questionIds);
+      setPlanCreatedAt(plan.createdAt);
       setCursor(plan.cursor);
       setAutoPlayedListeningGroups(new Set(plan.autoPlayedListeningGroups ?? []));
       if (plan.cursor >= plan.questionIds.length) {
@@ -204,6 +173,7 @@ export default function QuizPage() {
       skill_tag: currentQuestion.skill_tag,
       answeredAt: new Date().toISOString(),
       responseTimeMs,
+      source: "daily",
     });
     if (!isCorrect) {
       const isWeakWord = buildIsWeakWord();
@@ -260,6 +230,33 @@ export default function QuizPage() {
     }
   }
 
+  function getRecordedSessionStats(): { correct: number; total: number } {
+    if (!planCreatedAt || planIds.length === 0) return sessionStats;
+
+    const createdAtMs = new Date(planCreatedAt).getTime();
+    const planIdSet = new Set(planIds);
+    const latestByQuestion = new Map<string, { isCorrect: boolean; answeredAt: string }>();
+
+    for (const record of getAnswerRecords()) {
+      if (!planIdSet.has(record.questionId)) continue;
+      if (new Date(record.answeredAt).getTime() < createdAtMs) continue;
+      const existing = latestByQuestion.get(record.questionId);
+      if (!existing || record.answeredAt > existing.answeredAt) {
+        latestByQuestion.set(record.questionId, {
+          isCorrect: record.isCorrect,
+          answeredAt: record.answeredAt,
+        });
+      }
+    }
+
+    if (latestByQuestion.size === 0) return sessionStats;
+
+    return {
+      correct: [...latestByQuestion.values()].filter((record) => record.isCorrect).length,
+      total: latestByQuestion.size,
+    };
+  }
+
   function startFreshPlan() {
     const reviewIds = getReviewableIds().slice(0, 5);
     const records = getAnswerRecords();
@@ -309,17 +306,18 @@ export default function QuizPage() {
   }
 
   if (status === "finished") {
+    const recordedStats = getRecordedSessionStats();
     const accuracy =
-      sessionStats.total === 0
+      recordedStats.total === 0
         ? 0
-        : Math.round((sessionStats.correct / sessionStats.total) * 100);
+        : Math.round((recordedStats.correct / recordedStats.total) * 100);
     return (
       <div className="space-y-5 py-4">
         <div className="rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 p-6 text-white shadow-md">
           <p className="text-sm">今日訓練完成 🎉</p>
           <p className="mt-2 text-3xl font-bold">{accuracy}%</p>
           <p className="mt-1 text-sm text-emerald-50">
-            答對 {sessionStats.correct} / {sessionStats.total} 題
+            答對 {recordedStats.correct} / {recordedStats.total} 題
           </p>
         </div>
         <div className="space-y-3">

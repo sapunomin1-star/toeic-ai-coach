@@ -280,6 +280,10 @@ export function PartPerformanceSection({ metrics }: { metrics: DashboardMetrics 
 
 export function ReadingPerformanceSection({ metrics }: { metrics: DashboardMetrics }) {
   const { readingAccuracy, readingTotal, part7SkillMistakes } = metrics;
+  const readingMistakeTotal = READING_SKILLS.reduce(
+    (total, skill) => total + part7SkillMistakes[skill],
+    0,
+  );
 
   if (readingTotal === 0) return null;
 
@@ -306,18 +310,12 @@ export function ReadingPerformanceSection({ metrics }: { metrics: DashboardMetri
           </p>
           <p
             className={`mt-1 text-xl font-bold ${
-              part7SkillMistakes["reading_main_idea"] +
-                part7SkillMistakes["reading_detail"] +
-                part7SkillMistakes["reading_inference"] >
-              0
+              readingMistakeTotal > 0
                 ? "text-rose-600"
                 : "text-emerald-600"
             }`}
           >
-            {part7SkillMistakes["reading_main_idea"] +
-              part7SkillMistakes["reading_detail"] +
-              part7SkillMistakes["reading_inference"]}
-            題
+            {readingMistakeTotal}題
           </p>
           <p className="mt-0.5 text-xs text-slate-400">累積錯誤</p>
         </div>

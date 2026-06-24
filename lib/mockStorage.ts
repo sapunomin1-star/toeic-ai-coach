@@ -14,6 +14,18 @@ function isValidDate(value: unknown): value is string {
   return !isNaN(ts) && ts > 0;
 }
 
+function isValidResponseTimes(value: unknown): value is Partial<Record<string, number>> {
+  if (value === undefined || value === null) return true;
+  if (typeof value !== "object" || Array.isArray(value)) return false;
+  return Object.entries(value).every(
+    ([questionId, ms]) =>
+      typeof questionId === "string" &&
+      typeof ms === "number" &&
+      Number.isFinite(ms) &&
+      ms >= 0,
+  );
+}
+
 function validateSession(raw: unknown): MockTestSession | null {
   if (!raw || typeof raw !== "object") return null;
   const obj = raw as Record<string, unknown>;
@@ -29,6 +41,13 @@ function validateSession(raw: unknown): MockTestSession | null {
 
   if (!isValidDate(obj.startedAt)) return null;
   if (!isValidDate(obj.endTime)) return null;
+  if (
+    obj.currentIndex !== undefined &&
+    (!Number.isInteger(obj.currentIndex) || (obj.currentIndex as number) < 0)
+  ) {
+    return null;
+  }
+  if (!isValidResponseTimes(obj.responseTimes)) return null;
   if (obj.submittedAt !== undefined && obj.submittedAt !== null && !isValidDate(obj.submittedAt)) return null;
   if (
     obj.playedAudioGroups !== undefined &&
@@ -126,6 +145,8 @@ export function startMockSession(
     questionIds,
     answers: {},
     unansweredIds: [],
+    currentIndex: 0,
+    responseTimes: {},
     playedAudioGroups: [],
     playedQuestionAudioIds: [],
     startedAt: new Date(now).toISOString(),
@@ -141,6 +162,21 @@ export function saveAnswer(
   mode: MockMode = "reading",
 ): void {
   storeFor(mode).saveAnswer(questionId, choice);
+}
+
+export function saveCurrentIndex(
+  index: number,
+  mode: MockMode = "reading",
+): void {
+  storeFor(mode).saveCurrentIndex(index);
+}
+
+export function saveResponseTime(
+  questionId: string,
+  responseTimeMs: number,
+  mode: MockMode = "reading",
+): void {
+  storeFor(mode).saveResponseTime(questionId, responseTimeMs);
 }
 
 /**

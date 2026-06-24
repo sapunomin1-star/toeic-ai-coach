@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { getQuestionAudioUrl } from "@/lib/media";
 import { audioGroupKey } from "@/lib/mockShared";
 import type { Question } from "@/types/question";
@@ -75,7 +75,7 @@ export function useMockAudioPacing({
     new Set(),
   );
 
-  function handleAudioStarted(groupKey: string) {
+  const handleAudioStarted = useCallback((groupKey: string) => {
     setActiveAudioGroup(groupKey);
     setPlayedGroups((previous) => {
       if (previous.has(groupKey)) return previous;
@@ -84,17 +84,17 @@ export function useMockAudioPacing({
       return next;
     });
     persistAudioGroup(groupKey);
-  }
+  }, [persistAudioGroup]);
 
-  function handleAudioEnded(groupKey: string) {
+  const handleAudioEnded = useCallback((groupKey: string) => {
     setActiveAudioGroup((current) => (current === groupKey ? null : current));
-  }
+  }, []);
 
-  function markAudioGroupFailed(groupKey: string) {
+  const markAudioGroupFailed = useCallback((groupKey: string) => {
     setFailedAudioGroups((groups) => new Set(groups).add(groupKey));
-  }
+  }, []);
 
-  function handleQuestionAudioStarted(questionId: string) {
+  const handleQuestionAudioStarted = useCallback((questionId: string) => {
     setActiveQuestionAudioId(questionId);
     setPlayedQuestionAudioIds((previous) => {
       if (previous.has(questionId)) return previous;
@@ -103,21 +103,21 @@ export function useMockAudioPacing({
       return next;
     });
     persistQuestionAudio(questionId);
-  }
+  }, [persistQuestionAudio]);
 
-  function beginQuestionCountdown(questionId: string) {
+  const beginQuestionCountdown = useCallback((questionId: string) => {
     setActiveQuestionAudioId((current) => (current === questionId ? null : current));
     setCountdownQuestionId(questionId);
     setCountdownSec(8);
-  }
+  }, []);
 
-  function handleQuestionAudioError(questionId: string) {
+  const handleQuestionAudioError = useCallback((questionId: string) => {
     setFailedQuestionAudioIds((previous) => new Set(previous).add(questionId));
     // Preserve the one-pass exam flow even if the remote stem cannot load.
     setPlayedQuestionAudioIds((previous) => new Set(previous).add(questionId));
     persistQuestionAudio(questionId);
     beginQuestionCountdown(questionId);
-  }
+  }, [beginQuestionCountdown, persistQuestionAudio]);
 
   const resetQuestionPacing = useCallback(() => {
     setActiveQuestionAudioId(null);
@@ -133,6 +133,11 @@ export function useMockAudioPacing({
   const clearActiveAudioGroup = useCallback(() => {
     setActiveAudioGroup(null);
   }, []);
+
+  const clearListeningPacing = useCallback(() => {
+    setActiveAudioGroup(null);
+    resetQuestionPacing();
+  }, [resetQuestionPacing]);
 
   /** Reset all pacing state for a fresh test run. */
   const resetForStart = useCallback(() => {
@@ -255,25 +260,50 @@ export function useMockAudioPacing({
     resetQuestionPacing,
   ]);
 
-  return {
-    failedAudioGroups,
-    playedGroups,
-    activeAudioGroup,
-    playedQuestionAudioIds,
-    failedQuestionAudioIds,
-    activeQuestionAudioId,
-    countdownQuestionId,
-    countdownSec,
-    handleAudioStarted,
-    handleAudioEnded,
-    markAudioGroupFailed,
-    handleQuestionAudioStarted,
-    beginQuestionCountdown,
-    handleQuestionAudioError,
-    resetQuestionPacing,
-    syncActiveGroupOnNavigate,
-    clearActiveAudioGroup,
-    resetForStart,
-    hydrateFromSession,
-  };
+  return useMemo(
+    () => ({
+      failedAudioGroups,
+      playedGroups,
+      activeAudioGroup,
+      playedQuestionAudioIds,
+      failedQuestionAudioIds,
+      activeQuestionAudioId,
+      countdownQuestionId,
+      countdownSec,
+      handleAudioStarted,
+      handleAudioEnded,
+      markAudioGroupFailed,
+      handleQuestionAudioStarted,
+      beginQuestionCountdown,
+      handleQuestionAudioError,
+      resetQuestionPacing,
+      syncActiveGroupOnNavigate,
+      clearActiveAudioGroup,
+      clearListeningPacing,
+      resetForStart,
+      hydrateFromSession,
+    }),
+    [
+      activeAudioGroup,
+      activeQuestionAudioId,
+      beginQuestionCountdown,
+      clearActiveAudioGroup,
+      clearListeningPacing,
+      countdownQuestionId,
+      countdownSec,
+      failedAudioGroups,
+      failedQuestionAudioIds,
+      handleAudioEnded,
+      handleAudioStarted,
+      handleQuestionAudioError,
+      handleQuestionAudioStarted,
+      hydrateFromSession,
+      markAudioGroupFailed,
+      playedGroups,
+      playedQuestionAudioIds,
+      resetForStart,
+      resetQuestionPacing,
+      syncActiveGroupOnNavigate,
+    ],
+  );
 }

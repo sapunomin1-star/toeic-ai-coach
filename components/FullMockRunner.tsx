@@ -20,11 +20,18 @@ import {
   markFullMockLeftApp,
   markFullMockQuestionAudioPlayed,
   saveFullMockAnswer,
+  saveFullMockCurrentIndex,
   saveFullMockResult,
+  saveFullMockResponseTime,
   startFullMockSession,
 } from "@/lib/fullMockStorage";
 import { getAudioUrl, getImageUrl, getQuestionAudioUrl, hasMediaSupport } from "@/lib/media";
-import { getMockSeenQuestionIds, saveAnswer as saveDailyAnswer } from "@/lib/storage";
+import { getAudioOwnerQuestion } from "@/lib/audioOwner";
+import {
+  getMockSeenQuestionIds,
+  markMockQuestionsSeen,
+  saveAnswer as saveDailyAnswer,
+} from "@/lib/storage";
 import {
   getCEFRForSection,
   getTotalRange,
@@ -74,6 +81,7 @@ export default function FullMockRunner() {
   const [section, setSection] = useState<FullMockSection>("listening");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Partial<Record<string, Choice>>>({});
+  const [responseTimes, setResponseTimes] = useState<Partial<Record<string, number>>>({});
   const [listeningEndsAt, setListeningEndsAt] = useState(0);
   const [endTime, setEndTime] = useState(0);
   const [sectionRemainingMs, setSectionRemainingMs] = useState(
@@ -83,6 +91,7 @@ export default function FullMockRunner() {
   const [leftAppDuringTest, setLeftAppDuringTest] = useState(false);
   const [result, setResult] = useState<FullMockResult | null>(null);
   const submittedRef = useRef(false);
+  const questionStartTime = useRef(0);
 
   function start() {
     try {
@@ -94,11 +103,13 @@ export default function FullMockRunner() {
       setSection("listening");
       setCurrentIndex(0);
       setAnswers({});
+      setResponseTimes({});
       setListeningEndsAt(new Date(session.listeningEndsAt).getTime());
       setEndTime(new Date(session.endTime).getTime());
       setSectionRemainingMs(FULL_LISTENING_DURATION_MS);
       setTotalRemainingMs(FULL_MOCK_DURATION_MS);
       setLeftAppDuringTest(false);
+      questionStartTime.current = new Date().getTime();
       resetForStart();
       setPhase("testing");
     } catch (error) {
@@ -110,15 +121,29 @@ export default function FullMockRunner() {
     const sectionStart = section === "listening" ? 0 : LISTENING_QUESTIONS;
     const sectionEnd = sectionStart + SECTION_QUESTIONS;
     if (index < sectionStart || index >= sectionEnd || !questions[index]) return;
-    if (index !== currentIndex) resetQuestionPacing();
+    if (index !== currentIndex) {
+      resetQuestionPacing();
+      questionStartTime.current = new Date().getTime();
+    }
     syncActiveGroupOnNavigate(audioGroupKey(questions[index]));
+    saveFullMockCurrentIndex(index);
     setCurrentIndex(index);
   }
 
   function pick(questionId: string, choice: Choice) {
     const next = { ...answers, [questionId]: choice };
+    const nowMs = new Date().getTime();
+    const responseTimeMs = Math.max(
+      0,
+      nowMs - (questionStartTime.current || nowMs),
+    );
     setAnswers(next);
+    setResponseTimes((previous) => ({
+      ...previous,
+      [questionId]: responseTimeMs,
+    }));
     saveFullMockAnswer(questionId, choice);
+    saveFullMockResponseTime(questionId, responseTimeMs);
   }
 
   const submit = useCallback(() => {
@@ -132,6 +157,7 @@ export default function FullMockRunner() {
       .map((question) => question.id)
       .filter((questionId) => !answers[questionId]);
     const now = new Date().toISOString();
+    markMockQuestionsSeen(questions.map((question) => question.id));
 
     questions.forEach((question, index) => {
       const part = question.part as MockPartKey;
@@ -191,6 +217,7 @@ export default function FullMockRunner() {
       mode: "full",
       questions,
       answers,
+      responseTimes,
       startedAt,
       submittedAt: now,
     });
@@ -202,11 +229,16 @@ export default function FullMockRunner() {
     clearFullMockSession();
     setResult(fullResult);
     setPhase("result");
-  }, [answers, endTime, leftAppDuringTest, listeningEndsAt, questions]);
+  }, [answers, endTime, leftAppDuringTest, listeningEndsAt, questions, responseTimes]);
 
   const onCountdownAdvance = useCallback(() => {
     if (currentIndex < LISTENING_QUESTIONS - 1) {
-      setCurrentIndex((previous) => Math.min(LISTENING_QUESTIONS - 1, previous + 1));
+      setCurrentIndex((previous) => {
+        const next = Math.min(LISTENING_QUESTIONS - 1, previous + 1);
+        saveFullMockCurrentIndex(next);
+        questionStartTime.current = new Date().getTime();
+        return next;
+      });
     }
   }, [currentIndex]);
 
@@ -227,7 +259,7 @@ export default function FullMockRunner() {
     handleQuestionAudioError,
     resetQuestionPacing,
     syncActiveGroupOnNavigate,
-    clearActiveAudioGroup,
+    clearListeningPacing,
     resetForStart,
     hydrateFromSession,
   } = useMockAudioPacing({
@@ -243,10 +275,11 @@ export default function FullMockRunner() {
   const beginReadingSection = useCallback(() => {
     advanceFullMockToReading();
     setSection("reading");
+    saveFullMockCurrentIndex(LISTENING_QUESTIONS);
+    questionStartTime.current = new Date().getTime();
     setCurrentIndex(LISTENING_QUESTIONS);
-    clearActiveAudioGroup();
-    resetQuestionPacing();
-  }, [clearActiveAudioGroup, resetQuestionPacing]);
+    clearListeningPacing();
+  }, [clearListeningPacing]);
 
   useEffect(() => {
     const id = window.setTimeout(() => {
@@ -263,6 +296,7 @@ export default function FullMockRunner() {
               : "listening";
           setQuestions(restoredQuestions);
           setAnswers(session.answers ?? {});
+          setResponseTimes(session.responseTimes ?? {});
           setListeningEndsAt(listeningDeadline);
           setEndTime(new Date(session.endTime).getTime());
           setLeftAppDuringTest(Boolean(session.leftAppDuringTest));
@@ -271,7 +305,21 @@ export default function FullMockRunner() {
             playedQuestionAudioIds: session.playedQuestionAudioIds,
           });
           setSection(restoredSection);
-          setCurrentIndex(restoredSection === "reading" ? LISTENING_QUESTIONS : 0);
+          const sectionStart =
+            restoredSection === "reading" ? LISTENING_QUESTIONS : 0;
+          const sectionEnd = sectionStart + SECTION_QUESTIONS - 1;
+          const fallbackIndex =
+            restoredSection === "reading" ? LISTENING_QUESTIONS : 0;
+          const storedIndex =
+            typeof session.currentIndex === "number"
+              ? session.currentIndex
+              : fallbackIndex;
+          const restoredIndex = Math.min(
+            sectionEnd,
+            Math.max(sectionStart, storedIndex),
+          );
+          setCurrentIndex(restoredIndex);
+          questionStartTime.current = new Date().getTime();
           setPhase("testing");
           if (restoredSection === "reading" && session.currentSection !== "reading") {
             advanceFullMockToReading();
@@ -393,19 +441,7 @@ export default function FullMockRunner() {
     const mediaSupport = hasMediaSupport(question);
     const groupKey = audioGroupKey(question);
     const groupPosition = getGroupPosition(currentQuestions, question);
-    // Audio resolution: pipeline uploads P3/P4 group audio only to the
-    // canonical (smallest-id) member via --group-primary. The find() below
-    // relies on plan-internal group ordering equalling full-bank ID order
-    // (stable sort by question_order in buildListeningMockPlan + new P3/P4
-    // lack question_order so push order = ID order). If a future plan
-    // builder shuffles members, replace this with getAudioOwnerQuestion()
-    // from app/quiz/page.tsx (full-bank canonical lookup independent of
-    // plan order). See MockTestRunner for the same rationale.
-    const audioQuestion =
-      question.part === "Part 3" || question.part === "Part 4"
-        ? currentQuestions.find((candidate) => audioGroupKey(candidate) === groupKey) ??
-          question
-        : question;
+    const audioQuestion = getAudioOwnerQuestion(question);
     const audioUrl = isListening ? getAudioUrl(audioQuestion) : null;
     const audioFailed = failedAudioGroups.has(groupKey);
     const audioAlreadyPlayed = playedGroups.has(groupKey);

@@ -23,6 +23,7 @@ const DAILY_PLAN_KEY = STORAGE_KEYS.dailyPlan;
 const WRONG_STATUS_KEY = STORAGE_KEYS.wrongStatus;
 const WRONG_PRACTICE_PLAN_KEY = STORAGE_KEYS.wrongPracticePlan;
 const MANUAL_REVIEW_KEY = STORAGE_KEYS.manualReviewItems;
+const MOCK_SEEN_KEY = STORAGE_KEYS.mockSeenQuestionIds;
 
 const DAILY_PLAN_TTL_MS = 24 * 60 * 60 * 1000;
 
@@ -48,6 +49,14 @@ function isAnswerRecord(value: unknown): value is AnswerRecord {
       r.reasonSource === "user" ||
       r.reasonSource === "inferred")
   );
+}
+
+function isPlainObject(value: unknown): value is Record<string, unknown> {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+
+function isStringArray(value: unknown): value is string[] {
+  return Array.isArray(value) && value.every((item) => typeof item === "string");
 }
 
 // ─── Answer records ────────────────────────────────────────────────────────
@@ -97,6 +106,7 @@ export function clearAllProgress(): void {
     localStorage.removeItem(WRONG_STATUS_KEY);
     localStorage.removeItem(WRONG_PRACTICE_PLAN_KEY);
     localStorage.removeItem(MANUAL_REVIEW_KEY);
+    localStorage.removeItem(MOCK_SEEN_KEY);
     localStorage.removeItem(STORAGE_KEYS.vocabularyProgress);
     localStorage.removeItem(STORAGE_KEYS.vocabularyDailySession);
     clearAllMockData();
@@ -121,6 +131,7 @@ export const BACKUP_KEYS = [
   STORAGE_KEYS.fullMockResults,
   STORAGE_KEYS.mockReviewSnapshots,
   STORAGE_KEYS.manualReviewItems,
+  STORAGE_KEYS.mockSeenQuestionIds,
 ] as const;
 
 export function exportAllData(): string | null {
@@ -129,7 +140,8 @@ export function exportAllData(): string | null {
     const snapshot: Record<string, unknown> = {};
     for (const key of BACKUP_KEYS) {
       const raw = localStorage.getItem(key);
-      snapshot[key] = raw ? JSON.parse(raw) : null;
+      if (raw === null) continue;
+      snapshot[key] = JSON.parse(raw);
     }
     snapshot._exportedAt = new Date().toISOString();
     return JSON.stringify(snapshot, null, 2);
@@ -143,23 +155,64 @@ export function importAllData(json: string): boolean {
   if (!isBrowser()) return false;
   try {
     const snapshot = JSON.parse(json);
-    if (typeof snapshot !== "object" || !snapshot._exportedAt) {
+    if (!isPlainObject(snapshot) || !snapshot._exportedAt) {
       alert("匯入失敗：檔案格式不符。");
       return false;
     }
     let count = 0;
+    let skipped = 0;
     for (const key of BACKUP_KEYS) {
-      if (snapshot[key] !== undefined) {
-        localStorage.setItem(key, JSON.stringify(snapshot[key]));
-        count++;
+      if (!(key in snapshot)) continue;
+      const value = normalizeBackupValue(key, snapshot[key]);
+      if (value === undefined) {
+        skipped++;
+        continue;
       }
+      localStorage.setItem(key, JSON.stringify(value));
+      count++;
     }
-    alert(`已匯入 ${count} 筆資料。請重新整理頁面。`);
+    alert(
+      skipped > 0
+        ? `已匯入 ${count} 筆資料，略過 ${skipped} 筆格式不符資料。請重新整理頁面。`
+        : `已匯入 ${count} 筆資料。請重新整理頁面。`,
+    );
     return true;
   } catch (e) {
     console.warn("[storage] Failed to import data:", e);
     alert("匯入失敗：無法解析檔案。");
     return false;
+  }
+}
+
+function normalizeBackupValue(
+  key: (typeof BACKUP_KEYS)[number],
+  value: unknown,
+): unknown | undefined {
+  if (value === null || value === undefined) return undefined;
+
+  switch (key) {
+    case ANSWER_KEY:
+      return Array.isArray(value) ? value.filter(isAnswerRecord) : undefined;
+    case DAILY_PLAN_KEY:
+    case WRONG_PRACTICE_PLAN_KEY:
+      return isDailyPlan(value) ? value : undefined;
+    case WRONG_STATUS_KEY: {
+      const map = sanitizeWrongStatusMap(value);
+      return Object.keys(map).length > 0 || isPlainObject(value) ? map : undefined;
+    }
+    case STORAGE_KEYS.vocabularyProgress:
+      return Array.isArray(value) ? value : undefined;
+    case STORAGE_KEYS.vocabularyDailySession:
+      return isPlainObject(value) ? value : undefined;
+    case STORAGE_KEYS.readingMockResults:
+    case STORAGE_KEYS.listeningMockResults:
+    case STORAGE_KEYS.fullMockResults:
+    case STORAGE_KEYS.mockReviewSnapshots:
+      return Array.isArray(value) ? value : undefined;
+    case STORAGE_KEYS.manualReviewItems:
+      return Array.isArray(value) ? value.filter(isManualReviewEntry) : undefined;
+    case STORAGE_KEYS.mockSeenQuestionIds:
+      return isStringArray(value) ? [...new Set(value)] : undefined;
   }
 }
 
@@ -169,11 +222,27 @@ export function importAllData(json: string): boolean {
  * ability rather than memory of the previous attempt.
  */
 export function getMockSeenQuestionIds(): Set<string> {
-  return new Set(
-    getAnswerRecords()
-      .filter((record) => record.source === "mock")
-      .map((record) => record.questionId),
-  );
+  const storedSeen = readJSON<unknown>(MOCK_SEEN_KEY, []);
+  const seen = new Set(isStringArray(storedSeen) ? storedSeen : []);
+  for (const record of getAnswerRecords()) {
+    if (record.source === "mock") {
+      seen.add(record.questionId);
+    }
+  }
+  return seen;
+}
+
+export function markMockQuestionsSeen(questionIds: string[]): void {
+  const seen = getMockSeenQuestionIds();
+  let changed = false;
+  for (const questionId of questionIds) {
+    if (typeof questionId !== "string" || seen.has(questionId)) continue;
+    seen.add(questionId);
+    changed = true;
+  }
+  if (changed) {
+    writeJSON(MOCK_SEEN_KEY, [...seen].sort());
+  }
 }
 
 // ─── Wrong-book status (spaced repetition) ────────────────────────────────
@@ -199,6 +268,36 @@ export type WrongStatusEntry = {
 
 export type WrongStatusMap = Record<string, WrongStatusEntry>;
 
+const WRONG_BOOK_STATUSES: WrongBookStatus[] = [
+  "new",
+  "reviewing",
+  "improving",
+  "mastered",
+];
+
+function isWrongStatusEntry(value: unknown): value is WrongStatusEntry {
+  if (!isPlainObject(value)) return false;
+  return (
+    typeof value.consecutiveCorrect === "number" &&
+    WRONG_BOOK_STATUSES.includes(value.status as WrongBookStatus) &&
+    (value.intervalDays === undefined || typeof value.intervalDays === "number") &&
+    (value.nextReviewDate === undefined || typeof value.nextReviewDate === "string") &&
+    (value.dismissed === undefined || typeof value.dismissed === "boolean") &&
+    (value.dismissedAt === undefined || typeof value.dismissedAt === "string")
+  );
+}
+
+function sanitizeWrongStatusMap(value: unknown): WrongStatusMap {
+  if (!isPlainObject(value)) return {};
+  const map: WrongStatusMap = {};
+  for (const [questionId, entry] of Object.entries(value)) {
+    if (typeof questionId === "string" && isWrongStatusEntry(entry)) {
+      map[questionId] = entry;
+    }
+  }
+  return map;
+}
+
 function localDateStr(offsetDays = 0): string {
   const d = new Date();
   d.setDate(d.getDate() + offsetDays);
@@ -211,7 +310,7 @@ function isDueForReview(entry: WrongStatusEntry): boolean {
 }
 
 export function getWrongStatusMap(): WrongStatusMap {
-  return readJSON<WrongStatusMap>(WRONG_STATUS_KEY, {});
+  return sanitizeWrongStatusMap(readJSON<unknown>(WRONG_STATUS_KEY, {}));
 }
 
 export function updateWrongStatus(

@@ -15,7 +15,7 @@ import {
 import { getAudioUrl, getImageUrl, getQuestionAudioUrl } from "@/lib/media";
 import { audioGroupKey } from "@/lib/mockShared";
 
-const MAX_REVIEW_SNAPSHOTS = 10;
+const MAX_REVIEW_SNAPSHOTS = 20;
 const VALID_REVIEW_MODES = new Set<MockReviewMode>(["reading", "listening", "full"]);
 
 function isStringArray(value: unknown): value is string[] {
@@ -128,6 +128,7 @@ function toReviewItem(
   question: Question,
   questions: Question[],
   answers: Partial<Record<string, Choice>>,
+  responseTimes: Partial<Record<string, number>> = {},
 ): MockReviewQuestionSnapshot {
   const userAnswer = answers[question.id];
   const audioOwner =
@@ -148,6 +149,9 @@ function toReviewItem(
     correctAnswer: question.answer,
     ...(userAnswer ? { userAnswer } : {}),
     isCorrect: userAnswer === question.answer,
+    ...(typeof responseTimes[question.id] === "number"
+      ? { responseTimeMs: responseTimes[question.id] }
+      : {}),
     explanation_zh: question.explanation_zh,
     ...(question.explanation_en ? { explanation_en: question.explanation_en } : {}),
     skill_tag: question.skill_tag,
@@ -177,6 +181,7 @@ export function buildMockReviewSnapshot({
   mode,
   questions,
   answers,
+  responseTimes,
   startedAt,
   submittedAt,
 }: {
@@ -184,6 +189,7 @@ export function buildMockReviewSnapshot({
   mode: MockReviewMode;
   questions: Question[];
   answers: Partial<Record<string, Choice>>;
+  responseTimes?: Partial<Record<string, number>>;
   startedAt: string;
   submittedAt: string;
 }): MockReviewSnapshot {
@@ -194,7 +200,9 @@ export function buildMockReviewSnapshot({
     startedAt,
     submittedAt,
     questionIds: questions.map((question) => question.id),
-    items: questions.map((question) => toReviewItem(question, questions, answers)),
+    items: questions.map((question) =>
+      toReviewItem(question, questions, answers, responseTimes),
+    ),
   };
 }
 

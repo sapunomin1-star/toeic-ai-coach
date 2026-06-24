@@ -1,5 +1,39 @@
 # TOEIC AI Coach Development Log
 
+## Data Consistency Repair - 2026-06-24
+
+### Scope
+
+- Fixed localStorage backup/import consistency around missing keys, poisoned `"null"` values, and malformed wrong-book status maps.
+- Added a persisted mock seen-question set so completed mock questions are tracked even when the student answered every item correctly.
+- Restored daily quiz finished-page stats from actual answer records so refresh/resume cannot show `0 / 0`.
+- Persisted mock/full-mock `currentIndex` and per-question `responseTimes`, including session resume and listening auto-advance.
+- Shared P3/P4 audio owner resolution across daily quiz, half mock, and full mock so group audio resolves to the canonical smallest-id question.
+- Corrected the Dashboard Part 7 mistake total to include every `READING_SKILLS` entry.
+- Aligned mock review snapshot retention to 20 and updated README storage documentation.
+- Added an explicit Part 6 split-file note; current Part 6 content is supplied by `questions-generated.ts`.
+
+### Files Changed
+
+- `lib/storageCore.ts`, `lib/storage.ts`: backup key registry, safe import normalization, wrong-status sanitization, mock seen-question persistence.
+- `scripts/repro-c1.ts`: regression script for the C1 null-import crash.
+- `types/mock.ts`, `lib/sessionStore.ts`, `lib/mockStorage.ts`, `lib/fullMockStorage.ts`: session schema and persistence for `currentIndex` / `responseTimes`.
+- `components/MockTestRunner.tsx`, `components/FullMockRunner.tsx`: resume index, response-time capture, seen-question marking, snapshot response times.
+- `app/quiz/page.tsx`: daily source tagging, finished stats restored from answer records, shared audio owner helper.
+- `lib/audioOwner.ts`: canonical P3/P4 listening group and shared audio owner helper.
+- `lib/useMockAudioPacing.ts`: stable memoized pacing handlers plus shared reading-section pacing clear.
+- `components/dashboard/PerformanceSections.tsx`: full reading-skill mistake total.
+- `lib/mockReviewStorage.ts`, `README.md`, `data/questions-part6.ts`: retention/documentation/data-source alignment.
+
+### Validation
+
+- `./pipeline/node_modules/.bin/tsx scripts/repro-c1.ts`: passed.
+- `./node_modules/.bin/tsc --noEmit`: passed.
+- `./node_modules/.bin/eslint .`: passed.
+- `./node_modules/.bin/next build`: passed. Routes generated: `/`, `/_not-found`, `/dashboard`, `/full-mock`, `/listening-mock`, `/mock-review/[snapshotId]`, `/mock-test`, `/practice`, `/quiz`, `/vocabulary`, `/vocabulary-quiz`, `/wrongbook`.
+- `cd pipeline && npm run check`: passed. Total questions 1899, duplicate IDs 0, invalid answers 0, group structure issues 0.
+- `cd pipeline && npm run check-media`: passed. Expected media 851, found 851, missing 0.
+
 ## Full Project Scan - 2026-05-22
 
 ### Scope

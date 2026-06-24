@@ -8,6 +8,8 @@ import { isBrowser, readJSON, writeJSON } from "@/lib/storageCore";
 export type SessionLike = {
   answers: Partial<Record<string, Choice>>;
   unansweredIds: string[];
+  currentIndex?: number;
+  responseTimes?: Partial<Record<string, number>>;
   submittedAt?: string;
   playedAudioGroups?: string[];
   playedQuestionAudioIds?: string[];
@@ -27,6 +29,8 @@ export type SessionStore<TSession extends SessionLike, TResult> = {
   saveSession: (session: TSession) => void;
   clearSession: () => void;
   saveAnswer: (questionId: string, choice: Choice | null) => void;
+  saveCurrentIndex: (index: number) => void;
+  saveResponseTime: (questionId: string, responseTimeMs: number) => void;
   markAudioGroupPlayed: (groupKey: string) => void;
   markQuestionAudioPlayed: (questionId: string) => void;
   getResults: () => TResult[];
@@ -76,6 +80,23 @@ export function createSessionStore<TSession extends SessionLike, TResult>(
     saveSession(session);
   }
 
+  function saveCurrentIndex(index: number): void {
+    const session = getSession();
+    if (!session || !Number.isInteger(index) || index < 0) return;
+    session.currentIndex = index;
+    saveSession(session);
+  }
+
+  function saveResponseTime(questionId: string, responseTimeMs: number): void {
+    const session = getSession();
+    if (!session || !Number.isFinite(responseTimeMs) || responseTimeMs < 0) return;
+    session.responseTimes = {
+      ...session.responseTimes,
+      [questionId]: Math.round(responseTimeMs),
+    };
+    saveSession(session);
+  }
+
   function markAudioGroupPlayed(groupKey: string): void {
     const session = getSession();
     if (!session) return;
@@ -119,6 +140,8 @@ export function createSessionStore<TSession extends SessionLike, TResult>(
     saveSession,
     clearSession,
     saveAnswer,
+    saveCurrentIndex,
+    saveResponseTime,
     markAudioGroupPlayed,
     markQuestionAudioPlayed,
     getResults,
