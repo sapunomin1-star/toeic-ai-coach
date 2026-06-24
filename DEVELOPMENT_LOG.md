@@ -1,5 +1,28 @@
 # TOEIC AI Coach Development Log
 
+## Vocabulary Speech - 2026-06-24
+
+### Scope
+
+- Added a pronunciation button to every vocabulary flashcard without revealing the meaning.
+- Added sentence narration after a flashcard is expanded.
+- Vocabulary speech uses the browser's English speech synthesis at a fixed `1x` rate.
+- Word and sentence speech can be replayed without a limit; starting another item stops the current narration cleanly.
+- The voice selector prefers a stable US English system voice and gracefully disables the controls when speech synthesis is unavailable.
+
+### Files Changed
+
+- `components/VocabularySpeechButton.tsx`: shared fixed-speed vocabulary speech control.
+- `app/vocabulary/page.tsx`: word pronunciation and example-sentence narration controls.
+- `README.md`: vocabulary feature documentation.
+
+### Validation
+
+- `./node_modules/.bin/tsc --noEmit`: passed.
+- `./node_modules/.bin/eslint .`: passed.
+- `./node_modules/.bin/next build`: passed; all app routes generated successfully.
+- Mobile browser check at `390x844`: word and sentence controls fit without horizontal overflow; the word control remains separate from the flashcard reveal action.
+
 ## Data Consistency Repair - 2026-06-24
 
 ### Scope

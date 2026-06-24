@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import VocabularySpeechButton from "@/components/VocabularySpeechButton";
 import {
   buildDailySession,
   getDailySessionActivity,
@@ -263,31 +264,40 @@ export default function VocabularyPage() {
                 isMastered ? "border-emerald-200 opacity-70" : "border-slate-200"
               }`}
             >
-              {/* Card front — always visible */}
-              <button
-                onClick={() => toggleReveal(item.id)}
-                className="w-full p-4 text-left"
-              >
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-lg font-bold text-slate-900">
-                    {item.word}
-                  </span>
-                  <span className="rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-medium text-indigo-700">
-                    {PART_LABELS[item.partOfSpeech]}
-                  </span>
-                  <span
-                    className={`rounded-full px-2 py-0.5 text-xs font-medium ${STATUS_CLASS[status]}`}
-                  >
-                    {STATUS_LABEL[status]}
-                  </span>
-                  <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-500">
-                    {BUCKET_LABEL[bucket]}
-                  </span>
-                  <span className="ml-auto text-xs text-slate-400">
-                    {isRevealed ? "▲ 收起" : "▼ 查看解釋"}
-                  </span>
+              {/* Card front — pronunciation stays available before revealing meaning. */}
+              <div className="flex items-stretch">
+                <button
+                  onClick={() => toggleReveal(item.id)}
+                  aria-expanded={isRevealed}
+                  className="min-w-0 flex-1 p-4 text-left"
+                >
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-lg font-bold text-slate-900">
+                      {item.word}
+                    </span>
+                    <span className="rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-medium text-indigo-700">
+                      {PART_LABELS[item.partOfSpeech]}
+                    </span>
+                    <span
+                      className={`rounded-full px-2 py-0.5 text-xs font-medium ${STATUS_CLASS[status]}`}
+                    >
+                      {STATUS_LABEL[status]}
+                    </span>
+                    <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-500">
+                      {BUCKET_LABEL[bucket]}
+                    </span>
+                    <span className="ml-auto text-xs text-slate-400">
+                      {isRevealed ? "▲ 收起" : "▼ 查看解釋"}
+                    </span>
+                  </div>
+                </button>
+                <div className="flex shrink-0 items-center border-l border-slate-100 px-3">
+                  <VocabularySpeechButton
+                    text={item.word}
+                    label={`${item.word} 單字發音`}
+                  />
                 </div>
-              </button>
+              </div>
 
               {/* Card back — revealed on click */}
               {isRevealed && (
@@ -298,6 +308,13 @@ export default function VocabularyPage() {
                   <p className="mt-2 text-sm leading-relaxed text-slate-700">
                     {item.example}
                   </p>
+                  <div className="mt-2">
+                    <VocabularySpeechButton
+                      text={item.example}
+                      label="朗讀例句"
+                      variant="text"
+                    />
+                  </div>
                   <p className="mt-1 text-xs leading-relaxed text-slate-500">
                     {item.example_zh}
                   </p>
