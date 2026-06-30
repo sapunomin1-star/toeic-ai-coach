@@ -289,12 +289,6 @@ export function bumpWordsToDueByWords(words: string[]): void {
   }
 }
 
-export function getMasteredWordIds(): string[] {
-  return readProgress()
-    .filter((p) => p.status === "mastered")
-    .map((p) => p.wordId);
-}
-
 type StoredDailySession = {
   date: string;
   itemBuckets: Array<{ wordId: string; bucket: DailySessionBucket }>;
@@ -425,10 +419,6 @@ export function getDailySessionActivity(): DailySessionActivity {
   };
 }
 
-export function getDailySessionCompletedCount(): number {
-  return getDailySessionActivity().validatedCount;
-}
-
 // ─── Flashcard mark actions ────────────────────────────────────────────────
 
 export function markWordAgain(wordId: string): void {
@@ -480,15 +470,6 @@ export function markWordKnown(wordId: string): void {
   existing.lastSelfCheckDate = today;
   writeProgress(progress);
   markDailySessionItemReviewed(wordId);
-}
-
-// Legacy aliases
-export function markWordLearning(wordId: string): void {
-  markWordAgain(wordId);
-}
-
-export function markWordMastered(wordId: string): void {
-  markWordKnown(wordId);
 }
 
 // ─── Daily vocabulary selection ────────────────────────────────────────────

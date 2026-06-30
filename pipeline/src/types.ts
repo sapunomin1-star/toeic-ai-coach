@@ -50,33 +50,6 @@ export type PatternLibrary = {
   };
 };
 
-// ─── Fingerprint types ──────────────────────────────────────────────────────
-
-export type FingerprintId = string;
-
-export type Fingerprint = {
-  fingerprint_id: FingerprintId;
-  pattern_id: PatternId;
-  part: Part;
-  source_url: string;
-  source_type: "public_sample" | "official_sample" | "textbook" | "other";
-  topic_summary: string;
-  named_entities: string[];
-  key_facts: string[];
-  rare_phrases?: string[];
-  generated_question_ids: string[];
-  created_at: string;
-};
-
-export type FingerprintLibrary = {
-  fingerprints: Fingerprint[];
-  metadata: {
-    version: string;
-    created_at: string;
-    total_fingerprints: number;
-  };
-};
-
 // ─── Generation types ───────────────────────────────────────────────────────
 
 /** Raw LLM output before validation */
@@ -108,13 +81,6 @@ export type RawGeneratedQuestion = {
     D?: string;
   };
   audioScript?: string;
-};
-
-export type GenerationResult = {
-  pattern_id: PatternId;
-  questions: RawGeneratedQuestion[];
-  errors: string[];
-  warnings: string[];
 };
 
 export type PipelineConfig = {

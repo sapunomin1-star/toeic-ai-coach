@@ -58,14 +58,6 @@ export function getQuestionById(id: string): Question | undefined {
   return QUESTIONS.find((q) => q.id === id);
 }
 
-export function getQuestionsBySkill(skill: SkillTag): Question[] {
-  return queryQuestions({ skills: [skill] });
-}
-
-export function getQuestionsByCategory(category: SkillCategory): Question[] {
-  return queryQuestions({ categories: [category] });
-}
-
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {

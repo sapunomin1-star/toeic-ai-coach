@@ -7,13 +7,6 @@
  */
 export type SkillCategory = "grammar" | "vocabulary" | "listening" | "reading";
 
-export const SKILL_CATEGORY_LABELS: Record<SkillCategory, string> = {
-  grammar: "文法",
-  vocabulary: "單字",
-  listening: "聽力",
-  reading: "閱讀",
-};
-
 export const SKILLS = {
   passive_voice: { label: "被動語態", category: "grammar" },
   word_form: { label: "詞性判斷", category: "grammar" },
@@ -41,7 +34,6 @@ export type SkillTag = keyof typeof SKILLS;
 export const SKILL_TAG_LIST = Object.keys(SKILLS) as SkillTag[];
 
 export type Choice = "A" | "B" | "C" | "D";
-export type Part2Choice = "A" | "B" | "C";
 
 export type Difficulty = "A2" | "B1" | "B2" | "C1";
 
@@ -165,14 +157,6 @@ export function getSkillCategory(tag: SkillTag): SkillCategory {
   return SKILLS[tag].category;
 }
 
-export function getSkillsByCategory(category: SkillCategory): SkillTag[] {
-  return SKILL_TAG_LIST.filter((tag) => SKILLS[tag].category === category);
-}
-
 export function getPartSection(part: Part): "listening" | "reading" {
   return PARTS[part].section;
-}
-
-export function getPartsBySection(section: "listening" | "reading"): Part[] {
-  return PART_LIST.filter((part) => PARTS[part].section === section);
 }

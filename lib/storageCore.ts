@@ -64,15 +64,6 @@ export function writeJSON<T>(key: string, value: T): boolean {
   }
 }
 
-export function removeKey(key: string): void {
-  if (!isBrowser()) return;
-  try {
-    localStorage.removeItem(key);
-  } catch (e) {
-    console.warn(`[storage] Failed to remove "${key}":`, e);
-  }
-}
-
 const CHOICES = ["A", "B", "C", "D"] satisfies Choice[];
 
 export function isChoice(value: unknown): value is Choice {
