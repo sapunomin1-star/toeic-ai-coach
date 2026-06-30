@@ -22,8 +22,6 @@ export const STORAGE_KEYS = {
   mockSeenQuestionIds: "toeic_mock_seen_ids_v1",
 } as const;
 
-export type StorageKey = (typeof STORAGE_KEYS)[keyof typeof STORAGE_KEYS];
-
 export function isBrowser(): boolean {
   return typeof window !== "undefined" && typeof localStorage !== "undefined";
 }

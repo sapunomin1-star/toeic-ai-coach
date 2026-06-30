@@ -350,24 +350,6 @@ export function calculateReadingAvgTime(records: AnswerRecord[]): number {
   return calculateAvgResponseTime(excludeMock(records).filter((r) => isPart7Record(r)));
 }
 
-export function countPart1MistakesBySkill(
-  records: AnswerRecord[]
-): Record<SkillTag, number> {
-  const filtered = excludeMock(records);
-  const skills: SkillTag[] = ["listening_photo"];
-  const init = Object.fromEntries(
-    skills.map((skill) => [skill, 0])
-  ) as Record<SkillTag, number>;
-
-  for (const r of filtered) {
-    if (!r.isCorrect && isPart1Record(r) && skills.includes(r.skill_tag)) {
-      init[r.skill_tag] += 1;
-    }
-  }
-
-  return init;
-}
-
 export function countPart7MistakesBySkill(
   records: AnswerRecord[]
 ): Record<SkillTag, number> {
@@ -539,17 +521,6 @@ export function getNextDayListeningMix(records: AnswerRecord[]): NextDayListenin
 // Pure analysis helpers: infer a suggested reason for a wrong answer, count
 // reasons for the dashboard, and produce the headline insight sentence. No
 // storage / UI / vocab-SRS coupling — vocab is injected via a predicate.
-
-/**
- * Per-part answering time budgets (ms). Reading parts only: in /quiz the
- * listening responseTimeMs includes audio playback, so it is NOT a usable
- * speed signal. Kept for reference / future per-question pacing.
- */
-export const PART_TIME_BUDGET_MS: Partial<Record<Part, number>> = {
-  "Part 5": 20_000,
-  "Part 6": 25_000,
-  "Part 7": 55_000,
-};
 
 /** Slower than this (reading parts) + wrong → infer "speed" (ran out of time). */
 export const SLOW_THRESHOLD_MS: Partial<Record<Part, number>> = {

@@ -485,11 +485,6 @@ export function getReviewableIds(): string[] {
   return [...ids];
 }
 
-// Legacy alias used by quiz page
-export function getUniqueWrongQuestionIds(): string[] {
-  return getReviewableIds();
-}
-
 export type WrongBookEntry = {
   questionId: string;
   skill_tag: SkillTag;

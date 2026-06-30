@@ -35,21 +35,6 @@ export function countExistingIds(prefix: string): number {
   return ids.length;
 }
 
-/** Extract question text blocks for few-shot examples by ID prefix */
-export function findExampleTexts(
-  prefix: string,
-  maxCount: number
-): string[] {
-  const raw = fs.readFileSync(QUESTIONS_PATH, "utf-8");
-  // Find question objects by matching { ... id: "prefix..." ... }
-  const pattern = new RegExp(
-    `\\{[^}]*id:\\s*"${prefix}\\d+"[^}]*\\}`,
-    "gs"
-  );
-  const matches = raw.match(pattern) ?? [];
-  return matches.slice(0, maxCount);
-}
-
 /** Get the next available IDs given existing count */
 export function generateNextIds(
   prefix: string,

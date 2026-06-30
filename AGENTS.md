@@ -335,7 +335,7 @@ from "re-feed the skill you miss" toward cause-specific remediation. Phase 1 is
 
 ### Inference (pre-select, never auto-commit silently)
 - `inferMistakeReason(question, record, isWeakWord?)` in `lib/analysis.ts` returns a suggested reason to pre-select in the chip UI, or `null` when there is no clear signal.
-- **speed: reading parts only (Part 5/6/7).** In `/quiz` the listening `responseTimeMs` includes audio playback, so it is NOT a usable speed signal — never infer speed for Part 1–4. Thresholds: `SLOW_THRESHOLD_MS`, `FAST_FLOOR_MS`, `PART_TIME_BUDGET_MS` (reading parts only).
+- **speed: reading parts only (Part 5/6/7).** In `/quiz` the listening `responseTimeMs` includes audio playback, so it is NOT a usable speed signal — never infer speed for Part 1–4. Thresholds: `SLOW_THRESHOLD_MS` and `FAST_FLOOR_MS` (reading parts only).
 - **vocab is injected, not coupled.** `inferMistakeReason` takes an `isWeakWord?` predicate so `analysis.ts` stays pure (no `vocabularyStorage` import). The quiz page builds the predicate: weak word = in the bank AND SRS status `new`/`seen`/none (familiar/mastered are NOT weak).
 - Priority when several apply: **speed > vocab > careless.**
 
