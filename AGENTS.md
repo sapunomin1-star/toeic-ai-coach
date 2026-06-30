@@ -223,7 +223,6 @@ Run these checks after meaningful changes:
 - Claude Code: best for larger implementation work and project integration.
 - DeepSeek v4 Pro: primary model for TOEIC question generation (Part 5/6/7).
 - Kimi 2.6: Chinese explanation (explanation_zh) optimization and review.
-- Hy3 Preview (via OpenRouter): QA review of generated questions (answer correctness, distractor quality).
 
 ## Audit Rules (2026-05-23 Comprehensive Audit)
 

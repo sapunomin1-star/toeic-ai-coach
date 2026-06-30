@@ -6,7 +6,7 @@
  *   npx tsx run-pipeline.ts                          # Full run
  *   npx tsx run-pipeline.ts --part=7 --count=7:1     # Part 7, 1 passage
  *   npx tsx run-pipeline.ts --dry-run                 # Validate without writing
- *   npx tsx run-pipeline.ts --skip-kimi --skip-hy3    # Skip Kimi & Hy3
+ *   npx tsx run-pipeline.ts --skip-kimi               # Skip Kimi review
  */
 
 import * as fs from "fs";
@@ -75,7 +75,6 @@ function parseArgs(): PipelineConfig {
     count: countMap,
     dryRun: args.includes("--dry-run"),
     skipKimi: args.includes("--skip-kimi"),
-    skipHy3: args.includes("--skip-hy3"),
   };
 }
 
@@ -131,9 +130,7 @@ async function run(): Promise<void> {
   console.log(
     `  Counts: P1=${args.count["1"]} P2=${args.count["2"]} P5=${args.count["5"]} P6=${args.count["6"]} P7=${args.count["7"]}`
   );
-  console.log(
-    `  Skip Kimi: ${args.skipKimi} | Skip Hy3: ${args.skipHy3}`
-  );
+  console.log(`  Skip Kimi: ${args.skipKimi}`);
   console.log("========================================\n");
 
   // Check API keys

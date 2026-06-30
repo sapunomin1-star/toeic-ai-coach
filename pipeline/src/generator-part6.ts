@@ -16,7 +16,6 @@ export async function generatePart6(
   pattern: Pattern,
   options: {
     skipKimi?: boolean;
-    skipHy3?: boolean;
     expectedAnswers?: RawGeneratedQuestion["answer"][];
   } = {}
 ): Promise<RawGeneratedQuestion[]> {

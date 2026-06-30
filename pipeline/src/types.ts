@@ -88,7 +88,6 @@ export type PipelineConfig = {
   count: Record<string, number>;
   dryRun: boolean;
   skipKimi: boolean;
-  skipHy3: boolean;
 };
 
 // ─── Validation types ───────────────────────────────────────────────────────

@@ -119,27 +119,6 @@ export async function kimi(
   );
 }
 
-/** OpenRouter — Hy3 QA review */
-export async function openrouter(
-  systemPrompt: string,
-  userPrompt: string
-): Promise<LLMResponse> {
-  return chatCompletion(
-    config.openrouter.baseUrl,
-    config.openrouter.apiKey,
-    config.openrouter.model,
-    [
-      { role: "system", content: systemPrompt },
-      { role: "user", content: userPrompt },
-    ],
-    0.3,
-    2048
-  );
-}
-
-/** Legacy alias */
-export const hy3 = openrouter;
-
 /** Extract JSON array from LLM response (handles markdown code fences) */
 export function extractJsonArray(text: string): string {
   // Try to find JSON array inside markdown code fences

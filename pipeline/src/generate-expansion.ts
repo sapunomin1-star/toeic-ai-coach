@@ -717,7 +717,6 @@ async function generateBatch(part: SupportedPart, count: number): Promise<Expans
         try {
           group = (await generatePart6(patterns[i % patterns.length], {
             skipKimi: true,
-            skipHy3: true,
             expectedAnswers,
           })) as ExpansionQuestion[];
         } catch (error) {
