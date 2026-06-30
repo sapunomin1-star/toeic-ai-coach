@@ -151,16 +151,52 @@ export function exportAllData(): string | null {
   }
 }
 
+type PendingBackupWrite = {
+  key: (typeof BACKUP_KEYS)[number];
+  value: unknown;
+  previousRaw: string | null;
+};
+
+function isQuotaExceededError(error: unknown): boolean {
+  return (
+    error instanceof DOMException &&
+    (error.name === "QuotaExceededError" || error.code === 22)
+  );
+}
+
+function rollbackBackupWrites(entries: PendingBackupWrite[]): boolean {
+  try {
+    // Remove every touched value first so restoring the previously valid
+    // snapshot cannot fail merely because a larger imported value remains.
+    for (const { key } of entries) localStorage.removeItem(key);
+    for (const { key, previousRaw } of entries) {
+      if (previousRaw !== null) localStorage.setItem(key, previousRaw);
+    }
+    return true;
+  } catch (error) {
+    console.error("[storage] Failed to roll back imported data:", error);
+    return false;
+  }
+}
+
 export function importAllData(json: string): boolean {
   if (!isBrowser()) return false;
+
+  let pendingWrites: PendingBackupWrite[];
+  let skipped = 0;
+
   try {
     const snapshot = JSON.parse(json);
-    if (!isPlainObject(snapshot) || !snapshot._exportedAt) {
+    if (
+      !isPlainObject(snapshot) ||
+      typeof snapshot._exportedAt !== "string" ||
+      Number.isNaN(Date.parse(snapshot._exportedAt))
+    ) {
       alert("匯入失敗：檔案格式不符。");
       return false;
     }
-    let count = 0;
-    let skipped = 0;
+
+    pendingWrites = [];
     for (const key of BACKUP_KEYS) {
       if (!(key in snapshot)) continue;
       const value = normalizeBackupValue(key, snapshot[key]);
@@ -168,20 +204,42 @@ export function importAllData(json: string): boolean {
         skipped++;
         continue;
       }
-      localStorage.setItem(key, JSON.stringify(value));
-      count++;
+      pendingWrites.push({
+        key,
+        value,
+        previousRaw: localStorage.getItem(key),
+      });
     }
-    alert(
-      skipped > 0
-        ? `已匯入 ${count} 筆資料，略過 ${skipped} 筆格式不符資料。請重新整理頁面。`
-        : `已匯入 ${count} 筆資料。請重新整理頁面。`,
-    );
-    return true;
   } catch (e) {
-    console.warn("[storage] Failed to import data:", e);
+    console.warn("[storage] Failed to parse imported data:", e);
     alert("匯入失敗：無法解析檔案。");
     return false;
   }
+
+  try {
+    for (const { key, value } of pendingWrites) {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+  } catch (error) {
+    console.warn("[storage] Failed to write imported data:", error);
+    const rolledBack = rollbackBackupWrites(pendingWrites);
+    if (!rolledBack) {
+      alert("匯入失敗，且無法完整還原原有資料。請先匯出目前資料以供檢查。");
+    } else if (isQuotaExceededError(error)) {
+      alert("匯入失敗：瀏覽器儲存空間不足，原有資料已還原。");
+    } else {
+      alert("匯入失敗：寫入資料時發生錯誤，原有資料已還原。");
+    }
+    return false;
+  }
+
+  const count = pendingWrites.length;
+  alert(
+    skipped > 0
+      ? `已匯入 ${count} 筆資料，略過 ${skipped} 筆格式不符資料。請重新整理頁面。`
+      : `已匯入 ${count} 筆資料。請重新整理頁面。`,
+  );
+  return true;
 }
 
 function normalizeBackupValue(
