@@ -29,6 +29,9 @@ import { QUESTIONS } from "../../data/questions";
 import type { Question } from "../../types/question";
 
 const CONCURRENCY = 12;
+const MAX_ATTEMPTS = 3;
+const REQUEST_TIMEOUT_MS = 15_000;
+const RETRY_BASE_DELAY_MS = 250;
 
 type MediaKind = "image" | "item-audio" | "group-audio" | "question-audio";
 
@@ -93,12 +96,36 @@ function buildExpectations(questions: Question[]): {
 }
 
 async function headCheck(baseUrl: string, item: ExpectedMedia): Promise<CheckResult> {
-  try {
-    const response = await fetch(`${baseUrl}/${item.pathname}`, { method: "HEAD" });
-    return { ...item, found: response.status === 200, status: response.status };
-  } catch (error) {
-    return { ...item, found: false, status: (error as Error).message };
+  let lastStatus: number | string = "not checked";
+
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    try {
+      const response = await fetch(`${baseUrl}/${item.pathname}`, {
+        method: "HEAD",
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+      });
+      lastStatus = response.status;
+      if (response.status === 200) {
+        return { ...item, found: true, status: response.status };
+      }
+
+      const retryable =
+        response.status === 408 ||
+        response.status === 429 ||
+        response.status >= 500;
+      if (!retryable) break;
+    } catch (error) {
+      lastStatus = (error as Error).message;
+    }
+
+    if (attempt < MAX_ATTEMPTS) {
+      await new Promise((resolve) =>
+        setTimeout(resolve, RETRY_BASE_DELAY_MS * 2 ** (attempt - 1))
+      );
+    }
   }
+
+  return { ...item, found: false, status: lastStatus };
 }
 
 async function runPool<T, R>(items: T[], worker: (item: T) => Promise<R>): Promise<R[]> {
