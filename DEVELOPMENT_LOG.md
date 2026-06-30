@@ -1,5 +1,29 @@
 # TOEIC AI Coach Development Log
 
+## Reliability Audit Repairs - 2026-06-30
+
+### Scope
+
+- Fixed generated-question ID allocation to use the highest suffix across the complete split question bank instead of counting IDs in the aggregator file.
+- Changed the question writer target from `data/questions.ts` to `data/questions-generated.ts` and added pre-write collision rejection.
+- Made backup import transactional: all values are validated first and any write failure rolls every touched key back to its previous value.
+- Added a quota-failure rollback regression to `scripts/repro-c1.ts` with storage-specific user messaging.
+- Added retry, timeout, and exponential backoff to media integrity HEAD checks.
+- Began tracking a complete `pipeline/.env.example` containing every environment variable used by pipeline scripts.
+- Updated vulnerable dependencies without framework downgrades: Next.js 16.2.9, PostCSS 8.5.14, `@vercel/blob` 2.5.0, Undici 6.27.0, and esbuild 0.28.1.
+
+### Validation
+
+- `npm run lint`: passed.
+- `./node_modules/.bin/tsc --noEmit`: passed.
+- `npm run build`: passed; all app routes generated successfully.
+- `cd pipeline && ./node_modules/.bin/tsc --noEmit`: passed.
+- `cd pipeline && npm run check`: passed for 1,899 questions.
+- `cd pipeline && npm run check-media`: passed; 851/851 media paths found.
+- `./pipeline/node_modules/.bin/tsx scripts/repro-c1.ts`: passed, including quota rollback.
+- Root and pipeline `npm audit`: 0 vulnerabilities.
+- Production HTTP smoke test: all 11 tested routes returned 200.
+
 ## Vocabulary Speech - 2026-06-24
 
 ### Scope
