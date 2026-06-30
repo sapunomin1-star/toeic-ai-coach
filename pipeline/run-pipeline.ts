@@ -291,7 +291,7 @@ async function run(): Promise<void> {
     `generated-${Date.now()}.json`
   );
 
-  // Write to questions.ts
+  // Write approved reading questions to questions-generated.ts
   appendQuestions(
     allGenerated as unknown as Record<string, unknown>[],
     args.dryRun

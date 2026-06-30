@@ -1,54 +1,88 @@
 import * as fs from "fs";
 import * as path from "path";
 import { fileURLToPath } from "url";
+import { QUESTIONS } from "../../data/questions";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const QUESTIONS_PATH = path.resolve(
+const GENERATED_QUESTIONS_PATH = path.resolve(
   __dirname,
-  "../../data/questions.ts"
+  "../../data/questions-generated.ts"
 );
 
-const QUESTIONS_EXPORT_MARKER = "\n\nexport function getQuestionsByPart";
+const GENERATED_EXPORT_MARKER = "export const GENERATED_QUESTIONS";
 
-function findQuestionsArrayClose(raw: string): number {
-  const exportIdx = raw.indexOf(QUESTIONS_EXPORT_MARKER);
+function findGeneratedArrayClose(raw: string): number {
+  const exportIdx = raw.indexOf(GENERATED_EXPORT_MARKER);
   if (exportIdx === -1) {
-    throw new Error("Could not find getQuestionsByPart export marker");
+    throw new Error("Could not find GENERATED_QUESTIONS export marker");
   }
 
-  const closeIdx = raw.lastIndexOf("\n];", exportIdx);
-  if (closeIdx === -1) {
-    throw new Error("Could not find closing ]; for QUESTIONS array");
+  const closeIdx = raw.lastIndexOf("\n];");
+  if (closeIdx < exportIdx) {
+    throw new Error("Could not find closing ]; for GENERATED_QUESTIONS array");
   }
 
   return closeIdx;
 }
 
-/** Count existing question IDs in data/questions.ts by grepping id patterns */
-export function countExistingIds(prefix: string): number {
-  const raw = fs.readFileSync(QUESTIONS_PATH, "utf-8");
-  const ids =
-    raw.match(
-      new RegExp(`(?:"id"|id):\\s*"${prefix}\\d+"`, "g")
-    ) ?? [];
-  return ids.length;
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-/** Get the next available IDs given existing count */
+/** Find the highest numeric suffix across the complete, split question bank. */
+export function getMaxExistingIdNumber(prefix: string): number {
+  const pattern = new RegExp(`^${escapeRegExp(prefix)}(\\d+)$`);
+  let max = 0;
+  for (const question of QUESTIONS) {
+    const match = question.id.match(pattern);
+    if (match) max = Math.max(max, Number(match[1]));
+  }
+  return max;
+}
+
+/** Allocate IDs strictly above the highest existing suffix. */
 export function generateNextIds(
   prefix: string,
   count: number
 ): string[] {
-  // Also check generated files in pipeline/output/
-  const existingCount = countExistingIds(prefix);
+  const maxExistingId = getMaxExistingIdNumber(prefix);
   return Array.from({ length: count }, (_, i) => {
-    const num = (existingCount + i + 1).toString().padStart(3, "0");
+    const num = (maxExistingId + i + 1).toString().padStart(3, "0");
     return `${prefix}${num}`;
   });
 }
 
-/** Append new questions to data/questions.ts */
+function extractIds(raw: string): Set<string> {
+  return new Set(
+    [...raw.matchAll(/(?:"id"|id):\s*"([^"]+)"/g)].map((match) => match[1])
+  );
+}
+
+function assertNoIdCollisions(
+  newQuestions: Record<string, unknown>[],
+  generatedRaw: string,
+): void {
+  const existingIds = new Set(QUESTIONS.map((question) => question.id));
+  for (const id of extractIds(generatedRaw)) existingIds.add(id);
+
+  const incomingIds = new Set<string>();
+  for (const question of newQuestions) {
+    if (typeof question.id !== "string" || question.id.length === 0) {
+      throw new Error("Generated question is missing a valid string id");
+    }
+    if (existingIds.has(question.id)) {
+      throw new Error(`Refusing to append duplicate question id: ${question.id}`);
+    }
+    if (incomingIds.has(question.id)) {
+      throw new Error(`Generated batch contains duplicate question id: ${question.id}`);
+    }
+    incomingIds.add(question.id);
+  }
+}
+
+/** Append approved reading questions to data/questions-generated.ts. */
 export function appendQuestions(
   newQuestions: Record<string, unknown>[],
   dryRun = false
@@ -57,6 +91,9 @@ export function appendQuestions(
     console.log("No questions to append.");
     return;
   }
+
+  const raw = fs.readFileSync(GENERATED_QUESTIONS_PATH, "utf-8");
+  assertNoIdCollisions(newQuestions, raw);
 
   if (dryRun) {
     console.log(
@@ -71,39 +108,28 @@ export function appendQuestions(
     return;
   }
 
-  const raw = fs.readFileSync(QUESTIONS_PATH, "utf-8");
-
-  const closeIdx = findQuestionsArrayClose(raw);
-
-  // Build new questions TypeScript text
+  const closeIdx = findGeneratedArrayClose(raw);
   const newEntries = newQuestions
-    .map((q) => {
-      const json = JSON.stringify(q, null, 6);
-      // Fix indentation to match existing style
-      return json
+    .map((question) =>
+      JSON.stringify(question, null, 2)
         .split("\n")
-        .map((line, i) => (i === 0 ? `  ${line}` : `  ${line}`))
-        .join("\n");
-    })
+        .map((line) => `  ${line}`)
+        .join("\n")
+    )
     .join(",\n");
 
   const prefix = raw.slice(0, closeIdx);
   const suffix = raw.slice(closeIdx);
+  const separator = prefix.trimEnd().endsWith(",") ? "\n" : ",\n";
+  const updated = `${prefix}${separator}${newEntries}${suffix}`;
 
-  let updated = prefix;
-  if (!prefix.trimEnd().endsWith(",")) {
-    updated += ",";
-  }
-  updated += "\n" + newEntries;
-  updated += suffix;
-
-  fs.writeFileSync(QUESTIONS_PATH, updated, "utf-8");
+  fs.writeFileSync(GENERATED_QUESTIONS_PATH, updated, "utf-8");
   console.log(
-    `Appended ${newQuestions.length} questions to data/questions.ts`
+    `Appended ${newQuestions.length} questions to data/questions-generated.ts`
   );
 }
 
-/** Save questions to a JSON file in pipeline/output/ as backup */
+/** Save questions to a JSON file in pipeline/output/ as backup. */
 export function saveToJson(
   questions: Record<string, unknown>[],
   filename: string
