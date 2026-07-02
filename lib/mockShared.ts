@@ -1,5 +1,12 @@
-import type { MockPartBreakdown, MockPartKey } from "@/types/mock";
+import type { MockPartBreakdown, MockPartKey, MockReviewMode } from "@/types/mock";
 import type { Question } from "@/types/question";
+
+/** Shared by the review page and every dashboard entry that links to one. */
+export const MOCK_REVIEW_MODE_LABELS: Record<MockReviewMode, string> = {
+  reading: "閱讀模擬考",
+  listening: "聽力模擬考",
+  full: "完整模擬考",
+};
 
 /**
  * Audio-group identity for the "no replay" mock rule:

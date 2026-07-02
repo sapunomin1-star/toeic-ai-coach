@@ -12,17 +12,6 @@ import {
   getSkillCategory,
 } from "@/types/question";
 
-const PART5_SKILLS = new Set<SkillTag>([
-  "passive_voice",
-  "word_form",
-  "tense",
-  "preposition",
-  "conjunction",
-  "pronoun",
-  "business_vocabulary",
-  "relative_clause",
-]);
-
 export const LISTENING_SKILLS: SkillTag[] = [
   "listening_photo",
   "listening_response",
@@ -66,6 +55,19 @@ export function countMistakesBySkill(
   return init;
 }
 
+/** Sliding window per skill for weakness ranking (most-recent attempts). */
+const SKILL_RECENT_WINDOW = 20;
+/** Below this many attempts in the window, a skill's error rate is noise (1/1 = 100%). */
+const MIN_SKILL_ATTEMPTS_FOR_RATE = 5;
+
+/**
+ * Rank skills by recent ERROR RATE, not lifetime mistake count — a skill
+ * practiced 100 times with 20 misses must not outrank one missed 4/5.
+ * Mirrors getNextDayListeningMix: only the most-recent attempts count, and a
+ * skill needs a minimum sample before its rate is trusted. Skills with wrongs
+ * but too few attempts rank after the qualified ones (by wrong count) so a
+ * new user still gets recommendations instead of an empty list.
+ */
 export function getWeakestSkills(
   records: AnswerRecord[],
   topN = 3,
@@ -74,13 +76,35 @@ export function getWeakestSkills(
   const pool = part != null
     ? records.filter((r) => r.questionId.startsWith(`p${part}-`))
     : records;
-  const filtered = excludeMock(pool);
-  const counts = countMistakesBySkill(filtered);
-  return Object.entries(counts)
-    .map(([skill, mistakes]) => ({ skill: skill as SkillTag, mistakes }))
-    .filter((x) => x.mistakes > 0)
-    .sort((a, b) => b.mistakes - a.mistakes)
-    .slice(0, topN);
+  const filtered = excludeMock(pool)
+    .slice()
+    .sort((a, b) => b.answeredAt.localeCompare(a.answeredAt));
+
+  const recentBySkill = new Map<SkillTag, AnswerRecord[]>();
+  for (const record of filtered) {
+    const recent = recentBySkill.get(record.skill_tag) ?? [];
+    if (recent.length >= SKILL_RECENT_WINDOW) continue;
+    recent.push(record);
+    recentBySkill.set(record.skill_tag, recent);
+  }
+
+  type Rated = { skill: SkillTag; mistakes: number; errorRate: number };
+  const qualified: Rated[] = [];
+  const lowSample: Rated[] = [];
+  for (const [skill, recent] of recentBySkill) {
+    const mistakes = recent.filter((r) => !r.isCorrect).length;
+    if (mistakes === 0) continue;
+    const rated = { skill, mistakes, errorRate: mistakes / recent.length };
+    if (recent.length >= MIN_SKILL_ATTEMPTS_FOR_RATE) qualified.push(rated);
+    else lowSample.push(rated);
+  }
+
+  qualified.sort((a, b) => b.errorRate - a.errorRate || b.mistakes - a.mistakes);
+  lowSample.sort((a, b) => b.mistakes - a.mistakes);
+
+  return [...qualified, ...lowSample]
+    .slice(0, topN)
+    .map(({ skill, mistakes }) => ({ skill, mistakes }));
 }
 
 export function getGrammarWeakSkills(
@@ -115,9 +139,7 @@ export function calculateAvgResponseTime(records: AnswerRecord[]): number {
 }
 
 export function calculatePart5AvgTime(records: AnswerRecord[]): number {
-  return calculateAvgResponseTime(
-    excludeMock(records).filter((r) => PART5_SKILLS.has(r.skill_tag))
-  );
+  return calculateAvgResponseTime(excludeMock(records).filter((r) => isPart5Record(r)));
 }
 
 export function countSlowQuestions(
@@ -238,7 +260,15 @@ export function getTomorrowRecommendation(
   return { primary, secondary, message: advice + part6Note };
 }
 
-// ─── Part 6 detection ─────────────────────────────────────────────────────
+// ─── Part detection ───────────────────────────────────────────────────────
+// Part membership comes from the question-id prefix (enforced bank-wide by
+// the integrity check). Skill tags must NOT be used for this: 87 of the Part 6
+// questions carry grammar tags (word_form/tense/...), so a tag-based "Part 5"
+// silently absorbs Part 6 answers and double-counts them across cards.
+
+function isPart5Record(r: { questionId: string }): boolean {
+  return r.questionId.startsWith("p5-");
+}
 
 function isPart6Record(r: { questionId: string }): boolean {
   return r.questionId.startsWith("p6-");
@@ -267,11 +297,11 @@ function isPart4Record(r: { questionId: string }): boolean {
 // ─── Part 5 / Part 6 / Listening breakdown ──────────────────────────────────
 
 export function calculatePart5Accuracy(records: AnswerRecord[]): number {
-  return calculateAccuracy(excludeMock(records).filter((r) => PART5_SKILLS.has(r.skill_tag)));
+  return calculateAccuracy(excludeMock(records).filter((r) => isPart5Record(r)));
 }
 
 export function countPart5Attempts(records: AnswerRecord[]): number {
-  return excludeMock(records).filter((r) => PART5_SKILLS.has(r.skill_tag)).length;
+  return excludeMock(records).filter((r) => isPart5Record(r)).length;
 }
 
 export function calculatePart1Accuracy(records: AnswerRecord[]): number {

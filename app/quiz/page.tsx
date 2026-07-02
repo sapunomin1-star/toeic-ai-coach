@@ -269,6 +269,7 @@ export default function QuizPage() {
       part2Count: mix.part2Count,
       part3GroupCount: mix.part3GroupCount,
       part4GroupCount: mix.part4GroupCount,
+      answeredIds: new Set(records.map((r) => r.questionId)),
     });
     saveDailyPlan({
       questionIds: plan.questions.map((q) => q.id),

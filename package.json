@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "npx tsx scripts/repro-c1.ts && npx tsx scripts/review-regression-check.ts"
   },
   "dependencies": {
     "next": "^16.2.9",

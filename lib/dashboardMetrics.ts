@@ -30,6 +30,7 @@ import {
   getReasonInsight,
   getSlowestSkill,
   getTomorrowRecommendation,
+  getWeakestSkills,
   summarize,
 } from "@/lib/analysis";
 import type { AnswerRecord, SkillTag } from "@/types/question";
@@ -108,9 +109,11 @@ export function useDashboardMetrics(
     () => Math.max(1, ...orderedSkills.map(([, n]) => n)),
     [orderedSkills]
   );
+  // Rate-based (recent window) so the card agrees with the recommendation
+  // engine; orderedSkills stays count-based for the "錯題分佈" chart.
   const weakestSkill = useMemo(
-    () => orderedSkills.find(([, n]) => n > 0)?.[0] ?? null,
-    [orderedSkills]
+    () => getWeakestSkills(safeRecords, 1)[0]?.skill ?? null,
+    [safeRecords]
   );
   const vocabularyProgressMap = useMemo(
     () => new Map(vocabularyProgress.map((item) => [item.wordId, item.status])),

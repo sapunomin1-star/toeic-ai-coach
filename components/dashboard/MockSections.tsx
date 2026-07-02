@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { DashboardMetrics } from "@/lib/dashboardMetrics";
-import type { FullMockResult, MockTestResult } from "@/types/mock";
+import { MOCK_REVIEW_MODE_LABELS } from "@/lib/mockShared";
+import type { FullMockResult, MockReviewSnapshot, MockTestResult } from "@/types/mock";
 
 export function TomorrowRecommendation({
   recommendation,
@@ -80,6 +81,14 @@ export function FullMockEntry({ result }: { result: FullMockResult | null }) {
               minute: "2-digit",
             })}
           </p>
+          {result.reviewSnapshotId && (
+            <Link
+              href={`/mock-review/${result.reviewSnapshotId}`}
+              className="mt-2 block rounded-lg bg-white/15 px-3 py-2 text-center text-xs font-semibold text-white active:scale-[0.99]"
+            >
+              查看這次的完整詳解 →
+            </Link>
+          )}
         </div>
       ) : (
         <p className="mt-3 rounded-xl bg-white/10 p-3 text-xs text-slate-200">
@@ -145,6 +154,14 @@ export function ReadingMockEntry({ result }: { result: MockTestResult | null }) 
               minute: "2-digit",
             })}
           </p>
+          {result.reviewSnapshotId && (
+            <Link
+              href={`/mock-review/${result.reviewSnapshotId}`}
+              className="mt-2 block rounded-lg border border-slate-200 bg-white px-3 py-2 text-center text-xs font-semibold text-slate-700 active:scale-[0.99]"
+            >
+              查看這次的詳解 →
+            </Link>
+          )}
         </div>
       )}
       <Link
@@ -209,6 +226,14 @@ export function ListeningMockEntry({ result }: { result: MockTestResult | null }
               },
             )}
           </p>
+          {result.reviewSnapshotId && (
+            <Link
+              href={`/mock-review/${result.reviewSnapshotId}`}
+              className="mt-2 block rounded-lg border border-violet-200 bg-white px-3 py-2 text-center text-xs font-semibold text-violet-700 active:scale-[0.99]"
+            >
+              查看這次的詳解 →
+            </Link>
+          )}
         </div>
       )}
       <Link
@@ -217,6 +242,55 @@ export function ListeningMockEntry({ result }: { result: MockTestResult | null }
       >
         開始聽力模擬考 →
       </Link>
+    </section>
+  );
+}
+
+/**
+ * Every retained review snapshot, newest first. Without this list a snapshot
+ * is only reachable from the result screen right after submitting — leave
+ * that screen once and the stored詳解 becomes unreachable.
+ */
+export function MockReviewHistory({ snapshots }: { snapshots: MockReviewSnapshot[] }) {
+  if (snapshots.length === 0) return null;
+
+  const newestFirst = [...snapshots].sort((a, b) =>
+    b.submittedAt.localeCompare(a.submittedAt),
+  );
+
+  return (
+    <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <h2 className="mb-1 text-sm font-semibold">模考詳解紀錄</h2>
+      <p className="text-xs text-slate-500">保留最近 20 次，隨時可回頭檢討。</p>
+      <ul className="mt-2 divide-y divide-slate-100">
+        {newestFirst.map((snapshot) => {
+          const correct = snapshot.items.filter((item) => item.isCorrect).length;
+          return (
+            <li key={snapshot.id}>
+              <Link
+                href={`/mock-review/${snapshot.id}`}
+                className="flex items-center justify-between gap-3 py-2.5 active:opacity-70"
+              >
+                <span className="text-sm font-medium text-slate-800">
+                  {MOCK_REVIEW_MODE_LABELS[snapshot.mode]}
+                </span>
+                <span className="flex items-center gap-3 text-xs text-slate-500">
+                  <span>
+                    {new Date(snapshot.submittedAt).toLocaleDateString("zh-TW", {
+                      month: "numeric",
+                      day: "numeric",
+                    })}
+                  </span>
+                  <span className="font-semibold text-slate-700">
+                    {correct}/{snapshot.items.length}
+                  </span>
+                  <span aria-hidden="true">→</span>
+                </span>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </section>
   );
 }

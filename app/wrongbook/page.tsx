@@ -119,12 +119,17 @@ export default function WrongBookPage() {
       ) : (
         <>
           {reviewableCount > 0 && (
-            <button
-              onClick={handlePracticeWrongQuestions}
-              className="block w-full rounded-2xl bg-indigo-600 px-5 py-4 text-center text-base font-semibold text-white shadow-sm active:scale-[0.99]"
-            >
-              練習目前複習題（{reviewableCount} 題）
-            </button>
+            <div className="space-y-1.5">
+              <button
+                onClick={handlePracticeWrongQuestions}
+                className="block w-full rounded-2xl bg-indigo-600 px-5 py-4 text-center text-base font-semibold text-white shadow-sm active:scale-[0.99]"
+              >
+                練習目前複習題（{reviewableCount} 題）
+              </button>
+              <p className="text-center text-xs text-slate-400">
+                提前練習不影響複習排程；需在到期日後答對才會升級狀態。
+              </p>
+            </div>
           )}
 
           {sortedGroups.map(([skill, skillEntries]) => (

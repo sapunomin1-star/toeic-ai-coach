@@ -130,10 +130,6 @@ export function useMockAudioPacing({
     setActiveAudioGroup((current) => (current === nextGroupKey ? current : null));
   }, []);
 
-  const clearActiveAudioGroup = useCallback(() => {
-    setActiveAudioGroup(null);
-  }, []);
-
   const clearListeningPacing = useCallback(() => {
     setActiveAudioGroup(null);
     resetQuestionPacing();
@@ -278,7 +274,6 @@ export function useMockAudioPacing({
       handleQuestionAudioError,
       resetQuestionPacing,
       syncActiveGroupOnNavigate,
-      clearActiveAudioGroup,
       clearListeningPacing,
       resetForStart,
       hydrateFromSession,
@@ -287,7 +282,6 @@ export function useMockAudioPacing({
       activeAudioGroup,
       activeQuestionAudioId,
       beginQuestionCountdown,
-      clearActiveAudioGroup,
       clearListeningPacing,
       countdownQuestionId,
       countdownSec,

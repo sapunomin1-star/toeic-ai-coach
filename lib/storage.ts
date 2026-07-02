@@ -376,18 +376,24 @@ export function updateWrongStatus(
   isCorrect: boolean
 ): void {
   const map = getWrongStatusMap();
-  const entry: WrongStatusEntry = map[questionId] ?? {
+  const existing = map[questionId];
+  const entry: WrongStatusEntry = existing ?? {
     status: "new",
     consecutiveCorrect: 0,
   };
 
   if (!isCorrect) {
-    entry.status = map[questionId] ? "reviewing" : "new";
+    entry.status = existing ? "reviewing" : "new";
     entry.consecutiveCorrect = 0;
     entry.dismissed = false; // re-surface if answered wrong again
     entry.intervalDays = WRONG_SRS_INTERVALS[0];
     entry.nextReviewDate = localDateStr(WRONG_SRS_INTERVALS[0]);
   } else {
+    // A correct answer BEFORE the interval elapsed (e.g. drilling the wrong
+    // book minutes after missing) proves same-day recall, not retention.
+    // Leave the schedule untouched — same rule as the vocabulary SRS. A
+    // wrong answer always applies immediately (it always proves a lapse).
+    if (existing && !isDueForReview(existing)) return;
     entry.consecutiveCorrect = (entry.consecutiveCorrect ?? 0) + 1;
     const currentIdx = WRONG_SRS_INTERVALS.indexOf(
       (entry.intervalDays ?? 1) as (typeof WRONG_SRS_INTERVALS)[number],

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type AudioPlayerProps = {
   src: string;
@@ -22,8 +22,30 @@ export default function AudioPlayer({
   onError,
 }: AudioPlayerProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const teardownTimer = useRef<number | null>(null);
   const [status, setStatus] = useState<AudioStatus>("idle");
   const [progress, setProgress] = useState(0);
+
+  // A media element removed from the DOM keeps playing its audio (HTML spec),
+  // so navigating to another question mid-playback would overlap two tracks
+  // with no way to stop the old one. Stop it on unmount. The teardown is a
+  // cancelable 0ms timeout: StrictMode's dev-only mount→cleanup→mount cycle
+  // re-enters the effect before the timer fires, so autoplay is not killed.
+  useEffect(() => {
+    if (teardownTimer.current !== null) {
+      window.clearTimeout(teardownTimer.current);
+      teardownTimer.current = null;
+    }
+    const audio = audioRef.current;
+    return () => {
+      teardownTimer.current = window.setTimeout(() => {
+        if (!audio) return;
+        audio.pause();
+        audio.removeAttribute("src");
+        audio.load();
+      }, 0);
+    };
+  }, []);
 
   const isReplayBlocked = status === "ended" && !allowReplay;
   const isBusy = status === "loading" || status === "buffering";

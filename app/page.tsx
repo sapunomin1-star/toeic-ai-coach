@@ -30,17 +30,18 @@ export default function Home() {
           今天要做什麼
         </h2>
         <ol className="space-y-2">
+          {/* Copy must match lib/vocabularyStorage.ts MAX_NEW_ITEMS (20/day). */}
           <PlanStep
             num="1"
             label="每日單字"
-            desc="10 個 TOEIC 高頻字（flashcard）"
+            desc="最多 20 個新字＋到期複習（flashcard）"
             href="/vocabulary"
             color="indigo"
           />
           <PlanStep
             num="2"
-            label="單字小測驗"
-            desc="10 題選擇題，確認是否真的認得"
+            label="單字驗收"
+            desc="今日全部單字的選擇題驗收，確認是否真的認得"
             href="/vocabulary-quiz"
             color="indigo"
           />

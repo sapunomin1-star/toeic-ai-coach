@@ -6,6 +6,8 @@ type SpeechStatus = "idle" | "playing" | "error";
 
 type ActivePlayback = {
   ownerId: string;
+  /** Unique per speak() call so a click during the voice-list wait supersedes the older one. */
+  token: symbol;
   reset: () => void;
 };
 
@@ -45,6 +47,26 @@ function stopCurrentSpeech(): void {
   current?.reset();
 }
 
+/**
+ * Chrome (and some Safari versions) populate getVoices() asynchronously: the
+ * first call returns [] until `voiceschanged` fires. Speaking at that moment
+ * falls back to the system default voice — often non-English on a zh-TW
+ * machine. Wait briefly for the list before picking a voice.
+ */
+function waitForVoices(): Promise<void> {
+  const synth = window.speechSynthesis;
+  if (synth.getVoices().length > 0) return Promise.resolve();
+  return new Promise((resolve) => {
+    const done = () => {
+      window.clearTimeout(timer);
+      synth.removeEventListener("voiceschanged", done);
+      resolve();
+    };
+    const timer = window.setTimeout(done, 300);
+    synth.addEventListener("voiceschanged", done);
+  });
+}
+
 function subscribeToSpeechSupport(): () => void {
   return () => {};
 }
@@ -82,10 +104,28 @@ export default function VocabularySpeechButton({
     };
   }, [ownerId]);
 
-  function speak(): void {
+  // Kick off the async voice-list load at mount so the first click usually
+  // finds the preferred en-US voice already cached.
+  useEffect(() => {
+    if (supported) window.speechSynthesis.getVoices();
+  }, [supported]);
+
+  async function speak(): Promise<void> {
     if (!supported || !text.trim()) return;
 
     stopCurrentSpeech();
+
+    const token = Symbol("speech-playback");
+    activePlayback = {
+      ownerId,
+      token,
+      reset: () => setStatus("idle"),
+    };
+    setStatus("playing");
+
+    await waitForVoices();
+    // A newer click (any button) took over while the voice list loaded.
+    if (activePlayback?.token !== token) return;
 
     const utterance = new SpeechSynthesisUtterance(text);
     const voice = getPreferredVoice();
@@ -94,11 +134,6 @@ export default function VocabularySpeechButton({
     utterance.rate = VOCABULARY_SPEECH_RATE;
     utterance.pitch = 1;
     utterance.volume = 1;
-
-    activePlayback = {
-      ownerId,
-      reset: () => setStatus("idle"),
-    };
 
     utterance.onstart = () => setStatus("playing");
     utterance.onend = () => {
@@ -114,7 +149,6 @@ export default function VocabularySpeechButton({
       );
     };
 
-    setStatus("playing");
     window.speechSynthesis.speak(utterance);
   }
 

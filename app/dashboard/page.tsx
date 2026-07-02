@@ -7,6 +7,7 @@ import { BackupSection } from "@/components/dashboard/BackupSection";
 import {
   FullMockEntry,
   ListeningMockEntry,
+  MockReviewHistory,
   ReadingMockEntry,
   TomorrowRecommendation,
 } from "@/components/dashboard/MockSections";
@@ -25,6 +26,7 @@ import { VocabQuizSection } from "@/components/dashboard/VocabQuizSection";
 import { useDashboardMetrics } from "@/lib/dashboardMetrics";
 import { buildGrammarVariantPlan } from "@/lib/grammarRemediation";
 import { getFullMockResults } from "@/lib/fullMockStorage";
+import { getMockReviewSnapshots } from "@/lib/mockReviewStorage";
 import { getMockResults } from "@/lib/mockStorage";
 import {
   clearAllProgress,
@@ -39,7 +41,7 @@ import {
   getVocabularyQuizStats,
 } from "@/lib/vocabularyStorage";
 import type { VocabularyQuizStats } from "@/lib/vocabularyStorage";
-import type { FullMockResult, MockTestResult } from "@/types/mock";
+import type { FullMockResult, MockReviewSnapshot, MockTestResult } from "@/types/mock";
 import type { AnswerRecord } from "@/types/question";
 import type { VocabularyItem, VocabularyProgress } from "@/types/vocabulary";
 
@@ -60,6 +62,7 @@ export default function DashboardPage() {
     useState<MockTestResult | null>(null);
   const [recentFullMockResult, setRecentFullMockResult] =
     useState<FullMockResult | null>(null);
+  const [reviewSnapshots, setReviewSnapshots] = useState<MockReviewSnapshot[]>([]);
 
   useEffect(() => {
     const id = window.setTimeout(() => {
@@ -73,6 +76,7 @@ export default function DashboardPage() {
       setRecentMockResult(getMockResults("reading").at(-1) ?? null);
       setRecentListeningMockResult(getMockResults("listening").at(-1) ?? null);
       setRecentFullMockResult(getFullMockResults().at(-1) ?? null);
+      setReviewSnapshots(getMockReviewSnapshots());
     }, 0);
     return () => window.clearTimeout(id);
   }, []);
@@ -105,6 +109,7 @@ export default function DashboardPage() {
     setRecentMockResult(null);
     setRecentListeningMockResult(null);
     setRecentFullMockResult(null);
+    setReviewSnapshots([]);
   }
 
   function handleExport() {
@@ -221,6 +226,7 @@ export default function DashboardPage() {
             onStartGrammarVariantPractice={handleStartGrammarVariantPractice}
           />
           <SkillErrorChart metrics={metrics} />
+          <MockReviewHistory snapshots={reviewSnapshots} />
           <BackupSection onExport={handleExport} onImport={handleImport} />
           {(records.length > 0 ||
             recentFullMockResult ||

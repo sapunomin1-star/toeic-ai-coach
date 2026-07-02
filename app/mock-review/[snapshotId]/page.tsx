@@ -3,21 +3,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { getMockReviewSnapshot } from "@/lib/mockReviewStorage";
-import { formatTime } from "@/lib/mockShared";
+import { MOCK_REVIEW_MODE_LABELS as MODE_LABELS, formatTime } from "@/lib/mockShared";
 import { addManualReviewEntry, getReviewableIds } from "@/lib/storage";
 import type {
   MockReviewQuestionSnapshot,
   MockReviewSnapshot,
 } from "@/types/mock";
 import type { Choice } from "@/types/question";
-
-const MODE_LABELS: Record<MockReviewSnapshot["mode"], string> = {
-  reading: "閱讀模擬考",
-  listening: "聽力模擬考",
-  full: "完整模擬考",
-};
 
 const CHOICE_KEYS: Choice[] = ["A", "B", "C", "D"];
 
@@ -45,6 +39,25 @@ function answerLabel(value?: Choice): string {
   return value ?? "未作答";
 }
 
+/**
+ * Detached media elements keep playing audio after unmount (HTML spec), so
+ * navigating away mid-playback would leave the recording sounding with no
+ * way to stop it. Register each <audio> and pause them all on unmount.
+ */
+function usePauseAudioOnUnmount() {
+  const elements = useRef<HTMLAudioElement[]>([]);
+  const register = useCallback((el: HTMLAudioElement | null) => {
+    if (el && !elements.current.includes(el)) elements.current.push(el);
+  }, []);
+  useEffect(() => {
+    const els = elements.current;
+    return () => {
+      for (const audio of els) audio.pause();
+    };
+  }, []);
+  return register;
+}
+
 function ReviewItem({
   item,
   index,
@@ -59,6 +72,7 @@ function ReviewItem({
   onAdded: (questionId: string) => void;
 }) {
   const choices = CHOICE_KEYS.filter((key) => item.choices[key]);
+  const registerAudio = usePauseAudioOnUnmount();
 
   function handleAddReview() {
     addManualReviewEntry({
@@ -109,7 +123,13 @@ function ReviewItem({
         <div className="mt-4 rounded-xl border border-indigo-100 bg-indigo-50 p-3">
           <p className="text-xs font-semibold text-indigo-800">Audio metadata</p>
           {item.audioUrl && (
-            <audio controls preload="none" src={item.audioUrl} className="mt-2 w-full" />
+            <audio
+              ref={registerAudio}
+              controls
+              preload="none"
+              src={item.audioUrl}
+              className="mt-2 w-full"
+            />
           )}
           {item.questionAudioUrl && (
             <div className="mt-2">
@@ -117,6 +137,7 @@ function ReviewItem({
                 Part 3 question audio
               </p>
               <audio
+                ref={registerAudio}
                 controls
                 preload="none"
                 src={item.questionAudioUrl}

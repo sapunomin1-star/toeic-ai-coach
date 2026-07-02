@@ -90,6 +90,13 @@ export function buildDailyPlan(options?: {
   readingCount?: number;
   reviewIds?: string[];
   weakSkillTags?: SkillTag[];
+  /**
+   * Question ids the user has answered before (any source). Pools prefer
+   * unanswered material and only fall back to repeats when a pool runs dry —
+   * otherwise "新題" silently re-serves old questions and the daily accuracy
+   * measures recall instead of ability. Mirrors the mock seen-ids mechanism.
+   */
+  answeredIds?: ReadonlySet<string>;
 }): { questions: Question[]; counts: PlanCounts } {
   const weakCount = options?.weakCount ?? 8;
   const newCount = options?.newCount ?? 7;
@@ -108,13 +115,15 @@ export function buildDailyPlan(options?: {
       ? options.weakSkillTags
       : ["word_form", "passive_voice"];
   const reviewIdSet = new Set(reviewIds);
+  const answeredIds = options?.answeredIds ?? new Set<string>();
 
   const part5Pool = getQuestionsByPart("Part 5").filter(
     (q) => !reviewIdSet.has(q.id)
   );
 
-  const weakPool = shuffle(
-    part5Pool.filter((q) => weakSkillTags.includes(q.skill_tag))
+  const weakPool = shuffleUnseenFirst(
+    part5Pool.filter((q) => weakSkillTags.includes(q.skill_tag)),
+    answeredIds
   );
   const weakQs = weakPool.slice(0, weakCount);
 
@@ -125,8 +134,9 @@ export function buildDailyPlan(options?: {
   }
 
   const usedIds = new Set([...reviewIds, ...weakQs.map((q) => q.id)]);
-  const otherPool = shuffle(
-    part5Pool.filter((q) => !usedIds.has(q.id))
+  const otherPool = shuffleUnseenFirst(
+    part5Pool.filter((q) => !usedIds.has(q.id)),
+    answeredIds
   );
   const newQs = otherPool.slice(0, newCount);
 
@@ -137,8 +147,9 @@ export function buildDailyPlan(options?: {
   }
 
   // Part 1 (photo questions, single items)
-  const part1Pool = shuffle(
-    getQuestionsByPart("Part 1").filter((q) => !reviewIdSet.has(q.id))
+  const part1Pool = shuffleUnseenFirst(
+    getQuestionsByPart("Part 1").filter((q) => !reviewIdSet.has(q.id)),
+    answeredIds
   );
   const part1Qs = part1Pool.slice(0, part1Count);
   if (part1Qs.length < part1Count) {
@@ -148,8 +159,9 @@ export function buildDailyPlan(options?: {
   }
 
   // Part 2 (single Q+A items)
-  const part2Pool = shuffle(
-    getQuestionsByPart("Part 2").filter((q) => !reviewIdSet.has(q.id))
+  const part2Pool = shuffleUnseenFirst(
+    getQuestionsByPart("Part 2").filter((q) => !reviewIdSet.has(q.id)),
+    answeredIds
   );
   const part2Qs = part2Pool.slice(0, part2Count);
   if (part2Qs.length < part2Count) {
@@ -162,7 +174,10 @@ export function buildDailyPlan(options?: {
   const part3Groups = groupByTranscript(getQuestionsByPart("Part 3"))
     .filter((group) => group.length === 3)
     .filter((group) => group.every((q) => !reviewIdSet.has(q.id)));
-  const selectedP3Groups = shuffle(part3Groups).slice(0, part3GroupCount);
+  const selectedP3Groups = shuffleUnseenGroupsFirst(part3Groups, answeredIds).slice(
+    0,
+    part3GroupCount
+  );
   const part3Qs = selectedP3Groups.flat();
   if (selectedP3Groups.length < part3GroupCount) {
     console.warn(
@@ -174,7 +189,10 @@ export function buildDailyPlan(options?: {
   const part4Groups = groupByTranscript(getQuestionsByPart("Part 4"))
     .filter((group) => group.length === 3)
     .filter((group) => group.every((q) => !reviewIdSet.has(q.id)));
-  const selectedP4Groups = shuffle(part4Groups).slice(0, part4GroupCount);
+  const selectedP4Groups = shuffleUnseenGroupsFirst(part4Groups, answeredIds).slice(
+    0,
+    part4GroupCount
+  );
   const part4Qs = selectedP4Groups.flat();
   if (selectedP4Groups.length < part4GroupCount) {
     console.warn(
@@ -182,13 +200,15 @@ export function buildDailyPlan(options?: {
     );
   }
 
-  const part6Pool = shuffle(
-    getQuestionsByPart("Part 6").filter((q) => !reviewIdSet.has(q.id))
+  const part6Pool = shuffleUnseenFirst(
+    getQuestionsByPart("Part 6").filter((q) => !reviewIdSet.has(q.id)),
+    answeredIds
   );
   const part6Qs = part6Pool.slice(0, part6Count);
 
-  const readingPool = shuffle(
-    getQuestionsByPart("Part 7").filter((q) => !reviewIdSet.has(q.id))
+  const readingPool = shuffleUnseenFirst(
+    getQuestionsByPart("Part 7").filter((q) => !reviewIdSet.has(q.id)),
+    answeredIds
   );
   const readingQs = readingPool.slice(0, readingCount);
 

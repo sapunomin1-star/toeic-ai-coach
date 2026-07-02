@@ -106,6 +106,7 @@ export default function PracticePage() {
       readingCount: READING_COUNT,
       reviewIds,
       weakSkillTags,
+      answeredIds: new Set(records.map((r) => r.questionId)),
     });
     setPlanCounts(plan.counts);
     saveDailyPlan({
