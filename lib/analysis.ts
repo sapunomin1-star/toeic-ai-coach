@@ -433,18 +433,21 @@ export type NextDayListeningMix = {
 };
 
 const DEFAULT_LISTENING_MIX: Omit<NextDayListeningMix, "reason" | "boosted"> = {
-  part1Count: 2,
-  part2Count: 3,
+  part1Count: 1,
+  part2Count: 2,
   part3GroupCount: 1,
   part4GroupCount: 1,
 };
 
 const MIX_CAPS: Omit<NextDayListeningMix, "reason" | "boosted"> = {
-  part1Count: 4,
-  part2Count: 6,
-  part3GroupCount: 3,
+  part1Count: 2,
+  part2Count: 3,
+  part3GroupCount: 2,
   part4GroupCount: 2,
 };
+
+/** Default is 9 questions; adaptive boosts may add at most 3 more. */
+const MAX_DAILY_LISTENING_QUESTIONS = 12;
 
 const MIN_ATTEMPTS_FOR_BOOST = 6;
 const WEAKNESS_THRESHOLD = 60; // accuracy %
@@ -483,7 +486,7 @@ function accuracyPct(records: AnswerRecord[]): number {
  * Compute the suggested listening question mix for the next daily plan,
  * based on accuracy in the user's most-recent non-mock answers per part.
  *
- * Default mix: 2 P1 + 3 P2 + 1 P3 group (3 Q) + 1 P4 group (3 Q) = 11 listening Q.
+ * Default mix: 1 P1 + 2 P2 + 1 P3 group (3 Q) + 1 P4 group (3 Q) = 9 listening Q.
  *
  * Each part is evaluated independently using a sliding window
  * (last {@link ADAPTIVE_RECENT_WINDOW} non-mock attempts of that part):
@@ -502,40 +505,71 @@ export function getNextDayListeningMix(records: AnswerRecord[]): NextDayListenin
   let part4GroupCount = DEFAULT_LISTENING_MIX.part4GroupCount;
   const boosted: string[] = [];
 
-  const p1Recent = recentListeningRecordsForPart(records, 1);
-  if (
-    p1Recent.length >= MIN_ATTEMPTS_FOR_BOOST &&
-    accuracyPct(p1Recent) < WEAKNESS_THRESHOLD
-  ) {
-    part1Count = Math.min(MIX_CAPS.part1Count, part1Count + 1);
-    boosted.push("Part 1");
+  type BoostKey = keyof typeof DEFAULT_LISTENING_MIX;
+  type BoostCandidate = {
+    key: BoostKey;
+    label: string;
+    accuracy: number;
+    questionCost: number;
+  };
+
+  function makeCandidate(
+    key: BoostKey,
+    label: string,
+    part: 1 | 2 | 3 | 4,
+    questionCost: number,
+  ): BoostCandidate | null {
+    const recent = recentListeningRecordsForPart(records, part);
+    const accuracy = accuracyPct(recent);
+    return recent.length >= MIN_ATTEMPTS_FOR_BOOST && accuracy < WEAKNESS_THRESHOLD
+      ? { key, label, accuracy, questionCost }
+      : null;
   }
 
-  const p2Recent = recentListeningRecordsForPart(records, 2);
-  if (
-    p2Recent.length >= MIN_ATTEMPTS_FOR_BOOST &&
-    accuracyPct(p2Recent) < WEAKNESS_THRESHOLD
-  ) {
-    part2Count = Math.min(MIX_CAPS.part2Count, part2Count + 1);
-    boosted.push("Part 2");
-  }
+  const candidates = [
+    makeCandidate("part1Count", "Part 1", 1, 1),
+    makeCandidate("part2Count", "Part 2", 2, 1),
+    makeCandidate("part3GroupCount", "Part 3", 3, 3),
+    makeCandidate("part4GroupCount", "Part 4", 4, 3),
+  ].filter((candidate): candidate is BoostCandidate => candidate !== null);
 
-  const p3Recent = recentListeningRecordsForPart(records, 3);
-  if (
-    p3Recent.length >= MIN_ATTEMPTS_FOR_BOOST &&
-    accuracyPct(p3Recent) < WEAKNESS_THRESHOLD
-  ) {
-    part3GroupCount = Math.min(MIX_CAPS.part3GroupCount, part3GroupCount + 1);
-    boosted.push("Part 3");
-  }
+  // Spend the small adaptive budget on the weakest parts first. A full P3/P4
+  // group is atomic (cost 3), so the global cap can never be exceeded even
+  // when several parts simultaneously fall below the threshold.
+  candidates.sort(
+    (a, b) =>
+      a.accuracy - b.accuracy ||
+      b.questionCost - a.questionCost ||
+      a.label.localeCompare(b.label),
+  );
 
-  const p4Recent = recentListeningRecordsForPart(records, 4);
-  if (
-    p4Recent.length >= MIN_ATTEMPTS_FOR_BOOST &&
-    accuracyPct(p4Recent) < WEAKNESS_THRESHOLD
-  ) {
-    part4GroupCount = Math.min(MIX_CAPS.part4GroupCount, part4GroupCount + 1);
-    boosted.push("Part 4");
+  let totalQuestions =
+    part1Count + part2Count + part3GroupCount * 3 + part4GroupCount * 3;
+  for (const candidate of candidates) {
+    if (totalQuestions + candidate.questionCost > MAX_DAILY_LISTENING_QUESTIONS) {
+      continue;
+    }
+
+    if (candidate.key === "part1Count" && part1Count < MIX_CAPS.part1Count) {
+      part1Count += 1;
+    } else if (candidate.key === "part2Count" && part2Count < MIX_CAPS.part2Count) {
+      part2Count += 1;
+    } else if (
+      candidate.key === "part3GroupCount" &&
+      part3GroupCount < MIX_CAPS.part3GroupCount
+    ) {
+      part3GroupCount += 1;
+    } else if (
+      candidate.key === "part4GroupCount" &&
+      part4GroupCount < MIX_CAPS.part4GroupCount
+    ) {
+      part4GroupCount += 1;
+    } else {
+      continue;
+    }
+
+    totalQuestions += candidate.questionCost;
+    boosted.push(candidate.label);
   }
 
   const reason =
@@ -607,9 +641,10 @@ export function inferMistakeReason(
 }
 
 /**
- * Count wrong answers by mistake reason (mock excluded). Only labeled wrongs
- * are counted; legacy / unlabeled records are ignored. Every reason key is
- * present (zero-filled) so the dashboard can render a stable list.
+ * Count wrong answers by confirmed mistake reason (mock excluded). Old
+ * auto-inferred labels are deliberately excluded from coaching prescriptions;
+ * a heuristic suggestion must never be treated as the learner's diagnosis.
+ * Legacy labeled records without a source remain accepted for compatibility.
  */
 export function countMistakesByReason(
   records: AnswerRecord[],
@@ -620,7 +655,7 @@ export function countMistakesByReason(
     counts[reason] = 0;
   }
   for (const r of filtered) {
-    if (!r.isCorrect && r.mistakeReason) {
+    if (!r.isCorrect && r.mistakeReason && r.reasonSource !== "inferred") {
       counts[r.mistakeReason] = (counts[r.mistakeReason] ?? 0) + 1;
     }
   }

@@ -215,8 +215,8 @@ export function getFullMockResults(): FullMockResult[] {
   return store.getResults();
 }
 
-export function saveFullMockResult(result: FullMockResult): void {
-  store.saveResult(result);
+export function saveFullMockResult(result: FullMockResult): boolean {
+  return store.saveResult(result);
 }
 
 export function clearAllFullMockData(): void {

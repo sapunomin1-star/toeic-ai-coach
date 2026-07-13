@@ -3,7 +3,8 @@
 ## Project Overview
 
 TOEIC AI Coach is a personal study app for steadily improving TOEIC performance
-with daily 15-30 minute practice. It is a local-first Next.js app, not a
+with a 15-30 minute core question session plus 20 new vocabulary words daily.
+It is a local-first Next.js app, not a
 commercial SaaS product. Do not hard-code a final target score; the user may
 raise the target over time.
 
@@ -153,6 +154,9 @@ Vocabulary data must satisfy:
 - Part 6 questions are identified by question ID prefix `p6-` in analytics (they use `reading_detail` skill_tag).
 - Part 7 dashboard analytics must filter by `p7-` question IDs, not only by `reading_*` skill tags, because Part 6 may also use `reading_detail`.
 - Quiz timing is per question: `app/quiz/page.tsx` starts a timer when a question is shown and stores `responseTimeMs` on submit.
+- Daily workload is bounded: Part 5 uses 3 weak + 3 new questions, due review is capped at 3 and comes first, listening defaults to 9 questions and adapts up to 12.
+- Daily Part 6/7 are atomic passage units: one complete 4-question Part 6 group and one complete 2–4-question single-passage Part 7 group. Never return partial passage groups to reduce the count.
+- A submitted daily answer advances the persisted plan cursor immediately and stores optional `pendingFeedback`; the explanation can resume after refresh without writing a duplicate `AnswerRecord`.
 
 ## QA Checklist
 
@@ -287,7 +291,7 @@ Items fixed in this pass:
 - A wrong quiz answer lowers `mastered` to `familiar` with `intervalDays = 0`, and lowers `familiar` to `seen`; daily validation lapses are added to immediate reinforcement.
 - Quiz statistics are recorded by source: `daily`, `random`, and `reinforcement`; dashboard metrics must not mix them as formal daily performance.
 - Scheduling follows retry today, then 1, 3, 7, 14, and 30 day intervals.
-- To control workload, `retry + due >= 15` suppresses new words and daily total above 25 defers excess retries.
+- The learner explicitly prefers 20 new words per daily session. Review buckets are capped separately (`retry` 10, `due` 5, `masteredReview` 2) so backlog never suppresses the target. Same-day sessions created under the former 8-word rule are expanded to 20 while preserving reviewed/validated and reinforcement state.
 - Migration backfills SRS fields based on legacy vocabulary status without changing `toeic_vocabulary_progress_v1`.
 
 ## Architecture Conventions (2026-05-30 Refactor)
@@ -312,7 +316,7 @@ and existing behavior were preserved (no migration).
 - `MockTestResult` and `FullMockResult` may contain optional `reviewSnapshotId`; legacy results without it remain valid and simply do not show a review link.
 - Store `questionId` plus the needed question fields (`question`, `choices`, `answer`, explanation, passage/transcript/media URLs) in the snapshot. Do not rely only on `getQuestionById` for historical review, because later question-bank edits would change what the student sees.
 - Do not store audio/image binary data in localStorage; store metadata/URLs only. Media can 404 later, but the textual review must remain useful.
-- Keep snapshot retention bounded (currently 10 newest snapshots). Full mock snapshots are large; do not append unbounded data to localStorage.
+- Keep snapshot retention bounded (currently 20 newest snapshots). Full mock snapshots are large; do not append unbounded data to localStorage.
 - Existing mock timing still has no per-question response time. `responseTimeMs` in review items is optional; do not change the exam flow just to populate it unless a future task explicitly asks.
 - Mock review can add a question to the manual review queue. This must not create a fake wrong `AnswerRecord` or change mock scores; it only stores enough metadata to surface the question in the wrongbook/review flow.
 
@@ -333,15 +337,15 @@ from "re-feed the skill you miss" toward cause-specific remediation. Phase 1 is
 - `AnswerRecord` gained **optional** `mistakeReason?` / `reasonSource?`. Only meaningful when `isCorrect === false`. Additive + backward-compatible: legacy records without them are valid (= unlabeled). `isAnswerRecord` validates them as "undefined passes, bad values rejected".
 - Reason is a property of **each attempt** (the AnswerRecord), not of the question — the same question re-done can fail for a different reason.
 
-### Inference (pre-select, never auto-commit silently)
-- `inferMistakeReason(question, record, isWeakWord?)` in `lib/analysis.ts` returns a suggested reason to pre-select in the chip UI, or `null` when there is no clear signal.
+### Inference (suggest, never auto-commit)
+- `inferMistakeReason(question, record, isWeakWord?)` in `lib/analysis.ts` returns a visually distinct suggestion in the chip UI, or `null` when there is no clear signal. A suggestion is not an answered radio option.
 - **speed: reading parts only (Part 5/6/7).** In `/quiz` the listening `responseTimeMs` includes audio playback, so it is NOT a usable speed signal — never infer speed for Part 1–4. Thresholds: `SLOW_THRESHOLD_MS` and `FAST_FLOOR_MS` (reading parts only).
 - **vocab is injected, not coupled.** `inferMistakeReason` takes an `isWeakWord?` predicate so `analysis.ts` stays pure (no `vocabularyStorage` import). The quiz page builds the predicate: weak word = in the bank AND SRS status `new`/`seen`/none (familiar/mastered are NOT weak).
 - Priority when several apply: **speed > vocab > careless.**
 
 ### Capture UX (do NOT make it block or nag)
 - Chips appear **only in `/quiz`, only on wrong answers**, after the explanation card. `/quiz` is never a mock, so no mock gating is needed — and the mock runners must never show inline reason chips (protects timing).
-- Never blocks navigation: not choosing a chip still advances. The inferred reason is persisted as `"inferred"` on submit (so collection doesn't depend on a tap); tapping a chip upgrades it to `"user"`.
+- Never blocks navigation: not choosing a chip still advances and writes no reason. Only an explicit chip tap persists `reasonSource: "user"` and may route a vocabulary item into review. Historical `reasonSource: "inferred"` records remain readable but are excluded from coaching prescriptions.
 - `MistakeReasonChips` uses progressive disclosure (≤3 primary + "其他原因" details), `role="radiogroup"`, and a Part-aware `comprehension` label ("聽不懂" for listening, "看不懂" for reading).
 - `responseTimeMs` for inference must come from the existing `handleSubmit` value — do not call `Date.now()` a second time.
 
@@ -350,7 +354,7 @@ from "re-feed the skill you miss" toward cause-specific remediation. Phase 1 is
 - vocab reason routes weak words into review via `bumpWordsToDueByWords(words)` in `lib/vocabularyStorage.ts`. **Safety red line:** it only pulls `seen`/`familiar` words' `nextReviewDate` *earlier* to today; it never touches `new`/`mastered`, never changes `status`/`intervalDays`/`consecutiveCorrect`, and is a no-op when nothing matches. Use the local `todayStr()` (not UTC `toISOString`).
 
 ### Display
-- `countMistakesByReason` (mock-excluded, labeled wrongs only) and `getReasonInsight` (headline + careless over-use guard; returns `null` under `MIN_LABELED_FOR_INSIGHT`) live in `lib/analysis.ts`; surfaced via `useDashboardMetrics` (`reasonBreakdown`, `reasonInsight`) and `components/dashboard/ReasonBreakdownSection.tsx`. The headline insight is the highest-value output — it is what turns the "measuring instrument" into a "coach".
+- `countMistakesByReason` (mock-excluded, confirmed wrongs only; old inferred labels excluded) and `getReasonInsight` (headline + careless over-use guard; returns `null` under `MIN_LABELED_FOR_INSIGHT`) live in `lib/analysis.ts`; surfaced via `useDashboardMetrics` (`reasonBreakdown`, `reasonInsight`) and `components/dashboard/ReasonBreakdownSection.tsx`. The headline insight is the highest-value output — it is what turns the "measuring instrument" into a "coach".
 
 ## Grammar Variant Remediation (Phase 2, 2026-05-31)
 

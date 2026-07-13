@@ -66,10 +66,10 @@ export function getAnswerRecords(): AnswerRecord[] {
   return Array.isArray(records) ? records.filter(isAnswerRecord) : [];
 }
 
-export function saveAnswer(record: AnswerRecord): void {
+export function saveAnswer(record: AnswerRecord): boolean {
   const all = getAnswerRecords();
   all.push(record);
-  writeJSON(ANSWER_KEY, all);
+  if (!writeJSON(ANSWER_KEY, all)) return false;
 
   // Update spaced repetition status
   const statusMap = getWrongStatusMap();
@@ -80,6 +80,7 @@ export function saveAnswer(record: AnswerRecord): void {
   if (isManualReviewQuestion(record.questionId)) {
     removeManualReviewEntry(record.questionId);
   }
+  return true;
 }
 
 export function updateLatestReason(
@@ -437,32 +438,35 @@ const MAX_STATUS_ENTRIES = 500;
 
 function pruneDismissed(map: WrongStatusMap): WrongStatusMap {
   const now = Date.now();
-  const keys = Object.keys(map);
-  if (keys.length <= MAX_STATUS_ENTRIES) {
-    // Only prune by age
-    for (const key of keys) {
-      const entry = map[key];
-      if (
-        entry.dismissed &&
-        entry.dismissedAt &&
-        now - new Date(entry.dismissedAt).getTime() > MAX_DISMISSED_AGE_MS
-      ) {
-        delete map[key];
-      }
+  // Expired dismissed tombstones are always safe to remove, regardless of the
+  // current map size.
+  for (const [questionId, entry] of Object.entries(map)) {
+    if (
+      entry.dismissed &&
+      entry.dismissedAt &&
+      now - new Date(entry.dismissedAt).getTime() > MAX_DISMISSED_AGE_MS
+    ) {
+      delete map[questionId];
     }
-    return map;
   }
-  // Over cap: remove oldest dismissed first, then drop excess
-  const sorted = keys
-    .map((k) => ({ k, e: map[k] }))
-    .sort((a, b) => {
-      const aDismissed = a.e.dismissed ? 1 : 0;
-      const bDismissed = b.e.dismissed ? 1 : 0;
-      if (aDismissed !== bDismissed) return aDismissed - bDismissed; // dismissed first
-      return 0; // stable
+
+  let excess = Object.keys(map).length - MAX_STATUS_ENTRIES;
+  if (excess <= 0) return map;
+
+  // The cap is a tombstone-retention bound, not permission to delete active
+  // learning state. Remove the oldest remaining dismissed entries only. If
+  // active entries alone exceed the cap, retain them all and allow the map to
+  // remain over the soft limit.
+  const dismissedOldestFirst = Object.entries(map)
+    .filter(([, entry]) => entry.dismissed)
+    .sort(([aId, a], [bId, b]) => {
+      const byDate = (a.dismissedAt ?? "").localeCompare(b.dismissedAt ?? "");
+      return byDate || aId.localeCompare(bId);
     });
-  for (const { k } of sorted.slice(MAX_STATUS_ENTRIES)) {
-    delete map[k];
+  for (const [questionId] of dismissedOldestFirst) {
+    if (excess <= 0) break;
+    delete map[questionId];
+    excess--;
   }
   return map;
 }
@@ -536,17 +540,35 @@ export function isManualReviewQuestion(questionId: string): boolean {
 // so "correct" answers prove retention rather than same-day recall.
 export function getReviewableIds(): string[] {
   const map = getWrongStatusMap();
-  const ids = new Set(
-    Object.entries(map)
-      .filter(
-        ([, e]) => !e.dismissed && e.status !== "mastered" && isDueForReview(e),
-      )
-      .map(([id]) => id),
-  );
-  for (const entry of getManualReviewEntries()) {
-    ids.add(entry.questionId);
+  const today = localDateStr();
+  const candidates = new Map<string, string>();
+
+  for (const [questionId, entry] of Object.entries(map)) {
+    if (entry.dismissed || entry.status === "mastered" || !isDueForReview(entry)) {
+      continue;
+    }
+    // Legacy entries without a date are due today, rather than artificially
+    // appearing more overdue than every scheduled item.
+    candidates.set(questionId, entry.nextReviewDate ?? today);
   }
-  return [...ids];
+
+  for (const entry of getManualReviewEntries()) {
+    // Manual review is due immediately. Its added date supplies deterministic
+    // overdue ordering while preserving an earlier wrong-book due date if the
+    // same question appears in both sources.
+    const manualDueDate = entry.addedAt.slice(0, 10);
+    const existingDueDate = candidates.get(entry.questionId);
+    if (!existingDueDate || manualDueDate < existingDueDate) {
+      candidates.set(entry.questionId, manualDueDate);
+    }
+  }
+
+  return [...candidates.entries()]
+    .sort(([aId, aDate], [bId, bDate]) => {
+      const byDueDate = aDate.localeCompare(bDate);
+      return byDueDate || aId.localeCompare(bId);
+    })
+    .map(([questionId]) => questionId);
 }
 
 export type WrongBookEntry = {
@@ -556,6 +578,7 @@ export type WrongBookEntry = {
   userAnswer?: Choice;
   correctAnswer: Choice;
   lastAnsweredAt: string;
+  nextReviewDate?: string;
   source?: "wrong" | "manual";
 };
 
@@ -604,6 +627,7 @@ export function getWrongBookEntries(): WrongBookEntry[] {
       correctAnswer: wrongRecord.correctAnswer,
       lastAnsweredAt:
         latestAny.get(questionId)?.answeredAt ?? wrongRecord.answeredAt,
+      nextReviewDate: entry.nextReviewDate,
       source: "wrong",
     });
   }
@@ -632,12 +656,31 @@ export type DailyPlan = {
   createdAt: string;
   cursor: number;
   autoPlayedListeningGroups?: string[];
+  /**
+   * The submitted question whose explanation is still on screen. The cursor
+   * already points to the next question, so refresh cannot submit it twice.
+   */
+  pendingFeedback?: {
+    questionId: string;
+    userAnswer: Choice;
+  };
 };
 
 function isDailyPlan(value: unknown): value is DailyPlan {
   if (!value || typeof value !== "object") return false;
   const plan = value as Partial<DailyPlan>;
   const cursor = plan.cursor;
+  const pendingFeedback = plan.pendingFeedback;
+  const pendingFeedbackIsValid =
+    pendingFeedback === undefined ||
+    (Boolean(pendingFeedback) &&
+      typeof pendingFeedback === "object" &&
+      typeof pendingFeedback.questionId === "string" &&
+      isChoice(pendingFeedback.userAnswer) &&
+      cursor !== undefined &&
+      cursor > 0 &&
+      Array.isArray(plan.questionIds) &&
+      plan.questionIds[cursor - 1] === pendingFeedback.questionId);
   return (
     Array.isArray(plan.questionIds) &&
     plan.questionIds.every((id) => typeof id === "string") &&
@@ -646,14 +689,16 @@ function isDailyPlan(value: unknown): value is DailyPlan {
     Number.isInteger(cursor) &&
     cursor !== undefined &&
     cursor >= 0 &&
+    cursor <= plan.questionIds.length &&
     (plan.autoPlayedListeningGroups === undefined ||
       (Array.isArray(plan.autoPlayedListeningGroups) &&
-        plan.autoPlayedListeningGroups.every((key) => typeof key === "string")))
+        plan.autoPlayedListeningGroups.every((key) => typeof key === "string"))) &&
+    pendingFeedbackIsValid
   );
 }
 
-export function saveDailyPlan(plan: DailyPlan): void {
-  writeJSON(DAILY_PLAN_KEY, {
+export function saveDailyPlan(plan: DailyPlan): boolean {
+  return writeJSON(DAILY_PLAN_KEY, {
     ...plan,
     autoPlayedListeningGroups: plan.autoPlayedListeningGroups ?? [],
   });
@@ -684,8 +729,8 @@ export function clearDailyPlan(): void {
 
 export type QuizPlanSource = "daily" | "wrongbook";
 
-export function saveWrongPracticePlan(plan: DailyPlan): void {
-  writeJSON(WRONG_PRACTICE_PLAN_KEY, {
+export function saveWrongPracticePlan(plan: DailyPlan): boolean {
+  return writeJSON(WRONG_PRACTICE_PLAN_KEY, {
     ...plan,
     autoPlayedListeningGroups: plan.autoPlayedListeningGroups ?? [],
   });
@@ -693,12 +738,11 @@ export function saveWrongPracticePlan(plan: DailyPlan): void {
 
 export function startGrammarVariantPractice(questionIds: string[]): boolean {
   if (questionIds.length === 0) return false;
-  saveWrongPracticePlan({
+  return saveWrongPracticePlan({
     questionIds,
     createdAt: new Date().toISOString(),
     cursor: 0,
   });
-  return true;
 }
 
 export function clearWrongPracticePlan(): void {
@@ -718,7 +762,10 @@ export function getQuizPlan():
     const age = Date.now() - new Date(wrongPracticePlan.createdAt).getTime();
     if (age > DAILY_PLAN_TTL_MS) {
       clearWrongPracticePlan();
-    } else if (wrongPracticePlan.cursor < wrongPracticePlan.questionIds.length) {
+    } else if (
+      wrongPracticePlan.cursor < wrongPracticePlan.questionIds.length ||
+      wrongPracticePlan.pendingFeedback
+    ) {
       return { plan: wrongPracticePlan, source: "wrongbook" };
     } else {
       clearWrongPracticePlan();
@@ -729,12 +776,11 @@ export function getQuizPlan():
   return dailyPlan ? { plan: dailyPlan, source: "daily" } : null;
 }
 
-export function saveQuizPlan(plan: DailyPlan, source: QuizPlanSource): void {
+export function saveQuizPlan(plan: DailyPlan, source: QuizPlanSource): boolean {
   if (source === "wrongbook") {
-    saveWrongPracticePlan(plan);
-  } else {
-    saveDailyPlan(plan);
+    return saveWrongPracticePlan(plan);
   }
+  return saveDailyPlan(plan);
 }
 
 /**

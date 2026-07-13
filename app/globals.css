@@ -22,3 +22,73 @@ body {
 button {
   touch-action: manipulation;
 }
+
+.app-header {
+  padding-top: env(safe-area-inset-top);
+}
+
+.app-main--standard {
+  padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+}
+
+.app-main--focus {
+  padding-top: max(1rem, env(safe-area-inset-top));
+  padding-bottom: max(2rem, env(safe-area-inset-bottom));
+}
+
+.app-main--mock {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.app-main--focus .sticky.bottom-3 {
+  bottom: calc(0.75rem + env(safe-area-inset-bottom));
+}
+
+.app-main--mock .sticky.top-0 {
+  top: env(safe-area-inset-top);
+}
+
+.app-main--mock .sticky.bottom-0 {
+  bottom: env(safe-area-inset-bottom);
+}
+
+.app-bottom-nav {
+  padding-bottom: max(0.25rem, env(safe-area-inset-bottom));
+}
+
+.skip-link {
+  position: fixed;
+  top: max(0.5rem, env(safe-area-inset-top));
+  left: 0.75rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  border-radius: 0.75rem;
+  background: #0f172a;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgb(15 23 42 / 0.2);
+  transition: transform 150ms ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid #4f46e5;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

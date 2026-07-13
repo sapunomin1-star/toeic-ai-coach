@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import AudioPlayer from "@/components/AudioPlayer";
 import MistakeReasonChips from "@/components/quiz/MistakeReasonChips";
+import QuestionVocabulary from "@/components/quiz/QuestionVocabulary";
 import { buildDailyPlan, getQuestionById } from "@/data/questions";
 import { getAudioOwnerQuestion, getListeningGroupKey } from "@/lib/audioOwner";
 import {
@@ -32,13 +33,43 @@ import {
   findVocabularyByWord,
   getVocabularyProgress,
 } from "@/lib/vocabularyStorage";
-import type { Choice, MistakeReason, Question } from "@/types/question";
+import type { AnswerRecord, Choice, MistakeReason, Question } from "@/types/question";
 import { SKILL_LABELS } from "@/types/question";
 import type { QuizPlanSource } from "@/lib/storage";
 
 type Status = "loading" | "answering" | "answered" | "finished" | "no-plan";
 
 const CHOICES: Choice[] = ["A", "B", "C", "D"];
+
+function latestPlanRecord(
+  records: AnswerRecord[],
+  questionId: string,
+  planCreatedAt: string,
+): AnswerRecord | null {
+  const createdAtMs = new Date(planCreatedAt).getTime();
+  let latest: AnswerRecord | null = null;
+  for (const record of records) {
+    if (record.questionId !== questionId) continue;
+    if (new Date(record.answeredAt).getTime() < createdAtMs) continue;
+    if (!latest || record.answeredAt > latest.answeredAt) latest = record;
+  }
+  return latest;
+}
+
+function calculatePlanSessionStats(
+  records: AnswerRecord[],
+  questionIds: string[],
+  planCreatedAt: string,
+): { correct: number; total: number } {
+  const latestByQuestion = questionIds.flatMap((questionId) => {
+    const record = latestPlanRecord(records, questionId, planCreatedAt);
+    return record ? [record] : [];
+  });
+  return {
+    correct: latestByQuestion.filter((record) => record.isCorrect).length,
+    total: latestByQuestion.length,
+  };
+}
 
 export default function QuizPage() {
   const router = useRouter();
@@ -51,6 +82,7 @@ export default function QuizPage() {
   const [inferredReason, setInferredReason] = useState<MistakeReason | null>(null);
   const [selectedReason, setSelectedReason] = useState<MistakeReason | null>(null);
   const [sessionStats, setSessionStats] = useState({ correct: 0, total: 0 });
+  const [saveError, setSaveError] = useState<string | null>(null);
   const [failedAudioIds, setFailedAudioIds] = useState<Set<string>>(new Set());
   const [failedQuestionAudioIds, setFailedQuestionAudioIds] = useState<Set<string>>(new Set());
   const [autoPlayedListeningGroups, setAutoPlayedListeningGroups] = useState<Set<string>>(
@@ -82,15 +114,64 @@ export default function QuizPage() {
         setStatus("no-plan");
         return;
       }
-      const { plan, source } = quizPlan;
+      const { source } = quizPlan;
+      let { plan } = quizPlan;
+      const records = getAnswerRecords();
+
+      // Legacy/interrupted feedback repair: older versions saved the answer
+      // before advancing the cursor. If that record exists inside this plan,
+      // rebuild the pending feedback state instead of submitting it twice.
+      if (!plan.pendingFeedback && plan.cursor < plan.questionIds.length) {
+        const questionId = plan.questionIds[plan.cursor];
+        const existing = questionId
+          ? latestPlanRecord(records, questionId, plan.createdAt)
+          : null;
+        if (existing) {
+          plan = {
+            ...plan,
+            cursor: plan.cursor + 1,
+            pendingFeedback: {
+              questionId: existing.questionId,
+              userAnswer: existing.userAnswer,
+            },
+          };
+          saveQuizPlan(plan, source);
+        }
+      }
+
       planSource.current = source;
       setPlanIds(plan.questionIds);
       setPlanCreatedAt(plan.createdAt);
-      setCursor(plan.cursor);
+      setSessionStats(
+        calculatePlanSessionStats(records, plan.questionIds, plan.createdAt),
+      );
       setAutoPlayedListeningGroups(new Set(plan.autoPlayedListeningGroups ?? []));
-      if (plan.cursor >= plan.questionIds.length) {
+
+      if (plan.pendingFeedback) {
+        const feedbackCursor = plan.cursor - 1;
+        const record = latestPlanRecord(
+          records,
+          plan.pendingFeedback.questionId,
+          plan.createdAt,
+        );
+        setCursor(feedbackCursor);
+        setSelected(plan.pendingFeedback.userAnswer);
+        setSubmittedChoice(plan.pendingFeedback.userAnswer);
+        submittedQuestionIds.current.add(plan.pendingFeedback.questionId);
+        if (record?.mistakeReason && !record.isCorrect) {
+          if (record.reasonSource === "user") {
+            setSelectedReason(record.mistakeReason);
+          } else {
+            setInferredReason(record.mistakeReason);
+          }
+        }
+        questionStartTime.current = 0;
+        setStatus("answered");
+      } else if (plan.cursor >= plan.questionIds.length) {
+        setCursor(plan.cursor);
         setStatus("finished");
       } else {
+        setCursor(plan.cursor);
         questionStartTime.current = Date.now();
         setStatus("answering");
       }
@@ -162,10 +243,11 @@ export default function QuizPage() {
       return;
     }
     submittedQuestionIds.current.add(currentQuestion.id);
+    setSaveError(null);
     const startedAt = questionStartTime.current || Date.now();
     const responseTimeMs = Math.max(0, Date.now() - startedAt);
     const isCorrect = selected === currentQuestion.answer;
-    saveAnswer({
+    const answerSaved = saveAnswer({
       questionId: currentQuestion.id,
       userAnswer: selected,
       correctAnswer: currentQuestion.answer,
@@ -175,6 +257,29 @@ export default function QuizPage() {
       responseTimeMs,
       source: "daily",
     });
+    if (!answerSaved) {
+      submittedQuestionIds.current.delete(currentQuestion.id);
+      setSaveError("答案尚未儲存，請確認瀏覽器儲存空間後再試一次。");
+      return;
+    }
+
+    const quizPlan = getQuizPlan();
+    if (
+      quizPlan &&
+      !saveQuizPlan(
+        {
+          ...quizPlan.plan,
+          cursor: cursor + 1,
+          pendingFeedback: {
+            questionId: currentQuestion.id,
+            userAnswer: selected,
+          },
+        },
+        quizPlan.source,
+      )
+    ) {
+      setSaveError("答案已儲存，但進度暫時無法寫入；重新開啟時會自動修復。");
+    }
     if (!isCorrect) {
       const isWeakWord = buildIsWeakWord();
       const inferred = inferMistakeReason(
@@ -184,12 +289,6 @@ export default function QuizPage() {
       );
       setInferredReason(inferred);
       setSelectedReason(null);
-      if (inferred) {
-        updateLatestReason(currentQuestion.id, inferred, "inferred");
-        if (inferred === "vocab") {
-          bumpWordsToDueByWords(currentQuestion.vocabulary ?? []);
-        }
-      }
     } else {
       setInferredReason(null);
       setSelectedReason(null);
@@ -203,11 +302,14 @@ export default function QuizPage() {
   }
 
   function handleNext() {
-    const nextCursor = cursor + 1;
     const quizPlan = getQuizPlan();
+    const nextCursor =
+      quizPlan && quizPlan.plan.pendingFeedback?.questionId === currentQuestion?.id
+        ? quizPlan.plan.cursor
+        : cursor + 1;
     if (quizPlan) {
       saveQuizPlan(
-        { ...quizPlan.plan, cursor: nextCursor },
+        { ...quizPlan.plan, cursor: nextCursor, pendingFeedback: undefined },
         quizPlan.source
       );
     }
@@ -216,6 +318,7 @@ export default function QuizPage() {
     setSubmittedChoice(null);
     setInferredReason(null);
     setSelectedReason(null);
+    setSaveError(null);
     setActiveAutoConversationId(null);
     questionStartTime.current = 0;
 
@@ -232,33 +335,16 @@ export default function QuizPage() {
 
   function getRecordedSessionStats(): { correct: number; total: number } {
     if (!planCreatedAt || planIds.length === 0) return sessionStats;
-
-    const createdAtMs = new Date(planCreatedAt).getTime();
-    const planIdSet = new Set(planIds);
-    const latestByQuestion = new Map<string, { isCorrect: boolean; answeredAt: string }>();
-
-    for (const record of getAnswerRecords()) {
-      if (!planIdSet.has(record.questionId)) continue;
-      if (new Date(record.answeredAt).getTime() < createdAtMs) continue;
-      const existing = latestByQuestion.get(record.questionId);
-      if (!existing || record.answeredAt > existing.answeredAt) {
-        latestByQuestion.set(record.questionId, {
-          isCorrect: record.isCorrect,
-          answeredAt: record.answeredAt,
-        });
-      }
-    }
-
-    if (latestByQuestion.size === 0) return sessionStats;
-
-    return {
-      correct: [...latestByQuestion.values()].filter((record) => record.isCorrect).length,
-      total: latestByQuestion.size,
-    };
+    const restored = calculatePlanSessionStats(
+      getAnswerRecords(),
+      planIds,
+      planCreatedAt,
+    );
+    return restored.total === 0 ? sessionStats : restored;
   }
 
   function startFreshPlan() {
-    const reviewIds = getReviewableIds().slice(0, 5);
+    const reviewIds = getReviewableIds().slice(0, 3);
     const records = getAnswerRecords();
     const weakSkillTags = getWeakestSkills(records, 2, 5).map((w) => w.skill);
     const mix = getNextDayListeningMix(records);
@@ -427,6 +513,15 @@ export default function QuizPage() {
         </div>
       </div>
 
+      {saveError && (
+        <div
+          role="alert"
+          className="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700"
+        >
+          {saveError}
+        </div>
+      )}
+
       <div className="space-y-1">
         <div className="flex flex-wrap items-center gap-2">
           <span className="rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-medium text-indigo-700">
@@ -558,6 +653,8 @@ export default function QuizPage() {
         // choice on demand would let students re-hear individual responses.
         <div
           className={`grid ${visibleChoices.length === 3 ? "grid-cols-3" : "grid-cols-4"} gap-3`}
+          role="radiogroup"
+          aria-label="請選擇答案"
         >
           {visibleChoices.map((c) => {
             const isSelected = selected === c;
@@ -566,7 +663,8 @@ export default function QuizPage() {
                 key={c}
                 onClick={() => setSelected(c)}
                 aria-label={`選擇答案 ${c}`}
-                aria-pressed={isSelected}
+                role="radio"
+                aria-checked={isSelected}
                 className={`min-h-14 rounded-2xl border px-4 py-3 text-center text-base font-bold transition active:scale-[0.99] focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500 ${
                   isSelected
                     ? "border-indigo-500 bg-indigo-50 text-indigo-900"
@@ -579,7 +677,7 @@ export default function QuizPage() {
           })}
         </div>
       ) : (
-        <ul className="space-y-2">
+        <ul className="space-y-2" role="radiogroup" aria-label="請選擇答案">
           {visibleChoices.map((c) => {
             const isSelected = selected === c;
             const isCorrectChoice = c === currentQuestion.answer;
@@ -611,7 +709,8 @@ export default function QuizPage() {
                   disabled={isAnswered}
                   onClick={() => setSelected(c)}
                   className={classes}
-                  aria-pressed={isAnswered ? undefined : isSelected}
+                  role="radio"
+                  aria-checked={isSelected}
                 >
                   <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold text-slate-700">
                     {c}
@@ -647,11 +746,6 @@ export default function QuizPage() {
           <p className="mt-2 whitespace-pre-wrap text-sm leading-relaxed text-slate-800">
             {currentQuestion.explanation_zh}
           </p>
-          {currentQuestion.vocabulary && currentQuestion.vocabulary.length > 0 && (
-            <p className="mt-2 text-xs text-slate-500">
-              關鍵字：{currentQuestion.vocabulary.join(" · ")}
-            </p>
-          )}
         </div>
       )}
 
@@ -661,6 +755,14 @@ export default function QuizPage() {
           inferredReason={inferredReason}
           selectedReason={selectedReason}
           onSelect={handleReasonSelect}
+        />
+      )}
+
+      {isAnswered && currentQuestion.vocabulary && currentQuestion.vocabulary.length > 0 && (
+        <QuestionVocabulary
+          key={currentQuestion.id}
+          terms={currentQuestion.vocabulary}
+          defaultOpen={!isCorrect}
         />
       )}
 

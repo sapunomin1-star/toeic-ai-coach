@@ -15,7 +15,10 @@ export type SessionLike = {
   playedQuestionAudioIds?: string[];
 };
 
-export type SessionStoreConfig<TSession extends SessionLike, TResult> = {
+export type SessionStoreConfig<
+  TSession extends SessionLike,
+  TResult extends { id: string },
+> = {
   sessionKey: string;
   resultsKey: string;
   validateSession: (raw: unknown) => TSession | null;
@@ -24,7 +27,10 @@ export type SessionStoreConfig<TSession extends SessionLike, TResult> = {
   maxResults?: number;
 };
 
-export type SessionStore<TSession extends SessionLike, TResult> = {
+export type SessionStore<
+  TSession extends SessionLike,
+  TResult extends { id: string },
+> = {
   getSession: () => TSession | null;
   saveSession: (session: TSession) => void;
   clearSession: () => void;
@@ -34,7 +40,8 @@ export type SessionStore<TSession extends SessionLike, TResult> = {
   markAudioGroupPlayed: (groupKey: string) => void;
   markQuestionAudioPlayed: (questionId: string) => void;
   getResults: () => TResult[];
-  saveResult: (result: TResult) => void;
+  /** Returns false when the result could not be persisted. */
+  saveResult: (result: TResult) => boolean;
   clearAll: () => void;
 };
 
@@ -44,7 +51,10 @@ export type SessionStore<TSession extends SessionLike, TResult> = {
  * these; the audio "no replay" consumption and answer-toggle semantics live
  * here so all three behave identically.
  */
-export function createSessionStore<TSession extends SessionLike, TResult>(
+export function createSessionStore<
+  TSession extends SessionLike,
+  TResult extends { id: string },
+>(
   config: SessionStoreConfig<TSession, TResult>,
 ): SessionStore<TSession, TResult> {
   const { sessionKey, resultsKey, validateSession, validateResult } = config;
@@ -123,10 +133,12 @@ export function createSessionStore<TSession extends SessionLike, TResult>(
     return raw.filter((item): item is TResult => validateResult(item) !== null);
   }
 
-  function saveResult(result: TResult): void {
-    const results = getResults();
+  function saveResult(result: TResult): boolean {
+    // Upsert by id so a result can first be persisted safely and then enriched
+    // with optional review metadata without creating duplicate history rows.
+    const results = getResults().filter((item) => item.id !== result.id);
     results.push(result);
-    writeJSON(resultsKey, results.slice(-maxResults));
+    return writeJSON(resultsKey, results.slice(-maxResults));
   }
 
   function clearAll(): void {

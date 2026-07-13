@@ -114,11 +114,17 @@ export default function AudioPlayer({
         <button
           type="button"
           onClick={status === "error" ? retry : play}
-          disabled={isReplayBlocked || isBusy}
-          aria-label={status === "error" ? "重試載入音檔" : "播放音檔"}
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white disabled:bg-slate-300"
+          disabled={isReplayBlocked || isBusy || isPlaying}
+          aria-label={
+            status === "error"
+              ? "重試載入音檔"
+              : isPlaying
+                ? "音檔播放中"
+                : "播放音檔"
+          }
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white disabled:bg-slate-300"
         >
-          {status === "error" ? "↻" : isPlaying ? "▶" : "▶"}
+          <span aria-hidden="true">{status === "error" ? "↻" : isPlaying ? "♪" : "▶"}</span>
         </button>
         <div className="min-w-0 flex-1">
           <div
@@ -138,7 +144,13 @@ export default function AudioPlayer({
             <p className="mt-1 text-xs text-rose-600">音檔載入失敗</p>
           ) : (
             <p className="mt-1 text-xs text-slate-500">
-              {isBusy ? "載入音檔中…" : isReplayBlocked ? "音檔已播放完畢" : "聽力音檔"}
+              {isBusy
+                ? "載入音檔中…"
+                : isPlaying
+                  ? "音檔播放中…"
+                  : isReplayBlocked
+                    ? "音檔已播放完畢"
+                    : "聽力音檔"}
             </p>
           )}
         </div>

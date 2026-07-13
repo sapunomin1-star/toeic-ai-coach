@@ -43,7 +43,7 @@ import { useMockAudioPacing } from "@/lib/useMockAudioPacing";
 import type { MockMode, MockPartKey, MockTestResult } from "@/types/mock";
 import type { Choice, Question } from "@/types/question";
 
-type Phase = "preview" | "testing" | "result";
+type Phase = "preview" | "testing" | "submit-error" | "result";
 
 const READING_PARTS: MockPartKey[] = ["Part 5", "Part 6", "Part 7"];
 const LISTENING_PARTS: MockPartKey[] = ["Part 1", "Part 2", "Part 3", "Part 4"];
@@ -113,7 +113,9 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
   const [endTime, setEndTime] = useState(0);
   const [remainingMs, setRemainingMs] = useState(config.durationMs);
   const [result, setResult] = useState<MockTestResult | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const submittedRef = useRef(false);
+  const submittedTimeRef = useRef<number | null>(null);
   const questionStartTime = useRef(0);
   const choiceKeys: Choice[] = ["A", "B", "C", "D"];
 
@@ -126,7 +128,9 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
       setCurrentIndex(0);
       setAnswers({});
       setResponseTimes({});
+      setSubmitError(null);
       submittedRef.current = false;
+      submittedTimeRef.current = null;
       questionStartTime.current = new Date().getTime();
       resetForStart();
       setPhase("testing");
@@ -181,25 +185,9 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
       }
     }
 
-    // Save wrong answers to wrong book with mock source
-    const now = new Date().toISOString();
-    markMockQuestionsSeen(questions.map((q) => q.id));
-    for (const q of questions) {
-      const ua = answers[q.id];
-      if (ua && ua !== q.answer) {
-        saveDailyAnswer({
-          questionId: q.id,
-          userAnswer: ua,
-          correctAnswer: q.answer,
-          isCorrect: false,
-          skill_tag: q.skill_tag,
-          answeredAt: now,
-          source: "mock",
-        });
-      }
-    }
-
-    const submittedTime = Date.now();
+    const submittedTime = submittedTimeRef.current ?? Date.now();
+    submittedTimeRef.current = submittedTime;
+    const now = new Date(submittedTime).toISOString();
     const remainingAtSubmit = Math.max(0, endTime - submittedTime);
     const resultId = `mock-${mode}-${submittedTime}`;
     const startedAt = new Date(endTime - config.durationMs).toISOString();
@@ -220,6 +208,37 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
       partBreakdown: breakdown,
       timeUsedMs: config.durationMs - remainingAtSubmit,
     };
+
+    // Persist the compact score record first. Review snapshots and wrong-book
+    // updates are derived data; none of them may consume the last available
+    // storage and then cause the only durable exam result to be lost.
+    if (!saveMockResult(mockResult, mode)) {
+      setSubmitError(
+        "瀏覽器無法寫入成績。本次作答仍保留，請確認網站儲存空間可用後再重試。",
+      );
+      setPhase("submit-error");
+      return;
+    }
+    clearMockSession(mode);
+
+    // Save wrong answers to wrong book with mock source only after the primary
+    // result is durable, so a failed retry cannot duplicate these records.
+    markMockQuestionsSeen(questions.map((q) => q.id));
+    for (const q of questions) {
+      const ua = answers[q.id];
+      if (ua && ua !== q.answer) {
+        saveDailyAnswer({
+          questionId: q.id,
+          userAnswer: ua,
+          correctAnswer: q.answer,
+          isCorrect: false,
+          skill_tag: q.skill_tag,
+          answeredAt: now,
+          source: "mock",
+        });
+      }
+    }
+
     const reviewSnapshot = buildMockReviewSnapshot({
       resultId,
       mode,
@@ -231,10 +250,12 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
     });
     if (saveMockReviewSnapshot(reviewSnapshot)) {
       mockResult.reviewSnapshotId = reviewSnapshot.id;
+      // saveResult is an id-based upsert. If this optional enrichment cannot
+      // be written, the compact result saved above is still safely retained.
+      saveMockResult(mockResult, mode);
     }
 
-    saveMockResult(mockResult, mode);
-    clearMockSession(mode);
+    setSubmitError(null);
     setResult(mockResult);
     setPhase("result");
   }, [answers, config.durationMs, config.parts, endTime, mode, questions, responseTimes]);
@@ -331,6 +352,12 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
     submit();
   }
 
+  function retrySubmit() {
+    submittedRef.current = false;
+    setSubmitError(null);
+    submit();
+  }
+
   // ─── PREVIEW ──────────────────────────────────────────────────
   if (phase === "preview") {
     return (
@@ -374,6 +401,35 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
     );
   }
 
+  if (phase === "submit-error") {
+    return (
+      <div className="space-y-4 py-6">
+        <section role="alert" className="rounded-2xl border border-rose-200 bg-rose-50 p-5">
+          <h1 className="text-lg font-bold text-rose-900">成績尚未儲存</h1>
+          <p className="mt-2 text-sm leading-relaxed text-rose-800">
+            {submitError ?? "成績寫入失敗，但本次作答仍保留。"}
+          </p>
+          <p className="mt-2 text-xs leading-relaxed text-rose-700">
+            請勿清除所有學習紀錄或重新開始模考，否則這次保留的進度也會被刪除。
+          </p>
+        </section>
+        <button
+          type="button"
+          onClick={retrySubmit}
+          className="block w-full rounded-2xl bg-slate-900 px-5 py-4 text-center text-base font-semibold text-white"
+        >
+          重試儲存成績
+        </button>
+        <Link
+          href="/"
+          className="block w-full rounded-2xl border border-slate-200 bg-white px-5 py-3 text-center text-sm font-medium text-slate-600"
+        >
+          稍後再處理（保留本次進度）
+        </Link>
+      </div>
+    );
+  }
+
   // ─── TESTING ──────────────────────────────────────────────────
   if (phase === "testing") {
     const q = questions[currentIndex];
@@ -410,6 +466,7 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
       !countdownActive &&
       !questionAudioFailed &&
       (!questionAudioPlayed || questionAudioIsActive);
+    const answeredCount = questions.filter((question) => Boolean(answers[question.id])).length;
 
     return (
       <div className="flex min-h-screen flex-col">
@@ -418,30 +475,51 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
           {low && "⚠ "}{formatTime(remainingMs)}
         </div>
 
-        {/* Nav */}
-        <div className="border-b border-slate-100 bg-white px-2 py-2">
-          <div className="flex flex-wrap gap-1">
+        {/* Collapsible question overview keeps the 100-item grid off the main canvas. */}
+        <details className="group border-b border-slate-100 bg-white">
+          <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 px-3 py-2 text-sm [&::-webkit-details-marker]:hidden">
+            <span className="min-w-0 font-semibold text-slate-700">
+              題目總覽 · {q.part}
+              {groupPosition ? ` · 題組 ${groupPosition.index}/${groupPosition.total}` : ""}
+            </span>
+            <span className="flex shrink-0 items-center gap-2 text-xs text-slate-500">
+              已答 {answeredCount} / {questions.length}
+              <span
+                aria-hidden="true"
+                className="text-sm transition-transform group-open:rotate-180"
+              >
+                ▾
+              </span>
+            </span>
+          </summary>
+          <nav
+            aria-label={`${config.examFlavor} 模擬考題目總覽`}
+            className="grid grid-cols-6 gap-1.5 border-t border-slate-100 px-2 py-3 sm:grid-cols-10"
+          >
             {questions.map((qq, i) => {
-              const done = !!answers[qq.id];
-              const cur = i === currentIndex;
+              const done = Boolean(answers[qq.id]);
+              const current = i === currentIndex;
               return (
-                <button key={qq.id} onClick={() => goToQuestion(i)}
+                <button
+                  key={qq.id}
+                  type="button"
+                  onClick={() => goToQuestion(i)}
                   aria-label={`第 ${i + 1} 題${done ? "（已答）" : ""}`}
-                  aria-current={cur ? "true" : undefined}
-                  className={`flex h-7 w-7 items-center justify-center rounded text-[10px] font-medium ${cur ? "bg-slate-900 text-white" : done ? "bg-emerald-100 text-emerald-700" : "bg-slate-100 text-slate-500"}`}>
+                  aria-current={current ? "true" : undefined}
+                  className={`flex min-h-11 w-full items-center justify-center rounded-lg text-xs font-semibold ${
+                    current
+                      ? "bg-slate-900 text-white"
+                      : done
+                        ? "bg-emerald-100 text-emerald-700"
+                        : "bg-slate-100 text-slate-500"
+                  }`}
+                >
                   {i + 1}
                 </button>
               );
             })}
-          </div>
-          <div className="mt-1 flex justify-between text-[10px] text-slate-400">
-            <span>已答 {Object.keys(answers).length} / {questions.length}</span>
-            <span>
-              {q.part}
-              {groupPosition ? ` · 題組 ${groupPosition.index}/${groupPosition.total}` : ""}
-            </span>
-          </div>
-        </div>
+          </nav>
+        </details>
 
         {/* Question */}
         <div className="flex-1 overflow-auto px-4 py-4">

@@ -56,7 +56,7 @@ import type {
 } from "@/types/mock";
 import type { Choice, Question } from "@/types/question";
 
-type Phase = "preview" | "testing" | "result";
+type Phase = "preview" | "testing" | "submit-error" | "result";
 
 const LISTENING_QUESTIONS = 100;
 const SECTION_QUESTIONS = 100;
@@ -90,7 +90,9 @@ export default function FullMockRunner() {
   const [totalRemainingMs, setTotalRemainingMs] = useState(FULL_MOCK_DURATION_MS);
   const [leftAppDuringTest, setLeftAppDuringTest] = useState(false);
   const [result, setResult] = useState<FullMockResult | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const submittedRef = useRef(false);
+  const submittedTimeRef = useRef<number | null>(null);
   const questionStartTime = useRef(0);
 
   function start() {
@@ -99,6 +101,7 @@ export default function FullMockRunner() {
       const plan = [...buildListeningMockPlan(seenIds), ...buildMockTestPlan(seenIds)];
       const session = startFullMockSession(plan.map((question) => question.id));
       submittedRef.current = false;
+      submittedTimeRef.current = null;
       setQuestions(plan);
       setSection("listening");
       setCurrentIndex(0);
@@ -109,6 +112,7 @@ export default function FullMockRunner() {
       setSectionRemainingMs(FULL_LISTENING_DURATION_MS);
       setTotalRemainingMs(FULL_MOCK_DURATION_MS);
       setLeftAppDuringTest(false);
+      setSubmitError(null);
       questionStartTime.current = new Date().getTime();
       resetForStart();
       setPhase("testing");
@@ -156,8 +160,6 @@ export default function FullMockRunner() {
     const unansweredIds = questions
       .map((question) => question.id)
       .filter((questionId) => !answers[questionId]);
-    const now = new Date().toISOString();
-    markMockQuestionsSeen(questions.map((question) => question.id));
 
     questions.forEach((question, index) => {
       const part = question.part as MockPartKey;
@@ -168,25 +170,14 @@ export default function FullMockRunner() {
         if (index < LISTENING_QUESTIONS) listeningRaw++;
         else readingRaw++;
       }
-
-      const userAnswer = answers[question.id];
-      if (userAnswer && userAnswer !== question.answer) {
-        saveDailyAnswer({
-          questionId: question.id,
-          userAnswer,
-          correctAnswer: question.answer,
-          isCorrect: false,
-          skill_tag: question.skill_tag,
-          answeredAt: now,
-          source: "mock",
-        });
-      }
     });
 
     const listeningRange = rawToScaledRange(listeningRaw, "listening");
     const readingRange = rawToScaledRange(readingRaw, "reading");
     const startedTime = endTime - FULL_MOCK_DURATION_MS;
-    const submittedTime = Date.now();
+    const submittedTime = submittedTimeRef.current ?? Date.now();
+    submittedTimeRef.current = submittedTime;
+    const now = new Date(submittedTime).toISOString();
     const resultId = `mock-full-${submittedTime}`;
     const startedAt = new Date(startedTime).toISOString();
     const fullResult: FullMockResult = {
@@ -212,6 +203,34 @@ export default function FullMockRunner() {
         Math.max(0, Math.min(submittedTime, listeningEndsAt) - startedTime),
       ),
     };
+
+    // Make the compact score durable before writing any derived records. If
+    // this fails, the active session stays intact and the user can retry.
+    if (!saveFullMockResult(fullResult)) {
+      setSubmitError(
+        "瀏覽器無法寫入成績。本次作答仍保留，請確認網站儲存空間可用後再重試。",
+      );
+      setPhase("submit-error");
+      return;
+    }
+    clearFullMockSession();
+
+    markMockQuestionsSeen(questions.map((question) => question.id));
+    for (const question of questions) {
+      const userAnswer = answers[question.id];
+      if (userAnswer && userAnswer !== question.answer) {
+        saveDailyAnswer({
+          questionId: question.id,
+          userAnswer,
+          correctAnswer: question.answer,
+          isCorrect: false,
+          skill_tag: question.skill_tag,
+          answeredAt: now,
+          source: "mock",
+        });
+      }
+    }
+
     const reviewSnapshot = buildMockReviewSnapshot({
       resultId,
       mode: "full",
@@ -223,10 +242,11 @@ export default function FullMockRunner() {
     });
     if (saveMockReviewSnapshot(reviewSnapshot)) {
       fullResult.reviewSnapshotId = reviewSnapshot.id;
+      // Id-based upsert enriches the already-safe result without duplicating it.
+      saveFullMockResult(fullResult);
     }
 
-    saveFullMockResult(fullResult);
-    clearFullMockSession();
+    setSubmitError(null);
     setResult(fullResult);
     setPhase("result");
   }, [answers, endTime, leftAppDuringTest, listeningEndsAt, questions, responseTimes]);
@@ -379,6 +399,12 @@ export default function FullMockRunner() {
     beginReadingSection();
   }
 
+  function retrySubmit() {
+    submittedRef.current = false;
+    setSubmitError(null);
+    submit();
+  }
+
   if (phase === "preview") {
     return (
       <div className="space-y-5">
@@ -418,6 +444,35 @@ export default function FullMockRunner() {
           className="block w-full rounded-2xl border border-slate-200 bg-white px-5 py-3 text-center text-sm font-medium text-slate-600"
         >
           返回桌面
+        </Link>
+      </div>
+    );
+  }
+
+  if (phase === "submit-error") {
+    return (
+      <div className="space-y-4 py-6">
+        <section role="alert" className="rounded-2xl border border-rose-200 bg-rose-50 p-5">
+          <h1 className="text-lg font-bold text-rose-900">成績尚未儲存</h1>
+          <p className="mt-2 text-sm leading-relaxed text-rose-800">
+            {submitError ?? "成績寫入失敗，但本次作答仍保留。"}
+          </p>
+          <p className="mt-2 text-xs leading-relaxed text-rose-700">
+            請勿清除所有學習紀錄或重新開始模考，否則這次保留的進度也會被刪除。
+          </p>
+        </section>
+        <button
+          type="button"
+          onClick={retrySubmit}
+          className="block w-full rounded-2xl bg-slate-900 px-5 py-4 text-center text-base font-semibold text-white"
+        >
+          重試儲存成績
+        </button>
+        <Link
+          href="/"
+          className="block w-full rounded-2xl border border-slate-200 bg-white px-5 py-3 text-center text-sm font-medium text-slate-600"
+        >
+          稍後再處理（保留本次進度）
         </Link>
       </div>
     );
@@ -502,7 +557,7 @@ export default function FullMockRunner() {
           )}
         </div>
 
-        <div className="border-b border-slate-100 bg-white px-2 py-2">
+        <div className="border-b border-slate-100 bg-white px-2 pt-2">
           <div className="mb-2 grid grid-cols-2 gap-2 text-center text-xs font-semibold">
             <span className="rounded-lg bg-indigo-100 px-2 py-1.5 text-indigo-800">
               Listening {isListening ? "進行中" : "已結束"}
@@ -517,39 +572,51 @@ export default function FullMockRunner() {
               Reading {isListening ? "尚未開始" : "進行中"}
             </span>
           </div>
-          <div className="flex flex-wrap gap-1">
-            {currentQuestions.map((candidate, offset) => {
-              const index = sectionStart + offset;
-              const done = Boolean(answers[candidate.id]);
-              const current = index === currentIndex;
-              return (
-                <button
-                  key={candidate.id}
-                  onClick={() => goToQuestion(index)}
-                  aria-label={`第 ${index + 1} 題${done ? "（已答）" : ""}`}
-                  aria-current={current ? "true" : undefined}
-                  className={`flex h-7 w-7 items-center justify-center rounded text-[10px] font-medium ${
-                    current
-                      ? "bg-slate-900 text-white"
-                      : done
-                        ? "bg-emerald-100 text-emerald-700"
-                        : "bg-slate-100 text-slate-500"
-                  }`}
+          <details className="group -mx-2">
+            <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 border-t border-slate-100 px-3 py-2 text-sm [&::-webkit-details-marker]:hidden">
+              <span className="min-w-0 font-semibold text-slate-700">
+                題目總覽 · {question.part}
+                {groupPosition ? ` · 題組 ${groupPosition.index}/${groupPosition.total}` : ""}
+              </span>
+              <span className="flex shrink-0 items-center gap-2 text-xs text-slate-500">
+                本區已答 {sectionAnsweredCount} / {SECTION_QUESTIONS}
+                <span
+                  aria-hidden="true"
+                  className="text-sm transition-transform group-open:rotate-180"
                 >
-                  {index + 1}
-                </button>
-              );
-            })}
-          </div>
-          <div className="mt-1 flex justify-between text-[10px] text-slate-400">
-            <span>
-              本區已答 {sectionAnsweredCount} / {SECTION_QUESTIONS}
-            </span>
-            <span>
-              {question.part}
-              {groupPosition ? ` · 題組 ${groupPosition.index}/${groupPosition.total}` : ""}
-            </span>
-          </div>
+                  ▾
+                </span>
+              </span>
+            </summary>
+            <nav
+              aria-label={`完整模擬考${isListening ? " Listening" : " Reading"}題目總覽`}
+              className="grid grid-cols-6 gap-1.5 border-t border-slate-100 px-2 py-3 sm:grid-cols-10"
+            >
+              {currentQuestions.map((candidate, offset) => {
+                const index = sectionStart + offset;
+                const done = Boolean(answers[candidate.id]);
+                const current = index === currentIndex;
+                return (
+                  <button
+                    key={candidate.id}
+                    type="button"
+                    onClick={() => goToQuestion(index)}
+                    aria-label={`第 ${index + 1} 題${done ? "（已答）" : ""}`}
+                    aria-current={current ? "true" : undefined}
+                    className={`flex min-h-11 w-full items-center justify-center rounded-lg text-xs font-semibold ${
+                      current
+                        ? "bg-slate-900 text-white"
+                        : done
+                          ? "bg-emerald-100 text-emerald-700"
+                          : "bg-slate-100 text-slate-500"
+                    }`}
+                  >
+                    {index + 1}
+                  </button>
+                );
+              })}
+            </nav>
+          </details>
         </div>
 
         <div className="flex-1 overflow-auto px-4 py-4">

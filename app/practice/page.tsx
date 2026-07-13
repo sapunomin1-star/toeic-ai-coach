@@ -15,16 +15,25 @@ import {
 import { getNextDayListeningMix, getWeakestSkills } from "@/lib/analysis";
 import type { NextDayListeningMix } from "@/lib/analysis";
 
-const WEAK_COUNT = 8;
-const NEW_COUNT = 7;
-const PART6_COUNT = 2;
-const READING_COUNT = 3;
-const REVIEW_MAX = 5;
-const ESTIMATED_SECONDS_PER_Q = 38;
+const WEAK_COUNT = 3;
+const NEW_COUNT = 3;
+const PART6_GROUP_COUNT = 1;
+const PART6_QUESTIONS_PER_GROUP = 4;
+const READING_GROUP_COUNT = 1;
+const READING_ESTIMATED_COUNT = 3;
+const REVIEW_MAX = 3;
+const ESTIMATED_SECONDS = {
+  part5: 38,
+  part6: 50,
+  listeningSingle: 30,
+  listeningGroupQuestion: 50,
+  reading: 65,
+  review: 45,
+} as const;
 
 const DEFAULT_LISTENING_MIX: NextDayListeningMix = {
-  part1Count: 2,
-  part2Count: 3,
+  part1Count: 1,
+  part2Count: 2,
   part3GroupCount: 1,
   part4GroupCount: 1,
   reason: "依預設比例",
@@ -41,8 +50,9 @@ export default function PracticePage() {
   const [listeningMix, setListeningMix] = useState<NextDayListeningMix>(
     DEFAULT_LISTENING_MIX,
   );
-  const hasPart6Questions = getQuestionsByPart("Part 6").length > 0;
-  const part6Count = hasPart6Questions ? PART6_COUNT : 0;
+  const hasPart6Questions =
+    getQuestionsByPart("Part 6").length >= PART6_QUESTIONS_PER_GROUP;
+  const part6Count = hasPart6Questions ? PART6_QUESTIONS_PER_GROUP : 0;
 
   useEffect(() => {
     const id = window.setTimeout(() => {
@@ -52,7 +62,10 @@ export default function PracticePage() {
       setListeningMix(getNextDayListeningMix(getAnswerRecords()));
 
       const existing = getDailyPlan();
-      if (existing && existing.cursor < existing.questionIds.length) {
+      if (
+        existing &&
+        (existing.cursor < existing.questionIds.length || existing.pendingFeedback)
+      ) {
         setHasInProgress(true);
         setProgressIndex(existing.cursor);
         setProgressTotal(existing.questionIds.length);
@@ -70,21 +83,19 @@ export default function PracticePage() {
       part2: listeningMix.part2Count,
       part3: listeningMix.part3GroupCount * 3,
       part4: listeningMix.part4GroupCount * 3,
-      reading: READING_COUNT,
+      reading: READING_ESTIMATED_COUNT,
       review: reviewCount,
     };
-  const listeningTotal =
-    counts.part1 + counts.part2 + counts.part3 + counts.part4;
-  const totalQs =
-    counts.weak +
-    counts.new +
-    counts.part6 +
-    listeningTotal +
-    counts.reading +
-    counts.review;
+  const estimatedSeconds =
+    (counts.weak + counts.new) * ESTIMATED_SECONDS.part5 +
+    counts.part6 * ESTIMATED_SECONDS.part6 +
+    (counts.part1 + counts.part2) * ESTIMATED_SECONDS.listeningSingle +
+    (counts.part3 + counts.part4) * ESTIMATED_SECONDS.listeningGroupQuestion +
+    counts.reading * ESTIMATED_SECONDS.reading +
+    counts.review * ESTIMATED_SECONDS.review;
   const minMin = Math.max(
     15,
-    Math.round((totalQs * ESTIMATED_SECONDS_PER_Q) / 60)
+    Math.round(estimatedSeconds / 60),
   );
   const maxMin = minMin + 5;
 
@@ -98,13 +109,14 @@ export default function PracticePage() {
     const plan = buildDailyPlan({
       weakCount: WEAK_COUNT,
       newCount: NEW_COUNT,
-      part6Count,
+      part6GroupCount: hasPart6Questions ? PART6_GROUP_COUNT : 0,
       part1Count: mix.part1Count,
       part2Count: mix.part2Count,
       part3GroupCount: mix.part3GroupCount,
       part4GroupCount: mix.part4GroupCount,
-      readingCount: READING_COUNT,
+      readingGroupCount: READING_GROUP_COUNT,
       reviewIds,
+      reviewCount: REVIEW_MAX,
       weakSkillTags,
       answeredIds: new Set(records.map((r) => r.questionId)),
     });
@@ -153,7 +165,7 @@ export default function PracticePage() {
           <TaskRow
             emoji="📋"
             title="短文填空"
-            desc={`${counts.part6} 題 · 段落填空 · 詞性 / 連接 / 介系詞`}
+            desc={`1 組 · ${counts.part6} 題 · 完整段落填空`}
             tag="Part 6"
             tagColor="teal"
           />
@@ -185,7 +197,7 @@ export default function PracticePage() {
         <TaskRow
           emoji="📄"
           title="Part 7 閱讀測驗"
-          desc={`${counts.reading} 題 · 主旨 / 細節定位 / 推論（含短文 passage）`}
+          desc={`1 組 · ${counts.reading} 題 · 完整單篇閱讀（主旨 / 細節 / 推論）`}
           tag="閱讀"
           tagColor="amber"
         />

@@ -39,6 +39,9 @@ function validateSession(raw: unknown): MockTestSession | null {
     if (val !== undefined && val !== null && !isChoice(val)) return null;
   }
 
+  if (!Array.isArray(obj.unansweredIds)) return null;
+  if (obj.unansweredIds.some((id: unknown) => typeof id !== "string")) return null;
+
   if (!isValidDate(obj.startedAt)) return null;
   if (!isValidDate(obj.endTime)) return null;
   if (
@@ -206,8 +209,11 @@ export function getMockResults(mode: MockMode = "reading"): MockTestResult[] {
   return storeFor(mode).getResults();
 }
 
-export function saveMockResult(result: MockTestResult, mode: MockMode = "reading"): void {
-  storeFor(mode).saveResult(result);
+export function saveMockResult(
+  result: MockTestResult,
+  mode: MockMode = "reading",
+): boolean {
+  return storeFor(mode).saveResult(result);
 }
 
 export function clearAllMockData(): void {

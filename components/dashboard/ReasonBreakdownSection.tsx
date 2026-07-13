@@ -20,11 +20,11 @@ export default function ReasonBreakdownSection({
 
   return (
     <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-      <h2 className="text-sm font-semibold">錯誤原因分析</h2>
+      <h2 className="text-sm font-semibold">已確認的錯誤原因</h2>
 
       {total === 0 ? (
         <p className="mt-3 rounded-xl bg-slate-50 p-3 text-sm text-slate-500">
-          再多練幾題，就能幫你分析錯誤原因。
+          答錯後確認原因，累積幾題就能得到更可靠的教練分析。
         </p>
       ) : (
         <div className="mt-3 space-y-3">

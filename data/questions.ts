@@ -82,13 +82,18 @@ export type PlanCounts = {
 export function buildDailyPlan(options?: {
   weakCount?: number;
   newCount?: number;
+  /** @deprecated Daily Part 6 is now atomic by passage; use part6GroupCount. */
   part6Count?: number;
+  part6GroupCount?: number;
   part1Count?: number;
   part2Count?: number;
   part3GroupCount?: number;
   part4GroupCount?: number;
+  /** @deprecated Daily Part 7 is now atomic by passage; use readingGroupCount. */
   readingCount?: number;
+  readingGroupCount?: number;
   reviewIds?: string[];
+  reviewCount?: number;
   weakSkillTags?: SkillTag[];
   /**
    * Question ids the user has answered before (any source). Pools prefer
@@ -98,18 +103,26 @@ export function buildDailyPlan(options?: {
    */
   answeredIds?: ReadonlySet<string>;
 }): { questions: Question[]; counts: PlanCounts } {
-  const weakCount = options?.weakCount ?? 8;
-  const newCount = options?.newCount ?? 7;
-  const part6Count = options?.part6Count ?? 2;
-  const part1Count = options?.part1Count ?? 2;
-  const part2Count = options?.part2Count ?? 3;
+  const weakCount = options?.weakCount ?? 3;
+  const newCount = options?.newCount ?? 3;
+  // Passage-based parts are indivisible learning units. Legacy positive
+  // question counts continue to mean "include one group" so old callers do
+  // not silently lose the part, while zero still disables it.
+  const requestedPart6Groups =
+    options?.part6GroupCount ?? (options?.part6Count === 0 ? 0 : 1);
+  const part6GroupCount = Math.max(0, Math.floor(requestedPart6Groups));
+  const part1Count = options?.part1Count ?? 1;
+  const part2Count = options?.part2Count ?? 2;
   const part3GroupCount = options?.part3GroupCount ?? 1;
   const part4GroupCount = options?.part4GroupCount ?? 1;
-  const readingCount = options?.readingCount ?? 3;
-  const reviewIds = options?.reviewIds ?? [];
+  const requestedReadingGroups =
+    options?.readingGroupCount ?? (options?.readingCount === 0 ? 0 : 1);
+  const readingGroupCount = Math.max(0, Math.floor(requestedReadingGroups));
+  const reviewCount = Math.max(0, Math.floor(options?.reviewCount ?? 3));
+  const reviewIds = (options?.reviewIds ?? []).slice(0, reviewCount);
   // NB: ?? does not catch empty arrays. A caller passing [] (e.g. a new user
   // whose history has no P5 wrong answers yet) must still get a usable default,
-  // otherwise weakPool filter returns [] and we silently lose 8 questions.
+  // otherwise weakPool filter returns [] and we silently lose the weak block.
   const weakSkillTags =
     options?.weakSkillTags && options.weakSkillTags.length > 0
       ? options.weakSkillTags
@@ -200,31 +213,54 @@ export function buildDailyPlan(options?: {
     );
   }
 
-  const part6Pool = shuffleUnseenFirst(
-    getQuestionsByPart("Part 6").filter((q) => !reviewIdSet.has(q.id)),
-    answeredIds
-  );
-  const part6Qs = part6Pool.slice(0, part6Count);
-
-  const readingPool = shuffleUnseenFirst(
-    getQuestionsByPart("Part 7").filter((q) => !reviewIdSet.has(q.id)),
-    answeredIds
-  );
-  const readingQs = readingPool.slice(0, readingCount);
-
-  if (readingQs.length < readingCount) {
+  // Part 6 passages always carry four related blanks. Selecting individual
+  // questions made a learner read two full passages for only two blanks, so a
+  // daily plan now takes complete four-question groups as an atomic unit.
+  const part6Groups = groupByPassage(getQuestionsByPart("Part 6"))
+    .filter((group) => group.length === 4)
+    .filter((group) => group.every((q) => !reviewIdSet.has(q.id)));
+  const selectedPart6Groups = shuffleUnseenGroupsFirst(
+    part6Groups,
+    answeredIds,
+  ).slice(0, part6GroupCount);
+  const part6Qs = selectedPart6Groups.flat();
+  if (selectedPart6Groups.length < part6GroupCount) {
     console.warn(
-      `[buildDailyPlan] Part 7 題庫不足，只有 ${readingQs.length}/${readingCount} 題`
+      `[buildDailyPlan] Part 6 groups 不足，只有 ${selectedPart6Groups.length}/${part6GroupCount} 組`,
+    );
+  }
+
+  // Daily Part 7 uses one complete single-passage set (2-4 questions). Double
+  // and triple passages remain in mocks/long-form practice, where their larger
+  // reading cost can be budgeted explicitly.
+  const readingGroups = groupByPassage(getQuestionsByPart("Part 7"))
+    .filter(
+      (group) =>
+        group.length >= 2 &&
+        group.length <= 4 &&
+        group.every((q) => q.passage_group_type === "single"),
+    )
+    .filter((group) => group.every((q) => !reviewIdSet.has(q.id)));
+  const selectedReadingGroups = shuffleUnseenGroupsFirst(
+    readingGroups,
+    answeredIds,
+  ).slice(0, readingGroupCount);
+  const readingQs = selectedReadingGroups.flat();
+  if (selectedReadingGroups.length < readingGroupCount) {
+    console.warn(
+      `[buildDailyPlan] Part 7 single-passage groups 不足，只有 ${selectedReadingGroups.length}/${readingGroupCount} 組`,
     );
   }
 
   const reviewQs = reviewIds
     .map((id) => getQuestionById(id))
-    .filter((q): q is Question => Boolean(q))
-    .slice(0, 5);
+    .filter((q): q is Question => Boolean(q));
 
   return {
     questions: [
+      // Retrieval practice has the highest learning value and is time-sensitive;
+      // keep due reviews first so a short/abandoned session still reaches them.
+      ...reviewQs,
       ...weakQs,
       ...newQs,
       ...part6Qs,
@@ -233,7 +269,6 @@ export function buildDailyPlan(options?: {
       ...part3Qs,
       ...part4Qs,
       ...readingQs,
-      ...reviewQs,
     ],
     counts: {
       weak: weakQs.length,

@@ -15,14 +15,14 @@ import { STORAGE_KEYS, isBrowser, writeJSON } from "@/lib/storageCore";
 
 const VOCABULARY_PROGRESS_KEY = STORAGE_KEYS.vocabularyProgress;
 const DAILY_SESSION_KEY = STORAGE_KEYS.vocabularyDailySession;
-// Daily intake target is 20 NEW words/day. MAX_DAILY_ITEMS must leave room for
-// 20 new on top of due/mastered reviews, and SUPPRESS_NEW_THRESHOLD must sit
-// above that review load so new words are only deferred on heavy-backlog days.
-const MAX_DAILY_ITEMS = 35;
-const MAX_DUE_ITEMS = 8;
-const MAX_MASTERED_REVIEW_ITEMS = 3;
+// The learner explicitly wants 20 new words every day. Bound review buckets
+// separately so an overdue backlog cannot crowd those new words out.
+const MAX_RETRY_ITEMS = 10;
+const MAX_DUE_ITEMS = 5;
+const MAX_MASTERED_REVIEW_ITEMS = 2;
 const MAX_NEW_ITEMS = 20;
-const SUPPRESS_NEW_THRESHOLD = 25;
+const MAX_DAILY_ITEMS =
+  MAX_RETRY_ITEMS + MAX_DUE_ITEMS + MAX_MASTERED_REVIEW_ITEMS + MAX_NEW_ITEMS;
 const MAX_REINFORCEMENT_ROUNDS = 2;
 const SRS_INTERVALS = [0, 1, 3, 7, 14, 30] as const;
 
@@ -356,6 +356,41 @@ function writeStoredDailySession(session: StoredDailySession): void {
   writeJSON(DAILY_SESSION_KEY, session);
 }
 
+/**
+ * Upgrade an already-created same-day session from the former 8-word target.
+ * Reviewed/validated IDs and reinforcement state stay intact; only missing new
+ * items are appended, so the learner gets the requested 20 immediately.
+ */
+function ensureDailyNewWordTarget(
+  stored: StoredDailySession,
+  progressMap: Map<string, VocabularyProgress>,
+): StoredDailySession {
+  if (stored.counts.new >= MAX_NEW_ITEMS) return stored;
+
+  const itemBuckets = [...stored.itemBuckets];
+  const usedIds = new Set(itemBuckets.map((entry) => entry.wordId));
+  let newCount = stored.counts.new;
+
+  for (const item of VOCABULARY) {
+    if (newCount >= MAX_NEW_ITEMS) break;
+    const progress = progressMap.get(item.id);
+    if (usedIds.has(item.id) || (progress && progress.status !== "new")) continue;
+    itemBuckets.push({ wordId: item.id, bucket: "new" });
+    usedIds.add(item.id);
+    newCount += 1;
+  }
+
+  if (newCount === stored.counts.new) return stored;
+  const upgraded: StoredDailySession = {
+    ...stored,
+    itemBuckets,
+    counts: { ...stored.counts, new: newCount },
+    warnings: { ...stored.warnings, newSuppressed: false },
+  };
+  writeStoredDailySession(upgraded);
+  return upgraded;
+}
+
 function markDailySessionItemReviewed(wordId: string): void {
   const session = readStoredDailySession();
   if (!session || !session.itemBuckets.some((entry) => entry.wordId === wordId)) return;
@@ -493,7 +528,12 @@ export function buildDailySession(): DailySession {
   const progress = readProgress();
   const progressMap = new Map(progress.map((p) => [p.wordId, p]));
   const stored = readStoredDailySession();
-  if (stored) return materializeDailySession(stored, progressMap);
+  if (stored) {
+    return materializeDailySession(
+      ensureDailyNewWordTarget(stored, progressMap),
+      progressMap,
+    );
+  }
 
   const today = todayStr();
   const result: DailySession["items"] = [];
@@ -502,9 +542,9 @@ export function buildDailySession(): DailySession {
     const p = progressMap.get(item.id);
     return p?.intervalDays === 0 && p.status !== "new";
   });
-  const retryDeferred = Math.max(0, retryCandidates.length - MAX_DAILY_ITEMS);
+  const retryDeferred = Math.max(0, retryCandidates.length - MAX_RETRY_ITEMS);
 
-  for (const item of retryCandidates.slice(0, MAX_DAILY_ITEMS)) {
+  for (const item of retryCandidates.slice(0, MAX_RETRY_ITEMS)) {
     result.push({ item, bucket: "retry", progress: progressMap.get(item.id) ?? null });
     usedIds.add(item.id);
   }
@@ -542,19 +582,17 @@ export function buildDailySession(): DailySession {
     }
   }
 
-  const newSuppressed =
-    retryCandidates.slice(0, MAX_DAILY_ITEMS).length + dueAdded >=
-    SUPPRESS_NEW_THRESHOLD;
+  // Kept in the persisted shape for backward compatibility. New items are no
+  // longer suppressed by review load; review buckets have their own caps.
+  const newSuppressed = false;
   let newAdded = 0;
-  if (!newSuppressed) {
-    for (const item of VOCABULARY) {
-      if (result.length >= MAX_DAILY_ITEMS || newAdded >= MAX_NEW_ITEMS) break;
-      const p = progressMap.get(item.id);
-      if (!usedIds.has(item.id) && (!p || p.status === "new")) {
-        result.push({ item, bucket: "new", progress: p ?? null });
-        usedIds.add(item.id);
-        newAdded += 1;
-      }
+  for (const item of VOCABULARY) {
+    if (result.length >= MAX_DAILY_ITEMS || newAdded >= MAX_NEW_ITEMS) break;
+    const p = progressMap.get(item.id);
+    if (!usedIds.has(item.id) && (!p || p.status === "new")) {
+      result.push({ item, bucket: "new", progress: p ?? null });
+      usedIds.add(item.id);
+      newAdded += 1;
     }
   }
 

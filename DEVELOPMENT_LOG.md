@@ -1,5 +1,41 @@
 # TOEIC AI Coach Development Log
 
+## Daily Vocabulary Target Adjustment - 2026-07-13
+
+### Scope
+
+- Raised the newly-created daily vocabulary target from 8 back to 20 new words at the learner's request.
+- Capped old-word buckets separately (`retry` 10, `due` 5, `masteredReview` 2), so a review backlog cannot suppress or crowd out the 20 new words.
+- Added a targeted same-day migration: sessions created under the former 8-word rule keep all reviewed/validated and reinforcement state, then append enough new words to reach 20 immediately.
+
+## Daily Coach, Passage Practice, and Reliability Upgrade - 2026-07-12
+
+### Scope
+
+- Replaced the static home CTA with a live three-step coach that reads the current vocabulary and quiz plan, shows completion progress, and links directly to the next useful action.
+- Added a mobile bottom navigation, focus-mode shells for quizzes/mocks, a wider mock layout, skip navigation, global focus-visible styling, safe-area support, and reduced-motion handling.
+- Bounded newly-created vocabulary sessions to 15 items with at most 8 new words; due/retry load suppresses new material before the daily workload becomes unrealistic.
+- Reduced daily Part 5 to 3 weak + 3 new questions, placed up to 3 due reviews first, and capped adaptive listening at 12 questions.
+- Changed daily Part 6 and Part 7 selection from flat random questions to complete ordered passage groups (P6: 4 questions; P7 single passage: 2–4 questions).
+- Split the wrong book into due-now, scheduled-later, and mastered sections; the primary practice action now includes due/manual items only.
+- Made mistake-reason inference a visible suggestion instead of an automatic diagnosis. Only an explicit learner choice changes review routing or contributes to coaching prescriptions.
+- Added expandable question vocabulary with pronunciation, Chinese meanings, and collocations after daily answers.
+- Persisted a submitted daily answer as `pendingFeedback` with an already-advanced cursor, so refreshing the explanation screen cannot create duplicate answer records; legacy interrupted feedback repairs itself from the existing record.
+- Made mock result persistence failure-safe: the compact result must save before the session is cleared, failures preserve the attempt and offer retry, result IDs upsert, and corrupted `unansweredIds` sessions are rejected.
+- Replaced the always-expanded 100-question mobile mock grid with a collapsible, accessible question overview using 44px question targets.
+- Fixed wrong-status pruning so the 500-entry soft cap never silently deletes active review state.
+
+### Validation
+
+- `./node_modules/.bin/tsc --noEmit`: passed.
+- `npm run lint`: passed.
+- `npm test`: passed, including quota-failure/session-retention, pending-feedback, complete-passage, review-order, pruning, and 62-record analysis regressions.
+- `npm run build`: passed; all 13 generated routes compiled successfully.
+- `cd pipeline && npm run check`: passed for 1,899 questions with zero structural, answer, explanation, balance, or grouping issues.
+- `cd pipeline && npx tsx src/check-media.ts`: passed for 851/851 expected media paths.
+- HTTP smoke test: all 11 tested routes returned 200.
+- Playwright mobile checks at 390×844 covered the dynamic home coach, bounded practice plan, answer feedback/vocabulary, feedback refresh recovery, wrong-book due split, and collapsed mock question overview with zero console warnings/errors.
+
 ## Reliability Audit Repairs - 2026-06-30
 
 ### Scope

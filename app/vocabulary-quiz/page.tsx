@@ -290,7 +290,14 @@ export default function VocabularyQuizPage() {
           </span>
           <span>正確 {score.correct}</span>
         </div>
-        <div className="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-slate-200">
+        <div
+          className="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-slate-200"
+          role="progressbar"
+          aria-label={`單字測驗進度 ${Math.round(progress)}%`}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={Math.round(progress)}
+        >
           <div
             className="h-full bg-indigo-500 transition-all"
             style={{ width: `${progress}%` }}
@@ -313,7 +320,11 @@ export default function VocabularyQuizPage() {
       </div>
 
       {/* Choices */}
-      <ul className="space-y-2">
+      <ul
+        className="space-y-2"
+        role="radiogroup"
+        aria-label="請選擇單字答案"
+      >
         {current.choices.map((choice, idx) => {
           const isSelected = selectedIndex === idx;
           const isCorrectChoice = idx === current.correctIndex;
@@ -336,6 +347,8 @@ export default function VocabularyQuizPage() {
                 disabled={isFeedback}
                 onClick={() => handleSelect(idx)}
                 className={cls}
+                role="radio"
+                aria-checked={isSelected}
               >
                 <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold text-slate-700">
                   {CHOICE_LABELS[idx]}
@@ -350,6 +363,8 @@ export default function VocabularyQuizPage() {
       {/* Feedback */}
       {isFeedback && (
         <div
+          role="status"
+          aria-live="polite"
           className={`rounded-2xl border p-4 shadow-sm ${
             isCorrect
               ? "border-emerald-200 bg-emerald-50"
