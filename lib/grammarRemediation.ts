@@ -1,4 +1,4 @@
-import { queryQuestions } from "@/data/questions";
+import { questionBank } from "@/lib/questionBank";
 import { getGrammarWeakSkills } from "@/lib/analysis";
 import type { AnswerRecord } from "@/types/question";
 
@@ -12,7 +12,9 @@ export function buildGrammarVariantPlan(
   const excludeIds = new Set(records.map((record) => record.questionId));
   const pools = getGrammarWeakSkills(records)
     .map(({ skill }) =>
-      queryQuestions({ skills: [skill], excludeIds }).map((question) => question.id),
+      questionBank()
+        .queryQuestions({ skills: [skill], excludeIds })
+        .map((question) => question.id),
     )
     .filter((ids) => ids.length > 0);
 

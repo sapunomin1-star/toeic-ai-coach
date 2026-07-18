@@ -1,5 +1,10 @@
-import { getQuestionsByPart } from "@/data/questions";
+import { questionBank } from "@/lib/questionBank";
 import type { Question } from "@/types/question";
+
+// The bank is immutable after load and these lookups run in render paths
+// (every countdown tick during listening mocks), so cache each transcript
+// group instead of re-scanning ~1900 questions per call.
+const transcriptGroupCache = new Map<string, Question[]>();
 
 function getTranscriptGroup(question: Question): Question[] {
   if (
@@ -9,9 +14,16 @@ function getTranscriptGroup(question: Question): Question[] {
     return [];
   }
 
-  return getQuestionsByPart(question.part)
+  const cacheKey = `${question.part}:${question.transcript}`;
+  const cached = transcriptGroupCache.get(cacheKey);
+  if (cached) return cached;
+
+  const group = questionBank()
+    .getQuestionsByPart(question.part)
     .filter((candidate) => candidate.transcript === question.transcript)
     .sort((a, b) => a.id.localeCompare(b.id));
+  transcriptGroupCache.set(cacheKey, group);
+  return group;
 }
 
 export function getListeningGroupKey(question: Question): string | null {

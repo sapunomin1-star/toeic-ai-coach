@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import BankLoadError from "@/components/BankLoadError";
 import {
   buildVocabularyQuiz,
   completeReinforcementRound,
   getDailySessionActivity,
+  loadVocabularyBank,
   saveVocabularyQuizResult,
 } from "@/lib/vocabularyStorage";
 import type { VocabularyQuizProgressChange } from "@/lib/vocabularyStorage";
@@ -16,7 +18,7 @@ import type {
   VocabularyStatus,
 } from "@/types/vocabulary";
 
-type QuizState = "loading" | "answering" | "feedback" | "finished";
+type QuizState = "loading" | "answering" | "feedback" | "finished" | "load-error";
 type QuizMode = "today" | "random" | "reinforcement";
 
 const TYPE_LABEL: Record<VocabularyQuizQuestion["type"], string> = {
@@ -65,7 +67,16 @@ export default function VocabularyQuizPage() {
   const [dailyActivity, setDailyActivity] = useState<DailySessionActivity | null>(null);
 
   useEffect(() => {
-    const id = window.setTimeout(() => {
+    let cancelled = false;
+    void (async () => {
+      try {
+        await loadVocabularyBank();
+      } catch (error) {
+        console.error("[vocabulary-quiz] failed to load vocabulary bank:", error);
+        if (!cancelled) setQuizState("load-error");
+        return;
+      }
+      if (cancelled) return;
       const requestedMode = new URLSearchParams(window.location.search).get("mode");
       const quizMode: QuizMode =
         requestedMode === "random"
@@ -78,8 +89,10 @@ export default function VocabularyQuizPage() {
       setQuestions(qs);
       setDailyActivity(getDailySessionActivity());
       setQuizState(qs.length === 0 ? "finished" : "answering");
-    }, 0);
-    return () => window.clearTimeout(id);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const current = questions[cursor];
@@ -125,6 +138,10 @@ export default function VocabularyQuizPage() {
 
   if (quizState === "loading") {
     return <p className="py-10 text-center text-slate-500">載入中…</p>;
+  }
+
+  if (quizState === "load-error") {
+    return <BankLoadError bankLabel="單字庫" />;
   }
 
   if (quizState === "finished") {

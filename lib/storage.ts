@@ -304,6 +304,33 @@ export function markMockQuestionsSeen(questionIds: string[]): void {
   }
 }
 
+/**
+ * Persist a submitted mock's wrong answers to the answer history with
+ * `source: "mock"`. Unanswered questions are intentionally skipped — a blank
+ * is not evidence of a wrong skill — and correct mock answers never enter the
+ * daily history (project policy: mock data must not inflate daily stats).
+ */
+export function saveMockWrongAnswers(
+  questions: ReadonlyArray<{ id: string; answer: Choice; skill_tag: SkillTag }>,
+  answers: Partial<Record<string, Choice>>,
+  answeredAt: string,
+): void {
+  for (const question of questions) {
+    const userAnswer = answers[question.id];
+    if (userAnswer && userAnswer !== question.answer) {
+      saveAnswer({
+        questionId: question.id,
+        userAnswer,
+        correctAnswer: question.answer,
+        isCorrect: false,
+        skill_tag: question.skill_tag,
+        answeredAt,
+        source: "mock",
+      });
+    }
+  }
+}
+
 // ─── Wrong-book status (spaced repetition) ────────────────────────────────
 
 /**

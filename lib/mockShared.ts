@@ -1,5 +1,5 @@
 import type { MockPartBreakdown, MockPartKey, MockReviewMode } from "@/types/mock";
-import type { Question } from "@/types/question";
+import type { Choice, Question } from "@/types/question";
 
 /** Shared by the review page and every dashboard entry that links to one. */
 export const MOCK_REVIEW_MODE_LABELS: Record<MockReviewMode, string> = {
@@ -58,4 +58,37 @@ export function makeBreakdown(parts: MockPartKey[]): MockPartBreakdown {
   const breakdown: MockPartBreakdown = {};
   for (const part of parts) breakdown[part] = { correct: 0, total: 0 };
   return breakdown;
+}
+
+/**
+ * Score a completed mock: per-part correct/total, unanswered ids (in exam
+ * order), and the set of correctly answered question ids so callers can split
+ * raw scores by section (e.g. full mock listening vs reading).
+ */
+export function tallyMockAnswers(
+  questions: Question[],
+  answers: Partial<Record<string, Choice>>,
+  parts: MockPartKey[],
+): {
+  breakdown: MockPartBreakdown;
+  unansweredIds: string[];
+  correctIds: Set<string>;
+} {
+  const breakdown = makeBreakdown(parts);
+  const unansweredIds: string[] = [];
+  const correctIds = new Set<string>();
+
+  for (const question of questions) {
+    const part = question.part as MockPartKey;
+    if (!breakdown[part]) breakdown[part] = { correct: 0, total: 0 };
+    breakdown[part]!.total++;
+    const userAnswer = answers[question.id];
+    if (!userAnswer) unansweredIds.push(question.id);
+    if (userAnswer === question.answer) {
+      breakdown[part]!.correct++;
+      correctIds.add(question.id);
+    }
+  }
+
+  return { breakdown, unansweredIds, correctIds };
 }

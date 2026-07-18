@@ -6,6 +6,7 @@ import { getDailyPlan, getReviewableIds } from "@/lib/storage";
 import {
   buildDailySession,
   getDailySessionActivity,
+  loadVocabularyBank,
 } from "@/lib/vocabularyStorage";
 
 type TodayCoachState = {
@@ -30,23 +31,50 @@ export default function Home() {
   const [today, setToday] = useState<TodayCoachState | null>(null);
 
   useEffect(() => {
-    const id = window.setTimeout(() => {
+    let cancelled = false;
+    void (async () => {
+      // A failed vocabulary-chunk load degrades to a practice-plan-only coach
+      // instead of an endless skeleton.
+      let bankReady = true;
+      try {
+        await loadVocabularyBank();
+      } catch (error) {
+        console.error("[home] failed to load vocabulary bank:", error);
+        bankReady = false;
+      }
+      if (cancelled) return;
+      const plan = getDailyPlan();
+      const practiceState = {
+        practiceCursor: plan?.cursor ?? 0,
+        practiceTotal: plan?.questionIds.length ?? 0,
+        practiceHasPendingFeedback: Boolean(plan?.pendingFeedback),
+        reviewDueCount: getReviewableIds().length,
+      };
+      if (!bankReady) {
+        setToday({
+          vocabularyTotal: 0,
+          reviewedCount: 0,
+          validatedCount: 0,
+          reinforcementCount: 0,
+          canReinforce: false,
+          ...practiceState,
+        });
+        return;
+      }
       const vocabulary = buildDailySession();
       const activity = getDailySessionActivity();
-      const plan = getDailyPlan();
       setToday({
         vocabularyTotal: vocabulary.items.length,
         reviewedCount: activity.reviewedCount,
         validatedCount: activity.validatedCount,
         reinforcementCount: activity.reinforcementCount,
         canReinforce: activity.canReinforce,
-        practiceCursor: plan?.cursor ?? 0,
-        practiceTotal: plan?.questionIds.length ?? 0,
-        practiceHasPendingFeedback: Boolean(plan?.pendingFeedback),
-        reviewDueCount: getReviewableIds().length,
+        ...practiceState,
       });
-    }, 0);
-    return () => window.clearTimeout(id);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const vocabularyReviewed =

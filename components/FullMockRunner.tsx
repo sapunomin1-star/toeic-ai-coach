@@ -1,15 +1,19 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
-import AudioPlayer from "@/components/AudioPlayer";
 import PartBreakdownBars from "@/components/PartBreakdownBars";
+import MockQuestionCanvas, {
+  makePacingView,
+} from "@/components/mock/MockQuestionCanvas";
+import MockQuestionGrid from "@/components/mock/MockQuestionGrid";
+import ResultStatCards from "@/components/mock/ResultStatCards";
+import SubmitErrorScreen from "@/components/mock/SubmitErrorScreen";
 import {
-  buildListeningMockPlan,
-  buildMockTestPlan,
-  getQuestionById,
-} from "@/data/questions";
+  ensureQuestionBankLoaded,
+  loadQuestionBank,
+  questionBank,
+} from "@/lib/questionBank";
 import {
   advanceFullMockToReading,
   clearFullMockSession,
@@ -25,12 +29,10 @@ import {
   saveFullMockResponseTime,
   startFullMockSession,
 } from "@/lib/fullMockStorage";
-import { getAudioUrl, getImageUrl, getQuestionAudioUrl, hasMediaSupport } from "@/lib/media";
-import { getAudioOwnerQuestion } from "@/lib/audioOwner";
 import {
   getMockSeenQuestionIds,
   markMockQuestionsSeen,
-  saveAnswer as saveDailyAnswer,
+  saveMockWrongAnswers,
 } from "@/lib/storage";
 import {
   getCEFRForSection,
@@ -42,7 +44,7 @@ import {
   audioGroupKey,
   formatTime,
   getGroupPosition,
-  makeBreakdown,
+  tallyMockAnswers,
 } from "@/lib/mockShared";
 import {
   buildMockReviewSnapshot,
@@ -69,8 +71,6 @@ const ALL_PARTS: MockPartKey[] = [
   "Part 6",
   "Part 7",
 ];
-const CHOICE_KEYS: Choice[] = ["A", "B", "C", "D"];
-
 function cefrLabel(result: FullMockResult["listeningCEFR"]): string {
   return result.spans ? `約 ${result.spans.join("-")}` : result.primary;
 }
@@ -91,12 +91,17 @@ export default function FullMockRunner() {
   const [leftAppDuringTest, setLeftAppDuringTest] = useState(false);
   const [result, setResult] = useState<FullMockResult | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [starting, setStarting] = useState(false);
   const submittedRef = useRef(false);
   const submittedTimeRef = useRef<number | null>(null);
   const questionStartTime = useRef(0);
 
-  function start() {
+  async function start() {
+    if (starting) return;
+    setStarting(true);
     try {
+      if (!(await ensureQuestionBankLoaded())) return;
+      const { buildListeningMockPlan, buildMockTestPlan } = questionBank();
       const seenIds = getMockSeenQuestionIds();
       const plan = [...buildListeningMockPlan(seenIds), ...buildMockTestPlan(seenIds)];
       const session = startFullMockSession(plan.map((question) => question.id));
@@ -118,6 +123,8 @@ export default function FullMockRunner() {
       setPhase("testing");
     } catch (error) {
       alert((error as Error).message);
+    } finally {
+      setStarting(false);
     }
   }
 
@@ -154,23 +161,15 @@ export default function FullMockRunner() {
     if (submittedRef.current || questions.length !== 200) return;
     submittedRef.current = true;
 
-    let listeningRaw = 0;
-    let readingRaw = 0;
-    const partBreakdown = makeBreakdown(ALL_PARTS);
-    const unansweredIds = questions
-      .map((question) => question.id)
-      .filter((questionId) => !answers[questionId]);
-
-    questions.forEach((question, index) => {
-      const part = question.part as MockPartKey;
-      const breakdown = partBreakdown[part]!;
-      breakdown.total++;
-      if (answers[question.id] === question.answer) {
-        breakdown.correct++;
-        if (index < LISTENING_QUESTIONS) listeningRaw++;
-        else readingRaw++;
-      }
-    });
+    const {
+      breakdown: partBreakdown,
+      unansweredIds,
+      correctIds,
+    } = tallyMockAnswers(questions, answers, ALL_PARTS);
+    const listeningRaw = questions
+      .slice(0, LISTENING_QUESTIONS)
+      .filter((question) => correctIds.has(question.id)).length;
+    const readingRaw = correctIds.size - listeningRaw;
 
     const listeningRange = rawToScaledRange(listeningRaw, "listening");
     const readingRange = rawToScaledRange(readingRaw, "reading");
@@ -216,20 +215,7 @@ export default function FullMockRunner() {
     clearFullMockSession();
 
     markMockQuestionsSeen(questions.map((question) => question.id));
-    for (const question of questions) {
-      const userAnswer = answers[question.id];
-      if (userAnswer && userAnswer !== question.answer) {
-        saveDailyAnswer({
-          questionId: question.id,
-          userAnswer,
-          correctAnswer: question.answer,
-          isCorrect: false,
-          skill_tag: question.skill_tag,
-          answeredAt: now,
-          source: "mock",
-        });
-      }
-    }
+    saveMockWrongAnswers(questions, answers, now);
 
     const reviewSnapshot = buildMockReviewSnapshot({
       resultId,
@@ -262,15 +248,16 @@ export default function FullMockRunner() {
     }
   }, [currentIndex]);
 
+  const pacing = useMockAudioPacing({
+    isTesting: phase === "testing",
+    isListeningActive: section === "listening",
+    questions,
+    currentIndex,
+    persistAudioGroup: markFullMockAudioGroupPlayed,
+    persistQuestionAudio: markFullMockQuestionAudioPlayed,
+    onCountdownAdvance,
+  });
   const {
-    failedAudioGroups,
-    playedGroups,
-    activeAudioGroup,
-    playedQuestionAudioIds,
-    failedQuestionAudioIds,
-    activeQuestionAudioId,
-    countdownQuestionId,
-    countdownSec,
     handleAudioStarted,
     handleAudioEnded,
     markAudioGroupFailed,
@@ -282,15 +269,7 @@ export default function FullMockRunner() {
     clearListeningPacing,
     resetForStart,
     hydrateFromSession,
-  } = useMockAudioPacing({
-    isTesting: phase === "testing",
-    isListeningActive: section === "listening",
-    questions,
-    currentIndex,
-    persistAudioGroup: markFullMockAudioGroupPlayed,
-    persistQuestionAudio: markFullMockQuestionAudioPlayed,
-    onCountdownAdvance,
-  });
+  } = pacing;
 
   const beginReadingSection = useCallback(() => {
     advanceFullMockToReading();
@@ -302,11 +281,24 @@ export default function FullMockRunner() {
   }, [clearListeningPacing]);
 
   useEffect(() => {
-    const id = window.setTimeout(() => {
+    let cancelled = false;
+    // Warm the bank chunk during the preview screen so the start tap does not
+    // stall on a multi-MB download; failures surface on the actual start.
+    void loadQuestionBank().catch(() => {});
+    void (async () => {
       const session = getFullMockSession();
       if (session) {
+        try {
+          await loadQuestionBank();
+        } catch (error) {
+          // Keep the session on a transient chunk-load failure — full-mock
+          // progress must survive a network hiccup.
+          console.error("[full-mock] failed to load question bank:", error);
+          return;
+        }
+        if (cancelled) return;
         const restoredQuestions = session.questionIds
-          .map((questionId) => getQuestionById(questionId))
+          .map((questionId) => questionBank().getQuestionById(questionId))
           .filter((question): question is Question => Boolean(question));
         if (restoredQuestions.length === session.questionIds.length) {
           const listeningDeadline = new Date(session.listeningEndsAt).getTime();
@@ -348,8 +340,10 @@ export default function FullMockRunner() {
         }
       }
       clearFullMockSession();
-    }, 0);
-    return () => window.clearTimeout(id);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, [hydrateFromSession]);
 
   useEffect(() => {
@@ -435,9 +429,10 @@ export default function FullMockRunner() {
 
         <button
           onClick={start}
-          className="block w-full rounded-2xl bg-slate-900 px-5 py-4 text-center text-lg font-semibold text-white active:scale-[0.99]"
+          disabled={starting}
+          className="block w-full rounded-2xl bg-slate-900 px-5 py-4 text-center text-lg font-semibold text-white active:scale-[0.99] disabled:opacity-60"
         >
-          開始完整模擬考 →
+          {starting ? "正在準備題目…" : "開始完整模擬考 →"}
         </button>
         <Link
           href="/"
@@ -450,32 +445,7 @@ export default function FullMockRunner() {
   }
 
   if (phase === "submit-error") {
-    return (
-      <div className="space-y-4 py-6">
-        <section role="alert" className="rounded-2xl border border-rose-200 bg-rose-50 p-5">
-          <h1 className="text-lg font-bold text-rose-900">成績尚未儲存</h1>
-          <p className="mt-2 text-sm leading-relaxed text-rose-800">
-            {submitError ?? "成績寫入失敗，但本次作答仍保留。"}
-          </p>
-          <p className="mt-2 text-xs leading-relaxed text-rose-700">
-            請勿清除所有學習紀錄或重新開始模考，否則這次保留的進度也會被刪除。
-          </p>
-        </section>
-        <button
-          type="button"
-          onClick={retrySubmit}
-          className="block w-full rounded-2xl bg-slate-900 px-5 py-4 text-center text-base font-semibold text-white"
-        >
-          重試儲存成績
-        </button>
-        <Link
-          href="/"
-          className="block w-full rounded-2xl border border-slate-200 bg-white px-5 py-3 text-center text-sm font-medium text-slate-600"
-        >
-          稍後再處理（保留本次進度）
-        </Link>
-      </div>
-    );
+    return <SubmitErrorScreen submitError={submitError} onRetry={retrySubmit} />;
   }
 
   if (phase === "testing") {
@@ -489,34 +459,8 @@ export default function FullMockRunner() {
       return <p className="py-10 text-center text-slate-500">找不到題目資料。</p>;
     }
 
-    const visibleChoices: Choice[] =
-      question.choices.D === undefined ? ["A", "B", "C"] : CHOICE_KEYS;
-    const questionText = question.question.trim() || "請聽音檔後選擇答案";
-    const imageUrl = getImageUrl(question);
-    const mediaSupport = hasMediaSupport(question);
     const groupKey = audioGroupKey(question);
     const groupPosition = getGroupPosition(currentQuestions, question);
-    const audioQuestion = getAudioOwnerQuestion(question);
-    const audioUrl = isListening ? getAudioUrl(audioQuestion) : null;
-    const audioFailed = failedAudioGroups.has(groupKey);
-    const audioAlreadyPlayed = playedGroups.has(groupKey);
-    const audioIsActive = activeAudioGroup === groupKey;
-    const hideText =
-      isListening && (question.part === "Part 1" || question.part === "Part 2");
-    const questionAudioUrl =
-      isListening && question.part === "Part 3" ? getQuestionAudioUrl(question) : null;
-    const enableP3MockPacing = questionAudioUrl !== null;
-    const questionAudioPlayed = playedQuestionAudioIds.has(question.id);
-    const questionAudioIsActive = activeQuestionAudioId === question.id;
-    const questionAudioFailed = failedQuestionAudioIds.has(question.id);
-    const countdownActive = countdownQuestionId === question.id;
-    const conversationFinishedOrSkipped = audioAlreadyPlayed && !audioIsActive;
-    const showQuestionAudio =
-      enableP3MockPacing &&
-      conversationFinishedOrSkipped &&
-      !countdownActive &&
-      !questionAudioFailed &&
-      (!questionAudioPlayed || questionAudioIsActive);
     const sectionAnsweredCount = currentQuestions.filter((candidate) =>
       Boolean(answers[candidate.id]),
     ).length;
@@ -588,167 +532,33 @@ export default function FullMockRunner() {
                 </span>
               </span>
             </summary>
-            <nav
-              aria-label={`完整模擬考${isListening ? " Listening" : " Reading"}題目總覽`}
-              className="grid grid-cols-6 gap-1.5 border-t border-slate-100 px-2 py-3 sm:grid-cols-10"
-            >
-              {currentQuestions.map((candidate, offset) => {
-                const index = sectionStart + offset;
-                const done = Boolean(answers[candidate.id]);
-                const current = index === currentIndex;
-                return (
-                  <button
-                    key={candidate.id}
-                    type="button"
-                    onClick={() => goToQuestion(index)}
-                    aria-label={`第 ${index + 1} 題${done ? "（已答）" : ""}`}
-                    aria-current={current ? "true" : undefined}
-                    className={`flex min-h-11 w-full items-center justify-center rounded-lg text-xs font-semibold ${
-                      current
-                        ? "bg-slate-900 text-white"
-                        : done
-                          ? "bg-emerald-100 text-emerald-700"
-                          : "bg-slate-100 text-slate-500"
-                    }`}
-                  >
-                    {index + 1}
-                  </button>
-                );
-              })}
-            </nav>
+            <MockQuestionGrid
+              questions={currentQuestions}
+              startIndex={sectionStart}
+              currentIndex={currentIndex}
+              answers={answers}
+              onSelect={goToQuestion}
+              ariaLabel={`完整模擬考${isListening ? " Listening" : " Reading"}題目總覽`}
+            />
           </details>
         </div>
 
         <div className="flex-1 overflow-auto px-4 py-4">
-          {imageUrl && (
-            <div className="mb-4 overflow-hidden rounded-xl border border-slate-200 bg-white">
-              <Image
-                src={imageUrl}
-                alt={question.imageAlt ?? "TOEIC listening question image"}
-                width={1024}
-                height={1024}
-                priority
-                sizes="(max-width: 768px) 100vw, 600px"
-                className="h-auto w-full object-cover"
-              />
-            </div>
-          )}
-
-          {audioUrl && !audioFailed && (!audioAlreadyPlayed || audioIsActive) ? (
-            <div className="mb-4">
-              <AudioPlayer
-                key={groupKey}
-                src={audioUrl}
-                autoPlay
-                onPlaybackStart={() => handleAudioStarted(groupKey)}
-                onEnded={() => handleAudioEnded(groupKey)}
-                onError={() => markAudioGroupFailed(groupKey)}
-              />
-            </div>
-          ) : audioUrl && audioAlreadyPlayed ? (
-            <div className="mb-4 rounded-xl border border-slate-200 bg-slate-50 p-3 text-sm font-medium text-slate-600">
-              🔇 此段音檔已播放過，模擬考不可重播
-            </div>
-          ) : isListening && mediaSupport.audio ? (
-            <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm font-medium text-amber-800">
-              ⚠ 音檔未載入
-            </div>
-          ) : null}
-
-          {showQuestionAudio && (
-            <div className="mb-4">
-              <p className="mb-2 text-xs font-semibold text-slate-500">題目朗讀</p>
-              <AudioPlayer
-                key={`${question.id}-question-audio`}
-                src={questionAudioUrl}
-                autoPlay
-                onPlaybackStart={() => handleQuestionAudioStarted(question.id)}
-                onEnded={() => beginQuestionCountdown(question.id)}
-                onError={() => handleQuestionAudioError(question.id)}
-              />
-            </div>
-          )}
-
-          {enableP3MockPacing && questionAudioFailed && countdownActive && (
-            <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm font-medium text-amber-800">
-              ⚠ 題目朗讀載入失敗，倒數仍進行
-            </div>
-          )}
-
-          {countdownActive && (
-            <div
-              role="timer"
-              aria-live="polite"
-              aria-label={`此題剩餘 ${countdownSec} 秒`}
-              className={`mb-4 rounded-xl border p-4 text-center ${
-                countdownSec <= 3
-                  ? "animate-pulse border-rose-200 bg-rose-50 text-rose-700"
-                  : "border-indigo-200 bg-indigo-50 text-indigo-700"
-              }`}
-            >
-              <p className="text-xs font-semibold">作答倒數</p>
-              <p className="mt-1 text-4xl font-bold">⏱ {countdownSec}</p>
-            </div>
-          )}
-
-          {question.passage && (
-            <div className="mb-4 whitespace-pre-wrap rounded-xl border border-slate-200 bg-slate-50 p-3 text-xs leading-relaxed text-slate-700">
-              {question.passage}
-            </div>
-          )}
-
-          {hideText ? (
-            <p className="text-sm font-medium text-slate-900">
-              {currentIndex + 1}. 請依音檔內容選擇答案
-            </p>
-          ) : (
-            <p className="text-sm font-medium text-slate-900">
-              {currentIndex + 1}. {questionText}
-            </p>
-          )}
-
-          {groupPosition && (
-            <p className="mt-2 rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
-              {question.part} 題組題 {groupPosition.index}/{groupPosition.total}
-            </p>
-          )}
-
-          <div
-            className={
-              hideText
-                ? `mt-4 grid ${
-                    visibleChoices.length === 3 ? "grid-cols-3" : "grid-cols-4"
-                  } gap-3`
-                : "mt-3 space-y-2"
-            }
-          >
-            {visibleChoices.map((choice) => {
-              const selected = answers[question.id] === choice;
-              const choiceAudio = question.audioChoices?.[choice];
-              return (
-                <div key={choice} className="space-y-2">
-                  {choiceAudio && !isListening && (
-                    <AudioPlayer key={choiceAudio} src={choiceAudio} allowReplay />
-                  )}
-                  <button
-                    onClick={() => pick(question.id, choice)}
-                    aria-label={hideText ? `選擇答案 ${choice}` : undefined}
-                    aria-pressed={selected}
-                    className={`block w-full rounded-xl border px-4 py-3 text-sm ${
-                      hideText ? "min-h-14 text-center text-base" : "text-left"
-                    } ${
-                      selected
-                        ? "border-indigo-300 bg-indigo-50 text-indigo-900"
-                        : "border-slate-200 bg-white text-slate-700"
-                    }`}
-                  >
-                    <span className="font-bold">{hideText ? choice : `${choice}.`}</span>
-                    {hideText ? null : <> {question.choices[choice]}</>}
-                  </button>
-                </div>
-              );
-            })}
-          </div>
+          <MockQuestionCanvas
+            question={question}
+            displayNumber={currentIndex + 1}
+            isListeningActive={isListening}
+            groupPosition={groupPosition}
+            selectedChoice={answers[question.id]}
+            pacing={makePacingView(pacing, groupKey, question.id)}
+            onAudioStarted={() => handleAudioStarted(groupKey)}
+            onAudioEnded={() => handleAudioEnded(groupKey)}
+            onAudioError={() => markAudioGroupFailed(groupKey)}
+            onQuestionAudioStarted={() => handleQuestionAudioStarted(question.id)}
+            onQuestionAudioEnded={() => beginQuestionCountdown(question.id)}
+            onQuestionAudioError={() => handleQuestionAudioError(question.id)}
+            onPick={(choice) => pick(question.id, choice)}
+          />
         </div>
 
         <div className="sticky bottom-0 border-t border-slate-200 bg-white px-3 py-2">
@@ -836,24 +646,11 @@ export default function FullMockRunner() {
           <PartBreakdownBars parts={ALL_PARTS} breakdown={result.partBreakdown} />
         </section>
 
-        <section className="grid grid-cols-2 gap-3">
-          <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm">
-            <p className="text-[10px] uppercase tracking-wider text-slate-500">總用時</p>
-            <p className="mt-1 text-lg font-bold text-slate-800">
-              {formatTime(result.timeUsedMs)}
-            </p>
-          </div>
-          <div className="rounded-xl border border-slate-200 bg-white p-3 text-center shadow-sm">
-            <p className="text-[10px] uppercase tracking-wider text-slate-500">未作答</p>
-            <p
-              className={`mt-1 text-lg font-bold ${
-                result.unansweredIds.length > 0 ? "text-rose-600" : "text-slate-800"
-              }`}
-            >
-              {result.unansweredIds.length} 題
-            </p>
-          </div>
-        </section>
+        <ResultStatCards
+          timeUsedMs={result.timeUsedMs}
+          unansweredCount={result.unansweredIds.length}
+          timeLabel="總用時"
+        />
 
         {result.reviewSnapshotId && (
           <Link

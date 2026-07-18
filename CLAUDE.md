@@ -3,6 +3,7 @@
 多益練習 app（Next.js 16＋React 19，local-first，localStorage 持久化）。個人自學用，不是 SaaS。
 
 ## 紅線
+- **Bundle 拆分紅線（2026-07-19）**：client 端不得靜態 import `data/questions*`／`data/vocabulary*`——一律走 `lib/questionBank.ts` 與 `lib/vocabularyStorage.ts` 的 loader；違者 2.6MB 題庫資料回到首屏且沒有 gate 會擋。
 - **媒體路徑慣例寫死**：`images/<id>.jpg`＋`audio/<id>.mp3`，`lib/media.ts` 寫死 `.jpg`——改副檔名／路徑要連動 media.ts、check-media、mockReviewStorage，沒有明確需求不要動。
 - **localStorage schema 向後相容**：新欄位一律 optional，validator 必須接受舊資料。
 - 題庫大 array 有 **TS2590 坑**：AI 生成內容放 `*-generated.ts` 分檔再 concat，不要合併回主檔。

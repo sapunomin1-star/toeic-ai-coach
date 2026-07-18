@@ -1,5 +1,77 @@
 # TOEIC AI Coach Development Log
 
+## Bundle Split, Mock Runner Dedup, and Review Fixes - 2026-07-19
+
+### Scope
+
+- Split both data banks out of every route's first-load JS. `data/questions`
+  (~2.1 MB minified) and `data/vocabulary` (~510 KB) are now lazily loaded
+  chunks behind `lib/questionBank.ts` (`loadQuestionBank` / `questionBank` /
+  `ensureQuestionBankLoaded`) and `lib/vocabularyStorage.ts`
+  (`loadVocabularyBank` + internal `requireVocabulary*` guards that throw when
+  a caller forgot to await the loader). Shared `lib/lazyLoader.ts` implements
+  the memoized retry-on-reject loader for both. All pages/components await the
+  loaders in init effects or event handlers; Node-side tools (`pipeline/`,
+  `scripts/`) keep static imports.
+- First-load JS per route (before → after): /quiz 3,347→710 KB, /dashboard
+  3,342→705 KB, /practice 2,793→666 KB, / 1,179→671 KB, /vocabulary
+  1,156→647 KB. Neither bank chunk is referenced by any prerendered HTML;
+  they load on demand once and stay HTTP-cached.
+- Deduplicated the two mock runners into `components/mock/`:
+  `MockQuestionCanvas` (single source for the exam question canvas — image,
+  group audio + no-replay banner, Part 3 narrated stem + countdown, passage,
+  stem, choices; plus `makePacingView` so the pacing set→flag mapping exists
+  once), `MockQuestionGrid`, `ResultStatCards`, `SubmitErrorScreen`; scoring
+  moved to `lib/mockShared.ts` `tallyMockAnswers` and wrong-answer persistence
+  to `lib/storage.ts` `saveMockWrongAnswers`. MockTestRunner 729→~520 lines,
+  FullMockRunner 878→~650. Audio consumption semantics (mark on audible
+  playback start, group-keyed players, hidden P1/P2 text, no per-choice audio
+  in listening) are unchanged and were re-verified in the browser.
+- Review round (multi-angle) + fixes: mock start buttons now disable with
+  「正在準備題目…」, guard against double-tap, preload the bank during the
+  preview screen, and show the canonical Chinese message on chunk failure;
+  quiz 再做一輪 no longer clears the daily plan before the bank load can
+  fail; home/dashboard degrade gracefully (practice-only coach / stats without
+  today-vocab) instead of hanging on a failed vocabulary chunk; shared
+  `components/BankLoadError.tsx` replaced four hand-rolled error screens;
+  `lib/audioOwner.ts` caches transcript groups (was a full-bank scan per
+  render tick during listening countdowns); vocabulary bank now also builds a
+  byId map so `materializeDailySession` stops rebuilding a 1,500-entry map on
+  every flashcard tap.
+- New agent red lines recorded in AGENTS.md (Performance Rules) and CLAUDE.md:
+  client code must never statically import `data/questions*` /
+  `data/vocabulary*`.
+
+### Validation
+
+- `./node_modules/.bin/tsc --noEmit`: passed.
+- `npx eslint .`: passed.
+- `npm run build`: passed; 13 routes generated; bank chunks absent from all
+  prerendered HTML.
+- `npm test` (repro-c1 + review-regression-check): passed; the regression
+  script now awaits `loadVocabularyBank()` before exercising the daily
+  session.
+- `cd pipeline && npm run check` and `npx tsx src/check-media.ts`: run in this
+  session (see delivery report for output).
+- Browser verification (dev server, fresh localStorage): home coach builds the
+  20-word session; /vocabulary renders 20 flashcards with 0.8x speech buttons;
+  /practice → 開始練習 builds a 22-question plan and /quiz records an answer
+  with explanation + question vocabulary; /dashboard reflects the attempt;
+  reading, listening, and full mocks all start through the lazy bank (strict
+  plan assertions pass), listening canvas keeps letter-only choices, hidden
+  stem, image + audio, one-time playback.
+
+### Known deferred (next-step options)
+
+- A `useBankLoad(loader)` hook could collapse the nine per-page loader
+  effects; per-page fallback policies are intentionally different today.
+- /practice still renders the optimistic task list when the bank chunk fails
+  offline; the failure surfaces only on 開始練習 (accepted trade-off).
+- The max-effort review fan-out was cut short by an API session limit: 2 of 7
+  finder agents completed (15 findings, 11 reported, 9 fixed). The five
+  correctness angles were re-covered manually by the primary session; a fresh
+  full review pass is a cheap follow-up if desired.
+
 ## Daily Vocabulary Target Adjustment - 2026-07-13
 
 ### Scope

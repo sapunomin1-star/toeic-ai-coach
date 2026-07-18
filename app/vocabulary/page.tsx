@@ -2,11 +2,13 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import BankLoadError from "@/components/BankLoadError";
 import VocabularySpeechButton from "@/components/VocabularySpeechButton";
 import {
   buildDailySession,
   getDailySessionActivity,
   getVocabularyProgress,
+  loadVocabularyBank,
   markWordAgain,
   markWordFamiliar,
   markWordKnown,
@@ -70,13 +72,26 @@ export default function VocabularyPage() {
     reinforcementIds: [],
   });
 
+  const [loadError, setLoadError] = useState(false);
+
   useEffect(() => {
-    const id = window.setTimeout(() => {
+    let cancelled = false;
+    void (async () => {
+      try {
+        await loadVocabularyBank();
+      } catch (error) {
+        console.error("[vocabulary] failed to load vocabulary bank:", error);
+        if (!cancelled) setLoadError(true);
+        return;
+      }
+      if (cancelled) return;
       setSession(buildDailySession());
       setProgress(getVocabularyProgress());
       setActivity(getDailySessionActivity());
-    }, 0);
-    return () => window.clearTimeout(id);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const progressMap = useMemo(
@@ -115,6 +130,10 @@ export default function VocabularyPage() {
   function handleKnown(wordId: string): void {
     markWordKnown(wordId);
     refreshProgress();
+  }
+
+  if (loadError) {
+    return <BankLoadError bankLabel="單字庫" />;
   }
 
   if (session === null) {

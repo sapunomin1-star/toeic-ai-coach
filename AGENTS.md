@@ -81,8 +81,12 @@ Important scripts:
 - `app/mock-review/[snapshotId]/page.tsx`: localStorage-backed mock review snapshot viewer for completed mock exams.
 - `app/vocabulary/page.tsx`: daily vocabulary flashcard flow.
 - `app/vocabulary-quiz/page.tsx`: vocabulary quiz UI and result persistence.
-- `data/questions.ts`: TOEIC question bank plus question selection helpers.
-- `data/vocabulary.ts`: TOEIC vocabulary bank.
+- `data/questions.ts`: TOEIC question bank plus question selection helpers. Client code must access it ONLY through `lib/questionBank.ts` (see Performance Rules); direct static imports are for Node-side tools (`pipeline/`, `scripts/`) only.
+- `data/vocabulary.ts`: TOEIC vocabulary bank. Client access goes through `lib/vocabularyStorage.ts` (`loadVocabularyBank()`), never a direct static import.
+- `lib/questionBank.ts`: lazy façade over `data/questions` — `loadQuestionBank()` (await in init effects), `questionBank()` (sync access after load), `ensureQuestionBankLoaded()` (event handlers; alerts + returns false on failure).
+- `lib/lazyLoader.ts`: `createLazyLoader` — memoized dynamic-import loader (retry-on-reject) shared by both banks.
+- `components/mock/`: shared exam UI for both runners — `MockQuestionCanvas` (+ `makePacingView`), `MockQuestionGrid`, `ResultStatCards`, `SubmitErrorScreen`. The canvas is pure presentation; pacing decisions stay in `useMockAudioPacing`/runners.
+- `components/BankLoadError.tsx`: shared full-page notice for a failed bank chunk load.
 - `lib/storage.ts`: answer records, wrong-book status, daily plans, wrong-practice plans.
 - `lib/storageCore.ts`: single source for localStorage keys (`STORAGE_KEYS`) and JSON primitives (`isBrowser`, `readJSON`, `writeJSON` with QuotaExceededError handling, `isChoice`, `isValidDate`). All storage modules build on this.
 - `lib/sessionStore.ts`: `createSessionStore` factory — one implementation backing the reading, listening, and full mock session+result stores.
@@ -260,8 +264,9 @@ Items fixed in this pass:
 
 ### Performance Rules
 
+- **Bundle red line (2026-07-19): client code must NEVER statically import `data/questions*` or `data/vocabulary*`.** Those banks are ~2.6 MB of minified JS and are deliberately code-split behind `lib/questionBank.ts` (`loadQuestionBank`/`questionBank`/`ensureQuestionBankLoaded`) and `lib/vocabularyStorage.ts` (`loadVocabularyBank`). A single static import from any client module puts the whole bank back into that route's first-load bundle and no gate catches it. Node-side tools (`pipeline/`, `scripts/`) may import the data files directly.
 - **Use `useMemo` for derived computations in dashboard.** `countMistakesBySkill`, `summarize`, and similar functions iterate all records. Memoize to avoid re-computation on every render.
-- **No dynamic imports in hot paths.** Example: `import("@/lib/mockStorage")` inside a click handler should be a top-level static import.
+- **No dynamic imports in hot paths — for code modules.** Example: `import("@/lib/mockStorage")` inside a click handler should be a top-level static import. Exception: the two data banks above are the one deliberate dynamic-import; event handlers await `ensureQuestionBankLoaded()` (the chunk is warmed by page/preview effects, so the await is normally instant) and must give pending/disabled feedback if they can run before the warm-up finishes.
 - **No inline IIFEs that iterate all records in JSX.** Extract to a memoized value or helper function.
 - **Use `endTime - Date.now()` for countdown timers, not `setInterval` accumulation.** This prevents drift on tab background/pause.
 - **`data/questions.ts` is already 6500+ lines.** At 1000+ questions, split into per-part files (`data/questions-part5.ts`, etc.) and import them into the main array.

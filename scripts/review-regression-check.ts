@@ -455,9 +455,9 @@ async function main(): Promise<void> {
   // ── 5. Every newly-created vocabulary session keeps the learner's 20-new-
   //       word target; separately capped review buckets cannot crowd it out.
   const { VOCABULARY } = await import("../data/vocabulary");
-  const { buildDailySession, getDailySessionActivity } = await import(
-    "../lib/vocabularyStorage"
-  );
+  const { buildDailySession, getDailySessionActivity, loadVocabularyBank } =
+    await import("../lib/vocabularyStorage");
+  await loadVocabularyBank();
 
   localStorageMock.clear();
   const freshVocabularySession = buildDailySession();

@@ -1,4 +1,3 @@
-import { VOCABULARY } from "@/data/vocabulary";
 import type {
   DailySession,
   DailySessionActivity,
@@ -11,6 +10,7 @@ import type {
   VocabularyQuizSourceStats,
   VocabularyStatus,
 } from "@/types/vocabulary";
+import { createLazyLoader } from "@/lib/lazyLoader";
 import { STORAGE_KEYS, isBrowser, writeJSON } from "@/lib/storageCore";
 
 const VOCABULARY_PROGRESS_KEY = STORAGE_KEYS.vocabularyProgress;
@@ -30,12 +30,46 @@ function normalizeVocabularyWord(word: string): string {
   return word.trim().toLowerCase();
 }
 
-const VOCABULARY_BY_NORMALIZED_WORD = new Map<string, VocabularyItem>();
-for (const item of VOCABULARY) {
-  const normalized = normalizeVocabularyWord(item.word);
-  if (!VOCABULARY_BY_NORMALIZED_WORD.has(normalized)) {
-    VOCABULARY_BY_NORMALIZED_WORD.set(normalized, item);
-  }
+// The vocabulary bank (~500 KB minified) is loaded on demand so it stays out
+// of every route's first-load JS. Functions that read the bank call the
+// require* helpers, which throw loudly when a caller forgot to await
+// loadVocabularyBank() first — a silent empty bank would corrupt persisted
+// state (e.g. writing an empty daily session).
+type VocabularyBank = {
+  list: VocabularyItem[];
+  byNormalizedWord: Map<string, VocabularyItem>;
+  byId: Map<string, VocabularyItem>;
+};
+
+const vocabularyBankLoader = createLazyLoader<VocabularyBank>(
+  async () => {
+    const mod = await import("@/data/vocabulary");
+    const byNormalizedWord = new Map<string, VocabularyItem>();
+    const byId = new Map<string, VocabularyItem>();
+    for (const item of mod.VOCABULARY) {
+      const normalized = normalizeVocabularyWord(item.word);
+      if (!byNormalizedWord.has(normalized)) byNormalizedWord.set(normalized, item);
+      byId.set(item.id, item);
+    }
+    return { list: mod.VOCABULARY, byNormalizedWord, byId };
+  },
+  "[vocabularyStorage] vocabulary bank not loaded — await loadVocabularyBank() first",
+);
+
+export function loadVocabularyBank(): Promise<void> {
+  return vocabularyBankLoader.load().then(() => undefined);
+}
+
+function requireVocabulary(): VocabularyItem[] {
+  return vocabularyBankLoader.get().list;
+}
+
+function requireVocabularyIndex(): Map<string, VocabularyItem> {
+  return vocabularyBankLoader.get().byNormalizedWord;
+}
+
+function requireVocabularyById(): Map<string, VocabularyItem> {
+  return vocabularyBankLoader.get().byId;
 }
 
 function todayStr(): string {
@@ -257,7 +291,7 @@ export function saveVocabularyProgress(progress: VocabularyProgress[]): void {
 
 export function findVocabularyByWord(word: string): VocabularyItem | null {
   if (typeof word !== "string") return null;
-  return VOCABULARY_BY_NORMALIZED_WORD.get(normalizeVocabularyWord(word)) ?? null;
+  return requireVocabularyIndex().get(normalizeVocabularyWord(word)) ?? null;
 }
 
 export function bumpWordsToDueByWords(words: string[]): void {
@@ -366,6 +400,7 @@ function ensureDailyNewWordTarget(
   progressMap: Map<string, VocabularyProgress>,
 ): StoredDailySession {
   if (stored.counts.new >= MAX_NEW_ITEMS) return stored;
+  const VOCABULARY = requireVocabulary();
 
   const itemBuckets = [...stored.itemBuckets];
   const usedIds = new Set(itemBuckets.map((entry) => entry.wordId));
@@ -513,7 +548,7 @@ function materializeDailySession(
   stored: StoredDailySession,
   progressMap: Map<string, VocabularyProgress>
 ): DailySession {
-  const vocabularyMap = new Map(VOCABULARY.map((item) => [item.id, item]));
+  const vocabularyMap = requireVocabularyById();
   return {
     items: stored.itemBuckets.flatMap(({ wordId, bucket }) => {
       const item = vocabularyMap.get(wordId);
@@ -525,6 +560,7 @@ function materializeDailySession(
 }
 
 export function buildDailySession(): DailySession {
+  const VOCABULARY = requireVocabulary();
   const progress = readProgress();
   const progressMap = new Map(progress.map((p) => [p.wordId, p]));
   const stored = readStoredDailySession();
@@ -684,6 +720,7 @@ function makeFillBlank(item: VocabularyItem): string | null {
 export function buildVocabularyQuiz(
   source: "today" | "random" | "reinforcement" = "today"
 ): VocabularyQuizQuestion[] {
+  const VOCABULARY = requireVocabulary();
   const progress = readProgress();
   const progressMap = new Map(progress.map((p) => [p.wordId, p]));
   let pool: VocabularyItem[];
@@ -695,7 +732,7 @@ export function buildVocabularyQuiz(
       .map(({ item }) => item);
   } else if (source === "reinforcement") {
     const stored = readStoredDailySession();
-    const itemMap = new Map(VOCABULARY.map((item) => [item.id, item]));
+    const itemMap = requireVocabularyById();
     const dailyValidationDone =
       stored !== null && stored.validatedIds.length >= stored.itemBuckets.length;
     pool =

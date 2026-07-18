@@ -39,7 +39,9 @@ import {
   getTodayVocabulary,
   getVocabularyProgress,
   getVocabularyQuizStats,
+  loadVocabularyBank,
 } from "@/lib/vocabularyStorage";
+import { ensureQuestionBankLoaded } from "@/lib/questionBank";
 import type { VocabularyQuizStats } from "@/lib/vocabularyStorage";
 import type { FullMockResult, MockReviewSnapshot, MockTestResult } from "@/types/mock";
 import type { AnswerRecord } from "@/types/question";
@@ -65,9 +67,21 @@ export default function DashboardPage() {
   const [reviewSnapshots, setReviewSnapshots] = useState<MockReviewSnapshot[]>([]);
 
   useEffect(() => {
-    const id = window.setTimeout(() => {
+    let cancelled = false;
+    void (async () => {
+      // getTodayVocabulary needs the vocabulary bank; everything else here
+      // reads localStorage only, so a failed bank load must not blank the
+      // whole report — today's vocabulary section simply shows empty.
+      let vocabularyBankReady = true;
+      try {
+        await loadVocabularyBank();
+      } catch (error) {
+        console.error("[dashboard] failed to load vocabulary bank:", error);
+        vocabularyBankReady = false;
+      }
+      if (cancelled) return;
       setRecords(getAnswerRecords());
-      setTodayVocabulary(getTodayVocabulary());
+      setTodayVocabulary(vocabularyBankReady ? getTodayVocabulary() : []);
       setVocabularyProgress(getVocabularyProgress());
       setQuizStats(getVocabularyQuizStats());
       setDailyQuizStats(getVocabularyQuizStats("daily"));
@@ -77,8 +91,10 @@ export default function DashboardPage() {
       setRecentListeningMockResult(getMockResults("listening").at(-1) ?? null);
       setRecentFullMockResult(getFullMockResults().at(-1) ?? null);
       setReviewSnapshots(getMockReviewSnapshots());
-    }, 0);
-    return () => window.clearTimeout(id);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   function handleReset() {
@@ -147,8 +163,9 @@ export default function DashboardPage() {
 
   const metrics = useDashboardMetrics(records, todayVocabulary, vocabularyProgress);
 
-  function handleStartGrammarVariantPractice() {
+  async function handleStartGrammarVariantPractice() {
     if (!records) return;
+    if (!(await ensureQuestionBankLoaded())) return;
     const ids = buildGrammarVariantPlan(records);
     if (startGrammarVariantPractice(ids)) {
       router.push("/quiz");

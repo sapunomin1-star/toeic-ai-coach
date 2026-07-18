@@ -3,8 +3,12 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { buildDailyPlan, getQuestionsByPart } from "@/data/questions";
-import type { PlanCounts } from "@/data/questions";
+import {
+  ensureQuestionBankLoaded,
+  loadQuestionBank,
+  questionBank,
+} from "@/lib/questionBank";
+import type { PlanCounts } from "@/lib/questionBank";
 import {
   clearWrongPracticePlan,
   getAnswerRecords,
@@ -50,12 +54,28 @@ export default function PracticePage() {
   const [listeningMix, setListeningMix] = useState<NextDayListeningMix>(
     DEFAULT_LISTENING_MIX,
   );
-  const hasPart6Questions =
-    getQuestionsByPart("Part 6").length >= PART6_QUESTIONS_PER_GROUP;
+  // The current bank always has Part 6 groups; default to true so the task
+  // list does not flash while the lazily loaded bank confirms it.
+  const [hasPart6Questions, setHasPart6Questions] = useState(true);
   const part6Count = hasPart6Questions ? PART6_QUESTIONS_PER_GROUP : 0;
 
   useEffect(() => {
-    const id = window.setTimeout(() => {
+    let cancelled = false;
+    void (async () => {
+      try {
+        await loadQuestionBank();
+      } catch (error) {
+        console.error("[practice] failed to load question bank:", error);
+      }
+      if (cancelled) return;
+      try {
+        setHasPart6Questions(
+          questionBank().getQuestionsByPart("Part 6").length >=
+            PART6_QUESTIONS_PER_GROUP,
+        );
+      } catch {
+        // Bank unavailable: keep the optimistic default; startNewPlan retries.
+      }
       const reviewIds = getReviewableIds();
       setReviewCount(Math.min(reviewIds.length, REVIEW_MAX));
 
@@ -70,8 +90,10 @@ export default function PracticePage() {
         setProgressIndex(existing.cursor);
         setProgressTotal(existing.questionIds.length);
       }
-    }, 0);
-    return () => window.clearTimeout(id);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const counts: PlanCounts =
@@ -99,14 +121,15 @@ export default function PracticePage() {
   );
   const maxMin = minMin + 5;
 
-  function startNewPlan() {
+  async function startNewPlan() {
+    if (!(await ensureQuestionBankLoaded())) return;
     clearWrongPracticePlan();
     const reviewIds = getReviewableIds().slice(0, REVIEW_MAX);
     const records = getAnswerRecords();
     const weakSkillTags = getWeakestSkills(records, 2, 5).map((w) => w.skill);
     const mix = getNextDayListeningMix(records);
     setListeningMix(mix);
-    const plan = buildDailyPlan({
+    const plan = questionBank().buildDailyPlan({
       weakCount: WEAK_COUNT,
       newCount: NEW_COUNT,
       part6GroupCount: hasPart6Questions ? PART6_GROUP_COUNT : 0,

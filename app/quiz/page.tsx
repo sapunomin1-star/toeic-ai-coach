@@ -7,7 +7,12 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import AudioPlayer from "@/components/AudioPlayer";
 import MistakeReasonChips from "@/components/quiz/MistakeReasonChips";
 import QuestionVocabulary from "@/components/quiz/QuestionVocabulary";
-import { buildDailyPlan, getQuestionById } from "@/data/questions";
+import BankLoadError from "@/components/BankLoadError";
+import {
+  ensureQuestionBankLoaded,
+  loadQuestionBank,
+  questionBank,
+} from "@/lib/questionBank";
 import { getAudioOwnerQuestion, getListeningGroupKey } from "@/lib/audioOwner";
 import {
   clearDailyPlan,
@@ -32,12 +37,19 @@ import {
   bumpWordsToDueByWords,
   findVocabularyByWord,
   getVocabularyProgress,
+  loadVocabularyBank,
 } from "@/lib/vocabularyStorage";
 import type { AnswerRecord, Choice, MistakeReason, Question } from "@/types/question";
 import { SKILL_LABELS } from "@/types/question";
 import type { QuizPlanSource } from "@/lib/storage";
 
-type Status = "loading" | "answering" | "answered" | "finished" | "no-plan";
+type Status =
+  | "loading"
+  | "answering"
+  | "answered"
+  | "finished"
+  | "no-plan"
+  | "load-error";
 
 const CHOICES: Choice[] = ["A", "B", "C", "D"];
 
@@ -108,7 +120,18 @@ export default function QuizPage() {
   }
 
   useEffect(() => {
-    const id = window.setTimeout(() => {
+    let cancelled = false;
+    void (async () => {
+      // The banks live in lazily loaded chunks; both are needed here (plan
+      // questions + weak-word inference / question vocabulary display).
+      try {
+        await Promise.all([loadQuestionBank(), loadVocabularyBank()]);
+      } catch (error) {
+        console.error("[quiz] failed to load data banks:", error);
+        if (!cancelled) setStatus("load-error");
+        return;
+      }
+      if (cancelled) return;
       const quizPlan = getQuizPlan();
       if (!quizPlan || quizPlan.plan.questionIds.length === 0) {
         setStatus("no-plan");
@@ -175,8 +198,10 @@ export default function QuizPage() {
         questionStartTime.current = Date.now();
         setStatus("answering");
       }
-    }, 0);
-    return () => window.clearTimeout(id);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   // Start timer whenever a new question is presented
@@ -186,16 +211,18 @@ export default function QuizPage() {
     }
   }, [status, cursor]);
 
+  // planIds is only non-empty after the init effect awaited the bank load, so
+  // questionBank() is safe to call whenever these memos do real work.
   const currentQuestion: Question | undefined = useMemo(() => {
     if (planIds.length === 0) return undefined;
     const id = planIds[cursor];
-    return id ? getQuestionById(id) : undefined;
+    return id ? questionBank().getQuestionById(id) : undefined;
   }, [planIds, cursor]);
 
   const planQuestions = useMemo(
     () =>
       planIds
-        .map((id) => getQuestionById(id))
+        .map((id) => questionBank().getQuestionById(id))
         .filter((question): question is Question => Boolean(question)),
     [planIds],
   );
@@ -343,12 +370,16 @@ export default function QuizPage() {
     return restored.total === 0 ? sessionStats : restored;
   }
 
-  function startFreshPlan() {
+  async function startFreshPlan() {
+    // Ensure the bank BEFORE clearing anything: a failed chunk load must not
+    // destroy the finished plan and leave the button silently dead.
+    if (!(await ensureQuestionBankLoaded())) return;
+    clearDailyPlan();
     const reviewIds = getReviewableIds().slice(0, 3);
     const records = getAnswerRecords();
     const weakSkillTags = getWeakestSkills(records, 2, 5).map((w) => w.skill);
     const mix = getNextDayListeningMix(records);
-    const plan = buildDailyPlan({
+    const plan = questionBank().buildDailyPlan({
       reviewIds,
       weakSkillTags,
       part1Count: mix.part1Count,
@@ -376,6 +407,10 @@ export default function QuizPage() {
 
   if (status === "loading") {
     return <p className="py-10 text-center text-slate-500">載入中…</p>;
+  }
+
+  if (status === "load-error") {
+    return <BankLoadError bankLabel="題庫" />;
   }
 
   if (status === "no-plan") {
@@ -422,8 +457,7 @@ export default function QuizPage() {
           </Link>
           <button
             onClick={() => {
-              clearDailyPlan();
-              startFreshPlan();
+              void startFreshPlan();
             }}
             className="block w-full rounded-2xl border border-slate-200 bg-white px-5 py-3 text-center text-sm text-slate-600"
           >

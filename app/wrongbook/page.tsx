@@ -2,7 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { getQuestionById } from "@/data/questions";
+import BankLoadError from "@/components/BankLoadError";
+import { loadQuestionBank, questionBank } from "@/lib/questionBank";
 import {
   clearWrongAnswers,
   getReviewableIds,
@@ -34,13 +35,25 @@ const WRONGBOOK_SESSION_MAX = 10;
 export default function WrongBookPage() {
   const router = useRouter();
   const [entries, setEntries] = useState<WrongBookEntry[] | null>(null);
+  const [loadError, setLoadError] = useState(false);
 
   useEffect(() => {
-    const id = window.setTimeout(
-      () => setEntries(getWrongBookEntries()),
-      0
-    );
-    return () => window.clearTimeout(id);
+    let cancelled = false;
+    void (async () => {
+      // Entries render question text/choices, so the bank must be ready
+      // before the list appears.
+      try {
+        await loadQuestionBank();
+      } catch (error) {
+        console.error("[wrongbook] failed to load question bank:", error);
+        if (!cancelled) setLoadError(true);
+        return;
+      }
+      if (!cancelled) setEntries(getWrongBookEntries());
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   function handleClear() {
@@ -65,7 +78,7 @@ export default function WrongBookPage() {
       .map((e) => e.questionId)
       .slice(0, WRONGBOOK_SESSION_MAX);
     const questions = reviewIds
-      .map((id) => getQuestionById(id))
+      .map((id) => questionBank().getQuestionById(id))
       .filter(Boolean);
     if (questions.length === 0) return;
     saveWrongPracticePlan({
@@ -74,6 +87,10 @@ export default function WrongBookPage() {
       cursor: 0,
     });
     router.push("/quiz");
+  }
+
+  if (loadError) {
+    return <BankLoadError bankLabel="題庫" />;
   }
 
   if (entries === null) {
@@ -216,7 +233,7 @@ function WrongEntryGroups({
                   new Date(a.lastAnsweredAt).getTime(),
               )
               .map((entry) => {
-                const q = getQuestionById(entry.questionId);
+                const q = questionBank().getQuestionById(entry.questionId);
                 const answeredDate = new Date(entry.lastAnsweredAt);
                 const answeredDateStr = `${answeredDate.getMonth() + 1}/${answeredDate.getDate()}`;
                 const nextReviewDate = entry.nextReviewDate
