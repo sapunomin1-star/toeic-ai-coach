@@ -8,6 +8,7 @@ import MockQuestionCanvas, {
 } from "@/components/mock/MockQuestionCanvas";
 import MockQuestionGrid from "@/components/mock/MockQuestionGrid";
 import ResultStatCards from "@/components/mock/ResultStatCards";
+import ResumeFailedScreen from "@/components/mock/ResumeFailedScreen";
 import SubmitErrorScreen from "@/components/mock/SubmitErrorScreen";
 import {
   ensureQuestionBankLoaded,
@@ -92,6 +93,12 @@ export default function FullMockRunner() {
   const [result, setResult] = useState<FullMockResult | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [starting, setStarting] = useState(false);
+  // "checking" until the mount effect resolves whether an unfinished session
+  // exists; the preview (with its session-overwriting start button) must not
+  // render during that window or after a failed restore.
+  const [resumeState, setResumeState] = useState<"checking" | "idle" | "failed">(
+    "checking",
+  );
   const submittedRef = useRef(false);
   const submittedTimeRef = useRef<number | null>(null);
   const questionStartTime = useRef(0);
@@ -100,6 +107,16 @@ export default function FullMockRunner() {
     if (starting) return;
     setStarting(true);
     try {
+      // Safety net for any path that reaches the preview with a live session
+      // (races, future code changes): never silently overwrite exam progress.
+      if (
+        getFullMockSession() &&
+        !window.confirm(
+          "偵測到未完成的完整模擬考。開始新測驗會清除原有進度，確定要重新開始嗎？",
+        )
+      ) {
+        return;
+      }
       if (!(await ensureQuestionBankLoaded())) return;
       const { buildListeningMockPlan, buildMockTestPlan } = questionBank();
       const seenIds = getMockSeenQuestionIds();
@@ -292,8 +309,10 @@ export default function FullMockRunner() {
           await loadQuestionBank();
         } catch (error) {
           // Keep the session on a transient chunk-load failure — full-mock
-          // progress must survive a network hiccup.
+          // progress must survive a network hiccup. Swap the preview for a
+          // retry notice so the destructive start button is not shown.
           console.error("[full-mock] failed to load question bank:", error);
+          if (!cancelled) setResumeState("failed");
           return;
         }
         if (cancelled) return;
@@ -332,6 +351,7 @@ export default function FullMockRunner() {
           );
           setCurrentIndex(restoredIndex);
           questionStartTime.current = new Date().getTime();
+          setResumeState("idle");
           setPhase("testing");
           if (restoredSection === "reading" && session.currentSection !== "reading") {
             advanceFullMockToReading();
@@ -340,6 +360,7 @@ export default function FullMockRunner() {
         }
       }
       clearFullMockSession();
+      if (!cancelled) setResumeState("idle");
     })();
     return () => {
       cancelled = true;
@@ -400,6 +421,12 @@ export default function FullMockRunner() {
   }
 
   if (phase === "preview") {
+    if (resumeState === "checking") {
+      return <p className="py-10 text-center text-slate-500">載入中…</p>;
+    }
+    if (resumeState === "failed") {
+      return <ResumeFailedScreen examLabel="完整模擬考" />;
+    }
     return (
       <div className="space-y-5">
         <section className="rounded-2xl bg-gradient-to-br from-slate-800 to-indigo-900 p-5 text-white shadow-md">

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BackupSection } from "@/components/dashboard/BackupSection";
 import {
   FullMockEntry,
@@ -163,14 +163,23 @@ export default function DashboardPage() {
 
   const metrics = useDashboardMetrics(records, todayVocabulary, vocabularyProgress);
 
+  // Ref (not state) so rapid taps during the multi-second first bank load
+  // cannot queue duplicate plans and navigations.
+  const grammarPracticeBusy = useRef(false);
+
   async function handleStartGrammarVariantPractice() {
-    if (!records) return;
-    if (!(await ensureQuestionBankLoaded())) return;
-    const ids = buildGrammarVariantPlan(records);
-    if (startGrammarVariantPractice(ids)) {
-      router.push("/quiz");
-    } else {
-      alert("這些文法類型的題目你都練過了！換個弱點，或先去做今日訓練吧。");
+    if (!records || grammarPracticeBusy.current) return;
+    grammarPracticeBusy.current = true;
+    try {
+      if (!(await ensureQuestionBankLoaded())) return;
+      const ids = buildGrammarVariantPlan(records);
+      if (startGrammarVariantPractice(ids)) {
+        router.push("/quiz");
+      } else {
+        alert("這些文法類型的題目你都練過了！換個弱點，或先去做今日訓練吧。");
+      }
+    } finally {
+      grammarPracticeBusy.current = false;
     }
   }
 

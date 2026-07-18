@@ -10,6 +10,9 @@ import {
 } from "@/lib/vocabularyStorage";
 
 type TodayCoachState = {
+  /** True when the vocabulary bank chunk failed to load — the vocabulary
+   * steps must then read as unavailable, never as completed. */
+  vocabularyUnavailable: boolean;
   vocabularyTotal: number;
   reviewedCount: number;
   validatedCount: number;
@@ -51,11 +54,16 @@ export default function Home() {
         reviewDueCount: getReviewableIds().length,
       };
       if (!bankReady) {
+        // getDailySessionActivity reads localStorage only, so the real
+        // reviewed/validated counts survive a failed bank load; reinforcement
+        // is disabled because building its quiz needs the bank.
+        const activity = getDailySessionActivity();
         setToday({
+          vocabularyUnavailable: true,
           vocabularyTotal: 0,
-          reviewedCount: 0,
-          validatedCount: 0,
-          reinforcementCount: 0,
+          reviewedCount: activity.reviewedCount,
+          validatedCount: activity.validatedCount,
+          reinforcementCount: activity.reinforcementCount,
           canReinforce: false,
           ...practiceState,
         });
@@ -64,6 +72,7 @@ export default function Home() {
       const vocabulary = buildDailySession();
       const activity = getDailySessionActivity();
       setToday({
+        vocabularyUnavailable: false,
         vocabularyTotal: vocabulary.items.length,
         reviewedCount: activity.reviewedCount,
         validatedCount: activity.validatedCount,
@@ -77,11 +86,16 @@ export default function Home() {
     };
   }, []);
 
+  // vocabularyTotal === 0 means "nothing scheduled today" and counts as done —
+  // but ONLY when the bank actually loaded; a failed load must not read as
+  // completed (it would silently cost the user a study day).
   const vocabularyReviewed =
     today !== null &&
+    !today.vocabularyUnavailable &&
     (today.vocabularyTotal === 0 || today.reviewedCount >= today.vocabularyTotal);
   const vocabularyValidated =
     today !== null &&
+    !today.vocabularyUnavailable &&
     (today.vocabularyTotal === 0 || today.validatedCount >= today.vocabularyTotal);
   const practiceComplete =
     today !== null &&
@@ -170,7 +184,9 @@ export default function Home() {
             label="單字自評"
             desc={
               today
-                ? `${Math.min(today.reviewedCount, today.vocabularyTotal)} / ${today.vocabularyTotal} 字完成`
+                ? today.vocabularyUnavailable
+                  ? "單字庫載入失敗，請確認網路後重新整理"
+                  : `${Math.min(today.reviewedCount, today.vocabularyTotal)} / ${today.vocabularyTotal} 字完成`
                 : "載入今日單字…"
             }
             href="/vocabulary"
@@ -181,7 +197,9 @@ export default function Home() {
             label="單字驗收"
             desc={
               today
-                ? `${Math.min(today.validatedCount, today.vocabularyTotal)} / ${today.vocabularyTotal} 字完成正式驗收`
+                ? today.vocabularyUnavailable
+                  ? "單字庫載入失敗，請確認網路後重新整理"
+                  : `${Math.min(today.validatedCount, today.vocabularyTotal)} / ${today.vocabularyTotal} 字完成正式驗收`
                 : "載入驗收進度…"
             }
             href="/vocabulary-quiz"
@@ -264,6 +282,13 @@ function getCoachAction(
   vocabularyValidated: boolean,
   practiceComplete: boolean,
 ): CoachAction {
+  if (today.vocabularyUnavailable) {
+    return {
+      href: "/vocabulary",
+      label: "重新載入單字",
+      detail: "單字庫載入失敗；請確認網路後重試，今日進度不受影響",
+    };
+  }
   if (!vocabularyReviewed) {
     return {
       href: "/vocabulary",

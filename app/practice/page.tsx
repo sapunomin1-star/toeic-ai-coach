@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ensureQuestionBankLoaded,
   loadQuestionBank,
@@ -55,9 +55,12 @@ export default function PracticePage() {
     DEFAULT_LISTENING_MIX,
   );
   // The current bank always has Part 6 groups; default to true so the task
-  // list does not flash while the lazily loaded bank confirms it.
+  // list does not flash while the lazily loaded bank confirms it. This state
+  // is display-only — startNewPlan re-derives availability from the loaded
+  // bank at click time (the render closure could be stale).
   const [hasPart6Questions, setHasPart6Questions] = useState(true);
   const part6Count = hasPart6Questions ? PART6_QUESTIONS_PER_GROUP : 0;
+  const startingPlan = useRef(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -122,34 +125,44 @@ export default function PracticePage() {
   const maxMin = minMin + 5;
 
   async function startNewPlan() {
-    if (!(await ensureQuestionBankLoaded())) return;
-    clearWrongPracticePlan();
-    const reviewIds = getReviewableIds().slice(0, REVIEW_MAX);
-    const records = getAnswerRecords();
-    const weakSkillTags = getWeakestSkills(records, 2, 5).map((w) => w.skill);
-    const mix = getNextDayListeningMix(records);
-    setListeningMix(mix);
-    const plan = questionBank().buildDailyPlan({
-      weakCount: WEAK_COUNT,
-      newCount: NEW_COUNT,
-      part6GroupCount: hasPart6Questions ? PART6_GROUP_COUNT : 0,
-      part1Count: mix.part1Count,
-      part2Count: mix.part2Count,
-      part3GroupCount: mix.part3GroupCount,
-      part4GroupCount: mix.part4GroupCount,
-      readingGroupCount: READING_GROUP_COUNT,
-      reviewIds,
-      reviewCount: REVIEW_MAX,
-      weakSkillTags,
-      answeredIds: new Set(records.map((r) => r.questionId)),
-    });
-    setPlanCounts(plan.counts);
-    saveDailyPlan({
-      questionIds: plan.questions.map((q) => q.id),
-      createdAt: new Date().toISOString(),
-      cursor: 0,
-    });
-    router.push("/quiz");
+    if (startingPlan.current) return;
+    startingPlan.current = true;
+    try {
+      if (!(await ensureQuestionBankLoaded())) return;
+      const part6Ready =
+        questionBank().getQuestionsByPart("Part 6").length >=
+        PART6_QUESTIONS_PER_GROUP;
+      setHasPart6Questions(part6Ready);
+      clearWrongPracticePlan();
+      const reviewIds = getReviewableIds().slice(0, REVIEW_MAX);
+      const records = getAnswerRecords();
+      const weakSkillTags = getWeakestSkills(records, 2, 5).map((w) => w.skill);
+      const mix = getNextDayListeningMix(records);
+      setListeningMix(mix);
+      const plan = questionBank().buildDailyPlan({
+        weakCount: WEAK_COUNT,
+        newCount: NEW_COUNT,
+        part6GroupCount: part6Ready ? PART6_GROUP_COUNT : 0,
+        part1Count: mix.part1Count,
+        part2Count: mix.part2Count,
+        part3GroupCount: mix.part3GroupCount,
+        part4GroupCount: mix.part4GroupCount,
+        readingGroupCount: READING_GROUP_COUNT,
+        reviewIds,
+        reviewCount: REVIEW_MAX,
+        weakSkillTags,
+        answeredIds: new Set(records.map((r) => r.questionId)),
+      });
+      setPlanCounts(plan.counts);
+      saveDailyPlan({
+        questionIds: plan.questions.map((q) => q.id),
+        createdAt: new Date().toISOString(),
+        cursor: 0,
+      });
+      router.push("/quiz");
+    } finally {
+      startingPlan.current = false;
+    }
   }
 
   function continueExisting() {

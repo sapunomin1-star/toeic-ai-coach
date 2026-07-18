@@ -103,11 +103,16 @@ export default function QuizPage() {
   const [activeAutoConversationId, setActiveAutoConversationId] = useState<string | null>(
     null,
   );
+  // False when the vocabulary chunk failed to load: weak-word inference and
+  // the question-vocabulary panel degrade instead of blocking the quiz.
+  const [vocabAvailable, setVocabAvailable] = useState(true);
+  const startingFreshPlan = useRef(false);
   const submittedQuestionIds = useRef(new Set<string>());
   const questionStartTime = useRef<number>(0);
   const planSource = useRef<QuizPlanSource>("daily");
 
   function buildIsWeakWord(): (word: string) => boolean {
+    if (!vocabAvailable) return () => false;
     const statusByWordId = new Map(
       getVocabularyProgress().map((progress) => [progress.wordId, progress.status]),
     );
@@ -122,16 +127,30 @@ export default function QuizPage() {
   useEffect(() => {
     let cancelled = false;
     void (async () => {
-      // The banks live in lazily loaded chunks; both are needed here (plan
-      // questions + weak-word inference / question vocabulary display).
-      try {
-        await Promise.all([loadQuestionBank(), loadVocabularyBank()]);
-      } catch (error) {
-        console.error("[quiz] failed to load data banks:", error);
-        if (!cancelled) setStatus("load-error");
+      // The question bank is load-bearing (plan questions). The vocabulary
+      // bank only powers weak-word inference and the question-vocabulary
+      // panel, so its failure degrades those features instead of blocking
+      // the quiz — and must not be reported as a question-bank failure.
+      const [questionResult, vocabularyResult] = await Promise.allSettled([
+        loadQuestionBank(),
+        loadVocabularyBank(),
+      ]);
+      if (cancelled) return;
+      if (questionResult.status === "rejected") {
+        console.error(
+          "[quiz] failed to load question bank:",
+          questionResult.reason,
+        );
+        setStatus("load-error");
         return;
       }
-      if (cancelled) return;
+      if (vocabularyResult.status === "rejected") {
+        console.error(
+          "[quiz] failed to load vocabulary bank:",
+          vocabularyResult.reason,
+        );
+        setVocabAvailable(false);
+      }
       const quizPlan = getQuizPlan();
       if (!quizPlan || quizPlan.plan.questionIds.length === 0) {
         setStatus("no-plan");
@@ -371,36 +390,42 @@ export default function QuizPage() {
   }
 
   async function startFreshPlan() {
-    // Ensure the bank BEFORE clearing anything: a failed chunk load must not
-    // destroy the finished plan and leave the button silently dead.
-    if (!(await ensureQuestionBankLoaded())) return;
-    clearDailyPlan();
-    const reviewIds = getReviewableIds().slice(0, 3);
-    const records = getAnswerRecords();
-    const weakSkillTags = getWeakestSkills(records, 2, 5).map((w) => w.skill);
-    const mix = getNextDayListeningMix(records);
-    const plan = questionBank().buildDailyPlan({
-      reviewIds,
-      weakSkillTags,
-      part1Count: mix.part1Count,
-      part2Count: mix.part2Count,
-      part3GroupCount: mix.part3GroupCount,
-      part4GroupCount: mix.part4GroupCount,
-      answeredIds: new Set(records.map((r) => r.questionId)),
-    });
-    saveDailyPlan({
-      questionIds: plan.questions.map((q) => q.id),
-      createdAt: new Date().toISOString(),
-      cursor: 0,
-    });
-    router.push("/practice");
+    if (startingFreshPlan.current) return;
+    startingFreshPlan.current = true;
+    try {
+      // Ensure the bank BEFORE clearing anything: a failed chunk load must
+      // not destroy the finished plan and leave the button silently dead.
+      if (!(await ensureQuestionBankLoaded())) return;
+      clearDailyPlan();
+      const reviewIds = getReviewableIds().slice(0, 3);
+      const records = getAnswerRecords();
+      const weakSkillTags = getWeakestSkills(records, 2, 5).map((w) => w.skill);
+      const mix = getNextDayListeningMix(records);
+      const plan = questionBank().buildDailyPlan({
+        reviewIds,
+        weakSkillTags,
+        part1Count: mix.part1Count,
+        part2Count: mix.part2Count,
+        part3GroupCount: mix.part3GroupCount,
+        part4GroupCount: mix.part4GroupCount,
+        answeredIds: new Set(records.map((r) => r.questionId)),
+      });
+      saveDailyPlan({
+        questionIds: plan.questions.map((q) => q.id),
+        createdAt: new Date().toISOString(),
+        cursor: 0,
+      });
+      router.push("/practice");
+    } finally {
+      startingFreshPlan.current = false;
+    }
   }
 
   function handleReasonSelect(reason: MistakeReason) {
     if (!currentQuestion) return;
     setSelectedReason(reason);
     updateLatestReason(currentQuestion.id, reason, "user");
-    if (reason === "vocab") {
+    if (reason === "vocab" && vocabAvailable) {
       bumpWordsToDueByWords(currentQuestion.vocabulary ?? []);
     }
   }
@@ -792,13 +817,16 @@ export default function QuizPage() {
         />
       )}
 
-      {isAnswered && currentQuestion.vocabulary && currentQuestion.vocabulary.length > 0 && (
-        <QuestionVocabulary
-          key={currentQuestion.id}
-          terms={currentQuestion.vocabulary}
-          defaultOpen={!isCorrect}
-        />
-      )}
+      {isAnswered &&
+        vocabAvailable &&
+        currentQuestion.vocabulary &&
+        currentQuestion.vocabulary.length > 0 && (
+          <QuestionVocabulary
+            key={currentQuestion.id}
+            terms={currentQuestion.vocabulary}
+            defaultOpen={!isCorrect}
+          />
+        )}
 
       {/* Post-answer audio script reveal + replay (listening only).
           Prefer `transcript` (P3/P4 conversations / talks).

@@ -8,6 +8,7 @@ import MockQuestionCanvas, {
 } from "@/components/mock/MockQuestionCanvas";
 import MockQuestionGrid from "@/components/mock/MockQuestionGrid";
 import ResultStatCards from "@/components/mock/ResultStatCards";
+import ResumeFailedScreen from "@/components/mock/ResumeFailedScreen";
 import SubmitErrorScreen from "@/components/mock/SubmitErrorScreen";
 import {
   ensureQuestionBankLoaded,
@@ -112,6 +113,12 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
   const [result, setResult] = useState<MockTestResult | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [starting, setStarting] = useState(false);
+  // "checking" until the mount effect resolves whether an unfinished session
+  // exists; the preview (with its session-overwriting start button) must not
+  // render during that window or after a failed restore.
+  const [resumeState, setResumeState] = useState<"checking" | "idle" | "failed">(
+    "checking",
+  );
   const submittedRef = useRef(false);
   const submittedTimeRef = useRef<number | null>(null);
   const questionStartTime = useRef(0);
@@ -120,6 +127,18 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
     if (starting) return;
     setStarting(true);
     try {
+      // Safety net for any path that reaches the preview with a live session
+      // (races, future code changes): never silently overwrite exam progress.
+      const existing = getMockSession(mode);
+      if (
+        existing &&
+        !existing.submittedAt &&
+        !window.confirm(
+          "偵測到未完成的模擬考。開始新測驗會清除原有進度，確定要重新開始嗎？",
+        )
+      ) {
+        return;
+      }
       if (!(await ensureQuestionBankLoaded())) return;
       const plan = config.buildPlan(getMockSeenQuestionIds());
       setQuestions(plan);
@@ -285,39 +304,46 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
     void loadQuestionBank().catch(() => {});
     void (async () => {
       const session = getMockSession(mode);
-      if (session && !session.submittedAt) {
-        try {
-          await loadQuestionBank();
-        } catch (error) {
-          // Do NOT clear the session on a transient chunk-load failure —
-          // the exam progress must survive a network hiccup.
-          console.error("[mock] failed to load question bank:", error);
-          return;
-        }
-        if (cancelled) return;
-        const qs = session.questionIds
-          .map((questionId) => questionBank().getQuestionById(questionId))
-          .filter((q): q is Question => Boolean(q));
-        if (qs.length === session.questionIds.length) {
-          setQuestions(qs);
-          setAnswers(session.answers ?? {});
-          setResponseTimes(session.responseTimes ?? {});
-          setEndTime(new Date(session.endTime).getTime());
-          const restoredIndex =
-            typeof session.currentIndex === "number"
-              ? Math.min(Math.max(0, session.currentIndex), qs.length - 1)
-              : 0;
-          setCurrentIndex(restoredIndex);
-          questionStartTime.current = new Date().getTime();
-          hydrateFromSession({
-            playedAudioGroups: session.playedAudioGroups,
-            playedQuestionAudioIds: session.playedQuestionAudioIds,
-          });
-          setPhase("testing");
-          return;
-        }
+      if (!session || session.submittedAt) {
+        clearMockSession(mode);
+        if (!cancelled) setResumeState("idle");
+        return;
+      }
+      try {
+        await loadQuestionBank();
+      } catch (error) {
+        // Do NOT clear the session on a transient chunk-load failure — the
+        // exam progress must survive a network hiccup. Swap the preview for a
+        // retry notice so the destructive start button is not shown.
+        console.error("[mock] failed to load question bank:", error);
+        if (!cancelled) setResumeState("failed");
+        return;
+      }
+      if (cancelled) return;
+      const qs = session.questionIds
+        .map((questionId) => questionBank().getQuestionById(questionId))
+        .filter((q): q is Question => Boolean(q));
+      if (qs.length === session.questionIds.length) {
+        setQuestions(qs);
+        setAnswers(session.answers ?? {});
+        setResponseTimes(session.responseTimes ?? {});
+        setEndTime(new Date(session.endTime).getTime());
+        const restoredIndex =
+          typeof session.currentIndex === "number"
+            ? Math.min(Math.max(0, session.currentIndex), qs.length - 1)
+            : 0;
+        setCurrentIndex(restoredIndex);
+        questionStartTime.current = new Date().getTime();
+        hydrateFromSession({
+          playedAudioGroups: session.playedAudioGroups,
+          playedQuestionAudioIds: session.playedQuestionAudioIds,
+        });
+        setResumeState("idle");
+        setPhase("testing");
+        return;
       }
       clearMockSession(mode);
+      setResumeState("idle");
     })();
     return () => {
       cancelled = true;
@@ -350,6 +376,12 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
 
   // ─── PREVIEW ──────────────────────────────────────────────────
   if (phase === "preview") {
+    if (resumeState === "checking") {
+      return <p className="py-10 text-center text-slate-500">載入中…</p>;
+    }
+    if (resumeState === "failed") {
+      return <ResumeFailedScreen examLabel="模擬考" />;
+    }
     return (
       <div className="space-y-5">
         <section className="rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 p-5 text-white shadow-md">

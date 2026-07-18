@@ -1,5 +1,59 @@
 # TOEIC AI Coach Development Log
 
+## Post-Merge Correctness Review Round - 2026-07-19
+
+### Scope
+
+Re-ran the five correctness review angles that the earlier session-limit cut
+short (line-by-line, removed-behavior, cross-file, language-pitfall, and
+extraction-equivalence audits) against commit 96cc338, then fixed everything
+confirmed. The extraction-equivalence audit came back clean: the shared mock
+canvas/grid/stat/error components and tallyMockAnswers are field-by-field
+identical to both original runners (one latent-only note: a reading-mock
+question with an explicit `audioUrl` override would no longer auto-play — no
+such question exists in the 1,899-question bank).
+
+Fixes:
+
+- **Exam-progress protection (most severe).** The lazy bank load opened a
+  window where a mid-exam page reload showed the normal preview (while the
+  chunk downloaded, or forever after a failed load) and the enabled start
+  button would silently overwrite the persisted unfinished session. Both
+  runners now hold a `resumeState` — the preview renders 載入中 while an
+  unfinished session is being restored, a failed restore swaps the preview
+  for a shared `ResumeFailedScreen` (session kept, retry offered), and
+  `start()` additionally confirms before overwriting any live session.
+  Verified in-browser: answer 1 question → reload → back in testing with the
+  timer running and the answer intact; the preview never flashes.
+- **Home no longer reports a failed vocabulary load as "completed".** The
+  degraded coach state carries `vocabularyUnavailable`; the two vocabulary
+  steps show a failure notice instead of green checkmarks (the
+  `vocabularyTotal === 0` = done rule now applies only when the bank actually
+  loaded), real reviewed/validated counts still come from localStorage, and
+  the coach action becomes 重新載入單字.
+- **Quiz degrades instead of hard-failing on a vocabulary-chunk failure.**
+  Previously a vocab failure blocked the whole quiz behind a misleading
+  題庫載入失敗 screen; now the plan loads normally and only weak-word
+  inference, the question-vocabulary panel, and vocab review routing are
+  disabled for the session.
+- **Reentrancy guards on the remaining async handlers** (dashboard grammar
+  variant practice, practice 開始練習, quiz 再做一輪) — rapid taps during a
+  cold bank load could queue duplicate plans, duplicate router.push calls,
+  and stacked failure alerts. Practice also re-derives Part 6 availability
+  from the loaded bank at click time instead of trusting the optimistic
+  render state.
+- Known dev-only quirk (documented, not fixed): under Fast Refresh the
+  module-level bank singletons and the audioOwner transcript-group cache can
+  reset/persist independently, which can throw the not-loaded error or serve
+  stale groups until a full reload. Production is unaffected.
+
+### Validation
+
+- `tsc --noEmit`, `eslint .`, `npm run build` (13 routes), `npm test`: all
+  passed after the fixes.
+- Browser: fresh mock → answer → reload → session restored to testing with
+  timer/answers intact; home/vocabulary/dashboard normal paths unchanged.
+
 ## Bundle Split, Mock Runner Dedup, and Review Fixes - 2026-07-19
 
 ### Scope
