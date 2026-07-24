@@ -6,10 +6,10 @@ import type {
 import type { Choice, Question } from "@/types/question";
 import {
   STORAGE_KEYS,
-  isBrowser,
   isChoice,
   isValidDate,
   readJSON,
+  removeJSON,
   writeJSON,
 } from "@/lib/storageCore";
 import { getAudioUrl, getImageUrl, getQuestionAudioUrl } from "@/lib/media";
@@ -228,6 +228,5 @@ export function saveMockReviewSnapshot(snapshot: MockReviewSnapshot): boolean {
 }
 
 export function clearMockReviewSnapshots(): void {
-  if (!isBrowser()) return;
-  localStorage.removeItem(STORAGE_KEYS.mockReviewSnapshots);
+  removeJSON(STORAGE_KEYS.mockReviewSnapshots);
 }

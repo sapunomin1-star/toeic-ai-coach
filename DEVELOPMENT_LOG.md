@@ -1,6 +1,75 @@
 # TOEIC AI Coach Development Log
 
-## Post-Merge Correctness Review Round - 2026-07-19
+## Cross-Device Sync (Single-User Accounts) - 2026-07-24
+
+### Scope
+
+Added passphrase login + cloud sync so the same account works on every
+device, by explicit user request (formerly on the "do not add" list; AGENTS.md
+updated). Local-first is preserved: logged out = zero network requests,
+behavior identical to before.
+
+### Architecture (decisions recorded)
+
+- Auth: single passphrase → scrypt hash in env → 180-day HttpOnly JWT cookie
+  (jose HS256). No Supabase/Clerk (rejected as overkill for one user).
+  Global login-failure lockout (10 tries / 10 min) via Redis.
+- Storage: Upstash Redis (Vercel Marketplace free tier), two hashes
+  (`toeic:sync:v1:meta` + `:data`), Lua per-key CAS "strictly newer wins",
+  rejections return current envelopes inline. Server treats values as opaque.
+- Client: storageCore write events → persistent dirty flags in
+  `toeic_sync_meta_v1` → debounced push (2.5s / maxWait 15s), pull on load +
+  refocus with per-key merge (union for histories/sets, per-item timestamps
+  for SRS maps, LWW for transient plans, tombstones for user-intent deletes).
+  New `removeJSON(key, {silent})`: TTL/derived cleanup is silent (never
+  syncs), preventing stale devices from wiping in-progress plans elsewhere.
+- UI: SyncProvider in AppShell (children always render → no hydration
+  mismatch; overlay ≤2.5s on initial pull; epoch remount on pulled changes,
+  deferred on focus routes), header status chip, /login page.
+- Dev fallback: without Redis env in development the server uses
+  file-backed `.sync-dev-store.json` with identical CAS semantics.
+
+### Files
+
+New: lib/{syncShared,syncMeta,syncMerge,syncEngine,focusRoutes}.ts,
+lib/server/{syncEnv,redis,auth,devStore}.ts, app/api/auth/{login,logout,me},
+app/api/sync, app/login, components/{SyncProvider,SyncStatusChip}.tsx,
+scripts/{sync-setup,sync-merge-check}.ts. Modified: storageCore (write events
++ removeJSON), storage.ts (sanitizeBackupValue export, tombstone clear-all,
+silent TTL clears, import notifications), sessionStore/mockReviewStorage/
+vocabularyStorage (raw localStorage call sites rerouted), AppShell,
+package.json (jose, @upstash/redis, test chain), README/AGENTS/CLAUDE docs.
+
+### Verification
+
+- `tsc --noEmit`, `eslint`, `next build` (all pages still static; only
+  /api/* dynamic): passed.
+- `npm test` incl. new `sync-merge-check.ts` (merge idempotence, label/
+  dismissal preservation, manual-review resurrection guard, tombstones,
+  baseline protection, malformed-payload rejection, meta dirty lifecycle,
+  silent-removal semantics, SYNC_KEYS===BACKUP_KEYS): passed.
+- curl API tests: bad body 400, wrong code 401, login 200 + cookie, me
+  with/without cookie, sync unauthenticated 401, cross-origin POST 403,
+  CAS round-trip (push/read/stale-reject-with-envelope/tombstone), invalid
+  key 400: all passed.
+- Browser E2E on dev server: logged-out baseline identical with zero /api
+  requests; wrong-code error; login → pull → chip 已同步; answered a
+  question → debounced POST; wiped localStorage (= second device) → login →
+  answer record, wrong-status entry, daily-plan cursor all restored and
+  visible in UI; tombstoned key stayed deleted; logout clears hint but keeps
+  local data.
+- NOT yet verified live: real Upstash backend (integration not installed at
+  the time) — the Lua CAS path is unit-equivalent to the dev store but must
+  be smoke-tested after `vercel env pull` / production deploy.
+
+### Known limits (accepted)
+
+Single-key payload cap 900KB (only mock review snapshots can realistically
+hit it; such keys stay local-only with a warning). Keepalive flush ≤64KiB
+(dirty flags re-push next load). An offline device's newer writes resurrect
+cleared data (strict global clear would need a synced clearEpoch — not done).
+answerRecords pushes the whole array (~200B/record; fine for years at current
+pace; v2 option: per-record hash fields).
 
 ### Scope
 

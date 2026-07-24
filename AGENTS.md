@@ -44,13 +44,15 @@ Prefer:
 - Simple data structures that are easy to inspect and QA.
 - Focused bug fixes and targeted refactors.
 
+Shipped by explicit request (2026-07-24) — the former "do not add" items
+login / backend / cloud sync now EXIST as the single-user cross-device sync
+(see "Cross-Device Sync" below). Do not remove it as scope creep, and do not
+extend it beyond one user.
+
 Do not add unless explicitly requested:
 
-- Login or accounts.
-- Database or backend service.
-- Cloud sync.
+- Multi-user accounts or roles (the sync system is single-passphrase, single-user by design).
 - Payment or subscription logic.
-- Multi-user roles.
 - Notion API integration.
 - Voice audio, TTS, or generated listening audio.
 - Large architecture rewrites.
@@ -279,10 +281,61 @@ Items fixed in this pass:
 
 ### localStorage Rules
 
-- **All localStorage keys live in `STORAGE_KEYS` (`lib/storageCore.ts`); never change a key string without migration.** Current keys: `toeic_answer_records_v1`, `toeic_daily_plan_v1`, `toeic_wrong_status_v1`, `toeic_wrong_practice_plan_v1`, `toeic_vocabulary_progress_v1`, `toeic_vocabulary_daily_session_v1`, `toeic_mock_session_v1`, `toeic_mock_results_v1`, `toeic_listening_mock_session_v1`, `toeic_listening_mock_results_v1`, `toeic_full_mock_session_v1`, `toeic_full_mock_results_v1`, `toeic_mock_review_snapshots_v1`, `toeic_manual_review_items_v1`. Read/write through `readJSON`/`writeJSON` so QuotaExceededError handling is automatic — do not inline `localStorage` JSON parsing.
+- **All localStorage keys live in `STORAGE_KEYS` (`lib/storageCore.ts`); never change a key string without migration.** Current keys: `toeic_answer_records_v1`, `toeic_daily_plan_v1`, `toeic_wrong_status_v1`, `toeic_wrong_practice_plan_v1`, `toeic_vocabulary_progress_v1`, `toeic_vocabulary_daily_session_v1`, `toeic_mock_session_v1`, `toeic_mock_results_v1`, `toeic_listening_mock_session_v1`, `toeic_listening_mock_results_v1`, `toeic_full_mock_session_v1`, `toeic_full_mock_results_v1`, `toeic_mock_review_snapshots_v1`, `toeic_manual_review_items_v1`, `toeic_mock_seen_ids_v1`. Two sync bookkeeping keys live OUTSIDE `STORAGE_KEYS` on purpose (`toeic_sync_meta_v1`, `toeic_sync_enabled_v1` in storageCore): never synced, never backed up, must survive clear-all. Read/write through `readJSON`/`writeJSON` so QuotaExceededError handling is automatic — do not inline `localStorage` JSON parsing.
+- **Removals go through `removeJSON(key, {silent?})`, and the silent flag is a data-loss contract.** Read-path derived cleanup (TTL expiry, consumed plans) MUST pass `silent: true` — every device applies the same rule locally, and broadcasting it as a deletion lets a stale device wipe another device's in-progress plan. Only user-intent deletion (clear-all, explicit removal) uses the default non-silent removal, which syncs as a tombstone.
 - **Always catch QuotaExceededError.** localStorage is limited to 5-10MB. Silent failure = data loss.
 - **Mock test answers do NOT go to `toeic_answer_records_v1`** unless the user actually answered AND got it wrong. Null answers stay in mock session only.
 - **Wrong-book dismissed entries are pruned.** Entries with `dismissed: true` are removed after 90 days. Status map is capped at 500 entries, with dismissed entries evicted first.
+
+### Cross-Device Sync (2026-07-24)
+
+Single-user passphrase login + Upstash Redis, local-first preserved: without
+the hint flag (`toeic_sync_enabled_v1`, set on login) the engine never runs
+and the app makes zero network requests.
+
+- **Auth**: `POST /api/auth/login` verifies scrypt(`SYNC_ACCESS_CODE_HASH`) →
+  180-day HttpOnly JWT cookie (`SYNC_SESSION_SECRET`, jose HS256). Global (not
+  per-IP) failure counter: 10 misses lock 10 minutes. Routes stay on the node
+  runtime — never mark them `edge` (scrypt needs node:crypto).
+- **Server** (`lib/server/redis.ts`): two Redis hashes `toeic:sync:v1:meta`
+  ({t, deleted?} per key) + `toeic:sync:v1:data` (opaque JSON strings). Lua
+  CAS applies a change only when strictly newer, so an old device can never
+  overwrite new data; rejections return the current envelope inline. The
+  server never parses values — validation/merging is client-side
+  (`sanitizeBackupValue` + `lib/syncMerge.ts`). Env accepts
+  `UPSTASH_REDIS_REST_*` or `KV_REST_API_*`; dev without env falls back to
+  file-backed `.sync-dev-store.json` (gitignored), production still fails loudly.
+- **Client engine** (`lib/syncEngine.ts`): storageCore write events → dirty
+  flags persisted in `toeic_sync_meta_v1` (survive tab close) → debounced
+  batch push (2.5s, maxWait 15s); pull on load + on refocus (>60s) reconciles
+  per key via `reconcileKey`. Pull-side writes use RAW localStorage on
+  purpose — writeJSON would re-emit events and loop. First-login baseline
+  stamps value-bearing keys dirty so old remote data can never clobber newer
+  local data.
+- **Merge matrix** (`lib/syncMerge.ts`, all deterministic + idempotent —
+  regression-tested by `scripts/sync-merge-check.ts` in `npm test`):
+  answerRecords union by (questionId, answeredAt, userAnswer) preferring
+  labeled records; vocabularyProgress per-word by max(reviewedAt, lastQuizAt);
+  wrongStatus per-question newer-side + dismissal preservation;
+  manualReviewItems union minus answered-after-added (mirrors saveAnswer);
+  results/snapshots id-union capped 20; transient plan/session keys whole-key
+  LWW. The 12 synced keys = `BACKUP_KEYS` exactly (test-enforced); the 3
+  in-progress mock session keys stay device-local.
+- **UI**: `SyncProvider` in AppShell — children always render (hydration),
+  overlay ≤2.5s over the initial pull, epoch-remount on pulled changes,
+  NEVER remounts on focus routes (deferred until leaving). `/login` page +
+  header chip. Clear-all propagates tombstones to every device (by design;
+  the dashboard flow confirms first).
+- **Known limits** (documented, accepted): single key payload cap 900KB
+  (oversized keys — realistically only `toeic_mock_review_snapshots_v1` —
+  stay local-only with a console warning until they shrink); page-hide flush
+  keeps only what fits 64KiB keepalive (persistent dirty flags re-push next
+  load); an offline device with newer writes resurrects data cleared while it
+  was away (single-user acceptable; strict global clear would need a synced
+  clearEpoch).
+- **Setup**: `scripts/sync-setup.ts` (`--push-env` pushes hash+secret to
+  Vercel production over stdin; `--dev` provisions the non-secret localhost
+  code). The passphrase itself must never appear in code, logs, or chat.
 
 ### Vocabulary SRS design intent
 

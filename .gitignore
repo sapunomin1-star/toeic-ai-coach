@@ -47,3 +47,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .env*.local
+
+# local dev sync backend (scripts/sync E2E without Upstash)
+.sync-dev-store.json

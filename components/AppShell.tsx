@@ -3,13 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
-
-const FOCUS_ROUTES = [
-  "/quiz",
-  "/mock-test",
-  "/listening-mock",
-  "/full-mock",
-] as const;
+import SyncProvider from "@/components/SyncProvider";
+import SyncStatusChip from "@/components/SyncStatusChip";
+import { isFocusRoute, isWithinRoute } from "@/lib/focusRoutes";
 
 const MOCK_ROUTES = ["/mock-test", "/listening-mock", "/full-mock"] as const;
 
@@ -26,10 +22,6 @@ const NAV_ROUTE_ALIASES: Record<string, readonly string[]> = {
   "/dashboard": ["/dashboard", "/mock-review"],
 };
 
-function isWithinRoute(pathname: string, route: string): boolean {
-  return pathname === route || pathname.startsWith(`${route}/`);
-}
-
 function isCurrentRoute(pathname: string, href: string): boolean {
   if (href === "/") return pathname === href;
   return (NAV_ROUTE_ALIASES[href] ?? [href]).some((route) =>
@@ -39,7 +31,7 @@ function isCurrentRoute(pathname: string, href: string): boolean {
 
 export default function AppShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
-  const isFocusFlow = FOCUS_ROUTES.some((route) => isWithinRoute(pathname, route));
+  const isFocusFlow = isFocusRoute(pathname);
   const isMockFlow = MOCK_ROUTES.some((route) => isWithinRoute(pathname, route));
 
   const mainClassName = isMockFlow
@@ -68,6 +60,7 @@ export default function AppShell({ children }: { children: ReactNode }) {
               aria-label="頁首快速連結"
               className="flex min-w-0 items-center gap-1 text-xs font-medium text-slate-500"
             >
+              <SyncStatusChip />
               <Link
                 href="/vocabulary"
                 aria-current={
@@ -96,7 +89,7 @@ export default function AppShell({ children }: { children: ReactNode }) {
       )}
 
       <main id="main-content" tabIndex={-1} className={mainClassName}>
-        {children}
+        <SyncProvider>{children}</SyncProvider>
       </main>
 
       {!isFocusFlow && (

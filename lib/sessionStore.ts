@@ -1,5 +1,5 @@
 import type { Choice } from "@/types/question";
-import { isBrowser, readJSON, writeJSON } from "@/lib/storageCore";
+import { readJSON, removeJSON, writeJSON } from "@/lib/storageCore";
 
 /**
  * Fields every mock-style session shares. The factory only ever reads or
@@ -71,8 +71,7 @@ export function createSessionStore<
   }
 
   function clearSession(): void {
-    if (!isBrowser()) return;
-    localStorage.removeItem(sessionKey);
+    removeJSON(sessionKey);
   }
 
   function saveAnswer(questionId: string, choice: Choice | null): void {
@@ -142,9 +141,8 @@ export function createSessionStore<
   }
 
   function clearAll(): void {
-    if (!isBrowser()) return;
-    localStorage.removeItem(sessionKey);
-    localStorage.removeItem(resultsKey);
+    removeJSON(sessionKey);
+    removeJSON(resultsKey);
   }
 
   return {

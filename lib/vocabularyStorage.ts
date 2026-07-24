@@ -11,7 +11,12 @@ import type {
   VocabularyStatus,
 } from "@/types/vocabulary";
 import { createLazyLoader } from "@/lib/lazyLoader";
-import { STORAGE_KEYS, isBrowser, writeJSON } from "@/lib/storageCore";
+import {
+  STORAGE_KEYS,
+  isBrowser,
+  notifyExternalWrite,
+  writeJSON,
+} from "@/lib/storageCore";
 
 const VOCABULARY_PROGRESS_KEY = STORAGE_KEYS.vocabularyProgress;
 const DAILY_SESSION_KEY = STORAGE_KEYS.vocabularyDailySession;
@@ -199,6 +204,7 @@ function readProgress(): VocabularyProgress[] {
     );
     if (needsWriteBack) {
       localStorage.setItem(VOCABULARY_PROGRESS_KEY, JSON.stringify(progress));
+      notifyExternalWrite(VOCABULARY_PROGRESS_KEY);
     }
     return progress;
   } catch (e) {

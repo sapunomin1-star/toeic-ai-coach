@@ -12,7 +12,9 @@ import { clearMockReviewSnapshots } from "@/lib/mockReviewStorage";
 import {
   STORAGE_KEYS,
   isBrowser,
+  notifyExternalWrite,
   readJSON,
+  removeJSON,
   writeJSON,
   isChoice,
 } from "@/lib/storageCore";
@@ -101,21 +103,17 @@ export function updateLatestReason(
 
 export function clearAllProgress(): void {
   if (!isBrowser()) return;
-  try {
-    localStorage.removeItem(ANSWER_KEY);
-    localStorage.removeItem(DAILY_PLAN_KEY);
-    localStorage.removeItem(WRONG_STATUS_KEY);
-    localStorage.removeItem(WRONG_PRACTICE_PLAN_KEY);
-    localStorage.removeItem(MANUAL_REVIEW_KEY);
-    localStorage.removeItem(MOCK_SEEN_KEY);
-    localStorage.removeItem(STORAGE_KEYS.vocabularyProgress);
-    localStorage.removeItem(STORAGE_KEYS.vocabularyDailySession);
-    clearAllMockData();
-    clearAllFullMockData();
-    clearMockReviewSnapshots();
-  } catch (e) {
-    console.warn("[storage] Failed to clear all progress:", e);
-  }
+  removeJSON(ANSWER_KEY);
+  removeJSON(DAILY_PLAN_KEY);
+  removeJSON(WRONG_STATUS_KEY);
+  removeJSON(WRONG_PRACTICE_PLAN_KEY);
+  removeJSON(MANUAL_REVIEW_KEY);
+  removeJSON(MOCK_SEEN_KEY);
+  removeJSON(STORAGE_KEYS.vocabularyProgress);
+  removeJSON(STORAGE_KEYS.vocabularyDailySession);
+  clearAllMockData();
+  clearAllFullMockData();
+  clearMockReviewSnapshots();
 }
 
 // ─── Backup / Restore ────────────────────────────────────────────────────────
@@ -200,7 +198,7 @@ export function importAllData(json: string): boolean {
     pendingWrites = [];
     for (const key of BACKUP_KEYS) {
       if (!(key in snapshot)) continue;
-      const value = normalizeBackupValue(key, snapshot[key]);
+      const value = sanitizeBackupValue(key, snapshot[key]);
       if (value === undefined) {
         skipped++;
         continue;
@@ -224,6 +222,9 @@ export function importAllData(json: string): boolean {
   } catch (error) {
     console.warn("[storage] Failed to write imported data:", error);
     const rolledBack = rollbackBackupWrites(pendingWrites);
+    if (rolledBack) {
+      for (const { key } of pendingWrites) notifyExternalWrite(key);
+    }
     if (!rolledBack) {
       alert("匯入失敗，且無法完整還原原有資料。請先匯出目前資料以供檢查。");
     } else if (isQuotaExceededError(error)) {
@@ -234,6 +235,8 @@ export function importAllData(json: string): boolean {
     return false;
   }
 
+  for (const { key } of pendingWrites) notifyExternalWrite(key);
+
   const count = pendingWrites.length;
   alert(
     skipped > 0
@@ -243,7 +246,11 @@ export function importAllData(json: string): boolean {
   return true;
 }
 
-function normalizeBackupValue(
+/**
+ * Per-key inbound cleaning shared by backup import and cloud sync: returns the
+ * validated value, or undefined when the payload is unusable for that key.
+ */
+export function sanitizeBackupValue(
   key: (typeof BACKUP_KEYS)[number],
   value: unknown,
 ): unknown | undefined {
@@ -738,20 +745,20 @@ export function getDailyPlan(): DailyPlan | null {
   // Expire after 24 hours
   const age = Date.now() - new Date(plan.createdAt).getTime();
   if (age > DAILY_PLAN_TTL_MS) {
-    clearDailyPlan();
+    clearDailyPlan({ silent: true });
     return null;
   }
 
   return plan;
 }
 
-export function clearDailyPlan(): void {
-  if (!isBrowser()) return;
-  try {
-    localStorage.removeItem(DAILY_PLAN_KEY);
-  } catch (e) {
-    console.warn("[storage] Failed to clear daily plan:", e);
-  }
+/**
+ * `silent: true` is for read-path expiry cleanup only: every device expires
+ * plans on its own, so expiry must never sync as a deletion — a stale device
+ * waking up would otherwise wipe another device's in-progress plan.
+ */
+export function clearDailyPlan(opts?: { silent?: boolean }): void {
+  removeJSON(DAILY_PLAN_KEY, opts);
 }
 
 export type QuizPlanSource = "daily" | "wrongbook";
@@ -772,13 +779,9 @@ export function startGrammarVariantPractice(questionIds: string[]): boolean {
   });
 }
 
-export function clearWrongPracticePlan(): void {
-  if (!isBrowser()) return;
-  try {
-    localStorage.removeItem(WRONG_PRACTICE_PLAN_KEY);
-  } catch (e) {
-    console.warn("[storage] Failed to clear wrong-practice plan:", e);
-  }
+/** See clearDailyPlan for the `silent` contract. */
+export function clearWrongPracticePlan(opts?: { silent?: boolean }): void {
+  removeJSON(WRONG_PRACTICE_PLAN_KEY, opts);
 }
 
 export function getQuizPlan():
@@ -788,14 +791,14 @@ export function getQuizPlan():
   if (isDailyPlan(wrongPracticePlan)) {
     const age = Date.now() - new Date(wrongPracticePlan.createdAt).getTime();
     if (age > DAILY_PLAN_TTL_MS) {
-      clearWrongPracticePlan();
+      clearWrongPracticePlan({ silent: true });
     } else if (
       wrongPracticePlan.cursor < wrongPracticePlan.questionIds.length ||
       wrongPracticePlan.pendingFeedback
     ) {
       return { plan: wrongPracticePlan, source: "wrongbook" };
     } else {
-      clearWrongPracticePlan();
+      clearWrongPracticePlan({ silent: true });
     }
   }
 

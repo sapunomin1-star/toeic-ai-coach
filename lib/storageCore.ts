@@ -22,6 +22,55 @@ export const STORAGE_KEYS = {
   mockSeenQuestionIds: "toeic_mock_seen_ids_v1",
 } as const;
 
+/**
+ * Client-side sync bookkeeping keys. Deliberately NOT part of STORAGE_KEYS:
+ * they are never synced, never backed up, and must survive clearAllProgress.
+ */
+export const SYNC_META_KEY = "toeic_sync_meta_v1";
+export const SYNC_HINT_KEY = "toeic_sync_enabled_v1";
+
+export type StorageWriteEvent = {
+  key: string;
+  kind: "write" | "remove";
+  /**
+   * Derived cleanup (TTL expiry, consumed plans) every device applies on its
+   * own — listeners must not replicate it to other devices.
+   */
+  silent: boolean;
+};
+
+type StorageWriteListener = (event: StorageWriteEvent) => void;
+
+const writeListeners = new Set<StorageWriteListener>();
+
+/** Subscribe to persistence events (used by the sync engine). Returns unsubscribe. */
+export function subscribeStorageWrites(
+  listener: StorageWriteListener,
+): () => void {
+  writeListeners.add(listener);
+  return () => {
+    writeListeners.delete(listener);
+  };
+}
+
+function emitStorageWrite(event: StorageWriteEvent): void {
+  for (const listener of writeListeners) {
+    try {
+      listener(event);
+    } catch (e) {
+      console.warn("[storage] Write listener failed:", e);
+    }
+  }
+}
+
+/**
+ * Report a localStorage change made outside writeJSON/removeJSON (raw batch
+ * writes like import/rollback) so sync listeners still see it.
+ */
+export function notifyExternalWrite(key: string): void {
+  emitStorageWrite({ key, kind: "write", silent: false });
+}
+
 export function isBrowser(): boolean {
   return typeof window !== "undefined" && typeof localStorage !== "undefined";
 }
@@ -46,6 +95,7 @@ export function writeJSON<T>(key: string, value: T): boolean {
   if (!isBrowser()) return true;
   try {
     localStorage.setItem(key, JSON.stringify(value));
+    emitStorageWrite({ key, kind: "write", silent: false });
     return true;
   } catch (e) {
     console.warn(`[storage] Failed to write "${key}":`, e);
@@ -60,6 +110,22 @@ export function writeJSON<T>(key: string, value: T): boolean {
     }
     return false;
   }
+}
+
+/**
+ * Remove a persisted value. `silent: true` marks derived cleanup (TTL expiry,
+ * consumed plans) that every device applies locally — the sync engine must not
+ * broadcast it. Non-silent removals are user intent and do sync.
+ */
+export function removeJSON(key: string, opts?: { silent?: boolean }): void {
+  if (!isBrowser()) return;
+  try {
+    localStorage.removeItem(key);
+  } catch (e) {
+    console.warn(`[storage] Failed to remove "${key}":`, e);
+    return;
+  }
+  emitStorageWrite({ key, kind: "remove", silent: opts?.silent ?? false });
 }
 
 const CHOICES = ["A", "B", "C", "D"] satisfies Choice[];

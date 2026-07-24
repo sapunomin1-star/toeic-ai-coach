@@ -1,6 +1,6 @@
 # TOEIC AI Coach
 
-個人多益自學工具 — 每日 20 個新字，加上約 15–30 分鐘核心題目訓練；把練習、錯題、單字、模擬考、考後檢討與分數預測整合在一個 **local-first** 的 Next.js App 裡。所有學習資料存在瀏覽器，**不需要登入、不需要後端、不需要資料庫**。
+個人多益自學工具 — 每日 20 個新字，加上約 15–30 分鐘核心題目訓練；把練習、錯題、單字、模擬考、考後檢討與分數預測整合在一個 **local-first** 的 Next.js App 裡。所有學習資料存在瀏覽器；**可選擇登入單人帳號啟用跨裝置同步**（Upstash Redis），未登入時完全單機、零網路請求。
 
 > 題庫 1,899 題（Part 1–7）＋ 單字庫 1,500 字，全部通過資料完整性與媒體存在性自動檢查。
 
@@ -18,6 +18,7 @@
 | **考後檢討** | 每次模考留存 snapshot（題目 / 作答 / 正解 / 詳解 / passage / transcript / 媒體 URL），可逐題回顧 |
 | **分數預測** | 依 IIBC 公開換算表估算 Listening / Reading / Total 分數範圍，並對照 ETS CEFR 等級 |
 | **教練報告** | 正確率、各 Part 表現、作答速度、**錯誤原因分析**、文法弱點補救、明日建議 |
+| **跨裝置同步** | 通行密語登入（180 天免重登）後，練習紀錄／錯題 SRS／單字進度／模考結果在所有裝置間自動合併同步；離線照常練、上線自動補推 |
 | **資料備份** | 一鍵匯出 / 匯入 JSON，可在不同裝置間搬移學習進度 |
 
 ---
@@ -254,10 +255,20 @@ npx tsx scripts/repro-c1.ts
 
 ## ☁️ Vercel 部署
 
-- 全部使用者資料存 browser localStorage，部署不需資料庫。
+- 使用者資料存 browser localStorage；登入同步後另存一份於 Upstash Redis（見下）。
 - `pipeline/` 是離線產題工具，不應依賴 Vercel runtime。
 - 部署前在 Vercel project Environment Variables 設定 `NEXT_PUBLIC_BLOB_BASE_URL` 與 `BLOB_READ_WRITE_TOKEN`。
 - 媒體存於 Vercel Blob，不進 git；`next/image` 會對 Part 1 圖片自動轉 WebP/AVIF。
+
+### 跨裝置同步啟用步驟（一次性）
+
+1. Vercel dashboard → 專案 → Storage/Marketplace 安裝 **Upstash for Redis**（免費 plan）並連到本專案（會自動注入 `KV_REST_API_URL`/`KV_REST_API_TOKEN` 或 `UPSTASH_REDIS_REST_*`，程式兩種名稱都認）。
+2. 本機跑 `npx tsx scripts/sync-setup.ts --push-env`：產生通行密語（只顯示一次，存進密碼管理器）、寫入 `.env.local` 並推上 Vercel production env。
+3. Redeploy（`vercel --prod` 或 dashboard Redeploy）。
+4. 每台裝置開 app → 右上「同步登入」→ 輸入通行密語一次即可（180 天）。
+5. 本機開發不裝 Upstash 也能測：dev 模式自動改用 `.sync-dev-store.json` 檔案後備（gitignored）。
+
+同步細節（合併規則、已知限制）見 `AGENTS.md` 的 Cross-Device Sync 段。
 
 ### macOS / iCloud 注意
 
@@ -273,7 +284,7 @@ find . -flags +dataless -not -path './node_modules/*' -print
 
 ## 🔒 隱私
 
-所有學習資料只存在你的瀏覽器 localStorage，不會上傳任何伺服器；唯一的外部請求是從 Vercel Blob 載入聽力音檔與圖片。清除瀏覽器資料或在 Dashboard 按「清除所有學習紀錄」即可完全移除。
+未登入時，所有學習資料只存在你的瀏覽器 localStorage，僅有的外部請求是從 Vercel Blob 載入聽力音檔與圖片。登入同步後，學習資料會另存一份到你自己的 Upstash Redis（通行密語保護、僅你可寫）；「清除所有學習紀錄」會連同雲端一起清除（離線時於下次連線清除）。
 
 ---
 
