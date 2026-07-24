@@ -1,5 +1,36 @@
 # TOEIC AI Coach Development Log
 
+## Production Cross-Device Pull Fix - 2026-07-25
+
+### Problem and root cause
+
+Production login and pushes succeeded, and Redis already contained the
+computer's history (1,070 answer records and 265 wrong-status entries), but a
+second device showed "已同步" without restoring any of it.
+
+The production Redis client uses `automaticDeserialization: false` so values
+stay opaque. In that mode `@upstash/redis` returns `HGETALL` as a flat
+`[field, value, ...]` array. `readAll()` incorrectly cast that raw reply to an
+object, so `/api/sync` returned numeric array indexes instead of the real
+`toeic_*` keys. The client received HTTP 200, ignored all unknown keys, and
+therefore displayed a false successful status with no restored data. The
+file-backed development store returned an object, which is why the original
+local E2E did not catch the production-only mismatch.
+
+### Fix and verification
+
+- Normalize both raw flat-array and transformed object `HGETALL` replies in
+  `lib/server/redis.ts`, join meta/data by the real field name, and discard
+  unknown keys.
+- Add `scripts/sync-server-check.ts` to the main test gate. It drives the real
+  Upstash SDK with mocked HTTP and covers all 12 sync keys, tombstones,
+  missing data, corrupt metadata, and orphaned data.
+- Verified the repaired `readAll()` directly against the production Redis
+  instance: all five existing cloud keys were reconstructed with their
+  original timestamps and opaque payload sizes.
+- `npm test`, `npm run lint`, `tsc --noEmit`, `npm run build`,
+  `pipeline/npm run check`, and `git diff --check`: passed.
+
 ## Cross-Device Sync (Single-User Accounts) - 2026-07-24
 
 ### Scope

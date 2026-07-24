@@ -7,11 +7,12 @@ import {
   devRecordLoginFailure,
 } from "@/lib/server/devStore";
 import { resolveRedisConfig } from "@/lib/server/syncEnv";
-import type {
-  KeyedEnvelope,
-  SyncChange,
-  SyncEnvelope,
-  SyncKey,
+import {
+  isSyncKey,
+  type KeyedEnvelope,
+  type SyncChange,
+  type SyncEnvelope,
+  type SyncKey,
 } from "@/lib/syncShared";
 
 /**
@@ -100,6 +101,30 @@ function parseMeta(raw: string): { t: number; deleted?: boolean } | null {
   }
 }
 
+/**
+ * With `automaticDeserialization: false`, @upstash/redis deliberately skips
+ * the HGETALL response transformer and returns a flat
+ * `[field, value, field, value, ...]` array. Keep accepting the transformed
+ * object shape too so this remains correct if the SDK changes its internals.
+ */
+function hashEntries(raw: unknown): Array<[string, string]> {
+  if (Array.isArray(raw)) {
+    const entries: Array<[string, string]> = [];
+    for (let index = 0; index + 1 < raw.length; index += 2) {
+      const key = raw[index];
+      const value = raw[index + 1];
+      if (typeof key === "string" && typeof value === "string") {
+        entries.push([key, value]);
+      }
+    }
+    return entries;
+  }
+  if (!raw || typeof raw !== "object") return [];
+  return Object.entries(raw).filter(
+    (entry): entry is [string, string] => typeof entry[1] === "string",
+  );
+}
+
 export type StoredEnvelope = KeyedEnvelope;
 
 /**
@@ -154,16 +179,15 @@ export async function readAll(): Promise<Record<string, SyncEnvelope>> {
   const pipeline = redis.pipeline();
   pipeline.hgetall(META_HASH);
   pipeline.hgetall(DATA_HASH);
-  const [metaRaw, dataRaw] = (await pipeline.exec()) as Array<Record<
-    string,
-    string
-  > | null>;
+  const [metaRaw, dataRaw] = (await pipeline.exec()) as unknown[];
+  const dataByKey = new Map(hashEntries(dataRaw));
 
   const items: Record<string, SyncEnvelope> = {};
-  for (const [key, raw] of Object.entries(metaRaw ?? {})) {
+  for (const [key, raw] of hashEntries(metaRaw)) {
+    if (!isSyncKey(key)) continue;
     const meta = parseMeta(raw);
     if (!meta) continue;
-    const value = dataRaw?.[key];
+    const value = dataByKey.get(key);
     items[key] = {
       t: meta.t,
       ...(meta.deleted ? { deleted: true } : {}),
