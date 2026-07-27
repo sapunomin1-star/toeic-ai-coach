@@ -1,5 +1,60 @@
 # TOEIC AI Coach Development Log
 
+## Print Import, Second Pass — Answer Verification - 2026-07-28
+
+Bank 2,927 → **2,983** (1,084 imported). The first pass shipped questions whose
+answer rested on a single reading; this pass measured that risk, found it real,
+and closed it. Three defects in the first pass are fixed here.
+
+### The answer risk was real, and is now closed
+
+Eduwill's booklet turned out to cite the page it is answering
+("PRACTICE 題本 p.187"), which is an exact pointer back to a question — unlike
+item numbers, which restart every unit. Re-extracting the booklet for those
+citations gave a second, independent way to attach answers.
+
+Running both methods over the same questions is what exposed the problem: they
+**disagreed on 6 of 98**. Reading those by hand showed neither method dominates
+(p121 #10 "Beginning this Saturday" and p124 #1 "arrive for" — the page citation
+was right; p131 #5 "clients who make" and #6 "Hotel, where" — the quoted English
+was right). So each single reading is wrong ~3% of the time.
+
+Every question resting on one reading is now re-solved from scratch by a model
+that is not shown the book's answer (`verify-answers.ts`); a disagreement goes
+to a second, stronger model, and a book answer contradicted twice is dropped.
+
+- 新東方: 280 single-source → 273 confirmed, 7 dropped
+- Eduwill: 292 single-source → 256 confirmed, 29 dropped, 7 unresolved
+
+Everything shipped now has at least two independent sources agreeing.
+
+### Three defects from the first pass
+
+1. **Listening questions were shipping as Part 7.** A transcript looks exactly
+   like a reading passage once extracted, so ~11 items whose questions ask about
+   "the speaker" were labelled Part 7. `part_by_shape` now recognises spoken
+   sources and returns Part 3/4, and the writer defers them. Note the first
+   attempt at this over-matched: listing "announcement"/"introduction"/"tour" as
+   spoken types mislabelled 32 genuine Part 7 items in the reading-only book,
+   because those are all printed document types. Only genuinely unprintable
+   types are matched now; the "speaker"/"listener" wording carries the rest.
+2. **Explanations could contradict the answer.** English choices often start with
+   the article "A", so "答案為 A publishing company" reads as declaring choice A —
+   to `integrity.ts` and to a student. The enrichment prompt now requires the
+   letter before the quoted text, and the writer refuses any explanation whose
+   declared letter disagrees with the answer.
+3. **Regenerating while the previous output was still imported** made the writer
+   dedupe against itself (825 → 452). Detach the imports in `data/questions.ts`
+   and delete the generated files before re-running `write-bank`.
+
+### Still not imported
+
+Unchanged from the first pass: 新東方 Part 6 (3 blanks, app requires 4) and all
+listening. The listening items are now correctly identified and kept in
+`ed-assembled.json` — 5 Part 3 and 24 Part 4 with transcripts — waiting on audio.
+`generate-audio.ts --provider openrouter` works (Kokoro TTS, verified), so that
+path is open; the OpenAI key is out of quota and the Kimi key returns 401.
+
 ## Print Question Bank Import (PDF → questions) - 2026-07-27
 
 Imported 1,028 reading questions from two scanned print books on the Desktop,

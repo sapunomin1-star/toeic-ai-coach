@@ -18,13 +18,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "will discuss"
     },
     "answer": "C",
-    "explanation_zh": "空格後有 of his chefs，且表示兩者都不，因此需要 neither。",
+    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
     "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
       "assist",
       "chef",
-      "neither"
+      "arrive on time"
     ]
   },
   {
@@ -38,17 +38,37 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "herself"
     },
     "answer": "C",
-    "explanation_zh": "空格後有 of his chefs，且表示兩者都不，因此需要 neither。",
+    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
     "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
       "assist",
       "chef",
-      "neither"
+      "arrive on time"
     ]
   },
   {
     "id": "p5-ed-0003",
+    "part": "Part 5",
+    "question": "Ms. Howell has a comprehensive understanding of even the _______ developments in technology these days.",
+    "choices": {
+      "A": "late",
+      "B": "lateness",
+      "C": "lately",
+      "D": "latest"
+    },
+    "answer": "D",
+    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
+    "skill_tag": "pronoun",
+    "difficulty": "B1",
+    "vocabulary": [
+      "assist",
+      "chef",
+      "arrive on time"
+    ]
+  },
+  {
+    "id": "p5-ed-0004",
     "part": "Part 5",
     "question": "The improvements to the website were _______ made by the director of the IT Department.",
     "choices": {
@@ -58,17 +78,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "personally"
     },
     "answer": "D",
-    "explanation_zh": "空格後有 of his chefs，且表示兩者都不，因此需要 neither。",
+    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
     "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
       "assist",
       "chef",
-      "neither"
+      "arrive on time"
     ]
   },
   {
-    "id": "p5-ed-0004",
+    "id": "p5-ed-0005",
     "part": "Part 5",
     "question": "Danzig Office Supplies _______ cash payments for large purchases by domestic buyers.",
     "choices": {
@@ -78,17 +98,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "prefers"
     },
     "answer": "D",
-    "explanation_zh": "空格後有 of his chefs，且表示兩者都不，因此需要 neither。",
+    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
     "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
       "assist",
       "chef",
-      "neither"
+      "arrive on time"
     ]
   },
   {
-    "id": "p5-ed-0005",
+    "id": "p5-ed-0006",
     "part": "Part 5",
     "question": "Ken Richards is the top candidate _______ the new team being formed in the R&D Department.",
     "choices": {
@@ -98,17 +118,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "to lead"
     },
     "answer": "D",
-    "explanation_zh": "空格後有 of his chefs，且表示兩者都不，因此需要 neither。",
+    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
     "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
       "assist",
       "chef",
-      "neither"
+      "arrive on time"
     ]
   },
   {
-    "id": "p5-ed-0006",
+    "id": "p5-ed-0007",
     "part": "Part 5",
     "question": "Ms. Long examined the _______ progress report that was submitted by the team leader.",
     "choices": {
@@ -118,37 +138,37 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "revise"
     },
     "answer": "A",
-    "explanation_zh": "空格後有 of his chefs，且表示兩者都不，因此需要 neither。",
+    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
     "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
       "assist",
       "chef",
-      "neither"
-    ]
-  },
-  {
-    "id": "p5-ed-0007",
-    "part": "Part 5",
-    "question": "All interns must arrive by 7:30 A.M. on Monday _______ an orientation event.",
-    "choices": {
-      "A": "for",
-      "B": "with",
-      "C": "as",
-      "D": "over"
-    },
-    "answer": "B",
-    "explanation_zh": "空格後有 of his chefs，且表示兩者都不，因此需要 neither。",
-    "skill_tag": "pronoun",
-    "difficulty": "B1",
-    "vocabulary": [
-      "assist",
-      "chef",
-      "neither"
+      "arrive on time"
     ]
   },
   {
     "id": "p5-ed-0008",
+    "part": "Part 5",
+    "question": "During inclement weather, staff members should consider _______ working from home or taking public transportation to the office.",
+    "choices": {
+      "A": "and",
+      "B": "either",
+      "C": "since",
+      "D": "if"
+    },
+    "answer": "B",
+    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
+    "skill_tag": "pronoun",
+    "difficulty": "B1",
+    "vocabulary": [
+      "assist",
+      "chef",
+      "arrive on time"
+    ]
+  },
+  {
+    "id": "p5-ed-0009",
     "part": "Part 5",
     "question": "Mr. Cross stated that _______ recruits the highest number of new clients this month will receive a cash bonus.",
     "choices": {
@@ -158,17 +178,117 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "whom"
     },
     "answer": "C",
-    "explanation_zh": "空格後有 of his chefs，且表示兩者都不，因此需要 neither。",
+    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
     "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
       "assist",
       "chef",
-      "neither"
+      "arrive on time"
     ]
   },
   {
-    "id": "p5-ed-0009",
+    "id": "p5-ed-0010",
+    "part": "Part 5",
+    "question": "Several local companies do not permit telecommuting because they prefer their employees to have a physical _______ at the office.",
+    "choices": {
+      "A": "appearance",
+      "B": "method",
+      "C": "work",
+      "D": "presence"
+    },
+    "answer": "D",
+    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
+    "skill_tag": "pronoun",
+    "difficulty": "B1",
+    "vocabulary": [
+      "assist",
+      "chef",
+      "arrive on time"
+    ]
+  },
+  {
+    "id": "p5-ed-0011",
+    "part": "Part 5",
+    "question": "Jessica Roth, a reporter with the Hampton Times, had an _______ interview with Emerson Howell, the state governor.",
+    "choices": {
+      "A": "intermittent",
+      "B": "alternate",
+      "C": "exclusive",
+      "D": "imperative"
+    },
+    "answer": "C",
+    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
+    "skill_tag": "pronoun",
+    "difficulty": "B1",
+    "vocabulary": [
+      "assist",
+      "chef",
+      "arrive on time"
+    ]
+  },
+  {
+    "id": "p5-ed-0012",
+    "part": "Part 5",
+    "question": "Mary Hartford plans to skip the opening day of the conference and will _______ appear on the second day.",
+    "choices": {
+      "A": "instead",
+      "B": "variously",
+      "C": "literally",
+      "D": "similarly"
+    },
+    "answer": "A",
+    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
+    "skill_tag": "pronoun",
+    "difficulty": "B1",
+    "vocabulary": [
+      "assist",
+      "chef",
+      "arrive on time"
+    ]
+  },
+  {
+    "id": "p5-ed-0013",
+    "part": "Part 5",
+    "question": "Mr. Washington _______ a strict policy of not allowing workers to arrive at meetings late.",
+    "choices": {
+      "A": "disturbs",
+      "B": "minimizes",
+      "C": "enforces",
+      "D": "reveals"
+    },
+    "answer": "C",
+    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
+    "skill_tag": "pronoun",
+    "difficulty": "B1",
+    "vocabulary": [
+      "assist",
+      "chef",
+      "arrive on time"
+    ]
+  },
+  {
+    "id": "p5-ed-0014",
+    "part": "Part 5",
+    "question": "To ensure the final draft of the magazine is printed on time, reporters should make all _______ to their texts prior to June 8.",
+    "choices": {
+      "A": "revisions",
+      "B": "essays",
+      "C": "recommendations",
+      "D": "proposals"
+    },
+    "answer": "A",
+    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
+    "skill_tag": "pronoun",
+    "difficulty": "B1",
+    "vocabulary": [
+      "assist",
+      "chef",
+      "arrive on time"
+    ]
+  },
+  {
+    "id": "p5-ed-0015",
     "part": "Part 5",
     "question": "Mr. Cross assisted in the kitchen since _______ of his chefs arrived at the restaurant on time.",
     "choices": {
@@ -178,17 +298,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "anyone"
     },
     "answer": "C",
-    "explanation_zh": "空格後有 of his chefs，且表示兩者都不，因此需要 neither。",
+    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
     "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
       "assist",
       "chef",
-      "neither"
+      "arrive on time"
     ]
   },
   {
-    "id": "p5-ed-0010",
+    "id": "p5-ed-0016",
     "part": "Part 5",
     "question": "Speak with a supervisor if any safety _______ occur on the assembly line.",
     "choices": {
@@ -198,17 +318,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "violates"
     },
     "answer": "B",
-    "explanation_zh": "空格在 make 後作受詞，且表示利潤，因此需要複數名詞 profits。",
+    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "profit",
-      "manufacturing",
-      "record"
+      "financial expert",
+      "manufacturing company",
+      "profit"
     ]
   },
   {
-    "id": "p5-ed-0011",
+    "id": "p5-ed-0017",
     "part": "Part 5",
     "question": "_______ who is interested in a career in robotics is welcome to apply for the position.",
     "choices": {
@@ -218,17 +338,37 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Whomever"
     },
     "answer": "B",
-    "explanation_zh": "空格在 make 後作受詞，且表示利潤，因此需要複數名詞 profits。",
+    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "profit",
-      "manufacturing",
-      "record"
+      "financial expert",
+      "manufacturing company",
+      "profit"
     ]
   },
   {
-    "id": "p5-ed-0012",
+    "id": "p5-ed-0018",
+    "part": "Part 5",
+    "question": "After attending the workshop, _______ person has to do some hands-on training in the lab.",
+    "choices": {
+      "A": "every",
+      "B": "which",
+      "C": "because",
+      "D": "many"
+    },
+    "answer": "A",
+    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
+    "skill_tag": "word_form",
+    "difficulty": "B1",
+    "vocabulary": [
+      "financial expert",
+      "manufacturing company",
+      "profit"
+    ]
+  },
+  {
+    "id": "p5-ed-0019",
     "part": "Part 5",
     "question": "The audience was impressed by the _______ realistic special effects in the film.",
     "choices": {
@@ -238,17 +378,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "highly"
     },
     "answer": "D",
-    "explanation_zh": "空格在 make 後作受詞，且表示利潤，因此需要複數名詞 profits。",
+    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "profit",
-      "manufacturing",
-      "record"
+      "financial expert",
+      "manufacturing company",
+      "profit"
     ]
   },
   {
-    "id": "p5-ed-0013",
+    "id": "p5-ed-0020",
     "part": "Part 5",
     "question": "Many technology companies _______ new employees in spring after they graduate from college.",
     "choices": {
@@ -258,17 +398,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "hire"
     },
     "answer": "D",
-    "explanation_zh": "空格在 make 後作受詞，且表示利潤，因此需要複數名詞 profits。",
+    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "profit",
-      "manufacturing",
-      "record"
+      "financial expert",
+      "manufacturing company",
+      "profit"
     ]
   },
   {
-    "id": "p5-ed-0014",
+    "id": "p5-ed-0021",
     "part": "Part 5",
     "question": "In July, Alps Airlines will start _______ its newest routes to cities throughout Asia.",
     "choices": {
@@ -278,17 +418,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "promote"
     },
     "answer": "A",
-    "explanation_zh": "空格在 make 後作受詞，且表示利潤，因此需要複數名詞 profits。",
+    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "profit",
-      "manufacturing",
-      "record"
+      "financial expert",
+      "manufacturing company",
+      "profit"
     ]
   },
   {
-    "id": "p5-ed-0015",
+    "id": "p5-ed-0022",
     "part": "Part 5",
     "question": "Using professional accountants is highly recommended for _______ businesses.",
     "choices": {
@@ -298,17 +438,37 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "expanded"
     },
     "answer": "C",
-    "explanation_zh": "空格在 make 後作受詞，且表示利潤，因此需要複數名詞 profits。",
+    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "profit",
-      "manufacturing",
-      "record"
+      "financial expert",
+      "manufacturing company",
+      "profit"
     ]
   },
   {
-    "id": "p5-ed-0016",
+    "id": "p5-ed-0023",
+    "part": "Part 5",
+    "question": "Any returns of products sold online by Blaine Toys must be made within two weeks _______ delivery.",
+    "choices": {
+      "A": "before",
+      "B": "on",
+      "C": "of",
+      "D": "since"
+    },
+    "answer": "C",
+    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
+    "skill_tag": "word_form",
+    "difficulty": "B1",
+    "vocabulary": [
+      "financial expert",
+      "manufacturing company",
+      "profit"
+    ]
+  },
+  {
+    "id": "p5-ed-0024",
     "part": "Part 5",
     "question": "Jasmine Cartier worked on her presentation skills _______ is now an accomplished public speaker.",
     "choices": {
@@ -318,17 +478,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "or"
     },
     "answer": "A",
-    "explanation_zh": "空格在 make 後作受詞，且表示利潤，因此需要複數名詞 profits。",
+    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "profit",
-      "manufacturing",
-      "record"
+      "financial expert",
+      "manufacturing company",
+      "profit"
     ]
   },
   {
-    "id": "p5-ed-0017",
+    "id": "p5-ed-0025",
     "part": "Part 5",
     "question": "Nantucket Construction is owned by Peter Carroll, _______ has lived in the local area since his childhood.",
     "choices": {
@@ -338,17 +498,37 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "and"
     },
     "answer": "C",
-    "explanation_zh": "空格在 make 後作受詞，且表示利潤，因此需要複數名詞 profits。",
+    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "profit",
-      "manufacturing",
-      "record"
+      "financial expert",
+      "manufacturing company",
+      "profit"
     ]
   },
   {
-    "id": "p5-ed-0018",
+    "id": "p5-ed-0026",
+    "part": "Part 5",
+    "question": "A _______ of long-term customers was responsible for rating the supermarket's newest products.",
+    "choices": {
+      "A": "system",
+      "B": "version",
+      "C": "survey",
+      "D": "panel"
+    },
+    "answer": "D",
+    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
+    "skill_tag": "word_form",
+    "difficulty": "B1",
+    "vocabulary": [
+      "financial expert",
+      "manufacturing company",
+      "profit"
+    ]
+  },
+  {
+    "id": "p5-ed-0027",
     "part": "Part 5",
     "question": "The training program for the new marketing software is not _______, but employees are advised to take it.",
     "choices": {
@@ -358,17 +538,57 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "replaced"
     },
     "answer": "A",
-    "explanation_zh": "空格在 make 後作受詞，且表示利潤，因此需要複數名詞 profits。",
+    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "profit",
-      "manufacturing",
-      "record"
+      "financial expert",
+      "manufacturing company",
+      "profit"
     ]
   },
   {
-    "id": "p5-ed-0019",
+    "id": "p5-ed-0028",
+    "part": "Part 5",
+    "question": "Employees should submit all documents requesting the reimbursement of expenditures _______.",
+    "choices": {
+      "A": "fortunately",
+      "B": "gracefully",
+      "C": "electronically",
+      "D": "revealingly"
+    },
+    "answer": "C",
+    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
+    "skill_tag": "word_form",
+    "difficulty": "B1",
+    "vocabulary": [
+      "financial expert",
+      "manufacturing company",
+      "profit"
+    ]
+  },
+  {
+    "id": "p5-ed-0029",
+    "part": "Part 5",
+    "question": "To _______ that all individuals are treated fairly, rules must apply equally to everyone.",
+    "choices": {
+      "A": "bargain",
+      "B": "appoint",
+      "C": "integrate",
+      "D": "ensure"
+    },
+    "answer": "D",
+    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
+    "skill_tag": "word_form",
+    "difficulty": "B1",
+    "vocabulary": [
+      "financial expert",
+      "manufacturing company",
+      "profit"
+    ]
+  },
+  {
+    "id": "p5-ed-0030",
     "part": "Part 5",
     "question": "Agriculture experts recommend providing the _______ environment possible for plants so that they have a good chance of thriving.",
     "choices": {
@@ -378,17 +598,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "stability"
     },
     "answer": "A",
-    "explanation_zh": "空格在 make 後作受詞，且表示利潤，因此需要複數名詞 profits。",
+    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "profit",
-      "manufacturing",
-      "record"
+      "financial expert",
+      "manufacturing company",
+      "profit"
     ]
   },
   {
-    "id": "p5-ed-0020",
+    "id": "p5-ed-0031",
     "part": "Part 5",
     "question": "According to financial experts, manufacturing companies should expect to make record _______ this year.",
     "choices": {
@@ -398,17 +618,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "profits"
     },
     "answer": "D",
-    "explanation_zh": "空格在 make 後作受詞，且表示利潤，因此需要複數名詞 profits。",
+    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "profit",
-      "manufacturing",
-      "record"
+      "financial expert",
+      "manufacturing company",
+      "profit"
     ]
   },
   {
-    "id": "p5-ed-0021",
+    "id": "p5-ed-0032",
     "part": "Part 5",
     "question": "The lawyers carefully review negotiated _______ to check for any problems.",
     "choices": {
@@ -418,17 +638,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "agreeing"
     },
     "answer": "B",
-    "explanation_zh": "空格在 make the factory workers 後作受詞補語，表示有生產力的，因此需要形容詞 productive。",
+    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "productive",
       "automated system",
-      "factory"
+      "factory worker",
+      "productive"
     ]
   },
   {
-    "id": "p5-ed-0022",
+    "id": "p5-ed-0033",
     "part": "Part 5",
     "question": "The staff meeting is mandatory, so _______ must cancel conflicting appointments and attend it tomorrow.",
     "choices": {
@@ -438,17 +658,37 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "every"
     },
     "answer": "B",
-    "explanation_zh": "空格在 make the factory workers 後作受詞補語，表示有生產力的，因此需要形容詞 productive。",
+    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "productive",
       "automated system",
-      "factory"
+      "factory worker",
+      "productive"
     ]
   },
   {
-    "id": "p5-ed-0023",
+    "id": "p5-ed-0034",
+    "part": "Part 5",
+    "question": "It is _______ to create an agenda before a meeting so that all important points are covered.",
+    "choices": {
+      "A": "benefit",
+      "B": "benefiting",
+      "C": "beneficial",
+      "D": "beneficially"
+    },
+    "answer": "C",
+    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
+    "skill_tag": "word_form",
+    "difficulty": "B1",
+    "vocabulary": [
+      "automated system",
+      "factory worker",
+      "productive"
+    ]
+  },
+  {
+    "id": "p5-ed-0035",
     "part": "Part 5",
     "question": "The sign indicates that the room is _______ off limits to unauthorized personnel.",
     "choices": {
@@ -458,17 +698,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "clearest"
     },
     "answer": "B",
-    "explanation_zh": "空格在 make the factory workers 後作受詞補語，表示有生產力的，因此需要形容詞 productive。",
+    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "productive",
       "automated system",
-      "factory"
+      "factory worker",
+      "productive"
     ]
   },
   {
-    "id": "p5-ed-0024",
+    "id": "p5-ed-0036",
     "part": "Part 5",
     "question": "Daylight Media _______ news shows on the Internet and consider doing television as well.",
     "choices": {
@@ -478,17 +718,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "was broadcasting"
     },
     "answer": "C",
-    "explanation_zh": "空格在 make the factory workers 後作受詞補語，表示有生產力的，因此需要形容詞 productive。",
+    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "productive",
       "automated system",
-      "factory"
+      "factory worker",
+      "productive"
     ]
   },
   {
-    "id": "p5-ed-0025",
+    "id": "p5-ed-0037",
     "part": "Part 5",
     "question": "The company's CEO plans to permit workers _______ for promotions twice a year.",
     "choices": {
@@ -498,17 +738,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "applied"
     },
     "answer": "B",
-    "explanation_zh": "空格在 make the factory workers 後作受詞補語，表示有生產力的，因此需要形容詞 productive。",
+    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "productive",
       "automated system",
-      "factory"
+      "factory worker",
+      "productive"
     ]
   },
   {
-    "id": "p5-ed-0026",
+    "id": "p5-ed-0038",
     "part": "Part 5",
     "question": "_______ meetings should be rescheduled to mutually convenient times.",
     "choices": {
@@ -518,17 +758,37 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Postponing"
     },
     "answer": "A",
-    "explanation_zh": "空格在 make the factory workers 後作受詞補語，表示有生產力的，因此需要形容詞 productive。",
+    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "productive",
       "automated system",
-      "factory"
+      "factory worker",
+      "productive"
     ]
   },
   {
-    "id": "p5-ed-0027",
+    "id": "p5-ed-0039",
+    "part": "Part 5",
+    "question": "_______ serving as the firm's accountant, Melissa Standish is employed as the office manager.",
+    "choices": {
+      "A": "As a result",
+      "B": "Because of",
+      "C": "With regard to",
+      "D": "In addition to"
+    },
+    "answer": "D",
+    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
+    "skill_tag": "word_form",
+    "difficulty": "B1",
+    "vocabulary": [
+      "automated system",
+      "factory worker",
+      "productive"
+    ]
+  },
+  {
+    "id": "p5-ed-0040",
     "part": "Part 5",
     "question": "_______ Mr. Hamilton spent half of July on vacation, he achieved the highest sales figures on his team.",
     "choices": {
@@ -538,17 +798,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "In spite of"
     },
     "answer": "B",
-    "explanation_zh": "空格在 make the factory workers 後作受詞補語，表示有生產力的，因此需要形容詞 productive。",
+    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "productive",
       "automated system",
-      "factory"
+      "factory worker",
+      "productive"
     ]
   },
   {
-    "id": "p5-ed-0028",
+    "id": "p5-ed-0041",
     "part": "Part 5",
     "question": "Logistics companies _______ deliver goods on time are in high demand in most parts of the country.",
     "choices": {
@@ -558,17 +818,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "they"
     },
     "answer": "B",
-    "explanation_zh": "空格在 make the factory workers 後作受詞補語，表示有生產力的，因此需要形容詞 productive。",
+    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "productive",
       "automated system",
-      "factory"
+      "factory worker",
+      "productive"
     ]
   },
   {
-    "id": "p5-ed-0029",
+    "id": "p5-ed-0042",
     "part": "Part 5",
     "question": "The latest _______ to the company's fleet of vehicles is an SUV made by Cobra Motors.",
     "choices": {
@@ -578,17 +838,77 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "program"
     },
     "answer": "A",
-    "explanation_zh": "空格在 make the factory workers 後作受詞補語，表示有生產力的，因此需要形容詞 productive。",
+    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "productive",
       "automated system",
-      "factory"
+      "factory worker",
+      "productive"
     ]
   },
   {
-    "id": "p5-ed-0030",
+    "id": "p5-ed-0043",
+    "part": "Part 5",
+    "question": "All customer complaints should be handled in a _______ manner by store representatives.",
+    "choices": {
+      "A": "relative",
+      "B": "close",
+      "C": "prompt",
+      "D": "various"
+    },
+    "answer": "C",
+    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
+    "skill_tag": "word_form",
+    "difficulty": "B1",
+    "vocabulary": [
+      "automated system",
+      "factory worker",
+      "productive"
+    ]
+  },
+  {
+    "id": "p5-ed-0044",
+    "part": "Part 5",
+    "question": "Mr. Burns was _______ offered a low salary, but the company increased the amount when he rejected it.",
+    "choices": {
+      "A": "pleasantly",
+      "B": "entirely",
+      "C": "initially",
+      "D": "particularly"
+    },
+    "answer": "C",
+    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
+    "skill_tag": "word_form",
+    "difficulty": "B1",
+    "vocabulary": [
+      "automated system",
+      "factory worker",
+      "productive"
+    ]
+  },
+  {
+    "id": "p5-ed-0045",
+    "part": "Part 5",
+    "question": "The date of the seminar will be changed so that it does not _______ with the company picnic.",
+    "choices": {
+      "A": "collaborate",
+      "B": "coincide",
+      "C": "report",
+      "D": "assign"
+    },
+    "answer": "B",
+    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
+    "skill_tag": "word_form",
+    "difficulty": "B1",
+    "vocabulary": [
+      "automated system",
+      "factory worker",
+      "productive"
+    ]
+  },
+  {
+    "id": "p5-ed-0046",
     "part": "Part 5",
     "question": "Mr. Kamal will examine the incoming résumés to determine _______ reflect the necessary qualifications for the management position.",
     "choices": {
@@ -598,17 +918,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "which ones"
     },
     "answer": "D",
-    "explanation_zh": "空格在 make the factory workers 後作受詞補語，表示有生產力的，因此需要形容詞 productive。",
+    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "productive",
       "automated system",
-      "factory"
+      "factory worker",
+      "productive"
     ]
   },
   {
-    "id": "p5-ed-0031",
+    "id": "p5-ed-0047",
     "part": "Part 5",
     "question": "It is expected that the automated system will make the factory workers _______ in their jobs.",
     "choices": {
@@ -618,17 +938,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "producer"
     },
     "answer": "C",
-    "explanation_zh": "空格在 make the factory workers 後作受詞補語，表示有生產力的，因此需要形容詞 productive。",
+    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "productive",
       "automated system",
-      "factory"
+      "factory worker",
+      "productive"
     ]
   },
   {
-    "id": "p5-ed-0032",
+    "id": "p5-ed-0048",
     "part": "Part 5",
     "question": "Irene Krakow intends to meet a _______ from her gym tomorrow morning.",
     "choices": {
@@ -638,17 +958,57 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "training"
     },
     "answer": "B",
-    "explanation_zh": "主詞 The R&D team 為單數，且表示被給予機會，因此需要被動語態 has been given。",
+    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
     "skill_tag": "passive_voice",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D",
-      "solution",
+      "R&D team",
+      "second chance",
       "manufacturing problem"
     ]
   },
   {
-    "id": "p5-ed-0033",
+    "id": "p5-ed-0049",
+    "part": "Part 5",
+    "question": "After reading a section of the novel, Jules Desmond _______ will autograph copies for fans.",
+    "choices": {
+      "A": "him",
+      "B": "he",
+      "C": "his",
+      "D": "himself"
+    },
+    "answer": "D",
+    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
+    "skill_tag": "passive_voice",
+    "difficulty": "B1",
+    "vocabulary": [
+      "R&D team",
+      "second chance",
+      "manufacturing problem"
+    ]
+  },
+  {
+    "id": "p5-ed-0050",
+    "part": "Part 5",
+    "question": "Destiny Media only hires _______ applicants willing to work hard to achieve their goals.",
+    "choices": {
+      "A": "ambition",
+      "B": "ambitions",
+      "C": "ambitious",
+      "D": "ambitiously"
+    },
+    "answer": "C",
+    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
+    "skill_tag": "passive_voice",
+    "difficulty": "B1",
+    "vocabulary": [
+      "R&D team",
+      "second chance",
+      "manufacturing problem"
+    ]
+  },
+  {
+    "id": "p5-ed-0051",
     "part": "Part 5",
     "question": "Mr. Olson, the office manager, _______ instructed his employees to arrive on time for special events.",
     "choices": {
@@ -658,17 +1018,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "repeatedly"
     },
     "answer": "D",
-    "explanation_zh": "主詞 The R&D team 為單數，且表示被給予機會，因此需要被動語態 has been given。",
+    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
     "skill_tag": "passive_voice",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D",
-      "solution",
+      "R&D team",
+      "second chance",
       "manufacturing problem"
     ]
   },
   {
-    "id": "p5-ed-0034",
+    "id": "p5-ed-0052",
     "part": "Part 5",
     "question": "The bid submitted by Eagle Builders _______ the requirements listed by the city government.",
     "choices": {
@@ -678,17 +1038,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "to fulfill"
     },
     "answer": "C",
-    "explanation_zh": "主詞 The R&D team 為單數，且表示被給予機會，因此需要被動語態 has been given。",
+    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
     "skill_tag": "passive_voice",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D",
-      "solution",
+      "R&D team",
+      "second chance",
       "manufacturing problem"
     ]
   },
   {
-    "id": "p5-ed-0035",
+    "id": "p5-ed-0053",
     "part": "Part 5",
     "question": "Mr. Solomon stated that he considers _______ the Auckland branch a mistake due to its profitability.",
     "choices": {
@@ -698,17 +1058,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "has closed"
     },
     "answer": "B",
-    "explanation_zh": "主詞 The R&D team 為單數，且表示被給予機會，因此需要被動語態 has been given。",
+    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
     "skill_tag": "passive_voice",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D",
-      "solution",
+      "R&D team",
+      "second chance",
       "manufacturing problem"
     ]
   },
   {
-    "id": "p5-ed-0036",
+    "id": "p5-ed-0054",
     "part": "Part 5",
     "question": "Any customer _______ with a product is entitled to return it within seven days of purchase.",
     "choices": {
@@ -718,17 +1078,37 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "displeasing"
     },
     "answer": "B",
-    "explanation_zh": "主詞 The R&D team 為單數，且表示被給予機會，因此需要被動語態 has been given。",
+    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
     "skill_tag": "passive_voice",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D",
-      "solution",
+      "R&D team",
+      "second chance",
       "manufacturing problem"
     ]
   },
   {
-    "id": "p5-ed-0037",
+    "id": "p5-ed-0055",
+    "part": "Part 5",
+    "question": "_______ each performance at the county fair, a team of volunteers cleans the entire theater.",
+    "choices": {
+      "A": "Following",
+      "B": "Through",
+      "C": "Around",
+      "D": "Within"
+    },
+    "answer": "A",
+    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
+    "skill_tag": "passive_voice",
+    "difficulty": "B1",
+    "vocabulary": [
+      "R&D team",
+      "second chance",
+      "manufacturing problem"
+    ]
+  },
+  {
+    "id": "p5-ed-0056",
     "part": "Part 5",
     "question": "More library books are being returned on time _______ the checkout system was computerized.",
     "choices": {
@@ -738,17 +1118,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "since"
     },
     "answer": "D",
-    "explanation_zh": "主詞 The R&D team 為單數，且表示被給予機會，因此需要被動語態 has been given。",
+    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
     "skill_tag": "passive_voice",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D",
-      "solution",
+      "R&D team",
+      "second chance",
       "manufacturing problem"
     ]
   },
   {
-    "id": "p5-ed-0038",
+    "id": "p5-ed-0057",
     "part": "Part 5",
     "question": "Jessica Yeltsin established a charitable foundation _______ she attempted to use to end the local homeless crisis.",
     "choices": {
@@ -758,17 +1138,97 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "how"
     },
     "answer": "C",
-    "explanation_zh": "主詞 The R&D team 為單數，且表示被給予機會，因此需要被動語態 has been given。",
+    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
     "skill_tag": "passive_voice",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D",
-      "solution",
+      "R&D team",
+      "second chance",
       "manufacturing problem"
     ]
   },
   {
-    "id": "p5-ed-0039",
+    "id": "p5-ed-0058",
+    "part": "Part 5",
+    "question": "Redecorating the employee lounge is considered a low _______ at this time.",
+    "choices": {
+      "A": "priority",
+      "B": "venture",
+      "C": "attempt",
+      "D": "consequence"
+    },
+    "answer": "A",
+    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
+    "skill_tag": "passive_voice",
+    "difficulty": "B1",
+    "vocabulary": [
+      "R&D team",
+      "second chance",
+      "manufacturing problem"
+    ]
+  },
+  {
+    "id": "p5-ed-0059",
+    "part": "Part 5",
+    "question": "Interns at Milton Technology are assigned _______ tasks to go along with the mentoring they receive.",
+    "choices": {
+      "A": "opposing",
+      "B": "routine",
+      "C": "proficient",
+      "D": "accessible"
+    },
+    "answer": "B",
+    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
+    "skill_tag": "passive_voice",
+    "difficulty": "B1",
+    "vocabulary": [
+      "R&D team",
+      "second chance",
+      "manufacturing problem"
+    ]
+  },
+  {
+    "id": "p5-ed-0060",
+    "part": "Part 5",
+    "question": "Denton Office Supplies makes sure to package and deliver all online orders _______.",
+    "choices": {
+      "A": "seriously",
+      "B": "promptly",
+      "C": "hardly",
+      "D": "really"
+    },
+    "answer": "B",
+    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
+    "skill_tag": "passive_voice",
+    "difficulty": "B1",
+    "vocabulary": [
+      "R&D team",
+      "second chance",
+      "manufacturing problem"
+    ]
+  },
+  {
+    "id": "p5-ed-0061",
+    "part": "Part 5",
+    "question": "Greg's Shopping Club _______ the shipping fee for all purchases of $100 or more.",
+    "choices": {
+      "A": "clears",
+      "B": "waives",
+      "C": "explores",
+      "D": "automates"
+    },
+    "answer": "B",
+    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
+    "skill_tag": "passive_voice",
+    "difficulty": "B1",
+    "vocabulary": [
+      "R&D team",
+      "second chance",
+      "manufacturing problem"
+    ]
+  },
+  {
+    "id": "p5-ed-0062",
     "part": "Part 5",
     "question": "Following the investigation, it was determined that the delay at the warehouse was caused by a few _______ boxes.",
     "choices": {
@@ -778,17 +1238,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "mislabels"
     },
     "answer": "A",
-    "explanation_zh": "主詞 The R&D team 為單數，且表示被給予機會，因此需要被動語態 has been given。",
+    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
     "skill_tag": "passive_voice",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D",
-      "solution",
+      "R&D team",
+      "second chance",
       "manufacturing problem"
     ]
   },
   {
-    "id": "p5-ed-0040",
+    "id": "p5-ed-0063",
     "part": "Part 5",
     "question": "The R&D team at Dayton Tech _______ a second chance to find a solution to the manufacturing problem.",
     "choices": {
@@ -798,17 +1258,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "has been given"
     },
     "answer": "D",
-    "explanation_zh": "主詞 The R&D team 為單數，且表示被給予機會，因此需要被動語態 has been given。",
+    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
     "skill_tag": "passive_voice",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D",
-      "solution",
+      "R&D team",
+      "second chance",
       "manufacturing problem"
     ]
   },
   {
-    "id": "p5-ed-0041",
+    "id": "p5-ed-0064",
     "part": "Part 5",
     "question": "There is _______ among the bank tellers to accept the contract proposal put forth by management.",
     "choices": {
@@ -818,7 +1278,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "hesitating"
     },
     "answer": "C",
-    "explanation_zh": "空格在 was fairly 後，且表示賠償，因此需要過去分詞 compensated。",
+    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
     "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
@@ -828,7 +1288,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0042",
+    "id": "p5-ed-0065",
     "part": "Part 5",
     "question": "Please use the training manuals in the back of the room rather than _______ sitting on the table.",
     "choices": {
@@ -838,7 +1298,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "each"
     },
     "answer": "B",
-    "explanation_zh": "空格在 was fairly 後，且表示賠償，因此需要過去分詞 compensated。",
+    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
     "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
@@ -848,7 +1308,27 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0043",
+    "id": "p5-ed-0066",
+    "part": "Part 5",
+    "question": "It is vital that items be shipped to customers in a _______ manner.",
+    "choices": {
+      "A": "timely",
+      "B": "time",
+      "C": "times",
+      "D": "timing"
+    },
+    "answer": "A",
+    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
+    "skill_tag": "business_vocabulary",
+    "difficulty": "B1",
+    "vocabulary": [
+      "compensate",
+      "loss",
+      "delivery"
+    ]
+  },
+  {
+    "id": "p5-ed-0067",
     "part": "Part 5",
     "question": "Tour participants must be on time because the boat departs _______ at 7:00 A.M.",
     "choices": {
@@ -858,7 +1338,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "promptness"
     },
     "answer": "B",
-    "explanation_zh": "空格在 was fairly 後，且表示賠償，因此需要過去分詞 compensated。",
+    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
     "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
@@ -868,7 +1348,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0044",
+    "id": "p5-ed-0068",
     "part": "Part 5",
     "question": "The work on the project will be complete as soon as David Simpson _______.",
     "choices": {
@@ -878,7 +1358,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "finished"
     },
     "answer": "A",
-    "explanation_zh": "空格在 was fairly 後，且表示賠償，因此需要過去分詞 compensated。",
+    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
     "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
@@ -888,7 +1368,27 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0045",
+    "id": "p5-ed-0069",
+    "part": "Part 5",
+    "question": "_______ guarantee faster delivery times, the company exclusively uses local courier Mercury Delivery.",
+    "choices": {
+      "A": "In spite of",
+      "B": "As soon as",
+      "C": "In order to",
+      "D": "With regard to"
+    },
+    "answer": "C",
+    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
+    "skill_tag": "business_vocabulary",
+    "difficulty": "B1",
+    "vocabulary": [
+      "compensate",
+      "loss",
+      "delivery"
+    ]
+  },
+  {
+    "id": "p5-ed-0070",
     "part": "Part 5",
     "question": "Eric Murphy remained at his home during his entire vacation, _______ rest rather than travel.",
     "choices": {
@@ -898,7 +1398,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "was preferred"
     },
     "answer": "C",
-    "explanation_zh": "空格在 was fairly 後，且表示賠償，因此需要過去分詞 compensated。",
+    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
     "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
@@ -908,7 +1408,27 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0046",
+    "id": "p5-ed-0071",
+    "part": "Part 5",
+    "question": "_______ reporting breaking news stories accurately, Melinda Carter was able to improve her reputation as a journalist.",
+    "choices": {
+      "A": "By",
+      "B": "On",
+      "C": "With",
+      "D": "About"
+    },
+    "answer": "A",
+    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
+    "skill_tag": "business_vocabulary",
+    "difficulty": "B1",
+    "vocabulary": [
+      "compensate",
+      "loss",
+      "delivery"
+    ]
+  },
+  {
+    "id": "p5-ed-0072",
     "part": "Part 5",
     "question": "_______ Emerson Inc. releases a new product, it markets the item heavily.",
     "choices": {
@@ -918,7 +1438,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Such"
     },
     "answer": "C",
-    "explanation_zh": "空格在 was fairly 後，且表示賠償，因此需要過去分詞 compensated。",
+    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
     "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
@@ -928,17 +1448,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0047",
+    "id": "p5-ed-0073",
     "part": "Part 5",
-    "question": "Jacobson Financial clients _______ make new investments in January are eligible for a free consultation.",
+    "question": "The CEO was satisfied with the _______ results from the customer survey conducted at the end of the year.",
     "choices": {
-      "A": "whose",
-      "B": "who",
-      "C": "what",
-      "D": "which"
+      "A": "practical",
+      "B": "remote",
+      "C": "reassuring",
+      "D": "exterior"
     },
-    "answer": "B",
-    "explanation_zh": "空格在 was fairly 後，且表示賠償，因此需要過去分詞 compensated。",
+    "answer": "C",
+    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
     "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
@@ -948,7 +1468,47 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0048",
+    "id": "p5-ed-0074",
+    "part": "Part 5",
+    "question": "The board of directors voted _______ to offer Reid Harmon the position of CEO at Watergate Industries.",
+    "choices": {
+      "A": "enormously",
+      "B": "possibly",
+      "C": "unanimously",
+      "D": "regularly"
+    },
+    "answer": "C",
+    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
+    "skill_tag": "business_vocabulary",
+    "difficulty": "B1",
+    "vocabulary": [
+      "compensate",
+      "loss",
+      "delivery"
+    ]
+  },
+  {
+    "id": "p5-ed-0075",
+    "part": "Part 5",
+    "question": "Be sure to _______ the size and the color of each article of clothing you order.",
+    "choices": {
+      "A": "balance",
+      "B": "multiply",
+      "C": "specify",
+      "D": "reconcile"
+    },
+    "answer": "C",
+    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
+    "skill_tag": "business_vocabulary",
+    "difficulty": "B1",
+    "vocabulary": [
+      "compensate",
+      "loss",
+      "delivery"
+    ]
+  },
+  {
+    "id": "p5-ed-0076",
     "part": "Part 5",
     "question": "Nelson Recruitment insists that job applicants _______ with the recruiter to create clear employment goals.",
     "choices": {
@@ -958,7 +1518,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "cooperated"
     },
     "answer": "B",
-    "explanation_zh": "空格在 was fairly 後，且表示賠償，因此需要過去分詞 compensated。",
+    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
     "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
@@ -968,7 +1528,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0049",
+    "id": "p5-ed-0077",
     "part": "Part 5",
     "question": "The customer was fairly _______ for her loss when several items were broken during delivery.",
     "choices": {
@@ -978,7 +1538,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "rewarded"
     },
     "answer": "C",
-    "explanation_zh": "空格在 was fairly 後，且表示賠償，因此需要過去分詞 compensated。",
+    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
     "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
@@ -988,7 +1548,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0050",
+    "id": "p5-ed-0078",
     "part": "Part 5",
     "question": "Mr. Cromwell was given a choice of _______ after he completed the Maxell Project successfully.",
     "choices": {
@@ -998,17 +1558,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "assignments"
     },
     "answer": "D",
-    "explanation_zh": "空格後有複數名詞 members，且表示兩者都，因此需要 both。",
+    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
     "skill_tag": "pronoun",
     "difficulty": "A2",
     "vocabulary": [
       "team",
       "implement",
-      "idea"
+      "at once"
     ]
   },
   {
-    "id": "p5-ed-0051",
+    "id": "p5-ed-0079",
     "part": "Part 5",
     "question": "Whenever a project is complete, please contact _______ manager to receive a new assignment.",
     "choices": {
@@ -1018,17 +1578,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "you"
     },
     "answer": "A",
-    "explanation_zh": "空格後有複數名詞 members，且表示兩者都，因此需要 both。",
+    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
     "skill_tag": "pronoun",
     "difficulty": "A2",
     "vocabulary": [
       "team",
       "implement",
-      "idea"
+      "at once"
     ]
   },
   {
-    "id": "p5-ed-0052",
+    "id": "p5-ed-0080",
     "part": "Part 5",
     "question": "_______ technicians are required to wear safety gear in the laboratory during the workday.",
     "choices": {
@@ -1038,17 +1598,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "None"
     },
     "answer": "B",
-    "explanation_zh": "空格後有複數名詞 members，且表示兩者都，因此需要 both。",
+    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
     "skill_tag": "pronoun",
     "difficulty": "A2",
     "vocabulary": [
       "team",
       "implement",
-      "idea"
+      "at once"
     ]
   },
   {
-    "id": "p5-ed-0053",
+    "id": "p5-ed-0081",
     "part": "Part 5",
     "question": "Since she started working at Meridian Inc., Julie Sharpe has _______ received recognition for her accomplishments.",
     "choices": {
@@ -1058,17 +1618,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "regularly"
     },
     "answer": "D",
-    "explanation_zh": "空格後有複數名詞 members，且表示兩者都，因此需要 both。",
+    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
     "skill_tag": "pronoun",
     "difficulty": "A2",
     "vocabulary": [
       "team",
       "implement",
-      "idea"
+      "at once"
     ]
   },
   {
-    "id": "p5-ed-0054",
+    "id": "p5-ed-0082",
     "part": "Part 5",
     "question": "It is believed that Mr. Reynolds _______ several contracts with overseas corporations.",
     "choices": {
@@ -1078,17 +1638,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "has negotiated"
     },
     "answer": "D",
-    "explanation_zh": "空格後有複數名詞 members，且表示兩者都，因此需要 both。",
+    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
     "skill_tag": "pronoun",
     "difficulty": "A2",
     "vocabulary": [
       "team",
       "implement",
-      "idea"
+      "at once"
     ]
   },
   {
-    "id": "p5-ed-0055",
+    "id": "p5-ed-0083",
     "part": "Part 5",
     "question": "We must arrive at the airport within the next twenty minutes if we are _______ our flight to Moscow.",
     "choices": {
@@ -1098,17 +1658,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "being made"
     },
     "answer": "A",
-    "explanation_zh": "空格後有複數名詞 members，且表示兩者都，因此需要 both。",
+    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
     "skill_tag": "pronoun",
     "difficulty": "A2",
     "vocabulary": [
       "team",
       "implement",
-      "idea"
+      "at once"
     ]
   },
   {
-    "id": "p5-ed-0056",
+    "id": "p5-ed-0084",
     "part": "Part 5",
     "question": "Mr. Roberts has some _______ remarks he would like to share with the audience.",
     "choices": {
@@ -1118,17 +1678,37 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "prepare"
     },
     "answer": "B",
-    "explanation_zh": "空格後有複數名詞 members，且表示兩者都，因此需要 both。",
+    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
     "skill_tag": "pronoun",
     "difficulty": "A2",
     "vocabulary": [
       "team",
       "implement",
-      "idea"
+      "at once"
     ]
   },
   {
-    "id": "p5-ed-0057",
+    "id": "p5-ed-0085",
+    "part": "Part 5",
+    "question": "Hudson Mining has seen the value of its stock double _______ its discovery of gold three months ago.",
+    "choices": {
+      "A": "before",
+      "B": "since",
+      "C": "unless",
+      "D": "therefore"
+    },
+    "answer": "B",
+    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
+    "skill_tag": "pronoun",
+    "difficulty": "A2",
+    "vocabulary": [
+      "team",
+      "implement",
+      "at once"
+    ]
+  },
+  {
+    "id": "p5-ed-0086",
     "part": "Part 5",
     "question": "Remember to sign up for a membership at Aubrey's Bookstore _______ you can be eligible for special offers.",
     "choices": {
@@ -1138,37 +1718,77 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "still"
     },
     "answer": "A",
-    "explanation_zh": "空格後有複數名詞 members，且表示兩者都，因此需要 both。",
+    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
     "skill_tag": "pronoun",
     "difficulty": "A2",
     "vocabulary": [
       "team",
       "implement",
-      "idea"
+      "at once"
     ]
   },
   {
-    "id": "p5-ed-0058",
+    "id": "p5-ed-0087",
     "part": "Part 5",
-    "question": "The conference will be held at the Piedmont Hotel, _______ there are modern facilities capable of handling large crowds.",
+    "question": "One of the most highly _______ movies of the summer is the thriller directed by Martin Lincoln.",
     "choices": {
-      "A": "except",
-      "B": "including",
-      "C": "where",
-      "D": "which"
+      "A": "anticipated",
+      "B": "proposed",
+      "C": "revolutionary",
+      "D": "revised"
     },
-    "answer": "C",
-    "explanation_zh": "空格後有複數名詞 members，且表示兩者都，因此需要 both。",
+    "answer": "A",
+    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
     "skill_tag": "pronoun",
     "difficulty": "A2",
     "vocabulary": [
       "team",
       "implement",
-      "idea"
+      "at once"
     ]
   },
   {
-    "id": "p5-ed-0059",
+    "id": "p5-ed-0088",
+    "part": "Part 5",
+    "question": "Please read the instructions _______ prior to attempting to install the appliance in your kitchen.",
+    "choices": {
+      "A": "happily",
+      "B": "almost",
+      "C": "justly",
+      "D": "thoroughly"
+    },
+    "answer": "D",
+    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
+    "skill_tag": "pronoun",
+    "difficulty": "A2",
+    "vocabulary": [
+      "team",
+      "implement",
+      "at once"
+    ]
+  },
+  {
+    "id": "p5-ed-0089",
+    "part": "Part 5",
+    "question": "Discount coupons must be _______ prior to the expiration date listed on the back.",
+    "choices": {
+      "A": "portrayed",
+      "B": "determined",
+      "C": "advanced",
+      "D": "redeemed"
+    },
+    "answer": "D",
+    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
+    "skill_tag": "pronoun",
+    "difficulty": "A2",
+    "vocabulary": [
+      "team",
+      "implement",
+      "at once"
+    ]
+  },
+  {
+    "id": "p5-ed-0090",
     "part": "Part 5",
     "question": "Ms. Maddock's _______ for the event venue include ample parking and a state-of-the-art sound system.",
     "choices": {
@@ -1178,17 +1798,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "preference"
     },
     "answer": "B",
-    "explanation_zh": "空格後有複數名詞 members，且表示兩者都，因此需要 both。",
+    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
     "skill_tag": "pronoun",
     "difficulty": "A2",
     "vocabulary": [
       "team",
       "implement",
-      "idea"
+      "at once"
     ]
   },
   {
-    "id": "p5-ed-0060",
+    "id": "p5-ed-0091",
     "part": "Part 5",
     "question": "_______ members of the team felt that their ideas should be implemented at once.",
     "choices": {
@@ -1198,17 +1818,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Neither"
     },
     "answer": "C",
-    "explanation_zh": "空格後有複數名詞 members，且表示兩者都，因此需要 both。",
+    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
     "skill_tag": "pronoun",
     "difficulty": "A2",
     "vocabulary": [
       "team",
       "implement",
-      "idea"
+      "at once"
     ]
   },
   {
-    "id": "p5-ed-0061",
+    "id": "p5-ed-0092",
     "part": "Part 5",
     "question": "Dover Sporting Goods has a long-term _______ with several baseball teams in the local area.",
     "choices": {
@@ -1218,17 +1838,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "affiliating"
     },
     "answer": "C",
-    "explanation_zh": "空格修飾動詞 increased，因此需要副詞 promptly。",
-    "skill_tag": "word_form",
+    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "promptly",
-      "footwear",
-      "ad campaign"
+      "background noise",
+      "speech",
+      "audience"
     ]
   },
   {
-    "id": "p5-ed-0062",
+    "id": "p5-ed-0093",
     "part": "Part 5",
     "question": "Even though the tires are only two years old, Ms. Vernon decided to replace _______ with a new set.",
     "choices": {
@@ -1238,17 +1858,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "themselves"
     },
     "answer": "A",
-    "explanation_zh": "空格修飾動詞 increased，因此需要副詞 promptly。",
-    "skill_tag": "word_form",
+    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "promptly",
-      "footwear",
-      "ad campaign"
+      "background noise",
+      "speech",
+      "audience"
     ]
   },
   {
-    "id": "p5-ed-0063",
+    "id": "p5-ed-0094",
     "part": "Part 5",
     "question": "Attendees said the dance performances were the most _______ part of the festival.",
     "choices": {
@@ -1258,17 +1878,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "impressively"
     },
     "answer": "C",
-    "explanation_zh": "空格修飾動詞 increased，因此需要副詞 promptly。",
-    "skill_tag": "word_form",
+    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "promptly",
-      "footwear",
-      "ad campaign"
+      "background noise",
+      "speech",
+      "audience"
     ]
   },
   {
-    "id": "p5-ed-0064",
+    "id": "p5-ed-0095",
     "part": "Part 5",
     "question": "The waiter asked the diners _______ if they had enjoyed their meal at the restaurant.",
     "choices": {
@@ -1278,17 +1898,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "most polite"
     },
     "answer": "C",
-    "explanation_zh": "空格修飾動詞 increased，因此需要副詞 promptly。",
-    "skill_tag": "word_form",
+    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "promptly",
-      "footwear",
-      "ad campaign"
+      "background noise",
+      "speech",
+      "audience"
     ]
   },
   {
-    "id": "p5-ed-0065",
+    "id": "p5-ed-0096",
     "part": "Part 5",
     "question": "The store's hours of operation _______ throughout the year depending on the season.",
     "choices": {
@@ -1298,17 +1918,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "different"
     },
     "answer": "A",
-    "explanation_zh": "空格修飾動詞 increased，因此需要副詞 promptly。",
-    "skill_tag": "word_form",
+    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "promptly",
-      "footwear",
-      "ad campaign"
+      "background noise",
+      "speech",
+      "audience"
     ]
   },
   {
-    "id": "p5-ed-0066",
+    "id": "p5-ed-0097",
     "part": "Part 5",
     "question": "Since _______ a new air conditioner in the office, management has noticed a significant improvement in productivity.",
     "choices": {
@@ -1318,17 +1938,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "installing"
     },
     "answer": "D",
-    "explanation_zh": "空格修飾動詞 increased，因此需要副詞 promptly。",
-    "skill_tag": "word_form",
+    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "promptly",
-      "footwear",
-      "ad campaign"
+      "background noise",
+      "speech",
+      "audience"
     ]
   },
   {
-    "id": "p5-ed-0067",
+    "id": "p5-ed-0098",
     "part": "Part 5",
     "question": "To use the electric saw properly, you need to read the instructions _______ in the manual.",
     "choices": {
@@ -1338,17 +1958,37 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "to include"
     },
     "answer": "B",
-    "explanation_zh": "空格修飾動詞 increased，因此需要副詞 promptly。",
-    "skill_tag": "word_form",
+    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "promptly",
-      "footwear",
-      "ad campaign"
+      "background noise",
+      "speech",
+      "audience"
     ]
   },
   {
-    "id": "p5-ed-0068",
+    "id": "p5-ed-0099",
+    "part": "Part 5",
+    "question": "_______ the many people on the Hardaway Textiles salesforce, Ms. Montague is the most productive.",
+    "choices": {
+      "A": "Into",
+      "B": "Above",
+      "C": "For",
+      "D": "Of"
+    },
+    "answer": "D",
+    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
+    "skill_tag": "preposition",
+    "difficulty": "B1",
+    "vocabulary": [
+      "background noise",
+      "speech",
+      "audience"
+    ]
+  },
+  {
+    "id": "p5-ed-0100",
     "part": "Part 5",
     "question": "Famed chef Andrew Hutchins states that _______ fresh ingredients are used, dishes taste much better.",
     "choices": {
@@ -1358,17 +1998,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "how"
     },
     "answer": "A",
-    "explanation_zh": "空格修飾動詞 increased，因此需要副詞 promptly。",
-    "skill_tag": "word_form",
+    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "promptly",
-      "footwear",
-      "ad campaign"
+      "background noise",
+      "speech",
+      "audience"
     ]
   },
   {
-    "id": "p5-ed-0069",
+    "id": "p5-ed-0101",
     "part": "Part 5",
     "question": "The government ordered an investigation into the building collapse, the cause of _______ will require some time to determine.",
     "choices": {
@@ -1378,17 +2018,77 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "which"
     },
     "answer": "D",
-    "explanation_zh": "空格修飾動詞 increased，因此需要副詞 promptly。",
-    "skill_tag": "word_form",
+    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "promptly",
-      "footwear",
-      "ad campaign"
+      "background noise",
+      "speech",
+      "audience"
     ]
   },
   {
-    "id": "p5-ed-0070",
+    "id": "p5-ed-0102",
+    "part": "Part 5",
+    "question": "Thanks to his _______ list of contacts, Mr. Rumsfeld was able to secure several new clients for his firm.",
+    "choices": {
+      "A": "abundant",
+      "B": "extensive",
+      "C": "refuted",
+      "D": "qualified"
+    },
+    "answer": "B",
+    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
+    "skill_tag": "preposition",
+    "difficulty": "B1",
+    "vocabulary": [
+      "background noise",
+      "speech",
+      "audience"
+    ]
+  },
+  {
+    "id": "p5-ed-0103",
+    "part": "Part 5",
+    "question": "Perkins Electronics _______ closed its factory in Mexico by order of its new president.",
+    "choices": {
+      "A": "convincingly",
+      "B": "accidentally",
+      "C": "unexpectedly",
+      "D": "preferably"
+    },
+    "answer": "C",
+    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
+    "skill_tag": "preposition",
+    "difficulty": "B1",
+    "vocabulary": [
+      "background noise",
+      "speech",
+      "audience"
+    ]
+  },
+  {
+    "id": "p5-ed-0104",
+    "part": "Part 5",
+    "question": "Please _______ your username on the company's internet system no later than Friday afternoon.",
+    "choices": {
+      "A": "transform",
+      "B": "authenticate",
+      "C": "develop",
+      "D": "import"
+    },
+    "answer": "B",
+    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
+    "skill_tag": "preposition",
+    "difficulty": "B1",
+    "vocabulary": [
+      "background noise",
+      "speech",
+      "audience"
+    ]
+  },
+  {
+    "id": "p5-ed-0105",
     "part": "Part 5",
     "question": "Sales of Newton Footwear increased online and in stores _______ after the launch of an ad campaign featuring professional athletes.",
     "choices": {
@@ -1398,17 +2098,37 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "promptness"
     },
     "answer": "A",
-    "explanation_zh": "空格修飾動詞 increased，因此需要副詞 promptly。",
-    "skill_tag": "word_form",
+    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "promptly",
-      "footwear",
-      "ad campaign"
+      "background noise",
+      "speech",
+      "audience"
     ]
   },
   {
-    "id": "p5-ed-0071",
+    "id": "p5-ed-0106",
+    "part": "Part 5",
+    "question": "The background noise continued _______ the speech, making it difficult for some audience members to hear anything.",
+    "choices": {
+      "A": "throughout",
+      "B": "around",
+      "C": "at",
+      "D": "since"
+    },
+    "answer": "A",
+    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
+    "skill_tag": "preposition",
+    "difficulty": "B1",
+    "vocabulary": [
+      "background noise",
+      "speech",
+      "audience"
+    ]
+  },
+  {
+    "id": "p5-ed-0107",
     "part": "Part 5",
     "question": "_______ will be advised to avoid the roads in the mountains on account of the expected heavy snowfall.",
     "choices": {
@@ -1418,17 +2138,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Traveling"
     },
     "answer": "B",
-    "explanation_zh": "名詞「time」後需用不定詞修飾，表示「做某事的時間」。選項「to advertise」為不定詞，符合。",
-    "skill_tag": "word_form",
+    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
+    "skill_tag": "tense",
     "difficulty": "B1",
     "vocabulary": [
       "appropriate",
       "advertise",
-      "line of products"
+      "product line"
     ]
   },
   {
-    "id": "p5-ed-0072",
+    "id": "p5-ed-0108",
     "part": "Part 5",
     "question": "The best _______ who applied for the engineering position was Rita Kraus, to whom we should offer the job.",
     "choices": {
@@ -1438,17 +2158,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "another"
     },
     "answer": "B",
-    "explanation_zh": "名詞「time」後需用不定詞修飾，表示「做某事的時間」。選項「to advertise」為不定詞，符合。",
-    "skill_tag": "word_form",
+    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
+    "skill_tag": "tense",
     "difficulty": "B1",
     "vocabulary": [
       "appropriate",
       "advertise",
-      "line of products"
+      "product line"
     ]
   },
   {
-    "id": "p5-ed-0073",
+    "id": "p5-ed-0109",
     "part": "Part 5",
     "question": "After he gets promoted, Horace Powers intends to take _______ days of vacation with his family.",
     "choices": {
@@ -1458,17 +2178,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "another"
     },
     "answer": "A",
-    "explanation_zh": "名詞「time」後需用不定詞修飾，表示「做某事的時間」。選項「to advertise」為不定詞，符合。",
-    "skill_tag": "word_form",
+    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
+    "skill_tag": "tense",
     "difficulty": "B1",
     "vocabulary": [
       "appropriate",
       "advertise",
-      "line of products"
+      "product line"
     ]
   },
   {
-    "id": "p5-ed-0074",
+    "id": "p5-ed-0110",
     "part": "Part 5",
     "question": "Customer service representatives were instructed to resolve all complaints more _______.",
     "choices": {
@@ -1478,17 +2198,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "promptly"
     },
     "answer": "D",
-    "explanation_zh": "名詞「time」後需用不定詞修飾，表示「做某事的時間」。選項「to advertise」為不定詞，符合。",
-    "skill_tag": "word_form",
+    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
+    "skill_tag": "tense",
     "difficulty": "B1",
     "vocabulary": [
       "appropriate",
       "advertise",
-      "line of products"
+      "product line"
     ]
   },
   {
-    "id": "p5-ed-0075",
+    "id": "p5-ed-0111",
     "part": "Part 5",
     "question": "The software from Star Technology _______ immediately after the company purchased it.",
     "choices": {
@@ -1498,17 +2218,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "download"
     },
     "answer": "C",
-    "explanation_zh": "名詞「time」後需用不定詞修飾，表示「做某事的時間」。選項「to advertise」為不定詞，符合。",
-    "skill_tag": "word_form",
+    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
+    "skill_tag": "tense",
     "difficulty": "B1",
     "vocabulary": [
       "appropriate",
       "advertise",
-      "line of products"
+      "product line"
     ]
   },
   {
-    "id": "p5-ed-0076",
+    "id": "p5-ed-0112",
     "part": "Part 5",
     "question": "Mr. Edwards utilized a professional architect _______ what would become the company's new research center.",
     "choices": {
@@ -1518,17 +2238,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "to design"
     },
     "answer": "D",
-    "explanation_zh": "名詞「time」後需用不定詞修飾，表示「做某事的時間」。選項「to advertise」為不定詞，符合。",
-    "skill_tag": "word_form",
+    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
+    "skill_tag": "tense",
     "difficulty": "B1",
     "vocabulary": [
       "appropriate",
       "advertise",
-      "line of products"
+      "product line"
     ]
   },
   {
-    "id": "p5-ed-0077",
+    "id": "p5-ed-0113",
     "part": "Part 5",
     "question": "Any employees _______ to attend the upcoming workshop on accounting must speak with Ms. Taylor.",
     "choices": {
@@ -1538,17 +2258,37 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "hoping"
     },
     "answer": "D",
-    "explanation_zh": "名詞「time」後需用不定詞修飾，表示「做某事的時間」。選項「to advertise」為不定詞，符合。",
-    "skill_tag": "word_form",
+    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
+    "skill_tag": "tense",
     "difficulty": "B1",
     "vocabulary": [
       "appropriate",
       "advertise",
-      "line of products"
+      "product line"
     ]
   },
   {
-    "id": "p5-ed-0078",
+    "id": "p5-ed-0114",
+    "part": "Part 5",
+    "question": "_______ the advice of several experts in the industry, Mr. Harrison managed to start his own business.",
+    "choices": {
+      "A": "For",
+      "B": "With",
+      "C": "Along",
+      "D": "Over"
+    },
+    "answer": "B",
+    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
+    "skill_tag": "tense",
+    "difficulty": "B1",
+    "vocabulary": [
+      "appropriate",
+      "advertise",
+      "product line"
+    ]
+  },
+  {
+    "id": "p5-ed-0115",
     "part": "Part 5",
     "question": "The board of directors must determine _______ the business climate in Canada is ideal for opening a new facility there.",
     "choices": {
@@ -1558,17 +2298,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "although"
     },
     "answer": "B",
-    "explanation_zh": "名詞「time」後需用不定詞修飾，表示「做某事的時間」。選項「to advertise」為不定詞，符合。",
-    "skill_tag": "word_form",
+    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
+    "skill_tag": "tense",
     "difficulty": "B1",
     "vocabulary": [
       "appropriate",
       "advertise",
-      "line of products"
+      "product line"
     ]
   },
   {
-    "id": "p5-ed-0079",
+    "id": "p5-ed-0116",
     "part": "Part 5",
     "question": "Ms. Matthews decided to hire Ryan Varnum, _______ expertise in the field of corporate law is well known.",
     "choices": {
@@ -1578,17 +2318,97 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "whom"
     },
     "answer": "A",
-    "explanation_zh": "名詞「time」後需用不定詞修飾，表示「做某事的時間」。選項「to advertise」為不定詞，符合。",
-    "skill_tag": "word_form",
+    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
+    "skill_tag": "tense",
     "difficulty": "B1",
     "vocabulary": [
       "appropriate",
       "advertise",
-      "line of products"
+      "product line"
     ]
   },
   {
-    "id": "p5-ed-0080",
+    "id": "p5-ed-0117",
+    "part": "Part 5",
+    "question": "Adelaide Park is a regular _______ for events such as company get-togethers and charity fundraisers.",
+    "choices": {
+      "A": "venue",
+      "B": "port",
+      "C": "edition",
+      "D": "case"
+    },
+    "answer": "A",
+    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
+    "skill_tag": "tense",
+    "difficulty": "B1",
+    "vocabulary": [
+      "appropriate",
+      "advertise",
+      "product line"
+    ]
+  },
+  {
+    "id": "p5-ed-0118",
+    "part": "Part 5",
+    "question": "Ms. Cartwright requested a _______ increase in her salary as a reward for her recent performance.",
+    "choices": {
+      "A": "confident",
+      "B": "costly",
+      "C": "substantial",
+      "D": "beneficial"
+    },
+    "answer": "C",
+    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
+    "skill_tag": "tense",
+    "difficulty": "B1",
+    "vocabulary": [
+      "appropriate",
+      "advertise",
+      "product line"
+    ]
+  },
+  {
+    "id": "p5-ed-0119",
+    "part": "Part 5",
+    "question": "Only those individuals _______ subscribed to the Daily Times are eligible for the special discount offer.",
+    "choices": {
+      "A": "precisely",
+      "B": "currently",
+      "C": "merely",
+      "D": "coincidentally"
+    },
+    "answer": "B",
+    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
+    "skill_tag": "tense",
+    "difficulty": "B1",
+    "vocabulary": [
+      "appropriate",
+      "advertise",
+      "product line"
+    ]
+  },
+  {
+    "id": "p5-ed-0120",
+    "part": "Part 5",
+    "question": "Individuals applying for the position must _______ a complete physical checkup.",
+    "choices": {
+      "A": "approve",
+      "B": "examine",
+      "C": "undergo",
+      "D": "attempt"
+    },
+    "answer": "C",
+    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
+    "skill_tag": "tense",
+    "difficulty": "B1",
+    "vocabulary": [
+      "appropriate",
+      "advertise",
+      "product line"
+    ]
+  },
+  {
+    "id": "p5-ed-0121",
     "part": "Part 5",
     "question": "Any losses _______ the failure to correctly analyze the level of risk may be the responsibility of the investment firm.",
     "choices": {
@@ -1598,17 +2418,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "in compliance with"
     },
     "answer": "C",
-    "explanation_zh": "名詞「time」後需用不定詞修飾，表示「做某事的時間」。選項「to advertise」為不定詞，符合。",
-    "skill_tag": "word_form",
+    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
+    "skill_tag": "tense",
     "difficulty": "B1",
     "vocabulary": [
       "appropriate",
       "advertise",
-      "line of products"
+      "product line"
     ]
   },
   {
-    "id": "p5-ed-0081",
+    "id": "p5-ed-0122",
     "part": "Part 5",
     "question": "Mr. Greg believes March is an appropriate time _______ the new line of products coming out in spring.",
     "choices": {
@@ -1618,17 +2438,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "will advertise"
     },
     "answer": "C",
-    "explanation_zh": "名詞「time」後需用不定詞修飾，表示「做某事的時間」。選項「to advertise」為不定詞，符合。",
-    "skill_tag": "word_form",
+    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
+    "skill_tag": "tense",
     "difficulty": "B1",
     "vocabulary": [
       "appropriate",
       "advertise",
-      "line of products"
+      "product line"
     ]
   },
   {
-    "id": "p5-ed-0082",
+    "id": "p5-ed-0123",
     "part": "Part 5",
     "question": "In _______ with the CEO's decision, all employees were given an extra day of paid leave.",
     "choices": {
@@ -1638,17 +2458,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "accords"
     },
     "answer": "C",
-    "explanation_zh": "動詞「seems」後需接形容詞作為主詞補語。選項「efficient」為形容詞，意為「有效率的」，符合。",
+    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "efficient",
       "design",
-      "make use of"
+      "available space"
     ]
   },
   {
-    "id": "p5-ed-0083",
+    "id": "p5-ed-0124",
     "part": "Part 5",
     "question": "The tour bus we rode in was painted red, so it was easy to locate _______ even in a full parking lot.",
     "choices": {
@@ -1658,17 +2478,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "ourselves"
     },
     "answer": "C",
-    "explanation_zh": "動詞「seems」後需接形容詞作為主詞補語。選項「efficient」為形容詞，意為「有效率的」，符合。",
+    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "efficient",
       "design",
-      "make use of"
+      "available space"
     ]
   },
   {
-    "id": "p5-ed-0084",
+    "id": "p5-ed-0125",
     "part": "Part 5",
     "question": "Ms. Cunningham has worked on multiple _______ projects during the past few years.",
     "choices": {
@@ -1678,17 +2498,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "extends"
     },
     "answer": "A",
-    "explanation_zh": "動詞「seems」後需接形容詞作為主詞補語。選項「efficient」為形容詞，意為「有效率的」，符合。",
+    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "efficient",
       "design",
-      "make use of"
+      "available space"
     ]
   },
   {
-    "id": "p5-ed-0085",
+    "id": "p5-ed-0126",
     "part": "Part 5",
     "question": "The warehouse supervisor had the boxes of electronics _______ removed to make space for the new shipment.",
     "choices": {
@@ -1698,17 +2518,37 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "hastily"
     },
     "answer": "D",
-    "explanation_zh": "動詞「seems」後需接形容詞作為主詞補語。選項「efficient」為形容詞，意為「有效率的」，符合。",
+    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "efficient",
       "design",
-      "make use of"
+      "available space"
     ]
   },
   {
-    "id": "p5-ed-0086",
+    "id": "p5-ed-0127",
+    "part": "Part 5",
+    "question": "_______ the contract if you feel that the terms in it are agreeable to you.",
+    "choices": {
+      "A": "Signing",
+      "B": "Signed",
+      "C": "Signs",
+      "D": "Sign"
+    },
+    "answer": "D",
+    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
+    "skill_tag": "word_form",
+    "difficulty": "B1",
+    "vocabulary": [
+      "efficient",
+      "design",
+      "available space"
+    ]
+  },
+  {
+    "id": "p5-ed-0128",
     "part": "Part 5",
     "question": "The marketing team's goal is to advertise more online yet _______ its expenditures.",
     "choices": {
@@ -1718,17 +2558,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "reduced"
     },
     "answer": "A",
-    "explanation_zh": "動詞「seems」後需接形容詞作為主詞補語。選項「efficient」為形容詞，意為「有效率的」，符合。",
+    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "efficient",
       "design",
-      "make use of"
+      "available space"
     ]
   },
   {
-    "id": "p5-ed-0087",
+    "id": "p5-ed-0129",
     "part": "Part 5",
     "question": "The new kiosks are expected to significantly reduce the amount of time _______ in line.",
     "choices": {
@@ -1738,17 +2578,37 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "spent"
     },
     "answer": "D",
-    "explanation_zh": "動詞「seems」後需接形容詞作為主詞補語。選項「efficient」為形容詞，意為「有效率的」，符合。",
+    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "efficient",
       "design",
-      "make use of"
+      "available space"
     ]
   },
   {
-    "id": "p5-ed-0088",
+    "id": "p5-ed-0130",
+    "part": "Part 5",
+    "question": "_______ her desire to live in Europe, Ms. Hooper volunteered for a transfer to her firm's Milan office.",
+    "choices": {
+      "A": "Because of",
+      "B": "During",
+      "C": "Consequently",
+      "D": "As well"
+    },
+    "answer": "A",
+    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
+    "skill_tag": "word_form",
+    "difficulty": "B1",
+    "vocabulary": [
+      "efficient",
+      "design",
+      "available space"
+    ]
+  },
+  {
+    "id": "p5-ed-0131",
     "part": "Part 5",
     "question": "Ms. Grayson drove to the seminar in St. Louis _______ the other members of her group chose to fly there.",
     "choices": {
@@ -1758,17 +2618,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "even though"
     },
     "answer": "D",
-    "explanation_zh": "動詞「seems」後需接形容詞作為主詞補語。選項「efficient」為形容詞，意為「有效率的」，符合。",
+    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "efficient",
       "design",
-      "make use of"
+      "available space"
     ]
   },
   {
-    "id": "p5-ed-0089",
+    "id": "p5-ed-0132",
     "part": "Part 5",
     "question": "The orientation speaker explained _______ it takes to be a success at Hollmann International.",
     "choices": {
@@ -1778,17 +2638,97 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "their"
     },
     "answer": "A",
-    "explanation_zh": "動詞「seems」後需接形容詞作為主詞補語。選項「efficient」為形容詞，意為「有效率的」，符合。",
+    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "efficient",
       "design",
-      "make use of"
+      "available space"
     ]
   },
   {
-    "id": "p5-ed-0090",
+    "id": "p5-ed-0133",
+    "part": "Part 5",
+    "question": "A notable _______ of the architect's style is her reliance on the natural environment for some features.",
+    "choices": {
+      "A": "design",
+      "B": "aspect",
+      "C": "relief",
+      "D": "tradition"
+    },
+    "answer": "B",
+    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
+    "skill_tag": "word_form",
+    "difficulty": "B1",
+    "vocabulary": [
+      "efficient",
+      "design",
+      "available space"
+    ]
+  },
+  {
+    "id": "p5-ed-0134",
+    "part": "Part 5",
+    "question": "The _______ duties of the office manager will be to supervise employees while resolving any issues between them.",
+    "choices": {
+      "A": "eligible",
+      "B": "comparative",
+      "C": "primary",
+      "D": "flexible"
+    },
+    "answer": "C",
+    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
+    "skill_tag": "word_form",
+    "difficulty": "B1",
+    "vocabulary": [
+      "efficient",
+      "design",
+      "available space"
+    ]
+  },
+  {
+    "id": "p5-ed-0135",
+    "part": "Part 5",
+    "question": "Ms. Galbraith _______ improved office efficiency by implementing a new filing system.",
+    "choices": {
+      "A": "ever",
+      "B": "significantly",
+      "C": "shortly",
+      "D": "exactly"
+    },
+    "answer": "B",
+    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
+    "skill_tag": "word_form",
+    "difficulty": "B1",
+    "vocabulary": [
+      "efficient",
+      "design",
+      "available space"
+    ]
+  },
+  {
+    "id": "p5-ed-0136",
+    "part": "Part 5",
+    "question": "Despite being highly educated, Mr. Bevers _______ the necessary leadership skills to take on an executive position.",
+    "choices": {
+      "A": "replaces",
+      "B": "reveals",
+      "C": "portrays",
+      "D": "lacks"
+    },
+    "answer": "D",
+    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
+    "skill_tag": "word_form",
+    "difficulty": "B1",
+    "vocabulary": [
+      "efficient",
+      "design",
+      "available space"
+    ]
+  },
+  {
+    "id": "p5-ed-0137",
     "part": "Part 5",
     "question": "_______ with a complaint regarding the effectiveness of the laundry detergent will be promptly directed to a customer service agent.",
     "choices": {
@@ -1798,17 +2738,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Theirs"
     },
     "answer": "C",
-    "explanation_zh": "動詞「seems」後需接形容詞作為主詞補語。選項「efficient」為形容詞，意為「有效率的」，符合。",
+    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "efficient",
       "design",
-      "make use of"
+      "available space"
     ]
   },
   {
-    "id": "p5-ed-0091",
+    "id": "p5-ed-0138",
     "part": "Part 5",
     "question": "At first glance, the design of the building seems _______ and makes good use of available space.",
     "choices": {
@@ -1818,17 +2758,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "efficiencies"
     },
     "answer": "A",
-    "explanation_zh": "動詞「seems」後需接形容詞作為主詞補語。選項「efficient」為形容詞，意為「有效率的」，符合。",
+    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "efficient",
       "design",
-      "make use of"
+      "available space"
     ]
   },
   {
-    "id": "p5-ed-0092",
+    "id": "p5-ed-0139",
     "part": "Part 5",
     "question": "During the holiday season, all hotel _______ made online will be completely nonrefundable.",
     "choices": {
@@ -1838,17 +2778,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "bookings"
     },
     "answer": "D",
-    "explanation_zh": "前後句有對比關係（準時開始 vs. 技術問題），需用轉折連接詞。選項「even though」意為「即使」，符合。",
+    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
     "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "keynote address",
-      "technical difficulty",
-      "sound equipment"
+      "whereas",
+      "rival",
+      "record loss"
     ]
   },
   {
-    "id": "p5-ed-0093",
+    "id": "p5-ed-0140",
     "part": "Part 5",
     "question": "Ms. Atkins has turned _______ into a highly competent computer programmer thanks to hard work and dedication.",
     "choices": {
@@ -1858,17 +2798,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "her own"
     },
     "answer": "C",
-    "explanation_zh": "前後句有對比關係（準時開始 vs. 技術問題），需用轉折連接詞。選項「even though」意為「即使」，符合。",
+    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
     "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "keynote address",
-      "technical difficulty",
-      "sound equipment"
+      "whereas",
+      "rival",
+      "record loss"
     ]
   },
   {
-    "id": "p5-ed-0094",
+    "id": "p5-ed-0141",
     "part": "Part 5",
     "question": "Luxor Furniture designs _______ office chairs for individuals who remain seated most of the day.",
     "choices": {
@@ -1878,17 +2818,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "comfortably"
     },
     "answer": "B",
-    "explanation_zh": "前後句有對比關係（準時開始 vs. 技術問題），需用轉折連接詞。選項「even though」意為「即使」，符合。",
+    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
     "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "keynote address",
-      "technical difficulty",
-      "sound equipment"
+      "whereas",
+      "rival",
+      "record loss"
     ]
   },
   {
-    "id": "p5-ed-0095",
+    "id": "p5-ed-0142",
     "part": "Part 5",
     "question": "The winner of the raffle at the county fair will be determined by a _______ selected number this evening.",
     "choices": {
@@ -1898,17 +2838,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "random"
     },
     "answer": "A",
-    "explanation_zh": "前後句有對比關係（準時開始 vs. 技術問題），需用轉折連接詞。選項「even though」意為「即使」，符合。",
+    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
     "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "keynote address",
-      "technical difficulty",
-      "sound equipment"
+      "whereas",
+      "rival",
+      "record loss"
     ]
   },
   {
-    "id": "p5-ed-0096",
+    "id": "p5-ed-0143",
     "part": "Part 5",
     "question": "Ms. Alderson proposed that all full-time employees _______ present for the speech by the outgoing CEO.",
     "choices": {
@@ -1918,17 +2858,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "be"
     },
     "answer": "D",
-    "explanation_zh": "前後句有對比關係（準時開始 vs. 技術問題），需用轉折連接詞。選項「even though」意為「即使」，符合。",
+    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
     "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "keynote address",
-      "technical difficulty",
-      "sound equipment"
+      "whereas",
+      "rival",
+      "record loss"
     ]
   },
   {
-    "id": "p5-ed-0097",
+    "id": "p5-ed-0144",
     "part": "Part 5",
     "question": "In the past five years, Amanda Watson has gone from sweeping the floors at the store to _______ it.",
     "choices": {
@@ -1938,37 +2878,37 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "owned"
     },
     "answer": "B",
-    "explanation_zh": "前後句有對比關係（準時開始 vs. 技術問題），需用轉折連接詞。選項「even though」意為「即使」，符合。",
+    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
     "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "keynote address",
-      "technical difficulty",
-      "sound equipment"
+      "whereas",
+      "rival",
+      "record loss"
     ]
   },
   {
-    "id": "p5-ed-0098",
+    "id": "p5-ed-0145",
     "part": "Part 5",
-    "question": "_______ this Saturday, the Hamilton Department Store will offer discounts on every item in the store.",
+    "question": "Mr. Abernathy will attend graduate school on weeknights _______ his interest in furthering his education.",
     "choices": {
-      "A": "Began",
-      "B": "Beginning",
-      "C": "Begins",
-      "D": "Begin"
+      "A": "for",
+      "B": "due to",
+      "C": "since",
+      "D": "regarding"
     },
-    "answer": "D",
-    "explanation_zh": "前後句有對比關係（準時開始 vs. 技術問題），需用轉折連接詞。選項「even though」意為「即使」，符合。",
+    "answer": "B",
+    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
     "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "keynote address",
-      "technical difficulty",
-      "sound equipment"
+      "whereas",
+      "rival",
+      "record loss"
     ]
   },
   {
-    "id": "p5-ed-0099",
+    "id": "p5-ed-0146",
     "part": "Part 5",
     "question": "_______ a customer specifies express delivery, all orders are mailed one day after being received.",
     "choices": {
@@ -1978,17 +2918,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Even"
     },
     "answer": "C",
-    "explanation_zh": "前後句有對比關係（準時開始 vs. 技術問題），需用轉折連接詞。選項「even though」意為「即使」，符合。",
+    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
     "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "keynote address",
-      "technical difficulty",
-      "sound equipment"
+      "whereas",
+      "rival",
+      "record loss"
     ]
   },
   {
-    "id": "p5-ed-0100",
+    "id": "p5-ed-0147",
     "part": "Part 5",
     "question": "Mr. Acuna teaches a training course _______ participants learn to use the firm's computer system.",
     "choices": {
@@ -1998,17 +2938,97 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "in order to"
     },
     "answer": "B",
-    "explanation_zh": "前後句有對比關係（準時開始 vs. 技術問題），需用轉折連接詞。選項「even though」意為「即使」，符合。",
+    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
     "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "keynote address",
-      "technical difficulty",
-      "sound equipment"
+      "whereas",
+      "rival",
+      "record loss"
     ]
   },
   {
-    "id": "p5-ed-0101",
+    "id": "p5-ed-0148",
+    "part": "Part 5",
+    "question": "Should there be any _______ during the hiring process, Ms. Bradley needs to be consulted at once.",
+    "choices": {
+      "A": "possibilities",
+      "B": "faults",
+      "C": "bargains",
+      "D": "issues"
+    },
+    "answer": "D",
+    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
+    "skill_tag": "conjunction",
+    "difficulty": "B1",
+    "vocabulary": [
+      "whereas",
+      "rival",
+      "record loss"
+    ]
+  },
+  {
+    "id": "p5-ed-0149",
+    "part": "Part 5",
+    "question": "Mr. Dunlop's mechanic informed him that his truck was _______ for an oil change.",
+    "choices": {
+      "A": "concerned",
+      "B": "overdue",
+      "C": "reported",
+      "D": "clear"
+    },
+    "answer": "B",
+    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
+    "skill_tag": "conjunction",
+    "difficulty": "B1",
+    "vocabulary": [
+      "whereas",
+      "rival",
+      "record loss"
+    ]
+  },
+  {
+    "id": "p5-ed-0150",
+    "part": "Part 5",
+    "question": "Mr. Edwards _______ flies late at night, but he needed to arrive in Tokyo by this morning.",
+    "choices": {
+      "A": "seldom",
+      "B": "then",
+      "C": "however",
+      "D": "who"
+    },
+    "answer": "A",
+    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
+    "skill_tag": "conjunction",
+    "difficulty": "B1",
+    "vocabulary": [
+      "whereas",
+      "rival",
+      "record loss"
+    ]
+  },
+  {
+    "id": "p5-ed-0151",
+    "part": "Part 5",
+    "question": "Ms. Jansen _______ to contact her assistant despite having left her phone at her home.",
+    "choices": {
+      "A": "failed",
+      "B": "considered",
+      "C": "managed",
+      "D": "projected"
+    },
+    "answer": "C",
+    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
+    "skill_tag": "conjunction",
+    "difficulty": "B1",
+    "vocabulary": [
+      "whereas",
+      "rival",
+      "record loss"
+    ]
+  },
+  {
+    "id": "p5-ed-0152",
     "part": "Part 5",
     "question": "Mr. Conway was able to begin the keynote address on time _______ there were technical difficulties with the sound equipment earlier in the day.",
     "choices": {
@@ -2018,17 +3038,37 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "while"
     },
     "answer": "A",
-    "explanation_zh": "前後句有對比關係（準時開始 vs. 技術問題），需用轉折連接詞。選項「even though」意為「即使」，符合。",
+    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
     "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "keynote address",
-      "technical difficulty",
-      "sound equipment"
+      "whereas",
+      "rival",
+      "record loss"
     ]
   },
   {
-    "id": "p5-ed-0102",
+    "id": "p5-ed-0153",
+    "part": "Part 5",
+    "question": "Harrison Shipbuilding saw orders increase last quarter, _______ its rival, Baden Inc., reported a record loss.",
+    "choices": {
+      "A": "thanks to",
+      "B": "despite",
+      "C": "consequently",
+      "D": "whereas"
+    },
+    "answer": "D",
+    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
+    "skill_tag": "conjunction",
+    "difficulty": "B1",
+    "vocabulary": [
+      "whereas",
+      "rival",
+      "record loss"
+    ]
+  },
+  {
+    "id": "p5-ed-0154",
     "part": "Part 5",
     "question": "Mr. Hightower expressed _______ that his bridge design was selected by the mayor of the city.",
     "choices": {
@@ -2038,17 +3078,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "satisfyingly"
     },
     "answer": "B",
-    "explanation_zh": "前後句有因果關係，需用表示原因的連接詞。選項「because」引導原因子句，符合語意。",
+    "explanation_zh": "連接詞「because」表示「因為」，引導原因子句，說明Kevin Watts決定留下的原因是他獲得了大幅加薪。",
     "skill_tag": "conjunction",
-    "difficulty": "B1",
+    "difficulty": "A2",
     "vocabulary": [
-      "remain",
+      "remained",
       "substantial",
       "pay raise"
     ]
   },
   {
-    "id": "p5-ed-0103",
+    "id": "p5-ed-0155",
     "part": "Part 5",
     "question": "Please complete the insurance paperwork you received while the orientation stage _______ set up.",
     "choices": {
@@ -2058,17 +3098,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "has been"
     },
     "answer": "A",
-    "explanation_zh": "前後句有因果關係，需用表示原因的連接詞。選項「because」引導原因子句，符合語意。",
+    "explanation_zh": "連接詞「because」表示「因為」，引導原因子句，說明Kevin Watts決定留下的原因是他獲得了大幅加薪。",
     "skill_tag": "conjunction",
-    "difficulty": "B1",
+    "difficulty": "A2",
     "vocabulary": [
-      "remain",
+      "remained",
       "substantial",
       "pay raise"
     ]
   },
   {
-    "id": "p5-ed-0104",
+    "id": "p5-ed-0156",
     "part": "Part 5",
     "question": "Kevin Watts decided to remain at Nottingham Securities _______ he received a substantial pay raise.",
     "choices": {
@@ -2078,17 +3118,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "or"
     },
     "answer": "B",
-    "explanation_zh": "前後句有因果關係，需用表示原因的連接詞。選項「because」引導原因子句，符合語意。",
+    "explanation_zh": "連接詞「because」表示「因為」，引導原因子句，說明Kevin Watts決定留下的原因是他獲得了大幅加薪。",
     "skill_tag": "conjunction",
-    "difficulty": "B1",
+    "difficulty": "A2",
     "vocabulary": [
-      "remain",
+      "remained",
       "substantial",
       "pay raise"
     ]
   },
   {
-    "id": "p5-ed-0105",
+    "id": "p5-ed-0157",
     "part": "Part 5",
     "question": "Mr. Dearborn resigned his position _______ the busy holiday season.",
     "choices": {
@@ -2098,17 +3138,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "instead of"
     },
     "answer": "A",
-    "explanation_zh": "介係詞「to be」後需接動名詞作為主詞補語。選項「getting」為動名詞，符合語法。",
+    "explanation_zh": "動名詞「getting」作為主詞補語，說明Edward Hope最大的成就是「讓他的公司擺脫破產」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "accomplishment",
       "bankruptcy",
-      "consider"
+      "considered"
     ]
   },
   {
-    "id": "p5-ed-0106",
+    "id": "p5-ed-0158",
     "part": "Part 5",
     "question": "First-time buyers at Jupiter Groceries can receive free delivery _______ request a sample food platter at no extra cost.",
     "choices": {
@@ -2118,17 +3158,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "even"
     },
     "answer": "A",
-    "explanation_zh": "介係詞「to be」後需接動名詞作為主詞補語。選項「getting」為動名詞，符合語法。",
+    "explanation_zh": "動名詞「getting」作為主詞補語，說明Edward Hope最大的成就是「讓他的公司擺脫破產」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "accomplishment",
       "bankruptcy",
-      "consider"
+      "considered"
     ]
   },
   {
-    "id": "p5-ed-0107",
+    "id": "p5-ed-0159",
     "part": "Part 5",
     "question": "_______ the training objectives of the session have already been met, we should use the remaining time for more casual team-building activities.",
     "choices": {
@@ -2138,17 +3178,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Unless"
     },
     "answer": "A",
-    "explanation_zh": "介係詞「to be」後需接動名詞作為主詞補語。選項「getting」為動名詞，符合語法。",
+    "explanation_zh": "動名詞「getting」作為主詞補語，說明Edward Hope最大的成就是「讓他的公司擺脫破產」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "accomplishment",
       "bankruptcy",
-      "consider"
+      "considered"
     ]
   },
   {
-    "id": "p5-ed-0108",
+    "id": "p5-ed-0160",
     "part": "Part 5",
     "question": "Most analysts considered Edward Hope's greatest accomplishment to be _______ his company out of bankruptcy.",
     "choices": {
@@ -2158,17 +3198,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "did get"
     },
     "answer": "B",
-    "explanation_zh": "介係詞「to be」後需接動名詞作為主詞補語。選項「getting」為動名詞，符合語法。",
+    "explanation_zh": "動名詞「getting」作為主詞補語，說明Edward Hope最大的成就是「讓他的公司擺脫破產」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "accomplishment",
       "bankruptcy",
-      "consider"
+      "considered"
     ]
   },
   {
-    "id": "p5-ed-0109",
+    "id": "p5-ed-0161",
     "part": "Part 5",
     "question": "Pianist Judy Watson's _______ the past three days have been widely praised by audience members.",
     "choices": {
@@ -2178,17 +3218,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "performances"
     },
     "answer": "D",
-    "explanation_zh": "固定搭配「in conjunction with」意為「與…合作」。選項「conjunction」符合此慣用語。",
-    "skill_tag": "business_vocabulary",
-    "difficulty": "B1",
+    "explanation_zh": "連接詞「Before」表示「在...之前」，引導時間子句，說明Ms. Harrison在里斯本學習金融是在她接受Dubois Bank職位之前。",
+    "skill_tag": "conjunction",
+    "difficulty": "A2",
     "vocabulary": [
-      "conjunction",
-      "develop",
-      "low-cost housing"
+      "accepted",
+      "position",
+      "studied"
     ]
   },
   {
-    "id": "p5-ed-0110",
+    "id": "p5-ed-0162",
     "part": "Part 5",
     "question": "Applicants with strong work ethics can _______ interviewers to hire them.",
     "choices": {
@@ -2198,17 +3238,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "convincing"
     },
     "answer": "A",
-    "explanation_zh": "固定搭配「in conjunction with」意為「與…合作」。選項「conjunction」符合此慣用語。",
-    "skill_tag": "business_vocabulary",
-    "difficulty": "B1",
+    "explanation_zh": "連接詞「Before」表示「在...之前」，引導時間子句，說明Ms. Harrison在里斯本學習金融是在她接受Dubois Bank職位之前。",
+    "skill_tag": "conjunction",
+    "difficulty": "A2",
     "vocabulary": [
-      "conjunction",
-      "develop",
-      "low-cost housing"
+      "accepted",
+      "position",
+      "studied"
     ]
   },
   {
-    "id": "p5-ed-0111",
+    "id": "p5-ed-0163",
     "part": "Part 5",
     "question": "_______ she accepted a position at Dubois Bank, Ms. Harrison studied finance at a school in Lisbon.",
     "choices": {
@@ -2218,57 +3258,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Rather"
     },
     "answer": "B",
-    "explanation_zh": "固定搭配「in conjunction with」意為「與…合作」。選項「conjunction」符合此慣用語。",
-    "skill_tag": "business_vocabulary",
-    "difficulty": "B1",
+    "explanation_zh": "連接詞「Before」表示「在...之前」，引導時間子句，說明Ms. Harrison在里斯本學習金融是在她接受Dubois Bank職位之前。",
+    "skill_tag": "conjunction",
+    "difficulty": "A2",
     "vocabulary": [
-      "conjunction",
-      "develop",
-      "low-cost housing"
+      "accepted",
+      "position",
+      "studied"
     ]
   },
   {
-    "id": "p5-ed-0112",
-    "part": "Part 5",
-    "question": "The Spruce Corporation agreed to work in _______ with Magpie Inc. to develop low-cost housing in Richmond.",
-    "choices": {
-      "A": "reflection",
-      "B": "deduction",
-      "C": "conjunction",
-      "D": "accumulation"
-    },
-    "answer": "C",
-    "explanation_zh": "固定搭配「in conjunction with」意為「與…合作」。選項「conjunction」符合此慣用語。",
-    "skill_tag": "business_vocabulary",
-    "difficulty": "B1",
-    "vocabulary": [
-      "conjunction",
-      "develop",
-      "low-cost housing"
-    ]
-  },
-  {
-    "id": "p5-ed-0113",
-    "part": "Part 5",
-    "question": "In Piedmont, the _______ of some new buildings resembles that used in ancient Rome.",
-    "choices": {
-      "A": "styling",
-      "B": "stylist",
-      "C": "styled",
-      "D": "style"
-    },
-    "answer": "D",
-    "explanation_zh": "副詞「How」後需接副詞來修飾動詞「will increase」。選項「substantially」為副詞，意為「大幅地」，符合。",
-    "skill_tag": "word_form",
-    "difficulty": "B1",
-    "vocabulary": [
-      "substantially",
-      "fare",
-      "expenditure"
-    ]
-  },
-  {
-    "id": "p5-ed-0114",
+    "id": "p5-ed-0164",
     "part": "Part 5",
     "question": "Do not submit the request for a grant to local authorities until it _______ by Ms. Parker.",
     "choices": {
@@ -2278,17 +3278,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "will be reviewed"
     },
     "answer": "C",
-    "explanation_zh": "副詞「How」後需接副詞來修飾動詞「will increase」。選項「substantially」為副詞，意為「大幅地」，符合。",
+    "explanation_zh": "副詞「substantially」修飾動詞「will increase」，表示「大幅增加」，符合句意「公車票價會增加多少」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "substantially",
-      "fare",
-      "expenditure"
+      "bus fares",
+      "expenditures"
     ]
   },
   {
-    "id": "p5-ed-0115",
+    "id": "p5-ed-0165",
     "part": "Part 5",
     "question": "Nelson Technology has a tradition of providing workers and their families _______ tickets to local cultural events.",
     "choices": {
@@ -2298,17 +3298,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "on"
     },
     "answer": "B",
-    "explanation_zh": "副詞「How」後需接副詞來修飾動詞「will increase」。選項「substantially」為副詞，意為「大幅地」，符合。",
+    "explanation_zh": "副詞「substantially」修飾動詞「will increase」，表示「大幅增加」，符合句意「公車票價會增加多少」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "substantially",
-      "fare",
-      "expenditure"
+      "bus fares",
+      "expenditures"
     ]
   },
   {
-    "id": "p5-ed-0116",
+    "id": "p5-ed-0166",
     "part": "Part 5",
     "question": "_______ Raymond Mercer runs his own restaurant, he is responsible for acquiring ingredients daily.",
     "choices": {
@@ -2318,17 +3318,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Now that"
     },
     "answer": "D",
-    "explanation_zh": "副詞「How」後需接副詞來修飾動詞「will increase」。選項「substantially」為副詞，意為「大幅地」，符合。",
+    "explanation_zh": "副詞「substantially」修飾動詞「will increase」，表示「大幅增加」，符合句意「公車票價會增加多少」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "substantially",
-      "fare",
-      "expenditure"
+      "bus fares",
+      "expenditures"
     ]
   },
   {
-    "id": "p5-ed-0117",
+    "id": "p5-ed-0167",
     "part": "Part 5",
     "question": "How _______ the bus fares will increase depends on the average number of passengers and the expected fuel expenditures.",
     "choices": {
@@ -2338,17 +3338,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "more substantial"
     },
     "answer": "B",
-    "explanation_zh": "副詞「How」後需接副詞來修飾動詞「will increase」。選項「substantially」為副詞，意為「大幅地」，符合。",
+    "explanation_zh": "副詞「substantially」修飾動詞「will increase」，表示「大幅增加」，符合句意「公車票價會增加多少」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "substantially",
-      "fare",
-      "expenditure"
+      "bus fares",
+      "expenditures"
     ]
   },
   {
-    "id": "p5-ed-0118",
+    "id": "p5-ed-0168",
     "part": "Part 5",
     "question": "According to government _______, homes should use energy-efficient insulation materials.",
     "choices": {
@@ -2358,17 +3358,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "will recommend"
     },
     "answer": "A",
-    "explanation_zh": "動詞「instructed」後需接受詞，且後有關係子句「who had been working」，需用複數代名詞。選項「those」指「那些人」，符合。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "名詞「organizer」表示「組織者」，符合句意「所有預算決定都必須由年度音樂節的組織者Tony Calderon事先批准」。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "instruct",
-      "nonstop",
-      "take a break"
+      "organizer",
+      "budget",
+      "approved"
     ]
   },
   {
-    "id": "p5-ed-0119",
+    "id": "p5-ed-0169",
     "part": "Part 5",
     "question": "The number of computer chips ordered by foreign manufacturers _______ by thirty percent.",
     "choices": {
@@ -2378,17 +3378,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "were reduced"
     },
     "answer": "A",
-    "explanation_zh": "動詞「instructed」後需接受詞，且後有關係子句「who had been working」，需用複數代名詞。選項「those」指「那些人」，符合。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "名詞「organizer」表示「組織者」，符合句意「所有預算決定都必須由年度音樂節的組織者Tony Calderon事先批准」。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "instruct",
-      "nonstop",
-      "take a break"
+      "organizer",
+      "budget",
+      "approved"
     ]
   },
   {
-    "id": "p5-ed-0120",
+    "id": "p5-ed-0170",
     "part": "Part 5",
     "question": "_______ a location for the annual shareholders' meeting is determined, an announcement will be made.",
     "choices": {
@@ -2398,17 +3398,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Once"
     },
     "answer": "D",
-    "explanation_zh": "動詞「instructed」後需接受詞，且後有關係子句「who had been working」，需用複數代名詞。選項「those」指「那些人」，符合。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "名詞「organizer」表示「組織者」，符合句意「所有預算決定都必須由年度音樂節的組織者Tony Calderon事先批准」。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "instruct",
-      "nonstop",
-      "take a break"
+      "organizer",
+      "budget",
+      "approved"
     ]
   },
   {
-    "id": "p5-ed-0121",
+    "id": "p5-ed-0171",
     "part": "Part 5",
     "question": "All budget decisions must be approved by Tony Calderon, the _______ of the annual music festival, in advance.",
     "choices": {
@@ -2418,37 +3418,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "organize"
     },
     "answer": "C",
-    "explanation_zh": "動詞「instructed」後需接受詞，且後有關係子句「who had been working」，需用複數代名詞。選項「those」指「那些人」，符合。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "名詞「organizer」表示「組織者」，符合句意「所有預算決定都必須由年度音樂節的組織者Tony Calderon事先批准」。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "instruct",
-      "nonstop",
-      "take a break"
+      "organizer",
+      "budget",
+      "approved"
     ]
   },
   {
-    "id": "p5-ed-0122",
-    "part": "Part 5",
-    "question": "Dr. Hatfield instructed _______ who had been working nonstop since the morning to take a break.",
-    "choices": {
-      "A": "those",
-      "B": "one",
-      "C": "themselves",
-      "D": "each"
-    },
-    "answer": "A",
-    "explanation_zh": "動詞「instructed」後需接受詞，且後有關係子句「who had been working」，需用複數代名詞。選項「those」指「那些人」，符合。",
-    "skill_tag": "pronoun",
-    "difficulty": "B1",
-    "vocabulary": [
-      "instruct",
-      "nonstop",
-      "take a break"
-    ]
-  },
-  {
-    "id": "p5-ed-0123",
+    "id": "p5-ed-0172",
     "part": "Part 5",
     "question": "Despite his continual _______ at Weyland Aerospace for thirty years, Dan Jenkins resigned to work at another company.",
     "choices": {
@@ -2458,8 +3438,8 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "employment"
     },
     "answer": "D",
-    "explanation_zh": "動詞 forced 後面需要接不定詞 to + 原形動詞，表示「迫使某人做某事」。選項 (C) to abandon 符合此結構。",
-    "skill_tag": "word_form",
+    "explanation_zh": "動詞 forced 後面需要接不定詞 to abandon 作為受詞補語，表示「迫使……放棄」。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
       "rejection",
@@ -2468,7 +3448,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0124",
+    "id": "p5-ed-0173",
     "part": "Part 5",
     "question": "Dr. Morelli, the company's head scientist, _______ a large team of medical researchers.",
     "choices": {
@@ -2478,8 +3458,8 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "supervising"
     },
     "answer": "B",
-    "explanation_zh": "動詞 forced 後面需要接不定詞 to + 原形動詞，表示「迫使某人做某事」。選項 (C) to abandon 符合此結構。",
-    "skill_tag": "word_form",
+    "explanation_zh": "動詞 forced 後面需要接不定詞 to abandon 作為受詞補語，表示「迫使……放棄」。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
       "rejection",
@@ -2488,7 +3468,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0125",
+    "id": "p5-ed-0174",
     "part": "Part 5",
     "question": "_______ interest rates are increasing, fewer people are getting mortgages on new homes.",
     "choices": {
@@ -2498,8 +3478,8 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Why"
     },
     "answer": "B",
-    "explanation_zh": "動詞 forced 後面需要接不定詞 to + 原形動詞，表示「迫使某人做某事」。選項 (C) to abandon 符合此結構。",
-    "skill_tag": "word_form",
+    "explanation_zh": "動詞 forced 後面需要接不定詞 to abandon 作為受詞補語，表示「迫使……放棄」。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
       "rejection",
@@ -2508,7 +3488,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0126",
+    "id": "p5-ed-0175",
     "part": "Part 5",
     "question": "Multiple rejections of the building permit forced the construction company _______ its development of the vacant lot into a luxury apartment building.",
     "choices": {
@@ -2518,8 +3498,8 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "abandons"
     },
     "answer": "C",
-    "explanation_zh": "動詞 forced 後面需要接不定詞 to + 原形動詞，表示「迫使某人做某事」。選項 (C) to abandon 符合此結構。",
-    "skill_tag": "word_form",
+    "explanation_zh": "動詞 forced 後面需要接不定詞 to abandon 作為受詞補語，表示「迫使……放棄」。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
       "rejection",
@@ -2528,7 +3508,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0127",
+    "id": "p5-ed-0176",
     "part": "Part 5",
     "question": "Employees are supposed to report any _______ on business trips no matter how small.",
     "choices": {
@@ -2538,17 +3518,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "expensed"
     },
     "answer": "C",
-    "explanation_zh": "主詞 Ms. Jacobs 是第三人稱單數，句子需要一個動詞作為謂語。選項 (B) teaches 是第三人稱單數現在式，符合主詞一致。",
+    "explanation_zh": "主詞 Ms. Jacobs 是第三人稱單數，且句子描述一般事實，需要用現在式動詞。teaches 是正確的動詞形式。",
     "skill_tag": "tense",
     "difficulty": "A2",
     "vocabulary": [
-      "top manager",
-      "teaches",
+      "manager",
+      "teach",
       "leadership"
     ]
   },
   {
-    "id": "p5-ed-0128",
+    "id": "p5-ed-0177",
     "part": "Part 5",
     "question": "The meeting _______ because several expected attendees could not attend due to conflicting schedules.",
     "choices": {
@@ -2558,17 +3538,37 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "will cancel"
     },
     "answer": "C",
-    "explanation_zh": "主詞 Ms. Jacobs 是第三人稱單數，句子需要一個動詞作為謂語。選項 (B) teaches 是第三人稱單數現在式，符合主詞一致。",
+    "explanation_zh": "主詞 Ms. Jacobs 是第三人稱單數，且句子描述一般事實，需要用現在式動詞。teaches 是正確的動詞形式。",
     "skill_tag": "tense",
     "difficulty": "A2",
     "vocabulary": [
-      "top manager",
-      "teaches",
+      "manager",
+      "teach",
       "leadership"
     ]
   },
   {
-    "id": "p5-ed-0129",
+    "id": "p5-ed-0178",
+    "part": "Part 5",
+    "question": "By the end of the day, neither Stella Reynolds _______ Jeffery Harper had submitted their proposals for the Edmund Project.",
+    "choices": {
+      "A": "nor",
+      "B": "and",
+      "C": "if",
+      "D": "so"
+    },
+    "answer": "A",
+    "explanation_zh": "主詞 Ms. Jacobs 是第三人稱單數，且句子描述一般事實，需要用現在式動詞。teaches 是正確的動詞形式。",
+    "skill_tag": "tense",
+    "difficulty": "A2",
+    "vocabulary": [
+      "manager",
+      "teach",
+      "leadership"
+    ]
+  },
+  {
+    "id": "p5-ed-0179",
     "part": "Part 5",
     "question": "Ms. Jacobs, one of Failsafe's top managers, _______ a class on leadership at the local university.",
     "choices": {
@@ -2578,17 +3578,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "is taught"
     },
     "answer": "B",
-    "explanation_zh": "主詞 Ms. Jacobs 是第三人稱單數，句子需要一個動詞作為謂語。選項 (B) teaches 是第三人稱單數現在式，符合主詞一致。",
+    "explanation_zh": "主詞 Ms. Jacobs 是第三人稱單數，且句子描述一般事實，需要用現在式動詞。teaches 是正確的動詞形式。",
     "skill_tag": "tense",
     "difficulty": "A2",
     "vocabulary": [
-      "top manager",
-      "teaches",
+      "manager",
+      "teach",
       "leadership"
     ]
   },
   {
-    "id": "p5-ed-0130",
+    "id": "p5-ed-0180",
     "part": "Part 5",
     "question": "Mr. Klein was asked to make a _______ regarding how to enter the South American market.",
     "choices": {
@@ -2598,7 +3598,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "proposal"
     },
     "answer": "D",
-    "explanation_zh": "空格引導目的子句，表示「以便技師可以告訴你如何修理」。選項 (A) so that 是表示目的的連接詞，符合語意。",
+    "explanation_zh": "空格連接兩個子句，表示目的。so that 表示「以便」，符合語意。",
     "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
@@ -2608,7 +3608,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0131",
+    "id": "p5-ed-0181",
     "part": "Part 5",
     "question": "Be sure to review the user's manual because _______ the precise method for installing the appliance.",
     "choices": {
@@ -2618,7 +3618,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "one explaining"
     },
     "answer": "B",
-    "explanation_zh": "空格引導目的子句，表示「以便技師可以告訴你如何修理」。選項 (A) so that 是表示目的的連接詞，符合語意。",
+    "explanation_zh": "空格連接兩個子句，表示目的。so that 表示「以便」，符合語意。",
     "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
@@ -2628,7 +3628,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0132",
+    "id": "p5-ed-0182",
     "part": "Part 5",
     "question": "Please explain the malfunction precisely with your new device _______ our technician can tell you how to repair it.",
     "choices": {
@@ -2638,7 +3638,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "if"
     },
     "answer": "A",
-    "explanation_zh": "空格引導目的子句，表示「以便技師可以告訴你如何修理」。選項 (A) so that 是表示目的的連接詞，符合語意。",
+    "explanation_zh": "空格連接兩個子句，表示目的。so that 表示「以便」，符合語意。",
     "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
@@ -2648,7 +3648,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0133",
+    "id": "p5-ed-0183",
     "part": "Part 5",
     "question": "Stores were informed that _______ of the new product line would be limited for the next two months.",
     "choices": {
@@ -2658,17 +3658,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "distributed"
     },
     "answer": "A",
-    "explanation_zh": "空格在主詞位置，需要一個名詞性代名詞。選項 (B) ours 是名詞性所有格代名詞，表示「我們的（原型）」，在此指 our prototype。",
+    "explanation_zh": "空格在主詞位置，需要一個名詞性代名詞。ours 是名詞性所有格代名詞，表示「我們的（原型）」。",
     "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
       "prototype",
-      "impressive",
-      "design competition"
+      "submit",
+      "competition"
     ]
   },
   {
-    "id": "p5-ed-0134",
+    "id": "p5-ed-0184",
     "part": "Part 5",
     "question": "By the end of this month, Caldwell International _______ seven employees to its Singapore branch.",
     "choices": {
@@ -2678,17 +3678,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "had transferred"
     },
     "answer": "B",
-    "explanation_zh": "空格在主詞位置，需要一個名詞性代名詞。選項 (B) ours 是名詞性所有格代名詞，表示「我們的（原型）」，在此指 our prototype。",
+    "explanation_zh": "空格在主詞位置，需要一個名詞性代名詞。ours 是名詞性所有格代名詞，表示「我們的（原型）」。",
     "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
       "prototype",
-      "impressive",
-      "design competition"
+      "submit",
+      "competition"
     ]
   },
   {
-    "id": "p5-ed-0135",
+    "id": "p5-ed-0185",
     "part": "Part 5",
     "question": "_______ Harris Manufacturing delivered the products to its client in Memphis, full payment was not made until two weeks later.",
     "choices": {
@@ -2698,17 +3698,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Supposedly"
     },
     "answer": "B",
-    "explanation_zh": "空格在主詞位置，需要一個名詞性代名詞。選項 (B) ours 是名詞性所有格代名詞，表示「我們的（原型）」，在此指 our prototype。",
+    "explanation_zh": "空格在主詞位置，需要一個名詞性代名詞。ours 是名詞性所有格代名詞，表示「我們的（原型）」。",
     "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
       "prototype",
-      "impressive",
-      "design competition"
+      "submit",
+      "competition"
     ]
   },
   {
-    "id": "p5-ed-0136",
+    "id": "p5-ed-0186",
     "part": "Part 5",
     "question": "Everyone on the product development team agrees that _______ is the most impressive prototype submitted to the national design competition.",
     "choices": {
@@ -2718,17 +3718,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "ourselves"
     },
     "answer": "B",
-    "explanation_zh": "空格在主詞位置，需要一個名詞性代名詞。選項 (B) ours 是名詞性所有格代名詞，表示「我們的（原型）」，在此指 our prototype。",
+    "explanation_zh": "空格在主詞位置，需要一個名詞性代名詞。ours 是名詞性所有格代名詞，表示「我們的（原型）」。",
     "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
       "prototype",
-      "impressive",
-      "design competition"
+      "submit",
+      "competition"
     ]
   },
   {
-    "id": "p5-ed-0137",
+    "id": "p5-ed-0187",
     "part": "Part 5",
     "question": "Dr. Audrey is always eager to give her scientists _______ that they need for their experiments.",
     "choices": {
@@ -2738,7 +3738,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "materialization"
     },
     "answer": "B",
-    "explanation_zh": "空格在副詞 quite 之後，需要一個形容詞來修飾 images。選項 (D) appealing 是形容詞，表示「吸引人的」，符合語意。",
+    "explanation_zh": "空格在副詞 quite 和形容詞 visually 之後，需要一個形容詞作為主詞補語。appealing 是形容詞，表示「吸引人的」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
@@ -2748,7 +3748,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0138",
+    "id": "p5-ed-0188",
     "part": "Part 5",
     "question": "Anyone is welcome to speak during the meeting but _______ they have something positive to contribute.",
     "choices": {
@@ -2758,7 +3758,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "rather than"
     },
     "answer": "B",
-    "explanation_zh": "空格在副詞 quite 之後，需要一個形容詞來修飾 images。選項 (D) appealing 是形容詞，表示「吸引人的」，符合語意。",
+    "explanation_zh": "空格在副詞 quite 和形容詞 visually 之後，需要一個形容詞作為主詞補語。appealing 是形容詞，表示「吸引人的」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
@@ -2768,7 +3768,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0139",
+    "id": "p5-ed-0189",
     "part": "Part 5",
     "question": "_______ the international transfer request is submitted by 3 P.M., Henley Bank will finalize the transaction on the same day.",
     "choices": {
@@ -2778,7 +3778,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Just as"
     },
     "answer": "B",
-    "explanation_zh": "空格在副詞 quite 之後，需要一個形容詞來修飾 images。選項 (D) appealing 是形容詞，表示「吸引人的」，符合語意。",
+    "explanation_zh": "空格在副詞 quite 和形容詞 visually 之後，需要一個形容詞作為主詞補語。appealing 是形容詞，表示「吸引人的」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
@@ -2788,7 +3788,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0140",
+    "id": "p5-ed-0190",
     "part": "Part 5",
     "question": "The images captured by the magazine's new photographer are quite visually _______.",
     "choices": {
@@ -2798,7 +3798,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "appealing"
     },
     "answer": "D",
-    "explanation_zh": "空格在副詞 quite 之後，需要一個形容詞來修飾 images。選項 (D) appealing 是形容詞，表示「吸引人的」，符合語意。",
+    "explanation_zh": "空格在副詞 quite 和形容詞 visually 之後，需要一個形容詞作為主詞補語。appealing 是形容詞，表示「吸引人的」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
@@ -2808,7 +3808,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0141",
+    "id": "p5-ed-0191",
     "part": "Part 5",
     "question": "The attractive interest rate offered by Lapointe Bank _______ customers to open new accounts and move surplus funds into them.",
     "choices": {
@@ -2818,17 +3818,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "have been motivating"
     },
     "answer": "B",
-    "explanation_zh": "祈使句 Please 後面需要接原形動詞。選項 (A) remember 是原形動詞，符合。",
+    "explanation_zh": "祈使句開頭用動詞原形。remember 是原形動詞，符合祈使句結構。",
     "skill_tag": "word_form",
     "difficulty": "A2",
     "vocabulary": [
       "safety gear",
-      "properly",
-      "potential injuries"
+      "avoid",
+      "potential injury"
     ]
   },
   {
-    "id": "p5-ed-0142",
+    "id": "p5-ed-0192",
     "part": "Part 5",
     "question": "Please _______ to put on your safety gear properly to avoid potential injuries.",
     "choices": {
@@ -2838,17 +3838,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "remembering"
     },
     "answer": "A",
-    "explanation_zh": "祈使句 Please 後面需要接原形動詞。選項 (A) remember 是原形動詞，符合。",
+    "explanation_zh": "祈使句開頭用動詞原形。remember 是原形動詞，符合祈使句結構。",
     "skill_tag": "word_form",
     "difficulty": "A2",
     "vocabulary": [
       "safety gear",
-      "properly",
-      "potential injuries"
+      "avoid",
+      "potential injury"
     ]
   },
   {
-    "id": "p5-ed-0143",
+    "id": "p5-ed-0193",
     "part": "Part 5",
     "question": "Mr. Hollander is the person responsible _______ confirming that proper procedures are being followed.",
     "choices": {
@@ -2858,17 +3858,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "on"
     },
     "answer": "C",
-    "explanation_zh": "形容詞 responsible 後面需要接介係詞 for，表示「對……負責」。選項 (C) for 是正確搭配。",
+    "explanation_zh": "形容詞 responsible 後面固定搭配介係詞 for，表示「對……負責」。",
     "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
       "responsible for",
-      "proper procedures",
-      "confirm"
+      "confirm",
+      "procedure"
     ]
   },
   {
-    "id": "p5-ed-0144",
+    "id": "p5-ed-0194",
     "part": "Part 5",
     "question": "The department head anticipates _______ more on travel expenses next year to improve the relationships with clients through face-to-face meetings.",
     "choices": {
@@ -2878,7 +3878,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "spending"
     },
     "answer": "D",
-    "explanation_zh": "空格修飾形容詞 complete，需要一個副詞。選項 (B) partially 是副詞，表示「部分地」，符合語意。",
+    "explanation_zh": "空格修飾形容詞 complete，需要用副詞。partially 是副詞，表示「部分地」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
@@ -2888,7 +3888,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0145",
+    "id": "p5-ed-0195",
     "part": "Part 5",
     "question": "The bridge was only _______ complete when construction was halted due to the discovery of a design flaw.",
     "choices": {
@@ -2898,7 +3898,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "partialness"
     },
     "answer": "B",
-    "explanation_zh": "空格修飾形容詞 complete，需要一個副詞。選項 (B) partially 是副詞，表示「部分地」，符合語意。",
+    "explanation_zh": "空格修飾形容詞 complete，需要用副詞。partially 是副詞，表示「部分地」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
@@ -2908,7 +3908,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0146",
+    "id": "p5-ed-0196",
     "part": "Part 5",
     "question": "Murillo Incorporated's overseas expansion plan involves hiring an accounting firm _______ employees have experience with overseas tax regulations.",
     "choices": {
@@ -2918,17 +3918,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "whose"
     },
     "answer": "D",
-    "explanation_zh": "空格後接名詞「employees」，且該名詞與前面的「accounting firm」有所有關係，因此需用所有格關係代名詞「whose」來連接，表示「其員工擁有海外稅務法規經驗的會計事務所」。",
+    "explanation_zh": "空格後接名詞「employees」及動詞「have」，需用所有格關係代名詞「whose」來表示「會計師事務所的員工」。選項「what」與「how」無法引導所有格關係，「which」則指事物而非人。",
     "skill_tag": "relative_clause",
     "difficulty": "B1",
     "vocabulary": [
       "expansion plan",
       "accounting firm",
-      "tax regulations"
+      "overseas tax regulations"
     ]
   },
   {
-    "id": "p5-ed-0147",
+    "id": "p5-ed-0197",
     "part": "Part 5",
     "question": "The new policy on unpaid medical leave will go into effect immediately _______ the details are posted on the company website.",
     "choices": {
@@ -2938,7 +3938,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "that"
     },
     "answer": "B",
-    "explanation_zh": "句意為「新政策將在細節公布於公司網站之後立即生效」，表示時間先後順序，因此需用連接詞「after」來引導時間副詞子句。",
+    "explanation_zh": "句意為「新政策將在細節公布後立即生效」，時間順序上細節公布發生在生效之前，因此需用「after」連接時間副詞子句。「until」表示持續到某時間點，與句意不符。",
     "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
@@ -2948,7 +3948,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0148",
+    "id": "p5-ed-0198",
     "part": "Part 5",
     "question": "Supervisors should take the time to listen to concerns from members of their team, _______ busy they may be.",
     "choices": {
@@ -2958,17 +3958,37 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "as well"
     },
     "answer": "C",
-    "explanation_zh": "空格後接形容詞「busy」及主詞「they」，需用副詞「however」來修飾形容詞，表示「無論他們可能有多忙」，引導讓步子句。",
+    "explanation_zh": "空格後接形容詞「busy」及主詞「they」，需用副詞「however」引導讓步子句，表示「無論他們多忙」。選項「rather than」表對比，「indeed」表強調，「as well」表附加，皆不符合文法結構。",
     "skill_tag": "conjunction",
     "difficulty": "B2",
     "vocabulary": [
       "supervisor",
-      "take the time",
-      "concern"
+      "concerns",
+      "sales quota"
     ]
   },
   {
-    "id": "p5-ed-0149",
+    "id": "p5-ed-0199",
+    "part": "Part 5",
+    "question": "_______ Mr. Zhang not failed to meet reaching his sales quota for the quarter, he might have been considered for the promotion.",
+    "choices": {
+      "A": "Having",
+      "B": "Has",
+      "C": "Had",
+      "D": "Have"
+    },
+    "answer": "C",
+    "explanation_zh": "此句為與過去事實相反的假設語氣，條件子句需用「had + 主詞 + 過去分詞」的倒裝結構，省略「if」。原句應為「If Mr. Zhang had not failed...」，因此正確選項為「Had」。",
+    "skill_tag": "tense",
+    "difficulty": "C1",
+    "vocabulary": [
+      "sales quota",
+      "quarter",
+      "promotion"
+    ]
+  },
+  {
+    "id": "p5-ed-0200",
     "part": "Part 5",
     "question": "The consulting firm intends to hold a training _______ for its newest employees next week.",
     "choices": {
@@ -2978,17 +3998,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "way"
     },
     "answer": "A",
-    "explanation_zh": "空格前有「training -」且後接「for its newest employees」，表示需要一個可搭配「hold a training」的名詞。選項中只有「session」符合「訓練課程」的常見搭配，其他選項（method、approach、way）雖有「方法」之意，但無法與「hold a training」自然連用。",
+    "explanation_zh": "空格前有「training -------」，需要一個與「training」搭配的名詞，表示「訓練課程」。選項中只有「session」符合此商業慣用搭配，指「一場訓練課程」。其他選項「method」、「approach」、「way」雖有「方法」之意，但無法與「training」形成自然搭配。",
     "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "consulting firm",
       "training session",
-      "newest employees"
+      "consulting firm",
+      "employee"
     ]
   },
   {
-    "id": "p5-ed-0150",
+    "id": "p5-ed-0201",
     "part": "Part 5",
     "question": "Sylvester Deli's selection of meats is _______ than all other stores in the city.",
     "choices": {
@@ -2998,7 +4018,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "great"
     },
     "answer": "B",
-    "explanation_zh": "空格後有 than，表示比較級，因此形容詞 great 要變成比較級 greater。",
+    "explanation_zh": "題幹中有「than」表示比較級，因此空格需填入形容詞比較級「greater」，與「than」搭配形成比較結構。",
     "skill_tag": "word_form",
     "difficulty": "A2",
     "vocabulary": [
@@ -3007,7 +4027,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0151",
+    "id": "p5-ed-0202",
     "part": "Part 5",
     "question": "We regret to announce Mr. Carpenter's _______ from his position in the R&D Department.",
     "choices": {
@@ -3017,7 +4037,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "will resign"
     },
     "answer": "C",
-    "explanation_zh": "所有格 Mr. Carpenter's 後面需接名詞，因此選 resignation（辭職）。",
+    "explanation_zh": "空格前有所有格「Mr. Carpenter's」，後面需接名詞，因此選擇名詞「resignation」表示「辭職」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
@@ -3027,7 +4047,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0152",
+    "id": "p5-ed-0203",
     "part": "Part 5",
     "question": "Nearly _______ individual at the logistics conference is directly involved in the industry.",
     "choices": {
@@ -3037,17 +4057,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "every"
     },
     "answer": "D",
-    "explanation_zh": "空格後是單數名詞 individual，需用限定詞 every（每一個）。",
+    "explanation_zh": "空格後有單數名詞「individual」，需搭配單數限定詞「every」，表示「每一個」。",
     "skill_tag": "word_form",
     "difficulty": "A2",
     "vocabulary": [
       "individual",
-      "logistics",
-      "conference"
+      "conference",
+      "industry"
     ]
   },
   {
-    "id": "p5-ed-0153",
+    "id": "p5-ed-0204",
     "part": "Part 5",
     "question": "All transactions with clients are _______ both on paper and electronically.",
     "choices": {
@@ -3057,16 +4077,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "records"
     },
     "answer": "B",
-    "explanation_zh": "主詞 transactions 與動詞 record 之間為被動關係（被記錄），需用過去分詞 recorded。",
+    "explanation_zh": "主詞「All transactions」與動詞「record」之間為被動關係，且句子為現在式，因此需用被動語態「are recorded」。",
     "skill_tag": "passive_voice",
     "difficulty": "B1",
     "vocabulary": [
       "transaction",
+      "record",
       "electronically"
     ]
   },
   {
-    "id": "p5-ed-0154",
+    "id": "p5-ed-0205",
     "part": "Part 5",
     "question": "Mr. Anderson scheduled a staff meeting for the _______ of discussing this month's budget.",
     "choices": {
@@ -3076,17 +4097,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "appointment"
     },
     "answer": "A",
-    "explanation_zh": "for the purpose of + 動名詞 是固定片語，表示「為了……的目的」。",
+    "explanation_zh": "「for the purpose of + 動名詞」為固定搭配，表示「為了……的目的」，因此選擇「purpose」。",
     "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
       "purpose",
       "budget",
-      "schedule"
+      "staff meeting"
     ]
   },
   {
-    "id": "p5-ed-0155",
+    "id": "p5-ed-0206",
     "part": "Part 5",
     "question": "As soon as the seminar attendees arrive, _______ will be divided into groups for a role-playing activity.",
     "choices": {
@@ -3096,17 +4117,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "themselves"
     },
     "answer": "A",
-    "explanation_zh": "空格在逗號後，需做主詞，因此選主格 they。",
+    "explanation_zh": "空格在句中作主詞，需用主格代名詞「they」來指代前文的「the seminar attendees」。",
     "skill_tag": "pronoun",
     "difficulty": "A2",
     "vocabulary": [
-      "seminar",
       "attendee",
+      "divide",
       "role-playing"
     ]
   },
   {
-    "id": "p5-ed-0156",
+    "id": "p5-ed-0207",
     "part": "Part 5",
     "question": "A government inspection must be conducted _______ new regulations have just been enacted.",
     "choices": {
@@ -3116,7 +4137,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "as soon as"
     },
     "answer": "C",
-    "explanation_zh": "前句「必須進行檢查」與後句「新法規剛頒布」之間是因果關係，因此選 because。",
+    "explanation_zh": "前句「必須進行檢查」與後句「新法規剛頒布」之間為因果關係，因此選用表示原因的連接詞「because」。",
     "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
@@ -3126,7 +4147,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0157",
+    "id": "p5-ed-0208",
     "part": "Part 5",
     "question": "It is well known that Mr. Jackson, one of the new managers, _______ to work evening shifts at the restaurant.",
     "choices": {
@@ -3136,17 +4157,16 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "is being preferred"
     },
     "answer": "B",
-    "explanation_zh": "主詞是「Mr. Jackson」，為第三人稱單數，且「prefer」在此為主動語態（偏好做某事），故應使用現在式第三人稱單數「prefers」。",
+    "explanation_zh": "主詞是「Mr. Jackson」，為單數第三人稱，且句子為主動語態，因此動詞需用第三人稱單數現在式「prefers」。",
     "skill_tag": "tense",
     "difficulty": "B1",
     "vocabulary": [
       "prefer",
-      "evening shift",
-      "manager"
+      "evening shift"
     ]
   },
   {
-    "id": "p5-ed-0158",
+    "id": "p5-ed-0209",
     "part": "Part 5",
     "question": "Ms. Chamberlain will be absent _______ roughly one week while she travels to Madrid on business.",
     "choices": {
@@ -3156,17 +4176,16 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "for"
     },
     "answer": "D",
-    "explanation_zh": "「for roughly one week」表示一段持續的時間，符合「absent」後接時間長度的用法；其他介係詞如「within」指在範圍內、「during」指在期間中，均不適用。",
+    "explanation_zh": "「for roughly one week」表示一段持續的時間，搭配「be absent for」是慣用用法，表示缺席多久。",
     "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
       "absent",
-      "roughly",
-      "on business"
+      "roughly"
     ]
   },
   {
-    "id": "p5-ed-0159",
+    "id": "p5-ed-0210",
     "part": "Part 5",
     "question": "The engineer must determine the precise _______ of the crack in the pipe.",
     "choices": {
@@ -3176,17 +4195,16 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "located"
     },
     "answer": "A",
-    "explanation_zh": "空格前有形容詞「precise」及定冠詞「the」，需接名詞；「location」為名詞，符合句意「裂縫的位置」。",
+    "explanation_zh": "空格前有定冠詞「the」和形容詞「precise」，因此需填入名詞「location」作為受詞。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "precise",
-      "location",
-      "crack"
+      "location"
     ]
   },
   {
-    "id": "p5-ed-0160",
+    "id": "p5-ed-0211",
     "part": "Part 5",
     "question": "Those part-timers _______ work contracts expire next month should speak with Ms. Matisse by this Thursday.",
     "choices": {
@@ -3196,7 +4214,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "that"
     },
     "answer": "B",
-    "explanation_zh": "關係代名詞需連接「part-timers」與「work contracts」，表示「那些兼職人員的合約」，所有格關係應用「whose」。",
+    "explanation_zh": "關係代名詞需連接「part-timers」與「work contracts」，表示「那些合約到期的兼職員工」，因此用所有格關係代名詞「whose」。",
     "skill_tag": "relative_clause",
     "difficulty": "B1",
     "vocabulary": [
@@ -3206,7 +4224,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0161",
+    "id": "p5-ed-0212",
     "part": "Part 5",
     "question": "Each bolt must be attached _______ to ensure that the shelf stays together.",
     "choices": {
@@ -3216,17 +4234,16 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "tighten"
     },
     "answer": "C",
-    "explanation_zh": "動詞「attached」後需用副詞修飾，表示「緊密地」附著；「tightly」為副詞，符合文法。",
+    "explanation_zh": "空格修飾動詞「attached」，需用副詞「tightly」來表示「緊固地」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "attach",
-      "tightly",
-      "shelf"
+      "tightly"
     ]
   },
   {
-    "id": "p5-ed-0162",
+    "id": "p5-ed-0213",
     "part": "Part 5",
     "question": "Since no funding is currently available, the bridge is only _______ constructed.",
     "choices": {
@@ -3236,7 +4253,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "partialness"
     },
     "answer": "B",
-    "explanation_zh": "空格前為 be 動詞 is，後接過去分詞 constructed，因此需用副詞修飾動詞。選項中只有 partially 是副詞，表示「部分地」。",
+    "explanation_zh": "空格前有動詞「is constructed」，應使用副詞修飾，選項「partially」為副詞，表示「部分地」，符合文法。其他選項為形容詞、名詞複數或抽象名詞，無法修飾動詞。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
@@ -3246,7 +4263,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0163",
+    "id": "p5-ed-0214",
     "part": "Part 5",
     "question": "_______ the latest information from the sales team, the new cosmetics line is selling better than anticipated.",
     "choices": {
@@ -3256,17 +4273,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "According to"
     },
     "answer": "D",
-    "explanation_zh": "句意為「根據銷售團隊的最新資訊」，表示資訊來源。According to 符合此意，其餘選項 because（因為）、consequently（因此）、in spite of（儘管）皆不符。",
+    "explanation_zh": "句意為「根據銷售團隊的最新資訊」，選項「According to」表示「根據」，符合上下文邏輯。其他選項如「Because」表原因、「Consequently」表結果、「In spite of」表讓步，皆不適用。",
     "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
       "according to",
-      "sales team",
-      "anticipated"
+      "anticipated",
+      "sales team"
     ]
   },
   {
-    "id": "p5-ed-0164",
+    "id": "p5-ed-0215",
     "part": "Part 5",
     "question": "Domestic _______ in the computer industry has been increasing over the past four months.",
     "choices": {
@@ -3276,7 +4293,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "employer"
     },
     "answer": "B",
-    "explanation_zh": "空格前為形容詞 Domestic，後接名詞作為主詞。employment（就業）是名詞，符合語法；employable（可僱用的）為形容詞，employee（員工）與 employer（僱主）語意不符。",
+    "explanation_zh": "空格前有形容詞「Domestic」，應接名詞，選項「employment」為名詞，表示「就業」，符合語意。其他選項為形容詞、受僱者或僱主，無法搭配。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
@@ -3286,7 +4303,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ]
   },
   {
-    "id": "p5-ed-0165",
+    "id": "p5-ed-0216",
     "part": "Part 5",
     "question": "After considering the formal request, management _______ agreed to provide its employees with extra paid vacation days.",
     "choices": {
@@ -3296,17 +4313,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "event"
     },
     "answer": "C",
-    "explanation_zh": "空格位於主詞 management 與動詞 agreed 之間，需用副詞修飾動詞。eventually（最終）為副詞，其餘選項 eventual（形容詞）、eventuality（名詞）、event（名詞）皆不合。",
+    "explanation_zh": "空格前有主詞「management」和動詞「agreed」，應使用副詞修飾動詞，選項「eventually」為副詞，表示「最終」，符合文法。其他選項為形容詞、名詞或動詞，無法修飾。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "formal request",
       "eventually",
+      "formal request",
       "paid vacation"
     ]
   },
   {
-    "id": "p5-ed-0166",
+    "id": "p5-ed-0217",
     "part": "Part 5",
     "question": "Industry experts believe exports _______ in the coming months due to issues with the supply chain.",
     "choices": {
@@ -3316,17 +4333,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "have been declining"
     },
     "answer": "C",
-    "explanation_zh": "時間狀語 in the coming months 表示未來，主詞 exports 為複數，需用未來式 will decline。其餘選項 decline（現在式）、declined（過去式）、have been declining（現在完成進行式）時態不符。",
+    "explanation_zh": "時間狀語「in the coming months」表示未來，動詞應使用未來式，選項「will decline」符合時態。其他選項為現在式、過去式或現在完成進行式，與未來時間不符。",
     "skill_tag": "tense",
     "difficulty": "B1",
     "vocabulary": [
       "exports",
-      "supply chain",
-      "decline"
+      "decline",
+      "supply chain"
     ]
   },
   {
-    "id": "p5-ed-0167",
+    "id": "p5-ed-0218",
     "part": "Part 5",
     "question": "Skylar Electronics plans to manufacture more computers locally yet _______ them to countries in Europe.",
     "choices": {
@@ -3336,17 +4353,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "distributed"
     },
     "answer": "A",
-    "explanation_zh": "yet 在此為對等連接詞，連接兩個平行動詞 plans 與 distribute，兩者皆應為原形動詞。distribute 符合，其餘選項 distributing（動名詞）、distributes（第三人稱單數）、distributed（過去式）皆不平行。",
+    "explanation_zh": "連接詞「yet」連接兩個平行動詞，前有「plans to manufacture」，後應接原形動詞，選項「distribute」為原形，符合結構。其他選項為分詞、第三人稱單數或過去式，不平行。",
     "skill_tag": "conjunction",
     "difficulty": "B2",
     "vocabulary": [
       "manufacture",
-      "locally",
-      "distribute"
+      "distribute",
+      "locally"
     ]
   },
   {
-    "id": "p5-ed-0168",
+    "id": "p5-ed-0219",
     "part": "Part 5",
     "question": "To organize the maintenance request forms, Mr. Gibson created a _______ folder for storing the documents.",
     "choices": {
@@ -3356,161 +4373,763 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "designates"
     },
     "answer": "B",
-    "explanation_zh": "空格前有冠詞 a 與名詞 folder，因此需填入形容詞修飾 folder。選項 (B) designated 為過去分詞轉形容詞，表示「指定的」，符合語意。其他選項 (A) designate 為動詞原形、(C) designating 為現在分詞、(D) designates 為第三人稱單數動詞，均不適合置於此位置。",
+    "explanation_zh": "空格前有冠詞 a 與名詞 folder，因此空格需填入形容詞修飾 folder。選項 (B) designated 是過去分詞當形容詞，表示「指定的」，符合句意。其他選項 (A) designate 為動詞原形、(C) designating 為現在分詞、(D) designates 為第三人稱單數動詞，皆無法修飾名詞。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
+      "designated",
       "maintenance request",
-      "folder",
-      "designated"
+      "folder"
     ]
+  },
+  {
+    "id": "p6-ed-0001",
+    "part": "Part 6",
+    "question": "____(A)____",
+    "choices": {
+      "A": "occasionally",
+      "B": "occasional",
+      "C": "occasion",
+      "D": "occasions"
+    },
+    "answer": "A",
+    "explanation_zh": "空格前為「please」，後接動詞原形表示請求。選項「to inform」為不定詞，可作為目的狀語，符合「請通知」的語意。",
+    "skill_tag": "reading_vocab",
+    "difficulty": "B1",
+    "vocabulary": [
+      "inform",
+      "please",
+      "request"
+    ],
+    "passage": "To: All Blacktail Logistics Employees <stafflist@blacktaillogistics.com>\n\nFrom: Alfred Orozco <a.orozco@blacktaillogistics.com>\n\nDate: November 12\n\nSubject: Performance reviews\n\nDear Blacktail Logistics Staff:\n\nThroughout next week, the managers will be conducting performance evaluations of all staff members. We carry out this task ____(A)____ to ensure that you understand your role. ____(B)____, we want to make sure you are well supported in operating at your peak level. You will meet with your immediate supervisor to discuss your strengths as well as areas that need ____(C)____. Following the evaluation, you will have the opportunity to complete a comment card. This can be submitted directly to the HR department, and all comments will remain anonymous. ____(D)____ Your supervisor will inform you of the time your evaluation is scheduled.\n\nThank you for your cooperation,\n\nAlfred Orozco\n\nOffice Manager, Blacktail Logistics",
+    "passage_group_id": "p6-ed-0-156-131-132-133-134",
+    "question_order": 1
+  },
+  {
+    "id": "p6-ed-0002",
+    "part": "Part 6",
+    "question": "____(B)____",
+    "choices": {
+      "A": "In contrast",
+      "B": "As a result",
+      "C": "However",
+      "D": "In addition"
+    },
+    "answer": "D",
+    "explanation_zh": "空格後為複數名詞「employees」，需用可修飾複數的限定詞。選項「other」(其他的) 可修飾複數名詞，表示「其他員工」。",
+    "skill_tag": "reading_vocab",
+    "difficulty": "A2",
+    "vocabulary": [
+      "other",
+      "employee",
+      "department"
+    ],
+    "passage": "To: All Blacktail Logistics Employees <stafflist@blacktaillogistics.com>\n\nFrom: Alfred Orozco <a.orozco@blacktaillogistics.com>\n\nDate: November 12\n\nSubject: Performance reviews\n\nDear Blacktail Logistics Staff:\n\nThroughout next week, the managers will be conducting performance evaluations of all staff members. We carry out this task ____(A)____ to ensure that you understand your role. ____(B)____, we want to make sure you are well supported in operating at your peak level. You will meet with your immediate supervisor to discuss your strengths as well as areas that need ____(C)____. Following the evaluation, you will have the opportunity to complete a comment card. This can be submitted directly to the HR department, and all comments will remain anonymous. ____(D)____ Your supervisor will inform you of the time your evaluation is scheduled.\n\nThank you for your cooperation,\n\nAlfred Orozco\n\nOffice Manager, Blacktail Logistics",
+    "passage_group_id": "p6-ed-0-156-131-132-133-134",
+    "question_order": 2
+  },
+  {
+    "id": "p6-ed-0003",
+    "part": "Part 6",
+    "question": "____(C)____",
+    "choices": {
+      "A": "proficiency",
+      "B": "improvement",
+      "C": "configuration",
+      "D": "permission"
+    },
+    "answer": "B",
+    "explanation_zh": "動詞「make」後接受詞「sure」時，需用形容詞或原形動詞。此處「complete」(完整的) 為形容詞，修飾名詞「list」，符合文法。",
+    "skill_tag": "reading_vocab",
+    "difficulty": "B1",
+    "vocabulary": [
+      "complete",
+      "list",
+      "make sure"
+    ],
+    "passage": "To: All Blacktail Logistics Employees <stafflist@blacktaillogistics.com>\n\nFrom: Alfred Orozco <a.orozco@blacktaillogistics.com>\n\nDate: November 12\n\nSubject: Performance reviews\n\nDear Blacktail Logistics Staff:\n\nThroughout next week, the managers will be conducting performance evaluations of all staff members. We carry out this task ____(A)____ to ensure that you understand your role. ____(B)____, we want to make sure you are well supported in operating at your peak level. You will meet with your immediate supervisor to discuss your strengths as well as areas that need ____(C)____. Following the evaluation, you will have the opportunity to complete a comment card. This can be submitted directly to the HR department, and all comments will remain anonymous. ____(D)____ Your supervisor will inform you of the time your evaluation is scheduled.\n\nThank you for your cooperation,\n\nAlfred Orozco\n\nOffice Manager, Blacktail Logistics",
+    "passage_group_id": "p6-ed-0-156-131-132-133-134",
+    "question_order": 3
+  },
+  {
+    "id": "p6-ed-0004",
+    "part": "Part 6",
+    "question": "____(D)____",
+    "choices": {
+      "A": "So, please share your honest opinions.",
+      "B": "We believe you will excel in your new role.",
+      "C": "Fortunately, leadership skills can be developed over time.",
+      "D": "Policy updates are always posted online promptly."
+    },
+    "answer": "A",
+    "explanation_zh": "空格前為「provide」，後接名詞受詞「support」，需用形容詞修飾。選項「continual」(持續的) 為形容詞，表示「持續的支持」。",
+    "skill_tag": "reading_vocab",
+    "difficulty": "B1",
+    "vocabulary": [
+      "continual",
+      "support",
+      "provide"
+    ],
+    "passage": "To: All Blacktail Logistics Employees <stafflist@blacktaillogistics.com>\n\nFrom: Alfred Orozco <a.orozco@blacktaillogistics.com>\n\nDate: November 12\n\nSubject: Performance reviews\n\nDear Blacktail Logistics Staff:\n\nThroughout next week, the managers will be conducting performance evaluations of all staff members. We carry out this task ____(A)____ to ensure that you understand your role. ____(B)____, we want to make sure you are well supported in operating at your peak level. You will meet with your immediate supervisor to discuss your strengths as well as areas that need ____(C)____. Following the evaluation, you will have the opportunity to complete a comment card. This can be submitted directly to the HR department, and all comments will remain anonymous. ____(D)____ Your supervisor will inform you of the time your evaluation is scheduled.\n\nThank you for your cooperation,\n\nAlfred Orozco\n\nOffice Manager, Blacktail Logistics",
+    "passage_group_id": "p6-ed-0-156-131-132-133-134",
+    "question_order": 4
+  },
+  {
+    "id": "p6-ed-0005",
+    "part": "Part 6",
+    "question": "____(A)____",
+    "choices": {
+      "A": "founded",
+      "B": "donated",
+      "C": "appealed",
+      "D": "constructed"
+    },
+    "answer": "A",
+    "explanation_zh": "句子表示「公司一直以來都採取措施」，需用現在完成進行式「has been taking」來強調從過去持續到現在的動作。",
+    "skill_tag": "reading_detail",
+    "difficulty": "B2",
+    "vocabulary": [
+      "has been taking",
+      "measures",
+      "improve"
+    ],
+    "passage": "HARTFORD (May 19)—Hartford-based charity Peterson House announced its annual fundraiser\nwill be on July 1. Peterson House was ____(A)____ in 2001 and has focused on providing food,\nclothes, and educational supplies for children in the Hartford area.\n\nPeterson House President Jenny Blair said, \"We're going to be holding a silent auction for the\nfirst time ever. We ____(B)____ by the opportunity.\"\n\nMs. Blair added that the charity has ____(C)____ completed construction on its new office following\nseveral delays. ____(D)____. She also stated that the charity has some big plans for summer and fall\nand that she will discuss them at a later date.",
+    "passage_group_id": "p6-ed-0-163-1-2-3-4",
+    "question_order": 1
+  },
+  {
+    "id": "p6-ed-0006",
+    "part": "Part 6",
+    "question": "____(B)____",
+    "choices": {
+      "A": "excite",
+      "B": "are exciting",
+      "C": "are excited",
+      "D": "excitement"
+    },
+    "answer": "C",
+    "explanation_zh": "前文提到員工有經驗，後文提到他們有證照，兩者為並列補充關係，因此用「In addition」表示「此外」。",
+    "skill_tag": "reading_detail",
+    "difficulty": "B1",
+    "vocabulary": [
+      "In addition",
+      "experienced",
+      "certified"
+    ],
+    "passage": "HARTFORD (May 19)—Hartford-based charity Peterson House announced its annual fundraiser\nwill be on July 1. Peterson House was ____(A)____ in 2001 and has focused on providing food,\nclothes, and educational supplies for children in the Hartford area.\n\nPeterson House President Jenny Blair said, \"We're going to be holding a silent auction for the\nfirst time ever. We ____(B)____ by the opportunity.\"\n\nMs. Blair added that the charity has ____(C)____ completed construction on its new office following\nseveral delays. ____(D)____. She also stated that the charity has some big plans for summer and fall\nand that she will discuss them at a later date.",
+    "passage_group_id": "p6-ed-0-163-1-2-3-4",
+    "question_order": 2
+  },
+  {
+    "id": "p6-ed-0007",
+    "part": "Part 6",
+    "question": "____(C)____",
+    "choices": {
+      "A": "always",
+      "B": "finally",
+      "C": "instead",
+      "D": "specially"
+    },
+    "answer": "B",
+    "explanation_zh": "前文提到員工有經驗和證照，空格應進一步描述員工特質，選項「They also work efficiently and cheerfully.」補充說明工作效率高且愉快，符合邏輯。",
+    "skill_tag": "reading_inference",
+    "difficulty": "B2",
+    "vocabulary": [
+      "efficiently",
+      "cheerfully",
+      "work"
+    ],
+    "passage": "HARTFORD (May 19)—Hartford-based charity Peterson House announced its annual fundraiser\nwill be on July 1. Peterson House was ____(A)____ in 2001 and has focused on providing food,\nclothes, and educational supplies for children in the Hartford area.\n\nPeterson House President Jenny Blair said, \"We're going to be holding a silent auction for the\nfirst time ever. We ____(B)____ by the opportunity.\"\n\nMs. Blair added that the charity has ____(C)____ completed construction on its new office following\nseveral delays. ____(D)____. She also stated that the charity has some big plans for summer and fall\nand that she will discuss them at a later date.",
+    "passage_group_id": "p6-ed-0-163-1-2-3-4",
+    "question_order": 3
+  },
+  {
+    "id": "p6-ed-0008",
+    "part": "Part 6",
+    "question": "____(D)____",
+    "choices": {
+      "A": "The work was heavily affected by poor weather this spring.",
+      "B": "She expects to raise a million dollars at the auction.",
+      "C": "Ms. Blair has worked at the charity since 2001.",
+      "D": "The charity is pleased with the support it has received locally."
+    },
+    "answer": "A",
+    "explanation_zh": "空格前有「are」，需接形容詞，且語意為「保證的」，因此用「guaranteed」最符合。",
+    "skill_tag": "reading_vocab",
+    "difficulty": "B1",
+    "vocabulary": [
+      "guaranteed",
+      "apparent",
+      "promised"
+    ],
+    "passage": "HARTFORD (May 19)—Hartford-based charity Peterson House announced its annual fundraiser\nwill be on July 1. Peterson House was ____(A)____ in 2001 and has focused on providing food,\nclothes, and educational supplies for children in the Hartford area.\n\nPeterson House President Jenny Blair said, \"We're going to be holding a silent auction for the\nfirst time ever. We ____(B)____ by the opportunity.\"\n\nMs. Blair added that the charity has ____(C)____ completed construction on its new office following\nseveral delays. ____(D)____. She also stated that the charity has some big plans for summer and fall\nand that she will discuss them at a later date.",
+    "passage_group_id": "p6-ed-0-163-1-2-3-4",
+    "question_order": 4
+  },
+  {
+    "id": "p6-ed-0009",
+    "part": "Part 6",
+    "question": "____(A)____",
+    "choices": {
+      "A": "Unfortunately",
+      "B": "Sincerely",
+      "C": "Apparently",
+      "D": "Possibly"
+    },
+    "answer": "A",
+    "explanation_zh": "句子表示「公司一直以來都採取措施」，需用現在完成進行式「has been taking」來強調從過去持續到現在的動作。",
+    "skill_tag": "reading_detail",
+    "difficulty": "B2",
+    "vocabulary": [
+      "has been taking",
+      "measures",
+      "improve"
+    ],
+    "passage": "To: Carl Lambert <carl_lambert@safehold.com>\n\nFrom: Harold Beemer <hbeemer@safehold.com>\n\nDate: October 3\n\nSubject: Scheduling\n\nDear Mr. Lambert,\n\nThis is in regard to next week's schedule. ____(A)____, I am unable to work next Monday. My supervisor, Brenda Malone, approved my request for time off on Monday, October 10, last week, as I ____(B)____ my parents, who live out of town then. I am departing this Friday and returning on Monday night. I assume Ms. Malone did not inform you of this matter.\n\n____(C)____. I would gladly exchange shifts with someone who can work in my place on Monday.\n\nPlease let me know how we can rectify this situation. I can meet you anytime to discuss our ____(D)____.\n\nRegards,\n\nHarold Beemer",
+    "passage_group_id": "p6-ed-0-165-1-2-3-4",
+    "question_order": 1
+  },
+  {
+    "id": "p6-ed-0010",
+    "part": "Part 6",
+    "question": "____(B)____",
+    "choices": {
+      "A": "have visited",
+      "B": "visit",
+      "C": "to visit",
+      "D": "will be visiting"
+    },
+    "answer": "D",
+    "explanation_zh": "前文提到員工有經驗，後文提到他們有證照，兩者為並列補充關係，因此用「In addition」表示「此外」。",
+    "skill_tag": "reading_detail",
+    "difficulty": "B1",
+    "vocabulary": [
+      "In addition",
+      "experienced",
+      "certified"
+    ],
+    "passage": "To: Carl Lambert <carl_lambert@safehold.com>\n\nFrom: Harold Beemer <hbeemer@safehold.com>\n\nDate: October 3\n\nSubject: Scheduling\n\nDear Mr. Lambert,\n\nThis is in regard to next week's schedule. ____(A)____, I am unable to work next Monday. My supervisor, Brenda Malone, approved my request for time off on Monday, October 10, last week, as I ____(B)____ my parents, who live out of town then. I am departing this Friday and returning on Monday night. I assume Ms. Malone did not inform you of this matter.\n\n____(C)____. I would gladly exchange shifts with someone who can work in my place on Monday.\n\nPlease let me know how we can rectify this situation. I can meet you anytime to discuss our ____(D)____.\n\nRegards,\n\nHarold Beemer",
+    "passage_group_id": "p6-ed-0-165-1-2-3-4",
+    "question_order": 2
+  },
+  {
+    "id": "p6-ed-0011",
+    "part": "Part 6",
+    "question": "____(C)____",
+    "choices": {
+      "A": "It has been a pleasure working here for you.",
+      "B": "Thank you for understanding my situation.",
+      "C": "I noticed I am not scheduled to work on Tuesday.",
+      "D": "This was the first vacation of the year for me."
+    },
+    "answer": "C",
+    "explanation_zh": "前文提到員工有經驗和證照，空格應進一步描述員工特質，選項「They also work efficiently and cheerfully.」補充說明工作效率高且愉快，符合邏輯。",
+    "skill_tag": "reading_inference",
+    "difficulty": "B2",
+    "vocabulary": [
+      "efficiently",
+      "cheerfully",
+      "work"
+    ],
+    "passage": "To: Carl Lambert <carl_lambert@safehold.com>\n\nFrom: Harold Beemer <hbeemer@safehold.com>\n\nDate: October 3\n\nSubject: Scheduling\n\nDear Mr. Lambert,\n\nThis is in regard to next week's schedule. ____(A)____, I am unable to work next Monday. My supervisor, Brenda Malone, approved my request for time off on Monday, October 10, last week, as I ____(B)____ my parents, who live out of town then. I am departing this Friday and returning on Monday night. I assume Ms. Malone did not inform you of this matter.\n\n____(C)____. I would gladly exchange shifts with someone who can work in my place on Monday.\n\nPlease let me know how we can rectify this situation. I can meet you anytime to discuss our ____(D)____.\n\nRegards,\n\nHarold Beemer",
+    "passage_group_id": "p6-ed-0-165-1-2-3-4",
+    "question_order": 3
+  },
+  {
+    "id": "p6-ed-0012",
+    "part": "Part 6",
+    "question": "____(D)____",
+    "choices": {
+      "A": "options",
+      "B": "selections",
+      "C": "conditions",
+      "D": "devices"
+    },
+    "answer": "A",
+    "explanation_zh": "空格前有「are」，需接形容詞，且語意為「保證的」，因此用「guaranteed」最符合。",
+    "skill_tag": "reading_vocab",
+    "difficulty": "B1",
+    "vocabulary": [
+      "guaranteed",
+      "apparent",
+      "promised"
+    ],
+    "passage": "To: Carl Lambert <carl_lambert@safehold.com>\n\nFrom: Harold Beemer <hbeemer@safehold.com>\n\nDate: October 3\n\nSubject: Scheduling\n\nDear Mr. Lambert,\n\nThis is in regard to next week's schedule. ____(A)____, I am unable to work next Monday. My supervisor, Brenda Malone, approved my request for time off on Monday, October 10, last week, as I ____(B)____ my parents, who live out of town then. I am departing this Friday and returning on Monday night. I assume Ms. Malone did not inform you of this matter.\n\n____(C)____. I would gladly exchange shifts with someone who can work in my place on Monday.\n\nPlease let me know how we can rectify this situation. I can meet you anytime to discuss our ____(D)____.\n\nRegards,\n\nHarold Beemer",
+    "passage_group_id": "p6-ed-0-165-1-2-3-4",
+    "question_order": 4
+  },
+  {
+    "id": "p6-ed-0013",
+    "part": "Part 6",
+    "question": "____(A)____",
+    "choices": {
+      "A": "takes",
+      "B": "has been taking",
+      "C": "was taken",
+      "D": "took"
+    },
+    "answer": "B",
+    "explanation_zh": "句子表示「公司一直以來都採取措施」，需用現在完成進行式「has been taking」來強調從過去持續到現在的動作。",
+    "skill_tag": "reading_detail",
+    "difficulty": "B2",
+    "vocabulary": [
+      "has been taking",
+      "measures",
+      "improve"
+    ],
+    "passage": "Daniels Landscaping\n\nDaniels Landscaping ____(A)____ care of properties for more than two decades. We provide a variety\nof landscaping services to make your home or place of business look as nice as possible. This\nincludes cutting grass, trimming bushes, planting trees and flowers, and watering yards. ____(B)____,\nwe can provide other services related to caring for outdoor areas.\n\nOur landscapers are all highly qualified with several years of experience. ____(C)____. The prices at\nDaniels Landscaping cannot be beat. Our work is ____(D)____ to please, or you will get your money\nback. Call 555-9845 for more information.",
+    "passage_group_id": "p6-ed-0-167-1-2-3-4",
+    "question_order": 1
+  },
+  {
+    "id": "p6-ed-0014",
+    "part": "Part 6",
+    "question": "____(B)____",
+    "choices": {
+      "A": "However",
+      "B": "In addition",
+      "C": "As a result",
+      "D": "For instance"
+    },
+    "answer": "B",
+    "explanation_zh": "前文提到員工有經驗，後文提到他們有證照，兩者為並列補充關係，因此用「In addition」表示「此外」。",
+    "skill_tag": "reading_detail",
+    "difficulty": "B1",
+    "vocabulary": [
+      "In addition",
+      "experienced",
+      "certified"
+    ],
+    "passage": "Daniels Landscaping\n\nDaniels Landscaping ____(A)____ care of properties for more than two decades. We provide a variety\nof landscaping services to make your home or place of business look as nice as possible. This\nincludes cutting grass, trimming bushes, planting trees and flowers, and watering yards. ____(B)____,\nwe can provide other services related to caring for outdoor areas.\n\nOur landscapers are all highly qualified with several years of experience. ____(C)____. The prices at\nDaniels Landscaping cannot be beat. Our work is ____(D)____ to please, or you will get your money\nback. Call 555-9845 for more information.",
+    "passage_group_id": "p6-ed-0-167-1-2-3-4",
+    "question_order": 2
+  },
+  {
+    "id": "p6-ed-0015",
+    "part": "Part 6",
+    "question": "____(C)____",
+    "choices": {
+      "A": "Fortunately, we have a large team of workers.",
+      "B": "Don't forget to check out our website.",
+      "C": "Thank you for your interest in us.",
+      "D": "They also work efficiently and cheerfully."
+    },
+    "answer": "D",
+    "explanation_zh": "前文提到員工有經驗和證照，空格應進一步描述員工特質，選項「They also work efficiently and cheerfully.」補充說明工作效率高且愉快，符合邏輯。",
+    "skill_tag": "reading_inference",
+    "difficulty": "B2",
+    "vocabulary": [
+      "efficiently",
+      "cheerfully",
+      "work"
+    ],
+    "passage": "Daniels Landscaping\n\nDaniels Landscaping ____(A)____ care of properties for more than two decades. We provide a variety\nof landscaping services to make your home or place of business look as nice as possible. This\nincludes cutting grass, trimming bushes, planting trees and flowers, and watering yards. ____(B)____,\nwe can provide other services related to caring for outdoor areas.\n\nOur landscapers are all highly qualified with several years of experience. ____(C)____. The prices at\nDaniels Landscaping cannot be beat. Our work is ____(D)____ to please, or you will get your money\nback. Call 555-9845 for more information.",
+    "passage_group_id": "p6-ed-0-167-1-2-3-4",
+    "question_order": 3
+  },
+  {
+    "id": "p6-ed-0016",
+    "part": "Part 6",
+    "question": "____(D)____",
+    "choices": {
+      "A": "guaranteed",
+      "B": "apparent",
+      "C": "promised",
+      "D": "surprised"
+    },
+    "answer": "A",
+    "explanation_zh": "空格前有「are」，需接形容詞，且語意為「保證的」，因此用「guaranteed」最符合。",
+    "skill_tag": "reading_vocab",
+    "difficulty": "B1",
+    "vocabulary": [
+      "guaranteed",
+      "apparent",
+      "promised"
+    ],
+    "passage": "Daniels Landscaping\n\nDaniels Landscaping ____(A)____ care of properties for more than two decades. We provide a variety\nof landscaping services to make your home or place of business look as nice as possible. This\nincludes cutting grass, trimming bushes, planting trees and flowers, and watering yards. ____(B)____,\nwe can provide other services related to caring for outdoor areas.\n\nOur landscapers are all highly qualified with several years of experience. ____(C)____. The prices at\nDaniels Landscaping cannot be beat. Our work is ____(D)____ to please, or you will get your money\nback. Call 555-9845 for more information.",
+    "passage_group_id": "p6-ed-0-167-1-2-3-4",
+    "question_order": 4
+  },
+  {
+    "id": "p6-ed-0017",
+    "part": "Part 6",
+    "question": "____(A)____",
+    "choices": {
+      "A": "appeals",
+      "B": "trends",
+      "C": "subscriptions",
+      "D": "versions"
+    },
+    "answer": "B",
+    "explanation_zh": "空格前為「please」，後接動詞原形表示請求。選項「to inform」為不定詞，可作為目的狀語，符合「請通知」的語意。",
+    "skill_tag": "reading_vocab",
+    "difficulty": "B1",
+    "vocabulary": [
+      "inform",
+      "please",
+      "request"
+    ],
+    "passage": "International Business News Report is the best source of information on business. Find out all the latest news from around the globe and be aware of various ____(A)____ in the world of business.\n\nOur reporters are some of the top names in the industry. They write articles ____(B)____ and provide updates whenever new information becomes available. To subscribe, visit our website at www.ibnr.com/subscriptions. Joining the site gets you access to our ____(C)____ archives and allows you to take part in online chats with some of the leading individuals in various fields. Why wait?\n\n____(D)____.",
+    "passage_group_id": "p6-ed-0-168-131-132-133-134",
+    "question_order": 1
+  },
+  {
+    "id": "p6-ed-0018",
+    "part": "Part 6",
+    "question": "____(B)____",
+    "choices": {
+      "A": "comparatively",
+      "B": "seriously",
+      "C": "progressively",
+      "D": "daily"
+    },
+    "answer": "D",
+    "explanation_zh": "空格後為複數名詞「employees」，需用可修飾複數的限定詞。選項「other」(其他的) 可修飾複數名詞，表示「其他員工」。",
+    "skill_tag": "reading_vocab",
+    "difficulty": "A2",
+    "vocabulary": [
+      "other",
+      "employee",
+      "department"
+    ],
+    "passage": "International Business News Report is the best source of information on business. Find out all the latest news from around the globe and be aware of various ____(A)____ in the world of business.\n\nOur reporters are some of the top names in the industry. They write articles ____(B)____ and provide updates whenever new information becomes available. To subscribe, visit our website at www.ibnr.com/subscriptions. Joining the site gets you access to our ____(C)____ archives and allows you to take part in online chats with some of the leading individuals in various fields. Why wait?\n\n____(D)____.",
+    "passage_group_id": "p6-ed-0-168-131-132-133-134",
+    "question_order": 2
+  },
+  {
+    "id": "p6-ed-0019",
+    "part": "Part 6",
+    "question": "____(C)____",
+    "choices": {
+      "A": "complete",
+      "B": "completion",
+      "C": "to complete",
+      "D": "completing"
+    },
+    "answer": "A",
+    "explanation_zh": "動詞「make」後接受詞「sure」時，需用形容詞或原形動詞。此處「complete」(完整的) 為形容詞，修飾名詞「list」，符合文法。",
+    "skill_tag": "reading_vocab",
+    "difficulty": "B1",
+    "vocabulary": [
+      "complete",
+      "list",
+      "make sure"
+    ],
+    "passage": "International Business News Report is the best source of information on business. Find out all the latest news from around the globe and be aware of various ____(A)____ in the world of business.\n\nOur reporters are some of the top names in the industry. They write articles ____(B)____ and provide updates whenever new information becomes available. To subscribe, visit our website at www.ibnr.com/subscriptions. Joining the site gets you access to our ____(C)____ archives and allows you to take part in online chats with some of the leading individuals in various fields. Why wait?\n\n____(D)____.",
+    "passage_group_id": "p6-ed-0-168-131-132-133-134",
+    "question_order": 3
+  },
+  {
+    "id": "p6-ed-0020",
+    "part": "Part 6",
+    "question": "____(D)____",
+    "choices": {
+      "A": "We appreciate your continued dedication to our magazine.",
+      "B": "Let us tell you about the special sale that we are having.",
+      "C": "Your first issue will arrive in the mail by Monday morning.",
+      "D": "Subscribe today and start learning more about business."
+    },
+    "answer": "D",
+    "explanation_zh": "空格前為「provide」，後接名詞受詞「support」，需用形容詞修飾。選項「continual」(持續的) 為形容詞，表示「持續的支持」。",
+    "skill_tag": "reading_vocab",
+    "difficulty": "B1",
+    "vocabulary": [
+      "continual",
+      "support",
+      "provide"
+    ],
+    "passage": "International Business News Report is the best source of information on business. Find out all the latest news from around the globe and be aware of various ____(A)____ in the world of business.\n\nOur reporters are some of the top names in the industry. They write articles ____(B)____ and provide updates whenever new information becomes available. To subscribe, visit our website at www.ibnr.com/subscriptions. Joining the site gets you access to our ____(C)____ archives and allows you to take part in online chats with some of the leading individuals in various fields. Why wait?\n\n____(D)____.",
+    "passage_group_id": "p6-ed-0-168-131-132-133-134",
+    "question_order": 4
   },
   {
     "id": "p7-ed-0001",
     "part": "Part 7",
-    "question": "What is indicated about Chamberlin Marketing?",
+    "question": "What is the purpose of the press release?",
     "choices": {
-      "A": "It focuses on marketing products online.",
-      "B": "It can promote goods in foreign countries.",
-      "C": "It was established in the past decade.",
-      "D": "It has more than 500 employees."
+      "A": "To inform investors of a product release",
+      "B": "To publicize a company's updated service",
+      "C": "To give details on how to acquire a company's product",
+      "D": "To provide information about a product demonstration"
     },
-    "answer": "B",
-    "explanation_zh": "Hagler先生擔心「與隔壁店主住相處融洽」的問題。",
-    "skill_tag": "reading_detail",
+    "answer": "D",
+    "explanation_zh": "傳送訊息者最有可能在餐廳工作，因為對話中討論餐桌設置和開業日期。",
+    "skill_tag": "reading_inference",
     "difficulty": "B1",
     "vocabulary": [
-      "worry",
-      "neighbor",
-      "installation"
+      "restaurant",
+      "real estate agency",
+      "bakery"
     ],
-    "passage": "CHAMBERLIN MARKETING\n\nMany small businesses have outstanding products and services they would like to sell. However, their owners have neither the time nor the ability to market these goods and services. Fortunately, Chamberlin Marketing can handle all of their needs.\n\nChamberlin Marketing has been in business for thirty-five years. We have provided assistance to more than 500 small businesses during that time. We have assisted companies in marketing themselves locally, nationwide, and internationally. Our employees have experience in numerous markets, and each of them is familiar with at least one foreign language.\n\nIf you would like a one-hour consultation, please call us at 555-0271 during regular business hours. Tell us about your company, and we'll come up with a preliminary marketing plan at no cost to you. There's no obligation to use our services. But if you do, you won't regret it.",
-    "passage_group_id": "p7-ed-0-187-1-2-3",
+    "passage": "FOR IMMEDIATE RELEASE\n\nPorterhouse Manufacturing to Conduct Product Demonstration\n\nPorterhouse Manufacturing is one of the world's leading manufacturers of advanced machinery. Today, the company announced that it will be holding a product demonstration for a machine that its engineers have just completed and that the company intends to market in winter. The event will take place at the company's headquarters in Atlanta at 3:00 P.M. on Monday, October 3. The product to be demonstrated is the newest automobile engine by the company. This engine is set to revolutionize the automobile industry as it is 35% more efficient than any other engine currently available.\n\nReporters and news broadcasters interested in attending the event in person must register in advance. To do so, contact company public relations employee Gregory Frye at 555-2871 during regular business hours. Individuals with podcasts and blogs and an interest in automobile technology are invited to attend as well. Jeremy Smith, the lead engineer for the project, will be available to answer questions following the demonstration. Attendees will be permitted to take pictures and film videos.",
+    "passage_group_id": "p7-ed-0-177-1-2-3",
     "passage_group_type": "single",
     "question_order": 1
   },
   {
     "id": "p7-ed-0002",
     "part": "Part 7",
-    "question": "What is Chamberlin Marketing offering to small business owners?",
+    "question": "How can people register for the event?",
     "choices": {
-      "A": "A discount on creating a web page",
-      "B": "Reduced rates",
-      "C": "A free consultation",
-      "D": "A cash refund"
+      "A": "By visiting a blog that reports on technology",
+      "B": "By calling an employee of Porterhouse Manufacturing",
+      "C": "By signing up on the Porterhouse Manufacturing web page",
+      "D": "By speaking with a reporter who will cover the event"
     },
-    "answer": "C",
-    "explanation_zh": "Denton女士說「我會跟房屋仲介聯絡一下」是為了表示她會要求降低租金。",
-    "skill_tag": "reading_inference",
+    "answer": "B",
+    "explanation_zh": "Hagler先生擔心與隔壁店主相處融洽，文中提到「getting along with the shopkeeper next door」。",
+    "skill_tag": "reading_detail",
     "difficulty": "B1",
     "vocabulary": [
-      "real estate agent",
-      "rent",
-      "lease"
+      "concerned about",
+      "shopkeeper",
+      "getting along"
     ],
-    "passage": "CHAMBERLIN MARKETING\n\nMany small businesses have outstanding products and services they would like to sell. However, their owners have neither the time nor the ability to market these goods and services. Fortunately, Chamberlin Marketing can handle all of their needs.\n\nChamberlin Marketing has been in business for thirty-five years. We have provided assistance to more than 500 small businesses during that time. We have assisted companies in marketing themselves locally, nationwide, and internationally. Our employees have experience in numerous markets, and each of them is familiar with at least one foreign language.\n\nIf you would like a one-hour consultation, please call us at 555-0271 during regular business hours. Tell us about your company, and we'll come up with a preliminary marketing plan at no cost to you. There's no obligation to use our services. But if you do, you won't regret it.",
-    "passage_group_id": "p7-ed-0-187-1-2-3",
+    "passage": "FOR IMMEDIATE RELEASE\n\nPorterhouse Manufacturing to Conduct Product Demonstration\n\nPorterhouse Manufacturing is one of the world's leading manufacturers of advanced machinery. Today, the company announced that it will be holding a product demonstration for a machine that its engineers have just completed and that the company intends to market in winter. The event will take place at the company's headquarters in Atlanta at 3:00 P.M. on Monday, October 3. The product to be demonstrated is the newest automobile engine by the company. This engine is set to revolutionize the automobile industry as it is 35% more efficient than any other engine currently available.\n\nReporters and news broadcasters interested in attending the event in person must register in advance. To do so, contact company public relations employee Gregory Frye at 555-2871 during regular business hours. Individuals with podcasts and blogs and an interest in automobile technology are invited to attend as well. Jeremy Smith, the lead engineer for the project, will be available to answer questions following the demonstration. Attendees will be permitted to take pictures and film videos.",
+    "passage_group_id": "p7-ed-0-177-1-2-3",
     "passage_group_type": "single",
     "question_order": 2
   },
   {
     "id": "p7-ed-0003",
     "part": "Part 7",
-    "question": "What is the purpose of the letter?",
+    "question": "Which activity is mentioned in the information?",
     "choices": {
-      "A": "To apologize for an error",
-      "B": "To confirm registration",
-      "C": "To recommend a service",
-      "D": "To request funds"
+      "A": "Hiking",
+      "B": "Swimming",
+      "C": "Hunting",
+      "D": "Camping"
     },
-    "answer": "B",
-    "explanation_zh": "信件開頭寫道「Thank you for registering for Sunfield Golf Resort’s annual Sun and Fun Tournament」，並提供確認編號，目的是確認參賽者已成功報名。",
-    "skill_tag": "reading_main_idea",
-    "difficulty": "A2",
+    "answer": "A",
+    "explanation_zh": "傳送訊息者最有可能在餐廳工作，因為對話中討論餐桌設置和開業日期。",
+    "skill_tag": "reading_inference",
+    "difficulty": "B1",
     "vocabulary": [
-      "register",
-      "confirmation number",
-      "tournament"
+      "restaurant",
+      "real estate agency",
+      "bakery"
     ],
-    "passage": "Sunfield Golf Resort\n1603 Westway Drive\nMesa, AZ 85209\n\nJune 23\n\nLawrence Mercado\n294 Hickory Road\nFlorence, AZ 85143\n\nDear Mr. Mercado,\n\nThank you for registering for Sunfield Golf Resort’s annual Sun and Fun Tournament on July 17. Your confirmation number is 0638. Please find enclosed your parking pass and name badge. You must wear the name badge at all times while on the resort’s grounds to show that you are participating in the tournament.\n\nYou should check in at the reception desk in the clubhouse between 7:00 A.M. and 8:30 A.M., and a photo ID will be required. The tournament consists of four categories with the following start times at the first hole: 9:00 A.M. [Semi-Pro], 10:00 A.M. [Advanced], 11:00 A.M. [Intermediate], and noon [Beginner].\n\nThere will be tea, coffee, soda, and bottled water available at the reception desk for free. However, you must show your name badge to be served. Food will be available for purchase in our restaurant.\n\nWe look forward to seeing you at Sunfield Golf Resort!\n\nSincerely,\n\nThe Sunfield Golf Resort Event Staff\n\nTo: Lawrence Mercado <l.mercado@shermansales.com>\nFrom: Nancy Aldridge <nancy@sunfieldgolf.com>\nDate: July 6\nSubject: Sun and Fun Tournament\n\nDear Mr. Mercado,\n\nWe are excited to welcome our golfers soon for the Sun and Fun Tournament! Your assigned start time is 10:00 A.M. If you are driving to the tournament, please note that you should park in the lot off Avis Street. The one connected to Mooney Street is temporarily closed to make space for the crews working on the expansion of our indoor driving range. To download a map of our site, please click here.\n\nWarmest regards,\n\nNancy Aldridge",
-    "passage_group_id": "p7-ed-0-236-176-177-178-179-180",
-    "passage_group_type": "double",
+    "passage": "Silverwood Botanical Garden Pass\n\nSilverwood Botanical Garden is the largest in the entire state. Covering more than 200 acres, the garden features not only trees, flowers, and plants native to the Southeast but also a wide variety of non-native species, including those from the tropics. Visitors to the garden can enjoy hiking through the wooded areas, picnicking by our five ponds, and seeing some of the wildlife that inhabits the area.\n\nA Silverwood Botanical Garden pass costs only $50 per year and covers an entire family of four. It permits daily access to the garden as well as free parking. Your contribution will allow us to maintain the plants in the garden and acquire new ones.\n\nA pass may be purchased at the ticket office or online at www.silverwoodbg.org. Please note that special discounts on food or other products sold at the stores near the ticket office are not available.",
+    "passage_group_id": "p7-ed-0-179-1-2-3",
+    "passage_group_type": "single",
     "question_order": 1
   },
   {
     "id": "p7-ed-0004",
     "part": "Part 7",
-    "question": "What is most likely true about Sunfield Golf Resort?",
+    "question": "What is indicated about the Silverwood Botanical Garden?",
     "choices": {
-      "A": "It has recently changed ownership.",
-      "B": "It is holding a competition for the first time.",
-      "C": "It provides discounts on events to its members.",
-      "D": "It has a building currently under construction."
+      "A": "It only has plants from the local area.",
+      "B": "It relies solely on donations from its members.",
+      "C": "It allows guests to go fishing in the ponds.",
+      "D": "It is larger than other nearby botanical gardens."
     },
     "answer": "D",
-    "explanation_zh": "第二封信提到「the one connected to Mooney Street is temporarily closed to make space for the crews working on the expansion of our indoor driving range」，表示度假村正在擴建室內練習場，因此有建築正在施工。",
+    "explanation_zh": "Hagler先生擔心與隔壁店主相處融洽，文中提到「getting along with the shopkeeper next door」。",
     "skill_tag": "reading_detail",
     "difficulty": "B1",
     "vocabulary": [
-      "expansion",
-      "driving range",
-      "temporarily closed"
+      "concerned about",
+      "shopkeeper",
+      "getting along"
     ],
-    "passage": "Sunfield Golf Resort\n1603 Westway Drive\nMesa, AZ 85209\n\nJune 23\n\nLawrence Mercado\n294 Hickory Road\nFlorence, AZ 85143\n\nDear Mr. Mercado,\n\nThank you for registering for Sunfield Golf Resort’s annual Sun and Fun Tournament on July 17. Your confirmation number is 0638. Please find enclosed your parking pass and name badge. You must wear the name badge at all times while on the resort’s grounds to show that you are participating in the tournament.\n\nYou should check in at the reception desk in the clubhouse between 7:00 A.M. and 8:30 A.M., and a photo ID will be required. The tournament consists of four categories with the following start times at the first hole: 9:00 A.M. [Semi-Pro], 10:00 A.M. [Advanced], 11:00 A.M. [Intermediate], and noon [Beginner].\n\nThere will be tea, coffee, soda, and bottled water available at the reception desk for free. However, you must show your name badge to be served. Food will be available for purchase in our restaurant.\n\nWe look forward to seeing you at Sunfield Golf Resort!\n\nSincerely,\n\nThe Sunfield Golf Resort Event Staff\n\nTo: Lawrence Mercado <l.mercado@shermansales.com>\nFrom: Nancy Aldridge <nancy@sunfieldgolf.com>\nDate: July 6\nSubject: Sun and Fun Tournament\n\nDear Mr. Mercado,\n\nWe are excited to welcome our golfers soon for the Sun and Fun Tournament! Your assigned start time is 10:00 A.M. If you are driving to the tournament, please note that you should park in the lot off Avis Street. The one connected to Mooney Street is temporarily closed to make space for the crews working on the expansion of our indoor driving range. To download a map of our site, please click here.\n\nWarmest regards,\n\nNancy Aldridge",
-    "passage_group_id": "p7-ed-0-236-176-177-178-179-180",
-    "passage_group_type": "double",
+    "passage": "Silverwood Botanical Garden Pass\n\nSilverwood Botanical Garden is the largest in the entire state. Covering more than 200 acres, the garden features not only trees, flowers, and plants native to the Southeast but also a wide variety of non-native species, including those from the tropics. Visitors to the garden can enjoy hiking through the wooded areas, picnicking by our five ponds, and seeing some of the wildlife that inhabits the area.\n\nA Silverwood Botanical Garden pass costs only $50 per year and covers an entire family of four. It permits daily access to the garden as well as free parking. Your contribution will allow us to maintain the plants in the garden and acquire new ones.\n\nA pass may be purchased at the ticket office or online at www.silverwoodbg.org. Please note that special discounts on food or other products sold at the stores near the ticket office are not available.",
+    "passage_group_id": "p7-ed-0-179-1-2-3",
+    "passage_group_type": "single",
     "question_order": 2
   },
   {
     "id": "p7-ed-0005",
     "part": "Part 7",
-    "question": "According to the web page, what is true about the conference?",
+    "question": "What is a benefit of a Silverwood Botanical Garden pass?",
     "choices": {
-      "A": "A lunch event will be held during the conference.",
-      "B": "It is open only to IABE members.",
-      "C": "Some people can attend it for free.",
-      "D": "It will last for one week."
+      "A": "Lower prices on food",
+      "B": "Guided tours of the garden",
+      "C": "Discounts on souvenirs",
+      "D": "Complimentary parking"
     },
-    "answer": "A",
-    "explanation_zh": "網頁中關於會議的敘述提到時間將會持續一週，因此選項「時間將會持續一週」正確。",
-    "skill_tag": "reading_detail",
+    "answer": "D",
+    "explanation_zh": "Denton女士寫這句話是因為她會要求降低租金，文中提到「ask about lowering the monthly rent」。",
+    "skill_tag": "reading_inference",
     "difficulty": "B1",
     "vocabulary": [
-      "conference",
-      "last",
-      "week"
+      "get in touch with",
+      "real estate agent",
+      "lowering the rent"
     ],
-    "passage": "To: Susanna Madsen\nFrom: Sunshine Hotel\nDate: August 14\nSubject: RE: Questions\n\nDear Ms. Madsen,\n\nWe are looking forward to having you as a guest here next month. To respond to your questions, the hotel is a five-minute walk from the sea. You will find all kinds of places to shop and eat near the hotel. We are also located right across the street from the conference you are attending. You can therefore walk there with ease. If you have any other questions, please let me know.\n\nSincerely,\n\nIoannis Papadopoulos\nCustomer Service Representative\nSunshine Hotel",
-    "passage_group_id": "p7-ed-----------193",
-    "passage_group_type": "double",
-    "question_order": 1
+    "passage": "Silverwood Botanical Garden Pass\n\nSilverwood Botanical Garden is the largest in the entire state. Covering more than 200 acres, the garden features not only trees, flowers, and plants native to the Southeast but also a wide variety of non-native species, including those from the tropics. Visitors to the garden can enjoy hiking through the wooded areas, picnicking by our five ponds, and seeing some of the wildlife that inhabits the area.\n\nA Silverwood Botanical Garden pass costs only $50 per year and covers an entire family of four. It permits daily access to the garden as well as free parking. Your contribution will allow us to maintain the plants in the garden and acquire new ones.\n\nA pass may be purchased at the ticket office or online at www.silverwoodbg.org. Please note that special discounts on food or other products sold at the stores near the ticket office are not available.",
+    "passage_group_id": "p7-ed-0-179-1-2-3",
+    "passage_group_type": "single",
+    "question_order": 3
   },
   {
     "id": "p7-ed-0006",
     "part": "Part 7",
-    "question": "When will individuals most likely be notified whether their proposals have been accepted?",
+    "question": "Where do the writers most likely work?",
     "choices": {
-      "A": "On March 1",
-      "B": "On May 1",
-      "C": "On June 1",
-      "D": "On June 30"
+      "A": "At a restaurant",
+      "B": "At a real estate agency",
+      "C": "At a supermarket",
+      "D": "At a bakery"
     },
-    "answer": "B",
-    "explanation_zh": "根據網頁內容，提案受理通知將於5月1日發出，因此選項「5月1日」正確。",
-    "skill_tag": "reading_detail",
+    "answer": "A",
+    "explanation_zh": "傳送訊息者最有可能在餐廳工作，因為對話中討論餐桌設置和開業日期。",
+    "skill_tag": "reading_inference",
     "difficulty": "B1",
     "vocabulary": [
-      "notify",
-      "proposal",
-      "accept"
+      "restaurant",
+      "real estate agency",
+      "bakery"
     ],
-    "passage": "To: Susanna Madsen\nFrom: Sunshine Hotel\nDate: August 14\nSubject: RE: Questions\n\nDear Ms. Madsen,\n\nWe are looking forward to having you as a guest here next month. To respond to your questions, the hotel is a five-minute walk from the sea. You will find all kinds of places to shop and eat near the hotel. We are also located right across the street from the conference you are attending. You can therefore walk there with ease. If you have any other questions, please let me know.\n\nSincerely,\n\nIoannis Papadopoulos\nCustomer Service Representative\nSunshine Hotel",
-    "passage_group_id": "p7-ed-----------193",
-    "passage_group_type": "double",
-    "question_order": 2
+    "passage": "Bill Hagler\n(2:03 P.M.)\nHello, everyone. How is the work on the property coming along? Are we going to finish on time? I'd really like to be able to open on March 1.\n\nSusan Denton\n(2:06 P.M.)\nEverything is looking good, Bill. The kitchen is almost entirely installed. The tables and chairs are going to arrive tomorrow. We'll need someone to help set them up.\n\nDallas Blair\n(2:08 P.M.)\nChris and I can do that, Susan. Just let me know what time I should be there.\n\nSusan Denton\n(2:09 P.M.)\nThanks, Dallas. I really appreciate your being willing to work on your day off.\n\nDallas Blair\n(2:10 P.M.)\nOh, I spoke with the owner of the shop right next to ours. He said that he's planning to retire in the next couple of months.\n\nBill Hagler\n(2:11 P.M.)\nIs his shop going to be available for rent?\n\nDallas Blair\n(2:12 P.M.)\nThat's what he said. We should probably check into it. It might be possible to connect the two places. That would give us more space, so we could expand the dining room.\n\nSusan Denton\n(2:13 P.M.)\nI'll get in touch with a real estate agent.\n\nBill Hagler\n(2:14 P.M.)\nSounds great, Susan.",
+    "passage_group_id": "p7-ed-0-181-1-2-3",
+    "passage_group_type": "single",
+    "question_order": 1
   },
   {
     "id": "p7-ed-0007",
+    "part": "Part 7",
+    "question": "What is Mr. Hagler concerned about?",
+    "choices": {
+      "A": "Paying for the installation of some equipment",
+      "B": "Opening an establishment by a certain date",
+      "C": "Finding workers willing to set up some tables",
+      "D": "Getting along with the shopkeeper next door"
+    },
+    "answer": "B",
+    "explanation_zh": "Hagler先生擔心與隔壁店主相處融洽，文中提到「getting along with the shopkeeper next door」。",
+    "skill_tag": "reading_detail",
+    "difficulty": "B1",
+    "vocabulary": [
+      "concerned about",
+      "shopkeeper",
+      "getting along"
+    ],
+    "passage": "Bill Hagler\n(2:03 P.M.)\nHello, everyone. How is the work on the property coming along? Are we going to finish on time? I'd really like to be able to open on March 1.\n\nSusan Denton\n(2:06 P.M.)\nEverything is looking good, Bill. The kitchen is almost entirely installed. The tables and chairs are going to arrive tomorrow. We'll need someone to help set them up.\n\nDallas Blair\n(2:08 P.M.)\nChris and I can do that, Susan. Just let me know what time I should be there.\n\nSusan Denton\n(2:09 P.M.)\nThanks, Dallas. I really appreciate your being willing to work on your day off.\n\nDallas Blair\n(2:10 P.M.)\nOh, I spoke with the owner of the shop right next to ours. He said that he's planning to retire in the next couple of months.\n\nBill Hagler\n(2:11 P.M.)\nIs his shop going to be available for rent?\n\nDallas Blair\n(2:12 P.M.)\nThat's what he said. We should probably check into it. It might be possible to connect the two places. That would give us more space, so we could expand the dining room.\n\nSusan Denton\n(2:13 P.M.)\nI'll get in touch with a real estate agent.\n\nBill Hagler\n(2:14 P.M.)\nSounds great, Susan.",
+    "passage_group_id": "p7-ed-0-181-1-2-3",
+    "passage_group_type": "single",
+    "question_order": 2
+  },
+  {
+    "id": "p7-ed-0008",
+    "part": "Part 7",
+    "question": "At 2:13 P.M., why does Ms. Denton write, \"I'll get in touch with a real estate agent\"?",
+    "choices": {
+      "A": "To say she will ask about lowering the monthly rent",
+      "B": "To indicate she can sign a rental agreement",
+      "C": "To state she needs to find a new apartment",
+      "D": "To offer to check on an available property"
+    },
+    "answer": "D",
+    "explanation_zh": "Denton女士寫這句話是因為她會要求降低租金，文中提到「ask about lowering the monthly rent」。",
+    "skill_tag": "reading_inference",
+    "difficulty": "B1",
+    "vocabulary": [
+      "get in touch with",
+      "real estate agent",
+      "lowering the rent"
+    ],
+    "passage": "Bill Hagler\n(2:03 P.M.)\nHello, everyone. How is the work on the property coming along? Are we going to finish on time? I'd really like to be able to open on March 1.\n\nSusan Denton\n(2:06 P.M.)\nEverything is looking good, Bill. The kitchen is almost entirely installed. The tables and chairs are going to arrive tomorrow. We'll need someone to help set them up.\n\nDallas Blair\n(2:08 P.M.)\nChris and I can do that, Susan. Just let me know what time I should be there.\n\nSusan Denton\n(2:09 P.M.)\nThanks, Dallas. I really appreciate your being willing to work on your day off.\n\nDallas Blair\n(2:10 P.M.)\nOh, I spoke with the owner of the shop right next to ours. He said that he's planning to retire in the next couple of months.\n\nBill Hagler\n(2:11 P.M.)\nIs his shop going to be available for rent?\n\nDallas Blair\n(2:12 P.M.)\nThat's what he said. We should probably check into it. It might be possible to connect the two places. That would give us more space, so we could expand the dining room.\n\nSusan Denton\n(2:13 P.M.)\nI'll get in touch with a real estate agent.\n\nBill Hagler\n(2:14 P.M.)\nSounds great, Susan.",
+    "passage_group_id": "p7-ed-0-181-1-2-3",
+    "passage_group_type": "single",
+    "question_order": 3
+  },
+  {
+    "id": "p7-ed-0009",
+    "part": "Part 7",
+    "question": "What is the purpose of the notice?",
+    "choices": {
+      "A": "To report on recent weather conditions",
+      "B": "To explain a change in some plans",
+      "C": "To apologize for missing a deadline",
+      "D": "To provide details on work to be done"
+    },
+    "answer": "B",
+    "explanation_zh": "題目詢問救生員會收到簡訊通知的事情為何。根據文章內容，簡訊通知的應是時間表的變動，因此正確答案為時間表。",
+    "skill_tag": "reading_detail",
+    "difficulty": "A2",
+    "vocabulary": [
+      "notification",
+      "schedule",
+      "lifeguard"
+    ],
+    "passage": "Asbury Road Parking Lot Update\n\nThe recent poor weather conditions this spring have caused the renovation work on the Asbury Road parking lot to be significantly delayed. The work was expected to be completed by May 1. However, construction crews were unable to access the site during the snowy weather. Furthermore, some structural issues were identified by engineers, further delaying the work. As a result, the project is now scheduled for completion by August 15. Anyone who has questions is welcome to contact Russell Mayer of Vanderbilt Construction at 802-555-9361.",
+    "passage_group_id": "p7-ed-0-196-147-148",
+    "passage_group_type": "single",
+    "question_order": 1
+  },
+  {
+    "id": "p7-ed-0010",
+    "part": "Part 7",
+    "question": "What is indicated about the Asbury Road parking lot project?",
+    "choices": {
+      "A": "It is not going to be finished on time.",
+      "B": "It will expand the size of the parking lot.",
+      "C": "It will be completed in May.",
+      "D": "It is expected to go over its budget."
+    },
+    "answer": "A",
+    "explanation_zh": "題目問救生員為什麼要聯絡辦公室。文章指出救生員需要確認某些資訊，因此正確答案為確認某些資訊。",
+    "skill_tag": "reading_detail",
+    "difficulty": "A2",
+    "vocabulary": [
+      "contact",
+      "confirm",
+      "information"
+    ],
+    "passage": "Asbury Road Parking Lot Update\n\nThe recent poor weather conditions this spring have caused the renovation work on the Asbury Road parking lot to be significantly delayed. The work was expected to be completed by May 1. However, construction crews were unable to access the site during the snowy weather. Furthermore, some structural issues were identified by engineers, further delaying the work. As a result, the project is now scheduled for completion by August 15. Anyone who has questions is welcome to contact Russell Mayer of Vanderbilt Construction at 802-555-9361.",
+    "passage_group_id": "p7-ed-0-196-147-148",
+    "passage_group_type": "single",
+    "question_order": 2
+  },
+  {
+    "id": "p7-ed-0011",
+    "part": "Part 7",
+    "question": "What is being advertised?",
+    "choices": {
+      "A": "An exterminator",
+      "B": "A housecleaner",
+      "C": "A pet care service",
+      "D": "An interior designer"
+    },
+    "answer": "A",
+    "explanation_zh": "廣告中強調「We remove pests from your home」，表示這是一家除蟲公司。",
+    "skill_tag": "reading_main_idea",
+    "difficulty": "B1",
+    "vocabulary": [
+      "exterminator",
+      "pests"
+    ],
+    "passage": "Rest assured, we guarantee that our work will be done by fully trained expert technicians.\n\nOur hotel venue features several halls that can accommodate any event.\n\nWhat sets us apart from our competitors? You don't owe one penny until all pests on your premises have been eradicated.\n\nIn celebration of our 5th anniversary, we're offering 10% off all your purchases in July.\n\nTo get this deal, you must schedule an appointment either by phone or online.\n\nFor more information, go online and schedule a complimentary consultation with one of our representatives.\n\nFor a list of all our locations, visit our website at www.alphachair.com.",
+    "passage_group_id": "p7-ed-0-91-1-2-3-4-5-6",
+    "passage_group_type": "single",
+    "question_order": 1
+  },
+  {
+    "id": "p7-ed-0012",
+    "part": "Part 7",
+    "question": "What kind of gift do participants receive at the end of the tour?",
+    "choices": {
+      "A": "A poster",
+      "B": "A discount coupon",
+      "C": "A bag of coffee",
+      "D": "A postcard"
+    },
+    "answer": "B",
+    "explanation_zh": "導覽介紹中說「Participants receive a discount coupon at the end」，指出參加者結束時會拿到折扣券。",
+    "skill_tag": "reading_detail",
+    "difficulty": "B1",
+    "vocabulary": [
+      "discount coupon",
+      "participants"
+    ],
+    "passage": "Rest assured, we guarantee that our work will be done by fully trained expert technicians.\n\nOur hotel venue features several halls that can accommodate any event.\n\nWhat sets us apart from our competitors? You don't owe one penny until all pests on your premises have been eradicated.\n\nIn celebration of our 5th anniversary, we're offering 10% off all your purchases in July.\n\nTo get this deal, you must schedule an appointment either by phone or online.\n\nFor more information, go online and schedule a complimentary consultation with one of our representatives.\n\nFor a list of all our locations, visit our website at www.alphachair.com.",
+    "passage_group_id": "p7-ed-0-91-1-2-3-4-5-6",
+    "passage_group_type": "single",
+    "question_order": 2
+  },
+  {
+    "id": "p7-ed-0013",
     "part": "Part 7",
     "question": "What is suggested about Ms. Madsen?",
     "choices": {
@@ -3520,7 +5139,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "She is going to present a paper at the conference."
     },
     "answer": "C",
-    "explanation_zh": "文中提到Madsen女士將在會議上發表論文，因此選項「她將在會議上發表論文」正確。",
+    "explanation_zh": "文中提到Ms. Madsen將在會議上發表論文（present a paper）。選項「她將在會議上發表論文」是正確的。",
     "skill_tag": "reading_detail",
     "difficulty": "B1",
     "vocabulary": [
@@ -3530,11 +5149,11 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     ],
     "passage": "To: Susanna Madsen\nFrom: Sunshine Hotel\nDate: August 14\nSubject: RE: Questions\n\nDear Ms. Madsen,\n\nWe are looking forward to having you as a guest here next month. To respond to your questions, the hotel is a five-minute walk from the sea. You will find all kinds of places to shop and eat near the hotel. We are also located right across the street from the conference you are attending. You can therefore walk there with ease. If you have any other questions, please let me know.\n\nSincerely,\n\nIoannis Papadopoulos\nCustomer Service Representative\nSunshine Hotel",
     "passage_group_id": "p7-ed-----------193",
-    "passage_group_type": "double",
-    "question_order": 3
+    "passage_group_type": "single",
+    "question_order": 1
   },
   {
-    "id": "p7-ed-0008",
+    "id": "p7-ed-0014",
     "part": "Part 7",
     "question": "Why did Mr. Papadopoulos send the e-mail?",
     "choices": {
@@ -3544,189 +5163,21 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "To change the date of a booking"
     },
     "answer": "C",
-    "explanation_zh": "Papadopoulos先生發送電子郵件是為了回覆一些詢問，因此選項「回覆一些詢問」正確。",
+    "explanation_zh": "Mr. Papadopoulos 的郵件是回覆客戶對房間預訂的詢問，並提供相關資訊。選項「回覆一些詢問」正確描述了郵件目的。",
     "skill_tag": "reading_main_idea",
     "difficulty": "B1",
     "vocabulary": [
-      "respond",
       "inquiry",
-      "e-mail"
+      "respond",
+      "booking"
     ],
     "passage": "To: Susanna Madsen\nFrom: Sunshine Hotel\nDate: August 14\nSubject: RE: Questions\n\nDear Ms. Madsen,\n\nWe are looking forward to having you as a guest here next month. To respond to your questions, the hotel is a five-minute walk from the sea. You will find all kinds of places to shop and eat near the hotel. We are also located right across the street from the conference you are attending. You can therefore walk there with ease. If you have any other questions, please let me know.\n\nSincerely,\n\nIoannis Papadopoulos\nCustomer Service Representative\nSunshine Hotel",
     "passage_group_id": "p7-ed-----------193",
-    "passage_group_type": "double",
-    "question_order": 4
-  },
-  {
-    "id": "p7-ed-0009",
-    "part": "Part 7",
-    "question": "What is indicated about the Sunshine Hotel?",
-    "choices": {
-      "A": "It is located close to the Bayside Hotel.",
-      "B": "It recently underwent renovations.",
-      "C": "It offers a discount to conference attendees.",
-      "D": "It does not have any vacancies in September."
-    },
-    "answer": "A",
-    "explanation_zh": "文中指出陽光飯店九月份沒有空房，因此選項「九月份沒有空房」正確。",
-    "skill_tag": "reading_detail",
-    "difficulty": "B1",
-    "vocabulary": [
-      "vacancy",
-      "September",
-      "hotel"
-    ],
-    "passage": "To: Susanna Madsen\nFrom: Sunshine Hotel\nDate: August 14\nSubject: RE: Questions\n\nDear Ms. Madsen,\n\nWe are looking forward to having you as a guest here next month. To respond to your questions, the hotel is a five-minute walk from the sea. You will find all kinds of places to shop and eat near the hotel. We are also located right across the street from the conference you are attending. You can therefore walk there with ease. If you have any other questions, please let me know.\n\nSincerely,\n\nIoannis Papadopoulos\nCustomer Service Representative\nSunshine Hotel",
-    "passage_group_id": "p7-ed-----------193",
-    "passage_group_type": "double",
-    "question_order": 5
-  },
-  {
-    "id": "p7-ed-0010",
-    "part": "Part 7",
-    "question": "What does the speaker say is a top priority?",
-    "choices": {
-      "A": "Improving worker efficiency",
-      "B": "Lowering manufacturing costs",
-      "C": "Retaining quality employees",
-      "D": "Advertising to more people"
-    },
-    "answer": "D",
-    "explanation_zh": "訊息中提到「餐廳」相關內容，因此發送者最可能在餐廳工作。",
-    "skill_tag": "reading_inference",
-    "difficulty": "B1",
-    "vocabulary": [
-      "restaurant",
-      "real estate",
-      "supermarket"
-    ],
-    "passage": "I'd like to talk about a new initiative at our company.\nReaching a larger audience has become the number one priority for us. The executives have decided we need to be more innovative when it comes to advertising our products. That's why we hired Susan Hoover, a digital marketing expert, to join our team. She is here to help us re-evaluate our current marketing strategy and make useful changes going forward. Right now, she is asking everyone to use their social media presence to gather data on our company. Instructions on how to do so will be sent out later today. I know we all have a lot of work already, but this affects us all.",
-    "passage_group_id": "p7-ed-----------82",
-    "passage_group_type": "single",
-    "question_order": 1
-  },
-  {
-    "id": "p7-ed-0011",
-    "part": "Part 7",
-    "question": "Who is Susan Hoover?",
-    "choices": {
-      "A": "A marketing specialist",
-      "B": "A course instructor",
-      "C": "A renowned doctor",
-      "D": "A human resources expert"
-    },
-    "answer": "A",
-    "explanation_zh": "Hagler先生擔心「與隔壁店主住相處融洽」的問題。",
-    "skill_tag": "reading_detail",
-    "difficulty": "B1",
-    "vocabulary": [
-      "worry",
-      "neighbor",
-      "installation"
-    ],
-    "passage": "I'd like to talk about a new initiative at our company.\nReaching a larger audience has become the number one priority for us. The executives have decided we need to be more innovative when it comes to advertising our products. That's why we hired Susan Hoover, a digital marketing expert, to join our team. She is here to help us re-evaluate our current marketing strategy and make useful changes going forward. Right now, she is asking everyone to use their social media presence to gather data on our company. Instructions on how to do so will be sent out later today. I know we all have a lot of work already, but this affects us all.",
-    "passage_group_id": "p7-ed-----------82",
-    "passage_group_type": "single",
-    "question_order": 2
-  },
-  {
-    "id": "p7-ed-0012",
-    "part": "Part 7",
-    "question": "Why does the speaker say, \"this affects us all\"?",
-    "choices": {
-      "A": "To prevent future mistakes",
-      "B": "To encourage participation",
-      "C": "To apologize for a delay",
-      "D": "To express opposition"
-    },
-    "answer": "B",
-    "explanation_zh": "Denton女士說「我會跟房屋仲介聯絡一下」是為了表示她會要求降低租金。",
-    "skill_tag": "reading_inference",
-    "difficulty": "B1",
-    "vocabulary": [
-      "real estate agent",
-      "rent",
-      "lease"
-    ],
-    "passage": "I'd like to talk about a new initiative at our company.\nReaching a larger audience has become the number one priority for us. The executives have decided we need to be more innovative when it comes to advertising our products. That's why we hired Susan Hoover, a digital marketing expert, to join our team. She is here to help us re-evaluate our current marketing strategy and make useful changes going forward. Right now, she is asking everyone to use their social media presence to gather data on our company. Instructions on how to do so will be sent out later today. I know we all have a lot of work already, but this affects us all.",
-    "passage_group_id": "p7-ed-----------82",
-    "passage_group_type": "single",
-    "question_order": 3
-  },
-  {
-    "id": "p7-ed-0013",
-    "part": "Part 7",
-    "question": "What type of business is the speaker planning to start?",
-    "choices": {
-      "A": "A beauty salon",
-      "B": "A bookstore",
-      "C": "An online shop",
-      "D": "A web magazine"
-    },
-    "answer": "C",
-    "explanation_zh": "訊息中提到「餐廳」相關內容，因此發送者最可能在餐廳工作。",
-    "skill_tag": "reading_inference",
-    "difficulty": "B1",
-    "vocabulary": [
-      "restaurant",
-      "real estate",
-      "supermarket"
-    ],
-    "passage": "Hello, I'm Dorothy Miller\n\nand I'm looking for someone to build a website for a new online clothing store I'll be opening in May. I saw the website you made for my friend, Maria Thompson, the other day. I was very impressed by how intuitive and sophisticated its design is, and Maria couldn't speak more highly of you. I'd like to meet you in person and discuss the project if you're available early next week. I'll have had a storyboard for the website ready to show you by then.\n\nPlease call me at 525-9526 at your earliest convenience.",
-    "passage_group_id": "p7-ed-----------84",
-    "passage_group_type": "single",
-    "question_order": 1
-  },
-  {
-    "id": "p7-ed-0014",
-    "part": "Part 7",
-    "question": "What did Maria Thompson do for the speaker?",
-    "choices": {
-      "A": "Repair an office",
-      "B": "Design a dress",
-      "C": "Develop a website",
-      "D": "Recommend a business"
-    },
-    "answer": "D",
-    "explanation_zh": "Hagler先生擔心「與隔壁店主住相處融洽」的問題。",
-    "skill_tag": "reading_detail",
-    "difficulty": "B1",
-    "vocabulary": [
-      "worry",
-      "neighbor",
-      "installation"
-    ],
-    "passage": "Hello, I'm Dorothy Miller\n\nand I'm looking for someone to build a website for a new online clothing store I'll be opening in May. I saw the website you made for my friend, Maria Thompson, the other day. I was very impressed by how intuitive and sophisticated its design is, and Maria couldn't speak more highly of you. I'd like to meet you in person and discuss the project if you're available early next week. I'll have had a storyboard for the website ready to show you by then.\n\nPlease call me at 525-9526 at your earliest convenience.",
-    "passage_group_id": "p7-ed-----------84",
     "passage_group_type": "single",
     "question_order": 2
   },
   {
     "id": "p7-ed-0015",
-    "part": "Part 7",
-    "question": "What does the speaker want to show the listener?",
-    "choices": {
-      "A": "An itinerary",
-      "B": "A storyboard",
-      "C": "A logo",
-      "D": "A floor plan"
-    },
-    "answer": "B",
-    "explanation_zh": "Denton女士說「我會跟房屋仲介聯絡一下」是為了表示她會要求降低租金。",
-    "skill_tag": "reading_inference",
-    "difficulty": "B1",
-    "vocabulary": [
-      "real estate agent",
-      "rent",
-      "lease"
-    ],
-    "passage": "Hello, I'm Dorothy Miller\n\nand I'm looking for someone to build a website for a new online clothing store I'll be opening in May. I saw the website you made for my friend, Maria Thompson, the other day. I was very impressed by how intuitive and sophisticated its design is, and Maria couldn't speak more highly of you. I'd like to meet you in person and discuss the project if you're available early next week. I'll have had a storyboard for the website ready to show you by then.\n\nPlease call me at 525-9526 at your earliest convenience.",
-    "passage_group_id": "p7-ed-----------84",
-    "passage_group_type": "single",
-    "question_order": 3
-  },
-  {
-    "id": "p7-ed-0016",
     "part": "Part 7",
     "question": "Where is the announcement most likely being made?",
     "choices": {
@@ -3736,13 +5187,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "At an airport"
     },
     "answer": "D",
-    "explanation_zh": "訊息中提到「餐廳」相關內容，因此發送者最可能在餐廳工作。",
+    "explanation_zh": "傳送訊息者最有可能在餐廳工作，因為對話中討論餐桌設置和開業日期。",
     "skill_tag": "reading_inference",
     "difficulty": "B1",
     "vocabulary": [
       "restaurant",
-      "real estate",
-      "supermarket"
+      "real estate agency",
+      "bakery"
     ],
     "passage": "Flyers, may I please have your attention? Starting next week, Terminal B will be out of operation, so no planes will be departing from there. All flights will either depart from Terminal A or Terminal C while Terminal B is being renovated. We expect renovations to take a few months, so we appreciate your patience until they are complete. Since Terminal A and Terminal C are on the far ends of the airport, we recommend allocating extra travel time to reach your gate before it closes.",
     "passage_group_id": "p7-ed-----------86",
@@ -3750,7 +5201,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     "question_order": 1
   },
   {
-    "id": "p7-ed-0017",
+    "id": "p7-ed-0016",
     "part": "Part 7",
     "question": "Why is a change being made?",
     "choices": {
@@ -3760,13 +5211,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "To increase energy efficiency"
     },
     "answer": "A",
-    "explanation_zh": "Hagler先生擔心「與隔壁店主住相處融洽」的問題。",
+    "explanation_zh": "Hagler先生擔心與隔壁店主相處融洽，文中提到「getting along with the shopkeeper next door」。",
     "skill_tag": "reading_detail",
     "difficulty": "B1",
     "vocabulary": [
-      "worry",
-      "neighbor",
-      "installation"
+      "concerned about",
+      "shopkeeper",
+      "getting along"
     ],
     "passage": "Flyers, may I please have your attention? Starting next week, Terminal B will be out of operation, so no planes will be departing from there. All flights will either depart from Terminal A or Terminal C while Terminal B is being renovated. We expect renovations to take a few months, so we appreciate your patience until they are complete. Since Terminal A and Terminal C are on the far ends of the airport, we recommend allocating extra travel time to reach your gate before it closes.",
     "passage_group_id": "p7-ed-----------86",
@@ -3774,103 +5225,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     "question_order": 2
   },
   {
-    "id": "p7-ed-0018",
-    "part": "Part 7",
-    "question": "What does the speaker recommend?",
-    "choices": {
-      "A": "Arriving earlier than usual",
-      "B": "Postponing any travel plans",
-      "C": "Reserving tickets online",
-      "D": "Contacting customer service"
-    },
-    "answer": "A",
-    "explanation_zh": "Denton女士說「我會跟房屋仲介聯絡一下」是為了表示她會要求降低租金。",
-    "skill_tag": "reading_inference",
-    "difficulty": "B1",
-    "vocabulary": [
-      "real estate agent",
-      "rent",
-      "lease"
-    ],
-    "passage": "Flyers, may I please have your attention? Starting next week, Terminal B will be out of operation, so no planes will be departing from there. All flights will either depart from Terminal A or Terminal C while Terminal B is being renovated. We expect renovations to take a few months, so we appreciate your patience until they are complete. Since Terminal A and Terminal C are on the far ends of the airport, we recommend allocating extra travel time to reach your gate before it closes.",
-    "passage_group_id": "p7-ed-----------86",
-    "passage_group_type": "single",
-    "question_order": 3
-  },
-  {
-    "id": "p7-ed-0019",
-    "part": "Part 7",
-    "question": "What is the focus of the episode?",
-    "choices": {
-      "A": "Promoting technological innovation",
-      "B": "Offering training programs",
-      "C": "Improving employee satisfaction",
-      "D": "Using social media"
-    },
-    "answer": "D",
-    "explanation_zh": "訊息中提到「餐廳」相關內容，因此發送者最可能在餐廳工作。",
-    "skill_tag": "reading_inference",
-    "difficulty": "B1",
-    "vocabulary": [
-      "restaurant",
-      "real estate",
-      "supermarket"
-    ],
-    "passage": "You're listening to Business Today on 167 F.M. Radio. For today's episode, we'll be focusing on promoting your business through social media. Getting enough engagement online is crucial to having a successful business. It's important to separate yourself from your competition. This involves creating a distinct social media presence that is associated with your company alone. For more advice on how to do this, we have Stacy Lee, founder of Sell-it, a popular marketing consulting firm. Welcome, Stacy.",
-    "passage_group_id": "p7-ed-----------88",
-    "passage_group_type": "single",
-    "question_order": 1
-  },
-  {
-    "id": "p7-ed-0020",
-    "part": "Part 7",
-    "question": "What does the speaker say is important?",
-    "choices": {
-      "A": "Creating a distinct presence",
-      "B": "Attending networking events",
-      "C": "Developing new products",
-      "D": "Following industry standards"
-    },
-    "answer": "A",
-    "explanation_zh": "Hagler先生擔心「與隔壁店主住相處融洽」的問題。",
-    "skill_tag": "reading_detail",
-    "difficulty": "B1",
-    "vocabulary": [
-      "worry",
-      "neighbor",
-      "installation"
-    ],
-    "passage": "You're listening to Business Today on 167 F.M. Radio. For today's episode, we'll be focusing on promoting your business through social media. Getting enough engagement online is crucial to having a successful business. It's important to separate yourself from your competition. This involves creating a distinct social media presence that is associated with your company alone. For more advice on how to do this, we have Stacy Lee, founder of Sell-it, a popular marketing consulting firm. Welcome, Stacy.",
-    "passage_group_id": "p7-ed-----------88",
-    "passage_group_type": "single",
-    "question_order": 2
-  },
-  {
-    "id": "p7-ed-0021",
-    "part": "Part 7",
-    "question": "Who is Stacy Lee?",
-    "choices": {
-      "A": "An office worker",
-      "B": "A news reporter",
-      "C": "A financial analyst",
-      "D": "A marketing expert"
-    },
-    "answer": "D",
-    "explanation_zh": "Denton女士說「我會跟房屋仲介聯絡一下」是為了表示她會要求降低租金。",
-    "skill_tag": "reading_inference",
-    "difficulty": "B1",
-    "vocabulary": [
-      "real estate agent",
-      "rent",
-      "lease"
-    ],
-    "passage": "You're listening to Business Today on 167 F.M. Radio. For today's episode, we'll be focusing on promoting your business through social media. Getting enough engagement online is crucial to having a successful business. It's important to separate yourself from your competition. This involves creating a distinct social media presence that is associated with your company alone. For more advice on how to do this, we have Stacy Lee, founder of Sell-it, a popular marketing consulting firm. Welcome, Stacy.",
-    "passage_group_id": "p7-ed-----------88",
-    "passage_group_type": "single",
-    "question_order": 3
-  },
-  {
-    "id": "p7-ed-0022",
+    "id": "p7-ed-0017",
     "part": "Part 7",
     "question": "What is being advertised?",
     "choices": {
@@ -3880,13 +5235,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "A travel destination"
     },
     "answer": "B",
-    "explanation_zh": "訊息中提到「餐廳」相關內容，因此發送者最可能在餐廳工作。",
+    "explanation_zh": "傳送訊息者最有可能在餐廳工作，因為對話中討論餐桌設置和開業日期。",
     "skill_tag": "reading_inference",
     "difficulty": "B1",
     "vocabulary": [
       "restaurant",
-      "real estate",
-      "supermarket"
+      "real estate agency",
+      "bakery"
     ],
     "passage": "Looking for the perfect place to hold your next conference? Look no further than the Maple Square Convention Center. With our spacious auditoriums, extensive parking facilities, and easy access to public transportation, Maple Square Convention Center is the ideal location for both small and large gatherings. But there's another reason why you should hold your next convention here. We're famous for our incredibly low prices. If you are interested in booking with us, please call our friendly staff at 555-0138 for pricing and available dates.",
     "passage_group_id": "p7-ed-----------90",
@@ -3894,7 +5249,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     "question_order": 1
   },
   {
-    "id": "p7-ed-0023",
+    "id": "p7-ed-0018",
     "part": "Part 7",
     "question": "What is the business famous for?",
     "choices": {
@@ -3904,13 +5259,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Its food"
     },
     "answer": "C",
-    "explanation_zh": "Hagler先生擔心「與隔壁店主住相處融洽」的問題。",
+    "explanation_zh": "Hagler先生擔心與隔壁店主相處融洽，文中提到「getting along with the shopkeeper next door」。",
     "skill_tag": "reading_detail",
     "difficulty": "B1",
     "vocabulary": [
-      "worry",
-      "neighbor",
-      "installation"
+      "concerned about",
+      "shopkeeper",
+      "getting along"
     ],
     "passage": "Looking for the perfect place to hold your next conference? Look no further than the Maple Square Convention Center. With our spacious auditoriums, extensive parking facilities, and easy access to public transportation, Maple Square Convention Center is the ideal location for both small and large gatherings. But there's another reason why you should hold your next convention here. We're famous for our incredibly low prices. If you are interested in booking with us, please call our friendly staff at 555-0138 for pricing and available dates.",
     "passage_group_id": "p7-ed-----------90",
@@ -3918,31 +5273,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     "question_order": 2
   },
   {
-    "id": "p7-ed-0024",
-    "part": "Part 7",
-    "question": "What does the speaker suggest listeners do?",
-    "choices": {
-      "A": "Make a phone call",
-      "B": "Visit a website",
-      "C": "Schedule a tour",
-      "D": "Place an order"
-    },
-    "answer": "A",
-    "explanation_zh": "Denton女士說「我會跟房屋仲介聯絡一下」是為了表示她會要求降低租金。",
-    "skill_tag": "reading_inference",
-    "difficulty": "B1",
-    "vocabulary": [
-      "real estate agent",
-      "rent",
-      "lease"
-    ],
-    "passage": "Looking for the perfect place to hold your next conference? Look no further than the Maple Square Convention Center. With our spacious auditoriums, extensive parking facilities, and easy access to public transportation, Maple Square Convention Center is the ideal location for both small and large gatherings. But there's another reason why you should hold your next convention here. We're famous for our incredibly low prices. If you are interested in booking with us, please call our friendly staff at 555-0138 for pricing and available dates.",
-    "passage_group_id": "p7-ed-----------90",
-    "passage_group_type": "single",
-    "question_order": 3
-  },
-  {
-    "id": "p7-ed-0025",
+    "id": "p7-ed-0019",
     "part": "Part 7",
     "question": "Where is the talk taking place?",
     "choices": {
@@ -3952,13 +5283,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "At a bookstore"
     },
     "answer": "B",
-    "explanation_zh": "訊息中提到「餐廳」相關內容，因此發送者最可能在餐廳工作。",
+    "explanation_zh": "傳送訊息者最有可能在餐廳工作，因為對話中討論餐桌設置和開業日期。",
     "skill_tag": "reading_inference",
     "difficulty": "B1",
     "vocabulary": [
       "restaurant",
-      "real estate",
-      "supermarket"
+      "real estate agency",
+      "bakery"
     ],
     "passage": "Thank you for coming to our ceremony today. We are pleased to host the ninth annual Art Awards here at Grayson Academy. I'm very excited to welcome our guest speaker, artist Howard Penn. He recently wrote a book called How to Paint Anything, which has topped several bestseller lists. During his talk tonight, he will explain how he became both a renowned painter and bestselling author. After his speech, we will announce the winners of this year's competition and then offer some free drinks and snacks in the lobby.",
     "passage_group_id": "p7-ed-----------92",
@@ -3966,7 +5297,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     "question_order": 1
   },
   {
-    "id": "p7-ed-0026",
+    "id": "p7-ed-0020",
     "part": "Part 7",
     "question": "According to the introduction, what did Howard Penn recently do?",
     "choices": {
@@ -3976,41 +5307,17 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "He wrote a popular book."
     },
     "answer": "D",
-    "explanation_zh": "Hagler先生擔心「與隔壁店主住相處融洽」的問題。",
+    "explanation_zh": "Hagler先生擔心與隔壁店主相處融洽，文中提到「getting along with the shopkeeper next door」。",
     "skill_tag": "reading_detail",
     "difficulty": "B1",
     "vocabulary": [
-      "worry",
-      "neighbor",
-      "installation"
+      "concerned about",
+      "shopkeeper",
+      "getting along"
     ],
     "passage": "Thank you for coming to our ceremony today. We are pleased to host the ninth annual Art Awards here at Grayson Academy. I'm very excited to welcome our guest speaker, artist Howard Penn. He recently wrote a book called How to Paint Anything, which has topped several bestseller lists. During his talk tonight, he will explain how he became both a renowned painter and bestselling author. After his speech, we will announce the winners of this year's competition and then offer some free drinks and snacks in the lobby.",
     "passage_group_id": "p7-ed-----------92",
     "passage_group_type": "single",
     "question_order": 2
-  },
-  {
-    "id": "p7-ed-0027",
-    "part": "Part 7",
-    "question": "What are the listeners invited to do after the event?",
-    "choices": {
-      "A": "Buy some artwork",
-      "B": "Enjoy some refreshments",
-      "C": "Learn more about the venue",
-      "D": "Take home a free gift"
-    },
-    "answer": "B",
-    "explanation_zh": "Denton女士說「我會跟房屋仲介聯絡一下」是為了表示她會要求降低租金。",
-    "skill_tag": "reading_inference",
-    "difficulty": "B1",
-    "vocabulary": [
-      "real estate agent",
-      "rent",
-      "lease"
-    ],
-    "passage": "Thank you for coming to our ceremony today. We are pleased to host the ninth annual Art Awards here at Grayson Academy. I'm very excited to welcome our guest speaker, artist Howard Penn. He recently wrote a book called How to Paint Anything, which has topped several bestseller lists. During his talk tonight, he will explain how he became both a renowned painter and bestselling author. After his speech, we will announce the winners of this year's competition and then offer some free drinks and snacks in the lobby.",
-    "passage_group_id": "p7-ed-----------92",
-    "passage_group_type": "single",
-    "question_order": 3
   }
 ];

@@ -118,15 +118,26 @@ ANSWER_PROMPT = """This page is from the Traditional-Chinese answer booklet of a
 prep book. Each entry is a question number, its answer letter, a 中譯
 (translation), a 解說 (explanation), and a 單字 (vocabulary) list.
 
+Section headings on the page cross-reference the question book, like
+「UNIT 06 找出同義詞　題本p.186」 or 「PRACTICE　題本 p.187」. That page number is
+the single most important thing on this page: it says which page of the
+question book the entries below it belong to. Entries continue under the most
+recent heading, including from a previous page when this one opens with no
+heading of its own.
+
 Return JSON only:
 {
   "page_kind": "answer_booklet",
-  "section_label": "<the part/unit printed on the side tab, e.g. 'PART 5', 'PART 7', 'UNIT 04'; null if none>",
-  "printed_page_number": <int or null>,
+  "section_label": "<the part/unit printed on the side tab, e.g. 'PART 5', 'UNIT 04'; null if none>",
+  "printed_page_number": <this booklet page's own printed number, or null>,
+  "headings": [
+    {"label": "PRACTICE", "workbook_page": 187}
+  ],
   "items": [
     {
       "number": 7,
       "answer": "A",
+      "workbook_page": 187,
       "answer_text": "<the English wording of the correct choice as quoted in the 解說, e.g. 'promptly', 'resulting from', 'to abandon'; null if the 解說 quotes no English>"
     }
   ],
@@ -135,12 +146,17 @@ Return JSON only:
 
 Rules:
 1. "answer" is the letter printed in parentheses next to the item number.
-2. "answer_text" must be copied from the English that appears inside the 解說
+2. "workbook_page" is the 題本 page number of the heading this entry sits under.
+   Use null when no heading appears above it on this page — never guess a
+   number, and never carry one over from a different section.
+3. "headings" lists every 題本 reference on the page, in top-to-bottom order,
+   even when no entries follow it here.
+4. "answer_text" must be copied from the English that appears inside the 解說
    sentence naming the answer (typically after 答案要選 / 答案為 / 因此選).
    Copy the English only — no Chinese, no letter, no quotation marks. If the
    explanation names no English wording, use null.
-3. Do not translate, and do not invent an answer_text that is not printed.
-4. Include every numbered entry on the page, in order.
+5. Do not translate, and do not invent an answer_text that is not printed.
+6. Include every numbered entry on the page, in order.
 """
 
 

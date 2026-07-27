@@ -48,24 +48,46 @@ def part_by_number(number: int, layout) -> str | None:
     return None
 
 
+# A listening item carries a transcript, which looks exactly like a reading
+# passage in the extracted JSON. What separates them is that the source is
+# spoken: the instruction line names a conversation or talk, and the questions
+# ask about "the speaker".
+# Only document types that cannot be printed. "announcement", "notice",
+# "introduction" and "tour information" all appear as printed reading passages
+# in the reading-only book, so listing them here mislabelled real Part 7 items;
+# the "speaker"/"listener" wording in the questions catches those cases anyway.
+SPOKEN_HEADER = re.compile(
+    r"conversation|\btalk\b|telephone message|recorded message|"
+    r"broadcast|podcast|excerpt from a meeting|radio",
+    re.I,
+)
+SPOKEN_STEM = re.compile(r"\b(speakers?|listeners?)\b", re.I)
+
+
 def part_by_shape(q: dict) -> str | None:
     """Classify by the shape of the item rather than its number.
 
     Both books mix numbered full tests (101-200) with drill sections that
     restart their own numbering, so a number-range table alone silently drops
     every drill question. Shape is what actually defines the part:
-      Part 5 - a standalone sentence with a blank, no passage
-      Part 6 - a passage carrying this question's blank inline
-      Part 7 - a passage plus a real comprehension question
+      Part 3/4 - a spoken transcript (conversation vs monologue)
+      Part 5   - a standalone sentence with a blank, no passage
+      Part 6   - a passage carrying this question's blank inline
+      Part 7   - a passage plus a real comprehension question
     """
     passage = q.get("passage") or ""
     stem = (q.get("stem") or "").strip()
+    header = q.get("passage_header") or ""
     blank_here = f"---({q['number']})---" in passage
 
     if blank_here:
         return "Part 6"
     if passage:
-        return "Part 7" if stem else None
+        if not stem:
+            return None
+        if SPOKEN_HEADER.search(header) or SPOKEN_STEM.search(stem):
+            return "Part 3" if re.search(r"conversation", header, re.I) else "Part 4"
+        return "Part 7"
     if not stem:
         return None
     return "Part 5" if re.search(r"-{3,}|_{3,}", stem) else None
@@ -193,6 +215,9 @@ def collect_paper(paper_pages: list[dict]) -> dict[tuple[int, int], dict]:
                 "stem": (q.get("stem") or "").strip(),
                 "choices": q.get("choices") or {},
                 "page_index": page.get("_page_index"),
+                # The number printed on the page, which is what the answer
+                # booklet cites ("題本 p.187") when pointing back at a question.
+                "printed_page": page.get("printed_page_number"),
             }
 
     # Attach each passage to the questions printed with it. The books put the
@@ -315,6 +340,47 @@ def collect_answer_anchors(book: str) -> dict[int, list[dict]]:
     return out
 
 
+def collect_workbook_answers(book: str) -> dict[tuple[int, int], list[dict]]:
+    """(question-book page, item number) -> answer entries.
+
+    The answer booklet cites the page it is answering ("PRACTICE 題本 p.187"),
+    which is an exact pointer back to the questions — unlike the item numbers
+    alone, which restart in every unit. Headings appear once and the entries
+    below them continue onto later pages, so the last heading seen carries
+    forward until the next one replaces it.
+    """
+    out: dict[tuple[int, int], list[dict]] = defaultdict(list)
+    d = OUT_ROOT / f"{book}-answers"
+    if not d.exists():
+        return out
+    current_page: int | None = None
+    for f in sorted(d.glob("*.json")):
+        try:
+            page = json.loads(f.read_text())
+        except json.JSONDecodeError:
+            continue
+        for item in page.get("items") or []:
+            num, ans = item.get("number"), item.get("answer")
+            wp = item.get("workbook_page")
+            if isinstance(wp, int):
+                current_page = wp
+            if not isinstance(num, int) or ans not in ("A", "B", "C", "D"):
+                continue
+            if current_page is None:
+                continue
+            out[(current_page, num)].append({
+                "answer": ans,
+                "answer_text": (item.get("answer_text") or "").strip(),
+                "workbook_page": current_page,
+                "page_index": page.get("_page_index"),
+            })
+        # A heading can sit at the foot of a page with its entries overleaf.
+        for h in page.get("headings") or []:
+            if isinstance(h.get("workbook_page"), int):
+                current_page = h["workbook_page"]
+    return out
+
+
 def match_by_anchor(q: dict, part: str, candidates: list[dict]):
     """Find the booklet entry whose quoted English is one of this question's choices."""
     best = None
@@ -396,6 +462,8 @@ def main() -> None:
     answers = collect_answers(answer_pages)
     tables = collect_answer_tables(answer_pages)
     anchors = collect_answer_anchors(book)
+    workbook = collect_workbook_answers(book)
+    ed_cross = defaultdict(int)
 
     accepted, review = [], []
     cross = {"agree": 0, "disagree": 0, "no_table": 0}
@@ -427,14 +495,42 @@ def main() -> None:
 
         # Books with a Chinese answer booklet are matched on its English anchor
         # instead; there is no restated test paper to pair against.
-        if anchors:
+        if anchors or workbook:
+            # Two independent readings of the same booklet: the page-and-number
+            # citation, and the English the explanation quotes. Neither is
+            # trusted blindly — where both speak they must agree.
             cand, score, runner = match_by_anchor(q, part, anchors.get(num, []))
-            if cand is None or score < 0.80:
-                reject(f"no answer-booklet entry matches this question (best={score:.2f})")
+            anchor_answer = None
+            if cand is not None and score >= 0.80 and runner <= score - 0.15:
+                anchor_answer = cand["answer"]
+
+            wb_answer = None
+            rows = workbook.get((q.get("printed_page"), num), []) if q.get("printed_page") else []
+            distinct = {r["answer"] for r in rows}
+            if len(distinct) == 1:
+                wb_answer = rows[0]["answer"]
+            elif len(distinct) > 1:
+                ed_cross["ambiguous_page"] += 1
+
+            if anchor_answer and wb_answer:
+                if anchor_answer != wb_answer:
+                    ed_cross["disagree"] += 1
+                    reject(f"booklet page cites {wb_answer} but its explanation quotes "
+                           f"{anchor_answer}")
+                    continue
+                ed_cross["agree"] += 1
+                answer_source = "booklet-cross-checked"
+            elif anchor_answer:
+                ed_cross["anchor_only"] += 1
+                answer_source = "booklet-english-quote"
+            elif wb_answer:
+                ed_cross["page_only"] += 1
+                answer_source = "booklet-page-citation"
+            else:
+                reject("no answer-booklet entry matches this question")
                 continue
-            if runner > score - 0.15:
-                reject(f"ambiguous booklet match (best={score:.2f} runner-up={runner:.2f})")
-                continue
+
+            final_answer = anchor_answer or wb_answer
             if part in ("Part 6", "Part 7") and not q.get("passage"):
                 reject(f"{part} question has no passage")
                 continue
@@ -445,7 +541,7 @@ def main() -> None:
                 "part": part,
                 "stem": q["stem"],
                 "choices": {c: q["choices"][c] for c in ("A", "B", "C", "D")},
-                "answer": cand["answer"],
+                "answer": final_answer,
                 "passage": q.get("passage"),
                 "passage_numbers": q.get("passage_numbers"),
                 "passage_order": q.get("passage_order"),
@@ -454,8 +550,9 @@ def main() -> None:
                 "doc_type": q.get("doc_type"),
                 "match": {"stem": None, "choices": round(score, 3),
                           "runner_up": round(runner, 3)},
-                "answer_source": "answer-booklet",
-                "answer_page": cand["page_index"],
+                "answer_source": answer_source,
+                "answer_page": (cand or (rows[0] if rows else {})).get("page_index"),
+                "workbook_page": q.get("printed_page"),
                 "page_index": q.get("page_index"),
             })
             continue
@@ -545,6 +642,7 @@ def main() -> None:
             }
         else:
             cross["agree"] += 1
+            accepted[i] = {**q, "answer_source": "paper+explanation+table"}
     if table_rejects:
         review.extend(accepted[i] for i in sorted(table_rejects))
         accepted = [q for i, q in enumerate(accepted) if i not in table_rejects]
@@ -631,7 +729,10 @@ def main() -> None:
                 })
 
     for q in accepted:
-        q.setdefault("answer_source", "cross-checked")
+        # "cross-checked" means the paper and the explanation restate the same
+        # question, which pins the pairing. Only the +table variant has a second
+        # reading of the letter itself.
+        q.setdefault("answer_source", "paper+explanation")
 
     (OUT_ROOT / f"{book}-assembled.json").write_text(
         json.dumps(accepted, ensure_ascii=False, indent=1))
@@ -658,12 +759,13 @@ def main() -> None:
         f"answer-key tables found: {len(tables)}",
         f"cross-check vs table: agree={cross['agree']} disagree={cross['disagree']} "
         f"no-table={cross['no_table']}",
+        (f"booklet pairing: {dict(ed_cross)}" if ed_cross else None),
         f"ACCEPTED: {len(accepted)}  {dict(by_part)}",
         f"  answer source: {dict(by_source)}",
         f"REVIEW:   {len(review)}",
         *[f"   - {c:>4}x {r}" for r, c in sorted(reasons.items(), key=lambda kv: -kv[1])],
     ]
-    report = "\n".join(lines)
+    report = "\n".join(l for l in lines if l)
     (OUT_ROOT / f"{book}-report.txt").write_text(report + "\n")
     print(report)
 

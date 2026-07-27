@@ -23,7 +23,9 @@ type Enriched = {
   source: string;
   test: number;
   number: number;
-  part: "Part 5" | "Part 6" | "Part 7";
+  part: "Part 3" | "Part 4" | "Part 5" | "Part 6" | "Part 7";
+  answer_source?: string;
+  verification?: { verdict: "confirmed" | "rejected" | "unresolved" } | null;
   stem: string;
   choices: Record<Choice, string>;
   answer: Choice;
@@ -63,6 +65,23 @@ function hasChineseContent(q: {
   if (count(q.stem) > 2) return true;
   if (BLANK_LABELS.some((l) => count(q.choices[l] ?? "") > 2)) return true;
   return count(q.passage ?? "") > 10;
+}
+
+/**
+ * Mirrors the `Explanation/answer mismatches` guard in `integrity.ts` so a
+ * contradicting explanation is caught here rather than at the gate. English
+ * choices often begin with the article "A", and "答案為 A publishing company"
+ * reads as a declaration of choice A to the checker and to a student alike.
+ */
+const DECLARE_RE =
+  /(?:正確答案|正解|正答|答案|應選|故選|因此選|所以選|答案應為|答案應該為|答案選)\s*(?:為|是|应为|應為|選|:|：)?\s*[「『"'（(]?\s*([A-D])(?![0-9A-Za-z])/g;
+
+function explanationContradictsAnswer(text: string, answer: string): boolean {
+  DECLARE_RE.lastIndex = 0;
+  const declared = new Set<string>();
+  let m: RegExpExecArray | null;
+  while ((m = DECLARE_RE.exec(text)) !== null) declared.add(m[1]);
+  return declared.size > 0 && !declared.has(answer);
 }
 
 function signature(q: { stem: string; choices: Record<string, string> }): string {
@@ -109,6 +128,24 @@ function main() {
   const groups = new Map<string, Enriched[]>();
   const part5: Enriched[] = [];
   for (const r of records) {
+    // Listening needs audio, which these books keep behind an online QR code.
+    // The items are extracted and kept in the assembled JSON for a later pass;
+    // importing them without sound would just be an unanswerable transcript.
+    if (r.part === "Part 3" || r.part === "Part 4") {
+      skip("listening item — needs audio, deferred to the listening pass");
+      continue;
+    }
+    // Anything whose answer rested on a single reading had to survive being
+    // re-solved from scratch; a book answer contradicted by two independent
+    // attempts is more likely a misread than a hard question.
+    if (r.verification && r.verification.verdict !== "confirmed") {
+      skip(`single-source answer not confirmed independently (${r.verification.verdict})`);
+      continue;
+    }
+    if (explanationContradictsAnswer(r.explanation_zh, r.answer)) {
+      skip("generated explanation names a different letter than the answer");
+      continue;
+    }
     if (r.part === "Part 5") {
       part5.push(r);
       continue;
