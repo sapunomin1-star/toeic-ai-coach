@@ -1,5 +1,68 @@
 # TOEIC AI Coach Development Log
 
+## Print Question Bank Import (PDF → questions) - 2026-07-27
+
+Imported 1,028 reading questions from two scanned print books on the Desktop,
+taking the bank from 1,899 to 2,927. New tooling lives in
+`pipeline/src/pdf-import/`; output goes to `data/questions-imported-<book>.ts`.
+
+Sources (personal study use only — do not reuse in a distributable product):
+
+- `xd` = 新東方《TOEIC 托業閱讀全真模擬1000題》, 696 pages, old-format TOEIC
+  (Part 5 = 101-140, Part 6 = 141-152, Part 7 = 153-200) → **833 imported**
+- `ed` = Eduwill《一本攻克新制多益850+》, 386 pages, new-format, teaching book
+  → **195 imported**
+
+### Pipeline
+
+Both PDFs are pure image scans with no text layer, so extraction is
+vision-model transcription, not OCR post-processing. Tesseract was measured
+first and rejected: it produced `mentiorjed`, `Inamagazine`, `unpredi¢table` on
+clean pages, which is not good enough for a bank where a wrong key teaches the
+wrong thing.
+
+1. `extract.py` — render page (PyMuPDF, 200dpi) → vision model → one JSON per
+   page, so runs resume and a single bad page can be redone. `--mode answers`
+   reads a Chinese answer booklet instead of a test page. `--provider` switches
+   between OpenAI and OpenRouter.
+2. `assemble.py` — pair each question with its answer, and reject anything that
+   cannot be confirmed.
+3. `enrich.ts` — DeepSeek writes `explanation_zh`, `skill_tag`, `difficulty`,
+   `vocabulary`. Stem, choices, and answer never pass through the model.
+4. `write-bank.ts` — emit the `data/` file, deduplicate against the live bank.
+5. `spot_check.py` — sample accepted questions and render the source page.
+
+### How answers are trusted
+
+A misaligned answer key is the failure mode that matters, so nothing is
+accepted on a single unverified reading:
+
+- **xd** prints every test twice — blank paper, then explanations with the
+  correct choice in bold — so a question is accepted only when the paper stem
+  and choices match the explanation's restatement. Matching is on content, not
+  page order, because one misread page would otherwise shift every later
+  answer. The per-test answer-key tables are a second, independent source:
+  665 agreed, 11 disagreed and were dropped.
+- **ed** has no restated paper. Its Chinese booklet names the correct choice in
+  prose ("答案要選 (A) promptly"), and that English fragment is matched against
+  the question's own choices, confirming number and letter together. Entries
+  printing only a bare letter are unusable — question numbers restart every
+  unit, so a letter alone identifies nothing — and were left out.
+
+Three questions were verified by hand against the printed pages (xd Q112, Q143;
+ed PRACTICE 1-3) and all matched.
+
+### Known gaps
+
+- **Part 6 from xd is not importable**: that book predates the 2016 format and
+  uses 3 blanks per passage, while the app requires exactly 4 (`integrity.ts`
+  enforces it, and the daily/mock planners select whole groups). 105 questions
+  dropped.
+- **ed yield is capped by its own answer booklet**: only 233 of 670 entries
+  quote English. The rest are not recoverable without guessing.
+- Listening (Part 1-4) was deliberately out of scope this round; the books'
+  audio is behind an online QR code and is not in the PDFs.
+
 ## Production Cross-Device Pull Fix - 2026-07-25
 
 ### Problem and root cause
