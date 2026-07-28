@@ -26,9 +26,11 @@ const OUT_ROOT = path.resolve(__dirname, "../../output/pdf-import");
 
 type Assembled = {
   source: string;
-  test: number;
+  test?: number;
   number: number;
-  part: "Part 5" | "Part 6" | "Part 7";
+  part: "Part 2" | "Part 3" | "Part 4" | "Part 5" | "Part 6" | "Part 7";
+  transcript?: string | null;
+  transcript_group?: string | null;
   stem: string;
   choices: { A: string; B: string; C: string; D: string };
   answer: "A" | "B" | "C" | "D";
@@ -52,6 +54,21 @@ const READING_TAGS: SkillTag[] = [
   "reading_inference",
   "reading_vocab",
 ];
+const LISTENING_TAGS: Record<string, SkillTag[]> = {
+  "Part 2": ["listening_response"],
+  "Part 3": [
+    "listening_main_idea",
+    "listening_detail",
+    "listening_inference",
+    "listening_next_action",
+  ],
+  "Part 4": [
+    "listening_main_idea",
+    "listening_detail",
+    "listening_inference",
+    "listening_next_action",
+  ],
+};
 const P5_TAGS: SkillTag[] = [
   "passive_voice",
   "word_form",
@@ -78,16 +95,29 @@ const SYSTEM = `你是多益教學者，為既有的多益考題撰寫繁體中�
 5. 只輸出 JSON 陣列，不要任何其他文字。`;
 
 function buildUserPrompt(items: Assembled[], passage?: string | null): string {
-  const tagList = (items[0].part === "Part 5" ? P5_TAGS : READING_TAGS).join(" | ");
-  const passageBlock = passage
-    ? `\n共用文章（Part 6 的空格以 ---(題號)--- 標示）：\n"""\n${passage}\n"""\n`
-    : "";
+  const part = items[0].part;
+  const tagList = (
+    LISTENING_TAGS[part] ?? (part === "Part 5" ? P5_TAGS : READING_TAGS)
+  ).join(" | ");
+  const transcript = items.find((q) => q.transcript)?.transcript;
+  const passageBlock = transcript
+    ? `\n聽力錄音稿（考生只聽到這段，看不到文字）：\n"""\n${transcript}\n"""\n`
+    : passage
+      ? `\n共用文章（Part 6 的空格以 ---(題號)--- 標示）：\n"""\n${passage}\n"""\n`
+      : "";
   const body = items
     .map(
       (q) =>
         `題號 ${q.number}（${q.part}）\n` +
-        (q.stem ? `題幹：${q.stem}\n` : "題幹：（此題為文章中的空格）\n") +
-        `(A) ${q.choices.A}\n(B) ${q.choices.B}\n(C) ${q.choices.C}\n(D) ${q.choices.D}\n` +
+        (q.part === "Part 2"
+          ? `聽到的問句：${q.stem}\n`
+          : q.stem
+            ? `題幹：${q.stem}\n`
+            : "題幹：（此題為文章中的空格）\n") +
+        (["A", "B", "C", "D"] as const)
+          .filter((l) => q.choices[l])
+          .map((l) => `(${l}) ${q.choices[l]}`)
+          .join("\n") + "\n" +
         `正確答案：${q.answer}`
     )
     .join("\n\n");
@@ -100,6 +130,8 @@ ${body}
 }
 
 function groupKey(q: Assembled): string {
+  if (q.transcript_group) return `tr:${q.transcript_group}`;
+  if (q.part === "Part 2") return `p2-${Math.floor(q.number / 6)}`;
   if (q.part === "Part 5") return `p5-${Math.floor(q.number / 8)}-${q.test}`;
   return `${q.test}:${(q.passage_numbers ?? [q.number]).join(",")}`;
 }
@@ -161,8 +193,10 @@ async function main() {
   const limit = limitFlag === -1 ? Infinity : Number(args[limitFlag + 1]);
   if (!book) throw new Error("--book is required");
 
-  const inPath = path.join(OUT_ROOT, `${book}-assembled.json`);
-  const outPath = path.join(OUT_ROOT, `${book}-enriched.json`);
+  const fileFlag = args.indexOf("--file");
+  const stem = fileFlag === -1 ? `${book}-assembled` : args[fileFlag + 1].replace(/\.json$/, "");
+  const inPath = path.join(OUT_ROOT, `${stem}.json`);
+  const outPath = path.join(OUT_ROOT, `${stem.replace(/-assembled$/, "")}-enriched.json`);
   const all = JSON.parse(fs.readFileSync(inPath, "utf8")) as Assembled[];
 
   // Resume support: keep whatever a previous run already enriched.
@@ -170,11 +204,11 @@ async function main() {
   if (fs.existsSync(outPath)) {
     for (const q of JSON.parse(fs.readFileSync(outPath, "utf8")) as (Assembled &
       Enrichment)[]) {
-      done.set(`${q.test}:${q.number}:${q.part}`, q);
+      done.set(`${q.test ?? 0}:${q.number}:${q.part}`, q);
     }
   }
 
-  const todo = all.filter((q) => !done.has(`${q.test}:${q.number}:${q.part}`));
+  const todo = all.filter((q) => !done.has(`${q.test ?? 0}:${q.number}:${q.part}`));
   const groups = new Map<string, Assembled[]>();
   for (const q of todo.slice(0, limit === Infinity ? undefined : limit)) {
     const key = groupKey(q);

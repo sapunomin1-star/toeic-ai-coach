@@ -37,7 +37,8 @@ type Assembled = {
   choices: Record<string, string>;
   answer: string;
   passage?: string | null;
-  answer_source: string;
+  transcript?: string | null;
+  answer_source?: string;
   verification?: {
     solver: string | null;
     adjudicator?: string | null;
@@ -46,12 +47,17 @@ type Assembled = {
 };
 
 function buildPrompt(q: Assembled): string {
-  const passage = q.passage
-    ? `Read this first:\n"""\n${q.passage.slice(0, 4000)}\n"""\n\n`
-    : "";
+  const source = q.transcript
+    ? `Here is what the listener hears:\n"""\n${q.transcript.slice(0, 4000)}\n"""\n\n`
+    : q.passage
+      ? `Read this first:\n"""\n${q.passage.slice(0, 4000)}\n"""\n\n`
+      : "";
+  const passage = source;
   const stem = q.stem?.trim()
     ? q.stem
-    : "(the blank marked in the passage above for this item)";
+    : q.part === "Part 2"
+      ? "(pick the most natural reply to what was just said)"
+      : "(the blank marked in the passage above for this item)";
   return (
     `${passage}TOEIC ${q.part} question.\n${stem}\n` +
     ["A", "B", "C", "D"]
@@ -139,11 +145,15 @@ async function main() {
   if (!book) throw new Error("--book is required");
 
   const openrouterKey = process.env.OPENROUTER_API_KEY ?? "";
-  const inPath = path.join(OUT_ROOT, `${book}-assembled.json`);
+  const fileFlag = args.indexOf("--file");
+  const inPath = path.join(
+    OUT_ROOT,
+    fileFlag === -1 ? `${book}-assembled.json` : args[fileFlag + 1]
+  );
   const all = JSON.parse(fs.readFileSync(inPath, "utf8")) as Assembled[];
 
   const needsCheck = all.filter(
-    (q) => !TWO_SOURCE.has(q.answer_source) && !q.verification
+    (q) => !TWO_SOURCE.has(q.answer_source ?? "") && !q.verification
   );
   const todo = limit === Infinity ? needsCheck : needsCheck.slice(0, limit);
   console.log(

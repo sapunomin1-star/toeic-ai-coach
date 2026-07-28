@@ -13,6 +13,7 @@ import { QUESTIONS_LISTENING } from "./questions-listening";
 import { GENERATED_QUESTIONS } from "./questions-generated";
 import { IMPORTED_QUESTIONS_XD } from "./questions-imported-xd";
 import { IMPORTED_QUESTIONS_ED } from "./questions-imported-ed";
+import { IMPORTED_LISTENING_ED } from "./questions-imported-ed-listening";
 
 export const QUESTIONS: Question[] = [
   ...QUESTIONS_PART5,
@@ -22,6 +23,7 @@ export const QUESTIONS: Question[] = [
   ...GENERATED_QUESTIONS,
   ...IMPORTED_QUESTIONS_XD,
   ...IMPORTED_QUESTIONS_ED,
+  ...IMPORTED_LISTENING_ED,
 ];
 
 export type QuestionFilter = {

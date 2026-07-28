@@ -79,19 +79,41 @@ function fallbackVoice(voiceHint?: VoiceHint): "alloy" | "nova" | "onyx" {
   return "alloy";
 }
 
+/**
+ * Roughly one connection in three to this endpoint drops instantly ("fetch
+ * failed" within ~70ms) while the rest answer normally in a few seconds. A
+ * batch generating hundreds of clips would otherwise lose a third of them to a
+ * blip that costs nothing to retry.
+ */
 async function requestSpeech(
   baseUrl: string,
   apiKey: string,
   body: { model: string; input: string; voice: string; response_format: "mp3" },
+  attempts = 5,
 ): Promise<Response> {
-  return fetch(`${baseUrl}/audio/speech`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  });
+  let lastError: unknown;
+  for (let attempt = 0; attempt < attempts; attempt++) {
+    try {
+      return await fetch(`${baseUrl}/audio/speech`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+    } catch (error) {
+      // Only transport-level failures land here; an HTTP error still returns a
+      // Response and is handled by the caller.
+      lastError = error;
+      if (attempt < attempts - 1) {
+        await new Promise((r) => setTimeout(r, 1000 * 2 ** attempt));
+      }
+    }
+  }
+  throw new Error(
+    `TTS request failed after ${attempts} attempts: ${(lastError as Error)?.message}`,
+  );
 }
 
 /**
