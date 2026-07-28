@@ -108,6 +108,61 @@ function checkExplanationAnswerConsistency(questions: Question[]): string[] {
 }
 
 /**
+ * Answer-length bias guard. Generators tend to write one full, specific
+ * correct option next to three short lazy distractors, which lets a student
+ * score far above chance by always picking the longest choice — without
+ * reading the passage or hearing the audio at all. That inflates practice
+ * accuracy, corrupts weak-point analysis, and makes mock estimates optimistic.
+ *
+ * Reported per part AND per id batch (`p2-gen`, `p7-xd`, …) because the defect
+ * is a property of the batch that produced the items, not of the part: the
+ * print-book imports sit at chance while some AI batches sit 20+ points above.
+ *
+ * ADVISORY, not gating. The existing bank already violates this in several
+ * batches; failing the run would break the build for a content problem that
+ * can only be fixed by rewriting distractors (and, for Parts 1-4, regenerating
+ * the matching audio). Flip `LENGTH_BIAS_GATES` to true once those batches are
+ * cleaned so new generations cannot reintroduce it.
+ */
+const LENGTH_BIAS_GATES = false;
+const LENGTH_BIAS_MIN_SAMPLE = 20;
+/** Percentage points above chance that count as exploitable. */
+const LENGTH_BIAS_TOLERANCE = 8;
+
+function checkAnswerLengthBias(questions: Question[]): string[] {
+  const batches = new Map<string, Question[]>();
+  for (const q of questions) {
+    // ids look like `<part>-<batch>-<n>`; fall back to the whole id.
+    const batch = q.id.split("-").slice(0, 2).join("-") || q.id;
+    const key = `${q.part} / ${batch}`;
+    const group = batches.get(key) ?? [];
+    group.push(q);
+    batches.set(key, group);
+  }
+
+  const warnings: string[] = [];
+  for (const [key, qs] of batches) {
+    if (qs.length < LENGTH_BIAS_MIN_SAMPLE) continue;
+    let hits = 0;
+    for (const q of qs) {
+      const entries = Object.entries(q.choices).filter(([, v]) => v != null);
+      const max = Math.max(...entries.map(([, v]) => v!.length));
+      const longest = entries.filter(([, v]) => v!.length === max);
+      // Ties split the credit — guessing among equal-length options is chance.
+      if (longest.some(([letter]) => letter === q.answer)) hits += 1 / longest.length;
+    }
+    const rate = (hits / qs.length) * 100;
+    const chance = 100 / (qs[0].part === "Part 2" ? 3 : 4);
+    if (rate > chance + LENGTH_BIAS_TOLERANCE) {
+      warnings.push(
+        `${key}: 「always pick longest」=${rate.toFixed(0)}% vs chance ${chance.toFixed(0)}% (n=${qs.length})`,
+      );
+    }
+  }
+  return warnings.sort();
+}
+
+/**
  * Duplicate-stem guard. For Part 2 the question text IS the spoken stem and
  * for Part 5 it is the full test sentence — exact duplicates mean the student
  * can meet the same item twice in one mock. (Other parts legitimately repeat
@@ -202,6 +257,7 @@ export function runIntegrityCheck(questions: Question[]): IntegrityReport {
     ...checkDuplicateStems(questions),
   ];
   const explanationAnswerMismatches = checkExplanationAnswerConsistency(questions);
+  const answerLengthBiasWarnings = checkAnswerLengthBias(questions);
 
   const passed =
     duplicateIds.length === 0 &&
@@ -213,7 +269,8 @@ export function runIntegrityCheck(questions: Question[]): IntegrityReport {
     missingPassage.length === 0 &&
     answerBalanceViolations.length === 0 &&
     groupStructureViolations.length === 0 &&
-    explanationAnswerMismatches.length === 0;
+    explanationAnswerMismatches.length === 0 &&
+    (!LENGTH_BIAS_GATES || answerLengthBiasWarnings.length === 0);
 
   return {
     duplicateIds,
@@ -226,6 +283,7 @@ export function runIntegrityCheck(questions: Question[]): IntegrityReport {
     answerBalanceViolations,
     groupStructureViolations,
     explanationAnswerMismatches,
+    answerLengthBiasWarnings,
     totalQuestions: questions.length,
     passed,
   };
@@ -261,8 +319,17 @@ export function printIntegrityReport(report: IntegrityReport): void {
     `  Explanation/answer mismatches: ${report.explanationAnswerMismatches.length}`
   );
   console.log(
+    `  Answer-length bias:     ${report.answerLengthBiasWarnings.length}${LENGTH_BIAS_GATES ? "" : " (advisory)"}`
+  );
+  console.log(
     `  Status: ${report.passed ? "PASSED" : "FAILED"}`
   );
+
+  if (report.answerLengthBiasWarnings.length > 0) {
+    console.log(
+      `\n  ⚠ 選項長度可洩題（選最長就能高於亂猜；不擋建置，但這些批次的干擾項需要重寫）:\n      ${report.answerLengthBiasWarnings.join("\n      ")}`
+    );
+  }
 
   if (!report.passed) {
     console.log("\n  Details:");

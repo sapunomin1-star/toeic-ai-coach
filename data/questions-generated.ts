@@ -569,9 +569,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "question": "____(C)____ — 選出最適合填入空格的句子",
     "choices": {
       "A": "A scheduling template for selecting your office days will be shared by the end of this week.",
-      "B": "Our company was founded more than twenty years ago.",
-      "C": "The cafeteria menu will also be updated next month.",
-      "D": "Several employees have already resigned this quarter."
+      "B": "Our company was founded more than twenty years ago by a group of engineers in this building.",
+      "C": "The cafeteria menu will also be updated next month to include more seasonal vegetarian options.",
+      "D": "Several employees have already resigned this quarter to pursue graduate studies overseas."
     },
     "answer": "A",
     "explanation_zh": "空格前一句說明員工可自行選擇進辦公室的日子，正解承接此脈絡，說明「如何安排這些日子」的後續工具。其餘選項與遠距政策的主題無關，或文中沒有任何根據。",
@@ -669,10 +669,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 6",
     "question": "____(B)____ — 選出最適合填入空格的句子",
     "choices": {
-      "A": "Our online store will be closed permanently.",
+      "A": "Our online store will be closed permanently at the end of the current fiscal year.",
       "B": "The renovation will give the store a more spacious, modern layout.",
-      "C": "We thank you for attending last year's grand opening.",
-      "D": "All employees must submit timesheets by Friday."
+      "C": "We thank you for attending last year's grand opening celebration downtown.",
+      "D": "All employees must submit their timesheets by Friday of each week without exception."
     },
     "answer": "B",
     "explanation_zh": "空格前一句提到「裝修工程」，正解進一步說明裝修帶來的好處，語意連貫。(A) 與信件安撫顧客的語氣矛盾，(C)(D) 與營業時間調整無關。",
@@ -767,10 +767,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 6",
     "question": "____(C)____ — 選出最適合填入空格的句子",
     "choices": {
-      "A": "The company picnic has been moved to September.",
-      "B": "Supervisors will be hired from outside agencies.",
+      "A": "The company picnic has been moved to September because of the weather.",
+      "B": "Supervisors will be hired from outside agencies starting next year.",
       "C": "Reports must be submitted no later than 5 P.M. every Friday.",
-      "D": "Our clients have praised the new website design."
+      "D": "Our clients have praised the new website design in recent surveys."
     },
     "answer": "C",
     "explanation_zh": "前文要求遠距員工每週繳交進度報告並說明內容，正解補上「繳交期限」，是同一規範的自然延伸。其他選項都偏離報告制度的主題。",
@@ -868,9 +868,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 6",
     "question": "____(B)____ — 選出最適合填入空格的句子",
     "choices": {
-      "A": "The company will relocate its headquarters next year.",
-      "B": "Travel to overseas branches is no longer permitted.",
-      "C": "Receipts older than five years may be discarded.",
+      "A": "The company will relocate its headquarters to another city next year.",
+      "B": "Travel to overseas branches is no longer permitted under any circumstances.",
+      "C": "Receipts older than five years may be discarded from the central archive.",
       "D": "Late submissions will require written approval from a department head."
     },
     "answer": "D",
@@ -7813,9 +7813,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "question": "____(C)____ — 選出最適合填入空格的句子",
     "choices": {
       "A": "Files that are not transferred by that date will no longer be accessible.",
-      "B": "The marketing budget will be reduced accordingly.",
-      "C": "Personal devices may be purchased at a discount.",
-      "D": "Our brand logo was redesigned last spring."
+      "B": "The marketing budget will be reduced accordingly in the next fiscal year.",
+      "C": "Personal devices may be purchased at a discount through the staff store.",
+      "D": "Our brand logo was redesigned last spring by an outside design agency."
     },
     "answer": "A",
     "explanation_zh": "前句設定了 1 月 31 日的搬遷期限，正解說明「未在期限內搬遷的後果」，與期限句緊密呼應。其他選項與檔案管理政策無關。",
@@ -7910,10 +7910,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 6",
     "question": "____(C)____ — 選出最適合填入空格的句子",
     "choices": {
-      "A": "Smoking is permitted on the rooftop terrace.",
+      "A": "Smoking is permitted on the rooftop terrace during scheduled break times only.",
       "B": "Any detector that fails a test should be reported to Facilities immediately.",
-      "C": "The cafeteria will serve a new lunch menu.",
-      "D": "Fire drills were abolished several years ago."
+      "C": "The cafeteria will serve a new lunch menu beginning on the first of the month.",
+      "D": "Fire drills were abolished several years ago and have not been reinstated."
     },
     "answer": "B",
     "explanation_zh": "前句要求樓層管理員每週測試煙霧偵測器，正解說明「測試失敗時的通報程序」，是同一流程的下一步。(D) 與文末提到的隨機演練矛盾。",
@@ -8008,10 +8008,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 6",
     "question": "____(C)____ — 選出最適合填入空格的句子",
     "choices": {
-      "A": "All seasonal items are final sale.",
-      "B": "Job applications are available at the front desk.",
+      "A": "All seasonal items are final sale and cannot be returned or exchanged.",
+      "B": "Job applications are available at the front desk during regular business hours.",
       "C": "We hope the longer evening hours will make your visits more convenient.",
-      "D": "Parking fees will double next month."
+      "D": "Parking fees will double next month in the garage next to the building."
     },
     "answer": "C",
     "explanation_zh": "前句宣布延長打烊時間，正解以「延長營業帶來的便利」收束，符合公告安撫顧客的語氣。其餘選項與營業時間調整無關。",
@@ -8109,9 +8109,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 6",
     "question": "____(C)____ — 選出最適合填入空格的句子",
     "choices": {
-      "A": "Our office furniture is also made of recycled wood.",
-      "B": "EcoPack Industries was recently sold to a competitor.",
-      "C": "We regret that the project has been discontinued.",
+      "A": "Our office furniture is also made of recycled wood from certified local suppliers.",
+      "B": "EcoPack Industries was recently sold to a competitor based in another region.",
+      "C": "We regret that the project has been discontinued after several years of development.",
       "D": "Several leading manufacturers have already adopted the system with measurable results."
     },
     "answer": "D",
@@ -8208,9 +8208,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "question": "____(C)____ — 選出最適合填入空格的句子",
     "choices": {
       "A": "Requests under that amount will continue to follow the current process.",
-      "B": "The finance office will be closed for renovations.",
-      "C": "Travel to conferences is now unlimited.",
-      "D": "Receipts are no longer necessary for any purchase."
+      "B": "The finance office will be closed for renovations throughout the summer.",
+      "C": "Travel to conferences is now unlimited for every department in the company.",
+      "D": "Receipts are no longer necessary for any purchase made by members of staff."
     },
     "answer": "A",
     "explanation_zh": "前文規定超過 $500 的差旅費須走新簽核系統，正解補充「未達門檻的申請維持原流程」，劃清新制適用範圍。其他選項與簽核制度無關或違背常理。",
@@ -8305,10 +8305,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 6",
     "question": "____(C)____ — 選出最適合填入空格的句子",
     "choices": {
-      "A": "The west wing will be demolished next year.",
+      "A": "The west wing will be demolished next year to make room for a parking area.",
       "B": "Signs marking the new route will be installed by the end of this week.",
-      "C": "Parking permits can be renewed online.",
-      "D": "The south lawn will host the company picnic."
+      "C": "Parking permits can be renewed online through the employee services portal.",
+      "D": "The south lawn will host the company picnic again this coming September."
     },
     "answer": "B",
     "explanation_zh": "前句宣布集合點改至南草坪，正解說明「新路線指標即將設置」，幫助員工因應變更。其他選項偏離疏散程序主題。",
@@ -8403,10 +8403,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 6",
     "question": "____(C)____ — 選出最適合填入空格的句子",
     "choices": {
-      "A": "Our store will also launch a new clothing line.",
-      "B": "All purchases made last year are eligible for refunds.",
+      "A": "Our store will also launch a new clothing line for the upcoming winter season.",
+      "B": "All purchases made last year are eligible for refunds without a receipt.",
       "C": "We recommend calling ahead to confirm that the items you need are in stock.",
-      "D": "The inventory system was installed a decade ago."
+      "D": "The inventory system was installed a decade ago and has never been upgraded."
     },
     "answer": "C",
     "explanation_zh": "前句提醒升級期間部分商品可能缺貨，正解給出顧客的因應建議（先電話確認庫存），語意直接相承。其他選項與缺貨情境無關。",
@@ -8501,9 +8501,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 6",
     "question": "____(B)____ — 選出最適合填入空格的句子",
     "choices": {
-      "A": "Unfortunately, our delivery volumes have been declining.",
-      "B": "Pacific Trade Group was founded in 1985.",
-      "C": "We plan to exit the logistics industry next year.",
+      "A": "Unfortunately, our delivery volumes have been declining steadily for several quarters.",
+      "B": "Pacific Trade Group was founded in 1985 and has changed ownership twice since then.",
+      "C": "We plan to exit the logistics industry next year to concentrate on retail.",
       "D": "This performance has earned us long-term contracts with several major retailers."
     },
     "answer": "D",
@@ -8603,9 +8603,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "question": "____(C)____ — 選出最適合填入空格的句子",
     "choices": {
       "A": "Requests submitted after the monthly deadline will not be processed until the following cycle.",
-      "B": "Office attendance is no longer recorded.",
-      "C": "Supervisors may work remotely without restriction.",
-      "D": "The company cafeteria now offers vegetarian options."
+      "B": "Office attendance is no longer recorded by any of the department supervisors here.",
+      "C": "Supervisors may work remotely without restriction for as long as they wish.",
+      "D": "The company cafeteria now offers vegetarian options at both the breakfast and lunch counters."
     },
     "answer": "A",
     "explanation_zh": "前句規定每月開始前須取得主管核准，正解說明「逾期申請的處理方式」，補完申請時程規範。其他選項與遠距申請流程無關。",
@@ -8700,10 +8700,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 6",
     "question": "____(B)____ — 選出最適合填入空格的句子",
     "choices": {
-      "A": "The old extinguishers are available for purchase.",
+      "A": "The old extinguishers are available for purchase by staff at a reduced price.",
       "B": "Instructions for operating the new units are printed on each cabinet.",
-      "C": "Parking in the front lot is now permitted.",
-      "D": "Annual bonuses will be announced in December."
+      "C": "Parking in the front lot is now permitted for all visitors and contractors.",
+      "D": "Annual bonuses will be announced in December at the year-end company meeting."
     },
     "answer": "B",
     "explanation_zh": "前句說明滅火器已更換新型號，正解補充「新型號的操作說明位置」，與後文的操作訓練相互呼應。(C) 與前文「前停車場保留給消防車」矛盾。",
@@ -8801,10 +8801,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 6",
     "question": "____(C)____ — 選出最適合填入空格的句子",
     "choices": {
-      "A": "The morning staff meeting has been canceled.",
-      "B": "Prices will increase slightly next quarter.",
+      "A": "The morning staff meeting has been canceled for the remainder of this month.",
+      "B": "Prices will increase slightly next quarter across most of our product lines.",
       "C": "In other words, you will have a full extra hour to shop in the evening.",
-      "D": "Our store first opened twenty years ago."
+      "D": "Our store first opened twenty years ago in a much smaller location nearby."
     },
     "answer": "C",
     "explanation_zh": "前句宣布打烊時間延後一小時，正解用 In other words 重述此變更對顧客的意義，銜接自然。其他選項與時間調整無關。",
@@ -8899,9 +8899,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 6",
     "question": "____(C)____ — 選出最適合填入空格的句子",
     "choices": {
-      "A": "Our company is currently downsizing its research division.",
-      "B": "EcoInnovate Corp.'s stock price fell sharply last week.",
-      "C": "We have decided to postpone all new partnerships.",
+      "A": "Our company is currently downsizing its research division and reducing its overall staff.",
+      "B": "EcoInnovate Corp.'s stock price fell sharply last week after an earnings report.",
+      "C": "We have decided to postpone all new partnerships until the next financial year.",
       "D": "A summary of our most recent joint-venture results is enclosed for your reference."
     },
     "answer": "D",
@@ -8998,9 +8998,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "question": "____(C)____ — 選出最適合填入空格的句子",
     "choices": {
       "A": "The new form eliminates this problem by recording every request in a shared calendar.",
-      "B": "Team leads will no longer hold weekly meetings.",
-      "C": "Most employees prefer working on weekends.",
-      "D": "The HR department has moved to the third floor."
+      "B": "Team leads will no longer hold weekly meetings with the members of their groups.",
+      "C": "Most employees prefer working on weekends rather than during the standard week.",
+      "D": "The HR department has moved to the third floor of the newly renovated east wing."
     },
     "answer": "A",
     "explanation_zh": "前句指出舊制度常造成排程衝突，正解說明「新表單如何解決此問題」，this problem 直接回指前句。其他選項無法銜接因果。",
@@ -9095,10 +9095,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 6",
     "question": "____(A)____ — 選出最適合填入空格的句子",
     "choices": {
-      "A": "The West Wing cafeteria is closed for repairs.",
+      "A": "The West Wing cafeteria is closed for repairs and will not reopen until the spring.",
       "B": "A confirmation certificate will be emailed to you once the module is finished.",
-      "C": "Training is optional for senior managers.",
-      "D": "Visitors must sign in at the security desk."
+      "C": "Training is optional for senior managers and members of the executive board.",
+      "D": "Visitors must sign in at the security desk before entering any office area."
     },
     "answer": "B",
     "explanation_zh": "前句要求 11 月 1 日前完成線上訓練，正解說明「完成後會寄發證明」，延續訓練流程。(C) 與「所有員工皆須完成」矛盾。",
@@ -9193,10 +9193,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 6",
     "question": "____(C)____ — 選出最適合填入空格的句子",
     "choices": {
-      "A": "The training program has been canceled.",
-      "B": "Our store is relocating to a new city.",
+      "A": "The training program has been canceled and will not be rescheduled this year.",
+      "B": "Our store is relocating to a new city at the end of the current lease term.",
       "C": "Additional staff will be on duty each evening to keep checkout lines short.",
-      "D": "Gift cards may not be used on weekends."
+      "D": "Gift cards may not be used on weekends or during any promotional period."
     },
     "answer": "C",
     "explanation_zh": "前句宣布延長晚間營業，正解補充「晚間將加派人手縮短結帳等候」，延續「更好地服務顧客」的承諾。(A) 與前文員工訓練的理由矛盾。",
@@ -9294,9 +9294,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 6",
     "question": "____(C)____ — 選出最適合填入空格的句子",
     "choices": {
-      "A": "Our company has decided to focus on plastic products instead.",
-      "B": "The food industry rarely uses packaging.",
-      "C": "EcoInnovate Inc. recently changed its company name.",
+      "A": "Our company has decided to concentrate on conventional plastic products instead this year.",
+      "B": "The food industry rarely uses packaging of any kind for the products that it ships.",
+      "C": "EcoInnovate Inc. recently changed its company name and its registered head office.",
       "D": "Initial laboratory tests suggest that such containers could decompose within ninety days."
     },
     "answer": "D",
@@ -9396,9 +9396,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "question": "____(B)____ — 選出最適合填入空格的句子",
     "choices": {
       "A": "This makes our policy one of the most flexible in the industry.",
-      "B": "As a result, the office will close every Friday.",
-      "C": "Remote work will be eliminated entirely next year.",
-      "D": "Salaries will be adjusted to reflect commuting costs."
+      "B": "As a result, the office will close every Friday for the rest of the year.",
+      "C": "Remote work will be eliminated entirely next year at every location.",
+      "D": "Salaries will be adjusted to reflect employee commuting costs."
     },
     "answer": "A",
     "explanation_zh": "前句宣布遠距日數由四天增為六天，正解以 This 回指該變更並強調政策彈性，銜接最自然。(C) 與放寬遠距的方向完全矛盾。",
@@ -9495,8 +9495,8 @@ export const GENERATED_QUESTIONS: Question[] = [
     "choices": {
       "A": "Employees should purchase their own fire extinguishers.",
       "B": "Replacement costs will be covered entirely by the company.",
-      "C": "The basement will be converted into a gym.",
-      "D": "Inspections of this kind happen only once a decade."
+      "C": "The basement will be converted into a fitness gym next year.",
+      "D": "Inspections of this kind happen only once every decade."
     },
     "answer": "B",
     "explanation_zh": "前句承諾汰換故障設備，正解說明「汰換費用由公司負擔」，補完同一安排。(A) 與公司統一汰換的做法矛盾，(D) 與「年度檢查」矛盾。",
@@ -9594,10 +9594,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 6",
     "question": "____(C)____ — 選出最適合填入空格的句子",
     "choices": {
-      "A": "The renovation has been postponed indefinitely.",
-      "B": "A new branch will open downtown next month.",
+      "A": "The renovation project has been postponed indefinitely.",
+      "B": "A new branch store will open in the downtown area next month.",
       "C": "Weekend hours will remain unchanged throughout this period.",
-      "D": "Our loyalty program has been discontinued."
+      "D": "Our customer loyalty program has been discontinued entirely."
     },
     "answer": "C",
     "explanation_zh": "前文交代平日開店與打烊時間的調整，正解補充「週末時間不變」，讓營業資訊完整。(A) 與「因裝修而調整」的理由矛盾。",
@@ -9695,9 +9695,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 6",
     "question": "____(C)____ — 選出最適合填入空格的句子",
     "choices": {
-      "A": "Our company has no experience in packaging.",
-      "B": "EcoInnovate Ltd. should lower its prices.",
-      "C": "The industry conference was canceled this year.",
+      "A": "Our company has no experience in packaging of any kind at the present time.",
+      "B": "EcoInnovate Ltd. should lower its prices for all of its customers.",
+      "C": "The industry conference was canceled this year for lack of sponsors.",
       "D": "Two of these prototypes are already undergoing third-party certification."
     },
     "answer": "D",
@@ -9794,9 +9794,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "question": "____(C)____ — 選出最適合填入空格的句子",
     "choices": {
       "A": "Accurate records will also simplify client billing at the end of each project.",
-      "B": "The time-tracking form is optional for managers.",
-      "C": "Labor regulations no longer apply to our industry.",
-      "D": "Project budgets will be announced at the holiday party."
+      "B": "The time-tracking form is optional for managers and senior team leaders.",
+      "C": "Labor regulations no longer apply to our industry or to any closely related field.",
+      "D": "Project budgets will be announced at the annual holiday party in December."
     },
     "answer": "A",
     "explanation_zh": "前文說明工時表能監控工時並符合法規，正解再補一項好處（簡化請款），與前句並列。(B) 與「全體員工皆須填寫」矛盾，(C) 與前句直接矛盾。",
@@ -9891,10 +9891,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 6",
     "question": "____(C)____ — 選出最適合填入空格的句子",
     "choices": {
-      "A": "The loading dock will be painted blue next week.",
+      "A": "The loading dock will be painted blue next week by an outside contractor.",
       "B": "Safety officers will patrol the area twice per shift to verify compliance.",
-      "C": "Hard hats are available in the gift shop.",
-      "D": "Forklift licenses expire after ten years."
+      "C": "Hard hats are available in the gift shop on the ground floor of the building.",
+      "D": "Forklift licenses expire after ten years and must then be renewed."
     },
     "answer": "B",
     "explanation_zh": "前文列出裝卸區的安全規定，正解說明「安全人員將巡查確保落實」，與文末的違規處分相呼應。其他選項與安全規範無關。",
@@ -9989,10 +9989,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 6",
     "question": "____(C)____ — 選出最適合填入空格的句子",
     "choices": {
-      "A": "Morning deliveries will be discontinued.",
-      "B": "The store will be closed on all weekends.",
+      "A": "Morning deliveries will be discontinued at the end of the current month.",
+      "B": "The store will be closed on all weekends throughout the winter season.",
       "C": "Customers who prefer evening shopping will find this especially convenient.",
-      "D": "Our founder retired earlier this year."
+      "D": "Our founder retired earlier this year after four decades of running the shop."
     },
     "answer": "C",
     "explanation_zh": "前句宣布延後打烊一小時，正解說明此調整對「偏好晚間購物的顧客」的好處，this 回指前句變更。其他選項與營業時間無關。",
@@ -10087,9 +10087,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 6",
     "question": "____(B)____ — 選出最適合填入空格的句子",
     "choices": {
-      "A": "Unfortunately, our production line is currently shut down.",
-      "B": "GreenTech Solutions was fined by regulators last year.",
-      "C": "We intend to compete directly against your firm.",
+      "A": "Unfortunately, our production line is currently shut down for extended annual maintenance.",
+      "B": "GreenTech Solutions was fined by regulators last year for a reporting violation.",
+      "C": "We intend to compete directly against your firm in every one of these markets.",
       "D": "Together, these strengths could form a complete clean-energy solution for city planners."
     },
     "answer": "D",
@@ -10189,9 +10189,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "question": "____(C)____ — 選出最適合填入空格的句子",
     "choices": {
       "A": "This exception ensures that client meetings remain fully staffed at all times.",
-      "B": "Client-facing roles will be eliminated in May.",
-      "C": "All employees must now work from home full-time.",
-      "D": "The HR portal will be offline permanently."
+      "B": "Client-facing roles will be eliminated in May at all of our regional branch offices.",
+      "C": "All employees must now work from home full-time without any exceptions.",
+      "D": "The HR portal will be offline permanently starting at the end of this month."
     },
     "answer": "A",
     "explanation_zh": "前句規定客戶導向職位須先取得核准，正解以 This exception 回指該特殊規定並說明其目的。(B)(C) 都與政策內容直接矛盾。",

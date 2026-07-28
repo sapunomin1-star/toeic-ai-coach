@@ -18,13 +18,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "will discuss"
     },
     "answer": "C",
-    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "詞性題：冠詞 a 後面、動詞 hold 的受詞必須是名詞，只有 discussion（討論會）是名詞。(A) discussing、(B) discussed 是分詞，(D) will discuss 是動詞片語，都不能被 a 修飾。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "assist",
-      "chef",
-      "arrive on time"
+      "hold a discussion",
+      "vice president",
+      "progress"
     ]
   },
   {
@@ -38,13 +38,12 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "herself"
     },
     "answer": "C",
-    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
+    "explanation_zh": "代名詞格位：because 引導的子句缺主詞，要用主格 she。(A) her 是受格/所有格，(B) hers 是所有格代名詞，(D) herself 是反身代名詞，都不能當主詞。",
     "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
-      "assist",
-      "chef",
-      "arrive on time"
+      "potential client",
+      "fly to"
     ]
   },
   {
@@ -58,13 +57,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "latest"
     },
     "answer": "D",
-    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "詞性題：the 與名詞 developments 之間要放形容詞，latest（最新的）符合語意。(A) late 是「遲的」語意不合，(B) lateness 是名詞，(C) lately 是副詞「最近」不能修飾名詞——lately 是本題最大陷阱。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "assist",
-      "chef",
-      "arrive on time"
+      "comprehensive",
+      "development",
+      "the latest"
     ]
   },
   {
@@ -78,13 +77,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "personally"
     },
     "answer": "D",
-    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "詞性題：were 與過去分詞 made 之間要插入副詞，personally（親自）是唯一副詞。(A) personal 形容詞、(B) personals 名詞、(C) personality 名詞都不能修飾動詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "assist",
-      "chef",
-      "arrive on time"
+      "improvement",
+      "personally",
+      "IT Department"
     ]
   },
   {
@@ -98,13 +97,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "prefers"
     },
     "answer": "D",
-    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "句子缺主要動詞：主詞 Danzig Office Supplies 視為單數公司名，需要單數現在式動詞 prefers。(A) preference 名詞、(B) preferable 形容詞、(C) preferring 分詞都不能單獨當主要動詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "assist",
-      "chef",
-      "arrive on time"
+      "cash payment",
+      "domestic buyer",
+      "prefer"
     ]
   },
   {
@@ -118,13 +117,12 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "to lead"
     },
     "answer": "D",
-    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "名詞後接不定詞修飾：the top candidate to lead the new team（帶領新團隊的最佳人選）。句子已有主要動詞 is，空格不能再放限定動詞，所以 (C) will lead、(B) was led 都不行。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "assist",
-      "chef",
-      "arrive on time"
+      "top candidate",
+      "R&D Department"
     ]
   },
   {
@@ -138,13 +136,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "revise"
     },
     "answer": "A",
-    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "分詞當形容詞：報告是「被修訂的」，用過去分詞 revised 修飾 progress report。(B) revising 是主動「正在修訂」語意不合，(C)(D) 是限定動詞，句中已有主要動詞 examined。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "assist",
-      "chef",
-      "arrive on time"
+      "revised",
+      "progress report",
+      "submit"
     ]
   },
   {
@@ -158,13 +156,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "if"
     },
     "answer": "B",
-    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "對等相關連接詞：後面有 or taking public transportation，前面必須是 either，構成 either A or B。(A) and 要配 both，(C) since、(D) if 是從屬連接詞，後面不能只接動名詞片語。",
+    "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "assist",
-      "chef",
-      "arrive on time"
+      "inclement weather",
+      "public transportation",
+      "either...or"
     ]
   },
   {
@@ -178,13 +176,12 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "whom"
     },
     "answer": "C",
-    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
+    "explanation_zh": "複合關係代名詞：that 子句缺主詞，whoever（無論誰）＝ anyone who，可同時當主詞並引導名詞子句。(A) whose 是所有格，(D) whom 是受格，(B) when 不能當主詞。",
     "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
-      "assist",
-      "chef",
-      "arrive on time"
+      "recruit",
+      "cash bonus"
     ]
   },
   {
@@ -198,13 +195,12 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "presence"
     },
     "answer": "D",
-    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "語意題：與 telecommuting（遠距上班）對比，公司希望員工「人在辦公室」＝ physical presence（實體出席）。(A) appearance 是外表/現身，(B) method 方法，(C) work 與 physical 搭配語意不通。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "assist",
-      "chef",
-      "arrive on time"
+      "telecommuting",
+      "physical presence"
     ]
   },
   {
@@ -218,13 +214,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "imperative"
     },
     "answer": "C",
-    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "搭配詞：an exclusive interview（獨家專訪）是新聞業固定用法。(A) intermittent 斷斷續續的，(B) alternate 交替的，(D) imperative 迫切的，都不與 interview 搭配。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "assist",
-      "chef",
-      "arrive on time"
+      "exclusive interview",
+      "governor",
+      "reporter"
     ]
   },
   {
@@ -238,13 +234,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "similarly"
     },
     "answer": "A",
-    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "語意連接：前句說「跳過第一天」，後句「第二天才出席」＝ instead（改為、反而）。(B) variously 各式各樣地、(C) literally 字面上、(D) similarly 同樣地都無法表達這個轉折。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "assist",
-      "chef",
-      "arrive on time"
+      "skip",
+      "instead",
+      "conference"
     ]
   },
   {
@@ -258,13 +254,12 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "reveals"
     },
     "answer": "C",
-    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "搭配詞：enforce a policy（執行/落實規定）是固定搭配。(A) disturbs 打擾、(B) minimizes 使最小化、(D) reveals 揭露，與 a strict policy 語意不合。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "assist",
-      "chef",
-      "arrive on time"
+      "enforce a policy",
+      "strict"
     ]
   },
   {
@@ -278,13 +273,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "proposals"
     },
     "answer": "A",
-    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "語意題：在截稿前對稿件所做的是 revisions（修改）。(B) essays 文章、(C) recommendations 建議、(D) proposals 提案都不是「對既有文字做的更動」。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "assist",
-      "chef",
-      "arrive on time"
+      "final draft",
+      "revision",
+      "prior to"
     ]
   },
   {
@@ -298,13 +293,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "anyone"
     },
     "answer": "C",
-    "explanation_zh": "空格後有 of his chefs，且表示「兩者都不」，因此用 neither。",
+    "explanation_zh": "數量代名詞：空格後有 of his chefs，且語意是「兩位廚師都沒有準時到」，用 neither（兩者都不）。(A) nothing、(B) nobody 後面不接 of 片語，(D) anyone 語意相反。",
     "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
+      "neither of",
       "assist",
-      "chef",
-      "arrive on time"
+      "on time"
     ]
   },
   {
@@ -318,13 +313,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "violates"
     },
     "answer": "B",
-    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
+    "explanation_zh": "詞性題：any 後面接名詞，且動詞 occur 是複數形，需用複數名詞 violations（違規事項）。(A) violated 過去分詞、(C)(D) 是動詞，都不能被 any 修飾。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "financial expert",
-      "manufacturing company",
-      "profit"
+      "safety violation",
+      "assembly line",
+      "supervisor"
     ]
   },
   {
@@ -338,13 +333,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Whomever"
     },
     "answer": "B",
-    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "不定代名詞當主詞：關係子句 who is interested 修飾人，主要動詞 is 為單數，用 Anyone（任何人）。(A) All 需搭配複數動詞，(C) Whatever 指事物，(D) Whomever 是受格。",
+    "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
-      "financial expert",
-      "manufacturing company",
-      "profit"
+      "be interested in",
+      "robotics",
+      "apply for"
     ]
   },
   {
@@ -358,13 +353,12 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "many"
     },
     "answer": "A",
-    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "限定詞：空格後是單數名詞 person，且句意為「每個人都要」，用 every。(B) which、(C) because 是連接詞，(D) many 只能修飾複數名詞。",
+    "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
-      "financial expert",
-      "manufacturing company",
-      "profit"
+      "hands-on training",
+      "workshop"
     ]
   },
   {
@@ -378,13 +372,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "highly"
     },
     "answer": "D",
-    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
+    "explanation_zh": "副詞修飾形容詞：空格後是形容詞 realistic，要用副詞 highly（非常）＝ highly realistic。(A)(B)(C) 都是形容詞 high 的變化，形容詞不能修飾形容詞。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "financial expert",
-      "manufacturing company",
-      "profit"
+      "highly realistic",
+      "special effects",
+      "be impressed by"
     ]
   },
   {
@@ -398,13 +392,12 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "hire"
     },
     "answer": "D",
-    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
+    "explanation_zh": "主動詞一致：主詞 Many technology companies 是複數，需用原形 hire。(C) hires 是單數形，(A) hirer 是名詞，(B) hiring 是分詞不能當主要動詞。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "financial expert",
-      "manufacturing company",
-      "profit"
+      "graduate from",
+      "hire"
     ]
   },
   {
@@ -418,13 +411,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "promote"
     },
     "answer": "A",
-    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
+    "explanation_zh": "動詞語法：start 後面可接動名詞或不定詞，選項中只有 promoting 是動名詞。(B)(C)(D) 都是限定動詞形式，不能直接接在 start 後。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "financial expert",
-      "manufacturing company",
-      "profit"
+      "promote",
+      "route",
+      "throughout"
     ]
   },
   {
@@ -438,13 +431,12 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "expanded"
     },
     "answer": "C",
-    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
+    "explanation_zh": "分詞當形容詞：企業自己在「擴張」，用現在分詞 expanding 修飾 businesses。(D) expanded 是被動語意不合，(A)(B) 是名詞不能修飾名詞 businesses。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "financial expert",
-      "manufacturing company",
-      "profit"
+      "expanding business",
+      "professional accountant"
     ]
   },
   {
@@ -458,13 +450,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "since"
     },
     "answer": "C",
-    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "介系詞搭配：within two weeks of delivery（送達後兩週內）是固定用法。(A) before、(D) since 語意方向錯，(B) on 不與 within...weeks 連用。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "financial expert",
-      "manufacturing company",
-      "profit"
+      "within two weeks of",
+      "return",
+      "delivery"
     ]
   },
   {
@@ -478,13 +470,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "or"
     },
     "answer": "A",
-    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "對等連接詞：worked... and is now... 連接兩個並列的動詞片語，前後為順接關係，用 and。(C) however 是副詞不能連接子句，(B) for、(D) or 語意不合。",
+    "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "financial expert",
-      "manufacturing company",
-      "profit"
+      "presentation skills",
+      "accomplished",
+      "public speaker"
     ]
   },
   {
@@ -498,13 +490,12 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "and"
     },
     "answer": "C",
-    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "關係代名詞：先行詞 Peter Carroll 是人，且關係子句缺主詞，用 who。(B) which 指物，(A) so、(D) and 是連接詞，後面不能直接接動詞 has lived。",
+    "skill_tag": "relative_clause",
     "difficulty": "B1",
     "vocabulary": [
-      "financial expert",
-      "manufacturing company",
-      "profit"
+      "be owned by",
+      "local area"
     ]
   },
   {
@@ -518,13 +509,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "panel"
     },
     "answer": "D",
-    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "語意題：a panel of customers（一組評審／消費者小組）負責評分，符合語境。(A) system 系統、(B) version 版本、(C) survey 問卷本身不能「負責評分」。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "financial expert",
-      "manufacturing company",
-      "profit"
+      "panel",
+      "be responsible for",
+      "rate"
     ]
   },
   {
@@ -538,13 +529,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "replaced"
     },
     "answer": "A",
-    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "語意對比：but 之後說「仍建議參加」，前面應是「不是強制的」＝ not mandatory。(B) exposed 暴露、(C) practiced 熟練的、(D) replaced 被取代，都無法與 but 形成對比。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "financial expert",
-      "manufacturing company",
-      "profit"
+      "mandatory",
+      "be advised to",
+      "training program"
     ]
   },
   {
@@ -558,13 +549,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "revealingly"
     },
     "answer": "C",
-    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "語意題：文件的「提交方式」＝ electronically（以電子方式）。(A) fortunately 幸運地、(B) gracefully 優雅地、(D) revealingly 揭露地，都不是提交文件的方式。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "financial expert",
-      "manufacturing company",
-      "profit"
+      "reimbursement",
+      "expenditure",
+      "electronically"
     ]
   },
   {
@@ -578,13 +569,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "ensure"
     },
     "answer": "D",
-    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "語意題：To ensure that...（為了確保……）是常見句型，符合「規則須一視同仁」的目的。(A) bargain 議價、(B) appoint 任命、(C) integrate 整合，都不能接 that 子句表「確保」。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "financial expert",
-      "manufacturing company",
-      "profit"
+      "ensure",
+      "treat fairly",
+      "apply to"
     ]
   },
   {
@@ -598,13 +589,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "stability"
     },
     "answer": "A",
-    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
+    "explanation_zh": "最高級＋possible：the most stable environment possible（盡可能最穩定的環境）。(B) more stably 是副詞，(C) stabilizing、(D) stability 無法與 the...possible 結構搭配修飾 environment。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "financial expert",
-      "manufacturing company",
-      "profit"
+      "stable",
+      "thrive",
+      "agriculture"
     ]
   },
   {
@@ -618,13 +609,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "profits"
     },
     "answer": "D",
-    "explanation_zh": "空格前有形容詞 record，且需為名詞，因此用 profits 表示「利潤」。",
+    "explanation_zh": "詞性題：make record ___ 中 record 在此當形容詞「創紀錄的」，後面需要名詞，用複數 profits（利潤）。(A) profitable 形容詞、(B) profitability 抽象名詞語意不合、(C) profiting 是分詞。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "financial expert",
+      "record profits",
       "manufacturing company",
-      "profit"
+      "financial expert"
     ]
   },
   {
@@ -638,13 +629,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "agreeing"
     },
     "answer": "B",
-    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
+    "explanation_zh": "詞性題：動詞 review 的受詞需要名詞，negotiated（協商過的）是修飾語，故用 agreements（協議）。(A) agree 動詞、(C) agreed、(D) agreeing 是分詞，都不能當受詞。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "automated system",
-      "factory worker",
-      "productive"
+      "negotiated agreement",
+      "review",
+      "lawyer"
     ]
   },
   {
@@ -658,13 +649,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "every"
     },
     "answer": "B",
-    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "不定代名詞當主詞：so 之後的子句缺主詞，用 everybody（每個人）。(A) another、(D) every 是限定詞須接名詞，(C) which 是關係詞不能當獨立主詞。",
+    "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
-      "automated system",
-      "factory worker",
-      "productive"
+      "mandatory",
+      "conflicting appointment",
+      "cancel"
     ]
   },
   {
@@ -678,13 +669,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "beneficially"
     },
     "answer": "C",
-    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
+    "explanation_zh": "It is + 形容詞 + to V 句型：空格要放形容詞 beneficial（有益的）。(A) benefit 名詞、(B) benefiting 分詞、(D) beneficially 副詞都不能放在 It is 之後接不定詞。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "automated system",
-      "factory worker",
-      "productive"
+      "beneficial",
+      "agenda",
+      "cover"
     ]
   },
   {
@@ -698,13 +689,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "clearest"
     },
     "answer": "B",
-    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
+    "explanation_zh": "副詞修飾形容詞片語：off limits（禁止進入）是形容詞片語，前面用副詞 clearly。(A) clear 形容詞、(C) clearer、(D) clearest 是比較級最高級形容詞，都不能修飾形容詞。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "automated system",
-      "factory worker",
-      "productive"
+      "off limits",
+      "unauthorized personnel",
+      "indicate"
     ]
   },
   {
@@ -718,13 +709,12 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "was broadcasting"
     },
     "answer": "C",
-    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "時態＋對等結構：and consider 是原形，表示與空格共用同一個助動詞 will，故用 will broadcast（將播出……並考慮……）。(A)(B)(D) 都無法讓後面的原形 consider 成立。",
+    "skill_tag": "tense",
     "difficulty": "B1",
     "vocabulary": [
-      "automated system",
-      "factory worker",
-      "productive"
+      "broadcast",
+      "news show"
     ]
   },
   {
@@ -738,13 +728,12 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "applied"
     },
     "answer": "B",
-    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
+    "explanation_zh": "動詞語法：permit + 受詞 + to V（允許某人做某事），故用 to apply。(A) applies 是限定動詞，(C) applying、(D) applied 不符合 permit 的句型。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "automated system",
-      "factory worker",
-      "productive"
+      "permit someone to",
+      "apply for a promotion"
     ]
   },
   {
@@ -758,13 +747,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Postponing"
     },
     "answer": "A",
-    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
+    "explanation_zh": "分詞當形容詞：會議是「被延期的」，用過去分詞 Postponed 修飾 meetings。(D) Postponing 是主動語意不合，(B)(C) 是動詞形式不能當主詞的修飾語。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "automated system",
-      "factory worker",
-      "productive"
+      "postpone",
+      "reschedule",
+      "mutually convenient"
     ]
   },
   {
@@ -778,13 +767,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "In addition to"
     },
     "answer": "D",
-    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "介系詞片語＋動名詞：In addition to serving...（除了擔任會計之外），語意為「身兼兩職」。(A) As a result 是副詞片語，(B) Because of 表原因，(C) With regard to 表「關於」，都不合語意。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "automated system",
-      "factory worker",
-      "productive"
+      "in addition to",
+      "serve as",
+      "office manager"
     ]
   },
   {
@@ -798,13 +787,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "In spite of"
     },
     "answer": "B",
-    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "讓步連接詞：「休了半個月假，卻拿到最高業績」是逆接，用 Although 引導子句。(D) In spite of 是介系詞不能接子句，(A) In order that 表目的，(C) Furthermore 是副詞。",
+    "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "automated system",
-      "factory worker",
-      "productive"
+      "although",
+      "sales figures",
+      "on vacation"
     ]
   },
   {
@@ -818,13 +807,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "they"
     },
     "answer": "B",
-    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "關係代名詞：先行詞 Logistics companies 是「物」，關係子句缺主詞，用 that。(A) whom 指人且是受格，(C) what 不能有先行詞，(D) they 是代名詞不能引導子句。",
+    "skill_tag": "relative_clause",
     "difficulty": "B1",
     "vocabulary": [
-      "automated system",
-      "factory worker",
-      "productive"
+      "logistics company",
+      "in high demand",
+      "on time"
     ]
   },
   {
@@ -838,13 +827,12 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "program"
     },
     "answer": "A",
-    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "語意題：車隊「最新增添的一輛」＝ the latest addition to（……的最新成員）。(B) device 裝置、(C) object 物體、(D) program 方案，都不與 to the fleet 搭配。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "automated system",
-      "factory worker",
-      "productive"
+      "the latest addition to",
+      "fleet of vehicles"
     ]
   },
   {
@@ -858,13 +846,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "various"
     },
     "answer": "C",
-    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "搭配詞：in a prompt manner（以迅速的方式）＝ promptly，是客訴處理的標準說法。(A) relative 相對的、(B) close 接近的、(D) various 各種的，與 manner 搭配語意不通。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "automated system",
-      "factory worker",
-      "productive"
+      "in a prompt manner",
+      "customer complaint",
+      "handle"
     ]
   },
   {
@@ -878,13 +866,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "particularly"
     },
     "answer": "C",
-    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "語意對比：but 之後說「後來調高」，前面應是 initially（起初）。(A) pleasantly 愉快地、(B) entirely 完全地、(D) particularly 特別地，都無法與後半的轉折呼應。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "automated system",
-      "factory worker",
-      "productive"
+      "initially",
+      "low salary",
+      "reject"
     ]
   },
   {
@@ -898,13 +886,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "assign"
     },
     "answer": "B",
-    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "搭配詞：coincide with（時間上撞期）符合「改日期以免與野餐撞期」。(A) collaborate 合作、(C) report 報告、(D) assign 指派，都無法表達「時間衝突」。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "automated system",
-      "factory worker",
-      "productive"
+      "coincide with",
+      "company picnic",
+      "seminar"
     ]
   },
   {
@@ -918,13 +906,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "which ones"
     },
     "answer": "D",
-    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "名詞子句主詞：determine 後面需要一個有主詞的子句，which ones（哪些履歷）正好當主詞。(A) now that、(B) even though 是連接詞語意不合，(C) some such 不能引導子句。",
+    "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
-      "automated system",
-      "factory worker",
-      "productive"
+      "résumé",
+      "qualification",
+      "determine"
     ]
   },
   {
@@ -938,13 +926,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "producer"
     },
     "answer": "C",
-    "explanation_zh": "空格前有 make...in their jobs，且需為形容詞，因此用 productive 表示「有生產力的」。",
+    "explanation_zh": "make + 受詞 + 形容詞：make the workers productive（讓員工更有生產力），空格需形容詞。(A) product、(B) production、(D) producer 都是名詞，放進去會變成「讓員工變成產品」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
+      "productive",
       "automated system",
-      "factory worker",
-      "productive"
+      "factory worker"
     ]
   },
   {
@@ -958,13 +946,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "training"
     },
     "answer": "B",
-    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
-    "skill_tag": "passive_voice",
+    "explanation_zh": "詞性題：冠詞 a 後面要接名詞，且語意是「健身房的教練」＝ trainer（人）。(A) train 動詞、(C) trained 分詞、(D) training 是「訓練」這件事，不能被 meet 當成見面對象。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D team",
-      "second chance",
-      "manufacturing problem"
+      "trainer",
+      "gym",
+      "intend to"
     ]
   },
   {
@@ -978,13 +966,12 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "himself"
     },
     "answer": "D",
-    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
-    "skill_tag": "passive_voice",
+    "explanation_zh": "反身代名詞加強語氣：主詞 Jules Desmond 後面接 himself（他本人親自），句子已有主詞。(A) him、(C) his 格位錯，(B) he 會造成兩個主詞。",
+    "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D team",
-      "second chance",
-      "manufacturing problem"
+      "autograph",
+      "novel"
     ]
   },
   {
@@ -998,13 +985,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "ambitiously"
     },
     "answer": "C",
-    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
-    "skill_tag": "passive_voice",
+    "explanation_zh": "詞性題：修飾名詞 applicants 要用形容詞 ambitious（有企圖心的）。(A) ambition、(B) ambitions 是名詞，(D) ambitiously 是副詞，都不能修飾名詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D team",
-      "second chance",
-      "manufacturing problem"
+      "ambitious",
+      "applicant",
+      "achieve goals"
     ]
   },
   {
@@ -1018,13 +1005,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "repeatedly"
     },
     "answer": "D",
-    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
-    "skill_tag": "passive_voice",
+    "explanation_zh": "副詞修飾動詞：修飾 instructed 要用副詞 repeatedly（一再地）。(A) repeat 動詞、(B) repeating 分詞、(C) repeated 是形容詞「重複的」，不能修飾動詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D team",
-      "second chance",
-      "manufacturing problem"
+      "repeatedly",
+      "instruct",
+      "office manager"
     ]
   },
   {
@@ -1038,13 +1025,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "to fulfill"
     },
     "answer": "C",
-    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
-    "skill_tag": "passive_voice",
+    "explanation_zh": "主動詞一致：主詞核心是單數的 The bid（submitted by... 只是修飾語），需用單數動詞 fulfills。(A) fulfill 是複數形，(B)(D) 不是限定動詞，句子會缺主要動詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D team",
-      "second chance",
-      "manufacturing problem"
+      "bid",
+      "fulfill requirements",
+      "city government"
     ]
   },
   {
@@ -1058,13 +1045,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "has closed"
     },
     "answer": "B",
-    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
-    "skill_tag": "passive_voice",
+    "explanation_zh": "動詞語法：consider 後面接動名詞，closing the Auckland branch（關閉分公司）當受詞。(C) to close 不能接在 consider 之後，(A) close、(D) has closed 是動詞形式。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D team",
-      "second chance",
-      "manufacturing problem"
+      "consider doing",
+      "branch",
+      "profitability"
     ]
   },
   {
@@ -1078,13 +1065,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "displeasing"
     },
     "answer": "B",
-    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
-    "skill_tag": "passive_voice",
+    "explanation_zh": "分詞當形容詞：顧客是「感到不滿的」，用過去分詞 displeased with。(D) displeasing 指「令人不悅的」，主詞是人時語意相反，是本題最大陷阱。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D team",
-      "second chance",
-      "manufacturing problem"
+      "displeased with",
+      "be entitled to",
+      "purchase"
     ]
   },
   {
@@ -1098,13 +1085,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Within"
     },
     "answer": "A",
-    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
-    "skill_tag": "passive_voice",
+    "explanation_zh": "介系詞語意：Following each performance（每場演出之後）＝ After。(B) Through 貫穿、(C) Around 大約/周圍、(D) Within 在……之內，都不表「在……之後」。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D team",
-      "second chance",
-      "manufacturing problem"
+      "following",
+      "performance",
+      "volunteer"
     ]
   },
   {
@@ -1118,13 +1105,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "since"
     },
     "answer": "D",
-    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
-    "skill_tag": "passive_voice",
+    "explanation_zh": "連接詞：since 引導子句表「自從……以來」，與現在進行被動 are being returned 呼應。(A) around 是介系詞，(B) apparently 是副詞，(C) so 語意（因果）方向相反。",
+    "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D team",
-      "second chance",
-      "manufacturing problem"
+      "since",
+      "checkout system",
+      "computerize"
     ]
   },
   {
@@ -1138,13 +1125,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "how"
     },
     "answer": "C",
-    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
-    "skill_tag": "passive_voice",
+    "explanation_zh": "關係代名詞當受詞：she attempted to use ___ 缺受詞，先行詞是 foundation（物），用 that。(A) there、(D) how 不能當受詞，(B) what 不能有先行詞。",
+    "skill_tag": "relative_clause",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D team",
-      "second chance",
-      "manufacturing problem"
+      "charitable foundation",
+      "establish",
+      "homeless crisis"
     ]
   },
   {
@@ -1158,13 +1145,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "consequence"
     },
     "answer": "A",
-    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
-    "skill_tag": "passive_voice",
+    "explanation_zh": "搭配詞：a low priority（優先度低）是職場常用說法。(B) venture 創業投資、(C) attempt 嘗試、(D) consequence 後果，都不與 low 搭配表達「不急」。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D team",
-      "second chance",
-      "manufacturing problem"
+      "low priority",
+      "redecorate",
+      "employee lounge"
     ]
   },
   {
@@ -1178,13 +1165,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "accessible"
     },
     "answer": "B",
-    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
-    "skill_tag": "passive_voice",
+    "explanation_zh": "語意題：實習生被指派的是 routine tasks（例行工作）。(A) opposing 對立的、(C) proficient 精通的、(D) accessible 可取得的，都不能修飾 tasks 表「日常瑣事」。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D team",
-      "second chance",
-      "manufacturing problem"
+      "routine tasks",
+      "intern",
+      "mentoring"
     ]
   },
   {
@@ -1198,13 +1185,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "really"
     },
     "answer": "B",
-    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
-    "skill_tag": "passive_voice",
+    "explanation_zh": "語意題：出貨要「迅速地」＝ promptly。(A) seriously 嚴肅地、(C) hardly 幾乎不（語意相反）、(D) really 真地，都不符合出貨效率的語境。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D team",
-      "second chance",
-      "manufacturing problem"
+      "promptly",
+      "package",
+      "online order"
     ]
   },
   {
@@ -1218,13 +1205,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "automates"
     },
     "answer": "B",
-    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
-    "skill_tag": "passive_voice",
+    "explanation_zh": "搭配詞：waive a fee（免收費用）是商業固定用法，符合「滿 $100 免運」的語境。(A) clears 清除、(C) explores 探索、(D) automates 自動化，都不能與 shipping fee 搭配。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D team",
-      "second chance",
-      "manufacturing problem"
+      "waive a fee",
+      "shipping fee",
+      "purchase"
     ]
   },
   {
@@ -1238,13 +1225,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "mislabels"
     },
     "answer": "A",
-    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
-    "skill_tag": "passive_voice",
+    "explanation_zh": "分詞當形容詞：箱子是「被貼錯標籤的」，用過去分詞 mislabeled 修飾 boxes。(B) mislabeling 是主動語意不合，(C)(D) 是動詞形式不能被 a few 修飾。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "R&D team",
-      "second chance",
-      "manufacturing problem"
+      "mislabeled",
+      "warehouse",
+      "investigation"
     ]
   },
   {
@@ -1258,13 +1245,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "has been given"
     },
     "answer": "D",
-    "explanation_zh": "主詞 The R&D team 被給予機會，因此用被動語態 has been given。",
+    "explanation_zh": "被動語態：研發團隊是「被給予」第二次機會，用 has been given。(A) gave、(B) will give、(C) is giving 都是主動，會變成「團隊給了機會」，語意顛倒。",
     "skill_tag": "passive_voice",
     "difficulty": "B1",
     "vocabulary": [
+      "be given a chance",
       "R&D team",
-      "second chance",
-      "manufacturing problem"
+      "solution"
     ]
   },
   {
@@ -1278,13 +1265,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "hesitating"
     },
     "answer": "C",
-    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
-    "skill_tag": "business_vocabulary",
+    "explanation_zh": "詞性題：There is 之後要接名詞，hesitation（猶豫）是名詞。(A) hesitate 動詞、(B) hesitated 過去式/分詞、(D) hesitating 分詞，都不能當 There is 的主詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "compensate",
-      "loss",
-      "delivery"
+      "hesitation",
+      "bank teller",
+      "contract proposal"
     ]
   },
   {
@@ -1298,13 +1285,12 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "each"
     },
     "answer": "B",
-    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
-    "skill_tag": "business_vocabulary",
+    "explanation_zh": "指示代名詞：用 those 代替前面提過的複數名詞 manuals，避免重複＝ those (manuals) sitting on the table。(A) anyone 指人，(C) other 須接名詞，(D) each 是單數。",
+    "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
-      "compensate",
-      "loss",
-      "delivery"
+      "training manual",
+      "rather than"
     ]
   },
   {
@@ -1318,13 +1304,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "timing"
     },
     "answer": "A",
-    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
-    "skill_tag": "business_vocabulary",
+    "explanation_zh": "詞性題：a ___ manner 中要放形容詞，timely（及時的）雖以 -ly 結尾卻是形容詞，是本題陷阱。(B) time、(C) times、(D) timing 都是名詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "compensate",
-      "loss",
-      "delivery"
+      "in a timely manner",
+      "vital",
+      "ship"
     ]
   },
   {
@@ -1338,13 +1324,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "promptness"
     },
     "answer": "B",
-    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
-    "skill_tag": "business_vocabulary",
+    "explanation_zh": "副詞修飾動詞：修飾 departs 要用副詞 promptly（準時地）。(A) prompt 形容詞、(C) prompted 分詞、(D) promptness 名詞，都不能修飾動詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "compensate",
-      "loss",
-      "delivery"
+      "promptly",
+      "depart",
+      "tour participant"
     ]
   },
   {
@@ -1358,13 +1344,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "finished"
     },
     "answer": "A",
-    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
-    "skill_tag": "business_vocabulary",
+    "explanation_zh": "時間副詞子句用現在式代替未來式：as soon as 引導的子句不可用 will，故用 finishes。(B) will finish 犯了最典型的錯，(C)(D) 時態與主句未來式不符。",
+    "skill_tag": "tense",
     "difficulty": "B1",
     "vocabulary": [
-      "compensate",
-      "loss",
-      "delivery"
+      "as soon as",
+      "complete",
+      "project"
     ]
   },
   {
@@ -1378,13 +1364,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "With regard to"
     },
     "answer": "C",
-    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
-    "skill_tag": "business_vocabulary",
+    "explanation_zh": "目的用法：In order to + 原形動詞 guarantee（為了保證……）。(A) In spite of、(D) With regard to 是介系詞須接名詞，(B) As soon as 要接子句。",
+    "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "compensate",
-      "loss",
-      "delivery"
+      "in order to",
+      "guarantee",
+      "courier"
     ]
   },
   {
@@ -1398,13 +1384,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "was preferred"
     },
     "answer": "C",
-    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
-    "skill_tag": "business_vocabulary",
+    "explanation_zh": "分詞構句：主要子句已有動詞 remained，空格用現在分詞 preferring 表附帶說明（因為他偏好休息）。(A)(B)(D) 都是限定動詞，會造成兩個主要動詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "compensate",
-      "loss",
-      "delivery"
+      "prefer",
+      "remain",
+      "entire vacation"
     ]
   },
   {
@@ -1418,13 +1404,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "About"
     },
     "answer": "A",
-    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
-    "skill_tag": "business_vocabulary",
+    "explanation_zh": "介系詞語意：By + V-ing 表「藉由……方式」，符合「靠準確報導提升聲譽」。(B) On + V-ing 表「一……就」，(C) With、(D) About 都不表方法。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "compensate",
-      "loss",
-      "delivery"
+      "by doing",
+      "breaking news",
+      "reputation"
     ]
   },
   {
@@ -1438,13 +1424,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Such"
     },
     "answer": "C",
-    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
-    "skill_tag": "business_vocabulary",
+    "explanation_zh": "連接詞：Whenever（每當）表示每次推出新品都會大打廣告的反覆情況。(A) Because 表原因語意較弱，(B) During 是介系詞不能接子句，(D) Such 不是連接詞。",
+    "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "compensate",
-      "loss",
-      "delivery"
+      "whenever",
+      "release",
+      "market heavily"
     ]
   },
   {
@@ -1458,13 +1444,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "exterior"
     },
     "answer": "C",
-    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
+    "explanation_zh": "語意題：讓執行長滿意的是 reassuring results（令人安心的結果）。(A) practical 實用的、(B) remote 遙遠的、(D) exterior 外部的，都無法解釋「滿意」。",
     "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "compensate",
-      "loss",
-      "delivery"
+      "reassuring",
+      "customer survey",
+      "be satisfied with"
     ]
   },
   {
@@ -1478,13 +1464,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "regularly"
     },
     "answer": "C",
-    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
+    "explanation_zh": "搭配詞：vote unanimously（一致通過表決）是董事會標準用語。(A) enormously 巨大地、(B) possibly 可能地、(D) regularly 定期地，都不能修飾 voted 表決結果。",
     "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "compensate",
-      "loss",
-      "delivery"
+      "unanimously",
+      "board of directors",
+      "vote"
     ]
   },
   {
@@ -1498,13 +1484,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "reconcile"
     },
     "answer": "C",
-    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
+    "explanation_zh": "語意題：訂購時要 specify（明確指定）尺寸與顏色。(A) balance 平衡、(B) multiply 相乘、(D) reconcile 調和帳目，都不是下訂單的動作。",
     "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "compensate",
-      "loss",
-      "delivery"
+      "specify",
+      "article of clothing",
+      "order"
     ]
   },
   {
@@ -1518,13 +1504,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "cooperated"
     },
     "answer": "B",
-    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
-    "skill_tag": "business_vocabulary",
+    "explanation_zh": "假設語氣：insist / suggest / recommend + that 子句時，動詞要用原形 cooperate（省略 should）。(D) cooperated、(A)(C) 都不符合這個 TOEIC 高頻文法點。",
+    "skill_tag": "tense",
     "difficulty": "B1",
     "vocabulary": [
-      "compensate",
-      "loss",
-      "delivery"
+      "insist that",
+      "cooperate with",
+      "employment goals"
     ]
   },
   {
@@ -1538,11 +1524,11 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "rewarded"
     },
     "answer": "C",
-    "explanation_zh": "compensated for her loss 表示「因損失獲得補償」，符合物品破損的語境。",
+    "explanation_zh": "搭配詞：be compensated for a loss（因損失而獲得賠償）是固定用法。(A) approved 核准、(B) appreciated 感謝、(D) rewarded 獎勵（用於功勞非損失），語意都不合。",
     "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "compensate",
+      "compensate for",
       "loss",
       "delivery"
     ]
@@ -1558,13 +1544,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "assignments"
     },
     "answer": "D",
-    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "詞性題：介系詞 of 後面要接名詞，a choice of assignments（可選擇的任務）。(A) assigning 動名詞語意不合，(B) assigns 動詞、(C) assigned 分詞都不能當 of 的受詞。",
+    "skill_tag": "word_form",
     "difficulty": "A2",
     "vocabulary": [
-      "team",
-      "implement",
-      "at once"
+      "a choice of",
+      "assignment",
+      "successfully"
     ]
   },
   {
@@ -1578,13 +1564,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "you"
     },
     "answer": "A",
-    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
+    "explanation_zh": "所有格：空格後有名詞 manager，需用所有格形容詞 your。(B) yours 是所有格代名詞後不接名詞，(C) yourself 反身、(D) you 是主格/受格。",
     "skill_tag": "pronoun",
     "difficulty": "A2",
     "vocabulary": [
-      "team",
-      "implement",
-      "at once"
+      "contact",
+      "assignment",
+      "complete"
     ]
   },
   {
@@ -1598,13 +1584,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "None"
     },
     "answer": "B",
-    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
+    "explanation_zh": "限定詞與動詞一致：動詞是複數 are，主詞需複數，All technicians（所有技術人員）。(A) Each、(C) Either 接單數，(D) None 語意相反。",
     "skill_tag": "pronoun",
     "difficulty": "A2",
     "vocabulary": [
-      "team",
-      "implement",
-      "at once"
+      "safety gear",
+      "laboratory",
+      "be required to"
     ]
   },
   {
@@ -1618,13 +1604,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "regularly"
     },
     "answer": "D",
-    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "副詞插在完成式中間：has ___ received 要放副詞 regularly（固定地）。(A) regular 形容詞、(B) more regular 比較級形容詞、(C) regulars 名詞，都不能修飾動詞。",
+    "skill_tag": "word_form",
     "difficulty": "A2",
     "vocabulary": [
-      "team",
-      "implement",
-      "at once"
+      "regularly",
+      "recognition",
+      "accomplishment"
     ]
   },
   {
@@ -1638,13 +1624,12 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "has negotiated"
     },
     "answer": "D",
-    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "現在完成式：that 子句需要主要動詞，且表示「已經談成」用 has negotiated。(A) negotiating、(B) to negotiate 不是限定動詞，(C) is negotiated 被動語意不合（他是談判者）。",
+    "skill_tag": "tense",
     "difficulty": "A2",
     "vocabulary": [
-      "team",
-      "implement",
-      "at once"
+      "negotiate a contract",
+      "overseas corporation"
     ]
   },
   {
@@ -1658,13 +1643,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "being made"
     },
     "answer": "A",
-    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "be + to V 句型表「必須／打算」：if we are to make our flight（若要趕上班機）。(B) make、(C) made、(D) being made 都無法與 are 構成這個固定句型。",
+    "skill_tag": "tense",
     "difficulty": "A2",
     "vocabulary": [
-      "team",
-      "implement",
-      "at once"
+      "be to do",
+      "make a flight",
+      "within"
     ]
   },
   {
@@ -1678,13 +1663,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "prepare"
     },
     "answer": "B",
-    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "分詞當形容詞：講稿是「事先準備好的」，用過去分詞 prepared remarks。(A) preparing 主動語意不合，(C) preparation 名詞、(D) prepare 動詞不能修飾 remarks。",
+    "skill_tag": "word_form",
     "difficulty": "A2",
     "vocabulary": [
-      "team",
-      "implement",
-      "at once"
+      "prepared remarks",
+      "share with",
+      "audience"
     ]
   },
   {
@@ -1698,13 +1683,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "therefore"
     },
     "answer": "B",
-    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "介系詞：since + 過去時間點（its discovery... three months ago），與現在完成式 has seen 呼應。(A) before 語意相反，(C) unless 是連接詞，(D) therefore 是副詞。",
+    "skill_tag": "preposition",
     "difficulty": "A2",
     "vocabulary": [
-      "team",
-      "implement",
-      "at once"
+      "since",
+      "stock value",
+      "double"
     ]
   },
   {
@@ -1718,13 +1703,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "still"
     },
     "answer": "A",
-    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "目的連接詞：so (that) you can be eligible（以便符合資格）。(B) for 表原因且不接 can 子句，(C) or 表選擇，(D) still 是副詞。",
+    "skill_tag": "conjunction",
     "difficulty": "A2",
     "vocabulary": [
-      "team",
-      "implement",
-      "at once"
+      "sign up for",
+      "be eligible for",
+      "special offer"
     ]
   },
   {
@@ -1738,13 +1723,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "revised"
     },
     "answer": "A",
-    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "搭配詞：highly anticipated（備受期待的）是影劇報導固定說法。(B) proposed 被提議的、(C) revolutionary 革命性的（不與 highly 搭配）、(D) revised 修訂的，語意皆不合。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "A2",
     "vocabulary": [
-      "team",
-      "implement",
-      "at once"
+      "highly anticipated",
+      "thriller",
+      "directed by"
     ]
   },
   {
@@ -1758,13 +1743,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "thoroughly"
     },
     "answer": "D",
-    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "語意題：安裝前要「徹底地」閱讀說明書＝ thoroughly。(A) happily 愉快地、(B) almost 幾乎、(C) justly 公正地，都不符合閱讀說明書的語境。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "A2",
     "vocabulary": [
-      "team",
-      "implement",
-      "at once"
+      "thoroughly",
+      "instructions",
+      "install"
     ]
   },
   {
@@ -1778,13 +1763,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "redeemed"
     },
     "answer": "D",
-    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "搭配詞：redeem a coupon（兌換優惠券）是固定用法。(A) portrayed 描繪、(B) determined 決定、(C) advanced 推進，都不能與 coupon 搭配。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "A2",
     "vocabulary": [
-      "team",
-      "implement",
-      "at once"
+      "redeem a coupon",
+      "expiration date",
+      "discount"
     ]
   },
   {
@@ -1798,13 +1783,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "preference"
     },
     "answer": "B",
-    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "詞性與單複數：所有格 Ms. Maddock's 後接名詞，且動詞是複數 include，故用複數 preferences。(D) preference 是單數，(A) preferably 副詞、(C) preferable 形容詞都不對。",
+    "skill_tag": "word_form",
     "difficulty": "A2",
     "vocabulary": [
-      "team",
-      "implement",
-      "at once"
+      "preference",
+      "ample parking",
+      "state-of-the-art"
     ]
   },
   {
@@ -1818,11 +1803,11 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Neither"
     },
     "answer": "C",
-    "explanation_zh": "空格後有複數名詞 members，且表示「兩者都」，因此用 Both。",
+    "explanation_zh": "數量詞：後接複數名詞 members 且動詞為複數 felt，表示「兩人都」用 Both。(A) Every、(B) One 接單數，(D) Neither 語意相反且配單數動詞。",
     "skill_tag": "pronoun",
     "difficulty": "A2",
     "vocabulary": [
-      "team",
+      "both",
       "implement",
       "at once"
     ]
@@ -1838,13 +1823,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "affiliating"
     },
     "answer": "C",
-    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
-    "skill_tag": "preposition",
+    "explanation_zh": "詞性題：a long-term ___ with 中，形容詞後需名詞 affiliation（合作關係）。(A) affiliate 雖是名詞但指「加盟機構」語意不合，(B)(D) 是分詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "background noise",
-      "speech",
-      "audience"
+      "affiliation with",
+      "long-term",
+      "sporting goods"
     ]
   },
   {
@@ -1858,13 +1843,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "themselves"
     },
     "answer": "A",
-    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
-    "skill_tag": "preposition",
+    "explanation_zh": "受格代名詞：replace 的受詞指前面的 tires（複數物），用 them。(B) they 是主格，(C) their 是所有格，(D) themselves 反身代名詞需與主詞同一人。",
+    "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
-      "background noise",
-      "speech",
-      "audience"
+      "replace",
+      "a new set",
+      "even though"
     ]
   },
   {
@@ -1878,13 +1863,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "impressively"
     },
     "answer": "C",
-    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
-    "skill_tag": "preposition",
+    "explanation_zh": "最高級＋名詞：the most ___ part 要放形容詞 impressive（令人印象深刻的）。(A) impress 動詞、(B) impression 名詞、(D) impressively 副詞都不能修飾 part。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "background noise",
-      "speech",
-      "audience"
+      "impressive",
+      "dance performance",
+      "attendee"
     ]
   },
   {
@@ -1898,13 +1883,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "most polite"
     },
     "answer": "C",
-    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
-    "skill_tag": "preposition",
+    "explanation_zh": "副詞修飾動詞：修飾 asked 用副詞 politely（有禮貌地）。(A) polite、(D) most polite 是形容詞，(B) politeness 是名詞，都不能修飾動詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "background noise",
-      "speech",
-      "audience"
+      "politely",
+      "diner",
+      "enjoy a meal"
     ]
   },
   {
@@ -1918,13 +1903,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "different"
     },
     "answer": "A",
-    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
-    "skill_tag": "preposition",
+    "explanation_zh": "主動詞一致：主詞核心是複數 hours，需用原形動詞 differ（不同）。(B) differs 是單數形，(C) difference 名詞、(D) different 形容詞不能當動詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "background noise",
-      "speech",
-      "audience"
+      "differ",
+      "hours of operation",
+      "depending on"
     ]
   },
   {
@@ -1938,13 +1923,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "installing"
     },
     "answer": "D",
-    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
-    "skill_tag": "preposition",
+    "explanation_zh": "介系詞後接動名詞：Since 在此為介系詞，後面接 installing a new air conditioner。(A) installers 是人、(B) installation 後不能再接受詞 a new air conditioner，(C) installment 是分期付款。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "background noise",
-      "speech",
-      "audience"
+      "install",
+      "air conditioner",
+      "productivity"
     ]
   },
   {
@@ -1958,13 +1943,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "to include"
     },
     "answer": "B",
-    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
-    "skill_tag": "preposition",
+    "explanation_zh": "過去分詞後位修飾：the instructions (which are) included in the manual（手冊裡所附的說明）。(A) include 是動詞會造成兩個主要動詞，(C) inclusion 名詞、(D) to include 語意不合。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "background noise",
-      "speech",
-      "audience"
+      "included in",
+      "manual",
+      "electric saw"
     ]
   },
   {
@@ -1978,13 +1963,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Of"
     },
     "answer": "D",
-    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
+    "explanation_zh": "介系詞：Of + 群體 + 最高級，表「在……之中最……」。(A) Into 進入、(B) Above 在上方、(C) For 為了，都不能引導最高級的比較範圍。",
     "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "background noise",
-      "speech",
-      "audience"
+      "of the many",
+      "salesforce",
+      "productive"
     ]
   },
   {
@@ -1998,13 +1983,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "how"
     },
     "answer": "A",
-    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
-    "skill_tag": "preposition",
+    "explanation_zh": "連接詞：when 引導條件／時間子句，「當使用新鮮食材時，菜會更好吃」。(B) despite 是介系詞，(C) for 語意不合，(D) how 引導的名詞子句放這裡不通。",
+    "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "background noise",
-      "speech",
-      "audience"
+      "fresh ingredients",
+      "taste",
+      "famed chef"
     ]
   },
   {
@@ -2018,13 +2003,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "which"
     },
     "answer": "D",
-    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
-    "skill_tag": "preposition",
+    "explanation_zh": "介系詞＋關係代名詞：the cause of which（其原因）指前面的 building collapse。(A) that 不能放在介系詞後，(B) who 指人，(C) it 不能引導子句。",
+    "skill_tag": "relative_clause",
     "difficulty": "B1",
     "vocabulary": [
-      "background noise",
-      "speech",
-      "audience"
+      "the cause of which",
+      "investigation",
+      "collapse"
     ]
   },
   {
@@ -2038,13 +2023,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "qualified"
     },
     "answer": "B",
-    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
-    "skill_tag": "preposition",
+    "explanation_zh": "搭配詞：an extensive list of contacts（廣泛的人脈）。(A) abundant 通常修飾不可數資源、(C) refuted 被駁斥的、(D) qualified 合格的，都不與 list 搭配。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "background noise",
-      "speech",
-      "audience"
+      "extensive",
+      "contacts",
+      "secure a client"
     ]
   },
   {
@@ -2058,13 +2043,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "preferably"
     },
     "answer": "C",
-    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
-    "skill_tag": "preposition",
+    "explanation_zh": "語意題：由新任總裁下令關廠，是 unexpectedly（出乎意料地）。(A) convincingly 有說服力地、(B) accidentally 意外地（指非故意）、(D) preferably 最好，語意都不合。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "background noise",
-      "speech",
-      "audience"
+      "unexpectedly",
+      "by order of",
+      "factory"
     ]
   },
   {
@@ -2078,13 +2063,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "import"
     },
     "answer": "B",
-    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
-    "skill_tag": "preposition",
+    "explanation_zh": "語意題：對帳號要做的是 authenticate（驗證身分）。(A) transform 轉換、(C) develop 開發、(D) import 匯入，都不是帳號驗證的動作。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "background noise",
-      "speech",
-      "audience"
+      "authenticate",
+      "username",
+      "no later than"
     ]
   },
   {
@@ -2098,13 +2083,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "promptness"
     },
     "answer": "A",
-    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
-    "skill_tag": "preposition",
+    "explanation_zh": "副詞修飾動詞：修飾 increased 要用副詞 promptly（隨即）。(B) prompt 形容詞、(C) prompted 分詞、(D) promptness 名詞都不能修飾動詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "background noise",
-      "speech",
-      "audience"
+      "promptly",
+      "ad campaign",
+      "launch"
     ]
   },
   {
@@ -2118,13 +2103,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "since"
     },
     "answer": "A",
-    "explanation_zh": "throughout the speech 表示「在整個演講期間」，符合背景噪音持續的語境。",
+    "explanation_zh": "介系詞：throughout the speech（在整場演講期間持續），與 continued 呼應。(B) around 大約、(C) at 表時間點、(D) since 自從，都無法表達「全程持續」。",
     "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
+      "throughout",
       "background noise",
-      "speech",
-      "audience"
+      "audience member"
     ]
   },
   {
@@ -2138,13 +2123,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Traveling"
     },
     "answer": "B",
-    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
-    "skill_tag": "tense",
+    "explanation_zh": "詞性題：句子缺主詞，且「被建議避開山路」的是人，用複數名詞 Travelers（旅客）。(A) Travel 是「旅行」這件事，(C)(D) 是動詞變化。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "appropriate",
-      "advertise",
-      "product line"
+      "traveler",
+      "on account of",
+      "heavy snowfall"
     ]
   },
   {
@@ -2158,13 +2143,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "another"
     },
     "answer": "B",
-    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
-    "skill_tag": "tense",
+    "explanation_zh": "代名詞 one：The best one who applied（應徵者中最優秀的那一位），one 代替 applicant。(A) each、(D) another 後面不接 who 子句當單一先行詞，(C) what 不能被 the best 修飾。",
+    "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
-      "appropriate",
-      "advertise",
-      "product line"
+      "applicant",
+      "engineering position",
+      "offer a job"
     ]
   },
   {
@@ -2178,13 +2163,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "another"
     },
     "answer": "A",
-    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
-    "skill_tag": "tense",
+    "explanation_zh": "數量詞：後接複數名詞 days，用 several（好幾天）。(B) either 指兩者之一、(D) another 接單數名詞，(C) whatever 語意不合。",
+    "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
-      "appropriate",
-      "advertise",
-      "product line"
+      "several",
+      "get promoted",
+      "vacation"
     ]
   },
   {
@@ -2198,13 +2183,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "promptly"
     },
     "answer": "D",
-    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
-    "skill_tag": "tense",
+    "explanation_zh": "副詞比較級：more ___ 修飾動詞 resolve，要用副詞 promptly。(A) prompt 形容詞、(B) prompts 動詞/名詞、(C) promptness 名詞，都不能被 more 修飾來修飾動詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "appropriate",
-      "advertise",
-      "product line"
+      "resolve a complaint",
+      "promptly",
+      "representative"
     ]
   },
   {
@@ -2218,13 +2203,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "download"
     },
     "answer": "C",
-    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
-    "skill_tag": "tense",
+    "explanation_zh": "被動語態：軟體是「被下載」，用 was downloaded。(A) downloaded、(B) had downloaded 是主動，會變成「軟體下載了東西」；(D) download 時態不符。",
+    "skill_tag": "passive_voice",
     "difficulty": "B1",
     "vocabulary": [
-      "appropriate",
-      "advertise",
-      "product line"
+      "download",
+      "purchase",
+      "immediately"
     ]
   },
   {
@@ -2238,13 +2223,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "to design"
     },
     "answer": "D",
-    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
-    "skill_tag": "tense",
+    "explanation_zh": "不定詞表目的：utilized an architect to design...（聘建築師來設計）。(A) designed、(C) designs 是限定動詞，(B) is designing 會造成兩個主要動詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "appropriate",
-      "advertise",
-      "product line"
+      "utilize",
+      "architect",
+      "research center"
     ]
   },
   {
@@ -2258,13 +2243,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "hoping"
     },
     "answer": "D",
-    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
-    "skill_tag": "tense",
+    "explanation_zh": "現在分詞後位修飾：Any employees (who are) hoping to attend（希望參加的員工）。(A)(B)(C) 都是限定動詞，會使句子出現兩個主要動詞（must speak 已是主要動詞）。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "appropriate",
-      "advertise",
-      "product line"
+      "hope to",
+      "upcoming workshop",
+      "accounting"
     ]
   },
   {
@@ -2278,13 +2263,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Over"
     },
     "answer": "B",
-    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
-    "skill_tag": "tense",
+    "explanation_zh": "介系詞：With the advice of...（在……建議的協助下）表憑藉。(A) For 為了、(C) Along 沿著、(D) Over 越過，都不能表達「靠著建議」。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "appropriate",
-      "advertise",
-      "product line"
+      "with the advice of",
+      "manage to",
+      "start a business"
     ]
   },
   {
@@ -2298,13 +2283,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "although"
     },
     "answer": "B",
-    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
-    "skill_tag": "tense",
+    "explanation_zh": "名詞子句連接詞：determine whether...（判斷是否……），whether 引導的子句當 determine 的受詞。(A) around 是介系詞，(C) whereas、(D) although 引導副詞子句，不能當受詞。",
+    "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "appropriate",
-      "advertise",
-      "product line"
+      "determine whether",
+      "business climate",
+      "facility"
     ]
   },
   {
@@ -2318,13 +2303,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "whom"
     },
     "answer": "A",
-    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
-    "skill_tag": "tense",
+    "explanation_zh": "所有格關係代名詞：whose expertise（他的專業）＝ Ryan Varnum's expertise。(B) himself 反身、(C) which 指物、(D) whom 是受格，後面都不能直接接名詞 expertise。",
+    "skill_tag": "relative_clause",
     "difficulty": "B1",
     "vocabulary": [
-      "appropriate",
-      "advertise",
-      "product line"
+      "whose",
+      "expertise",
+      "corporate law"
     ]
   },
   {
@@ -2338,13 +2323,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "case"
     },
     "answer": "A",
-    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
-    "skill_tag": "tense",
+    "explanation_zh": "語意題：舉辦活動的「場地」＝ venue。(B) port 港口、(C) edition 版本、(D) case 案例，都不能指活動場地。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "appropriate",
-      "advertise",
-      "product line"
+      "venue",
+      "get-together",
+      "charity fundraiser"
     ]
   },
   {
@@ -2358,13 +2343,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "beneficial"
     },
     "answer": "C",
-    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
-    "skill_tag": "tense",
+    "explanation_zh": "搭配詞：a substantial increase（大幅增加）是談加薪的標準說法。(A) confident 有自信的、(B) costly 昂貴的、(D) beneficial 有益的，都不能修飾 increase 表幅度。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "appropriate",
-      "advertise",
-      "product line"
+      "substantial increase",
+      "salary",
+      "reward"
     ]
   },
   {
@@ -2378,13 +2363,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "coincidentally"
     },
     "answer": "B",
-    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
-    "skill_tag": "tense",
+    "explanation_zh": "語意題：目前有訂閱的人才符合優惠＝ currently subscribed。(A) precisely 精確地、(C) merely 僅僅、(D) coincidentally 巧合地，都不符合「現有訂戶」的限定。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "appropriate",
-      "advertise",
-      "product line"
+      "currently",
+      "subscribe to",
+      "be eligible for"
     ]
   },
   {
@@ -2398,13 +2383,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "attempt"
     },
     "answer": "C",
-    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
-    "skill_tag": "tense",
+    "explanation_zh": "搭配詞：undergo a checkup（接受健康檢查）是固定用法。(A) approve 核准、(B) examine 是「檢查別人」（醫生的動作）、(D) attempt 嘗試，主客體或語意都不對。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "appropriate",
-      "advertise",
-      "product line"
+      "undergo",
+      "physical checkup",
+      "apply for"
     ]
   },
   {
@@ -2418,13 +2403,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "in compliance with"
     },
     "answer": "C",
-    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
-    "skill_tag": "tense",
+    "explanation_zh": "分詞片語當修飾語：losses resulting from the failure（因未能正確評估風險而產生的損失）。(A) whereabouts 名詞、(B) apart 副詞、(D) in compliance with 表「遵照」，語意皆不合。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "appropriate",
-      "advertise",
-      "product line"
+      "resulting from",
+      "analyze risk",
+      "investment firm"
     ]
   },
   {
@@ -2438,11 +2423,11 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "will advertise"
     },
     "answer": "C",
-    "explanation_zh": "不定詞片語「to advertise」修飾名詞「time」，表示「廣告新產品線的合適時間」。",
-    "skill_tag": "tense",
+    "explanation_zh": "不定詞修飾名詞：an appropriate time to advertise（適合打廣告的時機）。(A) advertising、(B) advertisement 無法直接修飾 time，(D) will advertise 是限定動詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "appropriate",
+      "appropriate time",
       "advertise",
       "product line"
     ]
@@ -2458,13 +2443,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "accords"
     },
     "answer": "C",
-    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "固定片語：in accordance with（依照、根據）。(A) accord、(D) accords 不用於此片語，(B) according 只出現在 according to，這是本題最大陷阱。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "efficient",
-      "design",
-      "available space"
+      "in accordance with",
+      "paid leave",
+      "decision"
     ]
   },
   {
@@ -2478,13 +2463,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "ourselves"
     },
     "answer": "C",
-    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "所有格代名詞：要找的是「我們的那台車」＝ ours (= our bus)。(A) us 會變成「找到我們（人）」與紅色巴士的線索脫節，(B) our 後須接名詞，(D) ourselves 是反身代名詞。",
+    "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
-      "efficient",
-      "design",
-      "available space"
+      "locate",
+      "parking lot",
+      "tour bus"
     ]
   },
   {
@@ -2498,13 +2483,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "extends"
     },
     "answer": "A",
-    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
+    "explanation_zh": "詞性題：修飾名詞 projects 要用形容詞 extensive（大規模的）。(B) extend 動詞、(D) extends 動詞、(C) extending 是主動分詞，語意與 projects 不合。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "efficient",
-      "design",
-      "available space"
+      "extensive",
+      "multiple",
+      "in the past few years"
     ]
   },
   {
@@ -2518,13 +2503,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "hastily"
     },
     "answer": "D",
-    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
+    "explanation_zh": "副詞修飾過去分詞：had the boxes hastily removed（匆忙把箱子搬走）。(A) haste 名詞、(B) hasten 動詞、(C) hastened 分詞，都不能修飾 removed。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "efficient",
-      "design",
-      "available space"
+      "hastily",
+      "warehouse supervisor",
+      "shipment"
     ]
   },
   {
@@ -2538,13 +2523,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Sign"
     },
     "answer": "D",
-    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
+    "explanation_zh": "祈使句：句首直接用原形動詞 Sign（請簽署）向讀者下指令。(A) Signing、(B) Signed 是分詞，(C) Signs 是第三人稱單數，都不能開啟祈使句。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "efficient",
-      "design",
-      "available space"
+      "sign a contract",
+      "terms",
+      "agreeable"
     ]
   },
   {
@@ -2558,13 +2543,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "reduced"
     },
     "answer": "A",
-    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
+    "explanation_zh": "平行結構：to advertise more online yet (to) reduce its expenditures，yet 連接兩個原形動詞。(B) reducing、(C) reduces、(D) reduced 都破壞與 advertise 的平行。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "efficient",
-      "design",
-      "available space"
+      "yet",
+      "expenditure",
+      "reduce"
     ]
   },
   {
@@ -2578,13 +2563,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "spent"
     },
     "answer": "D",
-    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
+    "explanation_zh": "過去分詞後位修飾：the amount of time (that is) spent in line（排隊所花的時間）。(A) spend 是限定動詞，(B) spending 主動語意不合，(C) to spend 無法表達「被花掉的」。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "efficient",
-      "design",
-      "available space"
+      "spend time in line",
+      "kiosk",
+      "significantly"
     ]
   },
   {
@@ -2598,13 +2583,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "As well"
     },
     "answer": "A",
-    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "介系詞片語表原因：Because of + 名詞片語 her desire...（由於她想住歐洲）。(B) During 表期間，(C) Consequently、(D) As well 是副詞，不能接名詞片語。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "efficient",
-      "design",
-      "available space"
+      "because of",
+      "desire",
+      "volunteer for a transfer"
     ]
   },
   {
@@ -2618,13 +2603,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "even though"
     },
     "answer": "D",
-    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "讓步連接詞：「她開車去，而其他人選擇搭飛機」是對比，用 even though 引導子句。(A) in spite of、(B) such as、(C) as well as 都是介系詞片語，後面不能接完整子句。",
+    "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "efficient",
-      "design",
-      "available space"
+      "even though",
+      "seminar",
+      "choose to"
     ]
   },
   {
@@ -2638,13 +2623,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "their"
     },
     "answer": "A",
-    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "名詞子句：what it takes to...（成功所需的條件）是固定用法，what 同時當 takes 的受詞。(B) that 不留缺口，(C) those、(D) their 無法引導名詞子句。",
+    "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
-      "efficient",
-      "design",
-      "available space"
+      "what it takes",
+      "orientation",
+      "be a success"
     ]
   },
   {
@@ -2658,13 +2643,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "tradition"
     },
     "answer": "B",
-    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "語意題：建築師風格的一項「特點」＝ a notable aspect。(A) design 設計、(C) relief 減輕/浮雕、(D) tradition 傳統，都不能接 of her style 表「面向」。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "efficient",
-      "design",
-      "available space"
+      "notable aspect",
+      "rely on",
+      "natural environment"
     ]
   },
   {
@@ -2678,13 +2663,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "flexible"
     },
     "answer": "C",
-    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "語意題：職務中「最主要的」職責＝ primary duties。(A) eligible 有資格的、(B) comparative 比較的、(D) flexible 有彈性的，都不能表達「首要」。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "efficient",
-      "design",
-      "available space"
+      "primary duties",
+      "supervise",
+      "resolve issues"
     ]
   },
   {
@@ -2698,13 +2683,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "exactly"
     },
     "answer": "B",
-    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "語意題：修飾 improved 表幅度，用 significantly（顯著地）。(A) ever 曾經、(C) shortly 不久後、(D) exactly 確切地，都不能修飾「改善的程度」。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "efficient",
-      "design",
-      "available space"
+      "significantly",
+      "office efficiency",
+      "filing system"
     ]
   },
   {
@@ -2718,13 +2703,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "lacks"
     },
     "answer": "D",
-    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "語意對比：Despite being highly educated（雖然學歷高）暗示「缺乏」領導力，用 lacks。(A) replaces 取代、(B) reveals 展現、(C) portrays 描繪，都與讓步語氣矛盾。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "efficient",
-      "design",
-      "available space"
+      "lack",
+      "leadership skills",
+      "executive position"
     ]
   },
   {
@@ -2738,13 +2723,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Theirs"
     },
     "answer": "C",
-    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "不定代名詞當主詞：Anyone with a complaint（任何有客訴的人）當主詞，動詞為單數 will be directed。(A) One another 是相互代名詞，(B) Whoever 須帶動詞子句，(D) Theirs 語意不合。",
+    "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
-      "efficient",
-      "design",
-      "available space"
+      "anyone",
+      "complaint",
+      "customer service agent"
     ]
   },
   {
@@ -2758,13 +2743,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "efficiencies"
     },
     "answer": "A",
-    "explanation_zh": "連綴動詞「seems」後應接形容詞，而「efficient」是形容詞，表示「高效的」，符合句意「建築設計看起來高效且充分利用可用空間」。",
+    "explanation_zh": "連綴動詞＋形容詞：seems 後面要接形容詞 efficient（有效率的）。(B) efficiency、(D) efficiencies 是名詞，(C) efficiently 是副詞，都不能當 seems 的補語。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "efficient",
-      "design",
-      "available space"
+      "at first glance",
+      "make good use of"
     ]
   },
   {
@@ -2778,13 +2763,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "bookings"
     },
     "answer": "D",
-    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
-    "skill_tag": "conjunction",
+    "explanation_zh": "詞性與單複數：all hotel ___ 需要複數名詞，且動詞為複數 will be，用 bookings（訂房）。(C) booking 是單數，(A) booked 分詞、(B) book 動詞都不對。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "whereas",
-      "rival",
-      "record loss"
+      "booking",
+      "nonrefundable",
+      "holiday season"
     ]
   },
   {
@@ -2798,13 +2783,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "her own"
     },
     "answer": "C",
-    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
-    "skill_tag": "conjunction",
+    "explanation_zh": "反身代名詞：turn oneself into...（把自己變成……），主詞與受詞同一人用 herself。(A) her 會指別人，(B) hers 是所有格代名詞，(D) her own 後須接名詞。",
+    "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
-      "whereas",
-      "rival",
-      "record loss"
+      "turn oneself into",
+      "competent",
+      "dedication"
     ]
   },
   {
@@ -2818,13 +2803,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "comfortably"
     },
     "answer": "B",
-    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
-    "skill_tag": "conjunction",
+    "explanation_zh": "詞性題：修飾名詞 office chairs 要用形容詞 comfortable（舒適的）。(A) comfort 名詞、(D) comfortably 副詞、(C) comforting 指「令人寬慰的」語意不合。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "whereas",
-      "rival",
-      "record loss"
+      "comfortable",
+      "remain seated",
+      "design"
     ]
   },
   {
@@ -2838,13 +2823,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "random"
     },
     "answer": "A",
-    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
-    "skill_tag": "conjunction",
+    "explanation_zh": "副詞修飾過去分詞：a randomly selected number（隨機選出的號碼）。(D) random 是形容詞不能修飾 selected，(B) randomize 動詞、(C) to randomize 不定詞都不對。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "whereas",
-      "rival",
-      "record loss"
+      "randomly selected",
+      "raffle",
+      "county fair"
     ]
   },
   {
@@ -2858,13 +2843,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "be"
     },
     "answer": "D",
-    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
-    "skill_tag": "conjunction",
+    "explanation_zh": "假設語氣：propose / suggest / require + that 子句時動詞用原形 be（省略 should）。(C) were、(B) had been 是最常見的錯誤選項，(A) being 不是限定動詞。",
+    "skill_tag": "tense",
     "difficulty": "B1",
     "vocabulary": [
-      "whereas",
-      "rival",
-      "record loss"
+      "propose that",
+      "outgoing CEO",
+      "full-time employee"
     ]
   },
   {
@@ -2878,13 +2863,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "owned"
     },
     "answer": "B",
-    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
-    "skill_tag": "conjunction",
+    "explanation_zh": "from A to B 的平行：from sweeping the floors to owning it，to 在此是介系詞，後面接動名詞。(A) owner 是人、(C) be owning、(D) owned 都破壞平行結構。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "whereas",
-      "rival",
-      "record loss"
+      "go from...to",
+      "sweep the floor",
+      "own"
     ]
   },
   {
@@ -2898,13 +2883,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "regarding"
     },
     "answer": "B",
-    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
-    "skill_tag": "conjunction",
+    "explanation_zh": "介系詞片語表原因：due to + 名詞片語 his interest...（由於他對進修的興趣）。(C) since 當「因為」時要接子句，(A) for、(D) regarding 語意不合。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "whereas",
-      "rival",
-      "record loss"
+      "due to",
+      "further one's education",
+      "graduate school"
     ]
   },
   {
@@ -2918,13 +2903,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Even"
     },
     "answer": "C",
-    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
+    "explanation_zh": "條件連接詞：Unless（除非）＝ if...not，「除非指定快遞，否則隔天寄出」。(A) Except 不接子句，(B) Because 表原因，(D) Even 是副詞。",
     "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "whereas",
-      "rival",
-      "record loss"
+      "unless",
+      "specify",
+      "express delivery"
     ]
   },
   {
@@ -2938,13 +2923,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "in order to"
     },
     "answer": "B",
-    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
-    "skill_tag": "conjunction",
+    "explanation_zh": "介系詞＋關係代名詞：a course in which participants learn（在課程中學員學會……），子句本身完整，需要「介系詞＋which」。(A) who 指人且後面子句不缺主詞，(C)(D) 不能引導子句。",
+    "skill_tag": "relative_clause",
     "difficulty": "B1",
     "vocabulary": [
-      "whereas",
-      "rival",
-      "record loss"
+      "in which",
+      "training course",
+      "computer system"
     ]
   },
   {
@@ -2958,13 +2943,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "issues"
     },
     "answer": "D",
-    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
-    "skill_tag": "conjunction",
+    "explanation_zh": "語意題：招聘過程中若有 issues（問題）就要找 Ms. Bradley。(A) possibilities 可能性、(B) faults 過失、(C) bargains 便宜貨，都不符合「出狀況」的語境。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "whereas",
-      "rival",
-      "record loss"
+      "issue",
+      "hiring process",
+      "consult"
     ]
   },
   {
@@ -2978,13 +2963,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "clear"
     },
     "answer": "B",
-    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
-    "skill_tag": "conjunction",
+    "explanation_zh": "搭配詞：be overdue for（該做而未做，已逾期）＋ an oil change 是固定用法。(A) concerned 擔心的、(C) reported 被報告的、(D) clear 清楚的，語意都不合。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "whereas",
-      "rival",
-      "record loss"
+      "be overdue for",
+      "oil change",
+      "mechanic"
     ]
   },
   {
@@ -2998,13 +2983,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "who"
     },
     "answer": "A",
-    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
-    "skill_tag": "conjunction",
+    "explanation_zh": "頻率副詞：but 之後說「這次必須搭夜班機」，前面應是 seldom（很少）。(B) then 那時、(C) however 是轉折副詞不能放這個位置、(D) who 是關係詞。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "whereas",
-      "rival",
-      "record loss"
+      "seldom",
+      "late at night",
+      "arrive by"
     ]
   },
   {
@@ -3018,13 +3003,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "projected"
     },
     "answer": "C",
-    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
-    "skill_tag": "conjunction",
+    "explanation_zh": "語意題：despite（儘管手機留在家）暗示她「還是成功做到了」＝ managed to。(A) failed 語意相反，(B) considered 考慮、(D) projected 預估，都不合讓步語氣。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "whereas",
-      "rival",
-      "record loss"
+      "manage to",
+      "despite",
+      "assistant"
     ]
   },
   {
@@ -3038,13 +3023,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "while"
     },
     "answer": "A",
-    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
+    "explanation_zh": "讓步連接詞：「雖然稍早音響出狀況，他仍準時開講」，用 even though 引導子句。(C) owing to 是介系詞，(B) not only 需搭配 but also，(D) while 在此語意較弱且不表讓步對比。",
     "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "whereas",
-      "rival",
-      "record loss"
+      "even though",
+      "keynote address",
+      "technical difficulties"
     ]
   },
   {
@@ -3058,7 +3043,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "whereas"
     },
     "answer": "D",
-    "explanation_zh": "連接詞「whereas」表示「然而」，用來對比Harrison Shipbuilding訂單增加與其競爭對手Baden Inc.報告虧損的情況。",
+    "explanation_zh": "對比連接詞：whereas（然而）用來對比「訂單成長」與「對手創紀錄虧損」。(A) thanks to、(B) despite 是介系詞不能接子句，(C) consequently 是副詞。",
     "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
@@ -3078,13 +3063,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "satisfyingly"
     },
     "answer": "B",
-    "explanation_zh": "連接詞「because」表示「因為」，引導原因子句，說明Kevin Watts決定留下的原因是他獲得了大幅加薪。",
-    "skill_tag": "conjunction",
+    "explanation_zh": "詞性題：動詞 expressed 的受詞需要名詞 satisfaction（滿意）。(A) satisfy 動詞、(C) satisfying 分詞、(D) satisfyingly 副詞，都不能當受詞。",
+    "skill_tag": "word_form",
     "difficulty": "A2",
     "vocabulary": [
-      "remained",
-      "substantial",
-      "pay raise"
+      "express satisfaction",
+      "bridge design",
+      "mayor"
     ]
   },
   {
@@ -3098,13 +3083,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "has been"
     },
     "answer": "A",
-    "explanation_zh": "連接詞「because」表示「因為」，引導原因子句，說明Kevin Watts決定留下的原因是他獲得了大幅加薪。",
-    "skill_tag": "conjunction",
+    "explanation_zh": "被動進行式：while 子句與主句同時發生，且「說明會場地正被布置」用 is being set up。(B) was 時態不符，(C) being 缺 be 動詞，(D) has been 表已完成，與 while 的同時性衝突。",
+    "skill_tag": "passive_voice",
     "difficulty": "A2",
     "vocabulary": [
-      "remained",
-      "substantial",
-      "pay raise"
+      "be being set up",
+      "insurance paperwork",
+      "orientation"
     ]
   },
   {
@@ -3118,12 +3103,12 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "or"
     },
     "answer": "B",
-    "explanation_zh": "連接詞「because」表示「因為」，引導原因子句，說明Kevin Watts決定留下的原因是他獲得了大幅加薪。",
+    "explanation_zh": "原因連接詞：because 引導原因子句（因為他獲得大幅加薪）。(A) as a result 是副詞片語，(C) not only 需搭配 but also，(D) or 表選擇。",
     "skill_tag": "conjunction",
     "difficulty": "A2",
     "vocabulary": [
-      "remained",
-      "substantial",
+      "because",
+      "remain at",
       "pay raise"
     ]
   },
@@ -3138,13 +3123,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "instead of"
     },
     "answer": "A",
-    "explanation_zh": "動名詞「getting」作為主詞補語，說明Edward Hope最大的成就是「讓他的公司擺脫破產」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "介系詞片語：prior to（在……之前）＋名詞片語 the busy holiday season。(B) except 除外、(C) in accordance with 依照、(D) instead of 而非，語意都不合。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "accomplishment",
-      "bankruptcy",
-      "considered"
+      "prior to",
+      "resign",
+      "holiday season"
     ]
   },
   {
@@ -3158,13 +3143,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "even"
     },
     "answer": "A",
-    "explanation_zh": "動名詞「getting」作為主詞補語，說明Edward Hope最大的成就是「讓他的公司擺脫破產」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "對等連接詞：can receive free delivery or request a sample（可享免運或索取試吃盤），or 連接兩個原形動詞。(B) so、(D) even 不能連接原形動詞，(C) both 要搭配 and。",
+    "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "accomplishment",
-      "bankruptcy",
-      "considered"
+      "first-time buyer",
+      "free delivery",
+      "at no extra cost"
     ]
   },
   {
@@ -3178,13 +3163,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Unless"
     },
     "answer": "A",
-    "explanation_zh": "動名詞「getting」作為主詞補語，說明Edward Hope最大的成就是「讓他的公司擺脫破產」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "原因連接詞：Since（既然）引導原因子句，「既然目標已達成，剩下時間就做團康」。(B) Until 直到、(C) Whenever 每當、(D) Unless 除非，語意都不合。",
+    "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "accomplishment",
-      "bankruptcy",
-      "considered"
+      "since",
+      "training objective",
+      "team-building"
     ]
   },
   {
@@ -3198,13 +3183,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "did get"
     },
     "answer": "B",
-    "explanation_zh": "動名詞「getting」作為主詞補語，說明Edward Hope最大的成就是「讓他的公司擺脫破產」。",
+    "explanation_zh": "動名詞當主詞補語：to be getting his company out of bankruptcy（是讓公司脫離破產這件事）。(A) get 原形、(C) had gotten、(D) did get 都不能接在 to be 之後當補語。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
+      "getting out of bankruptcy",
       "accomplishment",
-      "bankruptcy",
-      "considered"
+      "analyst"
     ]
   },
   {
@@ -3218,13 +3203,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "performances"
     },
     "answer": "D",
-    "explanation_zh": "連接詞「Before」表示「在...之前」，引導時間子句，說明Ms. Harrison在里斯本學習金融是在她接受Dubois Bank職位之前。",
-    "skill_tag": "conjunction",
+    "explanation_zh": "詞性與單複數：所有格後接名詞，且動詞是複數 have been，用 performances（多場演出）。(C) performance 是單數，(A) perform 動詞、(B) performed 分詞都不對。",
+    "skill_tag": "word_form",
     "difficulty": "A2",
     "vocabulary": [
-      "accepted",
-      "position",
-      "studied"
+      "performance",
+      "be widely praised",
+      "pianist"
     ]
   },
   {
@@ -3238,13 +3223,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "convincing"
     },
     "answer": "A",
-    "explanation_zh": "連接詞「Before」表示「在...之前」，引導時間子句，說明Ms. Harrison在里斯本學習金融是在她接受Dubois Bank職位之前。",
-    "skill_tag": "conjunction",
+    "explanation_zh": "助動詞後接原形：can convince interviewers to hire them（能說服面試官錄用）。(B) to convince、(D) convincing 不能接在 can 後，(C) be convinced 是被動語意顛倒。",
+    "skill_tag": "word_form",
     "difficulty": "A2",
     "vocabulary": [
-      "accepted",
-      "position",
-      "studied"
+      "convince someone to",
+      "work ethic",
+      "interviewer"
     ]
   },
   {
@@ -3258,13 +3243,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Rather"
     },
     "answer": "B",
-    "explanation_zh": "連接詞「Before」表示「在...之前」，引導時間子句，說明Ms. Harrison在里斯本學習金融是在她接受Dubois Bank職位之前。",
+    "explanation_zh": "時間連接詞：Before she accepted a position...（在她接下職務之前），符合「先在里斯本讀書」的時序。(A) How、(C) Which 引導的子句不能當時間狀語，(D) Rather 是副詞。",
     "skill_tag": "conjunction",
     "difficulty": "A2",
     "vocabulary": [
-      "accepted",
-      "position",
-      "studied"
+      "before",
+      "accept a position",
+      "study finance"
     ]
   },
   {
@@ -3278,13 +3263,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "will be reviewed"
     },
     "answer": "C",
-    "explanation_zh": "副詞「substantially」修飾動詞「will increase」，表示「大幅增加」，符合句意「公車票價會增加多少」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "時間子句用現在式代替未來式＋被動：until it is reviewed by Ms. Parker（等她審完之前）。(D) will be reviewed 犯了時間子句不用未來式的錯，(A)(B) 是主動，語意變成「申請書審查別人」。",
+    "skill_tag": "passive_voice",
     "difficulty": "B1",
     "vocabulary": [
-      "substantially",
-      "bus fares",
-      "expenditures"
+      "review",
+      "grant",
+      "local authorities"
     ]
   },
   {
@@ -3298,13 +3283,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "on"
     },
     "answer": "B",
-    "explanation_zh": "副詞「substantially」修飾動詞「will increase」，表示「大幅增加」，符合句意「公車票價會增加多少」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "動詞句型：provide someone with something（提供某人某物）。(A) for 要用 provide something for someone 的語序，(C) at、(D) on 不與 provide 搭配。",
+    "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "substantially",
-      "bus fares",
-      "expenditures"
+      "provide someone with",
+      "tradition",
+      "cultural event"
     ]
   },
   {
@@ -3318,13 +3303,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Now that"
     },
     "answer": "D",
-    "explanation_zh": "副詞「substantially」修飾動詞「will increase」，表示「大幅增加」，符合句意「公車票價會增加多少」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "連接詞：Now that（既然、由於現在……）引導原因子句，說明他每天要採買的理由。(A) As if 好像、(B) Moreover 是副詞、(C) That 無法引導原因狀語子句。",
+    "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "substantially",
-      "bus fares",
-      "expenditures"
+      "now that",
+      "be responsible for",
+      "acquire ingredients"
     ]
   },
   {
@@ -3338,13 +3323,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "more substantial"
     },
     "answer": "B",
-    "explanation_zh": "副詞「substantially」修飾動詞「will increase」，表示「大幅增加」，符合句意「公車票價會增加多少」。",
+    "explanation_zh": "副詞修飾動詞：How substantially...will increase（漲幅有多大），空格修飾 increase 要用副詞。(A) substantiality、(C) substance 是名詞，(D) more substantial 是形容詞。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "substantially",
-      "bus fares",
-      "expenditures"
+      "bus fare",
+      "fuel expenditure"
     ]
   },
   {
@@ -3358,13 +3343,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "will recommend"
     },
     "answer": "A",
-    "explanation_zh": "名詞「organizer」表示「組織者」，符合句意「所有預算決定都必須由年度音樂節的組織者Tony Calderon事先批准」。",
+    "explanation_zh": "介系詞後接名詞：According to government recommendations（根據政府建議）。(B) recommends 是動詞，(C) to recommend、(D) will recommend 都不能當 according to 的受詞。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "organizer",
-      "budget",
-      "approved"
+      "according to",
+      "recommendation",
+      "energy-efficient"
     ]
   },
   {
@@ -3378,13 +3363,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "were reduced"
     },
     "answer": "A",
-    "explanation_zh": "名詞「organizer」表示「組織者」，符合句意「所有預算決定都必須由年度音樂節的組織者Tony Calderon事先批准」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "主詞核心＋被動：The number of...（……的數量）視為單數，且數量是「被減少」，用 has been reduced。(B) have been 主動詞不一致，(C) is reducing 是主動，(D) were 時態與單數皆錯。",
+    "skill_tag": "passive_voice",
     "difficulty": "B1",
     "vocabulary": [
-      "organizer",
-      "budget",
-      "approved"
+      "the number of",
+      "computer chip",
+      "reduce by"
     ]
   },
   {
@@ -3398,13 +3383,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Once"
     },
     "answer": "D",
-    "explanation_zh": "名詞「organizer」表示「組織者」，符合句意「所有預算決定都必須由年度音樂節的組織者Tony Calderon事先批准」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "時間連接詞：Once（一旦）引導子句，「地點一確定就會公告」。(A) In order that 表目的，(B) As of 是介系詞，(C) Instead 是副詞。",
+    "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "organizer",
-      "budget",
-      "approved"
+      "once",
+      "shareholders' meeting",
+      "announcement"
     ]
   },
   {
@@ -3418,13 +3403,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "organize"
     },
     "answer": "C",
-    "explanation_zh": "名詞「organizer」表示「組織者」，符合句意「所有預算決定都必須由年度音樂節的組織者Tony Calderon事先批准」。",
+    "explanation_zh": "詞性題：與 Tony Calderon 同位語，需指「人」的名詞 organizer（主辦人）。(B) organization 指機構不是人，(A) organizing 分詞、(D) organize 動詞都不對。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "organizer",
-      "budget",
-      "approved"
+      "budget decision",
+      "in advance"
     ]
   },
   {
@@ -3438,13 +3423,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "employment"
     },
     "answer": "D",
-    "explanation_zh": "動詞 forced 後面需要接不定詞 to abandon 作為受詞補語，表示「迫使……放棄」。",
-    "skill_tag": "preposition",
+    "explanation_zh": "詞性題：介系詞 Despite 後、形容詞 continual 之後要接名詞 employment（任職）。(A) employee 指人語意不合，(B) employing、(C) employed 是分詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "rejection",
-      "building permit",
-      "abandon"
+      "continual employment",
+      "despite",
+      "resign"
     ]
   },
   {
@@ -3458,13 +3443,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "supervising"
     },
     "answer": "B",
-    "explanation_zh": "動詞 forced 後面需要接不定詞 to abandon 作為受詞補語，表示「迫使……放棄」。",
-    "skill_tag": "preposition",
+    "explanation_zh": "句子缺主要動詞：主詞 Dr. Morelli 是單數（同位語只是插入語），用 supervises。(A) to supervise、(D) supervising 不是限定動詞，(C) supervision 是名詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "rejection",
-      "building permit",
-      "abandon"
+      "supervise",
+      "head scientist",
+      "medical researcher"
     ]
   },
   {
@@ -3478,13 +3463,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Why"
     },
     "answer": "B",
-    "explanation_zh": "動詞 forced 後面需要接不定詞 to abandon 作為受詞補語，表示「迫使……放棄」。",
-    "skill_tag": "preposition",
+    "explanation_zh": "原因連接詞：Since（因為）引導子句，說明貸款減少的原因是利率上升。(A) Except 不接子句，(C) However 是副詞，(D) Why 引導疑問／名詞子句。",
+    "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "rejection",
-      "building permit",
-      "abandon"
+      "since",
+      "interest rate",
+      "mortgage"
     ]
   },
   {
@@ -3498,13 +3483,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "abandons"
     },
     "answer": "C",
-    "explanation_zh": "動詞 forced 後面需要接不定詞 to abandon 作為受詞補語，表示「迫使……放棄」。",
-    "skill_tag": "preposition",
+    "explanation_zh": "動詞句型：force + 受詞 + to V（迫使某人做某事），故用 to abandon。(A) abandoned、(D) abandons 是限定動詞，(B) abandonment 是名詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "rejection",
+      "force someone to",
       "building permit",
-      "abandon"
+      "vacant lot"
     ]
   },
   {
@@ -3518,13 +3503,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "expensed"
     },
     "answer": "C",
-    "explanation_zh": "主詞 Ms. Jacobs 是第三人稱單數，且句子描述一般事實，需要用現在式動詞。teaches 是正確的動詞形式。",
-    "skill_tag": "tense",
+    "explanation_zh": "詞性題：any 後面接名詞，且動詞 report 的受詞是「費用」，用複數名詞 expenses。(A) expensive 形容詞、(B) expensively 副詞、(D) expensed 分詞都不對。",
+    "skill_tag": "word_form",
     "difficulty": "A2",
     "vocabulary": [
-      "manager",
-      "teach",
-      "leadership"
+      "expenses",
+      "business trip",
+      "report"
     ]
   },
   {
@@ -3538,13 +3523,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "will cancel"
     },
     "answer": "C",
-    "explanation_zh": "主詞 Ms. Jacobs 是第三人稱單數，且句子描述一般事實，需要用現在式動詞。teaches 是正確的動詞形式。",
-    "skill_tag": "tense",
+    "explanation_zh": "被動語態：會議是「被取消」，且因果在過去，用 was canceled。(B) is canceling、(D) will cancel 是主動且時態不符，(A) to cancel 不是限定動詞。",
+    "skill_tag": "passive_voice",
     "difficulty": "A2",
     "vocabulary": [
-      "manager",
-      "teach",
-      "leadership"
+      "cancel",
+      "conflicting schedule",
+      "attendee"
     ]
   },
   {
@@ -3558,13 +3543,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "so"
     },
     "answer": "A",
-    "explanation_zh": "主詞 Ms. Jacobs 是第三人稱單數，且句子描述一般事實，需要用現在式動詞。teaches 是正確的動詞形式。",
-    "skill_tag": "tense",
+    "explanation_zh": "相關連接詞：neither A nor B（A 和 B 都不），前面已出現 neither，空格必為 nor。(B) and 要配 both，(C) if、(D) so 都不能與 neither 搭配。",
+    "skill_tag": "conjunction",
     "difficulty": "A2",
     "vocabulary": [
-      "manager",
-      "teach",
-      "leadership"
+      "neither...nor",
+      "submit a proposal",
+      "by the end of"
     ]
   },
   {
@@ -3578,13 +3563,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "is taught"
     },
     "answer": "B",
-    "explanation_zh": "主詞 Ms. Jacobs 是第三人稱單數，且句子描述一般事實，需要用現在式動詞。teaches 是正確的動詞形式。",
-    "skill_tag": "tense",
+    "explanation_zh": "主動詞一致：主詞 Ms. Jacobs 是單數（同位語 one of...top managers 只是插入），用 teaches。(A) teach 是複數形，(C) teacher 是名詞，(D) is taught 被動語意顛倒。",
+    "skill_tag": "word_form",
     "difficulty": "A2",
     "vocabulary": [
-      "manager",
-      "teach",
-      "leadership"
+      "teach a class",
+      "leadership",
+      "top manager"
     ]
   },
   {
@@ -3598,13 +3583,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "proposal"
     },
     "answer": "D",
-    "explanation_zh": "空格連接兩個子句，表示目的。so that 表示「以便」，符合語意。",
-    "skill_tag": "conjunction",
+    "explanation_zh": "詞性題：make a proposal（提出提案）中，冠詞 a 後需名詞。(A) propose 動詞、(C) proposing 分詞、(D) will propose 是動詞片語，(B) proposer 指「提案人」語意不合。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "malfunction",
-      "precisely",
-      "repair"
+      "make a proposal",
+      "enter a market",
+      "regarding"
     ]
   },
   {
@@ -3618,13 +3603,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "one explaining"
     },
     "answer": "B",
-    "explanation_zh": "空格連接兩個子句，表示目的。so that 表示「以便」，符合語意。",
-    "skill_tag": "conjunction",
+    "explanation_zh": "連接詞 because 後面必須接完整子句（主詞＋動詞），只有 it explains 具備。(A) to explain、(C) an explanation of、(D) one explaining 都沒有限定動詞，無法成句。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "malfunction",
-      "precisely",
-      "repair"
+      "user's manual",
+      "precise method",
+      "install"
     ]
   },
   {
@@ -3638,13 +3623,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "if"
     },
     "answer": "A",
-    "explanation_zh": "空格連接兩個子句，表示目的。so that 表示「以便」，符合語意。",
+    "explanation_zh": "目的連接詞：so that our technician can tell you...（以便技師能告訴你）。(B) since 表原因，(C) nor 表否定並列，(D) if 表條件，都不合「為了」的語意。",
     "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
+      "so that",
       "malfunction",
-      "precisely",
-      "repair"
+      "technician"
     ]
   },
   {
@@ -3658,13 +3643,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "distributed"
     },
     "answer": "A",
-    "explanation_zh": "空格在主詞位置，需要一個名詞性代名詞。ours 是名詞性所有格代名詞，表示「我們的（原型）」。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "詞性題：that 子句缺主詞，需要名詞 distribution（配貨、鋪貨）。(B) distributing 動名詞後應接受詞，(C) distribute 動詞、(D) distributed 分詞都不能當主詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "prototype",
-      "submit",
-      "competition"
+      "distribution",
+      "product line",
+      "be limited"
     ]
   },
   {
@@ -3678,13 +3663,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "had transferred"
     },
     "answer": "B",
-    "explanation_zh": "空格在主詞位置，需要一個名詞性代名詞。ours 是名詞性所有格代名詞，表示「我們的（原型）」。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "未來完成式：By the end of this month（到本月底為止）搭配 will have transferred，表在未來某時點前完成。(A)(C) 是現在式，(D) had transferred 是過去完成式。",
+    "skill_tag": "tense",
     "difficulty": "B1",
     "vocabulary": [
-      "prototype",
-      "submit",
-      "competition"
+      "by the end of",
+      "transfer",
+      "branch"
     ]
   },
   {
@@ -3698,13 +3683,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Supposedly"
     },
     "answer": "B",
-    "explanation_zh": "空格在主詞位置，需要一個名詞性代名詞。ours 是名詞性所有格代名詞，表示「我們的（原型）」。",
-    "skill_tag": "pronoun",
+    "explanation_zh": "對比連接詞：While（雖然）引導讓步子句，「雖已交貨，兩週後才付全款」。(A) In order to 接原形動詞，(C) Thereby、(D) Supposedly 是副詞，不能引導子句。",
+    "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "prototype",
-      "submit",
-      "competition"
+      "while",
+      "full payment",
+      "deliver"
     ]
   },
   {
@@ -3718,13 +3703,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "ourselves"
     },
     "answer": "B",
-    "explanation_zh": "空格在主詞位置，需要一個名詞性代名詞。ours 是名詞性所有格代名詞，表示「我們的（原型）」。",
+    "explanation_zh": "所有格代名詞：ours ＝ our prototype，當 that 子句的主詞。(A) us 是受格，(C) we 後面要接名詞才能表「我們的作品」，(D) ourselves 是反身代名詞。",
     "skill_tag": "pronoun",
     "difficulty": "B1",
     "vocabulary": [
       "prototype",
-      "submit",
-      "competition"
+      "design competition",
+      "impressive"
     ]
   },
   {
@@ -3738,13 +3723,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "materialization"
     },
     "answer": "B",
-    "explanation_zh": "空格在副詞 quite 和形容詞 visually 之後，需要一個形容詞作為主詞補語。appealing 是形容詞，表示「吸引人的」。",
+    "explanation_zh": "詞性題：give + 人 + 物，空格是「物」且被 that 子句修飾，用複數名詞 materials（材料）。(A) materially 副詞、(C) materialize 動詞、(D) materialization 抽象名詞都不合。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "capture",
-      "visually",
-      "appealing"
+      "materials",
+      "experiment",
+      "be eager to"
     ]
   },
   {
@@ -3758,13 +3743,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "rather than"
     },
     "answer": "B",
-    "explanation_zh": "空格在副詞 quite 和形容詞 visually 之後，需要一個形容詞作為主詞補語。appealing 是形容詞，表示「吸引人的」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "條件連接詞：but only if（但前提是……）強調唯一條件。(A) when 表時間、(C) even so 是副詞片語、(D) rather than 表取捨，都無法表達這個限制條件。",
+    "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "capture",
-      "visually",
-      "appealing"
+      "only if",
+      "contribute",
+      "welcome to"
     ]
   },
   {
@@ -3778,13 +3763,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Just as"
     },
     "answer": "B",
-    "explanation_zh": "空格在副詞 quite 和形容詞 visually 之後，需要一個形容詞作為主詞補語。appealing 是形容詞，表示「吸引人的」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "條件連接詞：Provided (that)（只要、假如）引導條件子句。(A) Until 直到、(D) Just as 正如，語意不合；(C) As soon as 強調時間先後而非成立條件。",
+    "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "capture",
-      "visually",
-      "appealing"
+      "provided that",
+      "transfer request",
+      "finalize"
     ]
   },
   {
@@ -3798,13 +3783,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "appealing"
     },
     "answer": "D",
-    "explanation_zh": "空格在副詞 quite 和形容詞 visually 之後，需要一個形容詞作為主詞補語。appealing 是形容詞，表示「吸引人的」。",
+    "explanation_zh": "連綴動詞＋形容詞：are quite visually appealing（在視覺上很吸引人）。(B) appealed、(C) appeals 是動詞形式，(A) to appeal 不定詞不能當 are 的補語。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "capture",
-      "visually",
-      "appealing"
+      "visually appealing",
+      "capture an image",
+      "photographer"
     ]
   },
   {
@@ -3818,13 +3803,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "have been motivating"
     },
     "answer": "B",
-    "explanation_zh": "祈使句開頭用動詞原形。remember 是原形動詞，符合祈使句結構。",
-    "skill_tag": "word_form",
+    "explanation_zh": "主動詞一致＋現在完成式：主詞核心是單數 The attractive interest rate，且效果延續至今，用 has motivated。(A) motivate、(D) have been 主動詞不一致，(C) is being motivated 被動語意顛倒。",
+    "skill_tag": "tense",
     "difficulty": "A2",
     "vocabulary": [
-      "safety gear",
-      "avoid",
-      "potential injury"
+      "motivate someone to",
+      "interest rate",
+      "surplus funds"
     ]
   },
   {
@@ -3838,12 +3823,12 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "remembering"
     },
     "answer": "A",
-    "explanation_zh": "祈使句開頭用動詞原形。remember 是原形動詞，符合祈使句結構。",
+    "explanation_zh": "祈使句：Please 後面接原形動詞 remember。(B) to remember、(D) remembering 不是原形，(C) will remember 不能用於祈使句。",
     "skill_tag": "word_form",
     "difficulty": "A2",
     "vocabulary": [
+      "remember to",
       "safety gear",
-      "avoid",
       "potential injury"
     ]
   },
@@ -3858,13 +3843,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "on"
     },
     "answer": "C",
-    "explanation_zh": "形容詞 responsible 後面固定搭配介係詞 for，表示「對……負責」。",
+    "explanation_zh": "固定搭配：be responsible for + 名詞／動名詞（負責……）。(A) to、(B) with、(D) on 都不與 responsible 搭配，這是 TOEIC 高頻介系詞題。",
     "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "responsible for",
+      "be responsible for",
       "confirm",
-      "procedure"
+      "proper procedures"
     ]
   },
   {
@@ -3878,13 +3863,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "spending"
     },
     "answer": "D",
-    "explanation_zh": "空格修飾形容詞 complete，需要用副詞。partially 是副詞，表示「部分地」。",
+    "explanation_zh": "動詞句型：anticipate 後面接動名詞 spending（預期會花更多錢）。(A) to spend 是 expect 的用法不是 anticipate，(B) spend、(C) has spent 是限定動詞。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "partial",
-      "construction",
-      "design flaw"
+      "anticipate doing",
+      "travel expenses",
+      "face-to-face"
     ]
   },
   {
@@ -3898,12 +3883,12 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "partialness"
     },
     "answer": "B",
-    "explanation_zh": "空格修飾形容詞 complete，需要用副詞。partially 是副詞，表示「部分地」。",
+    "explanation_zh": "副詞修飾形容詞：修飾 complete 要用副詞 partially（部分地）。(A) partial 是形容詞，(C) partiality、(D) partialness 是名詞，都不能修飾形容詞。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "partial",
-      "construction",
+      "partially",
+      "halt",
       "design flaw"
     ]
   },
@@ -3918,13 +3903,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "whose"
     },
     "answer": "D",
-    "explanation_zh": "空格後接名詞「employees」及動詞「have」，需用所有格關係代名詞「whose」來表示「會計師事務所的員工」。選項「what」與「how」無法引導所有格關係，「which」則指事物而非人。",
+    "explanation_zh": "所有格關係代名詞：whose employees（該事務所的員工）＝ the firm's employees。(A) what 不能有先行詞，(B) how 不修飾名詞，(C) which 後面不能直接接名詞當所有格。",
     "skill_tag": "relative_clause",
     "difficulty": "B1",
     "vocabulary": [
-      "expansion plan",
+      "whose",
       "accounting firm",
-      "overseas tax regulations"
+      "tax regulations"
     ]
   },
   {
@@ -3938,13 +3923,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "that"
     },
     "answer": "B",
-    "explanation_zh": "句意為「新政策將在細節公布後立即生效」，時間順序上細節公布發生在生效之前，因此需用「after」連接時間副詞子句。「until」表示持續到某時間點，與句意不符。",
+    "explanation_zh": "時間連接詞：after the details are posted（在細節公告之後立即生效）。(A) until 語意相反，(C) any 不是連接詞，(D) that 無法引導時間子句。",
     "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "unpaid medical leave",
       "go into effect",
-      "company website"
+      "unpaid medical leave",
+      "post"
     ]
   },
   {
@@ -3958,19 +3943,19 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "as well"
     },
     "answer": "C",
-    "explanation_zh": "空格後接形容詞「busy」及主詞「they」，需用副詞「however」引導讓步子句，表示「無論他們多忙」。選項「rather than」表對比，「indeed」表強調，「as well」表附加，皆不符合文法結構。",
+    "explanation_zh": "複合關係副詞：however busy they may be（不論他們多忙）＝ no matter how busy。(A) rather than、(B) indeed、(D) as well 都不能引導這種讓步子句。",
     "skill_tag": "conjunction",
     "difficulty": "B2",
     "vocabulary": [
-      "supervisor",
-      "concerns",
-      "sales quota"
+      "however busy",
+      "take the time to",
+      "concern"
     ]
   },
   {
     "id": "p5-ed-0199",
     "part": "Part 5",
-    "question": "_______ Mr. Zhang not failed to meet reaching his sales quota for the quarter, he might have been considered for the promotion.",
+    "question": "_______ Mr. Zhang not failed to meet his sales quota for the quarter, he might have been considered for the promotion.",
     "choices": {
       "A": "Having",
       "B": "Has",
@@ -3978,13 +3963,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Have"
     },
     "answer": "C",
-    "explanation_zh": "此句為與過去事實相反的假設語氣，條件子句需用「had + 主詞 + 過去分詞」的倒裝結構，省略「if」。原句應為「If Mr. Zhang had not failed...」，因此正確選項為「Had」。",
+    "explanation_zh": "假設語氣倒裝：Had + 主詞 + 過去分詞 ＝ If he had not failed...，主句用 might have been 呼應。(B) Has、(D) Have 時態錯，(A) Having 無法構成倒裝條件句。",
     "skill_tag": "tense",
     "difficulty": "C1",
     "vocabulary": [
+      "had + p.p. 倒裝",
       "sales quota",
-      "quarter",
-      "promotion"
+      "be considered for"
     ]
   },
   {
@@ -3998,13 +3983,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "way"
     },
     "answer": "A",
-    "explanation_zh": "空格前有「training -------」，需要一個與「training」搭配的名詞，表示「訓練課程」。選項中只有「session」符合此商業慣用搭配，指「一場訓練課程」。其他選項「method」、「approach」、「way」雖有「方法」之意，但無法與「training」形成自然搭配。",
+    "explanation_zh": "搭配詞：a training session（一場培訓課程）是固定用法。(B) method 方法、(C) approach 做法、(D) way 方式，都不能被 hold 當成「舉辦一場……」的受詞。",
     "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
       "training session",
       "consulting firm",
-      "employee"
+      "hold"
     ]
   },
   {
@@ -4018,12 +4003,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "great"
     },
     "answer": "B",
-    "explanation_zh": "題幹中有「than」表示比較級，因此空格需填入形容詞比較級「greater」，與「than」搭配形成比較結構。",
+    "explanation_zh": "比較級：句中有 than，空格必須是比較級形容詞 greater。(C) greatest 是最高級不與 than 連用，(D) great 是原級，(A) greatly 是副詞不能當 is 的補語。",
     "skill_tag": "word_form",
     "difficulty": "A2",
     "vocabulary": [
+      "greater than",
       "selection",
-      "store"
+      "deli"
     ]
   },
   {
@@ -4037,13 +4023,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "will resign"
     },
     "answer": "C",
-    "explanation_zh": "空格前有所有格「Mr. Carpenter's」，後面需接名詞，因此選擇名詞「resignation」表示「辭職」。",
+    "explanation_zh": "詞性題：所有格 Mr. Carpenter's 後面要接名詞 resignation（辭職）。(A) resign 動詞、(B) to resign 不定詞、(D) will resign 動詞片語，都不能被所有格修飾。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "resignation",
-      "position",
-      "department"
+      "regret to announce",
+      "R&D Department"
     ]
   },
   {
@@ -4057,13 +4043,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "every"
     },
     "answer": "D",
-    "explanation_zh": "空格後有單數名詞「individual」，需搭配單數限定詞「every」，表示「每一個」。",
-    "skill_tag": "word_form",
+    "explanation_zh": "限定詞：空格後是單數名詞 individual，且動詞為單數 is，用 every（每一位）。(A) almost 是副詞不能修飾名詞，(B) all、(C) those 要接複數名詞。",
+    "skill_tag": "pronoun",
     "difficulty": "A2",
     "vocabulary": [
-      "individual",
-      "conference",
-      "industry"
+      "nearly every",
+      "logistics conference",
+      "be involved in"
     ]
   },
   {
@@ -4077,12 +4063,12 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "records"
     },
     "answer": "B",
-    "explanation_zh": "主詞「All transactions」與動詞「record」之間為被動關係，且句子為現在式，因此需用被動語態「are recorded」。",
+    "explanation_zh": "被動語態：交易紀錄是「被記錄」，are recorded。(A) record 原形、(D) records 名詞/動詞、(C) recording 主動語意，都無法與 are 構成被動。",
     "skill_tag": "passive_voice",
     "difficulty": "B1",
     "vocabulary": [
+      "be recorded",
       "transaction",
-      "record",
       "electronically"
     ]
   },
@@ -4097,13 +4083,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "appointment"
     },
     "answer": "A",
-    "explanation_zh": "「for the purpose of + 動名詞」為固定搭配，表示「為了……的目的」，因此選擇「purpose」。",
-    "skill_tag": "preposition",
+    "explanation_zh": "固定片語：for the purpose of + V-ing（為了……的目的）。(B) view 要用 with a view to，(C) opinion 意見、(D) appointment 約會，都不能填入這個片語。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "purpose",
-      "budget",
-      "staff meeting"
+      "for the purpose of",
+      "staff meeting",
+      "budget"
     ]
   },
   {
@@ -4117,12 +4103,12 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "themselves"
     },
     "answer": "A",
-    "explanation_zh": "空格在句中作主詞，需用主格代名詞「they」來指代前文的「the seminar attendees」。",
+    "explanation_zh": "主格代名詞：主要子句缺主詞，指前面的 attendees，用 they。(B) them 是受格，(C) their 是所有格，(D) themselves 是反身代名詞。",
     "skill_tag": "pronoun",
     "difficulty": "A2",
     "vocabulary": [
       "attendee",
-      "divide",
+      "be divided into",
       "role-playing"
     ]
   },
@@ -4137,13 +4123,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "as soon as"
     },
     "answer": "C",
-    "explanation_zh": "前句「必須進行檢查」與後句「新法規剛頒布」之間為因果關係，因此選用表示原因的連接詞「because」。",
+    "explanation_zh": "原因連接詞：because 引導原因子句（因為新法規剛通過）。(A) however 是副詞，(B) in spite of 是介系詞，(D) as soon as 表時間而非原因。",
     "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "inspection",
-      "regulation",
-      "enact"
+      "because",
+      "government inspection",
+      "enact regulations"
     ]
   },
   {
@@ -4157,12 +4143,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "is being preferred"
     },
     "answer": "B",
-    "explanation_zh": "主詞是「Mr. Jackson」，為單數第三人稱，且句子為主動語態，因此動詞需用第三人稱單數現在式「prefers」。",
-    "skill_tag": "tense",
+    "explanation_zh": "主動詞一致：主詞 Mr. Jackson 是單數（同位語只是插入），且他是「偏好」的人，用主動 prefers。(A) prefer 是複數形，(C)(D) 是被動語意顛倒。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "prefer",
-      "evening shift"
+      "prefer to",
+      "evening shift",
+      "it is well known that"
     ]
   },
   {
@@ -4176,12 +4163,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "for"
     },
     "answer": "D",
-    "explanation_zh": "「for roughly one week」表示一段持續的時間，搭配「be absent for」是慣用用法，表示缺席多久。",
+    "explanation_zh": "介系詞：for + 一段時間（roughly one week）表持續多久。(C) during 後面接特定期間名詞（during the trip），不接「一週」這種長度，是本題最大陷阱。",
     "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
-      "absent",
-      "roughly"
+      "for + 期間",
+      "be absent",
+      "on business"
     ]
   },
   {
@@ -4195,12 +4183,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "located"
     },
     "answer": "A",
-    "explanation_zh": "空格前有定冠詞「the」和形容詞「precise」，因此需填入名詞「location」作為受詞。",
+    "explanation_zh": "詞性題：形容詞 precise 後面要接名詞 location（位置）。(B) locate 動詞、(C) locating 分詞、(D) located 分詞，都不能被 the precise 修飾。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
+      "location",
       "precise",
-      "location"
+      "crack"
     ]
   },
   {
@@ -4214,13 +4203,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "that"
     },
     "answer": "B",
-    "explanation_zh": "關係代名詞需連接「part-timers」與「work contracts」，表示「那些合約到期的兼職員工」，因此用所有格關係代名詞「whose」。",
+    "explanation_zh": "所有格關係代名詞：whose work contracts（他們的工作合約）＝ the part-timers' contracts。(A) which、(D) that 後面不能直接接名詞當所有格，(C) when 是關係副詞。",
     "skill_tag": "relative_clause",
     "difficulty": "B1",
     "vocabulary": [
+      "whose",
       "part-timer",
-      "contract",
-      "expire"
+      "work contract expires"
     ]
   },
   {
@@ -4234,12 +4223,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "tighten"
     },
     "answer": "C",
-    "explanation_zh": "空格修飾動詞「attached」，需用副詞「tightly」來表示「緊固地」。",
+    "explanation_zh": "副詞修飾動詞：修飾 be attached 要用副詞 tightly（緊緊地）。(A) tights、(B) tightness 是名詞，(D) tighten 是動詞，都不能修飾動詞。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
+      "tightly",
       "attach",
-      "tightly"
+      "bolt"
     ]
   },
   {
@@ -4253,13 +4243,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "partialness"
     },
     "answer": "B",
-    "explanation_zh": "空格前有動詞「is constructed」，應使用副詞修飾，選項「partially」為副詞，表示「部分地」，符合文法。其他選項為形容詞、名詞複數或抽象名詞，無法修飾動詞。",
+    "explanation_zh": "副詞修飾過去分詞：only partially constructed（只蓋了一部分）。(A) partial 形容詞不能修飾 constructed，(C) partials、(D) partialness 是名詞。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
+      "partially",
       "funding",
-      "constructed",
-      "partially"
+      "construct"
     ]
   },
   {
@@ -4273,13 +4263,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "According to"
     },
     "answer": "D",
-    "explanation_zh": "句意為「根據銷售團隊的最新資訊」，選項「According to」表示「根據」，符合上下文邏輯。其他選項如「Because」表原因、「Consequently」表結果、「In spite of」表讓步，皆不適用。",
+    "explanation_zh": "介系詞片語：According to + 消息來源（根據業務團隊的最新資訊）。(A) Because 是連接詞要接子句，(B) Consequently 是副詞，(C) In spite of 語意相反。",
     "skill_tag": "preposition",
     "difficulty": "B1",
     "vocabulary": [
       "according to",
-      "anticipated",
-      "sales team"
+      "cosmetics line",
+      "than anticipated"
     ]
   },
   {
@@ -4293,13 +4283,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "employer"
     },
     "answer": "B",
-    "explanation_zh": "空格前有形容詞「Domestic」，應接名詞，選項「employment」為名詞，表示「就業」，符合語意。其他選項為形容詞、受僱者或僱主，無法搭配。",
+    "explanation_zh": "詞性題：形容詞 Domestic 後接名詞當主詞，且語意是「就業（人數）」＝ employment。(C) employee、(D) employer 指個別的人，不能搭配 has been increasing 這種整體趨勢。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "domestic",
-      "employment",
-      "industry"
+      "domestic employment",
+      "computer industry",
+      "increase"
     ]
   },
   {
@@ -4313,7 +4303,7 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "event"
     },
     "answer": "C",
-    "explanation_zh": "空格前有主詞「management」和動詞「agreed」，應使用副詞修飾動詞，選項「eventually」為副詞，表示「最終」，符合文法。其他選項為形容詞、名詞或動詞，無法修飾。",
+    "explanation_zh": "副詞修飾動詞：修飾 agreed 要用副詞 eventually（最終）。(A) eventual 形容詞、(B) eventuality、(D) event 是名詞，都不能修飾動詞。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
@@ -4333,12 +4323,12 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "have been declining"
     },
     "answer": "C",
-    "explanation_zh": "時間狀語「in the coming months」表示未來，動詞應使用未來式，選項「will decline」符合時態。其他選項為現在式、過去式或現在完成進行式，與未來時間不符。",
+    "explanation_zh": "時態：in the coming months（未來幾個月）是未來時間標記，用 will decline。(B) declined 過去式、(D) have been declining 現在完成進行式，都與未來時間衝突。",
     "skill_tag": "tense",
     "difficulty": "B1",
     "vocabulary": [
-      "exports",
-      "decline",
+      "will decline",
+      "in the coming months",
       "supply chain"
     ]
   },
@@ -4353,13 +4343,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "distributed"
     },
     "answer": "A",
-    "explanation_zh": "連接詞「yet」連接兩個平行動詞，前有「plans to manufacture」，後應接原形動詞，選項「distribute」為原形，符合結構。其他選項為分詞、第三人稱單數或過去式，不平行。",
-    "skill_tag": "conjunction",
+    "explanation_zh": "平行結構：plans to manufacture...yet (to) distribute...，yet 連接兩個原形動詞。(B) distributing、(C) distributes、(D) distributed 都破壞與 manufacture 的平行。",
+    "skill_tag": "word_form",
     "difficulty": "B2",
     "vocabulary": [
+      "yet",
       "manufacture",
-      "distribute",
-      "locally"
+      "distribute"
     ]
   },
   {
@@ -4373,13 +4363,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "designates"
     },
     "answer": "B",
-    "explanation_zh": "空格前有冠詞 a 與名詞 folder，因此空格需填入形容詞修飾 folder。選項 (B) designated 是過去分詞當形容詞，表示「指定的」，符合句意。其他選項 (A) designate 為動詞原形、(C) designating 為現在分詞、(D) designates 為第三人稱單數動詞，皆無法修飾名詞。",
+    "explanation_zh": "分詞當形容詞：a designated folder（指定用的資料夾），過去分詞表被指定。(A) designate 動詞、(D) designates 動詞、(C) designating 主動語意不合。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "designated",
       "maintenance request",
-      "folder"
+      "store documents"
     ]
   },
   {
@@ -4393,13 +4383,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "occasions"
     },
     "answer": "A",
-    "explanation_zh": "空格前為「please」，後接動詞原形表示請求。選項「to inform」為不定詞，可作為目的狀語，符合「請通知」的語意。",
-    "skill_tag": "reading_vocab",
+    "explanation_zh": "詞性題：修飾動詞片語 carry out this task 要用副詞 occasionally（不定期地）。(B) occasional 是形容詞，(C) occasion、(D) occasions 是名詞，都不能修飾動詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "inform",
-      "please",
-      "request"
+      "carry out",
+      "performance evaluation",
+      "occasionally"
     ],
     "passage": "To: All Blacktail Logistics Employees <stafflist@blacktaillogistics.com>\n\nFrom: Alfred Orozco <a.orozco@blacktaillogistics.com>\n\nDate: November 12\n\nSubject: Performance reviews\n\nDear Blacktail Logistics Staff:\n\nThroughout next week, the managers will be conducting performance evaluations of all staff members. We carry out this task ____(A)____ to ensure that you understand your role. ____(B)____, we want to make sure you are well supported in operating at your peak level. You will meet with your immediate supervisor to discuss your strengths as well as areas that need ____(C)____. Following the evaluation, you will have the opportunity to complete a comment card. This can be submitted directly to the HR department, and all comments will remain anonymous. ____(D)____ Your supervisor will inform you of the time your evaluation is scheduled.\n\nThank you for your cooperation,\n\nAlfred Orozco\n\nOffice Manager, Blacktail Logistics",
     "passage_group_id": "p6-ed-0-156-131-132-133-134",
@@ -4416,13 +4406,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "In addition"
     },
     "answer": "D",
-    "explanation_zh": "空格後為複數名詞「employees」，需用可修飾複數的限定詞。選項「other」(其他的) 可修飾複數名詞，表示「其他員工」。",
-    "skill_tag": "reading_vocab",
+    "explanation_zh": "轉承語：前句講「確認你了解職責」，後句再加一項目的「確保你獲得支援」，屬並列補充，用 In addition。(A) In contrast 表對比、(B) As a result 表結果、(C) However 表轉折，都與上下文的「再加一點」不符。",
+    "skill_tag": "conjunction",
     "difficulty": "A2",
     "vocabulary": [
-      "other",
-      "employee",
-      "department"
+      "in addition",
+      "be well supported",
+      "peak level"
     ],
     "passage": "To: All Blacktail Logistics Employees <stafflist@blacktaillogistics.com>\n\nFrom: Alfred Orozco <a.orozco@blacktaillogistics.com>\n\nDate: November 12\n\nSubject: Performance reviews\n\nDear Blacktail Logistics Staff:\n\nThroughout next week, the managers will be conducting performance evaluations of all staff members. We carry out this task ____(A)____ to ensure that you understand your role. ____(B)____, we want to make sure you are well supported in operating at your peak level. You will meet with your immediate supervisor to discuss your strengths as well as areas that need ____(C)____. Following the evaluation, you will have the opportunity to complete a comment card. This can be submitted directly to the HR department, and all comments will remain anonymous. ____(D)____ Your supervisor will inform you of the time your evaluation is scheduled.\n\nThank you for your cooperation,\n\nAlfred Orozco\n\nOffice Manager, Blacktail Logistics",
     "passage_group_id": "p6-ed-0-156-131-132-133-134",
@@ -4439,13 +4429,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "permission"
     },
     "answer": "B",
-    "explanation_zh": "動詞「make」後接受詞「sure」時，需用形容詞或原形動詞。此處「complete」(完整的) 為形容詞，修飾名詞「list」，符合文法。",
-    "skill_tag": "reading_vocab",
+    "explanation_zh": "語意題：與前面的 strengths（優點）對照，需要的是 areas that need improvement（待改進之處）。(A) proficiency 熟練度、(C) configuration 配置、(D) permission 許可，都無法與 strengths 形成對比。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "complete",
-      "list",
-      "make sure"
+      "areas that need improvement",
+      "immediate supervisor",
+      "strengths"
     ],
     "passage": "To: All Blacktail Logistics Employees <stafflist@blacktaillogistics.com>\n\nFrom: Alfred Orozco <a.orozco@blacktaillogistics.com>\n\nDate: November 12\n\nSubject: Performance reviews\n\nDear Blacktail Logistics Staff:\n\nThroughout next week, the managers will be conducting performance evaluations of all staff members. We carry out this task ____(A)____ to ensure that you understand your role. ____(B)____, we want to make sure you are well supported in operating at your peak level. You will meet with your immediate supervisor to discuss your strengths as well as areas that need ____(C)____. Following the evaluation, you will have the opportunity to complete a comment card. This can be submitted directly to the HR department, and all comments will remain anonymous. ____(D)____ Your supervisor will inform you of the time your evaluation is scheduled.\n\nThank you for your cooperation,\n\nAlfred Orozco\n\nOffice Manager, Blacktail Logistics",
     "passage_group_id": "p6-ed-0-156-131-132-133-134",
@@ -4462,13 +4452,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Policy updates are always posted online promptly."
     },
     "answer": "A",
-    "explanation_zh": "空格前為「provide」，後接名詞受詞「support」，需用形容詞修飾。選項「continual」(持續的) 為形容詞，表示「持續的支持」。",
-    "skill_tag": "reading_vocab",
+    "explanation_zh": "句子插入：前一句說意見卡可匿名交給人資，(A)「所以請分享你誠實的意見」正好承接這個「匿名→放心說真話」的邏輯。(B) 講新職務、(C) 講領導力、(D) 講政策更新，都與意見卡無關。",
+    "skill_tag": "sentence_insertion",
     "difficulty": "B1",
     "vocabulary": [
-      "continual",
-      "support",
-      "provide"
+      "comment card",
+      "remain anonymous",
+      "share opinions"
     ],
     "passage": "To: All Blacktail Logistics Employees <stafflist@blacktaillogistics.com>\n\nFrom: Alfred Orozco <a.orozco@blacktaillogistics.com>\n\nDate: November 12\n\nSubject: Performance reviews\n\nDear Blacktail Logistics Staff:\n\nThroughout next week, the managers will be conducting performance evaluations of all staff members. We carry out this task ____(A)____ to ensure that you understand your role. ____(B)____, we want to make sure you are well supported in operating at your peak level. You will meet with your immediate supervisor to discuss your strengths as well as areas that need ____(C)____. Following the evaluation, you will have the opportunity to complete a comment card. This can be submitted directly to the HR department, and all comments will remain anonymous. ____(D)____ Your supervisor will inform you of the time your evaluation is scheduled.\n\nThank you for your cooperation,\n\nAlfred Orozco\n\nOffice Manager, Blacktail Logistics",
     "passage_group_id": "p6-ed-0-156-131-132-133-134",
@@ -4485,13 +4475,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "constructed"
     },
     "answer": "A",
-    "explanation_zh": "句子表示「公司一直以來都採取措施」，需用現在完成進行式「has been taking」來強調從過去持續到現在的動作。",
-    "skill_tag": "reading_detail",
+    "explanation_zh": "語意題：was founded in 2001（於 2001 年成立）符合慈善機構的沿革敘述。(B) donated 捐贈、(C) appealed 呼籲、(D) constructed 建造（用於建築物），主詞是機構時語意不合。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B2",
     "vocabulary": [
-      "has been taking",
-      "measures",
-      "improve"
+      "be founded",
+      "charity",
+      "educational supplies"
     ],
     "passage": "HARTFORD (May 19)—Hartford-based charity Peterson House announced its annual fundraiser\nwill be on July 1. Peterson House was ____(A)____ in 2001 and has focused on providing food,\nclothes, and educational supplies for children in the Hartford area.\n\nPeterson House President Jenny Blair said, \"We're going to be holding a silent auction for the\nfirst time ever. We ____(B)____ by the opportunity.\"\n\nMs. Blair added that the charity has ____(C)____ completed construction on its new office following\nseveral delays. ____(D)____. She also stated that the charity has some big plans for summer and fall\nand that she will discuss them at a later date.",
     "passage_group_id": "p6-ed-0-163-1-2-3-4",
@@ -4508,13 +4498,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "excitement"
     },
     "answer": "C",
-    "explanation_zh": "前文提到員工有經驗，後文提到他們有證照，兩者為並列補充關係，因此用「In addition」表示「此外」。",
-    "skill_tag": "reading_detail",
+    "explanation_zh": "情緒形容詞用被動：人「感到興奮」用 are excited by。(B) are exciting 指「令人興奮的」，主詞是人時語意顛倒，是本題最大陷阱；(A) excite 是動詞原形，(D) excitement 是名詞。",
+    "skill_tag": "passive_voice",
     "difficulty": "B1",
     "vocabulary": [
-      "In addition",
-      "experienced",
-      "certified"
+      "be excited by",
+      "silent auction",
+      "for the first time"
     ],
     "passage": "HARTFORD (May 19)—Hartford-based charity Peterson House announced its annual fundraiser\nwill be on July 1. Peterson House was ____(A)____ in 2001 and has focused on providing food,\nclothes, and educational supplies for children in the Hartford area.\n\nPeterson House President Jenny Blair said, \"We're going to be holding a silent auction for the\nfirst time ever. We ____(B)____ by the opportunity.\"\n\nMs. Blair added that the charity has ____(C)____ completed construction on its new office following\nseveral delays. ____(D)____. She also stated that the charity has some big plans for summer and fall\nand that she will discuss them at a later date.",
     "passage_group_id": "p6-ed-0-163-1-2-3-4",
@@ -4531,13 +4521,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "specially"
     },
     "answer": "B",
-    "explanation_zh": "前文提到員工有經驗和證照，空格應進一步描述員工特質，選項「They also work efficiently and cheerfully.」補充說明工作效率高且愉快，符合邏輯。",
-    "skill_tag": "reading_inference",
+    "explanation_zh": "語意題：following several delays（歷經多次延宕之後）暗示「終於」完工，用 finally。(A) always 總是、(C) instead 反而、(D) specially 特別地，都無法呼應「延宕後才完成」。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B2",
     "vocabulary": [
-      "efficiently",
-      "cheerfully",
-      "work"
+      "finally",
+      "delay",
+      "complete construction"
     ],
     "passage": "HARTFORD (May 19)—Hartford-based charity Peterson House announced its annual fundraiser\nwill be on July 1. Peterson House was ____(A)____ in 2001 and has focused on providing food,\nclothes, and educational supplies for children in the Hartford area.\n\nPeterson House President Jenny Blair said, \"We're going to be holding a silent auction for the\nfirst time ever. We ____(B)____ by the opportunity.\"\n\nMs. Blair added that the charity has ____(C)____ completed construction on its new office following\nseveral delays. ____(D)____. She also stated that the charity has some big plans for summer and fall\nand that she will discuss them at a later date.",
     "passage_group_id": "p6-ed-0-163-1-2-3-4",
@@ -4554,13 +4544,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "The charity is pleased with the support it has received locally."
     },
     "answer": "A",
-    "explanation_zh": "空格前有「are」，需接形容詞，且語意為「保證的」，因此用「guaranteed」最符合。",
-    "skill_tag": "reading_vocab",
+    "explanation_zh": "句子插入：前一句提到「several delays（多次延宕）」，(A)「工程今春受惡劣天氣嚴重影響」正好說明延宕原因。(B) 講募款金額、(C) 講任職年資、(D) 講在地支持，都無法解釋延宕。",
+    "skill_tag": "sentence_insertion",
     "difficulty": "B1",
     "vocabulary": [
-      "guaranteed",
-      "apparent",
-      "promised"
+      "be heavily affected by",
+      "poor weather",
+      "delay"
     ],
     "passage": "HARTFORD (May 19)—Hartford-based charity Peterson House announced its annual fundraiser\nwill be on July 1. Peterson House was ____(A)____ in 2001 and has focused on providing food,\nclothes, and educational supplies for children in the Hartford area.\n\nPeterson House President Jenny Blair said, \"We're going to be holding a silent auction for the\nfirst time ever. We ____(B)____ by the opportunity.\"\n\nMs. Blair added that the charity has ____(C)____ completed construction on its new office following\nseveral delays. ____(D)____. She also stated that the charity has some big plans for summer and fall\nand that she will discuss them at a later date.",
     "passage_group_id": "p6-ed-0-163-1-2-3-4",
@@ -4577,13 +4567,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Possibly"
     },
     "answer": "A",
-    "explanation_zh": "句子表示「公司一直以來都採取措施」，需用現在完成進行式「has been taking」來強調從過去持續到現在的動作。",
-    "skill_tag": "reading_detail",
+    "explanation_zh": "語氣副詞：接下來要說「我下週一無法上班」這種壞消息，用 Unfortunately（很遺憾）開場。(B) Sincerely 用於信末，(C) Apparently 顯然、(D) Possibly 可能，都不符合告知壞消息的語氣。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B2",
     "vocabulary": [
-      "has been taking",
-      "measures",
-      "improve"
+      "unfortunately",
+      "be unable to",
+      "in regard to"
     ],
     "passage": "To: Carl Lambert <carl_lambert@safehold.com>\n\nFrom: Harold Beemer <hbeemer@safehold.com>\n\nDate: October 3\n\nSubject: Scheduling\n\nDear Mr. Lambert,\n\nThis is in regard to next week's schedule. ____(A)____, I am unable to work next Monday. My supervisor, Brenda Malone, approved my request for time off on Monday, October 10, last week, as I ____(B)____ my parents, who live out of town then. I am departing this Friday and returning on Monday night. I assume Ms. Malone did not inform you of this matter.\n\n____(C)____. I would gladly exchange shifts with someone who can work in my place on Monday.\n\nPlease let me know how we can rectify this situation. I can meet you anytime to discuss our ____(D)____.\n\nRegards,\n\nHarold Beemer",
     "passage_group_id": "p6-ed-0-165-1-2-3-4",
@@ -4600,13 +4590,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "will be visiting"
     },
     "answer": "D",
-    "explanation_zh": "前文提到員工有經驗，後文提到他們有證照，兩者為並列補充關係，因此用「In addition」表示「此外」。",
-    "skill_tag": "reading_detail",
+    "explanation_zh": "時態：請假是為了「即將去探望父母」，且下文說本週五出發，用未來進行式 will be visiting。(A) have visited 是已完成，(B) visit 現在式、(C) to visit 不定詞都無法當子句的主要動詞表未來。",
+    "skill_tag": "tense",
     "difficulty": "B1",
     "vocabulary": [
-      "In addition",
-      "experienced",
-      "certified"
+      "will be visiting",
+      "time off",
+      "out of town"
     ],
     "passage": "To: Carl Lambert <carl_lambert@safehold.com>\n\nFrom: Harold Beemer <hbeemer@safehold.com>\n\nDate: October 3\n\nSubject: Scheduling\n\nDear Mr. Lambert,\n\nThis is in regard to next week's schedule. ____(A)____, I am unable to work next Monday. My supervisor, Brenda Malone, approved my request for time off on Monday, October 10, last week, as I ____(B)____ my parents, who live out of town then. I am departing this Friday and returning on Monday night. I assume Ms. Malone did not inform you of this matter.\n\n____(C)____. I would gladly exchange shifts with someone who can work in my place on Monday.\n\nPlease let me know how we can rectify this situation. I can meet you anytime to discuss our ____(D)____.\n\nRegards,\n\nHarold Beemer",
     "passage_group_id": "p6-ed-0-165-1-2-3-4",
@@ -4623,13 +4613,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "This was the first vacation of the year for me."
     },
     "answer": "C",
-    "explanation_zh": "前文提到員工有經驗和證照，空格應進一步描述員工特質，選項「They also work efficiently and cheerfully.」補充說明工作效率高且愉快，符合邏輯。",
-    "skill_tag": "reading_inference",
+    "explanation_zh": "句子插入：後一句說「我很樂意跟人換班」，(C)「我注意到我週二沒被排班」正好提供可換班的前提。(A) 感謝任職、(B) 感謝體諒、(D) 講年假，都無法銜接「換班」的提議。",
+    "skill_tag": "sentence_insertion",
     "difficulty": "B2",
     "vocabulary": [
-      "efficiently",
-      "cheerfully",
-      "work"
+      "be scheduled to work",
+      "exchange shifts",
+      "rectify"
     ],
     "passage": "To: Carl Lambert <carl_lambert@safehold.com>\n\nFrom: Harold Beemer <hbeemer@safehold.com>\n\nDate: October 3\n\nSubject: Scheduling\n\nDear Mr. Lambert,\n\nThis is in regard to next week's schedule. ____(A)____, I am unable to work next Monday. My supervisor, Brenda Malone, approved my request for time off on Monday, October 10, last week, as I ____(B)____ my parents, who live out of town then. I am departing this Friday and returning on Monday night. I assume Ms. Malone did not inform you of this matter.\n\n____(C)____. I would gladly exchange shifts with someone who can work in my place on Monday.\n\nPlease let me know how we can rectify this situation. I can meet you anytime to discuss our ____(D)____.\n\nRegards,\n\nHarold Beemer",
     "passage_group_id": "p6-ed-0-165-1-2-3-4",
@@ -4646,13 +4636,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "devices"
     },
     "answer": "A",
-    "explanation_zh": "空格前有「are」，需接形容詞，且語意為「保證的」，因此用「guaranteed」最符合。",
-    "skill_tag": "reading_vocab",
+    "explanation_zh": "語意題：前文提出換班等解決方式，故要討論的是 options（可行的選項）。(B) selections 挑選結果、(C) conditions 條件、(D) devices 裝置，都不指「解決辦法」。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "guaranteed",
-      "apparent",
-      "promised"
+      "options",
+      "rectify a situation",
+      "discuss"
     ],
     "passage": "To: Carl Lambert <carl_lambert@safehold.com>\n\nFrom: Harold Beemer <hbeemer@safehold.com>\n\nDate: October 3\n\nSubject: Scheduling\n\nDear Mr. Lambert,\n\nThis is in regard to next week's schedule. ____(A)____, I am unable to work next Monday. My supervisor, Brenda Malone, approved my request for time off on Monday, October 10, last week, as I ____(B)____ my parents, who live out of town then. I am departing this Friday and returning on Monday night. I assume Ms. Malone did not inform you of this matter.\n\n____(C)____. I would gladly exchange shifts with someone who can work in my place on Monday.\n\nPlease let me know how we can rectify this situation. I can meet you anytime to discuss our ____(D)____.\n\nRegards,\n\nHarold Beemer",
     "passage_group_id": "p6-ed-0-165-1-2-3-4",
@@ -4669,13 +4659,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "took"
     },
     "answer": "B",
-    "explanation_zh": "句子表示「公司一直以來都採取措施」，需用現在完成進行式「has been taking」來強調從過去持續到現在的動作。",
-    "skill_tag": "reading_detail",
+    "explanation_zh": "時態：for more than two decades（超過二十年）搭配現在完成進行式 has been taking，表從過去持續至今。(A) takes 現在式、(D) took 過去式都無法表達持續，(C) was taken 是被動語意顛倒。",
+    "skill_tag": "tense",
     "difficulty": "B2",
     "vocabulary": [
-      "has been taking",
-      "measures",
-      "improve"
+      "has been taking care of",
+      "for more than two decades",
+      "landscaping"
     ],
     "passage": "Daniels Landscaping\n\nDaniels Landscaping ____(A)____ care of properties for more than two decades. We provide a variety\nof landscaping services to make your home or place of business look as nice as possible. This\nincludes cutting grass, trimming bushes, planting trees and flowers, and watering yards. ____(B)____,\nwe can provide other services related to caring for outdoor areas.\n\nOur landscapers are all highly qualified with several years of experience. ____(C)____. The prices at\nDaniels Landscaping cannot be beat. Our work is ____(D)____ to please, or you will get your money\nback. Call 555-9845 for more information.",
     "passage_group_id": "p6-ed-0-167-1-2-3-4",
@@ -4692,13 +4682,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "For instance"
     },
     "answer": "B",
-    "explanation_zh": "前文提到員工有經驗，後文提到他們有證照，兩者為並列補充關係，因此用「In addition」表示「此外」。",
-    "skill_tag": "reading_detail",
+    "explanation_zh": "轉承語：前句列出割草、修剪等服務，後句再補「還有其他戶外照護服務」，屬追加，用 In addition。(A) However 轉折、(C) As a result 因果、(D) For instance 舉例（但後句不是舉例而是補充），都不合。",
+    "skill_tag": "conjunction",
     "difficulty": "B1",
     "vocabulary": [
-      "In addition",
-      "experienced",
-      "certified"
+      "in addition",
+      "trim bushes",
+      "outdoor area"
     ],
     "passage": "Daniels Landscaping\n\nDaniels Landscaping ____(A)____ care of properties for more than two decades. We provide a variety\nof landscaping services to make your home or place of business look as nice as possible. This\nincludes cutting grass, trimming bushes, planting trees and flowers, and watering yards. ____(B)____,\nwe can provide other services related to caring for outdoor areas.\n\nOur landscapers are all highly qualified with several years of experience. ____(C)____. The prices at\nDaniels Landscaping cannot be beat. Our work is ____(D)____ to please, or you will get your money\nback. Call 555-9845 for more information.",
     "passage_group_id": "p6-ed-0-167-1-2-3-4",
@@ -4715,13 +4705,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "They also work efficiently and cheerfully."
     },
     "answer": "D",
-    "explanation_zh": "前文提到員工有經驗和證照，空格應進一步描述員工特質，選項「They also work efficiently and cheerfully.」補充說明工作效率高且愉快，符合邏輯。",
-    "skill_tag": "reading_inference",
+    "explanation_zh": "句子插入：前一句誇員工「資歷深」，(D)「他們工作也有效率又態度愉快」延續同一主題再加一項優點。(A) 講人數、(B) 叫人看網站、(C) 感謝詢問，都偏離「員工素質」這條線。",
+    "skill_tag": "sentence_insertion",
     "difficulty": "B2",
     "vocabulary": [
       "efficiently",
       "cheerfully",
-      "work"
+      "highly qualified"
     ],
     "passage": "Daniels Landscaping\n\nDaniels Landscaping ____(A)____ care of properties for more than two decades. We provide a variety\nof landscaping services to make your home or place of business look as nice as possible. This\nincludes cutting grass, trimming bushes, planting trees and flowers, and watering yards. ____(B)____,\nwe can provide other services related to caring for outdoor areas.\n\nOur landscapers are all highly qualified with several years of experience. ____(C)____. The prices at\nDaniels Landscaping cannot be beat. Our work is ____(D)____ to please, or you will get your money\nback. Call 555-9845 for more information.",
     "passage_group_id": "p6-ed-0-167-1-2-3-4",
@@ -4738,13 +4728,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "surprised"
     },
     "answer": "A",
-    "explanation_zh": "空格前有「are」，需接形容詞，且語意為「保證的」，因此用「guaranteed」最符合。",
-    "skill_tag": "reading_vocab",
+    "explanation_zh": "搭配詞：be guaranteed to please（保證讓您滿意），後面接「不滿意退費」正好呼應。(B) apparent 明顯的、(C) promised（不用於 be promised to please 此結構）、(D) surprised 感到驚訝的，語意皆不合。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "guaranteed",
-      "apparent",
-      "promised"
+      "be guaranteed to please",
+      "money back",
+      "cannot be beat"
     ],
     "passage": "Daniels Landscaping\n\nDaniels Landscaping ____(A)____ care of properties for more than two decades. We provide a variety\nof landscaping services to make your home or place of business look as nice as possible. This\nincludes cutting grass, trimming bushes, planting trees and flowers, and watering yards. ____(B)____,\nwe can provide other services related to caring for outdoor areas.\n\nOur landscapers are all highly qualified with several years of experience. ____(C)____. The prices at\nDaniels Landscaping cannot be beat. Our work is ____(D)____ to please, or you will get your money\nback. Call 555-9845 for more information.",
     "passage_group_id": "p6-ed-0-167-1-2-3-4",
@@ -4761,13 +4751,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "versions"
     },
     "answer": "B",
-    "explanation_zh": "空格前為「please」，後接動詞原形表示請求。選項「to inform」為不定詞，可作為目的狀語，符合「請通知」的語意。",
-    "skill_tag": "reading_vocab",
+    "explanation_zh": "語意題：商業媒體讓讀者掌握的是 trends（趨勢）。(A) appeals 訴求、(C) subscriptions 訂閱、(D) versions 版本，都不能與 be aware of...in the world of business 搭配。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
-      "inform",
-      "please",
-      "request"
+      "trends",
+      "be aware of",
+      "around the globe"
     ],
     "passage": "International Business News Report is the best source of information on business. Find out all the latest news from around the globe and be aware of various ____(A)____ in the world of business.\n\nOur reporters are some of the top names in the industry. They write articles ____(B)____ and provide updates whenever new information becomes available. To subscribe, visit our website at www.ibnr.com/subscriptions. Joining the site gets you access to our ____(C)____ archives and allows you to take part in online chats with some of the leading individuals in various fields. Why wait?\n\n____(D)____.",
     "passage_group_id": "p6-ed-0-168-131-132-133-134",
@@ -4784,13 +4774,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "daily"
     },
     "answer": "D",
-    "explanation_zh": "空格後為複數名詞「employees」，需用可修飾複數的限定詞。選項「other」(其他的) 可修飾複數名詞，表示「其他員工」。",
-    "skill_tag": "reading_vocab",
+    "explanation_zh": "語意題：與後半「一有新消息就更新」呼應，記者是 daily（每天）發稿。(A) comparatively 相對地、(B) seriously 嚴肅地、(C) progressively 漸進地，都無法表達發稿頻率。",
+    "skill_tag": "business_vocabulary",
     "difficulty": "A2",
     "vocabulary": [
-      "other",
-      "employee",
-      "department"
+      "daily",
+      "provide updates",
+      "become available"
     ],
     "passage": "International Business News Report is the best source of information on business. Find out all the latest news from around the globe and be aware of various ____(A)____ in the world of business.\n\nOur reporters are some of the top names in the industry. They write articles ____(B)____ and provide updates whenever new information becomes available. To subscribe, visit our website at www.ibnr.com/subscriptions. Joining the site gets you access to our ____(C)____ archives and allows you to take part in online chats with some of the leading individuals in various fields. Why wait?\n\n____(D)____.",
     "passage_group_id": "p6-ed-0-168-131-132-133-134",
@@ -4807,13 +4797,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "completing"
     },
     "answer": "A",
-    "explanation_zh": "動詞「make」後接受詞「sure」時，需用形容詞或原形動詞。此處「complete」(完整的) 為形容詞，修飾名詞「list」，符合文法。",
-    "skill_tag": "reading_vocab",
+    "explanation_zh": "詞性題：修飾名詞 archives 要用形容詞 complete（完整的）。(B) completion 是名詞，(C) to complete、(D) completing 是動詞形式，都不能修飾名詞。",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "complete",
-      "list",
-      "make sure"
+      "complete archives",
+      "get access to",
+      "take part in"
     ],
     "passage": "International Business News Report is the best source of information on business. Find out all the latest news from around the globe and be aware of various ____(A)____ in the world of business.\n\nOur reporters are some of the top names in the industry. They write articles ____(B)____ and provide updates whenever new information becomes available. To subscribe, visit our website at www.ibnr.com/subscriptions. Joining the site gets you access to our ____(C)____ archives and allows you to take part in online chats with some of the leading individuals in various fields. Why wait?\n\n____(D)____.",
     "passage_group_id": "p6-ed-0-168-131-132-133-134",
@@ -4830,13 +4820,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Subscribe today and start learning more about business."
     },
     "answer": "D",
-    "explanation_zh": "空格前為「provide」，後接名詞受詞「support」，需用形容詞修飾。選項「continual」(持續的) 為形容詞，表示「持續的支持」。",
-    "skill_tag": "reading_vocab",
+    "explanation_zh": "句子插入：前一句是 Why wait?（還等什麼？）這種廣告催促語，(D)「今天就訂閱，開始了解商業」正是配套的行動呼籲。(A) 感謝長期支持、(C) 說首期已寄出，都預設對方已是訂戶，與招攬新客的文意矛盾。",
+    "skill_tag": "sentence_insertion",
     "difficulty": "B1",
     "vocabulary": [
-      "continual",
-      "support",
-      "provide"
+      "subscribe today",
+      "why wait",
+      "learn more about"
     ],
     "passage": "International Business News Report is the best source of information on business. Find out all the latest news from around the globe and be aware of various ____(A)____ in the world of business.\n\nOur reporters are some of the top names in the industry. They write articles ____(B)____ and provide updates whenever new information becomes available. To subscribe, visit our website at www.ibnr.com/subscriptions. Joining the site gets you access to our ____(C)____ archives and allows you to take part in online chats with some of the leading individuals in various fields. Why wait?\n\n____(D)____.",
     "passage_group_id": "p6-ed-0-168-131-132-133-134",
@@ -4853,13 +4843,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "To provide information about a product demonstration"
     },
     "answer": "D",
-    "explanation_zh": "傳送訊息者最有可能在餐廳工作，因為對話中討論餐桌設置和開業日期。",
-    "skill_tag": "reading_inference",
+    "explanation_zh": "主旨題：新聞稿全文都在說明產品發表會的時間、地點與報名方式，故選 (D)。(A) 對象是記者不是投資人，(B) 是產品不是服務，(C) 文中沒有告訴讀者如何購買。",
+    "skill_tag": "reading_main_idea",
     "difficulty": "B1",
     "vocabulary": [
-      "restaurant",
-      "real estate agency",
-      "bakery"
+      "press release",
+      "product demonstration",
+      "headquarters"
     ],
     "passage": "FOR IMMEDIATE RELEASE\n\nPorterhouse Manufacturing to Conduct Product Demonstration\n\nPorterhouse Manufacturing is one of the world's leading manufacturers of advanced machinery. Today, the company announced that it will be holding a product demonstration for a machine that its engineers have just completed and that the company intends to market in winter. The event will take place at the company's headquarters in Atlanta at 3:00 P.M. on Monday, October 3. The product to be demonstrated is the newest automobile engine by the company. This engine is set to revolutionize the automobile industry as it is 35% more efficient than any other engine currently available.\n\nReporters and news broadcasters interested in attending the event in person must register in advance. To do so, contact company public relations employee Gregory Frye at 555-2871 during regular business hours. Individuals with podcasts and blogs and an interest in automobile technology are invited to attend as well. Jeremy Smith, the lead engineer for the project, will be available to answer questions following the demonstration. Attendees will be permitted to take pictures and film videos.",
     "passage_group_id": "p7-ed-0-177-1-2-3",
@@ -4877,13 +4867,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "By speaking with a reporter who will cover the event"
     },
     "answer": "B",
-    "explanation_zh": "Hagler先生擔心與隔壁店主相處融洽，文中提到「getting along with the shopkeeper next door」。",
+    "explanation_zh": "細節題：第二段明說要打 555-2871 聯絡公關人員 Gregory Frye 事先報名，故選 (B)。(C) 網站報名文中未提，(A)(D) 把「部落客可參加」「記者會採訪」誤讀成報名管道。",
     "skill_tag": "reading_detail",
     "difficulty": "B1",
     "vocabulary": [
-      "concerned about",
-      "shopkeeper",
-      "getting along"
+      "register in advance",
+      "public relations",
+      "business hours"
     ],
     "passage": "FOR IMMEDIATE RELEASE\n\nPorterhouse Manufacturing to Conduct Product Demonstration\n\nPorterhouse Manufacturing is one of the world's leading manufacturers of advanced machinery. Today, the company announced that it will be holding a product demonstration for a machine that its engineers have just completed and that the company intends to market in winter. The event will take place at the company's headquarters in Atlanta at 3:00 P.M. on Monday, October 3. The product to be demonstrated is the newest automobile engine by the company. This engine is set to revolutionize the automobile industry as it is 35% more efficient than any other engine currently available.\n\nReporters and news broadcasters interested in attending the event in person must register in advance. To do so, contact company public relations employee Gregory Frye at 555-2871 during regular business hours. Individuals with podcasts and blogs and an interest in automobile technology are invited to attend as well. Jeremy Smith, the lead engineer for the project, will be available to answer questions following the demonstration. Attendees will be permitted to take pictures and film videos.",
     "passage_group_id": "p7-ed-0-177-1-2-3",
@@ -4901,13 +4891,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Camping"
     },
     "answer": "A",
-    "explanation_zh": "傳送訊息者最有可能在餐廳工作，因為對話中討論餐桌設置和開業日期。",
-    "skill_tag": "reading_inference",
+    "explanation_zh": "細節題：文中列出 hiking、picnicking、seeing wildlife，故選 (A) 健行。(B) 游泳、(C) 狩獵、(D) 露營都沒被提到——這類題只要在原文找不到就直接刪。",
+    "skill_tag": "reading_detail",
     "difficulty": "B1",
     "vocabulary": [
-      "restaurant",
-      "real estate agency",
-      "bakery"
+      "hiking",
+      "picnic",
+      "wildlife"
     ],
     "passage": "Silverwood Botanical Garden Pass\n\nSilverwood Botanical Garden is the largest in the entire state. Covering more than 200 acres, the garden features not only trees, flowers, and plants native to the Southeast but also a wide variety of non-native species, including those from the tropics. Visitors to the garden can enjoy hiking through the wooded areas, picnicking by our five ponds, and seeing some of the wildlife that inhabits the area.\n\nA Silverwood Botanical Garden pass costs only $50 per year and covers an entire family of four. It permits daily access to the garden as well as free parking. Your contribution will allow us to maintain the plants in the garden and acquire new ones.\n\nA pass may be purchased at the ticket office or online at www.silverwoodbg.org. Please note that special discounts on food or other products sold at the stores near the ticket office are not available.",
     "passage_group_id": "p7-ed-0-179-1-2-3",
@@ -4925,13 +4915,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "It is larger than other nearby botanical gardens."
     },
     "answer": "D",
-    "explanation_zh": "Hagler先生擔心與隔壁店主相處融洽，文中提到「getting along with the shopkeeper next door」。",
-    "skill_tag": "reading_detail",
+    "explanation_zh": "推論題：文中說它是 the largest in the entire state（全州最大），可推論比鄰近植物園都大，故選 (D)。(A) 錯在園內也有非本土與熱帶植物，(B) 收入來自年票非僅捐款，(C) 只說可在池邊野餐沒說可釣魚。",
+    "skill_tag": "reading_inference",
     "difficulty": "B1",
     "vocabulary": [
-      "concerned about",
-      "shopkeeper",
-      "getting along"
+      "native species",
+      "acre",
+      "botanical garden"
     ],
     "passage": "Silverwood Botanical Garden Pass\n\nSilverwood Botanical Garden is the largest in the entire state. Covering more than 200 acres, the garden features not only trees, flowers, and plants native to the Southeast but also a wide variety of non-native species, including those from the tropics. Visitors to the garden can enjoy hiking through the wooded areas, picnicking by our five ponds, and seeing some of the wildlife that inhabits the area.\n\nA Silverwood Botanical Garden pass costs only $50 per year and covers an entire family of four. It permits daily access to the garden as well as free parking. Your contribution will allow us to maintain the plants in the garden and acquire new ones.\n\nA pass may be purchased at the ticket office or online at www.silverwoodbg.org. Please note that special discounts on food or other products sold at the stores near the ticket office are not available.",
     "passage_group_id": "p7-ed-0-179-1-2-3",
@@ -4949,13 +4939,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Complimentary parking"
     },
     "answer": "D",
-    "explanation_zh": "Denton女士寫這句話是因為她會要求降低租金，文中提到「ask about lowering the monthly rent」。",
-    "skill_tag": "reading_inference",
+    "explanation_zh": "細節題：年票含 daily access 與 free parking，free 對應 (D) complimentary（免費的）——這是 TOEIC 常見的同義改寫。(A)(C) 文末明說商店餐飲不打折，(B) 導覽未提及。",
+    "skill_tag": "reading_detail",
     "difficulty": "B1",
     "vocabulary": [
-      "get in touch with",
-      "real estate agent",
-      "lowering the rent"
+      "complimentary",
+      "pass",
+      "contribution"
     ],
     "passage": "Silverwood Botanical Garden Pass\n\nSilverwood Botanical Garden is the largest in the entire state. Covering more than 200 acres, the garden features not only trees, flowers, and plants native to the Southeast but also a wide variety of non-native species, including those from the tropics. Visitors to the garden can enjoy hiking through the wooded areas, picnicking by our five ponds, and seeing some of the wildlife that inhabits the area.\n\nA Silverwood Botanical Garden pass costs only $50 per year and covers an entire family of four. It permits daily access to the garden as well as free parking. Your contribution will allow us to maintain the plants in the garden and acquire new ones.\n\nA pass may be purchased at the ticket office or online at www.silverwoodbg.org. Please note that special discounts on food or other products sold at the stores near the ticket office are not available.",
     "passage_group_id": "p7-ed-0-179-1-2-3",
@@ -4973,13 +4963,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "At a bakery"
     },
     "answer": "A",
-    "explanation_zh": "傳送訊息者最有可能在餐廳工作，因為對話中討論餐桌設置和開業日期。",
+    "explanation_zh": "推論題：對話出現廚房安裝、桌椅到貨、擴大 dining room，可推論是餐廳，故選 (A)。(B) 房仲只是他們要聯絡的對象，(C)(D) 與廚房＋用餐區的組合不符。",
     "skill_tag": "reading_inference",
     "difficulty": "B1",
     "vocabulary": [
-      "restaurant",
-      "real estate agency",
-      "bakery"
+      "install",
+      "dining room",
+      "expand"
     ],
     "passage": "Bill Hagler\n(2:03 P.M.)\nHello, everyone. How is the work on the property coming along? Are we going to finish on time? I'd really like to be able to open on March 1.\n\nSusan Denton\n(2:06 P.M.)\nEverything is looking good, Bill. The kitchen is almost entirely installed. The tables and chairs are going to arrive tomorrow. We'll need someone to help set them up.\n\nDallas Blair\n(2:08 P.M.)\nChris and I can do that, Susan. Just let me know what time I should be there.\n\nSusan Denton\n(2:09 P.M.)\nThanks, Dallas. I really appreciate your being willing to work on your day off.\n\nDallas Blair\n(2:10 P.M.)\nOh, I spoke with the owner of the shop right next to ours. He said that he's planning to retire in the next couple of months.\n\nBill Hagler\n(2:11 P.M.)\nIs his shop going to be available for rent?\n\nDallas Blair\n(2:12 P.M.)\nThat's what he said. We should probably check into it. It might be possible to connect the two places. That would give us more space, so we could expand the dining room.\n\nSusan Denton\n(2:13 P.M.)\nI'll get in touch with a real estate agent.\n\nBill Hagler\n(2:14 P.M.)\nSounds great, Susan.",
     "passage_group_id": "p7-ed-0-181-1-2-3",
@@ -4997,13 +4987,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Getting along with the shopkeeper next door"
     },
     "answer": "B",
-    "explanation_zh": "Hagler先生擔心與隔壁店主相處融洽，文中提到「getting along with the shopkeeper next door」。",
+    "explanation_zh": "細節題：Hagler 在 2:03 說 Are we going to finish on time? I'd really like to be able to open on March 1，關心的是能否如期開幕，故選 (B)。(D) 與鄰居相處是 Blair 提到的另一件事，(A)(C) 文中無人表示擔心。",
     "skill_tag": "reading_detail",
     "difficulty": "B1",
     "vocabulary": [
-      "concerned about",
-      "shopkeeper",
-      "getting along"
+      "on time",
+      "establishment",
+      "by a certain date"
     ],
     "passage": "Bill Hagler\n(2:03 P.M.)\nHello, everyone. How is the work on the property coming along? Are we going to finish on time? I'd really like to be able to open on March 1.\n\nSusan Denton\n(2:06 P.M.)\nEverything is looking good, Bill. The kitchen is almost entirely installed. The tables and chairs are going to arrive tomorrow. We'll need someone to help set them up.\n\nDallas Blair\n(2:08 P.M.)\nChris and I can do that, Susan. Just let me know what time I should be there.\n\nSusan Denton\n(2:09 P.M.)\nThanks, Dallas. I really appreciate your being willing to work on your day off.\n\nDallas Blair\n(2:10 P.M.)\nOh, I spoke with the owner of the shop right next to ours. He said that he's planning to retire in the next couple of months.\n\nBill Hagler\n(2:11 P.M.)\nIs his shop going to be available for rent?\n\nDallas Blair\n(2:12 P.M.)\nThat's what he said. We should probably check into it. It might be possible to connect the two places. That would give us more space, so we could expand the dining room.\n\nSusan Denton\n(2:13 P.M.)\nI'll get in touch with a real estate agent.\n\nBill Hagler\n(2:14 P.M.)\nSounds great, Susan.",
     "passage_group_id": "p7-ed-0-181-1-2-3",
@@ -5021,13 +5011,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "To offer to check on an available property"
     },
     "answer": "D",
-    "explanation_zh": "Denton女士寫這句話是因為她會要求降低租金，文中提到「ask about lowering the monthly rent」。",
+    "explanation_zh": "說話意圖題：上一句 Blair 說隔壁店可能要出租、建議去打聽，Denton 回「我來聯絡房仲」＝主動去查那個空間，故選 (D)。(A) 降租金、(B) 簽約、(C) 找公寓都超出當下語境——意圖題一定要看緊鄰的前一句。",
     "skill_tag": "reading_inference",
     "difficulty": "B1",
     "vocabulary": [
       "get in touch with",
       "real estate agent",
-      "lowering the rent"
+      "available property"
     ],
     "passage": "Bill Hagler\n(2:03 P.M.)\nHello, everyone. How is the work on the property coming along? Are we going to finish on time? I'd really like to be able to open on March 1.\n\nSusan Denton\n(2:06 P.M.)\nEverything is looking good, Bill. The kitchen is almost entirely installed. The tables and chairs are going to arrive tomorrow. We'll need someone to help set them up.\n\nDallas Blair\n(2:08 P.M.)\nChris and I can do that, Susan. Just let me know what time I should be there.\n\nSusan Denton\n(2:09 P.M.)\nThanks, Dallas. I really appreciate your being willing to work on your day off.\n\nDallas Blair\n(2:10 P.M.)\nOh, I spoke with the owner of the shop right next to ours. He said that he's planning to retire in the next couple of months.\n\nBill Hagler\n(2:11 P.M.)\nIs his shop going to be available for rent?\n\nDallas Blair\n(2:12 P.M.)\nThat's what he said. We should probably check into it. It might be possible to connect the two places. That would give us more space, so we could expand the dining room.\n\nSusan Denton\n(2:13 P.M.)\nI'll get in touch with a real estate agent.\n\nBill Hagler\n(2:14 P.M.)\nSounds great, Susan.",
     "passage_group_id": "p7-ed-0-181-1-2-3",
@@ -5045,13 +5035,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "To provide details on work to be done"
     },
     "answer": "B",
-    "explanation_zh": "題目詢問救生員會收到簡訊通知的事情為何。根據文章內容，簡訊通知的應是時間表的變動，因此正確答案為時間表。",
-    "skill_tag": "reading_detail",
+    "explanation_zh": "主旨題：公告在說明完工日由 5/1 改為 8/15 及其原因，是「計畫變更」，故選 (B)。(A) 天氣只是原因之一，(C) 通篇沒有道歉，(D) 沒有描述工程內容。",
+    "skill_tag": "reading_main_idea",
     "difficulty": "A2",
     "vocabulary": [
-      "notification",
-      "schedule",
-      "lifeguard"
+      "renovation work",
+      "significantly delayed",
+      "completion"
     ],
     "passage": "Asbury Road Parking Lot Update\n\nThe recent poor weather conditions this spring have caused the renovation work on the Asbury Road parking lot to be significantly delayed. The work was expected to be completed by May 1. However, construction crews were unable to access the site during the snowy weather. Furthermore, some structural issues were identified by engineers, further delaying the work. As a result, the project is now scheduled for completion by August 15. Anyone who has questions is welcome to contact Russell Mayer of Vanderbilt Construction at 802-555-9361.",
     "passage_group_id": "p7-ed-0-196-147-148",
@@ -5069,13 +5059,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "It is expected to go over its budget."
     },
     "answer": "A",
-    "explanation_zh": "題目問救生員為什麼要聯絡辦公室。文章指出救生員需要確認某些資訊，因此正確答案為確認某些資訊。",
-    "skill_tag": "reading_detail",
+    "explanation_zh": "推論題：原訂 5/1 完工卻延到 8/15，等於無法如期完成，故選 (A)。(C) 直接與新日期矛盾，(B) 擴大停車場、(D) 超出預算都沒提到。",
+    "skill_tag": "reading_inference",
     "difficulty": "A2",
     "vocabulary": [
-      "contact",
-      "confirm",
-      "information"
+      "structural issues",
+      "as a result",
+      "be scheduled for"
     ],
     "passage": "Asbury Road Parking Lot Update\n\nThe recent poor weather conditions this spring have caused the renovation work on the Asbury Road parking lot to be significantly delayed. The work was expected to be completed by May 1. However, construction crews were unable to access the site during the snowy weather. Furthermore, some structural issues were identified by engineers, further delaying the work. As a result, the project is now scheduled for completion by August 15. Anyone who has questions is welcome to contact Russell Mayer of Vanderbilt Construction at 802-555-9361.",
     "passage_group_id": "p7-ed-0-196-147-148",
@@ -5083,69 +5073,23 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
     "question_order": 2
   },
   {
-    "id": "p7-ed-0011",
-    "part": "Part 7",
-    "question": "What is being advertised?",
-    "choices": {
-      "A": "An exterminator",
-      "B": "A housecleaner",
-      "C": "A pet care service",
-      "D": "An interior designer"
-    },
-    "answer": "A",
-    "explanation_zh": "廣告中強調「We remove pests from your home」，表示這是一家除蟲公司。",
-    "skill_tag": "reading_main_idea",
-    "difficulty": "B1",
-    "vocabulary": [
-      "exterminator",
-      "pests"
-    ],
-    "passage": "Rest assured, we guarantee that our work will be done by fully trained expert technicians.\n\nOur hotel venue features several halls that can accommodate any event.\n\nWhat sets us apart from our competitors? You don't owe one penny until all pests on your premises have been eradicated.\n\nIn celebration of our 5th anniversary, we're offering 10% off all your purchases in July.\n\nTo get this deal, you must schedule an appointment either by phone or online.\n\nFor more information, go online and schedule a complimentary consultation with one of our representatives.\n\nFor a list of all our locations, visit our website at www.alphachair.com.",
-    "passage_group_id": "p7-ed-0-91-1-2-3-4-5-6",
-    "passage_group_type": "single",
-    "question_order": 1
-  },
-  {
-    "id": "p7-ed-0012",
-    "part": "Part 7",
-    "question": "What kind of gift do participants receive at the end of the tour?",
-    "choices": {
-      "A": "A poster",
-      "B": "A discount coupon",
-      "C": "A bag of coffee",
-      "D": "A postcard"
-    },
-    "answer": "B",
-    "explanation_zh": "導覽介紹中說「Participants receive a discount coupon at the end」，指出參加者結束時會拿到折扣券。",
-    "skill_tag": "reading_detail",
-    "difficulty": "B1",
-    "vocabulary": [
-      "discount coupon",
-      "participants"
-    ],
-    "passage": "Rest assured, we guarantee that our work will be done by fully trained expert technicians.\n\nOur hotel venue features several halls that can accommodate any event.\n\nWhat sets us apart from our competitors? You don't owe one penny until all pests on your premises have been eradicated.\n\nIn celebration of our 5th anniversary, we're offering 10% off all your purchases in July.\n\nTo get this deal, you must schedule an appointment either by phone or online.\n\nFor more information, go online and schedule a complimentary consultation with one of our representatives.\n\nFor a list of all our locations, visit our website at www.alphachair.com.",
-    "passage_group_id": "p7-ed-0-91-1-2-3-4-5-6",
-    "passage_group_type": "single",
-    "question_order": 2
-  },
-  {
     "id": "p7-ed-0013",
     "part": "Part 7",
-    "question": "What is suggested about Ms. Madsen?",
+    "question": "What is indicated about the Sunshine Hotel?",
     "choices": {
-      "A": "She is not a member of the IABE.",
-      "B": "She is attending the conference for a second time.",
-      "C": "She signed up for the conference before June 20.",
-      "D": "She is going to present a paper at the conference."
+      "A": "It is located directly on the beach.",
+      "B": "It provides a shuttle service to the conference.",
+      "C": "It is within walking distance of the conference site.",
+      "D": "It contains its own shopping arcade."
     },
     "answer": "C",
-    "explanation_zh": "文中提到Ms. Madsen將在會議上發表論文（present a paper）。選項「她將在會議上發表論文」是正確的。",
-    "skill_tag": "reading_detail",
+    "explanation_zh": "推論題：信中說飯店就在會場正對面（right across the street），而且 you can walk there with ease，可推論步行可達，故選 (C)。(A) 錯在離海邊還要走五分鐘，(B) 接駁車未提，(D) 商店是在飯店「附近」不是飯店裡面。",
+    "skill_tag": "reading_inference",
     "difficulty": "B1",
     "vocabulary": [
-      "present",
-      "paper",
-      "conference"
+      "within walking distance",
+      "across the street",
+      "with ease"
     ],
     "passage": "To: Susanna Madsen\nFrom: Sunshine Hotel\nDate: August 14\nSubject: RE: Questions\n\nDear Ms. Madsen,\n\nWe are looking forward to having you as a guest here next month. To respond to your questions, the hotel is a five-minute walk from the sea. You will find all kinds of places to shop and eat near the hotel. We are also located right across the street from the conference you are attending. You can therefore walk there with ease. If you have any other questions, please let me know.\n\nSincerely,\n\nIoannis Papadopoulos\nCustomer Service Representative\nSunshine Hotel",
     "passage_group_id": "p7-ed-----------193",
@@ -5163,13 +5107,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "To change the date of a booking"
     },
     "answer": "C",
-    "explanation_zh": "Mr. Papadopoulos 的郵件是回覆客戶對房間預訂的詢問，並提供相關資訊。選項「回覆一些詢問」正確描述了郵件目的。",
+    "explanation_zh": "主旨題：主旨列 RE: Questions，內文以 To respond to your questions 開頭逐一回答，故選 (C)。(A) 沒有確認房號日期，(B) 沒提折扣，(D) 沒有更改日期。",
     "skill_tag": "reading_main_idea",
     "difficulty": "B1",
     "vocabulary": [
-      "inquiry",
-      "respond",
-      "booking"
+      "respond to inquiries",
+      "look forward to",
+      "customer service representative"
     ],
     "passage": "To: Susanna Madsen\nFrom: Sunshine Hotel\nDate: August 14\nSubject: RE: Questions\n\nDear Ms. Madsen,\n\nWe are looking forward to having you as a guest here next month. To respond to your questions, the hotel is a five-minute walk from the sea. You will find all kinds of places to shop and eat near the hotel. We are also located right across the street from the conference you are attending. You can therefore walk there with ease. If you have any other questions, please let me know.\n\nSincerely,\n\nIoannis Papadopoulos\nCustomer Service Representative\nSunshine Hotel",
     "passage_group_id": "p7-ed-----------193",
@@ -5187,13 +5131,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "At an airport"
     },
     "answer": "D",
-    "explanation_zh": "傳送訊息者最有可能在餐廳工作，因為對話中討論餐桌設置和開業日期。",
+    "explanation_zh": "推論題：Flyers、Terminal、planes departing、gate 都是機場用語，故選 (D)。(A) 渡輪、(B) 地鐵、(C) 巴士站都不會有 planes 與 gate。",
     "skill_tag": "reading_inference",
     "difficulty": "B1",
     "vocabulary": [
-      "restaurant",
-      "real estate agency",
-      "bakery"
+      "terminal",
+      "depart",
+      "gate"
     ],
     "passage": "Flyers, may I please have your attention? Starting next week, Terminal B will be out of operation, so no planes will be departing from there. All flights will either depart from Terminal A or Terminal C while Terminal B is being renovated. We expect renovations to take a few months, so we appreciate your patience until they are complete. Since Terminal A and Terminal C are on the far ends of the airport, we recommend allocating extra travel time to reach your gate before it closes.",
     "passage_group_id": "p7-ed-----------86",
@@ -5211,13 +5155,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "To increase energy efficiency"
     },
     "answer": "A",
-    "explanation_zh": "Hagler先生擔心與隔壁店主相處融洽，文中提到「getting along with the shopkeeper next door」。",
+    "explanation_zh": "細節題：文中說 while Terminal B is being renovated（B 航廈整修期間），故選 (A)。(B) 車流、(C) 省錢、(D) 節能都沒提到——廣播題的原因通常就明說在一句話裡。",
     "skill_tag": "reading_detail",
     "difficulty": "B1",
     "vocabulary": [
-      "concerned about",
-      "shopkeeper",
-      "getting along"
+      "renovate",
+      "out of operation",
+      "allocate extra time"
     ],
     "passage": "Flyers, may I please have your attention? Starting next week, Terminal B will be out of operation, so no planes will be departing from there. All flights will either depart from Terminal A or Terminal C while Terminal B is being renovated. We expect renovations to take a few months, so we appreciate your patience until they are complete. Since Terminal A and Terminal C are on the far ends of the airport, we recommend allocating extra travel time to reach your gate before it closes.",
     "passage_group_id": "p7-ed-----------86",
@@ -5235,13 +5179,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "A travel destination"
     },
     "answer": "B",
-    "explanation_zh": "傳送訊息者最有可能在餐廳工作，因為對話中討論餐桌設置和開業日期。",
-    "skill_tag": "reading_inference",
+    "explanation_zh": "主旨題：全文推銷 Maple Square Convention Center 的會議場地，故選 (B)。(A) 超市、(C) 餐廳、(D) 旅遊景點都與 auditoriums、booking 的語境不符。",
+    "skill_tag": "reading_main_idea",
     "difficulty": "B1",
     "vocabulary": [
-      "restaurant",
-      "real estate agency",
-      "bakery"
+      "convention center",
+      "auditorium",
+      "gathering"
     ],
     "passage": "Looking for the perfect place to hold your next conference? Look no further than the Maple Square Convention Center. With our spacious auditoriums, extensive parking facilities, and easy access to public transportation, Maple Square Convention Center is the ideal location for both small and large gatherings. But there's another reason why you should hold your next convention here. We're famous for our incredibly low prices. If you are interested in booking with us, please call our friendly staff at 555-0138 for pricing and available dates.",
     "passage_group_id": "p7-ed-----------90",
@@ -5259,13 +5203,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "Its food"
     },
     "answer": "C",
-    "explanation_zh": "Hagler先生擔心與隔壁店主相處融洽，文中提到「getting along with the shopkeeper next door」。",
+    "explanation_zh": "細節題：文中明說 We're famous for our incredibly low prices，故選 (C)。(A) 設施、(B) 現代設計、(D) 餐點雖與場地相關，但都不是原文說「出名」的那一項。",
     "skill_tag": "reading_detail",
     "difficulty": "B1",
     "vocabulary": [
-      "concerned about",
-      "shopkeeper",
-      "getting along"
+      "be famous for",
+      "incredibly low prices",
+      "public transportation"
     ],
     "passage": "Looking for the perfect place to hold your next conference? Look no further than the Maple Square Convention Center. With our spacious auditoriums, extensive parking facilities, and easy access to public transportation, Maple Square Convention Center is the ideal location for both small and large gatherings. But there's another reason why you should hold your next convention here. We're famous for our incredibly low prices. If you are interested in booking with us, please call our friendly staff at 555-0138 for pricing and available dates.",
     "passage_group_id": "p7-ed-----------90",
@@ -5283,13 +5227,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "At a bookstore"
     },
     "answer": "B",
-    "explanation_zh": "傳送訊息者最有可能在餐廳工作，因為對話中討論餐桌設置和開業日期。",
-    "skill_tag": "reading_inference",
+    "explanation_zh": "細節題：致詞者說 here at Grayson Academy，故選 (B)。(A) 博物館、(C) 社團聚會、(D) 書店都不是原文指明的地點，即使講者是暢銷書作者也不能推成書店。",
+    "skill_tag": "reading_detail",
     "difficulty": "B1",
     "vocabulary": [
-      "restaurant",
-      "real estate agency",
-      "bakery"
+      "ceremony",
+      "guest speaker",
+      "academy"
     ],
     "passage": "Thank you for coming to our ceremony today. We are pleased to host the ninth annual Art Awards here at Grayson Academy. I'm very excited to welcome our guest speaker, artist Howard Penn. He recently wrote a book called How to Paint Anything, which has topped several bestseller lists. During his talk tonight, he will explain how he became both a renowned painter and bestselling author. After his speech, we will announce the winners of this year's competition and then offer some free drinks and snacks in the lobby.",
     "passage_group_id": "p7-ed-----------92",
@@ -5307,13 +5251,13 @@ export const IMPORTED_QUESTIONS_ED: Question[] = [
       "D": "He wrote a popular book."
     },
     "answer": "D",
-    "explanation_zh": "Hagler先生擔心與隔壁店主相處融洽，文中提到「getting along with the shopkeeper next door」。",
+    "explanation_zh": "細節題：文中說 He recently wrote a book called How to Paint Anything, which has topped several bestseller lists，故選 (D)。(A) 得獎的是今晚的參賽者，(B)(C) 都沒提到。",
     "skill_tag": "reading_detail",
     "difficulty": "B1",
     "vocabulary": [
-      "concerned about",
-      "shopkeeper",
-      "getting along"
+      "top a bestseller list",
+      "renowned",
+      "announce the winners"
     ],
     "passage": "Thank you for coming to our ceremony today. We are pleased to host the ninth annual Art Awards here at Grayson Academy. I'm very excited to welcome our guest speaker, artist Howard Penn. He recently wrote a book called How to Paint Anything, which has topped several bestseller lists. During his talk tonight, he will explain how he became both a renowned painter and bestselling author. After his speech, we will announce the winners of this year's competition and then offer some free drinks and snacks in the lobby.",
     "passage_group_id": "p7-ed-----------92",

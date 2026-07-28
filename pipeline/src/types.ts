@@ -114,6 +114,12 @@ export type IntegrityReport = {
   groupStructureViolations: string[];
   /** Items whose explanation argues for a different letter than `answer`. */
   explanationAnswerMismatches: string[];
+  /**
+   * Per part+batch "always pick the longest option" hit rates that sit well
+   * above chance. Advisory only — see `checkAnswerLengthBias` for why this
+   * does not fail the run yet.
+   */
+  answerLengthBiasWarnings: string[];
   totalQuestions: number;
   passed: boolean;
 };
