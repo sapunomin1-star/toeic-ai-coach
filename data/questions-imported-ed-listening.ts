@@ -9,6 +9,140 @@ import type { Question } from "@/types/question";
  */
 export const IMPORTED_LISTENING_ED: Question[] = [
   {
+    "id": "p1-ed-0001",
+    "part": "Part 1",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "She's writing some notes on a pad of paper.",
+      "B": "She's rolling up her sleeves.",
+      "C": "Some cartons have been stacked on the floor.",
+      "D": "Ceramic pots have been arranged on shelves."
+    },
+    "answer": "D",
+    "explanation_zh": "照片中顯示架子上整齊擺放著陶瓷罐，因此正確答案為 (D) Ceramic pots have been arranged on shelves。其他選項如「在便條紙上寫筆記」、「捲袖子」或「紙箱堆在地上」均與圖片內容不符。",
+    "skill_tag": "listening_photo",
+    "difficulty": "A2",
+    "vocabulary": [
+      "ceramic pots",
+      "arranged",
+      "shelves"
+    ],
+    "imageAlt": "Ceramic pots have been arranged on shelves.",
+    "audioScript": "(A) She's writing some notes on a pad of paper.\n(B) She's rolling up her sleeves.\n(C) Some cartons have been stacked on the floor.\n(D) Ceramic pots have been arranged on shelves."
+  },
+  {
+    "id": "p1-ed-0002",
+    "part": "Part 1",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "They're lifting a sofa.",
+      "B": "They're moving some chairs.",
+      "C": "They're assembling some furniture.",
+      "D": "They're walking through a doorway."
+    },
+    "answer": "A",
+    "explanation_zh": "照片中的人物正在抬起一張沙發，因此描述「They're lifting a sofa」最符合畫面。其他選項如「moving some chairs」或「assembling some furniture」與沙發的動作不符，而「walking through a doorway」則未呈現穿越門口的動作。",
+    "skill_tag": "listening_photo",
+    "difficulty": "A2",
+    "vocabulary": [
+      "lift",
+      "sofa",
+      "furniture"
+    ],
+    "imageAlt": "They're lifting a sofa.",
+    "audioScript": "(A) They're lifting a sofa.\n(B) They're moving some chairs.\n(C) They're assembling some furniture.\n(D) They're walking through a doorway."
+  },
+  {
+    "id": "p1-ed-0003",
+    "part": "Part 1",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "She's examining a price tag.",
+      "B": "She's removing her sunglasses.",
+      "C": "She's reaching for a vegetable on a shelf.",
+      "D": "She's pushing a cart filled with items."
+    },
+    "answer": "C",
+    "explanation_zh": "照片中的人正伸手去拿架子上的蔬菜，因此描述動作的選項「She's reaching for a vegetable on a shelf」與畫面一致。其他選項如「She's examining a price tag」、「She's removing her sunglasses」、「She's pushing a cart filled with items」均未在照片中出現對應動作。",
+    "skill_tag": "listening_photo",
+    "difficulty": "A2",
+    "vocabulary": [
+      "reach for",
+      "shelf",
+      "vegetable"
+    ],
+    "imageAlt": "She's reaching for a vegetable on a shelf.",
+    "audioScript": "(A) She's examining a price tag.\n(B) She's removing her sunglasses.\n(C) She's reaching for a vegetable on a shelf.\n(D) She's pushing a cart filled with items."
+  },
+  {
+    "id": "p1-ed-0004",
+    "part": "Part 1",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "The woman is drinking from a cup.",
+      "B": "The man is pointing at a menu.",
+      "C": "Some food is being served at a table.",
+      "D": "Flowers have been stitched on a tablecloth."
+    },
+    "answer": "B",
+    "explanation_zh": "照片中男士正用手指向菜單，因此描述「The man is pointing at a menu」符合畫面。其他選項如「The woman is drinking from a cup」若照片中女士未持杯喝水則不正確；「Some food is being served at a table」若無上菜動作則不符；「Flowers have been stitched on a tablecloth」若桌布上無刺繡花朵則不成立。",
+    "skill_tag": "listening_photo",
+    "difficulty": "A2",
+    "vocabulary": [
+      "point at",
+      "menu",
+      "serve",
+      "tablecloth"
+    ],
+    "imageAlt": "The man is pointing at a menu.",
+    "audioScript": "(A) The woman is drinking from a cup.\n(B) The man is pointing at a menu.\n(C) Some food is being served at a table.\n(D) Flowers have been stitched on a tablecloth."
+  },
+  {
+    "id": "p1-ed-0005",
+    "part": "Part 1",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "One of the men is giving a presentation.",
+      "B": "One of the men is putting on a jacket.",
+      "C": "One of the women is adjusting a computer monitor.",
+      "D": "One of the women is putting away her laptop."
+    },
+    "answer": "A",
+    "explanation_zh": "照片中一名男子正在進行簡報，因此描述「One of the men is giving a presentation」符合畫面。其他選項如「putting on a jacket」（穿夾克）、「adjusting a computer monitor」（調整電腦螢幕）或「putting away her laptop」（收起筆電）均未在照片中出現。",
+    "skill_tag": "listening_photo",
+    "difficulty": "A2",
+    "vocabulary": [
+      "presentation",
+      "jacket",
+      "monitor",
+      "laptop"
+    ],
+    "imageAlt": "One of the men is giving a presentation.",
+    "audioScript": "(A) One of the men is giving a presentation.\n(B) One of the men is putting on a jacket.\n(C) One of the women is adjusting a computer monitor.\n(D) One of the women is putting away her laptop."
+  },
+  {
+    "id": "p1-ed-0006",
+    "part": "Part 1",
+    "question": "Look at the photo and choose the statement that best describes it.",
+    "choices": {
+      "A": "Kitchen towels have been placed on a countertop.",
+      "B": "Some lamps are hanging from the ceiling.",
+      "C": "A cupboard door has been left open.",
+      "D": "Some cooking utensils are being arranged on a table."
+    },
+    "answer": "B",
+    "explanation_zh": "照片中可見多盞燈具從天花板垂下，因此選項「Some lamps are hanging from the ceiling」正確。其他選項描述的廚房毛巾、櫥櫃門或烹飪用具在照片中並未出現。",
+    "skill_tag": "listening_photo",
+    "difficulty": "A2",
+    "vocabulary": [
+      "lamp",
+      "ceiling",
+      "hang"
+    ],
+    "imageAlt": "Some lamps are hanging from the ceiling.",
+    "audioScript": "(A) Kitchen towels have been placed on a countertop.\n(B) Some lamps are hanging from the ceiling.\n(C) A cupboard door has been left open.\n(D) Some cooking utensils are being arranged on a table."
+  },
+  {
     "id": "p2-ed-0001",
     "part": "Part 2",
     "question": "Have the company vehicles in the parking lot been cleaned?",
@@ -18,7 +152,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "I put it in the recycling bin."
     },
     "answer": "A",
-    "explanation_zh": "問句為現在完成式的 yes/no 疑問句，詢問公司車輛是否已清洗。正確回答應直接回應清洗狀態，選項「No, not yet.」符合語意，表示尚未完成。",
+    "explanation_zh": "問句為一般疑問句，詢問停車場的公司車輛是否已清洗，正確回答應針對「是否已完成」回應。選項 (A) No, not yet. 直接否定並表示尚未完成，符合題意。",
     "skill_tag": "listening_response",
     "difficulty": "A2",
     "vocabulary": [
@@ -38,13 +172,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "At the end of this quarter."
     },
     "answer": "A",
-    "explanation_zh": "問句以 How much 開頭，詢問預算增加的金額或比例。正確回答應提供具體數字或百分比，選項「About 10 percent.」直接回應了增加幅度。",
+    "explanation_zh": "問句以 How much 開頭，詢問預算增加的具體數額或比例。選項 (A) About 10 percent. 直接提供百分比，符合題意。",
     "skill_tag": "listening_response",
-    "difficulty": "A2",
+    "difficulty": "B1",
     "vocabulary": [
-      "budget",
-      "increase",
-      "percent"
+      "budget increase",
+      "percent",
+      "quarter"
     ],
     "audioScript": "Q: How much will the budget increase next year?\n(A) About 10 percent.\n(B) Sorry, I must have dropped it.\n(C) At the end of this quarter."
   },
@@ -58,7 +192,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "Three months' parental leave."
     },
     "answer": "A",
-    "explanation_zh": "問句為附加問句，確認對方是否會在離開前與 Mr. Woodman 開會。正確回答應直接回應會議時間，選項「Yes, right after lunch.」表示同意並補充具體時間。",
+    "explanation_zh": "問句為附加問句，確認是否將與 Mr. Woodman 開會，正確回答應針對會議時間或安排。選項 (A) Yes, right after lunch. 肯定回答並補充時間，符合題意。",
     "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
@@ -78,13 +212,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "The new manager was appointed today."
     },
     "answer": "B",
-    "explanation_zh": "問句為否定疑問句，詢問對方是否不打算預約眼科。正確回答應說明預約狀況，選項「I already scheduled one.」表示已預約，符合語境。",
+    "explanation_zh": "問句為否定疑問句，詢問是否安排眼科預約，正確回答應針對預約狀態。選項 (B) I already scheduled one. 表示已預約，符合題意。",
     "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
       "schedule",
-      "appointment",
-      "eye doctor"
+      "eye doctor appointment",
+      "appointed"
     ],
     "audioScript": "Q: Aren't you going to schedule an eye doctor appointment?\n(A) These glasses are not expensive.\n(B) I already scheduled one.\n(C) The new manager was appointed today."
   },
@@ -98,7 +232,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "Are you sure it can be repaired?"
     },
     "answer": "C",
-    "explanation_zh": "問句為陳述句，表示將嘗試修理影印機。正確回答應針對修理可行性提出疑問，選項「Are you sure it can be repaired?」直接詢問是否確定能修好，符合對話邏輯。",
+    "explanation_zh": "問句為陳述句後接疑問語氣，表達嘗試修理影印機，正確回答應針對修理可行性。選項 (C) Are you sure it can be repaired? 提出質疑，符合題意。",
     "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
@@ -118,7 +252,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "Let me leave them at the front desk."
     },
     "answer": "C",
-    "explanation_zh": "問句是「這些手冊該怎麼處理？」，屬於詢問行動建議的疑問句。選項 (C)「我把它們留在前台」直接回應了如何處理手冊，符合題意。其他選項 (A) 表示有空幫忙，但未針對處理方式；(B) 描述地點，與問題無關。",
+    "explanation_zh": "問句是詢問如何處理這些手冊，屬於建議或指示類問題。正確答案「Let me leave them at the front desk」直接提出了具體的處理方式，符合問句的預期回應。",
     "skill_tag": "listening_response",
     "difficulty": "A2",
     "vocabulary": [
@@ -137,13 +271,12 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "The entire management team."
     },
     "answer": "B",
-    "explanation_zh": "問句是「政策會議是否已重新安排時間？」，為 yes/no 疑問句。選項 (B)「是的，改到下週一舉行」直接肯定並提供新時間，正確回應問題。選項 (A) 提及「人事政策」，與會議時間無關；(C) 說「整個管理團隊」，也未回答問題。",
+    "explanation_zh": "問句是現在完成式的疑問句，詢問政策會議是否已重新安排時間。正確答案「Yes, it's happening next Monday instead」先肯定回答，再補充新的時間，完全對應問句的內容。",
     "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
       "policy meeting",
-      "rescheduled",
-      "management team"
+      "rescheduled"
     ],
     "audioScript": "Q: Has the policy meeting been rescheduled?\n(A) The staffing policy.\n(B) Yes, it's happening next Monday instead.\n(C) The entire management team."
   },
@@ -157,13 +290,12 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "(C) The topic has just changed."
     },
     "answer": "B",
-    "explanation_zh": "問句是「我們何不在去研討會的路上順道去倉庫？」，為建議型疑問句，通常期待同意或拒絕。選項 (B)「當然，我們有時間這麼做」表示同意並確認可行，符合語境。選項 (A) 提到街道名稱，未回應建議；(C) 說話題改變，與問題無關。",
+    "explanation_zh": "問句以「Why don't we」開頭，是提出建議的句型。正確答案「Sure, we have time for that」表示同意並確認有時間，是對建議的典型正面回應。",
     "skill_tag": "listening_response",
-    "difficulty": "B1",
+    "difficulty": "A2",
     "vocabulary": [
       "warehouse",
-      "workshop",
-      "stop by"
+      "workshop"
     ],
     "audioScript": "Q: Why don't we stop by the warehouse on our way to the workshop?\n(A) (A) The store on Oak Street.\n(B) (B) Sure, we have time for that.\n(C) (C) The topic has just changed."
   },
@@ -177,7 +309,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "(C) We need a table for six."
     },
     "answer": "B",
-    "explanation_zh": "問句是「你嚐過我們有名的鮭魚料理嗎？」，為 yes/no 疑問句。選項 (B)「是的，很好吃」直接肯定並給予正面評價，正確回應。選項 (A) 表示無法準時到達，與品嚐經驗無關；(C) 要求六人桌，也不相關。",
+    "explanation_zh": "問句是現在完成式的疑問句，詢問對方是否嚐過某道菜。正確答案「Yes, it was delicious」先肯定回答，再表達對菜餚的評價，直接對應問句。",
     "skill_tag": "listening_response",
     "difficulty": "A2",
     "vocabulary": [
@@ -196,13 +328,12 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "(C) There're several job openings on our design team."
     },
     "answer": "B",
-    "explanation_zh": "問句是「今晚音樂會的開場表演者是誰？」，詢問人物身份。選項 (B)「Sandra 訂了票」雖然未直接回答表演者，但提供了一個人名，在多益聽力中常作為間接回應；其他選項 (A) 說太擁擠，(C) 談工作職缺，均與問題無關。",
+    "explanation_zh": "問句以「Who」開頭，詢問今晚音樂會的開場表演者是誰。正確答案「Sandra booked tickets」雖然未直接說出人名，但提供了與表演者相關的資訊（Sandra 訂了票），是合理的間接回應。",
     "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
       "opening act",
-      "concert",
-      "job openings"
+      "concert"
     ],
     "audioScript": "Q: Who's the opening act at tonight's concert?\n(A) (A) It's too crowded here.\n(B) (B) Sandra booked tickets.\n(C) (C) There're several job openings on our design team."
   },
@@ -216,13 +347,12 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "(C) In the conference room, I think."
     },
     "answer": "A",
-    "explanation_zh": "問句是「軟體示範何時開始？」，詢問時間。選項 (A)「時間表已用電子郵件寄給大家」間接提供了獲取時間資訊的方式，符合多益聽力常見的間接回應模式。選項 (B) 說「很多吸引人的功能」，與時間無關；(C) 回答地點「在會議室」，也不正確。",
+    "explanation_zh": "問句以「When」開頭，詢問軟體展示會何時開始。正確答案「The schedule was e-mailed to everyone」提供了時間資訊的來源（行程表已寄出），暗示時間可從郵件得知，是對時間問句的合理回應。",
     "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
       "software demonstrations",
-      "schedule",
-      "e-mailed"
+      "schedule"
     ],
     "audioScript": "Q: When do the software demonstrations start?\n(A) (A) The schedule was e-mailed to everyone.\n(B) (B) A lot of attractive features.\n(C) (C) In the conference room, I think."
   },
@@ -236,12 +366,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "(C) We're all set."
     },
     "answer": "C",
-    "explanation_zh": "問句是陳述句「衛生檢查員很快就會來餐廳」，正確回應應表示準備好了。選項 (C) We're all set 意為「我們都準備好了」，是對即將到來的檢查最直接且合理的回應。",
+    "explanation_zh": "問句是陳述句「衛生檢查員很快就會來餐廳」，表示一個即將發生的事實。選項「We're all set.」意為「我們都準備好了」，是對該陳述最直接且合理的回應，表示餐廳已準備就緒。",
     "skill_tag": "listening_response",
     "difficulty": "A2",
     "vocabulary": [
       "health inspector",
-      "restaurant"
+      "restaurant",
+      "all set"
     ],
     "audioScript": "Q: The health inspector will be visiting the restaurant soon.\n(A) (A) Take this to table three.\n(B) (B) I'm fine, thanks for asking.\n(C) (C) We're all set."
   },
@@ -255,12 +386,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "(C) The list of special guests."
     },
     "answer": "B",
-    "explanation_zh": "問句是過去式一般疑問句「你找到好的焊接專家了嗎？」，正確回應應回答是否找到。選項 (B) Yes, he starts next week 先肯定找到，再補充開始工作的時間，完全符合問句要求。",
+    "explanation_zh": "問句是過去式疑問句「你找到好的焊接專家了嗎？」，需要回答「是/否」或提供相關資訊。選項「Yes, he starts next week.」直接肯定回答，並補充開始工作的時間，符合問句要求。",
     "skill_tag": "listening_response",
-    "difficulty": "B1",
+    "difficulty": "A2",
     "vocabulary": [
       "welding specialist",
-      "start"
+      "starts",
+      "next week"
     ],
     "audioScript": "Q: Did you find a good welding specialist?\n(A) (A) I have some wedding invitation templates.\n(B) (B) Yes, he starts next week.\n(C) (C) The list of special guests."
   },
@@ -274,9 +406,9 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "(C) I wasn't involved."
     },
     "answer": "C",
-    "explanation_zh": "問句以 How 開頭詢問「洗手間的磁磚圖案是如何選擇的？」，正確回應應說明選擇過程或相關情況。選項 (C) I wasn't involved 表示「我沒有參與」，是對選擇過程的合理說明。",
+    "explanation_zh": "問句以 How 開頭詢問「廁所磁磚圖案是如何選擇的？」，需要說明選擇方式或相關情況。選項「I wasn't involved.」表示「我沒有參與」，是對選擇過程的合理回應，說明自己不知情。",
     "skill_tag": "listening_response",
-    "difficulty": "B1",
+    "difficulty": "A2",
     "vocabulary": [
       "tile pattern",
       "restroom",
@@ -294,12 +426,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "(C) They're training now."
     },
     "answer": "B",
-    "explanation_zh": "問句以 When 開頭詢問「我們何時為新員工訂購辦公用品？」，正確回應必須提供時間。選項 (B) Next week on Tuesday 明確給出時間，符合問句要求。",
+    "explanation_zh": "問句以 When 開頭詢問「我們何時為新員工訂購辦公用品？」，需要回答時間。選項「Next week on Tuesday.」直接給出具體日期，符合問句要求。",
     "skill_tag": "listening_response",
     "difficulty": "A2",
     "vocabulary": [
       "office supplies",
-      "new employees"
+      "new employees",
+      "ordering"
     ],
     "audioScript": "Q: When are we ordering office supplies for new employees?\n(A) (A) In front of the storage closet.\n(B) (B) Next week on Tuesday.\n(C) (C) They're training now."
   },
@@ -313,12 +446,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "$250 per year."
     },
     "answer": "A",
-    "explanation_zh": "問句是附加問句「花園燈將是太陽能供電的，對吧？」，正確回應應確認或說明現狀。選項 (A) We are still in the planning stages 表示「我們仍在規劃階段」，委婉說明尚未確定，是合理的回應。",
+    "explanation_zh": "問句是附加問句「花園燈將使用太陽能，對吧？」，期望確認或補充資訊。選項「We are still in the planning stages.」表示仍在規劃階段，暗示尚未確定，是對該問句的合理回應。",
     "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
       "solar-powered",
-      "planning stages"
+      "planning stages",
+      "garden lights"
     ],
     "audioScript": "Q: The garden lights are going to be solar-powered, right?\n(A) We are still in the planning stages.\n(B) Yes, this plant grows best in the shade.\n(C) $250 per year."
   },
@@ -332,7 +466,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "Around 2:30."
     },
     "answer": "B",
-    "explanation_zh": "問句以 Where 開頭詢問「我在哪裡可以買到這台相機的充電器？」，正確回應應指出購買地點或方式。選項 (B) I can order one for you 表示「我可以幫你訂一個」，提供了替代解決方案，符合對話邏輯。",
+    "explanation_zh": "問句以 Where 開頭詢問「我在哪裡可以買到這台相機的充電器？」，需要回答地點或購買方式。選項「I can order one for you.」表示可以代為訂購，直接提供解決方案，符合問句需求。",
     "skill_tag": "listening_response",
     "difficulty": "A2",
     "vocabulary": [
@@ -352,7 +486,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "There's room for improvement."
     },
     "answer": "A",
-    "explanation_zh": "問句是「我需要預訂會議室嗎？」，這是一般疑問句，回答需針對是否需要預訂。選項 (A) Yes, Jeff will show you how. 直接肯定回答並提供協助，符合題意。選項 (B) 提到預訂旅程，與會議室無關；選項 (C) 說「還有改進空間」，是雙關語，但未回應問題。",
+    "explanation_zh": "問句為一般疑問句「Do I need to...?」，詢問是否需要預訂會議室。選項 (A) Yes, Jeff will show you how. 直接肯定回答，並提供後續協助，符合題意。選項 (B) 提到訂機票，與會議室無關；選項 (C) 說「有進步空間」，是雙關語，與問題無關。",
     "skill_tag": "listening_response",
     "difficulty": "A2",
     "vocabulary": [
@@ -372,13 +506,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "No, he should be in the office."
     },
     "answer": "B",
-    "explanation_zh": "問句是「新部門主管何時開始上班？」，以 When 開頭詢問時間。選項 (B) Mr. Anderson is not retiring until May. 間接回答了開始時間（五月後），因為新主管接替退休的 Anderson。選項 (A) 回答「是，為了暑假」與時間不符；選項 (C) 回答「不，他應該在辦公室」未提供時間。",
+    "explanation_zh": "問句以疑問詞「When」開頭，詢問新部門主管何時開始上班。選項 (B) Mr. Anderson is not retiring until May. 間接回答了時間點（五月前不退休，暗示新主管可能五月後才上任），是唯一與時間相關的合理回應。選項 (A) 回答「是的，為了暑假」，與問句不符；選項 (C) 回答「不，他應該在辦公室」，未提供時間。",
     "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
       "department director",
       "supposed to",
-      "retire"
+      "retiring"
     ],
     "audioScript": "Q: When's the new department director supposed to start?\n(A) Yes, for a summer vacation.\n(B) Mr. Anderson is not retiring until May.\n(C) No, he should be in the office."
   },
@@ -392,7 +526,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "Tomorrow's fine."
     },
     "answer": "C",
-    "explanation_zh": "問句是「我應該現在完成設計這些傳單，還是可以等到明天？」，提供兩個選項。選項 (C) Tomorrow's fine. 直接選擇「等到明天」，符合問句的第二個選項。選項 (A) 說「我要飛往舊金山」，與問題無關；選項 (B) 說「在等候室」，也不相關。",
+    "explanation_zh": "問句為選擇疑問句「Should I...now, or can it wait until tomorrow?」，詢問是否可延至明天再做。選項 (C) Tomorrow's fine. 直接回答「明天沒問題」，確認可以等待，完全對應問句的選擇。選項 (A) 提到飛往舊金山，與問題無關；選項 (B) 說「在等候室」，也不相關。",
     "skill_tag": "listening_response",
     "difficulty": "A2",
     "vocabulary": [
@@ -412,7 +546,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "No, you shouldn't have to wait long."
     },
     "answer": "B",
-    "explanation_zh": "問句是「這台筆電變得很慢了」，這是一個陳述句，暗示問題需要解決。選項 (B) When did you last check for viruses? 提出合理建議（檢查病毒），是對問題的適當回應。選項 (A) 說「出席率低」，與筆電無關；選項 (C) 說「不，你不該等太久」，未針對問題。",
+    "explanation_zh": "問句為陳述句「This laptop is becoming quite slow.」，抱怨筆電變慢，暗示需要解決方案。選項 (B) When did you last check for viruses? 提出合理建議（檢查病毒），是對問題的直接回應。選項 (A) 提到出席率低，與筆電無關；選項 (C) 說「不，你不必等太久」，也不相關。",
     "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
@@ -432,7 +566,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "Everything is covered under the warranty plan."
     },
     "answer": "C",
-    "explanation_zh": "問句是「修理費用是多少？」，以 How much 詢問金額。選項 (C) Everything is covered under the warranty plan. 表示所有費用由保固計畫負擔，間接回答費用為零或已包含。選項 (A) 回答「大約三天」，是時間而非金額；選項 (B) 說「我希望你們兩人一組做」，與問題無關。",
+    "explanation_zh": "問句以疑問詞「How much」開頭，詢問維修費用。選項 (C) Everything is covered under the warranty plan. 表示所有費用都在保固範圍內，因此不需花錢，間接回答了費用問題。選項 (A) 回答時間（三天後），與金額無關；選項 (B) 說「成對進行」，也不相關。",
     "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
@@ -452,7 +586,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "You can check in after 10 o'clock."
     },
     "answer": "A",
-    "explanation_zh": "問句是「你為什麼不去另一家五金店看看價格？」，這是一個建議句，以 Why don't you 開頭。選項 (A) Do you know of a good one? 反問對方是否知道好的店家，是對建議的自然回應。選項 (B) 說「她是軟體工程師」，與五金店無關；選項 (C) 說「你可以在10點後辦理入住」，也不相關。",
+    "explanation_zh": "問句為建議句型「Why don't you...?」，建議去不同五金行比價。選項 (A) Do you know of a good one? 反問對方是否知道好的五金行，表示接受建議並尋求進一步資訊，是合理的回應。選項 (B) 提到軟體工程師，與五金行無關；選項 (C) 說「10點後可辦理入住」，也不相關。",
     "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
@@ -472,7 +606,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "Over 20 people."
     },
     "answer": "B",
-    "explanation_zh": "問句是請求當天下午帶看房產，屬於對時間安排的回應。選項「Sorry, I won't have time until Friday」直接表示無法配合，是合理的拒絕答覆。其他選項「It has a large backyard」描述房產特徵，與請求無關；「Over 20 people」則答非所問。",
+    "explanation_zh": "問句為一般疑問句，詢問「今天下午能否帶我參觀Abbey Street的房產」，正確回應應針對時間安排作答。選項「Sorry, I won't have time until Friday」直接表示今天下午沒空，直到週五才有時間，符合問句的請求與時間限制。",
     "skill_tag": "listening_response",
     "difficulty": "A2",
     "vocabulary": [
@@ -492,7 +626,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "C": "Let me show you a few more."
     },
     "answer": "A",
-    "explanation_zh": "問句詢問明天誰負責產品示範，屬於對人選的提問。選項「We're waiting for confirmation」表示尚未確定人選，符合語境。其他選項「At the Wilson Hotel」回答地點，與問題不符；「Let me show you a few more」則是提議，非直接回應。",
+    "explanation_zh": "問句以Who開頭，詢問「誰排定明天做產品示範」，正確回應應提供人選或相關狀態。選項「We're waiting for confirmation」說明尚未確定人選，正在等待確認，間接回答了Who的問題，符合對話邏輯。",
     "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
@@ -513,13 +647,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "At a cleaning service"
     },
     "answer": "C",
-    "explanation_zh": "對話中提及「power tools（電動工具）」、「paint section（油漆區）」以及「paint-mixing machine（油漆調色機）」，這些都是五金行或建材行常見的商品與區域，因此最可能的地點是五金行。",
+    "explanation_zh": "對話中提及「power tools（電動工具）」、「paint section（油漆區）」及「paint-mixing machine（油漆調色機）」，這些都是五金行或建材行常見的商品與區域，因此推斷對話發生在五金行。",
     "skill_tag": "listening_inference",
     "difficulty": "B1",
     "vocabulary": [
       "power tools",
       "paint section",
-      "hardware store"
+      "paint-mixing machine"
     ],
     "transcript": "W: Hassan, I've finished restocking the power tools. Ted said that you wanted to talk to me about an issue we're having in the paint section.\nM: That's right. The paint-mixing machine has broken down. So, we can't mix any custom paints for customers at the moment.\nW: Hmm... I wonder if it's something easy to fix.\nM: I'll take a look at the user manual to see if I can figure out the problem.",
     "question_order": 1
@@ -535,13 +669,12 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "Some broken equipment"
     },
     "answer": "D",
-    "explanation_zh": "男士明確說「The paint-mixing machine has broken down（油漆調色機故障了）」，因此問題是設備損壞，對應選項「Some broken equipment」。",
+    "explanation_zh": "男士明確指出「The paint-mixing machine has broken down（油漆調色機故障了）」，因此造成問題的原因是設備損壞。",
     "skill_tag": "listening_detail",
     "difficulty": "A2",
     "vocabulary": [
       "broken down",
-      "equipment",
-      "paint-mixing machine"
+      "custom paints"
     ],
     "transcript": "W: Hassan, I've finished restocking the power tools. Ted said that you wanted to talk to me about an issue we're having in the paint section.\nM: That's right. The paint-mixing machine has broken down. So, we can't mix any custom paints for customers at the moment.\nW: Hmm... I wonder if it's something easy to fix.\nM: I'll take a look at the user manual to see if I can figure out the problem.",
     "question_order": 2
@@ -557,12 +690,11 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "Process a payment"
     },
     "answer": "C",
-    "explanation_zh": "男士說「I'll take a look at the user manual（我會查看使用手冊）」，因此他將要檢查手冊，對應選項「Check a manual」。注意題目問的是男士而非女士，但對話中男士說了這句話。",
-    "skill_tag": "listening_detail",
+    "explanation_zh": "男士說「I'll take a look at the user manual（我會查看使用手冊）」，因此他將檢查手冊來嘗試解決問題。",
+    "skill_tag": "listening_next_action",
     "difficulty": "A2",
     "vocabulary": [
       "user manual",
-      "take a look at",
       "figure out"
     ],
     "transcript": "W: Hassan, I've finished restocking the power tools. Ted said that you wanted to talk to me about an issue we're having in the paint section.\nM: That's right. The paint-mixing machine has broken down. So, we can't mix any custom paints for customers at the moment.\nW: Hmm... I wonder if it's something easy to fix.\nM: I'll take a look at the user manual to see if I can figure out the problem.",
@@ -579,13 +711,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "A journalist"
     },
     "answer": "C",
-    "explanation_zh": "對話中男人提到他為 Osborne 女士的客廳做設計，並說她對那個房間有明確的願景，他試圖遵循。這顯示他的職業是室內設計師。",
+    "explanation_zh": "對話中男子說「She had a clear vision for that room, so I tried to follow it」，並提到自己設計了客廳、選用了木質飾板，這些都顯示他的職業是室內設計師。",
     "skill_tag": "listening_inference",
     "difficulty": "B1",
     "vocabulary": [
-      "design",
+      "interior designer",
       "vision",
-      "interior designer"
+      "feature"
     ],
     "transcript": "W: I've reviewed your design for Ms. Osborne's living room, and I think you've done a great job. I love the unique style!\nM: Thank you. She had a clear vision for that room, so I tried to follow it.\nW: There's just one adjustment needed, though.\n We can't use the wood panels you selected because they've been discontinued by the manufacturer.\nM: I hadn't realized that. They're a major feature of my design.\nW: Well, you might be able to achieve the same look with wallpaper. Check out the photos of the room that Yuki did for Mr. Harris. Then you can see what I mean.",
     "question_order": 1
@@ -601,7 +733,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "A missed deadline"
     },
     "answer": "C",
-    "explanation_zh": "女人說無法使用男人選的木質鑲板，因為製造商已停產該產品。這表示她擔心的是材料無法取得。",
+    "explanation_zh": "女子說「We can't use the wood panels you selected because they've been discontinued by the manufacturer」，表示她擔心的是選用的材料已經停產、無法取得。",
     "skill_tag": "listening_detail",
     "difficulty": "B1",
     "vocabulary": [
@@ -623,13 +755,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "Placing a rush order"
     },
     "answer": "B",
-    "explanation_zh": "女人建議男人查看 Yuki 為 Harris 先生設計的房間照片，來了解用壁紙達到類似效果的意思。這是在建議他看一些圖片。",
+    "explanation_zh": "女子建議「Check out the photos of the room that Yuki did for Mr. Harris. Then you can see what I mean」，也就是請男子去看一些照片（影像）。",
     "skill_tag": "listening_detail",
-    "difficulty": "B1",
+    "difficulty": "A2",
     "vocabulary": [
-      "wallpaper",
+      "check out",
       "photos",
-      "achieve the same look"
+      "wallpaper"
     ],
     "transcript": "W: I've reviewed your design for Ms. Osborne's living room, and I think you've done a great job. I love the unique style!\nM: Thank you. She had a clear vision for that room, so I tried to follow it.\nW: There's just one adjustment needed, though.\n We can't use the wood panels you selected because they've been discontinued by the manufacturer.\nM: I hadn't realized that. They're a major feature of my design.\nW: Well, you might be able to achieve the same look with wallpaper. Check out the photos of the room that Yuki did for Mr. Harris. Then you can see what I mean.",
     "question_order": 3
@@ -645,13 +777,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "An accountant"
     },
     "answer": "A",
-    "explanation_zh": "對話中男性提到「the real estate agent said that it is in an excellent location」以及隨後向女性打招呼「Hi, Cindy」，可知他們正在與房地產經紀人會面。因此正確答案為 (A) A real estate agent。",
+    "explanation_zh": "對話中男性提到「the real estate agent said that it is in an excellent location」，隨後女性出現並被稱呼為 Cindy，因此他們正在與房地產經紀人會面。",
     "skill_tag": "listening_detail",
     "difficulty": "A2",
     "vocabulary": [
       "real estate agent",
-      "dealership",
-      "location"
+      "car dealership",
+      "in person"
     ],
     "transcript": "M1: I'm glad we were both able to visit this site in person.\nM2: Me, too. I hope it'll be suitable for our car dealership.\nM1: Well, the real estate agent said that it is in an excellent location. Oh, here she is now. Hi, Cindy.\nW: Good morning. So, what's your first impression?\nM2: It's a great neighborhood. But we need a lot of space to display our vehicles. I'm worried about the small size.\nM1: Right. We'll need extra room for customer parking as well.\nW: You know, there's a grassy area on the east side that could be paved. Let me show you the property line on the map.",
     "question_order": 1
@@ -667,7 +799,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "A parking fee is too high."
     },
     "answer": "B",
-    "explanation_zh": "第二位男性說「I'm worried about the small size」，第一位男性也補充「We'll need extra room for customer parking」，顯示他們擔心場地不夠大。因此正確答案為 (B) A site is not large enough。",
+    "explanation_zh": "第二位男性說「I'm worried about the small size」，第一位男性也補充「We'll need extra room for customer parking」，顯示他們擔心場地不夠大。",
     "skill_tag": "listening_detail",
     "difficulty": "A2",
     "vocabulary": [
@@ -689,13 +821,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "Take some measurements"
     },
     "answer": "B",
-    "explanation_zh": "女性說「Let me show you the property line on the map」，暗示她接下來會展示地圖或文件給他們看。因此正確答案為 (B) View a document。",
+    "explanation_zh": "女性說「Let me show you the property line on the map」，暗示她接下來會展示地圖或文件，因此最可能的下一步是查看文件。",
     "skill_tag": "listening_next_action",
     "difficulty": "B1",
     "vocabulary": [
       "property line",
-      "map",
-      "paved"
+      "paved",
+      "grassy area"
     ],
     "transcript": "M1: I'm glad we were both able to visit this site in person.\nM2: Me, too. I hope it'll be suitable for our car dealership.\nM1: Well, the real estate agent said that it is in an excellent location. Oh, here she is now. Hi, Cindy.\nW: Good morning. So, what's your first impression?\nM2: It's a great neighborhood. But we need a lot of space to display our vehicles. I'm worried about the small size.\nM1: Right. We'll need extra room for customer parking as well.\nW: You know, there's a grassy area on the east side that could be paved. Let me show you the property line on the map.",
     "question_order": 3
@@ -711,9 +843,9 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "To inquire about returns"
     },
     "answer": "B",
-    "explanation_zh": "女士開頭說原本今天要送貨，但詢問能否改為明天送達，因為道路施工無法進入入口。因此她打電話的目的是要重新安排送貨時間。",
+    "explanation_zh": "女士開頭說原本要今天送貨，但詢問能否改為明天，因為道路正在緊急維修，難以進出入口。這表示她來電的目的是要重新安排送貨時間，因此正確答案為 (B) To reschedule a delivery。",
     "skill_tag": "listening_main_idea",
-    "difficulty": "A2",
+    "difficulty": "B1",
     "vocabulary": [
       "delivery",
       "reschedule",
@@ -733,7 +865,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "She is redecorating her office."
     },
     "answer": "A",
-    "explanation_zh": "女士提到這些箱子是用來搬運辦公室物品的容器，而且他們還沒準備好開始打包。因此她訂購這些物品是為了運送物品。",
+    "explanation_zh": "女士提到這些容器是用來搬運辦公室物品的，而且他們還沒準備好開始打包。這表示她訂購這些物品是為了搬運東西，因此正確答案為 (A) She plans to transport some items。",
     "skill_tag": "listening_detail",
     "difficulty": "B1",
     "vocabulary": [
@@ -755,12 +887,12 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "Check an employee's availability"
     },
     "answer": "D",
-    "explanation_zh": "男士最後說要打電話給司機Milton，看看他是否能改天送貨。因此他下一步是確認員工是否有空。",
+    "explanation_zh": "男士最後說要打電話給司機 Milton，看看他是否能改天送貨。這表示他接下來要確認員工是否有空，因此正確答案為 (D) Check an employee's availability。",
     "skill_tag": "listening_next_action",
     "difficulty": "B1",
     "vocabulary": [
-      "driver",
       "availability",
+      "driver",
       "call"
     ],
     "transcript": "W: Good morning. This is Pamela at Lubbock Sales. You were supposed to deliver some boxes today, but I'm wondering if you can do it tomorrow instead. They're carrying out emergency repairs on our road, so it's difficult to access our entrance.\nM: Don't you need the items urgently?\nW: We can wait another day. They're containers for moving our office items, and we aren't quite ready to start packing anyway.\nM: I see. Then, let me call our driver, Milton, to see if he can do it.",
@@ -777,13 +909,12 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "At an employment agency"
     },
     "answer": "B",
-    "explanation_zh": "男士接聽電話時說「Good morning, Chapman Health Center」，表示他在健康中心工作，因此正確答案為 (B) At a medical clinic。",
+    "explanation_zh": "男士開頭說「Good morning, Chapman Health Center」，這是一家醫療中心，因此他工作的地方是醫療診所。",
     "skill_tag": "listening_detail",
     "difficulty": "A2",
     "vocabulary": [
       "health center",
-      "clinic",
-      "receptionist"
+      "clinic"
     ],
     "transcript": "M: Good morning, Chapman Health Center.\nW: Hi, I have a doctor's appointment on Thursday at ten, but I need to reschedule it.\nM: I can help you with that. Could you please tell me your name?\nW: It's Bonnie Phillips. I'm supposed to have my annual checkup, but now I need to fly to Sacramento for a work conference.\nM: Are you available next Wednesday at nine o'clock?\nW: Yes. Thanks.\nM: Okay. Let's see ... your insurance policy expires in November, right?\nW: I'll have to check. Just a moment.",
     "question_order": 1
@@ -799,9 +930,9 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "She is not feeling well."
     },
     "answer": "B",
-    "explanation_zh": "女士說原本有年度健檢，但「now I need to fly to Sacramento for a work conference」，因此需要更改預約，正確答案為 (B) She will take a business trip。",
+    "explanation_zh": "女士說她原本預約年度檢查，但現在需要飛到沙加緬度參加工作會議，因此需要更改預約的原因是商務出差。",
     "skill_tag": "listening_detail",
-    "difficulty": "B1",
+    "difficulty": "A2",
     "vocabulary": [
       "reschedule",
       "annual checkup",
@@ -821,13 +952,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "Contact another branch"
     },
     "answer": "C",
-    "explanation_zh": "男士問「your insurance policy expires in November, right?」，女士回答「I'll have to check. Just a moment.」，表示她接下來會確認保單到期日，正確答案為 (C) Confirm an expiration date。",
+    "explanation_zh": "男士問「your insurance policy expires in November, right?」，女士回答「I'll have to check. Just a moment.」，表示她接下來會確認保險到期日。",
     "skill_tag": "listening_next_action",
     "difficulty": "B1",
     "vocabulary": [
       "insurance policy",
       "expire",
-      "expiration date"
+      "confirm"
     ],
     "transcript": "M: Good morning, Chapman Health Center.\nW: Hi, I have a doctor's appointment on Thursday at ten, but I need to reschedule it.\nM: I can help you with that. Could you please tell me your name?\nW: It's Bonnie Phillips. I'm supposed to have my annual checkup, but now I need to fly to Sacramento for a work conference.\nM: Are you available next Wednesday at nine o'clock?\nW: Yes. Thanks.\nM: Okay. Let's see ... your insurance policy expires in November, right?\nW: I'll have to check. Just a moment.",
     "question_order": 3
@@ -843,13 +974,15 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "At an appliance store"
     },
     "answer": "C",
-    "explanation_zh": "對話中男子提到「menu（菜單）」、「main dishes（主菜）」、「desserts（甜點）」以及「cooks（廚師）」，這些詞彙都與餐飲業相關，因此最可能的工作場所是咖啡廳。",
+    "explanation_zh": "對話中男士提到「menu（菜單）」、「main dishes（主菜）」和「desserts（甜點）」，女士則提到「cooks（廚師）」和「training period（培訓期）」，這些關鍵詞都指向餐飲業，因此最可能的工作地點是咖啡廳。",
     "skill_tag": "listening_inference",
     "difficulty": "B1",
     "vocabulary": [
       "menu",
       "main dishes",
-      "desserts"
+      "desserts",
+      "cooks",
+      "training period"
     ],
     "transcript": "M: Christina, most of the feedback on the customer comment cards is positive. However, there were quite a few complaints about our menu being so limited.\nW: I didn't realize that was an issue.\nM: Well, I thought maybe we could add a better variety of main dishes.\nW: Hmm ... All of our cooks would have to learn how to make those, and the training period is already quite long.\nM: Then how about just adding more desserts? Steven makes all of them, so the change wouldn't affect others. I'm sure he could handle it, as he's worked in the industry for a long time.",
     "question_order": 1
@@ -865,13 +998,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "To suggest changing a schedule"
     },
     "answer": "A",
-    "explanation_zh": "男子提議增加主菜種類，女子回應「the training period is already quite long」，暗示訓練時間已經很長，無法再增加新菜色，因此是用來拒絕男子的建議。",
+    "explanation_zh": "男士提議增加主菜種類，女士回應「培訓期已經很長了」，暗示增加新菜色需要額外培訓，因此她是在委婉拒絕男士的建議。",
     "skill_tag": "listening_detail",
     "difficulty": "B1",
     "vocabulary": [
-      "training period",
       "suggestion",
-      "reject"
+      "reject",
+      "training period"
     ],
     "transcript": "M: Christina, most of the feedback on the customer comment cards is positive. However, there were quite a few complaints about our menu being so limited.\nW: I didn't realize that was an issue.\nM: Well, I thought maybe we could add a better variety of main dishes.\nW: Hmm ... All of our cooks would have to learn how to make those, and the training period is already quite long.\nM: Then how about just adding more desserts? Steven makes all of them, so the change wouldn't affect others. I'm sure he could handle it, as he's worked in the industry for a long time.",
     "question_order": 2
@@ -887,13 +1020,12 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "He may have trouble with a workload."
     },
     "answer": "A",
-    "explanation_zh": "男子說「I'm sure he could handle it, as he's worked in the industry for a long time」，直接指出 Steven 在餐飲業工作多年，因此經驗豐富。",
+    "explanation_zh": "男士提到Steven時說「he's worked in the industry for a long time」，直接說明Steven有豐富的經驗，因此正確答案為 (A) He has a lot of experience。",
     "skill_tag": "listening_detail",
     "difficulty": "A2",
     "vocabulary": [
-      "handle",
-      "industry",
-      "experience"
+      "experience",
+      "industry"
     ],
     "transcript": "M: Christina, most of the feedback on the customer comment cards is positive. However, there were quite a few complaints about our menu being so limited.\nW: I didn't realize that was an issue.\nM: Well, I thought maybe we could add a better variety of main dishes.\nW: Hmm ... All of our cooks would have to learn how to make those, and the training period is already quite long.\nM: Then how about just adding more desserts? Steven makes all of them, so the change wouldn't affect others. I'm sure he could handle it, as he's worked in the industry for a long time.",
     "question_order": 3
@@ -909,7 +1041,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "At a gym"
     },
     "answer": "D",
-    "explanation_zh": "對話開頭男士問「你有我們健身房的通行證嗎？」，女士回答還未取得，並想了解課程，後續也提到團體課程與會員費，因此場景為健身房。",
+    "explanation_zh": "對話開頭男士問「你有我們健身房的通行證嗎？」（Do you have a pass to our gym?），隨後討論團體課程與會員費用，因此場景是健身房。",
     "skill_tag": "listening_main_idea",
     "difficulty": "A2",
     "vocabulary": [
@@ -931,7 +1063,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "Touring a facility"
     },
     "answer": "B",
-    "explanation_zh": "男士 Joseph 被要求解釋團體運動課程的系統，他說明可以線上報名並每週參加最多五堂課，這些包含在會員費中，因此他提供的是關於參加團體課程的資訊。",
+    "explanation_zh": "Joseph 說「你可以線上報名，每週最多參加五堂課」（You can sign up online and attend up to five per week），並說明這些包含在會員費中，因此他提供的是關於參加團體課程的資訊。",
     "skill_tag": "listening_detail",
     "difficulty": "B1",
     "vocabulary": [
@@ -953,13 +1085,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "She began studying online."
     },
     "answer": "B",
-    "explanation_zh": "女士說「我上個月才開始在那裡工作」，對應到她提到 Wesley Sales 員工有折扣，並詢問自己是否符合資格，因此她上個月開始了新工作。",
+    "explanation_zh": "女士說「我上個月才開始在那裡工作」（I just began working there last month），因此她上個月開始了一份新工作。",
     "skill_tag": "listening_detail",
     "difficulty": "A2",
     "vocabulary": [
+      "begin",
       "eligible",
-      "employee",
-      "discount"
+      "employee"
     ],
     "transcript": "M1: Good afternoon. Do you have a pass to our gym?\nW: Not yet. I'd like to know more about your classes.\nM1: Of course. My colleague can tell you more.\n Joseph, could you please explain our system for group exercise classes?\nM2: Sure. You can sign up online and attend up to five per week. These are included in your membership fees.\nW: That's great. Also, I heard that you give discounts to Wesley Sales employees. I just began working there last month. Am I eligible?",
     "question_order": 3
@@ -975,13 +1107,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "Pharmaceuticals"
     },
     "answer": "B",
-    "explanation_zh": "對話中男士提到「software programs」和「programmers」，女士則說要「remain competitive」並吸引「top talent」，這些關鍵詞都指向科技產業，因此最可能的工作行業是科技業。",
+    "explanation_zh": "對話中男士提到「software programs」和「programmers」，女士則提到「remain competitive」與「sales」，這些關鍵詞都指向科技產業，因此最可能的工作行業是科技業。",
     "skill_tag": "listening_main_idea",
     "difficulty": "B1",
     "vocabulary": [
       "software programs",
-      "programmers",
-      "competitive"
+      "competitive",
+      "industry"
     ],
     "transcript": "M: Demand for our software programs is still growing, Danielle. We need to expand our team of programmers, but we're having a lot of problems filling the positions.\nW: You know, if we want to remain competitive, we need to increase the annual salary we offer to the staff. That would help to retain good workers as well as attract the top talent for new workers.\nM: That sounds like a good idea, but would our current situation support that change?\nW: I believe so, since our sales have been strong.\n I'll look over our budget categories to see what's possible.",
     "question_order": 1
@@ -997,7 +1129,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "Raising salaries for employees"
     },
     "answer": "D",
-    "explanation_zh": "女士明確建議「increase the annual salary we offer to the staff」，並說明這能留住好員工及吸引頂尖人才，因此討論的改變是提高員工薪資。",
+    "explanation_zh": "女士明確建議「increase the annual salary we offer to the staff」，並說明這有助於留住好員工與吸引頂尖人才，因此討論的改變是提高員工薪資。",
     "skill_tag": "listening_detail",
     "difficulty": "B1",
     "vocabulary": [
@@ -1019,8 +1151,8 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "Gather feedback from the staff"
     },
     "answer": "C",
-    "explanation_zh": "女士在對話結尾說「I'll look over our budget categories to see what's possible」，意思是她會檢視預算類別，即審查財務數據，因此她主動提出要檢視一些財務資料。",
-    "skill_tag": "listening_detail",
+    "explanation_zh": "女士在對話結尾說「I'll look over our budget categories to see what's possible」，表示她願意檢視預算類別，也就是審查一些財務數據。",
+    "skill_tag": "listening_next_action",
     "difficulty": "B1",
     "vocabulary": [
       "budget categories",
@@ -1041,13 +1173,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "He has been overcharged."
     },
     "answer": "D",
-    "explanation_zh": "男子說他被收了兩倍正常金額的費用，並提到「I've been charged twice my normal amount」，因此問題是他被多收費了。",
+    "explanation_zh": "題目問男子打電話反映什麼問題。男子說「I've been charged twice my normal amount」（我被收取了兩倍正常費用），並提到「charged the full fee at both places」（兩處都被收了全額費用），因此正確答案為 (D) He has been overcharged（他被多收費）。",
     "skill_tag": "listening_main_idea",
     "difficulty": "B1",
     "vocabulary": [
-      "overcharge",
-      "bill",
-      "charged"
+      "overcharged",
+      "charged twice",
+      "bill"
     ],
     "transcript": "M: Hi, I'm calling because I just got my bill for\nSeptember and there's an issue. I've been\ncharged twice my normal amount.\n\nW: I'm sorry about that, sir. Our Internet company\nstrives to ensure accuracy. Could you please\ntell me your account number?\n\nM: Yes, it's 47801. I moved to a new home on\nthe fifteenth of last month, and it looks like I've\nbeen charged the full fee at both places.\n\nW: I see. Please wait while I look into this further.",
     "question_order": 1
@@ -1063,13 +1195,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "At an accounting firm"
     },
     "answer": "C",
-    "explanation_zh": "女子在對話中說「Our Internet company strives to ensure accuracy」，直接表明她任職於一家網路公司。",
+    "explanation_zh": "題目問女子在哪裡工作。女子說「Our Internet company strives to ensure accuracy」（我們的網路公司力求準確），並請男子提供帳號以便查詢，因此正確答案為 (C) At an Internet provider（在一家網路服務公司）。",
     "skill_tag": "listening_detail",
     "difficulty": "B1",
     "vocabulary": [
       "Internet provider",
-      "strive",
-      "accuracy"
+      "account number",
+      "strives to ensure"
     ],
     "transcript": "M: Hi, I'm calling because I just got my bill for\nSeptember and there's an issue. I've been\ncharged twice my normal amount.\n\nW: I'm sorry about that, sir. Our Internet company\nstrives to ensure accuracy. Could you please\ntell me your account number?\n\nM: Yes, it's 47801. I moved to a new home on\nthe fifteenth of last month, and it looks like I've\nbeen charged the full fee at both places.\n\nW: I see. Please wait while I look into this further.",
     "question_order": 2
@@ -1085,13 +1217,12 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "He visited the woman's company."
     },
     "answer": "A",
-    "explanation_zh": "男子提到「I moved to a new home on the fifteenth of last month」，明確指出他上個月搬了新家。",
+    "explanation_zh": "題目問男子上個月做了什麼。男子說「I moved to a new home on the fifteenth of last month」（我上個月15號搬到了新家），因此正確答案為 (A) He moved to a new address（他搬到新地址）。",
     "skill_tag": "listening_detail",
     "difficulty": "A2",
     "vocabulary": [
-      "move",
-      "address",
-      "last month"
+      "moved to a new home",
+      "address"
     ],
     "transcript": "M: Hi, I'm calling because I just got my bill for\nSeptember and there's an issue. I've been\ncharged twice my normal amount.\n\nW: I'm sorry about that, sir. Our Internet company\nstrives to ensure accuracy. Could you please\ntell me your account number?\n\nM: Yes, it's 47801. I moved to a new home on\nthe fifteenth of last month, and it looks like I've\nbeen charged the full fee at both places.\n\nW: I see. Please wait while I look into this further.",
     "question_order": 3
@@ -1107,7 +1238,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "An annual event"
     },
     "answer": "A",
-    "explanation_zh": "對話開頭女士提到「software developer position that my team is currently interviewing candidates for」，並討論應徵者經驗不足、需要擴大應徵者池，因此整段對話核心是關於一個職缺。",
+    "explanation_zh": "對話開頭女士提到「software developer position that my team is currently interviewing candidates for」，並討論擴大應徵者 pool 與調整薪資，因此談論的主題是職缺招募。",
     "skill_tag": "listening_main_idea",
     "difficulty": "B1",
     "vocabulary": [
@@ -1129,7 +1260,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "Operations management"
     },
     "answer": "C",
-    "explanation_zh": "女士負責面試軟體開發人員，並提到需要增加網頁開發經驗的應徵者，這與資訊科技部門的職責直接相關。",
+    "explanation_zh": "女士負責面試軟體開發者職位，並提到需要更多網頁開發經驗的應徵者，這與資訊科技部門的職責相符，因此她最可能任職於資訊科技部門。",
     "skill_tag": "listening_inference",
     "difficulty": "B1",
     "vocabulary": [
@@ -1151,7 +1282,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "To express confusion"
     },
     "answer": "A",
-    "explanation_zh": "女士說「專案經理已經提前了截止日期」，目的是向男士說明為何需要盡快獲得加薪決定的回覆，以強調時間緊迫。",
+    "explanation_zh": "女士說這句話是為了回應男士詢問需要多久回覆，她指出專案經理已將截止日期提前，藉此強調時間緊迫，需要加速處理。",
     "skill_tag": "listening_detail",
     "difficulty": "B1",
     "vocabulary": [
@@ -1173,12 +1304,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "Expanding overseas"
     },
     "answer": "A",
-    "explanation_zh": "題目問本集 podcast 的主題是什麼。講者開頭提到「digital self-promotion」及「viral marketing campaign」，這些都屬於線上廣告的範疇，因此正確答案為 (A) Online advertising。",
+    "explanation_zh": "題目問這個播客集數的主題是什麼。原文開頭提到「my topic is digital self-promotion」，並進一步說明要討論如何有效發起新的病毒式行銷活動（viral marketing campaign），這與線上廣告（Online advertising）直接相關。",
     "skill_tag": "listening_main_idea",
     "difficulty": "B1",
     "vocabulary": [
       "digital self-promotion",
-      "viral marketing campaign"
+      "viral marketing campaign",
+      "podcast"
     ],
     "transcript": "M: Welcome back to the Entrepreneurial Ventures podcast. Today, my topic is digital self-promotion. When is the right time to start a new viral marketing campaign, and how can you do so effectively in the modern world? To answer these questions and more, I'll be introducing a special guest: Amara Dambe. The founder of the famous tech start-up, Financing Together, Ms. Dambe is known for her ability to get into the mentalities of consumers when they're using virtual spaces. I think you'll enjoy this episode. But before getting started, I'm going to briefly talk about a new service that I'm offering for a small monthly fee.\n\nW: 77Next Monday, we'll have the first in a series of seminars about reducing stress in the workplace. Our first guest lecturer will help you learn to use meditative breathing exercises to calm your body and mind. 78I was inspired to launch this series when I read a recent news story about the effects of physical and mental health on employee productivity. As part of the initiative, we've also started installing mood-enhancing lighting throughout the building. 79I'm distributing a pamphlet that talks about the scientific reason for the change.",
     "question_order": 1
@@ -1194,7 +1326,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "Negotiating with suppliers"
     },
     "answer": "C",
-    "explanation_zh": "題目問講者說 Ms. Dambe 擅長什麼。原文提到「Ms. Dambe is known for her ability to get into the mentalities of consumers」，即她擅長理解消費者的心態，因此正確答案為 (C) Understanding customers。",
+    "explanation_zh": "題目問演講者說 Dambe 女士擅長什麼。原文明確指出「Ms. Dambe is known for her ability to get into the mentalities of consumers」，意思是她能理解消費者的心態，因此正確答案為 (C) Understanding customers。",
     "skill_tag": "listening_detail",
     "difficulty": "B1",
     "vocabulary": [
@@ -1216,12 +1348,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "A news report"
     },
     "answer": "A",
-    "explanation_zh": "題目問講者接下來要討論什麼。原文最後一句說「I'm going to briefly talk about a new service that I'm offering for a small monthly fee」，這是一項需付費的訂閱服務，因此正確答案為 (A) A subscription service。",
+    "explanation_zh": "題目問演講者接下來要討論什麼。原文最後一句提到「I'm going to briefly talk about a new service that I'm offering for a small monthly fee」，這指的是一項按月收費的訂閱服務（subscription service），因此正確答案為 (A) A subscription service。",
     "skill_tag": "listening_next_action",
     "difficulty": "B1",
     "vocabulary": [
       "monthly fee",
-      "subscription service"
+      "subscription service",
+      "briefly talk about"
     ],
     "transcript": "M: Welcome back to the Entrepreneurial Ventures podcast. Today, my topic is digital self-promotion. When is the right time to start a new viral marketing campaign, and how can you do so effectively in the modern world? To answer these questions and more, I'll be introducing a special guest: Amara Dambe. The founder of the famous tech start-up, Financing Together, Ms. Dambe is known for her ability to get into the mentalities of consumers when they're using virtual spaces. I think you'll enjoy this episode. But before getting started, I'm going to briefly talk about a new service that I'm offering for a small monthly fee.\n\nW: 77Next Monday, we'll have the first in a series of seminars about reducing stress in the workplace. Our first guest lecturer will help you learn to use meditative breathing exercises to calm your body and mind. 78I was inspired to launch this series when I read a recent news story about the effects of physical and mental health on employee productivity. As part of the initiative, we've also started installing mood-enhancing lighting throughout the building. 79I'm distributing a pamphlet that talks about the scientific reason for the change.",
     "question_order": 3
@@ -1237,13 +1370,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "An automobile manufacturer"
     },
     "answer": "C",
-    "explanation_zh": "錄音稿開頭提到「Blandensville County Power Company」，且內容涉及電線桿倒塌、電網更新，因此這是一家電力公司，屬於公用事業公司。選項 (C) A utility company 正確對應此類業務。",
+    "explanation_zh": "錄音稿開頭提到「Blandensville County Power Company」，且後續說明電線桿被撞倒、電力網更新等內容，顯示這是一家電力公司，屬於公用事業（utility company）。選項 (A) 有線電視業者、(B) 顧問公司、(D) 汽車製造商均與內容不符。",
     "skill_tag": "listening_main_idea",
     "difficulty": "A2",
     "vocabulary": [
-      "utility company",
       "power company",
-      "electric grid"
+      "electric grid",
+      "utility"
     ],
     "transcript": "W: Good afternoon. You've reached the Blandensville County Power Company. Please note that a telephone pole was recently knocked down near McArthur Avenue as a result of a traffic accident. A team of responders is on site. We thank you for your patience. If you'd like to receive updates about the electric grid in your area, press 1 to sign up for our automatic texting service.",
     "question_order": 1
@@ -1259,7 +1392,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "The repairs are not yet complete."
     },
     "answer": "D",
-    "explanation_zh": "說話者先說明電線桿因事故倒塌，並表示維修團隊已在現場，接著說「感謝您的耐心」，暗示維修尚未完成，需要顧客等候。因此正確答案為 (D) The repairs are not yet complete。",
+    "explanation_zh": "說話者先說明電線桿被撞倒且維修團隊已在現場，接著說「感謝您的耐心」，暗示維修尚未完成，需要顧客等待。選項 (D) 維修尚未完成是合理的推論。",
     "skill_tag": "listening_inference",
     "difficulty": "B1",
     "vocabulary": [
@@ -1281,11 +1414,11 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "By checking a website"
     },
     "answer": "C",
-    "explanation_zh": "錄音稿最後明確提到「press 1 to sign up for our automatic texting service」，表示顧客可透過接收簡訊獲得更新。因此正確答案為 (C) By receiving text messages。",
+    "explanation_zh": "錄音稿最後一句明確指出「press 1 to sign up for our automatic texting service」，表示顧客可以透過接收簡訊來獲得更新。選項 (C) 接收簡訊即為正確對應。",
     "skill_tag": "listening_detail",
     "difficulty": "A2",
     "vocabulary": [
-      "texting service",
+      "automatic texting service",
       "sign up",
       "updates"
     ],
@@ -1303,9 +1436,9 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "Parking garages are too expensive."
     },
     "answer": "B",
-    "explanation_zh": "聽力稿中提到「a group of citizens submitted a petition to repair and repave a number of the town's streets」，並指出「Main Street has been reported as a dangerous area due to the presence of potholes」，因此居民抱怨的原因是道路受損。",
+    "explanation_zh": "聽力稿提到「a group of citizens submitted a petition to repair and repave a number of the town's streets」，以及「Main Street has been reported as a dangerous area due to the presence of potholes」，因此市民抱怨的原因是道路受損。",
     "skill_tag": "listening_detail",
-    "difficulty": "A2",
+    "difficulty": "B1",
     "vocabulary": [
       "petition",
       "repave",
@@ -1325,9 +1458,9 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "Construction noise"
     },
     "answer": "D",
-    "explanation_zh": "聽力稿中明確指出「Chairperson John Daly has raised a concern that the requested work will be obtrusively loud for Main Street residents」，因此他擔心的是施工噪音。",
+    "explanation_zh": "聽力稿明確指出「Chairperson John Daly has raised a concern that the requested work will be obtrusively loud for Main Street residents」，因此他擔心的是施工噪音。",
     "skill_tag": "listening_detail",
-    "difficulty": "A2",
+    "difficulty": "B1",
     "vocabulary": [
       "obtrusively",
       "concern",
@@ -1353,7 +1486,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
     "vocabulary": [
       "reimburse",
       "radius",
-      "stay"
+      "compensate"
     ],
     "transcript": "W: The City Council will now discuss the issue of street maintenance. A group of citizens submitted a petition to repair and repave a number of the town's streets. In particular, Main Street has been reported as a dangerous area due to the presence of potholes in various locations. While the motion has been approved, Chairperson John Daly has raised a concern that the requested work will be obtrusively loud for Main Street residents. To compensate these residents, the city will reimburse up to a one week stay at the nearby Comfort Plus Inn for those who live within a 50-meter radius of the work site.",
     "question_order": 3
@@ -1369,12 +1502,12 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "Journalism"
     },
     "answer": "C",
-    "explanation_zh": "講者開場即說明本場研討會的主題是「the future of publishers」，因此主題與出版業相關。正確答案為 (C) Publishing。",
+    "explanation_zh": "演講者開場即說明今天的主題是「the future of publishers in our increasingly paperless society」，因此主題與出版業相關。選項 (C) Publishing 直接對應原文的「publishers」與「publishing industry」。",
     "skill_tag": "listening_main_idea",
     "difficulty": "A2",
     "vocabulary": [
       "publisher",
-      "seminar",
+      "publishing industry",
       "paperless society"
     ],
     "transcript": "M: Hi! Welcome to today's seminar about the future of publishers in our increasingly paperless society. I'm Jean Couturier, and I've been working in the publishing industry for over thirty years. Before I get started, I want to thank those of you who submitted anonymous inquiries through my website. Those questions helped me design my slides for today's presentation. I also want to express my gratitude for my assistant, Melanie Grichuk, who worked hard to make this event happen. There's Melanie in the back corner—let's give her a round of applause.",
@@ -1391,13 +1524,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "They gave feedback on the slides."
     },
     "answer": "A",
-    "explanation_zh": "講者感謝那些透過他的網站提交匿名問題的聽眾，因為這些問題幫助他設計投影片。正確答案為 (A) They raised questions。",
+    "explanation_zh": "演講者感謝那些「submitted anonymous inquiries through my website」的聽眾，並說這些問題幫助他設計投影片。因此感謝的原因是他們提出了問題，對應選項 (A) They raised questions。",
     "skill_tag": "listening_detail",
     "difficulty": "B1",
     "vocabulary": [
       "anonymous inquiry",
       "submit",
-      "presentation"
+      "design slides"
     ],
     "transcript": "M: Hi! Welcome to today's seminar about the future of publishers in our increasingly paperless society. I'm Jean Couturier, and I've been working in the publishing industry for over thirty years. Before I get started, I want to thank those of you who submitted anonymous inquiries through my website. Those questions helped me design my slides for today's presentation. I also want to express my gratitude for my assistant, Melanie Grichuk, who worked hard to make this event happen. There's Melanie in the back corner—let's give her a round of applause.",
     "question_order": 2
@@ -1413,7 +1546,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "A book is on sale there."
     },
     "answer": "B",
-    "explanation_zh": "講者提到「There's Melanie in the back corner」，表示他的助理梅蘭妮坐在後方角落，因此提及房間後方是因為有位工作人員坐在那裡。正確答案為 (B) A worker is sitting there。",
+    "explanation_zh": "演講者提到「There's Melanie in the back corner」，並請大家為她鼓掌。因此提到房間後方是因為有一位工作人員（助理）坐在那裡，對應選項 (B) A worker is sitting there。",
     "skill_tag": "listening_detail",
     "difficulty": "A2",
     "vocabulary": [
@@ -1435,13 +1568,12 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "He is viewing real estate."
     },
     "answer": "B",
-    "explanation_zh": "錄音稿開頭提到「I hope your university talk goes well tonight」，表示Matteo今晚有一場大學演講，因此他離開餐廳是為了去演講。選項(B) He is delivering a lecture 符合此意。",
+    "explanation_zh": "錄音稿開頭提到「I hope your university talk goes well tonight」，表示 Matteo 今晚有一場大學演講，因此他離開餐廳是為了去演講。正確答案為 (B) He is delivering a lecture。",
     "skill_tag": "listening_detail",
     "difficulty": "A2",
     "vocabulary": [
       "university talk",
-      "go well",
-      "away"
+      "go well"
     ],
     "transcript": "W: Hi, Matteo. I hope your university talk goes well tonight. Everything's fine here at Vezia Bistro while you're away, but I want to follow up on the instructions you left behind. I know you wanted to offer chicken marsala as our weekly special, but some of the supplies for that dish are running low. Fettuccini alfredo has always been a hit with our regulars. Also, I've got good news. An influential blogger visited the restaurant last night and wrote up some major praise for us on his site this morning.",
     "question_order": 1
@@ -1457,13 +1589,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "To congratulate an achievement"
     },
     "answer": "A",
-    "explanation_zh": "說話者先提到原本想提供的雞肉馬沙拉食材不足，接著說「Fettuccini alfredo has always been a hit with our regulars」，暗示可以改用這道受歡迎的料理作為替代方案，目的是提出建議。因此正確答案為 (A) To make a suggestion。",
+    "explanation_zh": "說話者先提到 Matteo 想推出雞肉馬沙拉，但食材不足，接著說「Fettuccini alfredo has always been a hit with our regulars」，用意是建議改用這道人氣菜色作為每週特餐。正確答案為 (A) To make a suggestion。",
     "skill_tag": "listening_inference",
     "difficulty": "B1",
     "vocabulary": [
-      "a hit with",
+      "weekly special",
       "regulars",
-      "suggestion"
+      "hit"
     ],
     "transcript": "W: Hi, Matteo. I hope your university talk goes well tonight. Everything's fine here at Vezia Bistro while you're away, but I want to follow up on the instructions you left behind. I know you wanted to offer chicken marsala as our weekly special, but some of the supplies for that dish are running low. Fettuccini alfredo has always been a hit with our regulars. Also, I've got good news. An influential blogger visited the restaurant last night and wrote up some major praise for us on his site this morning.",
     "question_order": 2
@@ -1479,12 +1611,12 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "It appeared in a television show."
     },
     "answer": "C",
-    "explanation_zh": "錄音稿結尾提到「An influential blogger visited the restaurant last night and wrote up some major praise for us on his site this morning」，表示餐廳獲得部落格上的正面評價，屬於網路上的關注。因此正確答案為 (C) It received attention online。",
+    "explanation_zh": "錄音稿最後說「An influential blogger visited the restaurant last night and wrote up some major praise for us on his site this morning」，表示餐廳獲得網路上的好評。正確答案為 (C) It received attention online。",
     "skill_tag": "listening_detail",
     "difficulty": "A2",
     "vocabulary": [
       "influential blogger",
-      "major praise",
+      "praise",
       "site"
     ],
     "transcript": "W: Hi, Matteo. I hope your university talk goes well tonight. Everything's fine here at Vezia Bistro while you're away, but I want to follow up on the instructions you left behind. I know you wanted to offer chicken marsala as our weekly special, but some of the supplies for that dish are running low. Fettuccini alfredo has always been a hit with our regulars. Also, I've got good news. An influential blogger visited the restaurant last night and wrote up some major praise for us on his site this morning.",
@@ -1501,9 +1633,9 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "A delivery service"
     },
     "answer": "C",
-    "explanation_zh": "講者提到新到的 Delillo 床架與層架組、以及所有餐桌椅組正在特價，這些都是家具類商品，因此可推斷他工作的場所是家具店。",
+    "explanation_zh": "講者提到「新的 Delillo 型號的床和層架單元即將到貨」以及「所有餐桌組正在特價」，這些都是家具相關商品，因此最可能的工作場所是家具店。",
     "skill_tag": "listening_main_idea",
-    "difficulty": "B1",
+    "difficulty": "A2",
     "vocabulary": [
       "shelving units",
       "dining sets",
@@ -1523,13 +1655,13 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "He will offer extra pay for overtime work."
     },
     "answer": "B",
-    "explanation_zh": "講者說「我有銷售經驗」後，緊接著說「即使你們大多數人都沒見過」，暗示他會親自站櫃或接手部分班次來補足人力缺口，因此正確答案為 (B) He will take over for some shifts。",
+    "explanation_zh": "講者說「我有銷售經驗」之後，接著表示「在找到替代人選前，我們人手不足」，並說「別擔心」，暗示他會親自補班，因此正確答案為 (B) He will take over for some shifts。",
     "skill_tag": "listening_inference",
-    "difficulty": "B2",
+    "difficulty": "B1",
     "vocabulary": [
       "short-staffed",
       "replacement",
-      "experience in sales"
+      "take over"
     ],
     "transcript": "M: Hello everyone. We've got a busy week ahead, with the new Delillo models of beds and shelving units arriving soon, and all of our dining sets on sale. There should be plenty of customers streaming in. Now, with Enrico having moved on to another company, we're short-staffed until we find his replacement. But don't worry: , even though most of you haven't seen it. I also need to mention that the back room is starting to get disorganized.",
     "question_order": 2
@@ -1545,7 +1677,7 @@ export const IMPORTED_LISTENING_ED: Question[] = [
       "D": "Plan a hiring event"
     },
     "answer": "B",
-    "explanation_zh": "講者最後提到「後面房間開始變得雜亂無章」，並用「我也需要提一下」帶出，暗示聽眾需要去整理那個區域，因此正確答案為 (B) Clean an area。",
+    "explanation_zh": "講者在最後提到「後面的房間開始變得雜亂無章」，並說「我也需要提一下」，暗示聽眾需要去整理那個區域，因此正確答案為 (B) Clean an area。",
     "skill_tag": "listening_detail",
     "difficulty": "B1",
     "vocabulary": [

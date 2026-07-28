@@ -24,7 +24,7 @@ const OUT_ROOT = path.resolve(__dirname, "../../output/pdf-import");
 const DATA_DIR = path.resolve(__dirname, "../../../data");
 
 type Listening = {
-  part: "Part 2" | "Part 3" | "Part 4";
+  part: "Part 1" | "Part 2" | "Part 3" | "Part 4";
   number: number;
   stem: string;
   choices: Record<string, string>;
@@ -36,6 +36,8 @@ type Listening = {
   skill_tag: SkillTag;
   difficulty: Difficulty;
   vocabulary: string[];
+  image_alt?: string;
+  image?: { verdict: "ok" | "failed" } | null;
   verification?: { verdict: string } | null;
 };
 
@@ -72,8 +74,10 @@ function main() {
     skipped[reason] = (skipped[reason] ?? 0) + 1;
   };
 
-  const counters: Record<string, number> = { "Part 2": 0, "Part 3": 0, "Part 4": 0 };
-  const nextId = (part: "Part 2" | "Part 3" | "Part 4"): string => {
+  const counters: Record<string, number> = {
+    "Part 1": 0, "Part 2": 0, "Part 3": 0, "Part 4": 0,
+  };
+  const nextId = (part: "Part 1" | "Part 2" | "Part 3" | "Part 4"): string => {
     const n = part.slice(-1);
     let id: string;
     do {
@@ -85,6 +89,31 @@ function main() {
   };
 
   const out: Question[] = [];
+
+  for (const r of records.filter((r) => r.part === "Part 1").sort((a, b) => a.number - b.number)) {
+    // Only ship a photo question when the generated photo was shown to match
+    // the keyed sentence and no other; without that the item is ambiguous.
+    if (r.image?.verdict !== "ok") {
+      skip("no photo that matches only the correct choice");
+      continue;
+    }
+    const letters = ["A", "B", "C", "D"] as const;
+    out.push({
+      id: nextId("Part 1"),
+      part: "Part 1",
+      question: "Look at the photo and choose the statement that best describes it.",
+      choices: {
+        A: r.choices.A, B: r.choices.B, C: r.choices.C, D: r.choices.D,
+      },
+      answer: r.answer,
+      explanation_zh: r.explanation_zh,
+      skill_tag: r.skill_tag,
+      difficulty: r.difficulty,
+      vocabulary: r.vocabulary,
+      imageAlt: r.image_alt ?? r.choices[r.answer],
+      audioScript: letters.map((l) => `(${l}) ${r.choices[l]}`).join("\n"),
+    });
+  }
 
   for (const r of records.filter((r) => r.part === "Part 2").sort((a, b) => a.number - b.number)) {
     if (r.verification && r.verification.verdict !== "confirmed") {
@@ -121,7 +150,7 @@ function main() {
 
   const groups = new Map<string, Listening[]>();
   for (const r of records) {
-    if (r.part === "Part 2") continue;
+    if (r.part === "Part 1" || r.part === "Part 2") continue;
     const key = r.transcript_group ?? String(r.number);
     groups.set(key, [...(groups.get(key) ?? []), r]);
   }

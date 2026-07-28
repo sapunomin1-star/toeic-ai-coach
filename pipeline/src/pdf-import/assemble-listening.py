@@ -15,8 +15,10 @@ numbering restarts constantly. The key table also quotes the correct choice in
 English, which is checked against the question's own choices so the pairing and
 the letter are both confirmed.
 
-Part 1 is skipped: it needs the photograph, which only exists as part of a
-scanned page.
+Part 1 keeps its four spoken descriptions; the photograph itself only exists
+inside a scanned page, so an original one is generated from the correct
+description, with the three wrong descriptions carried along as constraints the
+generated photo must not satisfy.
 
 Output: output/pdf-import/ed-listening.json
 
@@ -36,6 +38,7 @@ OUT_ROOT = HERE.parent.parent / "output" / "pdf-import"
 
 MOCK_WORKBOOK_PAGE = 207        # what the answer key cites
 PAPER_PAGES = range(207, 218)   # printed pages holding the listening paper
+PART1_RANGE = range(1, 7)
 PART2_RANGE = range(7, 32)
 PART34_RANGE = range(32, 101)
 
@@ -138,6 +141,7 @@ def main() -> None:
 
     # Scripts and transcripts, which live in the booklet after the key table.
     transcripts: dict[tuple[int, ...], dict] = {}
+    part1: dict[int, dict] = {}
     part2: dict[int, dict] = {}
     for page in pages:
         if (page.get("_page_index") or 0) < 340:
@@ -153,6 +157,15 @@ def main() -> None:
             }
         for q in page.get("questions") or []:
             num = q.get("number")
+            if isinstance(num, int) and num in PART1_RANGE:
+                choices = q.get("choices") or {}
+                if all((choices.get(c) or "").strip() for c in ("A", "B", "C", "D")):
+                    part1[num] = {
+                        "number": num,
+                        "choices": {c: choices[c].strip() for c in ("A", "B", "C", "D")},
+                        "page_index": page.get("_page_index"),
+                    }
+                continue
             if not isinstance(num, int) or num not in PART2_RANGE:
                 continue
             choices = q.get("choices") or {}
@@ -172,6 +185,36 @@ def main() -> None:
 
     def reject(num: int, reason: str) -> None:
         rejected.append({"number": num, "reason": reason})
+
+    # Part 1 — four spoken descriptions of a photograph. The photograph itself
+    # is only part of a scanned page, so an original one is generated later from
+    # the correct description; the three wrong ones become constraints on it.
+    for num, item in sorted(part1.items()):
+        entry = key.get(num)
+        if not entry:
+            reject(num, "not in the mock answer key")
+            continue
+        letter = entry["answer"]
+        anchor = entry["answer_text"]
+        score = similarity(anchor, item["choices"][letter]) if anchor else None
+        if anchor and score < 0.55:
+            reject(num, f"key quotes text that does not match choice {letter} ({score:.2f})")
+            continue
+        accepted.append({
+            "source": "ed",
+            "part": "Part 1",
+            "number": num,
+            "stem": "",
+            "choices": item["choices"],
+            "answer": letter,
+            "audio_script": "\n".join(
+                f"({c}) {item['choices'][c]}" for c in ("A", "B", "C", "D")),
+            "image_alt": item["choices"][letter],
+            "image_exclusions": [item["choices"][c] for c in ("A", "B", "C", "D")
+                                 if c != letter],
+            "match": {"anchor": round(score, 3) if score is not None else None},
+            "page_index": item["page_index"],
+        })
 
     # Part 2 — the spoken prompt plus three spoken responses.
     for num, item in sorted(part2.items()):

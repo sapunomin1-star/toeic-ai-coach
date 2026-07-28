@@ -28,7 +28,7 @@ type Assembled = {
   source: string;
   test?: number;
   number: number;
-  part: "Part 2" | "Part 3" | "Part 4" | "Part 5" | "Part 6" | "Part 7";
+  part: "Part 1" | "Part 2" | "Part 3" | "Part 4" | "Part 5" | "Part 6" | "Part 7";
   transcript?: string | null;
   transcript_group?: string | null;
   stem: string;
@@ -55,6 +55,7 @@ const READING_TAGS: SkillTag[] = [
   "reading_vocab",
 ];
 const LISTENING_TAGS: Record<string, SkillTag[]> = {
+  "Part 1": ["listening_photo"],
   "Part 2": ["listening_response"],
   "Part 3": [
     "listening_main_idea",
@@ -109,7 +110,9 @@ function buildUserPrompt(items: Assembled[], passage?: string | null): string {
     .map(
       (q) =>
         `題號 ${q.number}（${q.part}）\n` +
-        (q.part === "Part 2"
+        (q.part === "Part 1"
+          ? "題幹：（考生看照片，聽四句描述，選出符合照片的一句）\n"
+          : q.part === "Part 2"
           ? `聽到的問句：${q.stem}\n`
           : q.stem
             ? `題幹：${q.stem}\n`
@@ -131,6 +134,7 @@ ${body}
 
 function groupKey(q: Assembled): string {
   if (q.transcript_group) return `tr:${q.transcript_group}`;
+  if (q.part === "Part 1") return `p1-${q.number}`;
   if (q.part === "Part 2") return `p2-${Math.floor(q.number / 6)}`;
   if (q.part === "Part 5") return `p5-${Math.floor(q.number / 8)}-${q.test}`;
   return `${q.test}:${(q.passage_numbers ?? [q.number]).join(",")}`;

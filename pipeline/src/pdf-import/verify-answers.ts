@@ -27,6 +27,15 @@ const OUT_ROOT = path.resolve(__dirname, "../../output/pdf-import");
 /** Sources where a second place in the book already confirms the letter. */
 const TWO_SOURCE = new Set(["paper+explanation+table", "booklet-cross-checked"]);
 
+/**
+ * Part 1 asks which sentence describes a photograph, so re-deriving the answer
+ * from text alone is guesswork — the two models here disagreed with each other
+ * as often as with the book. Its key is confirmed twice in the book already
+ * (the answer grid and the bold choice in the script), and the meaningful check
+ * is against the generated photo, which `generate-part1-images.ts` performs.
+ */
+const NOT_VERIFIABLE_FROM_TEXT = new Set(["Part 1"]);
+
 const ADJUDICATOR = "google/gemini-2.5-flash";
 
 type Assembled = {
@@ -153,7 +162,10 @@ async function main() {
   const all = JSON.parse(fs.readFileSync(inPath, "utf8")) as Assembled[];
 
   const needsCheck = all.filter(
-    (q) => !TWO_SOURCE.has(q.answer_source ?? "") && !q.verification
+    (q) =>
+      !TWO_SOURCE.has(q.answer_source ?? "") &&
+      !NOT_VERIFIABLE_FROM_TEXT.has(q.part) &&
+      !q.verification
   );
   const todo = limit === Infinity ? needsCheck : needsCheck.slice(0, limit);
   console.log(

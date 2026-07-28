@@ -1,5 +1,31 @@
 # TOEIC AI Coach Development Log
 
+## Listening Import — Part 1 Photographs - 2026-07-29
+
+The six Part 1 items from the Eduwill mock now ship, taking the bank to
+**3,062**. Their photographs are generated (`google/gemini-3.1-flash-image` via
+OpenRouter) rather than cut out of the scan.
+
+The risk in generating them is specific to Part 1: the three wrong choices
+describe the *same* scene, so a photo built only from the correct sentence can
+easily make a distractor true as well, and a photo matching two choices is worse
+than no question. So the wrong choices go into the prompt as things to avoid,
+and every image is then read back by a vision model that judges all four
+sentences without being told which is keyed. Only an image where exactly the
+keyed sentence holds is uploaded; otherwise it regenerates.
+
+That guard earned its place immediately — two of the six first attempts made a
+second choice true (`true=AD`, `true=CD`) and were regenerated. Final: 6/6
+usable.
+
+Also corrected: `verify-answers.ts` had been re-solving Part 1 from text alone,
+which is guesswork with no photo to look at — the two models disagreed with each
+other as often as with the book. Part 1 is now excluded there; its key is
+already confirmed twice in the book (the answer grid and the bold choice in the
+script section, both checked by eye), and the image judge is the check that
+actually means something.
+
+
 ## Print Import, Second Pass — Answer Verification - 2026-07-28
 
 Bank 2,927 → **2,983** (1,084 imported). The first pass shipped questions whose
