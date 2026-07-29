@@ -966,9 +966,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 7",
     "question": "What is the main purpose of this memo?",
     "choices": {
-      "A": "To report an elevator malfunction",
-      "B": "To announce a new office policy",
-      "C": "To schedule a staff meeting",
+      "A": "To report a malfunction in the main elevators",
+      "B": "To announce a new office policy on hours",
+      "C": "To schedule a staff meeting for next week",
       "D": "To inform staff about a temporary office closure"
     },
     "answer": "D",
@@ -2575,10 +2575,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 7",
     "question": "What is the main issue described in the complaint email?",
     "choices": {
-      "A": "The customer was overcharged for the order",
-      "B": "The customer received a damaged product",
+      "A": "The customer was overcharged for the whole order and wants a refund",
+      "B": "The customer received a damaged product and returned it immediately",
       "C": "The customer received the wrong item and had not received a timely response",
-      "D": "The customer's order was lost during shipping"
+      "D": "The customer's order was lost somewhere during shipping and never arrived"
     },
     "answer": "C",
     "explanation_zh": "主要問題是客戶收到了錯誤的商品（灰色布藝椅子而非黑色皮椅），並且五天未收到客服回覆，選項C正確概括了這兩個問題。",
@@ -2624,10 +2624,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 7",
     "question": "What compensation did the customer service offer?",
     "choices": {
-      "A": "A free return label only",
+      "A": "A free return label and nothing more",
       "B": "A replacement chair and a 15% discount on the next purchase",
-      "C": "A full refund and a 15% discount",
-      "D": "An apology but no compensation"
+      "C": "A full refund of the purchase price and a 15% discount",
+      "D": "A written apology but no compensation at all"
     },
     "answer": "B",
     "explanation_zh": "客服回覆中提供了換貨（發送正確椅子）和下次購物15%折扣的補償。",
@@ -2824,10 +2824,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 7",
     "question": "What is the main purpose of the job posting?",
     "choices": {
-      "A": "To promote a new product launch",
+      "A": "To promote the upcoming launch of a new product",
       "B": "To advertise a job opening and invite applications",
-      "C": "To provide customer feedback",
-      "D": "To announce a company merger"
+      "C": "To provide feedback from customers",
+      "D": "To announce a merger between two companies"
     },
     "answer": "B",
     "explanation_zh": "文本1是一則招聘廣告，明確列出了職位名稱、要求、職責和申請方式，目的是招聘高級市場分析師，因此選項B正確。",
@@ -3024,10 +3024,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 7",
     "question": "What can be inferred about the customer's urgency from Text 2 and Text 3?",
     "choices": {
-      "A": "The customer requested a full refund instead of replacement.",
-      "B": "The customer was not in a hurry and accepted a later delivery.",
+      "A": "The customer requested a full refund rather than a replacement order.",
+      "B": "The customer was not in any hurry at all and accepted a much later delivery.",
       "C": "The customer needed the desks for a client project, prompting a quick resolution.",
-      "D": "The customer needed the desks for a personal project."
+      "D": "The customer needed the desks for a personal project at home."
     },
     "answer": "C",
     "explanation_zh": "文本2中客戶明確提到'We need them for a client project'，表明急需這些辦公桌。文本3中公司在兩天內回覆並立即安排補發，顯示了緊迫性。因此可推斷客戶因客戶項目而急需，促使公司快速解決。",
@@ -3199,10 +3199,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 7",
     "question": "What is the main issue described across the three texts?",
     "choices": {
-      "A": "The company failed to ship the order on time.",
-      "B": "The customer ordered too many units and wants to return some.",
+      "A": "The company failed to ship the complete order on time as promised.",
+      "B": "The customer ordered far too many units and now wants to return some of them.",
       "C": "The customer received a wrong model of headsets, and the company is resolving it.",
-      "D": "The customer complained about the quality of the headsets."
+      "D": "The customer complained about the build quality of the headsets supplied."
     },
     "answer": "C",
     "explanation_zh": "主要問題是客戶收到了錯誤型號的耳機（Y-2000而非X-1000），而公司正在通過更換和補償來解決問題。選項B未提及，選項A不準確（訂單按時發貨），選項D未涉及質量問題。",
@@ -3416,10 +3416,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 3",
     "question": "What problem does the woman imply?",
     "choices": {
-      "A": "The replacement order was lost",
-      "B": "The office printer is broken",
+      "A": "The replacement order was lost in transit",
+      "B": "The office printer has broken down again",
       "C": "They may run out of ink before the new shipment arrives",
-      "D": "The report deadline has been moved up"
+      "D": "The report deadline has been moved up by a full week"
     },
     "answer": "C",
     "explanation_zh": "女士提到『我們主辦公室印表機的墨水快用完了』（We're almost out of ink in the main office printer）以及『我們週三有一份重要報告要交』（We have an important report due Wednesday），暗示在週四替換貨物到達前可能墨水不足。選項A『替換訂單遺失』未提及，選項B『印表機故障』與對話內容不符，選項D『報告截止日提前』無根據，因此C為正確答案。",
@@ -3807,9 +3807,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 3",
     "question": "What is the main purpose of the conversation?",
     "choices": {
-      "A": "To complain about a noisy coworker",
-      "B": "To schedule a printer repair appointment",
-      "C": "To discuss a new office policy on phone calls",
+      "A": "To complain about a coworker making noise nearby",
+      "B": "To schedule a repair appointment for the office printer",
+      "C": "To discuss the new office policy covering personal phone calls",
       "D": "To address a scheduling conflict caused by equipment installation"
     },
     "answer": "D",
@@ -4270,10 +4270,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 4",
     "question": "What should attendees do if they have questions?",
     "choices": {
-      "A": "Call the main office",
+      "A": "Call the main office during business hours",
       "B": "Visit the information booth near the entrance",
-      "C": "Email the host",
-      "D": "Ask the keynote speaker"
+      "C": "Email the event organisers directly",
+      "D": "Ask any one of the keynote speakers"
     },
     "answer": "B",
     "explanation_zh": "音檔結尾提到 'For any questions, visit the information booth near the entrance'，因此正確行動是前往入口附近的資訊臺。選項 A、C、D 均未在原文中提及，故 B 為唯一正確答案。",
@@ -4570,9 +4570,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "question": "What is the main purpose of this announcement?",
     "choices": {
       "A": "To welcome attendees and provide conference information",
-      "B": "To cancel the keynote address",
-      "C": "To announce a change in the lunch menu",
-      "D": "To introduce a new product line"
+      "B": "To cancel the scheduled keynote address",
+      "C": "To announce a late change to the published lunch menu",
+      "D": "To introduce a new product line to buyers"
     },
     "answer": "A",
     "explanation_zh": "公告開頭明確說『歡迎參加年度太平洋銷售會議』，並說明接下來兩天的活動安排、場地變更、午餐時間等，整體目的是歡迎與會者並提供資訊。選項B（取消主題演講）錯誤，因為演講只是更換場地而非取消。選項C（更改午餐菜單）未提及。選項D（推出新產品線）與內容無關。",
@@ -4592,10 +4592,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 4",
     "question": "Where will the keynote address take place?",
     "choices": {
-      "A": "Grand Ballroom",
+      "A": "The Grand Ballroom foyer",
       "B": "Pacific Room on the second floor",
-      "C": "Garden Café",
-      "D": "Registration desk"
+      "C": "The Garden Café terrace",
+      "D": "The registration desk in the lobby"
     },
     "answer": "B",
     "explanation_zh": "公告明確指出『keynote address... has been moved from the Grand Ballroom to the Pacific Room on the second floor』，因此正確地點是Pacific Room。選項A是原來的地點，已被更改。選項C是午餐地點。選項D是領取會議資料包的地方。",
@@ -4614,10 +4614,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 4",
     "question": "What should attendees do before the first session?",
     "choices": {
-      "A": "Attend a workshop on data analytics",
-      "B": "Go to the Garden Café for lunch",
+      "A": "Attend the morning workshop on data analytics",
+      "B": "Go to the Garden Café for an early lunch",
       "C": "Pick up their conference packets at the registration desk",
-      "D": "Meet Dr. Mark Rivera in the Grand Ballroom"
+      "D": "Meet with Dr. Mark Rivera in the Grand Ballroom foyer"
     },
     "answer": "C",
     "explanation_zh": "公告最後一句提醒：『Don't forget to pick up your conference packets at the registration desk before the first session.』因此正確行動是到報到處領取資料包。選項A（參加資料分析工作坊）是之後的活動。選項B（去花園咖啡廳吃午餐）是12:30的事。選項D（在大宴會廳見馬克里維拉博士）因場地變更而不正確。",
@@ -5799,10 +5799,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 7",
     "question": "When did Maria originally expect to receive her order?",
     "choices": {
-      "A": "October 12th",
+      "A": "Between October 10th and 12th",
       "B": "Between October 15th and 17th",
-      "C": "October 20th",
-      "D": "October 18th"
+      "C": "Between October 19th and 21st",
+      "D": "Between October 22nd and 24th"
     },
     "answer": "B",
     "explanation_zh": "答案是 B。Maria 在 Email 1 中提到她的訂單於 10 月 12 日下單，並預期在 3-5 個工作天內送達，因此預期送達時間應為 10 月 15 日至 17 日之間。選項 A（10 月 12 日）是下單日期，選項 D（10 月 18 日）是實際送達日期，選項 C（10 月 20 日）是 Sarah 承諾補寄送達的日期。",
@@ -5949,10 +5949,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 7",
     "question": "What can be inferred about Jane Doe's qualifications?",
     "choices": {
-      "A": "She has no experience in campaign analysis.",
-      "B": "She is applying for a junior position.",
+      "A": "She has no practical experience in campaign analysis work at all.",
+      "B": "She is applying for a much more junior position.",
       "C": "She does not have a master's degree, which might affect her application.",
-      "D": "She meets all the requirements of the job posting."
+      "D": "She meets every one of the requirements in the job posting."
     },
     "answer": "C",
     "explanation_zh": "答案是 C。徵才公告偏好碩士學位，而 Jane Doe 僅有學士學位（「I hold a bachelor's degree in economics」），因此她的申請可能因此受到影響。D 選項（她符合所有要求）錯誤，因為她缺少碩士學位；B 選項（她應徵初階職位）錯誤，她應徵的是資深職位；A 選項（她沒有活動分析經驗）錯誤，她提到曾主導活動優化專案。",
@@ -6224,9 +6224,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "question": "What can be inferred about Sarah Chen's original order?",
     "choices": {
       "A": "She needed the lamp for her home office and required specific features.",
-      "B": "She ordered the lamp for a friend's office.",
-      "C": "She had previously complained about a similar issue.",
-      "D": "She paid for express delivery initially."
+      "B": "She ordered the lamp for a friend's home office instead.",
+      "C": "She had previously complained about a very similar issue before.",
+      "D": "She paid extra for express delivery when ordering."
     },
     "answer": "A",
     "explanation_zh": "答案是 A。第一封郵件中 Sarah Chen 寫道：「這個訂單是為我的家庭辦公室下的，我需要 DL-100 的可調節臂和調光功能。」因此，可以推斷她需要這盞燈用於家庭辦公室，並且需要特定功能。選項 B（為朋友的辦公室訂購）與原文「我的家庭辦公室」矛盾；選項 D（支付了快遞費用）在郵件中未提及；選項 C（之前曾投訴過類似問題）在郵件中無相關資訊，故為錯誤選項。",
@@ -7547,10 +7547,10 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 1",
     "question": "Look at the photo and choose the statement that best describes it.",
     "choices": {
-      "A": "They are eating lunch.",
-      "B": "They are shaking hands.",
+      "A": "They are eating lunch at a table.",
+      "B": "They are shaking hands in a doorway.",
       "C": "One person is handing a document to the other.",
-      "D": "They are sitting on chairs."
+      "D": "They are sitting on chairs by the window."
     },
     "answer": "C",
     "explanation_zh": "答案是C。照片中兩個人站在接待櫃檯前，其中一人正在遞交文件給另一人，因此C選項「一個人正在遞交文件給另一個人」與畫面完全吻合。A選項「他們正在吃午餐」不正確，因為沒有食物或用餐動作。B選項「他們正在握手」不正確，因為沒有握手動作。D選項「他們正坐在椅子上」不正確，因為兩人都站著。",
@@ -7563,7 +7563,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "standing"
     ],
     "imageAlt": "Two people are standing at a reception desk, one is handing a document to the other.",
-    "audioScript": "(A) They are eating lunch.\n(B) They are shaking hands.\n(C) One person is handing a document to the other.\n(D) They are sitting on chairs."
+    "audioScript": "(A) They are eating lunch at a table.\n(B) They are shaking hands in a doorway.\n(C) One person is handing a document to the other.\n(D) They are sitting on chairs by the window."
   },
   {
     "id": "p1-gen-054",
@@ -10311,8 +10311,8 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 2",
     "question": "Did you confirm the reservation for the team dinner on Thursday?",
     "choices": {
-      "A": "I checked the restaurant menu.",
-      "B": "The invoice was sent yesterday.",
+      "A": "I checked the restaurant's menu online earlier.",
+      "B": "The invoice for it was sent yesterday.",
       "C": "Yes, I spoke with the restaurant this morning."
     },
     "answer": "C",
@@ -10326,7 +10326,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "restaurant",
       "invoice"
     ],
-    "audioScript": "Q: Did you confirm the reservation for the team dinner on Thursday?\n(A) I checked the restaurant menu.\n(B) The invoice was sent yesterday.\n(C) Yes, I spoke with the restaurant this morning."
+    "audioScript": "Q: Did you confirm the reservation for the team dinner on Thursday?\n(A) I checked the restaurant's menu online earlier.\n(B) The invoice for it was sent yesterday.\n(C) Yes, I spoke with the restaurant this morning."
   },
   {
     "id": "p2-gen-057",
@@ -10983,8 +10983,8 @@ export const GENERATED_QUESTIONS: Question[] = [
     "part": "Part 2",
     "question": "Where is the client meeting being held?",
     "choices": {
-      "A": "It's being held at 3 PM.",
-      "B": "The meeting agenda is ready.",
+      "A": "It's being held at three o'clock.",
+      "B": "The meeting agenda is ready for everyone.",
       "C": "In the conference room on the second floor."
     },
     "answer": "C",
@@ -10998,7 +10998,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "conference room",
       "agenda"
     ],
-    "audioScript": "Q: Where is the client meeting being held?\n(A) It's being held at 3 PM.\n(B) The meeting agenda is ready.\n(C) In the conference room on the second floor."
+    "audioScript": "Q: Where is the client meeting being held?\n(A) It's being held at three o'clock.\n(B) The meeting agenda is ready for everyone.\n(C) In the conference room on the second floor."
   },
   {
     "id": "p2-gen-093",
@@ -12278,9 +12278,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "question": "What does the woman plan to do next?",
     "choices": {
       "A": "Contact the shipping company for express shipping.",
-      "B": "Update the client about the delay.",
-      "C": "Cancel the order.",
-      "D": "Discuss alternatives with the man."
+      "B": "Update the client about the current delay.",
+      "C": "Cancel the order completely.",
+      "D": "Discuss the other alternatives with the man first."
     },
     "answer": "A",
     "explanation_zh": "A: 女士表示她會立即聯繫運輸公司並確認快遞運輸（express shipping），因此她接下來的計畫是進行這項安排。選項B、C、D並非對話中女士提到的下一步行動，因此排除。",
@@ -15262,9 +15262,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "question": "What will the customer most likely do next?",
     "choices": {
       "A": "Wait for the additional units to arrive",
-      "B": "Call another company",
-      "C": "Request a refund",
-      "D": "Cancel the order"
+      "B": "Call a different supplier company instead",
+      "C": "Request a full refund",
+      "D": "Cancel the whole order"
     },
     "answer": "A",
     "explanation_zh": "答案：A。根據對話內容，客戶接受了補發的安排，且對話結束時問及是否還有其他需要幫助，顯示客戶將等待額外數量的到來。選項B、C、D都不符合對話的內容。",
@@ -15371,9 +15371,9 @@ export const GENERATED_QUESTIONS: Question[] = [
   {
     "question": "What was the cause of the shipment delay?",
     "choices": {
-      "A": "Traffic issues",
-      "B": "Weather conditions",
-      "C": "Supplier's mistake",
+      "A": "Heavy traffic along the delivery route",
+      "B": "Poor weather conditions",
+      "C": "A mistake by the supplier",
       "D": "Problem at the distribution center"
     },
     "answer": "D",
@@ -15837,9 +15837,9 @@ export const GENERATED_QUESTIONS: Question[] = [
     "question": "What is a restriction mentioned for the promotion?",
     "choices": {
       "A": "It cannot be combined with other discounts.",
-      "B": "It starts on June 15th.",
-      "C": "It includes all items.",
-      "D": "It can be used online."
+      "B": "It starts on the fifteenth of next June.",
+      "C": "It includes all items in the store.",
+      "D": "It can be used on the website too."
     },
     "answer": "A",
     "explanation_zh": "選擇A：公告明確指出『不能與其他折扣一起使用』為限制條件。選項B、C和D不符合公告或未被提及。",
@@ -16475,13 +16475,13 @@ export const GENERATED_QUESTIONS: Question[] = [
   "skill_tag": "listening_photo",
   "difficulty": "B1",
   "imageAlt": "A maintenance worker in a gray uniform is adjusting a large air conditioning unit on the roof of a modern office building.",
-  "audioScript": "(A) The worker is repairing a computer.\n(B) The worker is painting the wall.\n(C) The worker is adjusting the air conditioning unit.\n(D) The worker is carrying a ladder.",
+  "audioScript": "(A) The worker is repairing a desktop computer.\n(B) The worker is painting the office wall.\n(C) The worker is adjusting the air conditioning unit.\n(D) The worker is carrying a metal ladder outside.",
   "question": "Look at the photo and choose the statement that best describes it.",
   "choices": {
-    "A": "The worker is repairing a computer.",
-    "B": "The worker is painting the wall.",
+    "A": "The worker is repairing a desktop computer.",
+    "B": "The worker is painting the office wall.",
     "C": "The worker is adjusting the air conditioning unit.",
-    "D": "The worker is carrying a ladder."
+    "D": "The worker is carrying a metal ladder outside."
   },
   "answer": "C",
   "explanation_zh": "正確答案為C。照片中一名穿著灰色制服的維修工人正在屋頂上調整大型空調機組，與選項C「工人正在調整空調機組」完全相符。選項A「工人正在修理電腦」錯誤，因為照片中沒有電腦；選項B「工人正在粉刷牆壁」錯誤，因為工人並未進行粉刷動作；選項D「工人正在搬梯子」錯誤，因為工人雙手在調整空調，並未搬運梯子。",
@@ -17055,9 +17055,9 @@ export const GENERATED_QUESTIONS: Question[] = [
   {
   "question": "Could you tell me where the new batch of office chairs is being stored?",
   "choices": {
-    "A": "They were ordered last week.",
+    "A": "They were ordered from the supplier last week.",
     "B": "They're in the storage room near the loading dock.",
-    "C": "The chairs need assembling first."
+    "C": "The chairs will need assembling first."
   },
   "answer": "B",
   "explanation_zh": "問題詢問辦公椅的存放地點。選項A提到椅子何時被訂購，並未回答「在哪裡」的問題。選項B正確地回應椅子存放的位置。選項C提到椅子需要組裝，與問題無關。選項A是重複詞陷阱，因為提到「椅子」但沒有給出存放地點。",
@@ -17070,7 +17070,7 @@ export const GENERATED_QUESTIONS: Question[] = [
   "id": "p2-gen-169",
   "part": "Part 2",
   "skill_tag": "listening_response",
-  "audioScript": "Q: Could you tell me where the new batch of office chairs is being stored?\n(A) They were ordered last week.\n(B) They're in the storage room near the loading dock.\n(C) The chairs need assembling first."
+  "audioScript": "Q: Could you tell me where the new batch of office chairs is being stored?\n(A) They were ordered from the supplier last week.\n(B) They're in the storage room near the loading dock.\n(C) The chairs will need assembling first."
 },
   {
   "question": "When will the new office supplies shipment arrive?",
@@ -17674,9 +17674,9 @@ export const GENERATED_QUESTIONS: Question[] = [
   {
   "question": "Could you tell me where the new shipment of office chairs is stored?",
   "choices": {
-    "A": "They arrived yesterday.",
+    "A": "They arrived here yesterday afternoon.",
     "B": "In the storage room next to the elevator.",
-    "C": "We need more chairs soon."
+    "C": "We will need more chairs quite soon."
   },
   "answer": "B",
   "explanation_zh": "問題詢問辦公椅的新貨存放地點。選項B提供了具體地點資訊「電梯旁的儲藏室」，因此是正確答案。選項A重複了「arrived」這個詞，但只提到貨物到達的時間，沒有回答地點問題。選項C提到需求，但沒有解答問題。",
@@ -17689,7 +17689,7 @@ export const GENERATED_QUESTIONS: Question[] = [
   "id": "p2-gen-199",
   "part": "Part 2",
   "skill_tag": "listening_response",
-  "audioScript": "Q: Could you tell me where the new shipment of office chairs is stored?\n(A) They arrived yesterday.\n(B) In the storage room next to the elevator.\n(C) We need more chairs soon."
+  "audioScript": "Q: Could you tell me where the new shipment of office chairs is stored?\n(A) They arrived here yesterday afternoon.\n(B) In the storage room next to the elevator.\n(C) We will need more chairs quite soon."
 },
   {
   "question": "When does the warehouse safety briefing begin?",
@@ -20615,9 +20615,9 @@ export const GENERATED_QUESTIONS: Question[] = [
   "question": "What problem is explicitly mentioned in the conversation?",
   "choices": {
     "A": "The projector isn't connecting to the computer.",
-    "B": "The meeting room is unavailable.",
-    "C": "The cables are missing.",
-    "D": "The projector bulb is burnt out."
+    "B": "The meeting room is unavailable all day today.",
+    "C": "The connecting cables are missing.",
+    "D": "The projector's bulb has burnt out again."
   },
   "answer": "A",
   "explanation_zh": "答案是 A。女方提到投影機未能連接到電腦，並嘗試了不同的線纜但無法解決問題。這是對話中明確提到的問題。其他選項如會議室不可用（B）、線纜丟失（C）或投影機燈泡燒壞（D）並未在對話中提及。",
@@ -20680,10 +20680,10 @@ export const GENERATED_QUESTIONS: Question[] = [
   {
   "question": "What detail does the woman need help with?",
   "choices": {
-    "A": "Cancelling her registration",
+    "A": "Cancelling her conference registration",
     "B": "Changing from workshops to a project management session",
-    "C": "Getting a ticket for a dinner event",
-    "D": "Finding accommodation for the conference"
+    "C": "Getting a ticket for the evening dinner event",
+    "D": "Finding suitable accommodation for the conference"
   },
   "answer": "B",
   "explanation_zh": "答案是 B。女方明確提到需要從第一天的工作坊改為參加專案管理的會議。這是對話中女方需要幫助的具體細節。其他選項如取消註冊（A）、獲得晚宴活動的票（C）或尋找會議住宿（D）並未在對話中提及。",
@@ -21875,10 +21875,10 @@ export const GENERATED_QUESTIONS: Question[] = [
   {
   "question": "What is the most likely immediate next action for passengers?",
   "choices": {
-    "A": "Find alternate transportation.",
-    "B": "Contact their travel agent.",
+    "A": "Find alternate ground transportation.",
+    "B": "Contact their own travel agent for advice.",
     "C": "Visit Gate 14 for information and refreshments.",
-    "D": "Check into a nearby hotel."
+    "D": "Check into one of the nearby hotels."
   },
   "answer": "C",
   "explanation_zh": "選擇C是正確的，乘客最可能的下一步行動是前往14號登機口獲取資訊和享用免費的茶點。「Please proceed to Gate 14 for updated information and complimentary refreshments.」這句話說明了乘客應該採取的行動。選項A、B和D不符合乘客當前狀況。",
@@ -22061,9 +22061,9 @@ export const GENERATED_QUESTIONS: Question[] = [
   "question": "When will the side entrance on Maple Avenue be used?",
   "choices": {
     "A": "Starting next Monday, October 16th",
-    "B": "On October 15th",
-    "C": "For one week",
-    "D": "Starting this week"
+    "B": "On Sunday, the fifteenth of October",
+    "C": "For one week only",
+    "D": "Starting later this week"
   },
   "answer": "A",
   "explanation_zh": "選擇A是正確的，因為公告明確表示從下週一（10月16日）開始使用側門。其他選項未正確反映公告中的日期。",
@@ -22221,9 +22221,9 @@ export const GENERATED_QUESTIONS: Question[] = [
   {
   "question": "What can passengers do during the delay?",
   "choices": {
-    "A": "Request a refund",
-    "B": "Board an earlier train",
-    "C": "Switch to the Southbound Line",
+    "A": "Request a full refund",
+    "B": "Board an earlier train instead",
+    "C": "Switch over to the Southbound Line service",
     "D": "Visit the customer service desk for refreshments"
   },
   "answer": "D",
@@ -23941,10 +23941,10 @@ export const GENERATED_QUESTIONS: Question[] = [
   "passage": "To: All Staff\nFrom: Facilities Management\nDate: March 15, 2024\nSubject: Temporary Office Closure\n\nDue to essential electrical maintenance, the main office building will be closed from 6:00 PM on Friday, March 22, until 8:00 AM on Monday, March 25. During this time, all work areas on floors 1 through 5 will be inaccessible. The parking garage will remain open. Employees who need to work during this period should arrange to work remotely. For those who require on-site access to the server room on floor 6, please contact IT Support in advance to schedule an appointment. We apologize for any inconvenience.",
   "question": "What is the main purpose of this memo?",
   "choices": {
-    "A": "To announce a change in parking garage hours",
+    "A": "To announce a change in the parking garage's opening hours",
     "B": "To inform staff about a temporary office closure due to maintenance",
-    "C": "To schedule appointments with IT Support",
-    "D": "To remind employees about remote work policies"
+    "C": "To schedule appointments with the IT Support team",
+    "D": "To remind employees about the remote working policies"
   },
   "answer": "B",
   "explanation_zh": "這份備忘錄的主要目的是通知員工，由於必要的電力維護，辦公大樓將暫時關閉。文中明確指出「主辦公大樓將從3月22日星期五下午6點關閉至3月25日星期一上午8點」，因此選項B正確。選項A（停車場營業時間變更）與文中「停車場將保持開放」不符；選項C（與IT支援預約）僅針對需要進入6樓伺服器室的員工，非主要目的；選項D（提醒遠距工作政策）雖有提及，但非核心主旨。",
@@ -24067,9 +24067,9 @@ export const GENERATED_QUESTIONS: Question[] = [
   "question": "What can be inferred about the seller?",
   "choices": {
     "A": "The seller wants to attract customers who enjoy outdoor activities.",
-    "B": "The seller is discontinuing the EcoCharge Pro model.",
-    "C": "The seller primarily sells solar panels.",
-    "D": "The seller only accepts online orders."
+    "B": "The seller is discontinuing the whole EcoCharge Pro model line.",
+    "C": "The seller primarily sells solar panels to builders.",
+    "D": "The seller only accepts orders placed online."
   },
   "answer": "A",
   "explanation_zh": "從文中可推斷賣家希望吸引喜愛戶外活動的顧客。文中提到「for your home and outdoor adventures」以及「can be recharged via solar panels」，顯示產品適合戶外使用。選項B「賣家正停產此型號」無依據；選項C「賣家主要銷售太陽能板」錯誤，太陽能板為選購配件；選項D「賣家僅接受線上訂單」錯誤，文中提供電話訂購方式。因此正確答案為A。",
@@ -24394,9 +24394,9 @@ export const GENERATED_QUESTIONS: Question[] = [
   "passage": "Subject: Rescheduling of Project Kickoff Meeting\n\nDear Team,\n\nThis is to inform you that the project kickoff meeting originally scheduled for Tuesday, March 12th at 10:00 AM in Conference Room A has been rescheduled. The new meeting will take place on Thursday, March 14th at 2:00 PM in Conference Room B.\n\nThe change is necessary due to a scheduling conflict with our external consultant. We will still cover the key agenda items: project timeline, budget overview, and team roles. Please note that remote attendance via video conference is available. Kindly confirm your availability by March 11th.\n\nBest regards,\nSarah Chen\nProject Coordinator",
   "question": "What is the main purpose of this email?",
   "choices": {
-    "A": "To announce a new project timeline",
-    "B": "To request feedback on the budget overview",
-    "C": "To introduce a new external consultant",
+    "A": "To announce a new timeline for the project",
+    "B": "To request feedback on the budget overview document",
+    "C": "To introduce a new external consultant to the team",
     "D": "To inform recipients about a meeting date and time change"
   },
   "answer": "D",
@@ -24495,9 +24495,9 @@ export const GENERATED_QUESTIONS: Question[] = [
   "question": "What is the main purpose of this memo?",
   "choices": {
     "A": "To inform staff about a temporary closure and alternative arrangements",
-    "B": "To announce the opening of a new cafeteria",
-    "C": "To request volunteers for plumbing repairs",
-    "D": "To schedule a staff meeting in the West Wing"
+    "B": "To announce the opening of a brand new staff cafeteria area",
+    "C": "To request volunteers to help with plumbing repairs",
+    "D": "To schedule a staff meeting in the West Wing hall"
   },
   "answer": "A",
   "explanation_zh": "這份備忘錄的主要目的是通知員工西翼將暫時關閉，並提供替代工作安排。文中明確指出「西翼將從10月15日至10月18日關閉」，且「所有分配到西翼的員工應在東翼會議室工作」，因此選項A正確。選項B（宣布新自助餐廳開幕）與文中「自助餐廳將照常開放」不符；選項C（徵求志願者進行水管維修）文中未提及；選項D（安排西翼員工會議）與實際安排（移至東翼）矛盾。",
@@ -24724,9 +24724,9 @@ export const GENERATED_QUESTIONS: Question[] = [
   "question": "What is the reason given by Sarah Chen for the missing chair?",
   "choices": {
     "A": "An inventory error caused it to be shipped separately",
-    "B": "The delivery driver made a mistake",
-    "C": "The warehouse was out of stock",
-    "D": "Mark Harrison ordered the wrong model"
+    "B": "The delivery driver made a simple mistake",
+    "C": "The warehouse was completely out of stock",
+    "D": "Mark Harrison ordered the wrong model number"
   },
   "answer": "A",
   "explanation_zh": "莎拉·陳解釋遺漏椅子的原因是庫存錯誤導致分開運送。她在第二封郵件中寫道：「我們檢查倉庫記錄後發現，第四張椅子因庫存錯誤被分開運送」，因此答案為A。選項B（送貨司機失誤）、C（倉庫缺貨）和D（馬克訂錯型號）均未在郵件中提及。",
@@ -25176,10 +25176,10 @@ export const GENERATED_QUESTIONS: Question[] = [
   "passage": "**Text 1: Order Confirmation**\nFrom: orders@greentechsupply.com\nTo: j.chen@a1electronics.com\nDate: March 10, 2025\nSubject: Order #GT-4827 Confirmation\n\nDear Mr. Chen,\n\nThank you for your order of 500 units of Model X1000 Solar Chargers (unit price: $45.00) on March 8, 2025. We confirm that the shipment is scheduled to leave our warehouse on March 15, 2025, via FastTrack Logistics, with an estimated delivery to your facility on March 20, 2025. The total invoice amount is $22,500.00. Payment terms are net 30 days.\n\nPlease note that all items are covered by our standard 12-month warranty against manufacturing defects. If you have any questions, please contact our customer service team.\n\nBest regards,\nSarah Miller\nShipping Coordinator\nGreenTech Supply Inc.\n\n**Text 2: Complaint Inquiry**\nFrom: j.chen@a1electronics.com\nTo: support@greentechsupply.com\nDate: March 22, 2025\nSubject: Order #GT-4827 – Damaged Goods\n\nDear GreenTech Supply,\n\nWe received the shipment for Order #GT-4827 on March 20, 2025. Upon inspection, we discovered that 30 units of the Model X1000 Solar Chargers were damaged due to improper packaging. The outer boxes were crushed, and the chargers inside were scratched and non-functional. We request a replacement for the damaged items or a refund of $1,350.00 (30 units x $45.00). Please advise on how to proceed.\n\nWe have attached photos of the damage for your reference.\n\nSincerely,\nJames Chen\nProcurement Manager\nA1 Electronics\n\n**Text 3: Resolution Reply**\nFrom: s.miller@greentechsupply.com\nTo: j.chen@a1electronics.com\nDate: March 25, 2025\nSubject: RE: Order #GT-4827 – Damaged Goods\n\nDear Mr. Chen,\n\nWe sincerely apologize for the issue with your order. After reviewing your complaint and the photos, we have authorized a full replacement of the 30 damaged units. The replacement shipment will be sent via ExpressTrack Shipping and is expected to arrive by March 30, 2025. You do not need to return the damaged items; we will process a refund for the $1,350.00, which will be credited to your account within 5-7 business days.\n\nWe have also contacted FastTrack Logistics to investigate the handling issue. Please let us know if you require further assistance.\n\nBest regards,\nSarah Miller\nShipping Coordinator\nGreenTech Supply Inc.",
   "question": "In Text 2, what does James Chen request regarding the damaged items?",
   "choices": {
-    "A": "A full refund for the entire order",
-    "B": "An apology from the shipping company",
+    "A": "A full refund for the entire original order placed",
+    "B": "A written apology from the shipping company",
     "C": "A replacement of the damaged units or a refund of $1,350",
-    "D": "A discount on future purchases"
+    "D": "A standing discount on all future purchases"
   },
   "answer": "C",
   "explanation_zh": "答案是 C。Text 2 中 James Chen 寫道「We request a replacement for the damaged items or a refund of $1,350.00」，因此他要求更換或退款。選項 A 錯誤，因為他沒有要求全額退款；選項 B 錯誤，因為他沒有要求道歉；選項 D 錯誤，因為他沒有要求折扣。",
@@ -26581,9 +26581,9 @@ export const GENERATED_QUESTIONS: Question[] = [
   "question": "What is the main topic of the article?",
   "choices": {
     "A": "The acquisition of NovaTech Analytics by Apex Digital Solutions",
-    "B": "A leadership change at Apex Digital Solutions",
-    "C": "A decline in stock prices for tech companies",
-    "D": "The launch of a new AI product for healthcare"
+    "B": "A major leadership change at Apex Digital Solutions",
+    "C": "A sharp decline in stock prices for tech companies",
+    "D": "The launch of a new AI product for the healthcare sector"
   },
   "answer": "A",
   "explanation_zh": "本文主要報導 Apex Digital Solutions 收購 NovaTech Analytics 一事。文章開頭即明確指出「Apex Digital Solutions...announced today its acquisition of NovaTech Analytics」，全文圍繞此收購案的細節、影響及市場反應進行說明。選項 B「領導層變動」、C「科技公司股價下跌」及 D「推出醫療保健新 AI 產品」均非文章主軸，故正確答案為 A。",
@@ -26630,10 +26630,10 @@ export const GENERATED_QUESTIONS: Question[] = [
   "passage": "TechConnect Conference 2025\nFriday, March 14\n\n9:00–10:00 AM: Registration and Welcome Coffee (Lobby)\n10:00–11:30 AM: Keynote Speech: \"The Future of AI\" – Dr. Sarah Chen (Room A)\n11:30 AM–12:30 PM: Networking Lunch (Cafeteria)\n12:30–2:00 PM: Workshop: \"Cybersecurity Basics\" – Mark Davis (Room B)\n2:00–3:00 PM: Break\n3:00–4:00 PM: Panel Discussion: \"Cloud Solutions\" – Linda Park, James Lee (Room A)\n4:00–5:00 PM: Closing Remarks and Q&A (Room A)",
   "question": "What is the main purpose of the TechConnect Conference 2025?",
   "choices": {
-    "A": "To introduce a new software product",
+    "A": "To introduce a newly released software product",
     "B": "To provide a full day of training on various technology topics",
-    "C": "To celebrate the anniversary of the company",
-    "D": "To discuss only cybersecurity issues"
+    "C": "To celebrate the tenth anniversary of the company's founding",
+    "D": "To discuss cybersecurity issues and nothing else"
   },
   "answer": "B",
   "explanation_zh": "本題問的是TechConnect Conference 2025的主要目的。根據行程表，會議包含主題演講、工作坊、小組討論等多個科技相關環節，涵蓋AI、網路安全、雲端解決方案等主題，因此正確答案為B「提供一整天關於各種科技主題的培訓」。A「介紹新軟體產品」、C「慶祝公司週年」、D「僅討論網路安全議題」均未在行程中提及，故為錯誤選項。",
@@ -26756,9 +26756,9 @@ export const GENERATED_QUESTIONS: Question[] = [
   "question": "What can be inferred about the customer's next step?",
   "choices": {
     "A": "He will likely contact the company if the package does not arrive by November 20.",
-    "B": "He needs to call the company to arrange payment.",
-    "C": "He must provide a different shipping address.",
-    "D": "He should order more items to qualify for free shipping."
+    "B": "He needs to call the company to arrange a payment method.",
+    "C": "He must provide a completely different shipping address.",
+    "D": "He should order some more items in order to qualify for free shipping."
   },
   "answer": "A",
   "explanation_zh": "可推斷顧客若在11月20日前未收到包裹，很可能會聯繫公司。文中預計送達日期為11月18-20日（Estimated delivery: November 18-20, 2024），且訂單已全額付清，因此若未按時送達，顧客自然會追蹤，選項A正確。選項B（安排付款）與已付清矛盾；選項C（更改地址）無依據；選項D（再訂購免運費）未提及。",
@@ -26881,9 +26881,9 @@ export const GENERATED_QUESTIONS: Question[] = [
   "question": "What is the main purpose of this memo?",
   "choices": {
     "A": "To inform staff about a temporary building closure and alternative arrangements",
-    "B": "To announce a permanent closure of Building B",
-    "C": "To request employees to move to a new office permanently",
-    "D": "To provide instructions for using the air conditioning system"
+    "B": "To announce the permanent closure of Building B on the site",
+    "C": "To request that employees move to a new office permanently",
+    "D": "To provide instructions for using the new air conditioning system"
   },
   "answer": "A",
   "explanation_zh": "這份備忘錄的主要目的是通知員工B棟大樓因空調系統定期維護而暫時關閉，並提供替代工作安排。文中明確指出「Building B will be closed from October 15 to October 17」以及「all employees assigned to Building B are asked to work from the annex building」，因此選項A正確。選項B（永久關閉）與「temporary closure」矛盾；選項C（永久搬遷）與「temporary」不符；選項D（空調使用說明）並非主旨。",
@@ -27055,10 +27055,10 @@ export const GENERATED_QUESTIONS: Question[] = [
   "passage": "From: jennifer.harris@greenleaf.com\nTo: support@evergreenoffice.com\nSubject: Incorrect item received\n\nDear Customer Support,\n\nI am writing to express my disappointment regarding my recent order (Order #GHL-8921) placed on March 5, 2025. I ordered a set of 12 ergonomic office chairs (model: Ergo-Pro 2000) for my company, Greenleaf Consulting. However, when the delivery arrived on March 10, I received a set of 12 standard office chairs (model: Basic-Sit 100) instead. The boxes were labeled correctly, but the contents did not match the order.\n\nThis error has caused significant inconvenience, as I had scheduled a team meeting for March 12 to introduce the new chairs. I request that you arrange for the correct chairs to be delivered as soon as possible and provide a return label for the incorrect items. I expect a prompt resolution.\n\nThank you,\nJennifer Harris\nOffice Manager, Greenleaf Consulting\n\n---\n\nFrom: support@evergreenoffice.com\nTo: jennifer.harris@greenleaf.com\nSubject: Re: Incorrect item received\n\nDear Ms. Harris,\n\nThank you for contacting us. We sincerely apologize for the mistake with your order #GHL-8921. We understand how frustrating this must be, especially with your scheduled team meeting.\n\nTo resolve this issue, we will dispatch the correct Ergo-Pro 2000 chairs immediately via express shipping, with an estimated delivery by March 11. You will receive a prepaid return label via email to send back the Basic-Sit 100 chairs. Additionally, we have issued a 15% discount on your current order as a gesture of goodwill.\n\nWe appreciate your patience and hope this resolves the matter to your satisfaction.\n\nBest regards,\nMichael Chen\nCustomer Service Supervisor, Evergreen Office Supplies",
   "question": "What resolution did Evergreen Office Supplies offer?",
   "choices": {
-    "A": "A full refund for the incorrect order",
-    "B": "A discount on the next purchase only",
+    "A": "A full refund for the whole incorrect order",
+    "B": "A discount on the next purchase and nothing else",
     "C": "Replacement chairs with express shipping and a discount",
-    "D": "A return label but no replacement"
+    "D": "A return label but no replacement chairs"
   },
   "answer": "C",
   "explanation_zh": "答案是C。客服Michael Chen在回覆中提出：「we will dispatch the correct Ergo-Pro 2000 chairs immediately via express shipping」以及「we have issued a 15% discount」，因此解決方案包括更換椅子並提供快速送貨和折扣。選項A（全額退款）和B（僅下次購買折扣）未提及，選項D（僅退貨標籤無更換）與實際提供的服務不符。",
@@ -27080,9 +27080,9 @@ export const GENERATED_QUESTIONS: Question[] = [
   "passage": "From: jennifer.harris@greenleaf.com\nTo: support@evergreenoffice.com\nSubject: Incorrect item received\n\nDear Customer Support,\n\nI am writing to express my disappointment regarding my recent order (Order #GHL-8921) placed on March 5, 2025. I ordered a set of 12 ergonomic office chairs (model: Ergo-Pro 2000) for my company, Greenleaf Consulting. However, when the delivery arrived on March 10, I received a set of 12 standard office chairs (model: Basic-Sit 100) instead. The boxes were labeled correctly, but the contents did not match the order.\n\nThis error has caused significant inconvenience, as I had scheduled a team meeting for March 12 to introduce the new chairs. I request that you arrange for the correct chairs to be delivered as soon as possible and provide a return label for the incorrect items. I expect a prompt resolution.\n\nThank you,\nJennifer Harris\nOffice Manager, Greenleaf Consulting\n\n---\n\nFrom: support@evergreenoffice.com\nTo: jennifer.harris@greenleaf.com\nSubject: Re: Incorrect item received\n\nDear Ms. Harris,\n\nThank you for contacting us. We sincerely apologize for the mistake with your order #GHL-8921. We understand how frustrating this must be, especially with your scheduled team meeting.\n\nTo resolve this issue, we will dispatch the correct Ergo-Pro 2000 chairs immediately via express shipping, with an estimated delivery by March 11. You will receive a prepaid return label via email to send back the Basic-Sit 100 chairs. Additionally, we have issued a 15% discount on your current order as a gesture of goodwill.\n\nWe appreciate your patience and hope this resolves the matter to your satisfaction.\n\nBest regards,\nMichael Chen\nCustomer Service Supervisor, Evergreen Office Supplies",
   "question": "What can be inferred about Jennifer's team meeting?",
   "choices": {
-    "A": "It was canceled due to the error.",
-    "B": "It was held without the chairs.",
-    "C": "It was rescheduled to March 11.",
+    "A": "It was canceled because of the ordering error.",
+    "B": "It was held without the new chairs at all.",
+    "C": "It was rescheduled to the eleventh of March.",
     "D": "It was scheduled before the correct chairs arrived."
   },
   "answer": "D",
@@ -27130,10 +27130,10 @@ export const GENERATED_QUESTIONS: Question[] = [
   "passage": "Text 1: Order Confirmation\nFrom: orders@brightlighting.com\nTo: sarah.chen@greenfieldhotel.com\nDate: March 10, 2024\nSubject: Order #BL-8842 Confirmation\n\nDear Ms. Chen,\n\nThank you for your order. This email confirms your purchase of 200 units of the 'Lumina Pro' LED ceiling light (Model LP-2200) at $45.00 per unit, for a total of $9,000.00. The items are scheduled for delivery by March 25, 2024, to your hotel at 45 Park Avenue, New York, NY 10022. Payment was processed via invoice (INV-7721) due net 30 days. Please review the details and contact us if corrections are needed.\n\nBest regards,\nJames Turner\nCustomer Service Manager\nBright Lighting Inc.\n\nText 2: Follow-up Complaint\nFrom: sarah.chen@greenfieldhotel.com\nTo: support@brightlighting.com\nDate: March 28, 2024\nSubject: Order #BL-8842 – Missing Items and Damage\n\nDear Bright Lighting Team,\n\nWe received a shipment on March 22, 2024, but it was incomplete and had damaged items. Of the 200 'Lumina Pro' units ordered, only 150 were delivered. Additionally, 12 of those 150 units arrived with cracked casings. We need these issues resolved immediately as our hotel renovation is scheduled for completion on April 5, 2024. Please arrange for the missing 50 units and replacements for the damaged ones to be sent by April 1, 2024. We also request a partial refund or credit for the inconvenience.\n\nThank you,\nSarah Chen\nGeneral Manager\nGreenfield Hotel\n\nText 3: Company Resolution\nFrom: james.turner@brightlighting.com\nTo: sarah.chen@greenfieldhotel.com\nDate: March 30, 2024\nSubject: Re: Order #BL-8842 – Resolution\n\nDear Ms. Chen,\n\nWe sincerely apologize for the issues with your order. After reviewing our records, we confirm that 50 units were mistakenly held at our warehouse due to a system error. We have dispatched all 50 missing units via expedited shipping, and they are expected to arrive by April 2, 2024. For the 12 damaged units, we are issuing a full refund of $540.00, which will be credited to your account within 5-7 business days. Additionally, we are waiving the shipping fee for this order. We value your business and hope this resolves the matter.\n\nSincerely,\nJames Turner\nCustomer Service Manager\nBright Lighting Inc.",
   "question": "What is the overall situation described in the three texts?",
   "choices": {
-    "A": "A hotel placed an order for lights, but the delivery was late and incomplete, leading to a cancellation of the order.",
+    "A": "A hotel placed an order for lights, but the delivery arrived late and incomplete, which eventually led the hotel to cancel the remainder of the order.",
     "B": "A hotel ordered lights, received a partial shipment with some damage, and the company is addressing the issues by sending missing items and issuing a refund.",
-    "C": "A lighting company shipped incorrect items, and the hotel is requesting a full refund for the entire order.",
-    "D": "A hotel ordered lights, but the shipment was lost in transit, so the company is sending a replacement order."
+    "C": "A lighting company shipped entirely incorrect items, and the hotel is now requesting a full refund for the whole of the original order.",
+    "D": "A hotel ordered lights, but the whole shipment was lost in transit, so the company is now sending a complete replacement order."
   },
   "answer": "B",
   "explanation_zh": "答案是B。三封郵件描述了酒店訂購燈具，收到部分貨物且有損壞，公司通過補發缺失物品和退款來解決問題的整體情況。文本1確認訂單，文本2投訴缺失和損壞，文本3提出補發50件並退還12件損壞品的款項，因此B正確。A錯誤，因為訂單並未取消；C錯誤，因為公司未發錯物品，也未全額退款；D錯誤，因為貨物未丟失，而是部分被扣留。",
@@ -27206,9 +27206,9 @@ export const GENERATED_QUESTIONS: Question[] = [
   "question": "What can be inferred about the hotel renovation timeline from Text 2 and Text 3?",
   "choices": {
     "A": "The hotel needed the lights by April 5, but the replacement will arrive just before that.",
-    "B": "The renovation deadline was extended due to the shipping delays.",
-    "C": "The renovation was completed before the lights arrived.",
-    "D": "The renovation was postponed indefinitely."
+    "B": "The renovation deadline had to be extended because of the reported shipping delays.",
+    "C": "The renovation was completed well before any of the lights arrived.",
+    "D": "The renovation has been postponed more or less indefinitely."
   },
   "answer": "A",
   "explanation_zh": "答案是A。文本2顯示酒店裝修計劃於4月5日完成，並要求4月1日前補發；文本3中補發預計4月2日到達，早於4月5日，因此可推斷補發在裝修截止前到達。B錯誤，文本未提及延期；C錯誤，裝修未完成；D錯誤，未無限期推遲。",
@@ -27380,9 +27380,9 @@ export const GENERATED_QUESTIONS: Question[] = [
   "passage": "We are seeking an experienced Digital Marketing Specialist to join our growing team at NovaTech Solutions. The ideal candidate will have at least 3 years of proven experience in managing PPC campaigns and SEO strategies. Responsibilities include optimizing online advertising budgets, analyzing web traffic data, and collaborating with content teams to improve organic search rankings. Proficiency in Google Analytics and AdWords is required. A bachelor's degree in Marketing or a related field is preferred. We offer a competitive salary, health benefits, and opportunities for professional development. To apply, please send your resume and a cover letter highlighting your relevant experience to careers@novatech.com by August 15, 2024.\n\nDear Hiring Manager,\n\nI am writing to express my strong interest in the Digital Marketing Specialist position at NovaTech Solutions, as advertised on your company website. With over four years of experience in digital marketing, I have successfully managed PPC campaigns across multiple platforms and developed SEO strategies that increased organic traffic by 40% at my previous company. I am proficient in Google Analytics and AdWords, and I hold a Bachelor's degree in Business Administration with a focus on Marketing. I am eager to bring my skills to NovaTech and help drive your online presence. Please find my resume attached. I look forward to the opportunity to discuss my application further. Thank you for your time and consideration.\n\nSincerely,\nAlex Chen",
   "question": "What is the main purpose of the job posting?",
   "choices": {
-    "A": "To announce a new marketing campaign",
-    "B": "To describe the company's history",
-    "C": "To provide tips for PPC management",
+    "A": "To announce a new marketing campaign launch",
+    "B": "To describe the history of the company",
+    "C": "To provide practical tips for PPC management",
     "D": "To advertise an open position and invite applications"
   },
   "answer": "D",
@@ -28671,9 +28671,9 @@ export const GENERATED_QUESTIONS: Question[] = [
   "question": "What is the main purpose of this email?",
   "choices": {
     "A": "To inform team members about a change in meeting arrangements",
-    "B": "To announce a new project team member",
-    "C": "To request approval for the Q2 budget proposal",
-    "D": "To provide an agenda for the software rollout"
+    "B": "To announce a new member of the project team",
+    "C": "To request approval for the Q2 budget proposal document",
+    "D": "To provide a full agenda for the software rollout"
   },
   "answer": "A",
   "explanation_zh": "主要目的是通知團隊成員會議時間與地點的變更。信件開頭明確指出原訂於3月15日的會議已改期至3月19日，並從A會議室改至B會議室，因此選項A正確。選項B（宣布新成員）、C（要求批准預算）及D（提供軟體發布議程）均非信件主旨。",
@@ -28945,10 +28945,10 @@ export const GENERATED_QUESTIONS: Question[] = [
   "passage": "The Greenfield Community Center will host a free Digital Literacy Workshop for seniors on Saturday, March 15, from 10:00 AM to 1:00 PM in Room 201. The workshop covers basic smartphone use, social media safety, and online banking. Participants must be 60 years or older and register in advance. Space is limited to 25 attendees. To register, call (555) 123-4567 or visit the center’s front desk by March 10. A valid ID is required at check-in. Light refreshments will be provided.",
   "question": "What can be inferred about the intended audience of this workshop?",
   "choices": {
-    "A": "The workshop is for teenagers who want to learn coding",
-    "B": "The workshop is designed for professional IT workers",
+    "A": "The workshop is aimed at teenagers who want to learn to code",
+    "B": "The workshop is designed for experienced professional IT workers",
     "C": "The workshop targets older adults who may not be familiar with digital tools",
-    "D": "The workshop is open to all age groups without restriction"
+    "D": "The workshop is open to people of all age groups without restriction"
   },
   "answer": "C",
   "explanation_zh": "工作坊的目標對象是年長者，文中提到「Digital Literacy Workshop for seniors」及「basic smartphone use, social media safety, and online banking」，暗示參加者可能不熟悉數位工具，因此選項C正確。選項A（青少年學程式）、B（專業IT人員）及D（開放所有年齡）均與文中「seniors」及年齡限制不符，屬於干擾選項。",
@@ -29244,10 +29244,10 @@ export const GENERATED_QUESTIONS: Question[] = [
   "passage": "Dear Team,\n\nThis is to inform you that the monthly progress meeting originally scheduled for Friday, March 15th, at 10:00 AM in Conference Room B has been rescheduled. The new meeting will take place on Tuesday, March 19th, at 2:00 PM in Conference Room A.\n\nThe change is necessary due to a scheduling conflict with the quarterly audit presentation. Please note that remote attendance via video conference will be available for those who cannot attend in person. The agenda will include updates on the Q1 sales figures, the new client onboarding process, and the marketing campaign review.\n\nPlease confirm your attendance by March 14th. If you have any questions, contact me directly.\n\nBest regards,\nSarah Chen\nProject Coordinator",
   "question": "What can be inferred about the quarterly audit presentation?",
   "choices": {
-    "A": "It has been cancelled due to the scheduling conflict.",
-    "B": "It will be discussed during the rescheduled meeting.",
+    "A": "It has been cancelled because of the scheduling conflict.",
+    "B": "It will be discussed during the rescheduled team meeting.",
     "C": "It is taking place at the same time as the originally scheduled meeting.",
-    "D": "It requires all team members to attend in person."
+    "D": "It requires every team member to attend the session in person."
   },
   "answer": "C",
   "explanation_zh": "可推斷季度稽核簡報與原訂會議時間衝突。信件說明改期原因是「due to a scheduling conflict with the quarterly audit presentation」，暗示該簡報安排在3月15日上午10點，與原會議時間重疊。選項A（取消）未提及；選項B（在改期會議中討論）無根據；選項D（要求親自出席）與信件中提供遠端參與的資訊矛盾。",
@@ -29395,9 +29395,9 @@ export const GENERATED_QUESTIONS: Question[] = [
   "question": "What is the main problem Maria Chen is reporting?",
   "choices": {
     "A": "She received the wrong items and incorrect quantity.",
-    "B": "Her order was delivered late.",
-    "C": "She received a damaged product.",
-    "D": "She could not track her order."
+    "B": "Her order was delivered several days late.",
+    "C": "She received a badly damaged product.",
+    "D": "She could not track her order online."
   },
   "answer": "A",
   "explanation_zh": "問題是瑪麗亞·陳回報的主要問題是什麼？答案是A。根據Email 1，她寫道：「我訂購了一組四個陶瓷花盆，顏色是『鼠尾草綠』，但我今天收到的包裹裡只有三個花盆，而且顏色是『陶土橙』。」這明確指出她收到錯誤的商品（顏色不對）且數量不足（訂購四個，收到三個）。選項B（延遲送達）未提及，選項C（產品損壞）未提及，選項D（無法追蹤訂單）也未提及。",
@@ -29495,9 +29495,9 @@ export const GENERATED_QUESTIONS: Question[] = [
   "question": "How does the resolution offered by David Lee differ from what Maria requested in her original email?",
   "choices": {
     "A": "Maria asked for advice on returning the items, while David told her to keep them.",
-    "B": "Maria asked for a refund, but David offered a replacement.",
-    "C": "Maria wanted express shipping, but David used standard delivery.",
-    "D": "Maria requested a discount, and David gave her a full refund."
+    "B": "Maria asked for a full refund, but David offered her a replacement.",
+    "C": "Maria wanted express shipping, but David used standard delivery instead.",
+    "D": "Maria requested a discount, and David gave her a complete refund."
   },
   "answer": "A",
   "explanation_zh": "大衛·李提供的解決方案與瑪麗亞原始郵件中的要求有何不同？答案是A。瑪麗亞在Email 1中要求：「請告知如何進行退貨或換貨。」她詢問如何退回商品。而大衛在Email 2中回覆：「請保留陶土橙花盆。」他告訴她保留商品，而非退回。選項B（瑪麗亞要求退款，大衛提供換貨）不準確，因為瑪麗亞並未要求退款，而是詢問退貨或換貨流程；大衛則提供了換貨（寄送正確商品）並退款運費。選項C（瑪麗亞要求快遞，大衛使用標準配送）錯誤，大衛使用了快遞。選項D（瑪麗亞要求折扣，大衛提供全額退款）錯誤，瑪麗亞未要求折扣。",
@@ -29895,9 +29895,9 @@ export const GENERATED_QUESTIONS: Question[] = [
   "question": "What is the main issue described in the three texts?",
   "choices": {
     "A": "The customer received the wrong model of monitor arms and a partial shipment of desks.",
-    "B": "The customer's payment was not processed correctly.",
-    "C": "The delivery was delayed by several weeks.",
-    "D": "The customer ordered the wrong items and requested a return."
+    "B": "The customer's payment was not processed correctly by the system.",
+    "C": "The whole delivery was delayed by several weeks.",
+    "D": "The customer ordered the wrong items and then requested a full return of them."
   },
   "answer": "A",
   "explanation_zh": "答案是 A。根據 Text 2，Jennifer Chen 回報收到的貨物中缺少 5 張 ErgoDesk Pro 桌子，且收到的 BM-120 螢幕支架是錯誤型號（她訂購的是 BM-150）。Text 3 的回覆也確認了這兩項問題。選項 B（付款問題）、C（延遲數週）和 D（訂錯商品要求退貨）均與內文不符。",

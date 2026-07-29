@@ -104,10 +104,10 @@ export const QUESTIONS_PART7: Question[] = [
     "part": "Part 7",
     "question": "What is the notice mainly about?",
     "choices": {
-      "A": "A new parking policy",
+      "A": "A new parking policy for all staff",
       "B": "Temporary service interruptions during maintenance",
-      "C": "Emergency evacuation procedures",
-      "D": "Changes to office operating hours"
+      "C": "Emergency evacuation procedures for the building",
+      "D": "Permanent changes to office operating hours"
     },
     "answer": "B",
     "explanation_zh": "主旨題：公告說明「scheduled maintenance work」期間多項服務「temporarily unavailable」。",
@@ -202,10 +202,10 @@ export const QUESTIONS_PART7: Question[] = [
     "part": "Part 7",
     "question": "What is the main purpose of this advertisement?",
     "choices": {
-      "A": "To announce a store closure sale",
-      "B": "To recruit store employees",
+      "A": "To announce a closing-down sale at a local store",
+      "B": "To recruit employees for a store",
       "C": "To promote the opening of a new office supply store",
-      "D": "To advertise online shopping only"
+      "D": "To advertise an online-only shopping service"
     },
     "answer": "C",
     "explanation_zh": "主旨題：廣告標題是「GRAND OPENING SALE」，目的是宣傳新店開幕優惠。",
@@ -1264,10 +1264,10 @@ export const QUESTIONS_PART7: Question[] = [
     "part": "Part 7",
     "question": "What is the main purpose of this memo?",
     "choices": {
-      "A": "To schedule a team-building event",
-      "B": "To announce staff promotions",
+      "A": "To schedule a team-building event for staff",
+      "B": "To announce a round of staff promotions",
       "C": "To introduce new customer response time requirements",
-      "D": "To remind staff of an existing policy"
+      "D": "To remind staff about an existing company policy"
     },
     "answer": "C",
     "explanation_zh": "主旨題：備忘錄主旨是「New Customer Response Guidelines」，說明新的客戶回覆時限要求。",
@@ -1853,9 +1853,9 @@ export const QUESTIONS_PART7: Question[] = [
     "question": "What can be inferred about the energy-saving mode?",
     "choices": {
       "A": "It activates automatically when the machine is not in use",
-      "B": "It increases the water heating temperature",
-      "C": "It slows down the water filtration process",
-      "D": "It must be manually turned on each time"
+      "B": "It increases the temperature of the heated water",
+      "C": "It slows down the water filtration process slightly",
+      "D": "It must be switched on manually before each use"
     },
     "answer": "A",
     "explanation_zh": "推論題：功能說「Energy-saving mode: automatically reduces power when idle」，idle 表示閒置，因此節能模式在機器不使用時會自動啟動。",

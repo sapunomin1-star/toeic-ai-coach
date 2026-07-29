@@ -847,10 +847,10 @@ export const QUESTIONS_LISTENING: Question[] = [
     "part": "Part 3",
     "question": "What caused the delivery delay?",
     "choices": {
-      "A": "A shipping error",
-      "B": "An incorrect order",
+      "A": "An error made by the shipping company",
+      "B": "An incorrect order from the buyer",
       "C": "A material shortage at the supplier",
-      "D": "A payment problem"
+      "D": "A payment problem with the bank"
     },
     "answer": "C",
     "explanation_zh": "細節題。男士說 'Our supplier had a shortage of materials'，供應商原料短缺導致出貨延誤。",
@@ -1292,9 +1292,9 @@ export const QUESTIONS_LISTENING: Question[] = [
     "question": "What is the main purpose of this announcement?",
     "choices": {
       "A": "To inform guests about facility hours and services",
-      "B": "To welcome guests to the hotel",
-      "C": "To announce a special event",
-      "D": "To introduce hotel staff"
+      "B": "To welcome the new guests arriving at the hotel today",
+      "C": "To announce a special event in the main ballroom",
+      "D": "To introduce the hotel's new management team"
     },
     "answer": "A",
     "explanation_zh": "主旨題。公告提到 restaurant closing time、room service、swimming pool、fitness center 和 breakfast hours，是在說明各項設施的服務時間。",
@@ -1580,10 +1580,10 @@ export const QUESTIONS_LISTENING: Question[] = [
     "part": "Part 4",
     "question": "What will happen at 3 p.m.?",
     "choices": {
-      "A": "The festival will close",
+      "A": "The festival will close for the evening",
       "B": "A famous chef will give a cooking demonstration",
-      "C": "Ticket prices will be reduced",
-      "D": "A music performance will begin"
+      "C": "Ticket prices will be reduced for the day",
+      "D": "A live music performance will begin on the main stage"
     },
     "answer": "B",
     "explanation_zh": "細節題。公告說 'At 3 p.m., there will be a cooking demonstration by a famous chef'，下午三點有名廚烹飪示範。",
@@ -2535,8 +2535,8 @@ export const QUESTIONS_LISTENING: Question[] = [
     "question": "Should we order lunch for the team or let everyone eat on their own?",
     "choices": {
       "A": "I think ordering in would be more efficient for the team.",
-      "B": "The lunch break is usually at noon.",
-      "C": "Everyone already ate their lunch earlier."
+      "B": "The lunch break is usually at twelve o'clock here.",
+      "C": "Everyone already ate their lunch much earlier this morning."
     },
     "answer": "A",
     "explanation_zh": "這是一個選擇問句，提供「訂餐」或「各自用餐」兩個選項，(A) 選擇訂餐並給出理由為正確回應。(B) 回答午餐時間，但並未在兩個選項中做出選擇。(C) 的時態錯誤，用餐尚未發生。",
@@ -2548,7 +2548,7 @@ export const QUESTIONS_LISTENING: Question[] = [
       "efficient",
       "team"
     ],
-    "audioScript": "Q: Should we order lunch for the team or let everyone eat on their own?\n(A) I think ordering in would be more efficient for the team.\n(B) The lunch break is usually at noon.\n(C) Everyone already ate their lunch earlier."
+    "audioScript": "Q: Should we order lunch for the team or let everyone eat on their own?\n(A) I think ordering in would be more efficient for the team.\n(B) The lunch break is usually at twelve o'clock here.\n(C) Everyone already ate their lunch much earlier this morning."
   },
   {
     "id": "p2-gen-012",
@@ -3166,9 +3166,9 @@ export const QUESTIONS_LISTENING: Question[] = [
     "part": "Part 2",
     "question": "Why would the supplier increase their prices by twenty percent without any prior notice?",
     "choices": {
-      "A": "The supplier is based overseas in a different time zone.",
+      "A": "The supplier is based overseas, in a completely different time zone from ours.",
       "B": "Apparently, the cost of raw materials has gone up significantly this quarter.",
-      "C": "I noticed the price increase on the invoice this morning."
+      "C": "I noticed that price increase on the invoice we received this morning."
     },
     "answer": "B",
     "explanation_zh": "問題問的是供應商突然漲價的「原因」，(B) 回答原料成本大幅上升為正確回應。(A) 回答供應商的位置，但未解釋漲價原因。(C) 提到注意到發票上的價格變動，但未解釋為何漲價。",
@@ -3181,7 +3181,7 @@ export const QUESTIONS_LISTENING: Question[] = [
       "significantly",
       "notice"
     ],
-    "audioScript": "Q: Why would the supplier increase their prices by twenty percent without any prior notice?\n(A) The supplier is based overseas in a different time zone.\n(B) Apparently, the cost of raw materials has gone up significantly this quarter.\n(C) I noticed the price increase on the invoice this morning."
+    "audioScript": "Q: Why would the supplier increase their prices by twenty percent without any prior notice?\n(A) The supplier is based overseas, in a completely different time zone from ours.\n(B) Apparently, the cost of raw materials has gone up significantly this quarter.\n(C) I noticed that price increase on the invoice we received this morning."
   },
   {
     "id": "p2-gen-042",
@@ -3320,8 +3320,8 @@ export const QUESTIONS_LISTENING: Question[] = [
     "part": "Part 2",
     "question": "The new policy requires all employees to submit expense reports by the fifth, right?",
     "choices": {
-      "A": "I submit all my expenses through the online portal.",
-      "B": "My travel expenses last month were quite high.",
+      "A": "I always submit all of my own expenses through the company's online portal.",
+      "B": "My own travel expenses last month were unusually high, actually.",
       "C": "Actually, the deadline has been extended to the tenth starting next month."
     },
     "answer": "C",
@@ -3335,7 +3335,7 @@ export const QUESTIONS_LISTENING: Question[] = [
       "extended",
       "policy"
     ],
-    "audioScript": "Q: The new policy requires all employees to submit expense reports by the fifth, right?\n(A) I submit all my expenses through the online portal.\n(B) My travel expenses last month were quite high.\n(C) Actually, the deadline has been extended to the tenth starting next month."
+    "audioScript": "Q: The new policy requires all employees to submit expense reports by the fifth, right?\n(A) I always submit all of my own expenses through the company's online portal.\n(B) My own travel expenses last month were unusually high, actually.\n(C) Actually, the deadline has been extended to the tenth starting next month."
   },
   {
     "id": "p2-gen-049",
@@ -3364,9 +3364,9 @@ export const QUESTIONS_LISTENING: Question[] = [
     "part": "Part 2",
     "question": "What measures should we take to prevent a similar security breach from happening again?",
     "choices": {
-      "A": "The security breach was reported to the authorities immediately.",
+      "A": "The security breach was reported to the relevant authorities almost immediately.",
       "B": "We should implement stronger data encryption and regular staff cybersecurity training.",
-      "C": "I think the security team handled the situation very professionally."
+      "C": "I thought the security team handled that whole situation very professionally indeed."
     },
     "answer": "B",
     "explanation_zh": "問題問的是應採取「什麼措施」來防止類似安全漏洞，(B) 回答需要加強資料加密並定期進行網路安全培訓為正確回應。(A) 的時態錯誤，使用過去式描述已發生的事件而非提出未來措施。(C) 評論安全團隊的處理方式而非提出具體預防措施。",
@@ -3379,7 +3379,7 @@ export const QUESTIONS_LISTENING: Question[] = [
       "cybersecurity",
       "implement"
     ],
-    "audioScript": "Q: What measures should we take to prevent a similar security breach from happening again?\n(A) The security breach was reported to the authorities immediately.\n(B) We should implement stronger data encryption and regular staff cybersecurity training.\n(C) I think the security team handled the situation very professionally."
+    "audioScript": "Q: What measures should we take to prevent a similar security breach from happening again?\n(A) The security breach was reported to the relevant authorities almost immediately.\n(B) We should implement stronger data encryption and regular staff cybersecurity training.\n(C) I thought the security team handled that whole situation very professionally indeed."
   },
   {
     "id": "p3-gen-001",

@@ -9079,10 +9079,10 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     "part": "Part 7",
     "question": "Why did Mr. Brown write the letter?",
     "choices": {
-      "A": "To request an overdue payment",
-      "B": "To ask for an extension on payment due",
+      "A": "To request payment of an overdue amount",
+      "B": "To ask for an extension on the payment due",
       "C": "To notify the client that the account has been settled",
-      "D": "To offer a special type of a service"
+      "D": "To offer a special type of repair service"
     },
     "answer": "C",
     "explanation_zh": "第二封信開頭說「your account has now been cleared and paid in full」，表示 Mr. Brown 寫信是為了通知客戶帳戶已結清。選項 C 正確。",
@@ -10084,9 +10084,9 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     "part": "Part 7",
     "question": "What is NOT stated in the policy?",
     "choices": {
-      "A": "Goods must be brought back in their original form.",
-      "B": "The original receipt must accompany the returned item.",
-      "C": "A time limit is placed on items being returned.",
+      "A": "Goods must be brought back in their original condition.",
+      "B": "The original receipt must accompany any item being returned.",
+      "C": "A strict time limit is placed on items being returned.",
       "D": "A full refund will be provided for all items if returned within 24 hours."
     },
     "answer": "D",
@@ -10108,10 +10108,10 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     "part": "Part 7",
     "question": "In which of the following situations would a person have to show photo identification?",
     "choices": {
-      "A": "When returning items that are valued over $100 before taxes",
+      "A": "When returning any items that are valued at over $100 before sales taxes",
       "B": "If the merchandise was originally bought by someone other than the person returning it",
-      "C": "In situations where the boxes have been opened and used",
-      "D": "If a credit card was used when making the purchase"
+      "C": "In situations where the original boxes have been opened and used",
+      "D": "If a credit card was used at the time of making the purchase"
     },
     "answer": "B",
     "explanation_zh": "政策中明確指出「Customers, or those returning Joy Market items received as gifts, should provide photo identification」，這表示如果退貨者不是原始購買者（例如收到禮物的人），就需要出示附有照片的身分證明。",
@@ -10180,10 +10180,10 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     "part": "Part 7",
     "question": "What will happen to an incoming shipment heading to a small town on October 21?",
     "choices": {
-      "A": "It will be returned to the sender.",
-      "B": "It will be held until the 30th.",
+      "A": "It will be returned to the original sender.",
+      "B": "It will be held until the thirtieth.",
       "C": "It will reach its destination after the 6th of November.",
-      "D": "It will be delivered the next day."
+      "D": "It will be delivered on the following day."
     },
     "answer": "C",
     "explanation_zh": "信中說明：「for shipments headed to smaller towns, there will be a further delay... This situation will return to normal on the 6th of November」，因此10月21日寄往小鎮的貨物將在11月6日後才送達。",
@@ -11019,9 +11019,9 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     "part": "Part 7",
     "question": "Where would one read this notice?",
     "choices": {
-      "A": "In a newspaper",
-      "B": "At the health club",
-      "C": "At the swimming pool",
+      "A": "In a local newspaper",
+      "B": "At the local health club",
+      "C": "At the public swimming pool",
       "D": "In the Dusseldorf Convention Center"
     },
     "answer": "D",
@@ -11258,10 +11258,10 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     "part": "Part 7",
     "question": "What can be inferred about Mr. Wayne Forman?",
     "choices": {
-      "A": "He often makes business trips to Singapore.",
+      "A": "He often makes business trips over to Singapore.",
       "B": "He has made up his mind to work with Adventure Media Services.",
-      "C": "He has completed drafting the contract.",
-      "D": "He does not get along well with his boss."
+      "C": "He has already completed drafting the contract.",
+      "D": "He does not get along very well with his own boss."
     },
     "answer": "B",
     "explanation_zh": "信中寫道「you and your team are definitely the right choice for our next groundbreaking project」以及「I feel very confident that you will spearhead a very successful initiative」，顯示他已經決定與 Adventure Media Services 合作。",
@@ -14443,10 +14443,10 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     "part": "Part 7",
     "question": "Who is Harry Sinclair?",
     "choices": {
-      "A": "One of the managers",
-      "B": "The event coordinator",
+      "A": "One of the senior managers",
+      "B": "The event coordinator herself",
       "C": "The previous year's new employee of the year",
-      "D": "A motivational speaker"
+      "D": "A well-known motivational speaker"
     },
     "answer": "C",
     "explanation_zh": "行程表中4:30-5:00的活動描述提到「a motivational speech by last year's rookie of the year, Mr. Harry Sinclair」，說明Harry Sinclair是去年的年度最佳新人，因此正確選項是「The previous year's new employee of the year」。",
@@ -14994,10 +14994,10 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     "part": "Part 7",
     "question": "Who is Debbie Hu?",
     "choices": {
-      "A": "A delivery personnel",
+      "A": "A member of the delivery staff",
       "B": "An employee of the First Computers Co.",
-      "C": "A customs officer",
-      "D": "Dan Richman's secretary"
+      "C": "An officer at the customs desk",
+      "D": "Dan Richman's personal secretary"
     },
     "answer": "B",
     "explanation_zh": "備忘錄的寄件人是 Lee Hao Jie，收件人是 Debbie Hu，而 Lee Hao Jie 任職於 First Computers Co.（由發票中的 Consignee 資訊可知），因此 Debbie Hu 應是同一家公司的員工，故選項「An employee of the First Computers Co.」正確。",
@@ -15781,9 +15781,9 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     "part": "Part 7",
     "question": "Why will Mr. Warner call the client?",
     "choices": {
-      "A": "To try to convince Mr. Martin to sign the agreement",
-      "B": "To discuss further about the details of the contract",
-      "C": "To demand payment for the work they have done to date",
+      "A": "To try to convince Mr. Martin to sign the agreement today",
+      "B": "To discuss further details about the terms of the contract",
+      "C": "To demand full payment for the work they have done to date",
       "D": "To see if he can convince Mr. Martin to allow the crew back on the site"
     },
     "answer": "D",
@@ -15805,9 +15805,9 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     "part": "Part 7",
     "question": "What is the main purpose of the poll?",
     "choices": {
-      "A": "To establish a definite hierarchy within the workplace",
-      "B": "To resolve the difference of opinions between managers and staff members",
-      "C": "To get a grasp of how the managers are managing the members of their teams",
+      "A": "To establish a clear and definite hierarchy within the whole workplace",
+      "B": "To resolve the differences of opinion between the managers and the staff members",
+      "C": "To get a much clearer grasp of how the managers are currently managing the members of their teams",
       "D": "To better understand the relationship between employees and their managers to improve the working environment"
     },
     "answer": "D",
@@ -16837,9 +16837,9 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     "question": "What can be inferred from the schedule?",
     "choices": {
       "A": "On the first day of the tour, they will most likely have lunch on the plane.",
-      "B": "Each day begins at the same time.",
-      "C": "Tour members prefer to spend more time in Las Vegas.",
-      "D": "They will stay at five-star accommodations."
+      "B": "Each day of the tour begins at exactly the same time.",
+      "C": "Tour members would prefer to spend rather more time in Las Vegas.",
+      "D": "They will be staying at five-star accommodations throughout."
     },
     "answer": "A",
     "explanation_zh": "根據行程表，Day 1 早上 6:00 在甘迺迪機場集合，8:00 飛往洛杉磯，下午 1:30 才抵達，中間沒有安排午餐，因此可推斷他們很可能在飛機上吃午餐。其他選項皆無對應資訊支持。",
@@ -16909,9 +16909,9 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     "question": "What does Ms. Williams NOT mention in the e-mail?",
     "choices": {
       "A": "To expect a long line at the airport check in counter",
-      "B": "To bring only one suitcase",
-      "C": "To pack warm clothing",
-      "D": "To read the itinerary"
+      "B": "To bring only one small suitcase for the trip",
+      "C": "To pack plenty of warm clothing",
+      "D": "To read the itinerary carefully"
     },
     "answer": "A",
     "explanation_zh": "郵件中提到了只帶一個行李（one bag）、攜帶保暖衣物（pack a jacket）、以及參閱行程表（refer to the schedule），但完全沒有提到機場報到櫃檯會大排長龍。",
@@ -17988,10 +17988,10 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     "part": "Part 7",
     "question": "Who would be most interested in attending Lucy Costner's talk?",
     "choices": {
-      "A": "Enterprises that want to keep up with the current changes",
-      "B": "Firms that are looking to upgrade their product image",
+      "A": "Enterprises that want to keep up with all of the current changes",
+      "B": "Firms that are looking to upgrade their overall product image",
       "C": "Corporations that are looking for ways to build rapport among their employees",
-      "D": "Companies that want to catch the pradigm wave"
+      "D": "Companies that want to catch the coming paradigm wave"
     },
     "answer": "C",
     "explanation_zh": "Lucy Costner 的演講主題是「Managing People」，內容提到處理員工問題、激勵方法與建立愉快的工作關係。這最吸引那些想增進員工關係的公司，也就是選項「Corporations that are looking for ways to build rapport among their employees」。",
