@@ -130,8 +130,11 @@ export function getMockSession(mode: MockMode = "reading"): MockTestSession | nu
   return storeFor(mode).getSession();
 }
 
-export function saveMockSession(session: MockTestSession, mode: MockMode = "reading"): void {
-  storeFor(mode).saveSession(session);
+export function saveMockSession(
+  session: MockTestSession,
+  mode: MockMode = "reading",
+): boolean {
+  return storeFor(mode).saveSession(session);
 }
 
 export function clearMockSession(mode: MockMode = "reading"): void {
@@ -155,7 +158,14 @@ export function startMockSession(
     startedAt: new Date(now).toISOString(),
     endTime: new Date(now + getMockDurationMs(mode)).toISOString(),
   };
-  saveMockSession(session, mode);
+  // A mock runs for 45-120 minutes and lives entirely in the persisted
+  // session: without it, one refresh loses every answer. Fail the start rather
+  // than hand back a session the runner cannot resume.
+  if (!saveMockSession(session, mode)) {
+    throw new Error(
+      "無法建立模擬考：瀏覽器儲存空間不足，測驗進度將無法保存。請先至 Dashboard 匯出並清除舊紀錄。",
+    );
+  }
   return session;
 }
 

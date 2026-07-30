@@ -246,6 +246,14 @@ export function importAllData(json: string): boolean {
   return true;
 }
 
+/** Row predicate: a plain object carrying a non-empty string under `field`. */
+function hasStringField(field: string): (row: unknown) => boolean {
+  return (row) =>
+    isPlainObject(row) &&
+    typeof (row as Record<string, unknown>)[field] === "string" &&
+    ((row as Record<string, unknown>)[field] as string).length > 0;
+}
+
 /**
  * Per-key inbound cleaning shared by backup import and cloud sync: returns the
  * validated value, or undefined when the payload is unusable for that key.
@@ -266,15 +274,21 @@ export function sanitizeBackupValue(
       const map = sanitizeWrongStatusMap(value);
       return Object.keys(map).length > 0 || isPlainObject(value) ? map : undefined;
     }
+    // Element shape matters as much as the container: lib/syncMerge reads
+    // `wordId` / `id` / `submittedAt` off every row, so one `null` or bare
+    // string in the array throws inside the merge and takes down every
+    // subsequent pull. Drop unusable rows here instead.
     case STORAGE_KEYS.vocabularyProgress:
-      return Array.isArray(value) ? value : undefined;
+      return Array.isArray(value) ? value.filter(hasStringField("wordId")) : undefined;
     case STORAGE_KEYS.vocabularyDailySession:
       return isPlainObject(value) ? value : undefined;
     case STORAGE_KEYS.readingMockResults:
     case STORAGE_KEYS.listeningMockResults:
     case STORAGE_KEYS.fullMockResults:
     case STORAGE_KEYS.mockReviewSnapshots:
-      return Array.isArray(value) ? value : undefined;
+      return Array.isArray(value)
+        ? value.filter(hasStringField("id")).filter(hasStringField("submittedAt"))
+        : undefined;
     case STORAGE_KEYS.manualReviewItems:
       return Array.isArray(value) ? value.filter(isManualReviewEntry) : undefined;
     case STORAGE_KEYS.mockSeenQuestionIds:
@@ -507,8 +521,27 @@ function pruneDismissed(map: WrongStatusMap): WrongStatusMap {
 
 export function clearWrongAnswers(): void {
   // Preserve full AnswerRecord history for dashboard; clear review queues only.
-  writeJSON(WRONG_STATUS_KEY, {});
-  writeJSON(MANUAL_REVIEW_KEY, []);
+  //
+  // Cleared entries are DISMISSED, not deleted. Both queues merge as a union
+  // across devices, so an emptied map loses every argument for staying empty:
+  // the other device's stale copy would hand the whole wrong-book back on the
+  // next pull. A dismissal is evidence the merge already knows how to keep —
+  // exactly what removeSingleWrong writes for one question.
+  const now = new Date().toISOString();
+
+  const map = getWrongStatusMap();
+  for (const entry of Object.values(map)) {
+    entry.dismissed = true;
+    entry.dismissedAt = now;
+  }
+  writeJSON(WRONG_STATUS_KEY, pruneDismissed(map));
+
+  writeJSON(
+    MANUAL_REVIEW_KEY,
+    pruneDismissedManualReview(
+      readAllManualReviewEntries().map((entry) => ({ ...entry, dismissedAt: now })),
+    ),
+  );
 }
 
 export type ManualReviewEntry = {
@@ -519,6 +552,13 @@ export type ManualReviewEntry = {
   addedAt: string;
   source: "mock-review";
   snapshotId?: string;
+  /**
+   * Set when the user removed the entry. Kept in storage rather than deleting
+   * the row: the cross-device merge unions both sides, so only a tombstone
+   * outlives the other device's stale copy. An entry re-added afterwards has
+   * `addedAt > dismissedAt` and counts as active again.
+   */
+  dismissedAt?: string;
 };
 
 function isManualReviewEntry(value: unknown): value is ManualReviewEntry {
@@ -532,19 +572,42 @@ function isManualReviewEntry(value: unknown): value is ManualReviewEntry {
     typeof entry.addedAt === "string" &&
     !Number.isNaN(Date.parse(entry.addedAt)) &&
     entry.source === "mock-review" &&
-    (entry.snapshotId === undefined || typeof entry.snapshotId === "string")
+    (entry.snapshotId === undefined || typeof entry.snapshotId === "string") &&
+    (entry.dismissedAt === undefined ||
+      (typeof entry.dismissedAt === "string" && !Number.isNaN(Date.parse(entry.dismissedAt))))
   );
 }
 
-export function getManualReviewEntries(): ManualReviewEntry[] {
+/** True while the entry has not been dismissed since it was last added. */
+export function isActiveManualReviewEntry(entry: ManualReviewEntry): boolean {
+  return entry.dismissedAt === undefined || entry.dismissedAt < entry.addedAt;
+}
+
+/** Same 90-day retention the wrong-status tombstones get. */
+function pruneDismissedManualReview(entries: ManualReviewEntry[]): ManualReviewEntry[] {
+  const now = Date.now();
+  return entries.filter(
+    (entry) =>
+      isActiveManualReviewEntry(entry) ||
+      now - new Date(entry.dismissedAt as string).getTime() <= MAX_DISMISSED_AGE_MS,
+  );
+}
+
+/** Every stored row, tombstones included — the write path and merge need them. */
+function readAllManualReviewEntries(): ManualReviewEntry[] {
   const entries = readJSON<unknown>(MANUAL_REVIEW_KEY, []);
   return Array.isArray(entries) ? entries.filter(isManualReviewEntry) : [];
+}
+
+/** The review queue as the user sees it: dismissed rows excluded. */
+export function getManualReviewEntries(): ManualReviewEntry[] {
+  return readAllManualReviewEntries().filter(isActiveManualReviewEntry);
 }
 
 export function addManualReviewEntry(
   entry: Omit<ManualReviewEntry, "addedAt" | "source">,
 ): void {
-  const all = getManualReviewEntries();
+  const all = readAllManualReviewEntries();
   const now = new Date().toISOString();
   const next: ManualReviewEntry = {
     ...entry,
@@ -553,6 +616,7 @@ export function addManualReviewEntry(
   };
   const existingIndex = all.findIndex((item) => item.questionId === entry.questionId);
   if (existingIndex >= 0) {
+    // Re-adding clears any tombstone: the fresh addedAt is what makes it active.
     all[existingIndex] = next;
   } else {
     all.push(next);
@@ -561,8 +625,11 @@ export function addManualReviewEntry(
 }
 
 export function removeManualReviewEntry(questionId: string): void {
-  const next = getManualReviewEntries().filter((entry) => entry.questionId !== questionId);
-  writeJSON(MANUAL_REVIEW_KEY, next);
+  const all = readAllManualReviewEntries();
+  const index = all.findIndex((entry) => entry.questionId === questionId);
+  if (index < 0) return;
+  all[index] = { ...all[index], dismissedAt: new Date().toISOString() };
+  writeJSON(MANUAL_REVIEW_KEY, pruneDismissedManualReview(all));
 }
 
 export function isManualReviewQuestion(questionId: string): boolean {

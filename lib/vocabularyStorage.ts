@@ -203,8 +203,16 @@ function readProgress(): VocabularyProgress[] {
         !hasSrsFields(entry as Record<string, unknown>)
     );
     if (needsWriteBack) {
-      localStorage.setItem(VOCABULARY_PROGRESS_KEY, JSON.stringify(progress));
-      notifyExternalWrite(VOCABULARY_PROGRESS_KEY);
+      // The migrated rows are already in hand; persisting them is an
+      // optimisation. A failure here (quota) must NOT fall through to the
+      // catch below, which returns [] — the next write would then persist a
+      // near-empty array over the user's real progress.
+      try {
+        localStorage.setItem(VOCABULARY_PROGRESS_KEY, JSON.stringify(progress));
+        notifyExternalWrite(VOCABULARY_PROGRESS_KEY);
+      } catch (e) {
+        console.warn("[vocabularyStorage] Failed to persist migrated progress:", e);
+      }
     }
     return progress;
   } catch (e) {
@@ -213,8 +221,9 @@ function readProgress(): VocabularyProgress[] {
   }
 }
 
-function writeProgress(progress: VocabularyProgress[]): void {
-  writeJSON(VOCABULARY_PROGRESS_KEY, progress);
+/** Returns false when the progress could not be persisted (quota). */
+function writeProgress(progress: VocabularyProgress[]): boolean {
+  return writeJSON(VOCABULARY_PROGRESS_KEY, progress);
 }
 
 function makeNewEntry(
@@ -826,6 +835,12 @@ export function buildVocabularyQuiz(
 export type VocabularyQuizProgressChange = {
   before: VocabularyProgress;
   after: VocabularyProgress;
+  /**
+   * False when the SRS update could not be written. The daily-session and
+   * reinforcement bookkeeping is skipped in that case, so the item stays
+   * pending and the caller must not credit the answer.
+   */
+  persisted: boolean;
 };
 
 export function saveVocabularyQuizResult(
@@ -866,10 +881,15 @@ export function saveVocabularyQuizResult(
     shouldApplySchedule ? advanceSchedule(withQuizCounts, isCorrect) : withQuizCounts;
   if (index >= 0) progress[index] = after;
   else progress.push(after);
-  writeProgress(progress);
-  if (source === "daily") markDailySessionItemValidated(wordId, isCorrect);
-  else if (source === "reinforcement") updateReinforcementItem(wordId, isCorrect);
-  return { before, after };
+  // The SRS row is the source of truth; the session bookkeeping below only
+  // records that this word was validated today. Marking the session done over
+  // an unwritten SRS row would credit review work that was never saved.
+  const persisted = writeProgress(progress);
+  if (persisted) {
+    if (source === "daily") markDailySessionItemValidated(wordId, isCorrect);
+    else if (source === "reinforcement") updateReinforcementItem(wordId, isCorrect);
+  }
+  return { before, after, persisted };
 }
 
 export type VocabularyQuizStats = {

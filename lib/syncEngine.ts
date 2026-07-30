@@ -51,6 +51,14 @@ let debounceTimer: ReturnType<typeof setTimeout> | null = null;
 let maxWaitDeadline: number | null = null;
 let flushInFlight = false;
 let flushQueued = false;
+/**
+ * Consecutive flushes the server rejected on CAS. A rejection hands back the
+ * newer remote state, which we merge and re-push with a fresh timestamp, so
+ * one retry normally settles it. Bounded so a persistently losing key cannot
+ * turn the debounce into an endless push loop.
+ */
+let rejectedFlushStreak = 0;
+const MAX_REJECTED_FLUSH_RETRIES = 3;
 
 const statusListeners = new Set<() => void>();
 const dataListeners = new Set<(keys: SyncKey[]) => void>();
@@ -320,9 +328,29 @@ export async function flush(opts: { keepalive?: boolean } = {}): Promise<void> {
       for (const envelope of rejected) {
         if (isSyncKey(envelope.key)) items[envelope.key] = envelope;
       }
-      const changed = applyRemoteEnvelopes(items);
+      const { changed, writeFailed } = applyRemoteEnvelopes(items);
       if (changed.length > 0) notifyDataChanges(changed);
+      if (writeFailed) {
+        // The merged value never reached localStorage, so this device is NOT
+        // carrying the state the badge would be claiming.
+        setStatus("error");
+        return;
+      }
     }
+    // The rejected keys kept their dirty flags, and the reconcile above may
+    // have queued more. Reporting "synced" with a push still outstanding is
+    // the failure the badge exists to rule out.
+    if (dirtyKeys().length > 0) {
+      rejectedFlushStreak += 1;
+      if (rejectedFlushStreak <= MAX_REJECTED_FLUSH_RETRIES) {
+        setStatus("syncing");
+        scheduleFlush();
+      } else {
+        setStatus("error");
+      }
+      return;
+    }
+    rejectedFlushStreak = 0;
     setStatus("synced");
   } catch {
     setStatus("offline");
@@ -346,9 +374,17 @@ function notifyDataChanges(keys: SyncKey[]): void {
  * purpose: going through writeJSON/removeJSON would re-emit write events and
  * turn every pull into a push loop. answerRecords reconciles first so the
  * manual-review merger can see the merged history.
+ *
+ * `writeFailed` reports that a decision could not be persisted (quota): the
+ * caller must not then claim the device is in sync, because it is holding
+ * older state than the server.
  */
-function applyRemoteEnvelopes(items: Record<string, SyncEnvelope>): SyncKey[] {
+function applyRemoteEnvelopes(items: Record<string, SyncEnvelope>): {
+  changed: SyncKey[];
+  writeFailed: boolean;
+} {
   const changed: SyncKey[] = [];
+  let writeFailed = false;
   const ordered: SyncKey[] = [
     STORAGE_KEYS.answerRecords,
     ...SYNC_KEYS.filter((key) => key !== STORAGE_KEYS.answerRecords),
@@ -402,12 +438,16 @@ function applyRemoteEnvelopes(items: Record<string, SyncEnvelope>): SyncKey[] {
         if (safeSetItem(key, JSON.stringify(decision.value))) {
           applyRemoteMeta(key, decision.t);
           changed.push(key);
+        } else {
+          writeFailed = true;
         }
         break;
       case "writeLocalAndPush":
         if (safeSetItem(key, JSON.stringify(decision.value))) {
           bumpDirty(key, decision.t);
           changed.push(key);
+        } else {
+          writeFailed = true;
         }
         break;
     }
@@ -425,7 +465,7 @@ function applyRemoteEnvelopes(items: Record<string, SyncEnvelope>): SyncKey[] {
       }
     }
   }
-  return changed;
+  return { changed, writeFailed };
 }
 
 /** Full pull + reconcile + follow-up flush. Returns locally-changed keys. */
@@ -446,11 +486,14 @@ export async function initialPull(): Promise<{ changedKeys: SyncKey[] }> {
       items: Record<string, SyncEnvelope>;
     };
     lastPullAt = Date.now();
-    const changedKeys = applyRemoteEnvelopes(items);
+    const { changed: changedKeys, writeFailed } = applyRemoteEnvelopes(items);
     if (dirtyKeys().length > 0) {
       await flush();
+      // A push can succeed while a pulled key never made it to localStorage;
+      // the device is still behind, so the error must outrank flush's verdict.
+      if (writeFailed) setStatus("error");
     } else {
-      setStatus("synced");
+      setStatus(writeFailed ? "error" : "synced");
     }
     return { changedKeys };
   } catch {

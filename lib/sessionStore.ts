@@ -32,7 +32,8 @@ export type SessionStore<
   TResult extends { id: string },
 > = {
   getSession: () => TSession | null;
-  saveSession: (session: TSession) => void;
+  /** Returns false when the session could not be persisted. */
+  saveSession: (session: TSession) => boolean;
   clearSession: () => void;
   saveAnswer: (questionId: string, choice: Choice | null) => void;
   saveCurrentIndex: (index: number) => void;
@@ -66,8 +67,8 @@ export function createSessionStore<
     return session;
   }
 
-  function saveSession(session: TSession): void {
-    writeJSON(sessionKey, session);
+  function saveSession(session: TSession): boolean {
+    return writeJSON(sessionKey, session);
   }
 
   function clearSession(): void {

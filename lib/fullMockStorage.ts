@@ -139,8 +139,8 @@ export function getFullMockSession(): FullMockSession | null {
   return store.getSession();
 }
 
-export function saveFullMockSession(session: FullMockSession): void {
-  store.saveSession(session);
+export function saveFullMockSession(session: FullMockSession): boolean {
+  return store.saveSession(session);
 }
 
 export function clearFullMockSession(): void {
@@ -167,7 +167,13 @@ export function startFullMockSession(questionIds: string[]): FullMockSession {
     leftAppDuringTest: false,
     currentSection: "listening",
   };
-  saveFullMockSession(session);
+  // Same contract as startMockSession: a 2-hour exam with no persisted
+  // session loses everything on the first refresh, so refuse to start.
+  if (!saveFullMockSession(session)) {
+    throw new Error(
+      "無法建立完整模考：瀏覽器儲存空間不足，測驗進度將無法保存。請先至 Dashboard 匯出並清除舊紀錄。",
+    );
+  }
   return session;
 }
 

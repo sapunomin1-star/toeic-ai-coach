@@ -236,6 +236,68 @@ async function main(): Promise<void> {
       mergedAnswerRecords: [answeredBefore],
     });
     assert.equal((keep.merged as unknown[]).length, 1, "older answers keep entry");
+
+    // Removal without practice: only a tombstone outlives the other device's
+    // still-active copy. This is what "清除所有錯題" writes.
+    const dismissed = { ...entry, dismissedAt: "2026-07-22T00:00:00.000Z" };
+    const cleared = mergeKey(STORAGE_KEYS.manualReviewItems, [dismissed], [entry], {
+      localT: 2,
+      remoteT: 1,
+    }).merged as Array<{ dismissedAt?: string }>;
+    assert.equal(cleared.length, 1, "the row stays, as a tombstone");
+    assert.equal(
+      cleared[0].dismissedAt,
+      "2026-07-22T00:00:00.000Z",
+      "a dismissal must survive a stale active copy on the other device",
+    );
+
+    // …and the same in reverse: the dismissing device may be the older side.
+    const clearedReversed = mergeKey(
+      STORAGE_KEYS.manualReviewItems,
+      [entry],
+      [dismissed],
+      { localT: 2, remoteT: 1 },
+    ).merged as Array<{ dismissedAt?: string }>;
+    assert.equal(clearedReversed[0].dismissedAt, "2026-07-22T00:00:00.000Z");
+
+    // Re-adding after the dismissal revives it (addedAt > dismissedAt).
+    const readded = { ...entry, addedAt: "2026-07-23T00:00:00.000Z" };
+    const revived = mergeKey(STORAGE_KEYS.manualReviewItems, [readded], [dismissed], {
+      localT: 2,
+      remoteT: 1,
+    }).merged as Array<{ dismissedAt?: string }>;
+    assert.equal(
+      revived[0].dismissedAt,
+      undefined,
+      "an entry added after the dismissal must come back",
+    );
+  }
+
+  // 5b. A cleared wrong-book must stay cleared. Every entry is dismissed at
+  // clear time (lib/storage clearWrongAnswers); the other device still holds
+  // the live rows, and the union must not hand them back.
+  {
+    const live = { status: "reviewing" as const, consecutiveCorrect: 1 };
+    const clearedAt = "2026-07-25T00:00:00.000Z";
+    const localCleared = {
+      q1: { ...live, dismissed: true, dismissedAt: clearedAt },
+      q2: { ...live, dismissed: true, dismissedAt: clearedAt },
+    };
+    const staleRemote = { q1: live, q2: live };
+
+    for (const [label, ctx] of [
+      ["clearing device is newer", { localT: 2, remoteT: 1 }],
+      ["clearing device is older", { localT: 1, remoteT: 2 }],
+    ] as const) {
+      const merged = mergeKey(
+        STORAGE_KEYS.wrongStatus,
+        localCleared,
+        staleRemote,
+        ctx,
+      ).merged as Record<string, { dismissed?: boolean }>;
+      assert.equal(merged.q1.dismissed, true, `q1 must stay cleared (${label})`);
+      assert.equal(merged.q2.dismissed, true, `q2 must stay cleared (${label})`);
+    }
   }
 
   // 6. mockSeenQuestionIds: sorted set union.

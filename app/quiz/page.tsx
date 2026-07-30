@@ -121,9 +121,14 @@ export default function QuizPage() {
   const [autoPlayedListeningGroups, setAutoPlayedListeningGroups] = useState<Set<string>>(
     new Set(),
   );
-  const [activeAutoConversationId, setActiveAutoConversationId] = useState<string | null>(
-    null,
-  );
+  // The GROUP whose shared conversation/talk is currently audible — not the
+  // question that started it. One <audio> serves every question in a Part 3/4
+  // group and keeps playing across question changes (same src ⇒ same element),
+  // so tracking the starting question id made the next question in the group
+  // look silent and auto-play its stem narration over the conversation.
+  const [activeAutoConversationGroup, setActiveAutoConversationGroup] = useState<
+    string | null
+  >(null);
   // False when the vocabulary chunk failed to load: weak-word inference and
   // the question-vocabulary panel degrade instead of blocking the quiz.
   const [vocabAvailable, setVocabAvailable] = useState(true);
@@ -284,14 +289,14 @@ export default function QuizPage() {
       next.delete(questionId);
       return next;
     });
-    setActiveAutoConversationId(questionId);
+    setActiveAutoConversationGroup(groupKey);
     markListeningGroupAutoPlayed(groupKey);
   }
 
   function handleGroupedAudioSettled(questionId: string, groupKey: string) {
     markListeningGroupAutoPlayed(groupKey);
-    setActiveAutoConversationId((activeId) =>
-      activeId === questionId ? null : activeId,
+    setActiveAutoConversationGroup((activeGroup) =>
+      activeGroup === groupKey ? null : activeGroup,
     );
   }
 
@@ -368,6 +373,12 @@ export default function QuizPage() {
     setStatus("answered");
   }
 
+  function nextListeningGroupKey(questionId: string | undefined): string | null {
+    if (!questionId) return null;
+    const question = questionBank().getQuestionById(questionId);
+    return question ? getListeningGroupKey(question) : null;
+  }
+
   function handleNext() {
     const quizPlan = getQuizPlan();
     const nextCursor =
@@ -386,7 +397,13 @@ export default function QuizPage() {
     setInferredReason(null);
     setSelectedReason(null);
     setSaveError(null);
-    setActiveAutoConversationId(null);
+    // Leaving a group unmounts its <audio>, which stops it; staying inside the
+    // group keeps the same element playing, so the flag must survive. Mirrors
+    // syncActiveGroupOnNavigate in the mock runners.
+    const nextGroupKey = nextListeningGroupKey(planIds[nextCursor]);
+    setActiveAutoConversationGroup((activeGroup) =>
+      activeGroup !== null && activeGroup === nextGroupKey ? activeGroup : null,
+    );
     questionStartTime.current = 0;
 
     if (nextCursor >= planIds.length) {
@@ -549,7 +566,8 @@ export default function QuizPage() {
   const groupPosition = getGroupPosition(planQuestions, currentQuestion);
   const groupAutoPlayed =
     listeningGroupKey !== null && autoPlayedListeningGroups.has(listeningGroupKey);
-  const groupedAudioIsPlaying = activeAutoConversationId === currentQuestion.id;
+  const groupedAudioIsPlaying =
+    listeningGroupKey !== null && activeAutoConversationGroup === listeningGroupKey;
   const groupReplayLabel =
     currentQuestion.part === "Part 3" ? "重播本組對話" : "重播本組獨白";
   const showP3QuestionAudio =

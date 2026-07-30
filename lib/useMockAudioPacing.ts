@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { getQuestionAudioUrl } from "@/lib/media";
 import { audioGroupKey } from "@/lib/mockShared";
 import type { Question } from "@/types/question";
@@ -74,6 +74,18 @@ export function useMockAudioPacing({
   const [completedCountdownIds, setCompletedCountdownIds] = useState<Set<string>>(
     new Set(),
   );
+
+  // The countdown ticks with a chained setTimeout, so anything in that effect's
+  // dependency list restarts the current second. `onCountdownAdvance` is
+  // rebuilt whenever the runner's `answers` change, which meant every tap on an
+  // option reset the tick: toggling between A and B faster than once a second
+  // froze the timer at its starting value and handed back unlimited thinking
+  // time — the exact thing this pacing exists to prevent. Hold it in a ref so
+  // the effect depends only on the countdown's own state.
+  const onCountdownAdvanceRef = useRef(onCountdownAdvance);
+  useEffect(() => {
+    onCountdownAdvanceRef.current = onCountdownAdvance;
+  }, [onCountdownAdvance]);
 
   const handleAudioStarted = useCallback((groupKey: string) => {
     setActiveAudioGroup(groupKey);
@@ -242,7 +254,7 @@ export function useMockAudioPacing({
         return next;
       });
       resetQuestionPacing();
-      onCountdownAdvance();
+      onCountdownAdvanceRef.current();
     }, 1000);
     return () => window.clearTimeout(id);
   }, [
@@ -251,7 +263,6 @@ export function useMockAudioPacing({
     currentIndex,
     isListeningActive,
     isTesting,
-    onCountdownAdvance,
     questions,
     resetQuestionPacing,
   ]);

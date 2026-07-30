@@ -57,12 +57,22 @@ Object.defineProperty(globalThis, "alert", {
 async function main(): Promise<void> {
   const { STORAGE_KEYS } = await import("../lib/storageCore");
   const {
+    addManualReviewEntry,
+    clearWrongAnswers,
     exportAllData,
+    getManualReviewEntries,
     getReviewableIds,
     getWrongBookEntries,
     getWrongStatusMap,
     importAllData,
+    removeManualReviewEntry,
+    sanitizeBackupValue,
   } = await import("../lib/storage");
+  const {
+    getDailySessionActivity,
+    getVocabularyProgress,
+    saveVocabularyQuizResult,
+  } = await import("../lib/vocabularyStorage");
   const {
     getMockResults,
     getMockSession,
@@ -229,6 +239,147 @@ async function main(): Promise<void> {
   assert.ok(
     getFullMockSession(),
     "failed full-mock result persistence must leave the active session recoverable",
+  );
+
+  // A mock lives entirely in its persisted session: starting one that was
+  // never written puts the student into a 45-120 minute exam that one refresh
+  // erases. The start must fail loudly instead.
+  localStorage.clear();
+  localStorageMock.failAfterSuccessfulWrites(0);
+  assert.throws(
+    () => startMockSession(["mock-question-1"], "reading"),
+    /儲存空間不足/,
+    "an unwritable reading-mock session must abort the start",
+  );
+  assert.equal(getMockSession("reading"), null);
+
+  localStorageMock.failAfterSuccessfulWrites(0);
+  assert.throws(
+    () => startFullMockSession(fullQuestionIds),
+    /儲存空間不足/,
+    "an unwritable full-mock session must abort the start",
+  );
+  assert.equal(getFullMockSession(), null);
+
+  // ─── Clearing review queues must leave tombstones, not holes ──────────────
+  // Both queues merge as a union across devices, so an emptied map gives the
+  // other device's stale copy nothing to lose against: see sync-merge-check
+  // for the merge half of this contract.
+  localStorage.clear();
+  localStorage.setItem(
+    STORAGE_KEYS.wrongStatus,
+    JSON.stringify({
+      "p5-gen-001": { status: "new", consecutiveCorrect: 0, nextReviewDate: "2026-01-01" },
+    }),
+  );
+  addManualReviewEntry({
+    questionId: "p7-gen-010",
+    skill_tag: "reading_detail",
+    correctAnswer: "B",
+  });
+  assert.equal(getManualReviewEntries().length, 1);
+
+  clearWrongAnswers();
+  const clearedStatus = getWrongStatusMap();
+  assert.equal(
+    Object.keys(clearedStatus).length,
+    1,
+    "clearing must keep the row as a tombstone, not delete it",
+  );
+  assert.equal(clearedStatus["p5-gen-001"].dismissed, true);
+  assert.ok(clearedStatus["p5-gen-001"].dismissedAt, "a dismissal needs a timestamp to merge on");
+  assert.deepEqual(getReviewableIds(), [], "dismissed entries must leave the review queue");
+  assert.deepEqual(getManualReviewEntries(), [], "cleared manual entries must be hidden");
+  const storedManual = JSON.parse(
+    localStorage.getItem(STORAGE_KEYS.manualReviewItems) ?? "[]",
+  ) as Array<{ questionId: string; dismissedAt?: string }>;
+  assert.equal(storedManual.length, 1, "the manual row must survive as a tombstone");
+  assert.ok(storedManual[0].dismissedAt);
+
+  // Re-adding after a dismissal revives the entry (addedAt > dismissedAt).
+  addManualReviewEntry({
+    questionId: "p7-gen-010",
+    skill_tag: "reading_detail",
+    correctAnswer: "B",
+  });
+  assert.equal(getManualReviewEntries().length, 1, "re-adding must clear the tombstone");
+  removeManualReviewEntry("p7-gen-010");
+  assert.deepEqual(getManualReviewEntries(), [], "removal must hide it again");
+
+  // ─── Vocabulary progress must never be traded for a failed write ──────────
+  // Legacy rows (no SRS fields) trigger a migration write-back. That write is
+  // an optimisation; if it throws, the parsed rows are still correct and must
+  // be returned, or the next save persists a near-empty array over them.
+  localStorage.clear();
+  const legacyProgress = Array.from({ length: 20 }, (_, index) => ({
+    wordId: `word-${index}`,
+    status: "seen",
+    reviewedAt: "2026-07-01T00:00:00.000Z",
+  }));
+  localStorage.setItem(
+    STORAGE_KEYS.vocabularyProgress,
+    JSON.stringify(legacyProgress),
+  );
+  localStorageMock.failAfterSuccessfulWrites(0);
+  assert.equal(
+    getVocabularyProgress().length,
+    20,
+    "a failed migration write-back must not discard the progress it just parsed",
+  );
+
+  // Let the migration land this time, so the next read needs no write-back and
+  // the injected failure lands on the SRS write itself.
+  assert.equal(getVocabularyProgress().length, 20);
+
+  // A quiz answer whose SRS row could not be written must not be credited:
+  // marking the daily session done over an unsaved row shows the user progress
+  // the next session cannot see.
+  // Local date, matching vocabularyStorage's todayStr — a UTC slice is a day
+  // off in CST for eight hours out of every twenty-four.
+  const now = new Date();
+  const todayLocal = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+  localStorage.setItem(
+    STORAGE_KEYS.vocabularyDailySession,
+    JSON.stringify({
+      date: todayLocal,
+      itemBuckets: [{ wordId: "word-0", bucket: "due" }],
+      counts: { retry: 0, due: 1, masteredReview: 0, new: 0 },
+      warnings: { newSuppressed: false, retryDeferred: 0 },
+      reviewedIds: [],
+      validatedIds: [],
+      reinforcementIds: [],
+      reinforcementRound: 0,
+    }),
+  );
+  localStorageMock.failAfterSuccessfulWrites(0);
+  const failedQuiz = saveVocabularyQuizResult("word-0", true, "daily");
+  assert.equal(failedQuiz.persisted, false, "an unwritable SRS update must report failure");
+  assert.deepEqual(
+    getDailySessionActivity().validatedIds,
+    [],
+    "the daily session must not be credited for an unsaved answer",
+  );
+
+  const savedQuiz = saveVocabularyQuizResult("word-0", true, "daily");
+  assert.equal(savedQuiz.persisted, true);
+  assert.deepEqual(getDailySessionActivity().validatedIds, ["word-0"]);
+
+  // ─── Inbound payloads are cleaned per ROW, not just per container ────────
+  // lib/syncMerge reads wordId / id / submittedAt off every element, so one
+  // null row from a hand-edited backup or corrupted cloud value threw inside
+  // the merge and broke every later pull.
+  assert.deepEqual(
+    sanitizeBackupValue(STORAGE_KEYS.vocabularyProgress, [null, { wordId: "ok" }]),
+    [{ wordId: "ok" }],
+  );
+  assert.deepEqual(
+    sanitizeBackupValue(STORAGE_KEYS.readingMockResults, [
+      null,
+      "junk",
+      { id: "r1" },
+      { id: "r2", submittedAt: "2026-07-01T00:00:00.000Z" },
+    ]),
+    [{ id: "r2", submittedAt: "2026-07-01T00:00:00.000Z" }],
   );
 
   console.log("Storage import and mock persistence regressions passed");
