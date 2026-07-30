@@ -7,12 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "npx tsx scripts/repro-c1.ts && npx tsx scripts/review-regression-check.ts && npx tsx scripts/integrity-guard-check.ts && npx tsx scripts/sync-merge-check.ts && npx tsx scripts/sync-server-check.ts"
+    "test": "npx tsx scripts/repro-c1.ts && npx tsx scripts/review-regression-check.ts && npx tsx scripts/integrity-guard-check.ts && npx tsx scripts/sync-merge-check.ts && npx tsx scripts/sync-status-check.ts && npx tsx scripts/sync-server-check.ts"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.0",
     "jose": "^6.2.4",
-    "next": "^16.2.9",
+    "next": "^16.2.12",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
@@ -22,13 +22,14 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.2.9",
+    "eslint-config-next": "16.2.12",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
   "overrides": {
     "next": {
-      "postcss": "8.5.14"
-    }
+      "postcss": "8.5.25"
+    },
+    "sharp": "0.35.3"
   }
 }

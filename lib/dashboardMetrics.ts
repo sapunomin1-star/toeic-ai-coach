@@ -22,6 +22,7 @@ import {
   countPart4Attempts,
   countPart5Attempts,
   countPart6Attempts,
+  countPart6Mistakes,
   countReadingAttempts,
   countSlowQuestions,
   countMistakesByReason,
@@ -89,13 +90,7 @@ export function useDashboardMetrics(
     [safeRecords],
   );
 
-  const part6WrongCount = useMemo(() => {
-    let w = 0;
-    for (const r of safeRecords) {
-      if (!r.isCorrect && r.questionId.startsWith("p6-")) w++;
-    }
-    return w;
-  }, [safeRecords]);
+  const part6WrongCount = useMemo(() => countPart6Mistakes(safeRecords), [safeRecords]);
 
   const orderedSkills = useMemo(
     () =>

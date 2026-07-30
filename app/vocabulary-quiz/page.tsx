@@ -65,6 +65,7 @@ export default function VocabularyQuizPage() {
   const [mode, setMode] = useState<QuizMode>("today");
   const [sessionChanges, setSessionChanges] = useState<SessionChange[]>([]);
   const [dailyActivity, setDailyActivity] = useState<DailySessionActivity | null>(null);
+  const [saveError, setSaveError] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -103,10 +104,17 @@ export default function VocabularyQuizPage() {
   function handleSelect(index: number) {
     if (quizState !== "answering" || !current) return;
     const isCorrect = index === current.correctIndex;
-    setSelectedIndex(index);
     const source: VocabularyQuizSource =
       mode === "today" ? "daily" : mode;
     const change = saveVocabularyQuizResult(current.wordId, isCorrect, source);
+    if (!change.persisted) {
+      // Scoring an answer whose SRS row was never written would show progress
+      // the next session cannot see. Stay on the question instead.
+      setSaveError("作答結果尚未儲存，請確認瀏覽器儲存空間後再選一次。");
+      return;
+    }
+    setSaveError(null);
+    setSelectedIndex(index);
     if (mode === "today") {
       setSessionChanges((previous) => [
         ...previous,
@@ -321,6 +329,15 @@ export default function VocabularyQuizPage() {
           />
         </div>
       </div>
+
+      {saveError && (
+        <div
+          role="alert"
+          className="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700"
+        >
+          {saveError}
+        </div>
+      )}
 
       {/* Question type badge */}
       <div>

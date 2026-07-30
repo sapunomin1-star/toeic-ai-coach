@@ -286,6 +286,8 @@ Items fixed in this pass:
 - **Always catch QuotaExceededError.** localStorage is limited to 5-10MB. Silent failure = data loss.
 - **Mock test answers do NOT go to `toeic_answer_records_v1`** unless the user actually answered AND got it wrong. Null answers stay in mock session only.
 - **Wrong-book dismissed entries are pruned.** Entries with `dismissed: true` are removed after 90 days. Status map is capped at 500 entries, with dismissed entries evicted first.
+- **Clearing a review queue DISMISSES its rows; it never empties the container (2026-07-31).** Both `toeic_wrong_status_v1` and `toeic_manual_review_items_v1` merge as a union across devices, so an emptied map/array gives the merge no reason to stay empty — the other device's stale copy hands every row back on the next pull. `clearWrongAnswers` therefore stamps `dismissed`/`dismissedAt` on every entry (same shape `removeSingleWrong` already wrote for one question), and `getManualReviewEntries()` filters tombstones out for callers while `readAllManualReviewEntries()` keeps them for the write path and the merge. Re-adding an entry (`addedAt > dismissedAt`) revives it. Regression: `scripts/repro-c1.ts` + `scripts/sync-merge-check.ts`.
+- **A write that failed must not be reported as done (2026-07-31).** `writeJSON` returns false on quota; callers whose next action would credit unsaved work have to check it. Enforced at three points: `startMockSession`/`startFullMockSession` throw rather than drop the student into a 45–120 minute exam with no persisted session; `saveVocabularyQuizResult` returns `persisted` and skips the daily-session/reinforcement bookkeeping when false; `readProgress`'s legacy migration write-back is wrapped in its own try/catch so a quota failure there cannot fall through to the outer catch and return `[]` (the next save would then persist a near-empty array over real progress).
 
 ### Cross-Device Sync (2026-07-24)
 
@@ -317,7 +319,9 @@ and the app makes zero network requests.
   answerRecords union by (questionId, answeredAt, userAnswer) preferring
   labeled records; vocabularyProgress per-word by max(reviewedAt, lastQuizAt);
   wrongStatus per-question newer-side + dismissal preservation;
-  manualReviewItems union minus answered-after-added (mirrors saveAnswer);
+  manualReviewItems union minus answered-after-added (mirrors saveAnswer),
+  plus `dismissedAt` tombstone preservation (newest dismissal across both
+  sides wins unless the entry was re-added later);
   results/snapshots id-union capped 20; transient plan/session keys whole-key
   LWW. The 12 synced keys = `BACKUP_KEYS` exactly (test-enforced); the 3
   in-progress mock session keys stay device-local.
@@ -326,13 +330,25 @@ and the app makes zero network requests.
   NEVER remounts on focus routes (deferred until leaving). `/login` page +
   header chip. Clear-all propagates tombstones to every device (by design;
   the dashboard flow confirms first).
+- **Status honesty** (2026-07-31, `scripts/sync-status-check.ts`): "已同步" is
+  the only evidence the user has that their answers left the device, so it is
+  only allowed when nothing is outstanding. A CAS rejection leaves the key
+  dirty — the flush now reschedules (bounded at 3 consecutive rejected
+  flushes, then `error`) instead of reporting success; and a pull whose merged
+  value could not be written to localStorage reports `error`, because that
+  device is holding older state than the server.
 - **Known limits** (documented, accepted): single key payload cap 900KB
   (oversized keys — realistically only `toeic_mock_review_snapshots_v1` —
   stay local-only with a console warning until they shrink); page-hide flush
   keeps only what fits 64KiB keepalive (persistent dirty flags re-push next
-  load); an offline device with newer writes resurrects data cleared while it
-  was away (single-user acceptable; strict global clear would need a synced
-  clearEpoch).
+  load); writes made while LOGGED OUT are not tracked (the engine is off, so
+  meta timestamps go stale) — union merges still protect records, wrong
+  status, vocabulary and results, but deletions made in that window and the
+  three transient LWW plan keys can be lost. Deliberately not "fixed" by
+  tracking meta while disabled: that would change local-first behaviour for a
+  user who never logs in, to cover a window that needs an explicit logout →
+  study → log back in (the session cookie lasts 180 days). Per-entry
+  tombstones (above) already cover the reachable half of this.
 - **Setup**: `scripts/sync-setup.ts` (`--push-env` pushes hash+secret to
   Vercel production over stdin; `--dev` provisions the non-secret localhost
   code). The passphrase itself must never appear in code, logs, or chat.

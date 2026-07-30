@@ -116,6 +116,11 @@ export function getGrammarWeakSkills(
     if (
       record.isCorrect ||
       record.mistakeReason !== "grammar" ||
+      // Only a chip the user actually tapped is evidence of WHY they missed it.
+      // Historical inferred labels stay readable but never drive prescriptions
+      // (AGENTS.md, mistake-reason section) — getReasonInsight already
+      // excludes them, and this card must agree.
+      record.reasonSource === "inferred" ||
       getSkillCategory(record.skill_tag) !== "grammar"
     ) {
       continue;
@@ -364,6 +369,15 @@ export function calculatePart6Accuracy(records: AnswerRecord[]): number {
 
 export function countPart6Attempts(records: AnswerRecord[]): number {
   return excludeMock(records).filter((r) => isPart6Record(r)).length;
+}
+
+/**
+ * Wrong Part 6 answers, on the same daily-only basis as countPart6Attempts.
+ * The dashboard prints the two side by side, so a mock-inclusive count here
+ * produced impossible cards like "4 題 · 錯 16 題".
+ */
+export function countPart6Mistakes(records: AnswerRecord[]): number {
+  return excludeMock(records).filter((r) => !r.isCorrect && isPart6Record(r)).length;
 }
 
 export function calculatePart6AvgTime(records: AnswerRecord[]): number {
