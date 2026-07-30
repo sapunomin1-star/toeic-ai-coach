@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "npx tsx scripts/repro-c1.ts && npx tsx scripts/review-regression-check.ts && npx tsx scripts/sync-merge-check.ts && npx tsx scripts/sync-server-check.ts"
+    "test": "npx tsx scripts/repro-c1.ts && npx tsx scripts/review-regression-check.ts && npx tsx scripts/integrity-guard-check.ts && npx tsx scripts/sync-merge-check.ts && npx tsx scripts/sync-server-check.ts"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.0",

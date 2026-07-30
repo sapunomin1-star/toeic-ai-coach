@@ -108,58 +108,56 @@ function checkExplanationAnswerConsistency(questions: Question[]): string[] {
 }
 
 /**
- * Answer-length bias guard. Generators tend to write one full, specific
- * correct option next to three short lazy distractors, which lets a student
- * score far above chance by always picking the longest choice — without
- * reading the passage or hearing the audio at all. That inflates practice
- * accuracy, corrupts weak-point analysis, and makes mock estimates optimistic.
+ * Answer-length leak guard. Generators write one full, specific correct option
+ * next to three short lazy ones, so a student can beat chance by picking the
+ * longest without reading the passage or hearing the audio — which inflates
+ * practice accuracy, corrupts weak-point analysis, and flatters mock estimates.
  *
- * Reported per part AND per id batch (`p2-gen`, `p7-xd`, …) because the defect
- * is a property of the batch that produced the items, not of the part: the
- * print-book imports sit at chance while some AI batches sit 20+ points above.
+ * This flags the individual items where a reader could actually see the
+ * difference, and names them, so the output is a work list rather than a score.
  *
- * ADVISORY, not gating. The existing bank already violates this in several
- * batches; failing the run would break the build for a content problem that
- * can only be fixed by rewriting distractors (and, for Parts 1-4, regenerating
- * the matching audio). Flip `LENGTH_BIAS_GATES` to true once those batches are
- * cleaned so new generations cannot reintroduce it.
+ * The thresholds come from measurement, not taste. The first version of this
+ * guard counted ANY length advantage and reported a per-batch percentage; that
+ * put 13 batches over the line and made a "always pick longest scores 47/100
+ * on listening" claim. Both were true of a script and false of a person: the
+ * median advantage in those items was 4-6 characters, which nobody can see
+ * while reading four options. Requiring the gap to be both 15+ characters and
+ * 25% of the runner-up isolates the ~75 items that were genuinely readable —
+ * all since fixed — and drops the exploit to the chance baseline.
+ *
+ * Measured over the 3,303-item bank after that fix: 27 items have an option
+ * that stands out this way at all, and the key is that option in none of them
+ * (chance would put it there ~7 times). So the guard now gates at zero. That
+ * is marginally stricter than the real exam, where the key occasionally is the
+ * long one, but the cost is bounded at those 27 items — under one per 100-item
+ * mock — and in exchange a regression cannot ship quietly.
+ *
+ * No minimum sample size, deliberately: one leaky item in a batch of five is
+ * still a leaky item. And no separate advisory for sub-visible bias — a batch
+ * skewed badly enough to matter produces visible leaks too, so this subsumes
+ * the dangerous cases without the noise that got the old advisory ignored.
  */
-const LENGTH_BIAS_GATES = false;
-const LENGTH_BIAS_MIN_SAMPLE = 20;
-/** Percentage points above chance that count as exploitable. */
-const LENGTH_BIAS_TOLERANCE = 8;
+const VISIBLE_LENGTH_GAP_CHARS = 15;
+const VISIBLE_LENGTH_GAP_RATIO = 1.25;
 
-function checkAnswerLengthBias(questions: Question[]): string[] {
-  const batches = new Map<string, Question[]>();
+function checkVisibleAnswerLengthLeaks(questions: Question[]): string[] {
+  const leaks: string[] = [];
   for (const q of questions) {
-    // ids look like `<part>-<batch>-<n>`; fall back to the whole id.
-    const batch = q.id.split("-").slice(0, 2).join("-") || q.id;
-    const key = `${q.part} / ${batch}`;
-    const group = batches.get(key) ?? [];
-    group.push(q);
-    batches.set(key, group);
+    const lengths = Object.values(q.choices)
+      .filter((text): text is string => text != null)
+      .map((text) => text.length)
+      .sort((a, b) => b - a);
+    const [longest, runnerUp] = lengths;
+    if (runnerUp === undefined || runnerUp === 0) continue;
+    // A tie for longest carries no signal, and is excluded by the gap test.
+    if (longest - runnerUp < VISIBLE_LENGTH_GAP_CHARS) continue;
+    if (longest / runnerUp < VISIBLE_LENGTH_GAP_RATIO) continue;
+    if (q.choices[q.answer]?.length !== longest) continue;
+    leaks.push(
+      `${q.id} (${q.part}): key is ${longest} chars, next longest ${runnerUp} — pad a distractor`,
+    );
   }
-
-  const warnings: string[] = [];
-  for (const [key, qs] of batches) {
-    if (qs.length < LENGTH_BIAS_MIN_SAMPLE) continue;
-    let hits = 0;
-    for (const q of qs) {
-      const entries = Object.entries(q.choices).filter(([, v]) => v != null);
-      const max = Math.max(...entries.map(([, v]) => v!.length));
-      const longest = entries.filter(([, v]) => v!.length === max);
-      // Ties split the credit — guessing among equal-length options is chance.
-      if (longest.some(([letter]) => letter === q.answer)) hits += 1 / longest.length;
-    }
-    const rate = (hits / qs.length) * 100;
-    const chance = 100 / (qs[0].part === "Part 2" ? 3 : 4);
-    if (rate > chance + LENGTH_BIAS_TOLERANCE) {
-      warnings.push(
-        `${key}: 「always pick longest」=${rate.toFixed(0)}% vs chance ${chance.toFixed(0)}% (n=${qs.length})`,
-      );
-    }
-  }
-  return warnings.sort();
+  return leaks;
 }
 
 /**
@@ -257,7 +255,7 @@ export function runIntegrityCheck(questions: Question[]): IntegrityReport {
     ...checkDuplicateStems(questions),
   ];
   const explanationAnswerMismatches = checkExplanationAnswerConsistency(questions);
-  const answerLengthBiasWarnings = checkAnswerLengthBias(questions);
+  const visibleLengthLeaks = checkVisibleAnswerLengthLeaks(questions);
 
   const passed =
     duplicateIds.length === 0 &&
@@ -270,7 +268,7 @@ export function runIntegrityCheck(questions: Question[]): IntegrityReport {
     answerBalanceViolations.length === 0 &&
     groupStructureViolations.length === 0 &&
     explanationAnswerMismatches.length === 0 &&
-    (!LENGTH_BIAS_GATES || answerLengthBiasWarnings.length === 0);
+    visibleLengthLeaks.length === 0;
 
   return {
     duplicateIds,
@@ -283,7 +281,7 @@ export function runIntegrityCheck(questions: Question[]): IntegrityReport {
     answerBalanceViolations,
     groupStructureViolations,
     explanationAnswerMismatches,
-    answerLengthBiasWarnings,
+    visibleLengthLeaks,
     totalQuestions: questions.length,
     passed,
   };
@@ -319,15 +317,15 @@ export function printIntegrityReport(report: IntegrityReport): void {
     `  Explanation/answer mismatches: ${report.explanationAnswerMismatches.length}`
   );
   console.log(
-    `  Answer-length bias:     ${report.answerLengthBiasWarnings.length}${LENGTH_BIAS_GATES ? "" : " (advisory)"}`
+    `  Visible length leaks:   ${report.visibleLengthLeaks.length}`
   );
   console.log(
     `  Status: ${report.passed ? "PASSED" : "FAILED"}`
   );
 
-  if (report.answerLengthBiasWarnings.length > 0) {
+  if (report.visibleLengthLeaks.length > 0) {
     console.log(
-      `\n  ⚠ 選項長度可洩題（選最長就能高於亂猜；不擋建置，但這些批次的干擾項需要重寫）:\n      ${report.answerLengthBiasWarnings.join("\n      ")}`
+      `\n  - 正解明顯是最長選項（讀四個選項就看得出來，等於不必讀文章／聽音檔）:\n      ${report.visibleLengthLeaks.join("\n      ")}`
     );
   }
 
