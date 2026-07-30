@@ -202,7 +202,19 @@ export default function MockQuestionCanvas({
       )}
 
       {question.passage && (
-        <div className="mb-4 whitespace-pre-wrap rounded-xl border border-slate-200 bg-slate-50 p-3 text-xs leading-relaxed text-slate-700">
+        // For Part 3/4 the passage is the printed graphic — a timetable or price
+        // list read against the audio. It needs a monospaced face to keep its
+        // columns aligned, and `pre` + horizontal scroll rather than `pre-wrap`:
+        // the widest table is ~51 characters, which wraps on a phone and
+        // destroys the alignment the columns depend on. Reading parts keep
+        // wrapping prose in the body face.
+        <div
+          className={`mb-4 rounded-xl border border-slate-200 bg-slate-50 p-3 text-xs leading-relaxed text-slate-700 ${
+            question.part === "Part 3" || question.part === "Part 4"
+              ? "overflow-x-auto whitespace-pre font-mono"
+              : "whitespace-pre-wrap"
+          }`}
+        >
           {question.passage}
         </div>
       )}

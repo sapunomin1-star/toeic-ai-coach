@@ -164,8 +164,18 @@ function ReviewItem({
 
       {item.passage && (
         <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-3">
-          <p className="text-xs font-semibold text-slate-600">Passage</p>
-          <p className="mt-1 whitespace-pre-wrap text-sm text-slate-700">
+          <p className="text-xs font-semibold text-slate-600">
+            {item.part === "Part 3" || item.part === "Part 4" ? "圖表" : "Passage"}
+          </p>
+          {/* Part 3/4 passages are printed graphics; monospace keeps a timetable
+              or price list aligned, and scrolling beats wrapping on a phone. */}
+          <p
+            className={`mt-1 text-sm text-slate-700 ${
+              item.part === "Part 3" || item.part === "Part 4"
+                ? "overflow-x-auto whitespace-pre font-mono"
+                : "whitespace-pre-wrap"
+            }`}
+          >
             {item.passage}
           </p>
         </div>

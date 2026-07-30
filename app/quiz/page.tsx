@@ -39,7 +39,7 @@ import {
   getVocabularyProgress,
   loadVocabularyBank,
 } from "@/lib/vocabularyStorage";
-import type { AnswerRecord, Choice, MistakeReason, Question } from "@/types/question";
+import type { AnswerRecord, Choice, MistakeReason, Part, Question } from "@/types/question";
 import { SKILL_LABELS } from "@/types/question";
 import type { QuizPlanSource } from "@/lib/storage";
 
@@ -81,6 +81,27 @@ function calculatePlanSessionStats(
     correct: latestByQuestion.filter((record) => record.isCorrect).length,
     total: latestByQuestion.length,
   };
+}
+
+/**
+ * What the `passage` block actually holds depends on the part: prose for the
+ * reading parts, but for Part 3/4 it is the printed graphic — a timetable or
+ * price list the learner reads against the audio, the way the real exam prints
+ * one. Labelling that "Reading Passage" would be actively misleading.
+ */
+function passageLabel(part: Part): string {
+  if (part === "Part 6") return "段落填空";
+  if (part === "Part 3" || part === "Part 4") return "圖表";
+  return "Reading Passage";
+}
+
+/**
+ * Column-aligned tables only survive in a monospaced face, and they must scroll
+ * rather than wrap: the widest graphic runs about 51 characters, which wraps on
+ * a phone and destroys the alignment the columns depend on.
+ */
+function isGraphicPart(part: Part): boolean {
+  return part === "Part 3" || part === "Part 4";
 }
 
 export default function QuizPage() {
@@ -691,9 +712,15 @@ export default function QuizPage() {
       {currentQuestion.passage && (
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 shadow-sm">
           <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-amber-700">
-            {currentQuestion.part} · {currentQuestion.part === "Part 6" ? "段落填空" : "Reading Passage"}
+            {currentQuestion.part} · {passageLabel(currentQuestion.part)}
           </p>
-          <p className="whitespace-pre-wrap text-sm leading-relaxed text-slate-800">
+          <p
+            className={`text-sm leading-relaxed text-slate-800 ${
+              isGraphicPart(currentQuestion.part)
+                ? "overflow-x-auto whitespace-pre font-mono"
+                : "whitespace-pre-wrap"
+            }`}
+          >
             {currentQuestion.passage}
           </p>
         </div>
