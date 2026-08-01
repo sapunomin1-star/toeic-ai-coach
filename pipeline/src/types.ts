@@ -119,6 +119,11 @@ export type IntegrityReport = {
    * `checkVisibleAnswerLengthLeaks` for where the threshold comes from.
    */
   visibleLengthLeaks: string[];
+  /**
+   * Items tagged `word_form` whose options cannot be told apart by part of
+   * speech — see `checkWordFormTags` for why that makes the tag wrong.
+   */
+  skillTagMismatches: string[];
   totalQuestions: number;
   passed: boolean;
 };

@@ -1,0 +1,21 @@
+{
+  "_comment": "skill_tag corrections for Part 5. word_form ('詞性判斷') is only meaningful when the options differ in part of speech, so the slot's grammar decides the answer. In each item below the generated explanation asserts a part-of-speech rule ('空格修飾動詞，需用副詞') while every option already satisfies it — the rule eliminates nothing and meaning does the whole job. Tagging those as word_form sends the learner to derivational-morphology practice for a vocabulary gap. Applied by src/apply-skill-tag-patch.ts, which re-checks the shared-part-of-speech evidence before writing.",
+
+  "p5-xd-0065": { "from": "word_form", "to": "business_vocabulary", "shape": "all -ly", "why": "indifferently / presumably / completely / unbearably — four adverbs" },
+  "p5-xd-0117": { "from": "word_form", "to": "business_vocabulary", "shape": "all -ly", "why": "calmly / usually / inherently / increasingly — four adverbs" },
+  "p5-xd-0135": { "from": "word_form", "to": "business_vocabulary", "shape": "all -ive", "why": "detective / negative / descriptive / cooperative — four adjectives" },
+  "p5-xd-0146": { "from": "word_form", "to": "business_vocabulary", "shape": "all -ly", "why": "competitively / magnificently / productively / totally — four adverbs" },
+  "p5-xd-0173": { "from": "word_form", "to": "business_vocabulary", "shape": "all -ing", "why": "serving / deserving / reserving / preserving — four gerunds of four different verbs" },
+  "p5-xd-0174": { "from": "word_form", "to": "business_vocabulary", "shape": "all -ive", "why": "Attentive / Effective / Active / Subjective — four adjectives" },
+  "p5-xd-0176": { "from": "word_form", "to": "business_vocabulary", "shape": "all -ing", "why": "affirming / completing / orienting / expanding — four gerunds" },
+  "p5-xd-0206": { "from": "word_form", "to": "business_vocabulary", "shape": "all -ly", "why": "obviously / financially / fiercely / automatically — four adverbs" },
+  "p5-xd-0247": { "from": "word_form", "to": "business_vocabulary", "shape": "all -ly", "why": "meagerly / fundamentally / significantly / adequately — four adverbs" },
+  "p5-xd-0259": { "from": "word_form", "to": "business_vocabulary", "shape": "all -ly", "why": "distinctly / individually / exceptionally / particularly — four adverbs" },
+  "p5-xd-0319": { "from": "word_form", "to": "business_vocabulary", "shape": "manual", "why": "valuable / impressive / eligible / flexible — four adjectives, no shared suffix to test on" },
+  "p5-xd-0321": { "from": "word_form", "to": "business_vocabulary", "shape": "manual", "why": "basic / compelling / necessary / natural — four adjectives, no shared suffix to test on" },
+  "p5-xd-0323": { "from": "word_form", "to": "business_vocabulary", "shape": "all -ly", "why": "mutually / generously / impulsively / exclusively — four adverbs" },
+  "p5-xd-0326": { "from": "word_form", "to": "business_vocabulary", "shape": "all -ly", "why": "exactly / genuinely / diligently / repeatedly — four adverbs" },
+  "p5-xd-0342": { "from": "word_form", "to": "business_vocabulary", "shape": "all -ly", "why": "commonly / currently / actively / approvingly — four adverbs" },
+
+  "p5-ext-147": { "from": "business_vocabulary", "to": "word_form", "shape": "family", "why": "compete / competition / competitive / competitor — one lexeme across four parts of speech, and the explanation reasons over exactly that" }
+}

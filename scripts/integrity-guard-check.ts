@@ -128,6 +128,69 @@ function balancedFiller(count: number): Question[] {
   assert.equal(report.visibleLengthLeaks.length, 0, "a long distractor is not a leak");
 }
 
+// ─── word_form tag vs. option shape ─────────────────────────────────────────
+
+{
+  // Four adverbs: part of speech eliminates nothing, so the item tests meaning.
+  const vocabInGrammarClothes = question({
+    id: "mistag-0001",
+    part: "Part 5",
+    passage: undefined,
+    skill_tag: "word_form",
+    question: "The system _______ notifies the moderator when a rule is broken.",
+    choices: {
+      A: "automatically",
+      B: "obviously",
+      C: "financially",
+      D: "fiercely",
+    },
+    answer: "A",
+  });
+  const report = runIntegrityCheck([...balancedFiller(80), vocabInGrammarClothes]);
+  assert.equal(report.skillTagMismatches.length, 1, "a same-part-of-speech word_form set must be flagged");
+  assert.match(report.skillTagMismatches[0], /mistag-0001/);
+  assert.equal(report.passed, false, "a mistagged item must fail the run");
+}
+
+{
+  // A real derivational family spans parts of speech — must never be flagged.
+  const genuine = question({
+    id: "wordform-0001",
+    part: "Part 5",
+    passage: undefined,
+    skill_tag: "word_form",
+    question: "We will be welcoming our keynote _______ at the reception.",
+    choices: { A: "speak", B: "spoken", C: "speaker", D: "speaking" },
+    answer: "C",
+  });
+  const report = runIntegrityCheck([...balancedFiller(80), genuine]);
+  assert.equal(
+    report.skillTagMismatches.length,
+    0,
+    "a genuine word-form family must not be flagged — it cannot share one part of speech",
+  );
+}
+
+{
+  // Same four adverbs, correctly tagged: the guard checks the tag, not the shape.
+  const correctlyTagged = question({
+    id: "vocab-0001",
+    part: "Part 5",
+    passage: undefined,
+    skill_tag: "business_vocabulary",
+    question: "The system _______ notifies the moderator when a rule is broken.",
+    choices: {
+      A: "automatically",
+      B: "obviously",
+      C: "financially",
+      D: "fiercely",
+    },
+    answer: "A",
+  });
+  const report = runIntegrityCheck([...balancedFiller(80), correctlyTagged]);
+  assert.equal(report.skillTagMismatches.length, 0, "only word_form items are in scope");
+}
+
 // ─── explanation / answer mismatch ──────────────────────────────────────────
 
 {
@@ -173,4 +236,4 @@ function balancedFiller(count: number): Question[] {
   assert.equal(report.passed, false);
 }
 
-console.log("Integrity guard regression checks passed (5 guards, 9 cases)");
+console.log("Integrity guard regression checks passed (6 guards, 12 cases)");

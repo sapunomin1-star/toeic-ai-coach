@@ -1290,7 +1290,7 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     },
     "answer": "D",
     "explanation_zh": "副詞「unbearably」修飾形容詞「tough」，表示「難以忍受地嚴苛」，符合後文「創造堅強業務員」的對比。其他副詞語意不合。",
-    "skill_tag": "word_form",
+    "skill_tag": "business_vocabulary",
     "difficulty": "C1",
     "vocabulary": [
       "tough",
@@ -2330,7 +2330,7 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     },
     "answer": "A",
     "explanation_zh": "空格修飾動詞片語「make your way」，需用副詞。calmly 表示「冷靜地」，符合警報響起時應保持冷靜前往集合點的情境。",
-    "skill_tag": "word_form",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
       "alarm",
@@ -2690,7 +2690,7 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     },
     "answer": "C",
     "explanation_zh": "空格前後有 and 連接兩個形容詞，imaginative 與空格應為並列關係，且修飾 writing。四個選項中只有 descriptive（描述性的）能與 imaginative（富有想像力的）形成合理並列，符合寫作研討會的主題。",
-    "skill_tag": "word_form",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
       "imaginative",
@@ -2911,7 +2911,7 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     },
     "answer": "A",
     "explanation_zh": "句意為「為了在動態的商業環境中有競爭力地營運」，空格修飾動詞「operate」，需用副詞。「competitively」符合語境。",
-    "skill_tag": "word_form",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B2",
     "vocabulary": [
       "competitively",
@@ -3451,7 +3451,7 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     },
     "answer": "A",
     "explanation_zh": "介係詞 from 後需接動名詞，且語意為「服務社區」。serving（服務）符合；deserving（應得）、reserving（保留）、preserving（保存）皆不適當。",
-    "skill_tag": "word_form",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
       "satisfaction",
@@ -3471,7 +3471,7 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     },
     "answer": "B",
     "explanation_zh": "空格修飾名詞 planning，需用形容詞表示「有效的規劃」。Effective（有效的）符合語境；Attentive（專注的）、Active（活躍的）、Subjective（主觀的）均不適當。",
-    "skill_tag": "word_form",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
       "planning",
@@ -3511,7 +3511,7 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     },
     "answer": "A",
     "explanation_zh": "空格前為介係詞 in，後接 that 子句，需填入動名詞。affirming（確認、肯定）符合「毫不猶豫地確認公司始終遵守道德準則」的語意。",
-    "skill_tag": "word_form",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B2",
     "vocabulary": [
       "affirming",
@@ -4111,7 +4111,7 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     },
     "answer": "D",
     "explanation_zh": "空格修飾動詞 notifies，需副詞。automatically（自動地）符合句意「系統自動通知主持人」。obviously（明顯地）、financially（財務上）、fiercely（猛烈地）語意不符。",
-    "skill_tag": "word_form",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
       "automatically",
@@ -4931,7 +4931,7 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     },
     "answer": "C",
     "explanation_zh": "本題考副詞修飾動詞。句意為「涉及自行車騎士的交通事故數量在過去十年中『顯著地』增加」，significantly 符合語意。meagerly（微薄地）、fundamentally（根本上）、adequately（足夠地）均不適合描述增加幅度。",
-    "skill_tag": "word_form",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
       "traffic accident",
@@ -5164,7 +5164,7 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     },
     "answer": "D",
     "explanation_zh": "空格修飾動詞 focusing，需要副詞表示「特別地」。particularly 符合句意，強調關注的對象。",
-    "skill_tag": "word_form",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
       "focus",
@@ -6369,7 +6369,7 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     },
     "answer": "C",
     "explanation_zh": "空格修飾 employee，需填入形容詞表示「有資格申請的」。eligible 意為「符合資格的」，符合句意；valuable（有價值的）、impressive（令人印象深刻的）、flexible（靈活的）皆不適用。",
-    "skill_tag": "word_form",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
       "eligible",
@@ -6409,7 +6409,7 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     },
     "answer": "C",
     "explanation_zh": "空格在「won't be」之後，需填入形容詞，且句意為「不需要做筆記」，因為會發放詳細摘要。necessary（必要的）符合；basic（基本的）、compelling（令人信服的）、natural（自然的）皆不正確。",
-    "skill_tag": "word_form",
+    "skill_tag": "business_vocabulary",
     "difficulty": "A2",
     "vocabulary": [
       "seminar",
@@ -6449,7 +6449,7 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     },
     "answer": "D",
     "explanation_zh": "空格修飾動詞「devoted」，需填入副詞，且句意為「專門致力於全球美食與美酒主題」。exclusively（專門地、獨家地）符合；mutually（互相地）、generously（慷慨地）、impulsively（衝動地）皆不適用。",
-    "skill_tag": "word_form",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B2",
     "vocabulary": [
       "devoted",
@@ -6509,7 +6509,7 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     },
     "answer": "D",
     "explanation_zh": "根據句意「我今天早上多次嘗試聯絡他，但都沒人接」，空格應修飾動詞 contact，表示動作的頻率。repeatedly（重複地）符合語境。exactly（精確地）、genuinely（真誠地）、diligently（勤奮地）皆不適用。",
-    "skill_tag": "word_form",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
       "contact",
@@ -6830,7 +6830,7 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     },
     "answer": "B",
     "explanation_zh": "空格修飾形容詞 available，需要一個副詞。currently 意為「目前地」，符合句意：目前採礦業有大量職缺。commonly 是通常地、actively 是積極地、approvingly 是贊成地，均不適合描述職缺的現狀。",
-    "skill_tag": "word_form",
+    "skill_tag": "business_vocabulary",
     "difficulty": "B1",
     "vocabulary": [
       "position",

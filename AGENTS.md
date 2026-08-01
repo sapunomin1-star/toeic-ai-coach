@@ -130,6 +130,7 @@ Question data must satisfy:
 - `choices` must include non-empty `A`, `B`, and `C`; `D` is required except for Part 2.
 - `answer` must be one of `A`, `B`, `C`, or `D`.
 - `skill_tag` must be a key of the `SKILLS` registry in `types/question.ts` (the `SkillTag` union derives from it).
+- **`word_form` requires that the options differ in part of speech (2026-07-31, gated).** 詞性判斷 means the slot's grammar decides the answer — options are one lexeme across parts of speech (`speak / spoken / speaker / speaking`). Four options in the SAME part of speech (`obviously / financially / fiercely / automatically`) cannot be told apart by grammar at all; that is a vocabulary item and belongs to `business_vocabulary`. This is not cosmetic: `skill_tag` drives `getWeakestSkills`, so a mislabel prescribes derivational-morphology drills for a vocabulary gap. Fifteen Part 5 items were wrong this way, each carrying a generated explanation that asserted a rule ("空格修飾動詞，需用副詞") satisfied by all four of its options — the rule eliminated nothing. `checkWordFormTags` in `pipeline/src/integrity.ts` now gates on the shared-suffix form of this (13 of the 15 were catchable that way, with zero false positives across 241 items); the corrections replay from `pipeline/patches/skill-tag-mislabels.json`.
 - `explanation_zh` must be present and useful.
 - `vocabulary` should be a non-empty array for every question.
 - Part 3 and Part 4 questions must include `transcript`.

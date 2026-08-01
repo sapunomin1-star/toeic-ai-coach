@@ -5007,7 +5007,7 @@ export const QUESTIONS_PART5: Question[] = [
     },
     "answer": "D",
     "explanation_zh": "main competitor（主要競爭者）是商務用語。competition 是競爭（抽象名詞），competitive 是形容詞，compete 是動詞。",
-    "skill_tag": "business_vocabulary",
+    "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
       "competitor",

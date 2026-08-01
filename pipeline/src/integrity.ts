@@ -161,6 +161,48 @@ function checkVisibleAnswerLengthLeaks(questions: Question[]): string[] {
 }
 
 /**
+ * `word_form` (詞性判斷) means the four options are one lexeme in different
+ * parts of speech, so the slot's grammar decides the answer. When every option
+ * carries the SAME part-of-speech ending, grammar decides nothing — the item is
+ * a vocabulary question wearing a grammar tag.
+ *
+ * The tag is not cosmetic: it drives the weakness analysis, so a mislabel sends
+ * the learner to derivational-morphology drills for a vocabulary gap. Fifteen
+ * Part 5 items were mislabelled this way, each carrying a generated explanation
+ * that asserted a rule ("空格修飾動詞，需用副詞") which eliminated none of its
+ * four adverbs.
+ *
+ * Measured across the 241 single-word `word_form` items: this rule flagged 13
+ * before the fix and zero after, with no false positives — a real derivational
+ * family cannot have all four options in one part of speech, which is what
+ * makes the test safe. The two remaining mislabels (adjective sets with no
+ * shared suffix) had to be found by reading; see patches/skill-tag-mislabels.
+ */
+const POS_ENDINGS = [
+  "ly", "ing", "ive", "tion", "sion", "ment", "ness",
+  "able", "ible", "ous", "ful", "ant", "ent",
+];
+
+function checkWordFormTags(questions: Question[]): string[] {
+  const violations: string[] = [];
+  for (const q of questions) {
+    if (q.skill_tag !== "word_form") continue;
+    const options = Object.values(q.choices)
+      .filter((text): text is string => text != null)
+      .map((text) => text.toLowerCase().trim());
+    if (options.length < 3) continue;
+    // Multi-word options are phrases (prepositions, connectors), not word forms.
+    if (options.some((text) => text.split(/\s+/).length > 1)) continue;
+    const shared = POS_ENDINGS.find((ending) => options.every((text) => text.endsWith(ending)));
+    if (!shared) continue;
+    violations.push(
+      `${q.id} (${q.part}): every option ends in -${shared}, so part of speech cannot decide it — tag as business_vocabulary`,
+    );
+  }
+  return violations;
+}
+
+/**
  * Duplicate-stem guard. For Part 2 the question text IS the spoken stem and
  * for Part 5 it is the full test sentence — exact duplicates mean the student
  * can meet the same item twice in one mock. (Other parts legitimately repeat
@@ -256,6 +298,7 @@ export function runIntegrityCheck(questions: Question[]): IntegrityReport {
   ];
   const explanationAnswerMismatches = checkExplanationAnswerConsistency(questions);
   const visibleLengthLeaks = checkVisibleAnswerLengthLeaks(questions);
+  const skillTagMismatches = checkWordFormTags(questions);
 
   const passed =
     duplicateIds.length === 0 &&
@@ -268,7 +311,8 @@ export function runIntegrityCheck(questions: Question[]): IntegrityReport {
     answerBalanceViolations.length === 0 &&
     groupStructureViolations.length === 0 &&
     explanationAnswerMismatches.length === 0 &&
-    visibleLengthLeaks.length === 0;
+    visibleLengthLeaks.length === 0 &&
+    skillTagMismatches.length === 0;
 
   return {
     duplicateIds,
@@ -282,6 +326,7 @@ export function runIntegrityCheck(questions: Question[]): IntegrityReport {
     groupStructureViolations,
     explanationAnswerMismatches,
     visibleLengthLeaks,
+    skillTagMismatches,
     totalQuestions: questions.length,
     passed,
   };
@@ -320,12 +365,21 @@ export function printIntegrityReport(report: IntegrityReport): void {
     `  Visible length leaks:   ${report.visibleLengthLeaks.length}`
   );
   console.log(
+    `  skill_tag mismatches:   ${report.skillTagMismatches.length}`
+  );
+  console.log(
     `  Status: ${report.passed ? "PASSED" : "FAILED"}`
   );
 
   if (report.visibleLengthLeaks.length > 0) {
     console.log(
       `\n  - 正解明顯是最長選項（讀四個選項就看得出來，等於不必讀文章／聽音檔）:\n      ${report.visibleLengthLeaks.join("\n      ")}`
+    );
+  }
+
+  if (report.skillTagMismatches.length > 0) {
+    console.log(
+      `\n  - 標成 word_form 但四個選項詞性相同（詞性判斷不了，實際考的是字義；誤標會讓弱點分析叫使用者去練錯的東西）:\n      ${report.skillTagMismatches.join("\n      ")}`
     );
   }
 
