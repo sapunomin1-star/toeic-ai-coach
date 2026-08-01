@@ -10351,22 +10351,22 @@ export const GENERATED_QUESTIONS: Question[] = [
   {
     "id": "p2-gen-058",
     "part": "Part 2",
-    "question": "Could you confirm the reservation for the team dinner on Thursday?",
+    "question": "Could you book a rental car for the Osaka trip?",
     "choices": {
-      "A": "Yes, the meeting will be on Friday.",
-      "B": "I'll check with the restaurant and let you know.",
-      "C": "The reservation is at the restaurant."
+      "A": "The car park is behind the terminal.",
+      "B": "I'll do that once the dates are confirmed.",
+      "C": "Yes, I've been to Osaka twice."
     },
     "answer": "B",
-    "explanation_zh": "選項 B 是唯一正確的答案，因為它直接回應了確認預訂的要求。選項 A 提到的是會議，而非晚餐預訂，因此不相關。選項 C 雖然提到 'reservation'，但語意上錯誤，因為它只是重申預訂地點而未確認。",
+    "explanation_zh": "(B) 直接回應「訂車」的請求，說明會在日期確定後處理。(A) 重複 car 但講的是停車場，是聽到熟字就選的陷阱。(C) 重複 Osaka，回答的是「去過沒」而不是請求。",
     "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
-      "reservation",
-      "confirm",
-      "team dinner"
+      "rental car",
+      "book",
+      "confirm"
     ],
-    "audioScript": "Q: Could you confirm the reservation for the team dinner on Thursday?\n(A) Yes, the meeting will be on Friday.\n(B) I'll check with the restaurant and let you know.\n(C) The reservation is at the restaurant."
+    "audioScript": "Q: Could you book a rental car for the Osaka trip?\n(A) The car park is behind the terminal.\n(B) I'll do that once the dates are confirmed.\n(C) Yes, I've been to Osaka twice."
   },
   {
     "id": "p2-gen-059",
@@ -10639,23 +10639,22 @@ export const GENERATED_QUESTIONS: Question[] = [
   {
     "id": "p2-gen-074",
     "part": "Part 2",
-    "question": "Why was the meeting postponed?",
+    "question": "Why has the loading bay been closed off?",
     "choices": {
-      "A": "We can discuss the report then.",
-      "B": "The meeting was about the new project.",
-      "C": "Because the manager is out of town."
+      "A": "It closes at seven on weekdays.",
+      "B": "Near the service entrance.",
+      "C": "They're resurfacing the concrete."
     },
     "answer": "C",
-    "explanation_zh": "問題問會議為何延期。選項A提及“報告”，這與“會議延期的原因”無關。選項B提到“會議關於新項目”，同樣不解釋延期原因。選項C正確，因為它解釋了延期的原因：經理不在城裡。",
+    "explanation_zh": "(C) 說明封閉原因，正面回應 Why。(A) 重複 close 的字根，答的是 When。(B) 答的是 Where。",
     "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
-      "meeting",
-      "postponed",
-      "manager",
-      "report"
+      "loading bay",
+      "close off",
+      "resurface"
     ],
-    "audioScript": "Q: Why was the meeting postponed?\n(A) We can discuss the report then.\n(B) The meeting was about the new project.\n(C) Because the manager is out of town."
+    "audioScript": "Q: Why has the loading bay been closed off?\n(A) It closes at seven on weekdays.\n(B) Near the service entrance.\n(C) They're resurfacing the concrete."
   },
   {
     "id": "p2-gen-075",
@@ -10720,22 +10719,22 @@ export const GENERATED_QUESTIONS: Question[] = [
   {
     "id": "p2-gen-078",
     "part": "Part 2",
-    "question": "Could you send me the updated invoice by tomorrow?",
+    "question": "Could you submit your travel expenses before the end of the month?",
     "choices": {
-      "A": "Sure, I'll have it sent over today.",
-      "B": "The meeting was yesterday afternoon.",
-      "C": "The invoice is for the purchase order."
+      "A": "I'll upload the receipts this afternoon.",
+      "B": "The trip lasted about three weeks.",
+      "C": "Yes, travel is expensive these days."
     },
     "answer": "A",
-    "explanation_zh": "問題要求對方明天前送出更新的發票。選項A表示可以今天就發送，符合要求。選項B提到的是會議，與發票無關。選項C提到發票，但沒有回應何時能發送，不符合問題要求。",
+    "explanation_zh": "(A) 以「下午上傳收據」回應報帳請求。(B) 答的是「多久」，問句沒問。(C) 重複 travel，但把請求聽成了對旅費的感想。",
     "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
-      "invoice",
-      "updated",
-      "send"
+      "expenses",
+      "submit",
+      "receipt"
     ],
-    "audioScript": "Q: Could you send me the updated invoice by tomorrow?\n(A) Sure, I'll have it sent over today.\n(B) The meeting was yesterday afternoon.\n(C) The invoice is for the purchase order."
+    "audioScript": "Q: Could you submit your travel expenses before the end of the month?\n(A) I'll upload the receipts this afternoon.\n(B) The trip lasted about three weeks.\n(C) Yes, travel is expensive these days."
   },
   {
     "id": "p2-gen-079",
@@ -10780,22 +10779,22 @@ export const GENERATED_QUESTIONS: Question[] = [
   {
     "id": "p2-gen-081",
     "part": "Part 2",
-    "question": "When will the office supplies be delivered?",
+    "question": "When does the shuttle to the airport leave?",
     "choices": {
-      "A": "They should arrive by Thursday afternoon.",
-      "B": "The supplies include paper and pens.",
-      "C": "I ordered them last week."
+      "A": "Every twenty minutes.",
+      "B": "From the north entrance.",
+      "C": "The airport is quite far."
     },
     "answer": "A",
-    "explanation_zh": "問題問的是辦公用品什麼時候會送達。選項A「它們應該在星期四下午到達」明確回答了這個時間問題。選項B提到的 \"supplies\" 只是重複了問題中的 \"supplies\"，但並沒有提供任何時間相關的資訊。選項C \"I ordered them last week\" 是在回答一個何時下訂單的問題，而不是何時送達。",
+    "explanation_zh": "(A) 回答班次頻率，正面回應 When。(B) 答的是 Where。(C) 重複 airport 卻沒回答時間。",
     "skill_tag": "listening_response",
     "difficulty": "A2",
     "vocabulary": [
-      "supplies",
-      "delivered",
-      "arrive"
+      "shuttle",
+      "depart",
+      "entrance"
     ],
-    "audioScript": "Q: When will the office supplies be delivered?\n(A) They should arrive by Thursday afternoon.\n(B) The supplies include paper and pens.\n(C) I ordered them last week."
+    "audioScript": "Q: When does the shuttle to the airport leave?\n(A) Every twenty minutes.\n(B) From the north entrance.\n(C) The airport is quite far."
   },
   {
     "id": "p2-gen-082",
@@ -10820,22 +10819,22 @@ export const GENERATED_QUESTIONS: Question[] = [
   {
     "id": "p2-gen-084",
     "part": "Part 2",
-    "question": "Why was the meeting rescheduled to next week?",
+    "question": "Why did Ms. Alvarez turn down the transfer?",
     "choices": {
-      "A": "The project timeline was extended.",
-      "B": "The meeting room is on the second floor.",
-      "C": "The agenda was emailed yesterday."
+      "A": "Her family didn't want to relocate.",
+      "B": "She turned left at the corner.",
+      "C": "The transfer takes about two hours."
     },
     "answer": "A",
-    "explanation_zh": "問題詢問為什麼會議改期到下週。選項A提到專案時間表延長，提供了改期的原因。選項B重複了“meeting”這個詞，但只提到會議室位置，並未回答為什麼會議改期的問題。選項C則提到議程被寄出，與原因無關。",
+    "explanation_zh": "(A) 說明拒絕調職的原因，正面回應 Why。(B) 重複 turn 但取字面義「轉彎」，是一詞多義陷阱。(C) 重複 transfer，答的卻是所需時間。",
     "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
-      "rescheduled",
-      "project",
-      "agenda"
+      "turn down",
+      "transfer",
+      "relocate"
     ],
-    "audioScript": "Q: Why was the meeting rescheduled to next week?\n(A) The project timeline was extended.\n(B) The meeting room is on the second floor.\n(C) The agenda was emailed yesterday."
+    "audioScript": "Q: Why did Ms. Alvarez turn down the transfer?\n(A) Her family didn't want to relocate.\n(B) She turned left at the corner.\n(C) The transfer takes about two hours."
   },
   {
     "id": "p2-gen-085",
@@ -10880,23 +10879,22 @@ export const GENERATED_QUESTIONS: Question[] = [
   {
     "id": "p2-gen-087",
     "part": "Part 2",
-    "question": "Should we schedule the meeting for Wednesday or Friday?",
+    "question": "Should we hold the review by video or in person?",
     "choices": {
-      "A": "Wednesday works best for me.",
-      "B": "I think the meeting is too long.",
-      "C": "We need more data for the report."
+      "A": "In person, if everyone can travel.",
+      "B": "It was reviewed twice already.",
+      "C": "The video quality was poor."
     },
     "answer": "A",
-    "explanation_zh": "問題詢問會議安排的時間，選項A直接回覆說明星期三適合。選項B提到會議時間長短，但沒有回答安排時間的問題。選項C提到報告，與問題無關。選項B中的“meeting”是陷阱詞，因為雖然提到會議，但沒有回答應該選哪一天。",
+    "explanation_zh": "(A) 選了其中一項並附條件。(B) 重複 review 的字根，答的是次數。(C) 重複 video 但講的是畫質。",
     "skill_tag": "listening_response",
     "difficulty": "A2",
     "vocabulary": [
-      "schedule",
-      "meeting",
-      "Wednesday",
-      "Friday"
+      "in person",
+      "review",
+      "quality"
     ],
-    "audioScript": "Q: Should we schedule the meeting for Wednesday or Friday?\n(A) Wednesday works best for me.\n(B) I think the meeting is too long.\n(C) We need more data for the report."
+    "audioScript": "Q: Should we hold the review by video or in person?\n(A) In person, if everyone can travel.\n(B) It was reviewed twice already.\n(C) The video quality was poor."
   },
   {
     "id": "p2-gen-088",
@@ -10921,42 +10919,42 @@ export const GENERATED_QUESTIONS: Question[] = [
   {
     "id": "p2-gen-089",
     "part": "Part 2",
-    "question": "Could you tell me when the meeting is scheduled to start?",
+    "question": "Could you tell me when the warranty runs out?",
     "choices": {
-      "A": "The meeting room is on the second floor.",
-      "B": "Yes, the meeting notes will be sent later.",
-      "C": "It's scheduled to start at 3 PM."
+      "A": "At the dealership on Third Avenue.",
+      "B": "It ran very smoothly.",
+      "C": "Two years from the purchase date."
     },
     "answer": "C",
-    "explanation_zh": "問題詢問會議何時開始，選項C提供了具體時間3 PM。選項A提到“meeting room”，但這是會議地點而非時間。選項B則答覆了關於會議筆記的問題，而非會議時間。",
+    "explanation_zh": "(C) 給到期時點，回應間接問句裡的 when。(A) 答的是 Where。(B) 重複 run 的過去式，取的是「運作」義。",
     "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
-      "scheduled",
-      "meeting",
-      "start"
+      "warranty",
+      "run out",
+      "purchase date"
     ],
-    "audioScript": "Q: Could you tell me when the meeting is scheduled to start?\n(A) The meeting room is on the second floor.\n(B) Yes, the meeting notes will be sent later.\n(C) It's scheduled to start at 3 PM."
+    "audioScript": "Q: Could you tell me when the warranty runs out?\n(A) At the dealership on Third Avenue.\n(B) It ran very smoothly.\n(C) Two years from the purchase date."
   },
   {
     "id": "p2-gen-090",
     "part": "Part 2",
-    "question": "What time is the meeting scheduled for this Friday?",
+    "question": "What time do the doors open for the awards dinner?",
     "choices": {
-      "A": "It's at 3 PM.",
-      "B": "The meeting room is on the third floor.",
-      "C": "I'll resend the report after lunch."
+      "A": "At half past six.",
+      "B": "In the main ballroom.",
+      "C": "The doors are quite heavy."
     },
     "answer": "A",
-    "explanation_zh": "問題詢問會議的時間。選項A提供了具體的時間：下午3點。選項B提到會議室在三樓，但並未回答時間問題。選項C則提到報告，與會議時間無關。",
+    "explanation_zh": "(A) 直接給時間。(B) 答的是 Where。(C) 重複 doors 卻在講門的重量。",
     "skill_tag": "listening_response",
     "difficulty": "A2",
     "vocabulary": [
-      "meeting",
-      "scheduled",
-      "Friday"
+      "awards dinner",
+      "ballroom",
+      "half past"
     ],
-    "audioScript": "Q: What time is the meeting scheduled for this Friday?\n(A) It's at 3 PM.\n(B) The meeting room is on the third floor.\n(C) I'll resend the report after lunch."
+    "audioScript": "Q: What time do the doors open for the awards dinner?\n(A) At half past six.\n(B) In the main ballroom.\n(C) The doors are quite heavy."
   },
   {
     "id": "p2-gen-091",
@@ -11003,42 +11001,42 @@ export const GENERATED_QUESTIONS: Question[] = [
   {
     "id": "p2-gen-093",
     "part": "Part 2",
-    "question": "Who is responsible for ordering office supplies?",
+    "question": "Who approved the repairs to the loading dock?",
     "choices": {
-      "A": "That would be Lisa in procurement.",
-      "B": "The supplies are in the storage room.",
-      "C": "We placed an order last week."
+      "A": "The facilities manager did.",
+      "B": "It was repaired last spring.",
+      "C": "Near the rear of the building."
     },
     "answer": "A",
-    "explanation_zh": "問題詢問誰負責訂購辦公用品。選項A正確回答了是由採購部的Lisa負責。選項B雖然提到了supplies（用品），但只是描述用品的位置，並未回答誰負責。選項C則是提到上週的訂單而未涉及負責人員，回答了不同的問題。",
+    "explanation_zh": "(A) 指出人，正面回應 Who。(B) 重複 repair 但答的是 When。(C) 答的是 Where。",
     "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
-      "responsible",
-      "office supplies",
-      "procurement"
+      "loading dock",
+      "approve",
+      "facilities"
     ],
-    "audioScript": "Q: Who is responsible for ordering office supplies?\n(A) That would be Lisa in procurement.\n(B) The supplies are in the storage room.\n(C) We placed an order last week."
+    "audioScript": "Q: Who approved the repairs to the loading dock?\n(A) The facilities manager did.\n(B) It was repaired last spring.\n(C) Near the rear of the building."
   },
   {
     "id": "p2-gen-094",
     "part": "Part 2",
-    "question": "Why is the meeting postponed?",
+    "question": "Why did the customer ask for a refund?",
     "choices": {
-      "A": "It's in the conference room.",
-      "B": "The manager is on a business trip.",
-      "C": "I don't have the agenda yet."
+      "A": "She paid by credit card.",
+      "B": "The item arrived with a cracked lid.",
+      "C": "Refunds take five business days."
     },
     "answer": "B",
-    "explanation_zh": "問題問為什麼會議延期，答案B說明是因為經理出差的原因。選項A提到『會議』這個詞，但只是描述會議地點，無法回答為什麼延期的問題。選項C提到未收到議程，但這不是會議延期的原因。",
+    "explanation_zh": "(B) 說明退款原因（商品破損），正面回應 Why。(A) 答的是付款方式。(C) 重複 refund 卻在講處理天數。",
     "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
-      "meeting",
-      "postponed",
-      "manager"
+      "refund",
+      "cracked",
+      "business days"
     ],
-    "audioScript": "Q: Why is the meeting postponed?\n(A) It's in the conference room.\n(B) The manager is on a business trip.\n(C) I don't have the agenda yet."
+    "audioScript": "Q: Why did the customer ask for a refund?\n(A) She paid by credit card.\n(B) The item arrived with a cracked lid.\n(C) Refunds take five business days."
   },
   {
     "id": "p2-gen-095",
@@ -14251,24 +14249,24 @@ export const GENERATED_QUESTIONS: Question[] = [
     "audioScript": "Q: Where are the extra ink cartridges stored?\n(A) They should last a few months.\n(B) In the supply closet next to the printer paper.\n(C) The printer needs servicing soon."
   },
   {
-    "question": "Who should I contact about ordering more office supplies?",
-    "choices": {
-      "A": "The office supplies are in the storage room.",
-      "B": "You need to fill out a request form.",
-      "C": "Speak with Karen in the procurement department."
-    },
-    "answer": "C",
-    "explanation_zh": "問題是詢問應該聯繫誰來訂購辦公用品。選項C提到應該聯繫採購部門的Karen，是正確的答案。選項A雖然提到office supplies這個詞，但只說明了這些用品的位置，並未回答應聯繫誰。選項B提到填寫申請表，與詢問聯絡人無關。",
-    "difficulty": "A2",
-    "vocabulary": [
-      "contact",
-      "ordering",
-      "supplies"
-    ],
     "id": "p2-gen-103",
     "part": "Part 2",
+    "question": "Who do I ask about my remaining vacation days?",
+    "choices": {
+      "A": "Sometime in early August.",
+      "B": "I had a wonderful vacation.",
+      "C": "Ms. Park in personnel."
+    },
+    "answer": "C",
+    "explanation_zh": "(C) 指出該找的人與部門。(A) 答的是 When。(B) 重複 vacation，但講的是自己的假期感想。",
     "skill_tag": "listening_response",
-    "audioScript": "Q: Who should I contact about ordering more office supplies?\n(A) The office supplies are in the storage room.\n(B) You need to fill out a request form.\n(C) Speak with Karen in the procurement department."
+    "difficulty": "A2",
+    "vocabulary": [
+      "remaining",
+      "personnel",
+      "vacation days"
+    ],
+    "audioScript": "Q: Who do I ask about my remaining vacation days?\n(A) Sometime in early August.\n(B) I had a wonderful vacation.\n(C) Ms. Park in personnel."
   },
   {
     "question": "Why did the shipment get delayed?",
@@ -14416,24 +14414,24 @@ export const GENERATED_QUESTIONS: Question[] = [
     "audioScript": "Q: Could you tell me where the new office supplies are stored?\n(A) They're in the storage room next to the kitchen.\n(B) We ordered office supplies last week.\n(C) Yes, the office is on the third floor."
   },
   {
-    "question": "When will the new office chairs be delivered?",
+    "id": "p2-gen-111",
+    "part": "Part 2",
+    "question": "When will the assembly line be back in operation?",
     "choices": {
-      "A": "We ordered the chairs last week.",
-      "B": "They should arrive by Thursday.",
-      "C": "The chairs are very comfortable."
+      "A": "On the second floor of plant two.",
+      "B": "Once the safety inspection clears.",
+      "C": "They assembled it themselves."
     },
     "answer": "B",
-    "explanation_zh": "問題詢問新辦公椅的交貨時間。選項B提供了具體時間「週四」，正確回答問題。選項A重複「chairs」這個詞，但只是說明下訂單時間，無法回答交貨時間的問題。選項C描述椅子的舒適度，與問題無關。",
+    "explanation_zh": "(B) 用「安全檢查通過後」回答時間點——多益常以條件代替明確時間。(A) 答的是 Where。(C) 重複 assemble 的字根卻答非所問。",
+    "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
-      "deliver",
-      "office chairs",
-      "arrive"
+      "assembly line",
+      "in operation",
+      "inspection"
     ],
-    "part": "Part 2",
-    "skill_tag": "listening_response",
-    "id": "p2-gen-111",
-    "audioScript": "Q: When will the new office chairs be delivered?\n(A) We ordered the chairs last week.\n(B) They should arrive by Thursday.\n(C) The chairs are very comfortable."
+    "audioScript": "Q: When will the assembly line be back in operation?\n(A) On the second floor of plant two.\n(B) Once the safety inspection clears.\n(C) They assembled it themselves."
   },
   {
     "question": "Where can I find the office supply closet?",
@@ -14556,24 +14554,24 @@ export const GENERATED_QUESTIONS: Question[] = [
     "audioScript": "Q: The printer is out of ink again.\n(A) I'll order new cartridges right away.\n(B) The printer has been there for years.\n(C) It should arrive by tomorrow."
   },
   {
-    "question": "Where can I find the new office supplies catalog?",
-    "choices": {
-      "A": "It's on the supply manager's desk.",
-      "B": "The office supplies are running low.",
-      "C": "You can order it online."
-    },
-    "answer": "A",
-    "explanation_zh": "問題詢問新辦公用品目錄的位置。選項A提到目錄在供應經理的桌子上，是正確的。選項B雖然提到\"office supplies\"（辦公用品），但並未回答目錄的位置，僅陳述一個事實，故不正確。選項C回答了一個不同的問題，並未提供實際位置，因此不合適。",
-    "difficulty": "A2",
-    "vocabulary": [
-      "catalog",
-      "supply",
-      "manager"
-    ],
     "id": "p2-gen-122",
     "part": "Part 2",
+    "question": "Where can I drop off my badge when I leave?",
+    "choices": {
+      "A": "There's a box at reception.",
+      "B": "It dropped by ten percent.",
+      "C": "Any time before five."
+    },
+    "answer": "A",
+    "explanation_zh": "(A) 給歸還地點。(B) 重複 drop 但取「下跌」義。(C) 答的是 When。",
     "skill_tag": "listening_response",
-    "audioScript": "Q: Where can I find the new office supplies catalog?\n(A) It's on the supply manager's desk.\n(B) The office supplies are running low.\n(C) You can order it online."
+    "difficulty": "A2",
+    "vocabulary": [
+      "drop off",
+      "badge",
+      "reception"
+    ],
+    "audioScript": "Q: Where can I drop off my badge when I leave?\n(A) There's a box at reception.\n(B) It dropped by ten percent.\n(C) Any time before five."
   },
   {
     "question": "Why did the printer stop working?",
@@ -14598,25 +14596,24 @@ export const GENERATED_QUESTIONS: Question[] = [
     "audioScript": "Q: Why did the printer stop working?\n(A) The report isn't finished yet.\n(B) Because it was delivered yesterday.\n(C) It ran out of paper."
   },
   {
-    "question": "What kind of office supplies do we need to order?",
-    "choices": {
-      "A": "We need more printer paper and pens.",
-      "B": "The office is on the second floor.",
-      "C": "The supplies were delivered yesterday."
-    },
-    "answer": "A",
-    "explanation_zh": "問題問的是需要訂購哪種辦公用品。選項A回答了具體需要的用品：紙和筆。選項B提到“office”這個詞，但回答的是辦公室的位置，與問題無關。選項C提到“supplies”，但回答了什麼時候送達的，與需要訂購的用品無關。",
-    "difficulty": "A2",
-    "vocabulary": [
-      "office supplies",
-      "order",
-      "printer paper",
-      "pens"
-    ],
     "id": "p2-gen-125",
     "part": "Part 2",
+    "question": "What kind of insurance does the rental include?",
+    "choices": {
+      "A": "Basic collision coverage.",
+      "B": "We rented it for three days.",
+      "C": "At the counter in Terminal Two."
+    },
+    "answer": "A",
+    "explanation_zh": "(A) 說明保險種類，正面回應 What kind。(B) 重複 rent 的字根，答的是租期。(C) 答的是 Where。",
     "skill_tag": "listening_response",
-    "audioScript": "Q: What kind of office supplies do we need to order?\n(A) We need more printer paper and pens.\n(B) The office is on the second floor.\n(C) The supplies were delivered yesterday."
+    "difficulty": "A2",
+    "vocabulary": [
+      "insurance",
+      "collision",
+      "coverage"
+    ],
+    "audioScript": "Q: What kind of insurance does the rental include?\n(A) Basic collision coverage.\n(B) We rented it for three days.\n(C) At the counter in Terminal Two."
   },
   {
     "question": "Should we order more printer paper or toner cartridges?",
@@ -14681,24 +14678,24 @@ export const GENERATED_QUESTIONS: Question[] = [
     "audioScript": "Q: Could you tell me when the IT equipment will be delivered?\n(A) We ordered new monitors.\n(B) I think it was shipped yesterday.\n(C) It should arrive by Friday afternoon."
   },
   {
-    "question": "Where is the new shipment of office supplies stored?",
+    "id": "p2-gen-132",
+    "part": "Part 2",
+    "question": "Where do the delivery drivers sign in?",
     "choices": {
-      "A": "The shipment arrived yesterday.",
-      "B": "In the storage room on the third floor.",
-      "C": "We need more supplies soon."
+      "A": "He signed it last week.",
+      "B": "At the gate on Miller Road.",
+      "C": "Around six every morning."
     },
     "answer": "B",
-    "explanation_zh": "問題詢問新辦公用品的存放地點。選項B清楚地回答了問題：在三樓的儲藏室。選項A是陷阱選項，重複了“shipment”這個詞，但是只說到了貨到達的時間，並沒有提到存放地點。選項C則是提到需要更多物品，但並未提及存放位置。",
+    "explanation_zh": "(B) 給地點，正面回應 Where。(A) 重複 sign 但取「簽名」的另一個用法。(C) 答的是 When。",
+    "skill_tag": "listening_response",
     "difficulty": "A2",
     "vocabulary": [
-      "shipment",
-      "stored",
-      "storage"
+      "sign in",
+      "gate",
+      "delivery driver"
     ],
-    "part": "Part 2",
-    "skill_tag": "listening_response",
-    "id": "p2-gen-132",
-    "audioScript": "Q: Where is the new shipment of office supplies stored?\n(A) The shipment arrived yesterday.\n(B) In the storage room on the third floor.\n(C) We need more supplies soon."
+    "audioScript": "Q: Where do the delivery drivers sign in?\n(A) He signed it last week.\n(B) At the gate on Miller Road.\n(C) Around six every morning."
   },
   {
     "question": "Why did the company order new IT equipment?",
@@ -14763,105 +14760,104 @@ export const GENERATED_QUESTIONS: Question[] = [
     "audioScript": "Q: Did you order more office supplies for the team yet?\n(A) The supplies arrived yesterday.\n(B) I think the order was processed last week.\n(C) Yes, I've just placed the order."
   },
   {
-    "question": "You ordered the new office chairs, didn't you?",
-    "choices": {
-      "A": "Yes, they should arrive by next Tuesday.",
-      "B": "The chairs are very comfortable.",
-      "C": "I think we have enough pens for now."
-    },
-    "answer": "A",
-    "explanation_zh": "題目詢問是否訂購了新的辦公椅，選項A表示確認椅子已訂購並指出到貨時間。選項B提到椅子很舒適，但未確認訂購，故無法回答此問題。選項C提到筆，完全不相關。",
-    "difficulty": "A2",
-    "vocabulary": [
-      "ordered",
-      "chairs",
-      "arrive"
-    ],
     "id": "p2-gen-137",
     "part": "Part 2",
-    "skill_tag": "listening_response",
-    "audioScript": "Q: You ordered the new office chairs, didn't you?\n(A) Yes, they should arrive by next Tuesday.\n(B) The chairs are very comfortable.\n(C) I think we have enough pens for now."
-  },
-  {
-    "question": "Would you like to order more printer paper or ink cartridges for the office?",
+    "question": "You've already counted the register, haven't you?",
     "choices": {
-      "A": "I think the printer needs to be replaced.",
-      "B": "We should get more ink cartridges.",
-      "C": "The delivery is scheduled for tomorrow."
-    },
-    "answer": "B",
-    "explanation_zh": "問題是詢問是否要訂購更多的印表機紙或墨水匣，選項B（我們應該多訂購一些墨水匣）直接回答了問題。而選項A雖然提到印表機，但回答的是替換印表機，不是訂購物品的選擇。選項C提到了運送，但與訂購問題無關。",
-    "difficulty": "B1",
-    "vocabulary": [
-      "order",
-      "printer",
-      "cartridges"
-    ],
-    "id": "p2-gen-138",
-    "part": "Part 2",
-    "skill_tag": "listening_response",
-    "audioScript": "Q: Would you like to order more printer paper or ink cartridges for the office?\n(A) I think the printer needs to be replaced.\n(B) We should get more ink cartridges.\n(C) The delivery is scheduled for tomorrow."
-  },
-  {
-    "question": "The printer in the main office is out of ink.",
-    "choices": {
-      "A": "The main office closes at 5 PM.",
-      "B": "We just ordered more ink yesterday.",
-      "C": "I'll replace the cartridge right away."
-    },
-    "answer": "C",
-    "explanation_zh": "敘述提到“printer（印表機）”沒墨水了，正確反應是C選項“我會馬上更換墨盒”。選項A提到“main office（主辦公室）”，但與印表機無關，不是合理的回應。選項B雖然提到“ink（墨水）”，但只是說昨天訂購了，並未解決當下的問題。",
-    "difficulty": "B1",
-    "vocabulary": [
-      "printer",
-      "ink",
-      "cartridge",
-      "main office"
-    ],
-    "id": "p2-gen-139",
-    "part": "Part 2",
-    "skill_tag": "listening_response",
-    "audioScript": "Q: The printer in the main office is out of ink.\n(A) The main office closes at 5 PM.\n(B) We just ordered more ink yesterday.\n(C) I'll replace the cartridge right away."
-  },
-  {
-    "question": "Could you tell me where the new shipment is being stored?",
-    "choices": {
-      "A": "It's in warehouse 3.",
-      "B": "The shipment arrived yesterday.",
-      "C": "I think John is handling it."
+      "A": "Yes, about an hour ago.",
+      "B": "I can always count on him.",
+      "C": "It's by the front door."
     },
     "answer": "A",
-    "explanation_zh": "問題問的是新貨物儲存的地點。選項A表示在3號倉庫，是唯一合理的回答。選項B提到\"shipment\"但只說明貨物何時到，未回答地點問題。選項C說可能是John負責，回答了不同的問題。",
-    "difficulty": "B1",
-    "vocabulary": [
-      "shipment",
-      "stored",
-      "warehouse"
-    ],
-    "id": "p2-gen-140",
-    "part": "Part 2",
+    "explanation_zh": "(A) 確認做過並補上時間，正面回應附加問句。(B) 重複 count 但用的是 count on（依靠）的片語義。(C) 答的是 Where。",
     "skill_tag": "listening_response",
-    "audioScript": "Q: Could you tell me where the new shipment is being stored?\n(A) It's in warehouse 3.\n(B) The shipment arrived yesterday.\n(C) I think John is handling it."
+    "difficulty": "A2",
+    "vocabulary": [
+      "register",
+      "count on",
+      "already"
+    ],
+    "audioScript": "Q: You've already counted the register, haven't you?\n(A) Yes, about an hour ago.\n(B) I can always count on him.\n(C) It's by the front door."
   },
   {
-    "question": "When will the new IT equipment arrive?",
+    "id": "p2-gen-138",
+    "part": "Part 2",
+    "question": "Would you rather take the early flight or the overnight train?",
     "choices": {
-      "A": "The equipment is in good condition.",
-      "B": "It should be delivered on Friday.",
-      "C": "Yes, we need new equipment."
+      "A": "The flight attendant was very helpful.",
+      "B": "The train, if it means I can sleep.",
+      "C": "I took it last Tuesday."
     },
     "answer": "B",
-    "explanation_zh": "問題詢問IT設備何時到達，選項B是唯一提供具體時間的回應。選項A提到“equipment”但未提供到達時間，不符合問題要求。選項C答非所問，只是肯定了需求，未回答問題。",
+    "explanation_zh": "(B) 選了其中一項並給理由，是選擇疑問句的標準回應。(A) 重複 flight 但講的是空服員。(C) 答的是 When。",
+    "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
-      "equipment",
-      "deliver",
-      "arrive"
+      "overnight",
+      "would rather",
+      "flight attendant"
     ],
+    "audioScript": "Q: Would you rather take the early flight or the overnight train?\n(A) The flight attendant was very helpful.\n(B) The train, if it means I can sleep.\n(C) I took it last Tuesday."
+  },
+  {
+    "id": "p2-gen-139",
     "part": "Part 2",
+    "question": "The delivery van has a flat tyre.",
+    "choices": {
+      "A": "It was delivered on time.",
+      "B": "The flat is on the top floor.",
+      "C": "I'll call roadside assistance."
+    },
+    "answer": "C",
+    "explanation_zh": "(C) 對陳述提出處理方式。(A) 重複 deliver 的字根卻答非所問。(B) 重複 flat 但取英式的「公寓」義。",
     "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "flat tyre",
+      "roadside assistance",
+      "van"
+    ],
+    "audioScript": "Q: The delivery van has a flat tyre.\n(A) It was delivered on time.\n(B) The flat is on the top floor.\n(C) I'll call roadside assistance."
+  },
+  {
+    "id": "p2-gen-140",
+    "part": "Part 2",
+    "question": "Could you tell me where the fire extinguishers are kept?",
+    "choices": {
+      "A": "There's one at each stairwell.",
+      "B": "The fire drill went smoothly.",
+      "C": "We keep them for three years."
+    },
+    "answer": "A",
+    "explanation_zh": "(A) 說明位置，回應間接問句裡的 where。(B) 重複 fire 但講的是消防演習。(C) 重複 keep，答的卻是保存年限。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "fire extinguisher",
+      "stairwell",
+      "fire drill"
+    ],
+    "audioScript": "Q: Could you tell me where the fire extinguishers are kept?\n(A) There's one at each stairwell.\n(B) The fire drill went smoothly.\n(C) We keep them for three years."
+  },
+  {
     "id": "p2-gen-141",
-    "audioScript": "Q: When will the new IT equipment arrive?\n(A) The equipment is in good condition.\n(B) It should be delivered on Friday.\n(C) Yes, we need new equipment."
+    "part": "Part 2",
+    "question": "When does the lease on the branch office expire?",
+    "choices": {
+      "A": "It's a five-year lease.",
+      "B": "At the end of March.",
+      "C": "On the corner of Lin Sen Road."
+    },
+    "answer": "B",
+    "explanation_zh": "(B) 給到期時間。(A) 重複 lease 但答的是年限，不是到期日。(C) 答的是 Where。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "lease",
+      "expire",
+      "branch office"
+    ],
+    "audioScript": "Q: When does the lease on the branch office expire?\n(A) It's a five-year lease.\n(B) At the end of March.\n(C) On the corner of Lin Sen Road."
   },
   {
     "question": "Where should we store the extra office chairs?",
@@ -14908,26 +14904,24 @@ export const GENERATED_QUESTIONS: Question[] = [
     "audioScript": "Q: Why did the office supply order get delayed?\n(A) The supplies are on the desk.\n(B) The shipment was held up by customs.\n(C) We ordered extra pens."
   },
   {
-    "question": "What type of printer paper should we order for the office?",
+    "id": "p2-gen-145",
+    "part": "Part 2",
+    "question": "What type of container should we use for the samples?",
     "choices": {
-      "A": "We'll need to check the current paper supply first.",
-      "B": "The printer is in the copy room.",
-      "C": "We should get the A4 size with a high brightness rating."
+      "A": "About thirty of them.",
+      "B": "It was contained quickly.",
+      "C": "Something airtight, ideally glass."
     },
     "answer": "C",
-    "explanation_zh": "問題詢問應該訂購何種類型的印表紙，選項C提供了明確的答案：A4尺寸且具有高亮度等級的紙張。選項A提到需要先檢查目前的紙張供應，但並沒有回答應該訂購哪種類型的紙。選項B提到印表機在影印室，重複了印表機這個詞，但與問題無關。",
+    "explanation_zh": "(C) 說明容器類型並補上材質。(A) 答的是 How many。(B) 重複 contain 的字根但用在完全不同的意思。",
+    "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
-      "printer",
-      "paper",
-      "order",
-      "supply",
-      "brightness"
+      "container",
+      "sample",
+      "airtight"
     ],
-    "part": "Part 2",
-    "skill_tag": "listening_response",
-    "id": "p2-gen-145",
-    "audioScript": "Q: What type of printer paper should we order for the office?\n(A) We'll need to check the current paper supply first.\n(B) The printer is in the copy room.\n(C) We should get the A4 size with a high brightness rating."
+    "audioScript": "Q: What type of container should we use for the samples?\n(A) About thirty of them.\n(B) It was contained quickly.\n(C) Something airtight, ideally glass."
   },
   {
     "question": "Did we order enough printer cartridges for the office?",
@@ -14972,26 +14966,24 @@ export const GENERATED_QUESTIONS: Question[] = [
     "audioScript": "Q: You ordered more printer paper last week, didn't you?\n(A) The printer is in the corner.\n(B) Yes, it should arrive by Friday.\n(C) I ordered new ink cartridges."
   },
   {
-    "question": "Should we order more printer paper or toner for the office?",
+    "id": "p2-gen-148",
+    "part": "Part 2",
+    "question": "Should we run the campaign on radio or in print?",
     "choices": {
-      "A": "The printer is working fine.",
-      "B": "Both supplies are essential.",
-      "C": "We need more toner."
+      "A": "The print shop closes at six.",
+      "B": "It ran for about a month.",
+      "C": "Radio reaches our customers faster."
     },
     "answer": "C",
-    "explanation_zh": "問題是詢問應該訂購哪一種辦公室用品，A選項提到的『printer（印表機）』不是問題中問的選項之一，且沒有回答是否需要紙張或碳粉。B選項回答了一個不同的問題類型，即兩個物品的必要性，而非選擇其一。只有C選項直接回答問題，指出需要更換碳粉。",
+    "explanation_zh": "(C) 選了 radio 並說明理由。(A) 重複 print 但指的是印刷店。(B) 重複 run 的過去式，答的是持續時間。",
+    "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
-      "order",
-      "printer",
-      "toner",
-      "office",
-      "supplies"
+      "campaign",
+      "in print",
+      "reach"
     ],
-    "part": "Part 2",
-    "skill_tag": "listening_response",
-    "id": "p2-gen-148",
-    "audioScript": "Q: Should we order more printer paper or toner for the office?\n(A) The printer is working fine.\n(B) Both supplies are essential.\n(C) We need more toner."
+    "audioScript": "Q: Should we run the campaign on radio or in print?\n(A) The print shop closes at six.\n(B) It ran for about a month.\n(C) Radio reaches our customers faster."
   },
   {
     "question": "The printer in the office isn't working again.",
@@ -16662,66 +16654,65 @@ export const GENERATED_QUESTIONS: Question[] = [
   ]
 },
   {
-  "question": "When will the new office supplies be delivered?",
-  "choices": {
-    "A": "They'll arrive tomorrow morning.",
-    "B": "The supplies are in the storage room.",
-    "C": "Yes, we ordered more supplies."
+    "id": "p2-gen-150",
+    "part": "Part 2",
+    "question": "When does the new intern start?",
+    "choices": {
+      "A": "On the first of June.",
+      "B": "In the design department.",
+      "C": "She started the engine."
+    },
+    "answer": "A",
+    "explanation_zh": "(A) 給日期，正面回應 When。(B) 答的是 Where。(C) 重複 start 但用在完全不同的情境。",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "vocabulary": [
+      "intern",
+      "department",
+      "start"
+    ],
+    "audioScript": "Q: When does the new intern start?\n(A) On the first of June.\n(B) In the design department.\n(C) She started the engine."
   },
-  "answer": "A",
-  "explanation_zh": "問題是詢問新辦公用品何時會送達，需要一個時間點作為答案。選項A提供了具體的時間，明天早上，是正確的。選項B提到用品在儲藏室，但沒有回答何時送達。選項C說我們已經訂購了更多，但沒有提供時間資訊。",
-  "difficulty": "A2",
-  "vocabulary": [
-    "delivered",
-    "supplies",
-    "morning"
-  ],
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "id": "p2-gen-150",
-  "audioScript": "Q: When will the new office supplies be delivered?\n(A) They'll arrive tomorrow morning.\n(B) The supplies are in the storage room.\n(C) Yes, we ordered more supplies."
-},
   {
-  "question": "Where can I find the new office chairs?",
-  "choices": {
-    "A": "They were delivered yesterday.",
-    "B": "In the storage room on the second floor.",
-    "C": "The chairs are for the conference room."
+    "id": "p2-gen-151",
+    "part": "Part 2",
+    "question": "Where can I leave my luggage until check-in?",
+    "choices": {
+      "A": "The concierge will hold it.",
+      "B": "I left at about noon.",
+      "C": "For roughly four hours."
+    },
+    "answer": "B",
+    "explanation_zh": "(A) 給寄放方式與對象。(B) 重複 leave 的過去式但取「離開」義。(C) 答的是 How long。",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "vocabulary": [
+      "luggage",
+      "concierge",
+      "check-in"
+    ],
+    "audioScript": "Q: Where can I leave my luggage until check-in?\n(A) The concierge will hold it.\n(B) I left at about noon.\n(C) For roughly four hours."
   },
-  "answer": "B",
-  "explanation_zh": "問題問的是新辦公椅的所在地，因此需要一個地點的回答。選項B提供了具體地點：在二樓的儲藏室。選項A提到“椅子”這個關鍵字，但只提供了到貨時間，無法回答“哪裡”的問題。選項C也提到“椅子”這個關鍵字，但僅描述了使用地點，而非存放地點，仍然無法回答問題。",
-  "difficulty": "A2",
-  "vocabulary": [
-    "office chairs",
-    "storage room",
-    "delivered"
-  ],
-  "id": "p2-gen-151",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: Where can I find the new office chairs?\n(A) They were delivered yesterday.\n(B) In the storage room on the second floor.\n(C) The chairs are for the conference room."
-},
   {
-  "question": "Who is responsible for ordering more office supplies?",
-  "choices": {
-    "A": "The office supplies are in the storage room.",
-    "B": "They were ordered last week.",
-    "C": "That would be Jenna in purchasing."
+    "id": "p2-gen-152",
+    "part": "Part 2",
+    "question": "Who signs off on purchase orders over five thousand dollars?",
+    "choices": {
+      "A": "Usually within two working days.",
+      "B": "The order was placed online.",
+      "C": "Only the regional director."
+    },
+    "answer": "C",
+    "explanation_zh": "(C) 指出核准權限在誰身上。(A) 答的是所需時間。(B) 重複 order 卻在講下單方式。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "sign off",
+      "purchase order",
+      "regional"
+    ],
+    "audioScript": "Q: Who signs off on purchase orders over five thousand dollars?\n(A) Usually within two working days.\n(B) The order was placed online.\n(C) Only the regional director."
   },
-  "answer": "C",
-  "explanation_zh": "問題詢問誰負責訂購更多辦公用品。選項C提到Jenna是負責人，直接回答了問題。選項A重複了“office supplies”這個詞，但只是提到辦公用品的位置，沒有解釋誰負責。選項B提到上週已經訂購，但未回答負責人的問題。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "responsible",
-    "ordering",
-    "office supplies",
-    "purchasing"
-  ],
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "id": "p2-gen-152",
-  "audioScript": "Q: Who is responsible for ordering more office supplies?\n(A) The office supplies are in the storage room.\n(B) They were ordered last week.\n(C) That would be Jenna in purchasing."
-},
   {
   "question": "Why did we run out of printer paper so quickly?",
   "choices": {
@@ -16824,66 +16815,65 @@ export const GENERATED_QUESTIONS: Question[] = [
   "audioScript": "Q: Would you like to use the conference room or the open workspace for the team meeting?\n(A) Yes, the report is ready.\n(B) The conference room would be best.\n(C) I can book a table for lunch."
 },
   {
-  "question": "The printer in the IT room is out of paper.",
-  "choices": {
-    "A": "The IT manager already left for the day.",
-    "B": "I saw the printer just an hour ago.",
-    "C": "I’ll get more paper from the supply closet."
+    "id": "p2-gen-158",
+    "part": "Part 2",
+    "question": "The elevator on the west side is out of service again.",
+    "choices": {
+      "A": "Yes, the service was excellent.",
+      "B": "It's on the west wall.",
+      "C": "I'll call the maintenance company."
+    },
+    "answer": "C",
+    "explanation_zh": "(C) 針對故障陳述提出處理方式，是陳述句最自然的回應。(A) 重複 service 但取「服務品質」義。(B) 重複 west 卻答非所問。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "out of service",
+      "maintenance",
+      "elevator"
+    ],
+    "audioScript": "Q: The elevator on the west side is out of service again.\n(A) Yes, the service was excellent.\n(B) It's on the west wall.\n(C) I'll call the maintenance company."
   },
-  "answer": "C",
-  "explanation_zh": "題目說IT室的印表機沒紙了，選項A提到IT經理，與印表機問題無關。選項B談論印表機，但未解決缺紙問題。只有選項C表示會去拿紙，直接解決問題。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "printer",
-    "IT room",
-    "paper",
-    "supply closet"
-  ],
-  "id": "p2-gen-158",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: The printer in the IT room is out of paper.\n(A) The IT manager already left for the day.\n(B) I saw the printer just an hour ago.\n(C) I’ll get more paper from the supply closet."
-},
   {
-  "question": "Could you tell me where the new shipment is stored?",
-  "choices": {
-    "A": "In the warehouse next to the loading dock.",
-    "B": "The shipment is scheduled to arrive on Thursday.",
-    "C": "I believe the shipment is important."
+    "id": "p2-gen-159",
+    "part": "Part 2",
+    "question": "Could you tell me where the registration desk is?",
+    "choices": {
+      "A": "Just past the coat check.",
+      "B": "Registration closes on Friday.",
+      "C": "About two hundred people."
+    },
+    "answer": "A",
+    "explanation_zh": "(A) 給方位指引。(B) 重複 registration，答的是 When。(C) 答的是 How many。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "registration desk",
+      "coat check",
+      "past"
+    ],
+    "audioScript": "Q: Could you tell me where the registration desk is?\n(A) Just past the coat check.\n(B) Registration closes on Friday.\n(C) About two hundred people."
   },
-  "answer": "A",
-  "explanation_zh": "問題是詢問新貨物的存放地點。選項A提供了具體的地點『在靠近裝卸碼頭的倉庫』，是唯一符合問題的答案。選項B重複了『shipment』這個關鍵詞，但提供的是時間資訊，而不是地點，因此不合適。選項C提到貨物的重要性，但未回答貨物存放位置，不滿足問題要求。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "shipment",
-    "stored",
-    "warehouse"
-  ],
-  "id": "p2-gen-159",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: Could you tell me where the new shipment is stored?\n(A) In the warehouse next to the loading dock.\n(B) The shipment is scheduled to arrive on Thursday.\n(C) I believe the shipment is important."
-},
   {
-  "question": "When will the new shipment of office supplies arrive?",
-  "choices": {
-    "A": "They ordered supplies last week.",
-    "B": "It should arrive by Friday.",
-    "C": "The office supplies are in the storeroom."
+    "id": "p2-gen-160",
+    "part": "Part 2",
+    "question": "When is the freight scheduled to clear customs?",
+    "choices": {
+      "A": "At the port in Kaohsiung.",
+      "B": "Not before Wednesday, I'm afraid.",
+      "C": "The customs form is attached."
+    },
+    "answer": "B",
+    "explanation_zh": "(B) 給出時間下限，正面回應 When。(A) 答的是 Where。(C) 重複 customs 但講的是文件。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "freight",
+      "clear customs",
+      "attach"
+    ],
+    "audioScript": "Q: When is the freight scheduled to clear customs?\n(A) At the port in Kaohsiung.\n(B) Not before Wednesday, I'm afraid.\n(C) The customs form is attached."
   },
-  "answer": "B",
-  "explanation_zh": "問題詢問新一批辦公用品何時會到。選項A提到上週訂購，但沒有回答到達時間。選項C提到辦公用品在儲藏室，但沒有回答到達時間。選項B回答應該是星期五到，直接回答了問題。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "shipment",
-    "office supplies",
-    "arrive"
-  ],
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "id": "p2-gen-160",
-  "audioScript": "Q: When will the new shipment of office supplies arrive?\n(A) They ordered supplies last week.\n(B) It should arrive by Friday.\n(C) The office supplies are in the storeroom."
-},
   {
   "question": "Where is the customer service desk located?",
   "choices": {
@@ -16990,150 +16980,145 @@ export const GENERATED_QUESTIONS: Question[] = [
   "audioScript": "Q: Are we out of printer paper?\n(A) Yes, I can order more today.\n(B) The printer is in the copy room.\n(C) We always use it for reports."
 },
   {
-  "question": "You ordered more ink cartridges last week, didn't you?",
-  "choices": {
-    "A": "I received the cartridges yesterday.",
-    "B": "Yes, I did.",
-    "C": "The cartridges are for the printers."
+    "id": "p2-gen-166",
+    "part": "Part 2",
+    "question": "You handed in your timesheet already, didn't you?",
+    "choices": {
+      "A": "It's in her hands now.",
+      "B": "Yes, on Friday afternoon.",
+      "C": "About forty hours."
+    },
+    "answer": "B",
+    "explanation_zh": "(B) 確認並補上時間。(A) 重複 hand 但取「交由某人處理」的片語義。(C) 答的是工時，不是有沒有交。",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "vocabulary": [
+      "timesheet",
+      "hand in",
+      "hands"
+    ],
+    "audioScript": "Q: You handed in your timesheet already, didn't you?\n(A) It's in her hands now.\n(B) Yes, on Friday afternoon.\n(C) About forty hours."
   },
-  "answer": "B",
-  "explanation_zh": "問題是詢問上週是否訂購了更多墨水匣，選項A雖然提到了墨水匣，但並未確認是否上週訂購。選項C提到墨水匣是用於印表機，並未正面回答問題。只有選項B明確回答了問題。",
-  "difficulty": "A2",
-  "vocabulary": [
-    "ordered",
-    "ink cartridges",
-    "last week"
-  ],
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "id": "p2-gen-166",
-  "audioScript": "Q: You ordered more ink cartridges last week, didn't you?\n(A) I received the cartridges yesterday.\n(B) Yes, I did.\n(C) The cartridges are for the printers."
-},
   {
-  "question": "Do we need more printer paper or toner for the office supplies order?",
-  "choices": {
-    "A": "The paper is in the supply closet.",
-    "B": "I'm not sure about the toner price.",
-    "C": "We need more toner, but we're good on paper."
+    "id": "p2-gen-167",
+    "part": "Part 2",
+    "question": "Do you want the interviews in the morning or after lunch?",
+    "choices": {
+      "A": "Lunch is served in the cafeteria.",
+      "B": "Three candidates, I believe.",
+      "C": "Mornings work better for the panel."
+    },
+    "answer": "C",
+    "explanation_zh": "(C) 選了上午並說明理由。(A) 重複 lunch 但講的是用餐地點。(B) 答的是 How many。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "candidate",
+      "panel",
+      "cafeteria"
+    ],
+    "audioScript": "Q: Do you want the interviews in the morning or after lunch?\n(A) Lunch is served in the cafeteria.\n(B) Three candidates, I believe.\n(C) Mornings work better for the panel."
   },
-  "answer": "C",
-  "explanation_zh": "問題問的是需要更多紙張還是碳粉，選項C直接回答缺碳粉但紙張足夠。選項A提到“紙張”卻只說明位置，並未回答需要哪一種。選項B回答了價格問題，與需要哪種物品無關。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "printer",
-    "paper",
-    "toner",
-    "order",
-    "supplies"
-  ],
-  "id": "p2-gen-167",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: Do we need more printer paper or toner for the office supplies order?\n(A) The paper is in the supply closet.\n(B) I'm not sure about the toner price.\n(C) We need more toner, but we're good on paper."
-},
   {
-  "question": "The printer in the main office has run out of paper again.",
-  "choices": {
-    "A": "I'll refill it right now.",
-    "B": "The main office is on the second floor.",
-    "C": "Yes, the printer is quite old."
+    "id": "p2-gen-168",
+    "part": "Part 2",
+    "question": "The lift in the north wing is making a strange noise.",
+    "choices": {
+      "A": "I'll put in a maintenance request.",
+      "B": "It's a very strange building.",
+      "C": "She lifted it by herself."
+    },
+    "answer": "A",
+    "explanation_zh": "(A) 對陳述提出處理方式。(B) 重複 strange 卻答非所問。(C) 重複 lift 但取「舉起」的動詞義。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "lift",
+      "north wing",
+      "maintenance request"
+    ],
+    "audioScript": "Q: The lift in the north wing is making a strange noise.\n(A) I'll put in a maintenance request.\n(B) It's a very strange building.\n(C) She lifted it by herself."
   },
-  "answer": "A",
-  "explanation_zh": "題目說明辦公室的印表機又沒有紙了。A選項表示會立即補充紙張，是唯一符合題意的自然反應。B選項重複了“main office”這個詞，但提供的是辦公室的位置，無法解決沒有紙的問題。C選項提到印表機的年齡，並沒有回答如何應對缺紙的情況。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "printer",
-    "main office",
-    "paper",
-    "refill"
-  ],
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "id": "p2-gen-168",
-  "audioScript": "Q: The printer in the main office has run out of paper again.\n(A) I'll refill it right now.\n(B) The main office is on the second floor.\n(C) Yes, the printer is quite old."
-},
   {
-  "question": "Could you tell me where the new batch of office chairs is being stored?",
-  "choices": {
-    "A": "They were ordered from the supplier last week.",
-    "B": "They're in the storage room near the loading dock.",
-    "C": "The chairs will need assembling first."
+    "id": "p2-gen-169",
+    "part": "Part 2",
+    "question": "Could you tell me where the fitting rooms are?",
+    "choices": {
+      "A": "It fits perfectly, thank you.",
+      "B": "Straight back, past the shoes.",
+      "C": "They open at ten on Sundays."
+    },
+    "answer": "B",
+    "explanation_zh": "(B) 給方位指引。(A) 重複 fit 的字根但答的是合不合身。(C) 答的是 When。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "fitting room",
+      "straight back",
+      "fit"
+    ],
+    "audioScript": "Q: Could you tell me where the fitting rooms are?\n(A) It fits perfectly, thank you.\n(B) Straight back, past the shoes.\n(C) They open at ten on Sundays."
   },
-  "answer": "B",
-  "explanation_zh": "問題詢問辦公椅的存放地點。選項A提到椅子何時被訂購，並未回答「在哪裡」的問題。選項B正確地回應椅子存放的位置。選項C提到椅子需要組裝，與問題無關。選項A是重複詞陷阱，因為提到「椅子」但沒有給出存放地點。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "batch",
-    "stored",
-    "loading dock"
-  ],
-  "id": "p2-gen-169",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: Could you tell me where the new batch of office chairs is being stored?\n(A) They were ordered from the supplier last week.\n(B) They're in the storage room near the loading dock.\n(C) The chairs will need assembling first."
-},
   {
-  "question": "When will the new office supplies shipment arrive?",
-  "choices": {
-    "A": "The office supplies are in the storeroom.",
-    "B": "I think it was sent yesterday.",
-    "C": "It should arrive by Friday."
+    "id": "p2-gen-170",
+    "part": "Part 2",
+    "question": "When can the technician come to look at the boiler?",
+    "choices": {
+      "A": "In the basement, next to the tank.",
+      "B": "He's a very skilled technician.",
+      "C": "Thursday afternoon at the earliest."
+    },
+    "answer": "C",
+    "explanation_zh": "(C) 給最早可行時間。(A) 答的是 Where。(B) 重複 technician 卻在評價其能力。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "technician",
+      "boiler",
+      "at the earliest"
+    ],
+    "audioScript": "Q: When can the technician come to look at the boiler?\n(A) In the basement, next to the tank.\n(B) He's a very skilled technician.\n(C) Thursday afternoon at the earliest."
   },
-  "answer": "C",
-  "explanation_zh": "答案 C: 問句詢問辦公用品何時到達，C選項提供具體的到達時間 'It should arrive by Friday.'，符合問題需求。A選項 'The office supplies are in the storeroom.' 及 B選項 'I think it was sent yesterday.' 皆未直接回答到達時間。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "shipment",
-    "arrive",
-    "office supplies"
-  ],
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "id": "p2-gen-170",
-  "audioScript": "Q: When will the new office supplies shipment arrive?\n(A) The office supplies are in the storeroom.\n(B) I think it was sent yesterday.\n(C) It should arrive by Friday."
-},
   {
-  "question": "Where can I find the new office supplies order form?",
-  "choices": {
-    "A": "It's in the supply cabinet next to the copier.",
-    "B": "The office supplies are on the desk.",
-    "C": "We placed the order last week."
+    "id": "p2-gen-171",
+    "part": "Part 2",
+    "question": "Where do I submit my reimbursement claim?",
+    "choices": {
+      "A": "Through the portal under Finance.",
+      "B": "It was reimbursed last month.",
+      "C": "About forty dollars, I'd say."
+    },
+    "answer": "A",
+    "explanation_zh": "(A) 指出提交管道，正面回應 Where。(B) 重複 reimburse 的字根，答的是 When。(C) 答的是 How much。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "reimbursement",
+      "claim",
+      "portal"
+    ],
+    "audioScript": "Q: Where do I submit my reimbursement claim?\n(A) Through the portal under Finance.\n(B) It was reimbursed last month.\n(C) About forty dollars, I'd say."
   },
-  "answer": "A",
-  "explanation_zh": "答案 A: 問句詢問辦公用品訂單在哪裡，A選項 'It's in the supply cabinet next to the copier.' 清楚指出位置。B選項 'The office supplies are on the desk.' 和 C選項 'We placed the order last week.' 未回應訂單位置。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "office supplies",
-    "order form",
-    "supply cabinet"
-  ],
-  "id": "p2-gen-171",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: Where can I find the new office supplies order form?\n(A) It's in the supply cabinet next to the copier.\n(B) The office supplies are on the desk.\n(C) We placed the order last week."
-},
   {
-  "question": "Who is responsible for ordering office supplies in our department?",
-  "choices": {
-    "A": "The office supplies are in the storage room.",
-    "B": "That would be Susan from Procurement.",
-    "C": "We usually order them every month."
+    "id": "p2-gen-172",
+    "part": "Part 2",
+    "question": "Who set up the video conferencing in this room?",
+    "choices": {
+      "A": "Set it on the table, please.",
+      "B": "One of the contractors, I think.",
+      "C": "The video was about an hour."
+    },
+    "answer": "B",
+    "explanation_zh": "(B) 指出人，正面回應 Who。(A) 重複 set 但取「放置」義。(C) 重複 video 卻在講長度。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "video conferencing",
+      "contractor",
+      "set up"
+    ],
+    "audioScript": "Q: Who set up the video conferencing in this room?\n(A) Set it on the table, please.\n(B) One of the contractors, I think.\n(C) The video was about an hour."
   },
-  "answer": "B",
-  "explanation_zh": "答案 B: 問句詢問是誰負責訂購，B選項 'That would be Susan from Procurement.' 明確回答負責人。A選項 'The office supplies are in the storage room.' 和 C選項 'We usually order them every month.' 沒有回答問題。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "responsible",
-    "ordering",
-    "department",
-    "supplies",
-    "Procurement"
-  ],
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "id": "p2-gen-172",
-  "audioScript": "Q: Who is responsible for ordering office supplies in our department?\n(A) The office supplies are in the storage room.\n(B) That would be Susan from Procurement.\n(C) We usually order them every month."
-},
   {
   "question": "Why are we delaying the shipment of the office supplies to Toronto?",
   "choices": {
@@ -17177,25 +17162,25 @@ export const GENERATED_QUESTIONS: Question[] = [
   "audioScript": "Q: How many boxes of printer paper should we order for the office?\n(A) Let's get ten boxes to start with.\n(B) The printer is in the copy room.\n(C) It was delivered last Tuesday."
 },
   {
-  "question": "Did you order the new office chairs yet?",
-  "choices": {
-    "A": "The chairs are very comfortable.",
-    "B": "I'll place the order this afternoon.",
-    "C": "They should be here next week."
+    "id": "p2-gen-175",
+    "part": "Part 2",
+    "question": "Did you get a receipt for the taxi fare?",
+    "choices": {
+      "A": "The driver was very polite.",
+      "B": "No, the machine wasn't working.",
+      "C": "It's fair enough, I suppose."
+    },
+    "answer": "B",
+    "explanation_zh": "(B) 否定並說明原因，是 Yes/No 問句的完整回應。(A) 與計程車有關但沒回答有沒有收據。(C) fair 與 fare 同音，是多益典型的同音字陷阱。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "receipt",
+      "fare",
+      "polite"
+    ],
+    "audioScript": "Q: Did you get a receipt for the taxi fare?\n(A) The driver was very polite.\n(B) No, the machine wasn't working.\n(C) It's fair enough, I suppose."
   },
-  "answer": "B",
-  "explanation_zh": "答案 B: 問句詢問是否已訂購，B選項 'I'll place the order this afternoon.' 表示尚未訂購但會進行。A選項 'The chairs are very comfortable.' 和 C選項 'They should be here next week.' 未回應訂購狀態。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "order",
-    "office chairs",
-    "afternoon"
-  ],
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "id": "p2-gen-175",
-  "audioScript": "Q: Did you order the new office chairs yet?\n(A) The chairs are very comfortable.\n(B) I'll place the order this afternoon.\n(C) They should be here next week."
-},
   {
   "question": "You've already finished the report, haven't you?",
   "choices": {
@@ -17217,27 +17202,25 @@ export const GENERATED_QUESTIONS: Question[] = [
   "audioScript": "Q: You've already finished the report, haven't you?\n(A) The report is on my desk.\n(B) No, I started it yesterday.\n(C) Yes, I sent it to you last night."
 },
   {
-  "question": "Should we order more printer ink or paper for the office?",
-  "choices": {
-    "A": "We should definitely get more printer ink.",
-    "B": "The printer is in the copy room.",
-    "C": "I can order them tomorrow."
+    "id": "p2-gen-177",
+    "part": "Part 2",
+    "question": "Should the keynote go first or after the panel?",
+    "choices": {
+      "A": "First, while everyone is still fresh.",
+      "B": "In the east auditorium.",
+      "C": "The panel was very informative."
+    },
+    "answer": "A",
+    "explanation_zh": "(A) 選了其中一項並給理由。(B) 答的是 Where。(C) 重複 panel 但講的是內容評價。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "keynote",
+      "panel",
+      "auditorium"
+    ],
+    "audioScript": "Q: Should the keynote go first or after the panel?\n(A) First, while everyone is still fresh.\n(B) In the east auditorium.\n(C) The panel was very informative."
   },
-  "answer": "A",
-  "explanation_zh": "答案 A: 問句詢問應訂購哪種用品，A選項 'We should definitely get more printer ink.' 明確回答需訂購墨水。B選項 'The printer is in the copy room.' 和 C選項 'I can order them tomorrow.' 不涉及選擇問題。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "order",
-    "printer",
-    "ink",
-    "paper",
-    "office"
-  ],
-  "id": "p2-gen-177",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: Should we order more printer ink or paper for the office?\n(A) We should definitely get more printer ink.\n(B) The printer is in the copy room.\n(C) I can order them tomorrow."
-},
   {
   "question": "The shipment of office supplies was delayed again.",
   "choices": {
@@ -17282,46 +17265,45 @@ export const GENERATED_QUESTIONS: Question[] = [
   "audioScript": "Q: Where are the replacement printer cartridges kept?\n(A) They need to be ordered by Friday.\n(B) I'll check the supply closet for you.\n(C) The cartridges are stored in the supply closet."
 },
   {
-  "question": "When is the software training session scheduled to start?",
-  "choices": {
-    "A": "At nine thirty tomorrow morning.",
-    "B": "The training room is on the third floor.",
-    "C": "Yes, the software was updated."
+    "id": "p2-gen-180",
+    "part": "Part 2",
+    "question": "When is the safety drill taking place?",
+    "choices": {
+      "A": "Tomorrow at eleven sharp.",
+      "B": "In the west stairwell.",
+      "C": "With a cordless drill."
+    },
+    "answer": "A",
+    "explanation_zh": "(A) 給明確時間。(B) 答的是 Where。(C) 把 drill（演習）聽成「電鑽」，是一詞多義陷阱。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "safety drill",
+      "take place",
+      "sharp"
+    ],
+    "audioScript": "Q: When is the safety drill taking place?\n(A) Tomorrow at eleven sharp.\n(B) In the west stairwell.\n(C) With a cordless drill."
   },
-  "answer": "A",
-  "explanation_zh": "問題詢問軟體訓練課程何時開始，需要時間作答。A提供明確時間「明天早上九點半」，正確。B回答地點，C提到軟體已更新，都沒有回答開始時間。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "software",
-    "training session",
-    "scheduled",
-    "start"
-  ],
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "id": "p2-gen-180",
-  "audioScript": "Q: When is the software training session scheduled to start?\n(A) At nine thirty tomorrow morning.\n(B) The training room is on the third floor.\n(C) Yes, the software was updated."
-},
   {
-  "question": "Where can I find the office supplies cabinet?",
-  "choices": {
-    "A": "The office supplies are ordered weekly.",
-    "B": "It's next to the copy machine.",
-    "C": "When do you need the supplies?"
+    "id": "p2-gen-181",
+    "part": "Part 2",
+    "question": "Where is the nearest recycling bin?",
+    "choices": {
+      "A": "Twice a week, I believe.",
+      "B": "By the kitchen door.",
+      "C": "We recycle almost everything."
+    },
+    "answer": "B",
+    "explanation_zh": "(B) 給位置。(A) 答的是 How often。(C) 重複 recycle 的字根卻沒回答地點。",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "vocabulary": [
+      "recycling bin",
+      "nearest",
+      "recycle"
+    ],
+    "audioScript": "Q: Where is the nearest recycling bin?\n(A) Twice a week, I believe.\n(B) By the kitchen door.\n(C) We recycle almost everything."
   },
-  "answer": "B",
-  "explanation_zh": "問句詢問辦公用品櫃的位置，選項B提供了具體的位置「在影印機旁邊」。選項A使用了關鍵字「office supplies」，但談論的是訂購時間，未回答地點問題。選項C是關於時間的詢問，與地點無關。",
-  "difficulty": "A2",
-  "vocabulary": [
-    "office supplies",
-    "cabinet",
-    "copy machine"
-  ],
-  "id": "p2-gen-181",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: Where can I find the office supplies cabinet?\n(A) The office supplies are ordered weekly.\n(B) It's next to the copy machine.\n(C) When do you need the supplies?"
-},
   {
   "question": "Who approved the travel budget for the sales trip?",
   "choices": {
@@ -17426,45 +17408,45 @@ export const GENERATED_QUESTIONS: Question[] = [
   "audioScript": "Q: The shipment arrived on time, didn't it?\n(A) Yes, it was delivered this morning.\n(B) The shipment is for next week.\n(C) I haven't checked the shipment yet."
 },
   {
-  "question": "Should we order more printer paper or ink cartridges?",
-  "choices": {
-    "A": "The printer is in the corner office.",
-    "B": "Let's get more printer paper.",
-    "C": "We're running low on both items."
+    "id": "p2-gen-187",
+    "part": "Part 2",
+    "question": "Would you like a refund or a replacement?",
+    "choices": {
+      "A": "It was placed on the counter.",
+      "B": "A replacement would be fine.",
+      "C": "Yes, I bought it here."
+    },
+    "answer": "B",
+    "explanation_zh": "(B) 選了其中一項。(A) 與 replacement 音近的 placed 是誘導。(C) 用 Yes 回答選擇疑問句，是多益常設的陷阱。",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "vocabulary": [
+      "refund",
+      "replacement",
+      "counter"
+    ],
+    "audioScript": "Q: Would you like a refund or a replacement?\n(A) It was placed on the counter.\n(B) A replacement would be fine.\n(C) Yes, I bought it here."
   },
-  "answer": "B",
-  "explanation_zh": "問題詢問要訂購更多的列印紙還是墨盒。選項 B 明確回答選擇訂購更多的列印紙。選項 A 提到印表機的位置，但沒有回答要訂購何種物品。選項 C 提到兩種物品的庫存狀況，但沒有選擇其中一項訂購。",
-  "difficulty": "A2",
-  "vocabulary": [
-    "printer",
-    "paper",
-    "ink cartridges"
-  ],
-  "id": "p2-gen-187",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: Should we order more printer paper or ink cartridges?\n(A) The printer is in the corner office.\n(B) Let's get more printer paper.\n(C) We're running low on both items."
-},
   {
-  "question": "The printer in the office stopped working again.",
-  "choices": {
-    "A": "I printed the documents yesterday.",
-    "B": "The printer is in the corner.",
-    "C": "I'll call the technician right away."
+    "id": "p2-gen-188",
+    "part": "Part 2",
+    "question": "The air conditioning in the lobby has been running all night.",
+    "choices": {
+      "A": "The lobby is quite spacious.",
+      "B": "I ran there this morning.",
+      "C": "I'll ask the building manager to check it."
+    },
+    "answer": "C",
+    "explanation_zh": "(C) 對陳述提出處理方式。(A) 重複 lobby 但講的是空間大小。(B) 重複 run 的過去式，取的是「跑步」義。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "air conditioning",
+      "lobby",
+      "building manager"
+    ],
+    "audioScript": "Q: The air conditioning in the lobby has been running all night.\n(A) The lobby is quite spacious.\n(B) I ran there this morning.\n(C) I'll ask the building manager to check it."
   },
-  "answer": "C",
-  "explanation_zh": "只有選項C是正確的反應，因為它提供了解決問題的行動，即打電話給技術人員。選項A雖然提到“documents”，但其內容只是在說自己何時打印過文件，沒有回應到打印機現在不能用的問題。選項B提到“printer”的位置，但未解決任何問題。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "printer",
-    "office",
-    "technician"
-  ],
-  "id": "p2-gen-188",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: The printer in the office stopped working again.\n(A) I printed the documents yesterday.\n(B) The printer is in the corner.\n(C) I'll call the technician right away."
-},
   {
   "question": "Could you tell me where we keep the spare printer cartridges?",
   "choices": {
@@ -17488,45 +17470,45 @@ export const GENERATED_QUESTIONS: Question[] = [
   "audioScript": "Q: Could you tell me where we keep the spare printer cartridges?\n(A) They're in the supply closet on the second floor.\n(B) We need more printer cartridges soon.\n(C) The meeting starts at 10 a.m."
 },
   {
-  "question": "When will the new IT equipment be delivered?",
-  "choices": {
-    "A": "The equipment is very advanced.",
-    "B": "It should arrive on Friday.",
-    "C": "We need more equipment."
+    "id": "p2-gen-190",
+    "part": "Part 2",
+    "question": "When are the painters finishing the third floor?",
+    "choices": {
+      "A": "With a roller and two brushes.",
+      "B": "They said by Friday evening.",
+      "C": "The paint is nearly dry."
+    },
+    "answer": "B",
+    "explanation_zh": "(B) 給完工時間。(A) 答的是 How。(C) 重複 paint 的字根卻在講乾了沒。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "painter",
+      "roller",
+      "nearly"
+    ],
+    "audioScript": "Q: When are the painters finishing the third floor?\n(A) With a roller and two brushes.\n(B) They said by Friday evening.\n(C) The paint is nearly dry."
   },
-  "answer": "B",
-  "explanation_zh": "問題問的是新IT設備何時送達。選項A提到“equipment”但只描述設備的特性，沒有回答時間問題；選項C提到“equipment”但是關於需求而不是送達時間。因此，只有選項B的回答提供了具體的送達日期。“equipment”是重複詞，但不能回答時間問題。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "delivered",
-    "equipment",
-    "arrive"
-  ],
-  "id": "p2-gen-190",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: When will the new IT equipment be delivered?\n(A) The equipment is very advanced.\n(B) It should arrive on Friday.\n(C) We need more equipment."
-},
   {
-  "question": "Where can I find the new office supplies cabinet?",
-  "choices": {
-    "A": "The cabinet is not open today.",
-    "B": "The office supplies are ordered monthly.",
-    "C": "It's next to the break room, on the second floor."
+    "id": "p2-gen-191",
+    "part": "Part 2",
+    "question": "Where do we pick up the conference badges?",
+    "choices": {
+      "A": "At nine in the morning.",
+      "B": "He picked me up yesterday.",
+      "C": "At the desk in the lobby."
+    },
+    "answer": "C",
+    "explanation_zh": "(C) 給地點。(A) 答的是 When。(B) 重複 pick up 但取「接送」義。",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "vocabulary": [
+      "badge",
+      "pick up",
+      "conference"
+    ],
+    "audioScript": "Q: Where do we pick up the conference badges?\n(A) At nine in the morning.\n(B) He picked me up yesterday.\n(C) At the desk in the lobby."
   },
-  "answer": "C",
-  "explanation_zh": "問題是詢問新辦公用品櫃的位置，選項C提供了具體位置：二樓休息室旁邊。選項A提到櫃子不開放，並沒有提供地點資訊，選項B提到訂購頻率，與地點無關。選項A重複了關鍵字“cabinet（櫃子）”，但未回答位置。",
-  "difficulty": "A2",
-  "vocabulary": [
-    "office supplies",
-    "cabinet",
-    "break room"
-  ],
-  "id": "p2-gen-191",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: Where can I find the new office supplies cabinet?\n(A) The cabinet is not open today.\n(B) The office supplies are ordered monthly.\n(C) It's next to the break room, on the second floor."
-},
   {
   "question": "Who should I speak to about ordering new office chairs?",
   "choices": {
@@ -17612,25 +17594,25 @@ export const GENERATED_QUESTIONS: Question[] = [
   "audioScript": "Q: Did you order the new office supplies?\n(A) Yes, they'll arrive by Friday.\n(B) I think the supplies are in the storeroom.\n(C) I ordered them last year."
 },
   {
-  "question": "You've already ordered the new office supplies, haven't you?",
-  "choices": {
-    "A": "The office supplies are in the storage room.",
-    "B": "Yes, they should arrive by Thursday.",
-    "C": "I made a reservation for dinner tonight."
+    "id": "p2-gen-196",
+    "part": "Part 2",
+    "question": "You've met the new regional manager, haven't you?",
+    "choices": {
+      "A": "The meeting starts at ten.",
+      "B": "Not yet, she arrives Thursday.",
+      "C": "In the Taichung branch."
+    },
+    "answer": "B",
+    "explanation_zh": "(B) 否認並補上原因，是附加問句的完整回應。(A) 與 met 音近的 meeting 是誘導。(C) 答的是 Where。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "regional manager",
+      "arrive",
+      "branch"
+    ],
+    "audioScript": "Q: You've met the new regional manager, haven't you?\n(A) The meeting starts at ten.\n(B) Not yet, she arrives Thursday.\n(C) In the Taichung branch."
   },
-  "answer": "B",
-  "explanation_zh": "問題是詢問是否已經訂購了新的辦公用品。選項A提到\"office supplies\"（辦公用品），但僅僅說明了它們的位置，並沒有回答是否訂購。選項C完全不相關，談到晚餐預訂。只有選項B確認了訂購已完成，並提到了預計到達時間。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "order",
-    "office supplies",
-    "arrive"
-  ],
-  "id": "p2-gen-196",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: You've already ordered the new office supplies, haven't you?\n(A) The office supplies are in the storage room.\n(B) Yes, they should arrive by Thursday.\n(C) I made a reservation for dinner tonight."
-},
   {
   "question": "Would you prefer the meeting room on the ground floor or the one upstairs?",
   "choices": {
@@ -17652,45 +17634,45 @@ export const GENERATED_QUESTIONS: Question[] = [
   "audioScript": "Q: Would you prefer the meeting room on the ground floor or the one upstairs?\n(A) It's scheduled for next week.\n(B) The meeting room is very spacious.\n(C) Let's use the one upstairs."
 },
   {
-  "question": "The printer is out of paper again.",
-  "choices": {
-    "A": "I'll order more right away.",
-    "B": "Yes, the printer is in the office.",
-    "C": "We can check the report later."
+    "id": "p2-gen-198",
+    "part": "Part 2",
+    "question": "The parking garage is full this morning.",
+    "choices": {
+      "A": "Try the lot across the street.",
+      "B": "I parked it yesterday.",
+      "C": "It's a full-time position."
+    },
+    "answer": "A",
+    "explanation_zh": "(A) 對陳述提出替代方案。(B) 重複 park 卻答非所問。(C) 重複 full 但用在 full-time 這個完全不同的搭配。",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "vocabulary": [
+      "parking garage",
+      "lot",
+      "full-time"
+    ],
+    "audioScript": "Q: The parking garage is full this morning.\n(A) Try the lot across the street.\n(B) I parked it yesterday.\n(C) It's a full-time position."
   },
-  "answer": "A",
-  "explanation_zh": "題目指出打印機紙又用完了，需要的是一個解決問題的自然反應。選項A表示立刻訂購更多紙張，這是一個合理的反應。選項B重複了“printer”這個詞，但只是指出打印機的地點，與題目無關。選項C提到查看報告，完全偏離了打印機缺紙的問題。",
-  "difficulty": "A2",
-  "vocabulary": [
-    "printer",
-    "paper",
-    "order"
-  ],
-  "id": "p2-gen-198",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: The printer is out of paper again.\n(A) I'll order more right away.\n(B) Yes, the printer is in the office.\n(C) We can check the report later."
-},
   {
-  "question": "Could you tell me where the new shipment of office chairs is stored?",
-  "choices": {
-    "A": "They arrived here yesterday afternoon.",
-    "B": "In the storage room next to the elevator.",
-    "C": "We will need more chairs quite soon."
+    "id": "p2-gen-199",
+    "part": "Part 2",
+    "question": "Could you tell me where the pallet jacks are kept?",
+    "choices": {
+      "A": "Jack is on the loading dock.",
+      "B": "In the bay behind the freezer.",
+      "C": "They were delivered on Monday."
+    },
+    "answer": "B",
+    "explanation_zh": "(B) 給存放位置。(A) 把 jack（油壓拖板車）聽成人名 Jack，是同形字陷阱。(C) 答的是 When。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "pallet jack",
+      "bay",
+      "freezer"
+    ],
+    "audioScript": "Q: Could you tell me where the pallet jacks are kept?\n(A) Jack is on the loading dock.\n(B) In the bay behind the freezer.\n(C) They were delivered on Monday."
   },
-  "answer": "B",
-  "explanation_zh": "問題詢問辦公椅的新貨存放地點。選項B提供了具體地點資訊「電梯旁的儲藏室」，因此是正確答案。選項A重複了「arrived」這個詞，但只提到貨物到達的時間，沒有回答地點問題。選項C提到需求，但沒有解答問題。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "shipment",
-    "office chairs",
-    "stored"
-  ],
-  "id": "p2-gen-199",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: Could you tell me where the new shipment of office chairs is stored?\n(A) They arrived here yesterday afternoon.\n(B) In the storage room next to the elevator.\n(C) We will need more chairs quite soon."
-},
   {
   "question": "When does the warehouse safety briefing begin?",
   "choices": {
@@ -17713,45 +17695,45 @@ export const GENERATED_QUESTIONS: Question[] = [
   "audioScript": "Q: When does the warehouse safety briefing begin?\n(A) The briefing notes were emailed yesterday.\n(B) The warehouse is behind the main office.\n(C) It starts at 8:15."
 },
   {
-  "question": "Where can I find the new office printer?",
-  "choices": {
-    "A": "It's in the copy room next to the break area.",
-    "B": "The printer is being used right now.",
-    "C": "We ordered the printer last month."
+    "id": "p2-gen-201",
+    "part": "Part 2",
+    "question": "Where should I put these returned items?",
+    "choices": {
+      "A": "On the cart by the office.",
+      "B": "They were returned yesterday.",
+      "C": "About a dozen, I think."
+    },
+    "answer": "A",
+    "explanation_zh": "(A) 給放置位置。(B) 重複 return，答的是 When。(C) 答的是 How many。",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "vocabulary": [
+      "returned items",
+      "cart",
+      "a dozen"
+    ],
+    "audioScript": "Q: Where should I put these returned items?\n(A) On the cart by the office.\n(B) They were returned yesterday.\n(C) About a dozen, I think."
   },
-  "answer": "A",
-  "explanation_zh": "問題問的是新辦公室的印表機在哪裡。選項A回答印表機的位置：在休息區旁邊的影印室。選項B提到印表機正在使用中，但沒有提供位置資訊。選項C提到印表機是上個月訂購的，沒有回答印表機的具體位置。",
-  "difficulty": "A2",
-  "vocabulary": [
-    "printer",
-    "copy room",
-    "break area"
-  ],
-  "id": "p2-gen-201",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: Where can I find the new office printer?\n(A) It's in the copy room next to the break area.\n(B) The printer is being used right now.\n(C) We ordered the printer last month."
-},
   {
-  "question": "Who should I contact about getting more office supplies?",
-  "choices": {
-    "A": "I think the supplies are in the storeroom.",
-    "B": "Please talk to Janet in procurement.",
-    "C": "We need them by next week."
+    "id": "p2-gen-202",
+    "part": "Part 2",
+    "question": "Who handles the payroll questions now?",
+    "choices": {
+      "A": "Every other Friday.",
+      "B": "Mr. Ito took that over.",
+      "C": "Please handle it with care."
+    },
+    "answer": "B",
+    "explanation_zh": "(B) 指出接手的人。(A) 是薪資相關卻答 When，屬情境合理但答錯疑問詞。(C) 重複 handle 但取「搬運小心」義。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "payroll",
+      "take over",
+      "every other"
+    ],
+    "audioScript": "Q: Who handles the payroll questions now?\n(A) Every other Friday.\n(B) Mr. Ito took that over.\n(C) Please handle it with care."
   },
-  "answer": "B",
-  "explanation_zh": "問題詢問應該聯繫誰來獲得更多辦公用品。選項B正確地指出應聯繫採購部門的Janet。選項A提到“supplies”但只說明了位置，未回答應聯繫的對象，而選項C回答了何時需要，完全不相關。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "contact",
-    "office supplies",
-    "procurement"
-  ],
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "id": "p2-gen-202",
-  "audioScript": "Q: Who should I contact about getting more office supplies?\n(A) I think the supplies are in the storeroom.\n(B) Please talk to Janet in procurement.\n(C) We need them by next week."
-},
   {
   "question": "Why did we switch to a new office supply vendor?",
   "choices": {
@@ -17775,69 +17757,65 @@ export const GENERATED_QUESTIONS: Question[] = [
   "audioScript": "Q: Why did we switch to a new office supply vendor?\n(A) The new office is on the fifth floor.\n(B) The report is due next week.\n(C) They offer better prices and faster delivery."
 },
   {
-  "question": "How many printer cartridges do we need to order for the office?",
-  "choices": {
-    "A": "We need to order ten more.",
-    "B": "The printer is in the corner room.",
-    "C": "I can check with the supplier next week."
+    "id": "p2-gen-204",
+    "part": "Part 2",
+    "question": "How many delegates are attending the summit?",
+    "choices": {
+      "A": "Just over ninety.",
+      "B": "They attended last year too.",
+      "C": "At the convention centre."
+    },
+    "answer": "A",
+    "explanation_zh": "(A) 給人數。(B) 重複 attend 的過去式卻答非所問。(C) 答的是 Where。",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "vocabulary": [
+      "delegate",
+      "summit",
+      "convention centre"
+    ],
+    "audioScript": "Q: How many delegates are attending the summit?\n(A) Just over ninety.\n(B) They attended last year too.\n(C) At the convention centre."
   },
-  "answer": "A",
-  "explanation_zh": "題目問我們需要訂購多少墨盒，因此正確答案是“A”，即“需要訂購十個”。選項B重複提到了“printer（印表機）”這個關鍵字，但只是描述了它的位置，沒有回答數量問題。選項C則是回答了何時詢問供應商，沒有回答需要的具體數量。",
-  "difficulty": "A2",
-  "vocabulary": [
-    "printer",
-    "cartridges",
-    "order",
-    "office",
-    "supplier"
-  ],
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "id": "p2-gen-204",
-  "audioScript": "Q: How many printer cartridges do we need to order for the office?\n(A) We need to order ten more.\n(B) The printer is in the corner room.\n(C) I can check with the supplier next week."
-},
   {
-  "question": "Did you want me to order more printer paper for the office?",
-  "choices": {
-    "A": "The printer is working fine.",
-    "B": "Yes, that would be great, thanks.",
-    "C": "The office is on the second floor."
+    "id": "p2-gen-205",
+    "part": "Part 2",
+    "question": "Did you want me to call the client back?",
+    "choices": {
+      "A": "She called on Tuesday.",
+      "B": "Yes, please, before noon.",
+      "C": "The client list is updated."
+    },
+    "answer": "B",
+    "explanation_zh": "(B) 同意並補上時間限制。(A) 重複 call，答的是 When。(C) 重複 client 但講的是名單。",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "vocabulary": [
+      "call back",
+      "client",
+      "before noon"
+    ],
+    "audioScript": "Q: Did you want me to call the client back?\n(A) She called on Tuesday.\n(B) Yes, please, before noon.\n(C) The client list is updated."
   },
-  "answer": "B",
-  "explanation_zh": "問題是詢問是否需要訂購更多的打印紙。選項A重複了關鍵詞 'printer（打印機）'，但回應的是打印機的狀況，與訂購打印紙的問題無關。選項C提供了辦公室的位置回答，但與訂購打印紙也無關。正確答案是B，直接接受訂購的提議。",
-  "difficulty": "A2",
-  "vocabulary": [
-    "order",
-    "printer",
-    "office"
-  ],
-  "id": "p2-gen-205",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: Did you want me to order more printer paper for the office?\n(A) The printer is working fine.\n(B) Yes, that would be great, thanks.\n(C) The office is on the second floor."
-},
   {
-  "question": "You ordered the new office chairs last week, didn't you?",
-  "choices": {
-    "A": "The chairs are very comfortable.",
-    "B": "I'm planning to order them tomorrow.",
-    "C": "Yes, they should arrive by Friday."
+    "id": "p2-gen-206",
+    "part": "Part 2",
+    "question": "You interviewed the last candidate, didn't you?",
+    "choices": {
+      "A": "The interview room is booked.",
+      "B": "He was the last to leave.",
+      "C": "No, Ms. Chen handled that one."
+    },
+    "answer": "C",
+    "explanation_zh": "(C) 否認並指出實際負責的人，是附加問句的完整回應。(A) 重複 interview 但講的是場地。(B) 重複 last 卻用在不同意思。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "candidate",
+      "interview",
+      "handle"
+    ],
+    "audioScript": "Q: You interviewed the last candidate, didn't you?\n(A) The interview room is booked.\n(B) He was the last to leave.\n(C) No, Ms. Chen handled that one."
   },
-  "answer": "C",
-  "explanation_zh": "選項C是唯一直接回應問題的選項，因為它確認訂單已經下達並預計到貨時間。選項A重複了關鍵字“chairs”，但沒有回應問題，因為它只是評論椅子的舒適度。選項B回答的是未來的計劃，而不是確認過去的行動，因此不符合問題。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "order",
-    "office",
-    "chairs",
-    "arrive",
-    "week"
-  ],
-  "id": "p2-gen-206",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: You ordered the new office chairs last week, didn't you?\n(A) The chairs are very comfortable.\n(B) I'm planning to order them tomorrow.\n(C) Yes, they should arrive by Friday."
-},
   {
   "question": "Should we reserve a van or a taxi for the airport pickup?",
   "choices": {
@@ -17880,25 +17858,25 @@ export const GENERATED_QUESTIONS: Question[] = [
   "audioScript": "Q: The new shipment of office supplies just arrived this morning.\n(A) Yes, the supplies list is on my desk.\n(B) Great! I'll start unpacking them now.\n(C) When will the supplies be delivered?"
 },
   {
-  "question": "Could you tell me where the new IT equipment is being stored?",
-  "choices": {
-    "A": "It was delivered last week.",
-    "B": "The equipment manager knows.",
-    "C": "In the storage room on the third floor."
+    "id": "p2-gen-209",
+    "part": "Part 2",
+    "question": "Could you tell me where the safety goggles are stored?",
+    "choices": {
+      "A": "Safety is everyone's responsibility.",
+      "B": "For about six months now.",
+      "C": "In the cabinet by the workbench."
+    },
+    "answer": "C",
+    "explanation_zh": "(C) 給存放位置。(A) 重複 safety 但講的是口號式的原則。(B) 答的是 How long。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "goggles",
+      "workbench",
+      "cabinet"
+    ],
+    "audioScript": "Q: Could you tell me where the safety goggles are stored?\n(A) Safety is everyone's responsibility.\n(B) For about six months now.\n(C) In the cabinet by the workbench."
   },
-  "answer": "C",
-  "explanation_zh": "選項A提到'it'（設備）但提供的是交貨時間，而不是儲存地點，因此無法回答問題。選項B提到'設備經理'，但這不是問題所需的具體資訊。選項C明確指出設備在三樓的儲藏室，正確回答問題。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "equipment",
-    "stored",
-    "manager"
-  ],
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "id": "p2-gen-209",
-  "audioScript": "Q: Could you tell me where the new IT equipment is being stored?\n(A) It was delivered last week.\n(B) The equipment manager knows.\n(C) In the storage room on the third floor."
-},
   {
   "question": "When will the replacement headsets arrive?",
   "choices": {
@@ -17921,25 +17899,25 @@ export const GENERATED_QUESTIONS: Question[] = [
   "audioScript": "Q: When will the replacement headsets arrive?\n(A) They should arrive next Tuesday.\n(B) The headsets are stored in cabinet three.\n(C) They are wireless and lightweight."
 },
   {
-  "question": "Where can I find the new office supplies storage room?",
-  "choices": {
-    "A": "The office supplies are fully stocked.",
-    "B": "It's on the second floor next to the break room.",
-    "C": "The meeting was about office supplies."
+    "id": "p2-gen-211",
+    "part": "Part 2",
+    "question": "Where is the workshop being held?",
+    "choices": {
+      "A": "It works quite well.",
+      "B": "In the training room upstairs.",
+      "C": "For two hours on Saturday."
+    },
+    "answer": "B",
+    "explanation_zh": "(B) 給地點。(A) 重複 work 的字根卻答非所問。(C) 答的是 How long。",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "vocabulary": [
+      "workshop",
+      "training room",
+      "upstairs"
+    ],
+    "audioScript": "Q: Where is the workshop being held?\n(A) It works quite well.\n(B) In the training room upstairs.\n(C) For two hours on Saturday."
   },
-  "answer": "B",
-  "explanation_zh": "問題詢問辦公用品儲藏室的位置。選項A提到“office supplies”但沒有提供位置資訊，因此不正確。選項C也提到“office supplies”，但談論的是會議，而不是位置資訊。正確答案是B，因為它給出了儲藏室的位置。",
-  "difficulty": "A2",
-  "vocabulary": [
-    "office supplies",
-    "storage room",
-    "second floor"
-  ],
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "id": "p2-gen-211",
-  "audioScript": "Q: Where can I find the new office supplies storage room?\n(A) The office supplies are fully stocked.\n(B) It's on the second floor next to the break room.\n(C) The meeting was about office supplies."
-},
   {
   "question": "Who handles the IT equipment procurement in our company?",
   "choices": {
@@ -17983,69 +17961,65 @@ export const GENERATED_QUESTIONS: Question[] = [
   "audioScript": "Q: Why did the shipment arrive late?\n(A) There was a delay at the customs checkpoint.\n(B) The shipment includes electronic goods.\n(C) The shipment is scheduled for next week."
 },
   {
-  "question": "How many boxes of printer paper do we need to order for next month?",
-  "choices": {
-    "A": "The printer is in the office.",
-    "B": "We need to order five boxes.",
-    "C": "Yes, I spoke with the supplier."
+    "id": "p2-gen-214",
+    "part": "Part 2",
+    "question": "How many people have confirmed for the luncheon?",
+    "choices": {
+      "A": "It was confirmed by email.",
+      "B": "Forty-two so far.",
+      "C": "In the private dining room."
+    },
+    "answer": "B",
+    "explanation_zh": "(B) 給人數。(A) 重複 confirm，答的是 How。(C) 答的是 Where。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "luncheon",
+      "confirm",
+      "so far"
+    ],
+    "audioScript": "Q: How many people have confirmed for the luncheon?\n(A) It was confirmed by email.\n(B) Forty-two so far.\n(C) In the private dining room."
   },
-  "answer": "B",
-  "explanation_zh": "問題詢問要訂購多少箱打印紙，正確答案是 B，因為它具體指出需要訂購五箱。選項 A 重複了'printer'這個詞，但沒有回答數量問題。選項 C 回答了另一個問題類型，與訂購數量無關。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "boxes",
-    "order",
-    "printer",
-    "paper",
-    "supplier"
-  ],
-  "id": "p2-gen-214",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: How many boxes of printer paper do we need to order for next month?\n(A) The printer is in the office.\n(B) We need to order five boxes.\n(C) Yes, I spoke with the supplier."
-},
   {
-  "question": "Did you order the new IT equipment for the office yet?",
-  "choices": {
-    "A": "The IT equipment is in good condition.",
-    "B": "When do you need it by?",
-    "C": "Yes, it arrives next week."
+    "id": "p2-gen-215",
+    "part": "Part 2",
+    "question": "Did you finish the draft of the press release?",
+    "choices": {
+      "A": "The press was very interested.",
+      "B": "It was released last quarter.",
+      "C": "Almost, I need one more quote."
+    },
+    "answer": "C",
+    "explanation_zh": "(C) 誠實回報進度並說明還缺什麼，是 Yes/No 問句的自然變化回應。(A) 重複 press 但取「媒體」義。(B) 重複 release 的字根，答的是 When。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "draft",
+      "press release",
+      "quote"
+    ],
+    "audioScript": "Q: Did you finish the draft of the press release?\n(A) The press was very interested.\n(B) It was released last quarter.\n(C) Almost, I need one more quote."
   },
-  "answer": "C",
-  "explanation_zh": "問題是詢問是否已訂購新的IT設備。選項A重複了“IT equipment”這個詞，但沒有回答是否訂購。選項B詢問時間，但問題是關於是否已經下單。只有選項C直接回答是，並且提供了設備到達的時間。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "order",
-    "IT equipment",
-    "office"
-  ],
-  "id": "p2-gen-215",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: Did you order the new IT equipment for the office yet?\n(A) The IT equipment is in good condition.\n(B) When do you need it by?\n(C) Yes, it arrives next week."
-},
   {
-  "question": "You ordered the extra printer cartridges last week, didn't you?",
-  "choices": {
-    "A": "Yes, they should arrive by Friday.",
-    "B": "I spoke with the supplier yesterday.",
-    "C": "The cartridges are in the storage room."
+    "id": "p2-gen-216",
+    "part": "Part 2",
+    "question": "You renewed the software licence last month, didn't you?",
+    "choices": {
+      "A": "Yes, for another twelve months.",
+      "B": "The software is quite new.",
+      "C": "It's licensed to the head office."
+    },
+    "answer": "A",
+    "explanation_zh": "(A) 確認並補上續約期間。(B) 重複 software 卻在講版本新舊。(C) 重複 licence 的字根，答的是歸屬。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "renew",
+      "licence",
+      "head office"
+    ],
+    "audioScript": "Q: You renewed the software licence last month, didn't you?\n(A) Yes, for another twelve months.\n(B) The software is quite new.\n(C) It's licensed to the head office."
   },
-  "answer": "A",
-  "explanation_zh": "問題問的是你上週是否有訂購額外的打印機墨盒，選項A直接確認訂購並給出交貨時間，而選項C雖然提到了\"cartridges\"（墨盒），但回答的是墨盒存放的位置，無法回應是否已下訂單的問題。選項B則回答了一個不同的問題類型，並未確認訂購行為。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "ordered",
-    "printer",
-    "cartridges",
-    "arrive",
-    "supplier"
-  ],
-  "id": "p2-gen-216",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: You ordered the extra printer cartridges last week, didn't you?\n(A) Yes, they should arrive by Friday.\n(B) I spoke with the supplier yesterday.\n(C) The cartridges are in the storage room."
-},
   {
   "question": "Should we order the blue or the black ink cartridges for the printer?",
   "choices": {
@@ -18089,45 +18063,45 @@ export const GENERATED_QUESTIONS: Question[] = [
   "audioScript": "Q: The new office supplies have been delivered to the storage room.\n(A) I thought we ordered more paper.\n(B) I'll check them after lunch.\n(C) That's great! I'll start organizing them."
 },
   {
-  "question": "Could you tell me where the new office printer is located?",
-  "choices": {
-    "A": "It's next to the supply cabinet.",
-    "B": "I think it's a laser printer.",
-    "C": "We installed it last week."
+    "id": "p2-gen-219",
+    "part": "Part 2",
+    "question": "Could you tell me where the nearest pharmacy is?",
+    "choices": {
+      "A": "Two blocks past the bank.",
+      "B": "It opens at eight thirty.",
+      "C": "I take it twice a day."
+    },
+    "answer": "A",
+    "explanation_zh": "(A) 給方位指引。(B) 答的是 When。(C) 與藥有關但回答的是服藥頻率，不是位置。",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "vocabulary": [
+      "pharmacy",
+      "nearest",
+      "blocks"
+    ],
+    "audioScript": "Q: Could you tell me where the nearest pharmacy is?\n(A) Two blocks past the bank.\n(B) It opens at eight thirty.\n(C) I take it twice a day."
   },
-  "answer": "A",
-  "explanation_zh": "問題是詢問新辦公室印表機的位置，而選項A提供了具體位置：在供應櫃旁邊。選項B雖然提到\"printer\"這個詞，但僅描述印表機類型，未回答位置問題。選項C提到安裝時間，未回答位置問題。",
-  "difficulty": "A2",
-  "vocabulary": [
-    "printer",
-    "supply cabinet",
-    "location"
-  ],
-  "id": "p2-gen-219",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: Could you tell me where the new office printer is located?\n(A) It's next to the supply cabinet.\n(B) I think it's a laser printer.\n(C) We installed it last week."
-},
   {
-  "question": "When is the new shipment of office supplies expected to arrive?",
-  "choices": {
-    "A": "The supplies are in the storage room.",
-    "B": "It should arrive by Thursday afternoon.",
-    "C": "The shipment was ordered last week."
+    "id": "p2-gen-220",
+    "part": "Part 2",
+    "question": "When does the safety certification expire?",
+    "choices": {
+      "A": "At the training centre downtown.",
+      "B": "Not until the end of next year.",
+      "C": "It's certified organic."
+    },
+    "answer": "B",
+    "explanation_zh": "(B) 給到期時間。(A) 答的是 Where。(C) 重複 certif- 字根但用在完全不相干的搭配。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "certification",
+      "expire",
+      "downtown"
+    ],
+    "audioScript": "Q: When does the safety certification expire?\n(A) At the training centre downtown.\n(B) Not until the end of next year.\n(C) It's certified organic."
   },
-  "answer": "B",
-  "explanation_zh": "問題詢問新的辦公用品出貨何時預計到達，正確答案是B，因為它給出具體時間'星期四下午'。選項A雖重複了'辦公用品(supplies)'，但只是提供了位置，並未回答何時到達的問題。選項C則回答了不同的問題，描述了訂購的時間，而非送達的時間。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "shipment",
-    "office supplies",
-    "arrive"
-  ],
-  "id": "p2-gen-220",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: When is the new shipment of office supplies expected to arrive?\n(A) The supplies are in the storage room.\n(B) It should arrive by Thursday afternoon.\n(C) The shipment was ordered last week."
-},
   {
   "question": "Where is the IT equipment storage room?",
   "choices": {
@@ -18191,27 +18165,25 @@ export const GENERATED_QUESTIONS: Question[] = [
   "audioScript": "Q: Why were the new office chairs ordered?\n(A) The chairs are in the storage room.\n(B) The old ones were uncomfortable.\n(C) They were delivered last week."
 },
   {
-  "question": "What kind of office supplies do we need to order for the new branch?",
-  "choices": {
-    "A": "The order will arrive next week.",
-    "B": "I’m not sure how many we ordered last time.",
-    "C": "We definitely need more pens and notepads."
+    "id": "p2-gen-224",
+    "part": "Part 2",
+    "question": "What kind of visa do I need for the Jakarta office?",
+    "choices": {
+      "A": "The office opens at eight.",
+      "B": "By direct flight, about seven hours.",
+      "C": "A business one, valid for sixty days."
+    },
+    "answer": "C",
+    "explanation_zh": "(C) 說明簽證種類與效期，正面回應 What kind。(A) 重複 office 但答的是營業時間。(B) 答的是 How。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "visa",
+      "valid",
+      "direct flight"
+    ],
+    "audioScript": "Q: What kind of visa do I need for the Jakarta office?\n(A) The office opens at eight.\n(B) By direct flight, about seven hours.\n(C) A business one, valid for sixty days."
   },
-  "answer": "C",
-  "explanation_zh": "問題問的是需要訂購什麼樣的辦公用品，答案C提供了具體的物品：更多的筆和筆記本。選項A重複了“order”這個詞，但只是指出了訂單到達的時間，並沒有回答需要什麼用品。選項B回答“我們上次訂了多少”，而不是現在需要的用品類型。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "office supplies",
-    "order",
-    "branch",
-    "pens",
-    "notepads"
-  ],
-  "id": "p2-gen-224",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: What kind of office supplies do we need to order for the new branch?\n(A) The order will arrive next week.\n(B) I’m not sure how many we ordered last time.\n(C) We definitely need more pens and notepads."
-},
   {
   "question": "What is the main topic of the conversation?",
   "choices": {

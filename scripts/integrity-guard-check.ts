@@ -215,6 +215,63 @@ function balancedFiller(count: number): Question[] {
   assert.equal(report.passed, false);
 }
 
+// ─── near-duplicate Part 2 prompts ──────────────────────────────────────────
+
+function part2(id: string, prompt: string): Question {
+  return question({
+    id,
+    part: "Part 2",
+    passage: undefined,
+    skill_tag: "listening_response",
+    question: prompt,
+    choices: { A: "Yes, this morning.", B: "On the second floor.", C: "About twenty of them." },
+    answer: "A",
+    audioScript: `Q: ${prompt}\n(A) Yes, this morning.\n(B) On the second floor.\n(C) About twenty of them.`,
+  });
+}
+
+{
+  // The shape the generated batch actually shipped: one question, six phrasings.
+  const twins = [
+    part2("dupe-p2-a", "Could you tell me where the new shipment is stored?"),
+    part2("dupe-p2-b", "Could you tell me where the new shipment is being stored?"),
+  ];
+  const report = runIntegrityCheck([...balancedFiller(80), ...twins]);
+  assert.ok(
+    report.groupStructureViolations.some((v) => v.includes("dupe-p2-a") && v.includes("dupe-p2-b")),
+    "near-verbatim Part 2 prompts must be flagged",
+  );
+  assert.equal(report.passed, false);
+}
+
+{
+  // Indirect phrasing must not hide a repeat: "Could you tell me where X" and
+  // "Where is X" are the same question, and typing off the first word missed it.
+  const twins = [
+    part2("indirect-p2-a", "Could you tell me where the safety goggles are stored?"),
+    part2("indirect-p2-b", "Where are the safety goggles stored?"),
+  ];
+  const report = runIntegrityCheck([...balancedFiller(80), ...twins]);
+  assert.ok(
+    report.groupStructureViolations.some((v) => v.includes("indirect-p2-a")),
+    "an indirect lead-in must not let a duplicate prompt through",
+  );
+}
+
+{
+  // Same content words, opposite question word — different skills, must pass.
+  const contrast = [
+    part2("contrast-p2-a", "When will the training session be held?"),
+    part2("contrast-p2-b", "Where will the training session be held?"),
+  ];
+  const report = runIntegrityCheck([...balancedFiller(80), ...contrast]);
+  assert.equal(
+    report.groupStructureViolations.filter((v) => v.includes("contrast-p2")).length,
+    0,
+    "When vs Where drill opposite skills and must never be flagged as duplicates",
+  );
+}
+
 // ─── duplicate Part 5 stems ─────────────────────────────────────────────────
 
 {
@@ -236,4 +293,4 @@ function balancedFiller(count: number): Question[] {
   assert.equal(report.passed, false);
 }
 
-console.log("Integrity guard regression checks passed (6 guards, 12 cases)");
+console.log("Integrity guard regression checks passed (7 guards, 15 cases)");

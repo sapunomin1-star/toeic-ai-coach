@@ -203,6 +203,91 @@ function checkWordFormTags(questions: Question[]): string[] {
 }
 
 /**
+ * Near-duplicate Part 2 prompts.
+ *
+ * `checkDuplicateStems` below catches only byte-identical stems, which the
+ * generated Part 2 batch sailed past while holding six ways of asking "Could
+ * you tell me where the new X is stored?". Meeting two of those in one mock
+ * wastes a slot and inflates the score on the second.
+ *
+ * Two guards against the mistake the length-bias advisory made — measuring
+ * something real but unactionable, and rotting into noise:
+ *
+ * 1. Prompts are only compared within the same question type, with indirect
+ *    lead-ins stripped first. "Where will the training be held?" and "When will
+ *    the training be held?" share every content word but drill opposite skills;
+ *    "Could you tell me where X is" and "Where is X" are the same question
+ *    wearing different clothes, and typing off the first word hides that.
+ * 2. The bar is deliberately high. Token Jaccard over short prompts is noisy in
+ *    BOTH directions — it rates "When will the next training session be held?"
+ *    against "When will the training session take place?" at only 0.43 — so a
+ *    threshold tuned to catch borderline cases would also flag good ones. At
+ *    0.75 it catches near-verbatim repeats and nothing else: 21 pairs in the
+ *    pre-cleanup bank, zero after, with the highest surviving pair at 0.60.
+ *
+ * That leaves the 0.5-0.7 band to human reading, which is where it belongs.
+ */
+const P2_DUPLICATE_THRESHOLD = 0.75;
+
+const P2_STOPWORDS = new Set([
+  "a", "an", "the", "is", "are", "was", "were", "be", "been", "being",
+  "do", "does", "did", "have", "has", "had", "will", "would", "can",
+  "could", "should", "shall", "may", "might", "must", "to", "of", "in",
+  "on", "at", "for", "with", "by", "from", "as", "and", "or", "but",
+  "you", "your", "i", "we", "he", "she", "it", "they", "me", "my",
+  "this", "that", "these", "those", "there", "here",
+]);
+
+/** "Could you tell me where X is" asks on `where`, not on `could`. */
+const INDIRECT_LEAD_IN =
+  /^(could|can|would|will)\s+you\s+(please\s+)?(tell|let)\s+me\s+|^do\s+you\s+(know|happen\s+to\s+know)\s+/i;
+
+function promptType(text: string): string {
+  const direct = text.replace(INDIRECT_LEAD_IN, "");
+  const first = direct.toLowerCase().replace(/[^a-z\s]/g, "").trim().split(/\s+/)[0] ?? "";
+  if (["who", "what", "when", "where", "why", "how", "which"].includes(first)) return first;
+  if (!text.trim().endsWith("?")) return "statement";
+  return / or /.test(text) ? "choice" : "yes-no";
+}
+
+function contentTokens(text: string): Set<string> {
+  return new Set(
+    text
+      .replace(INDIRECT_LEAD_IN, "")
+      .toLowerCase()
+      .replace(/[^a-z\s]/g, " ")
+      .split(/\s+/)
+      .filter((word) => word.length > 1 && !P2_STOPWORDS.has(word)),
+  );
+}
+
+function jaccard(a: Set<string>, b: Set<string>): number {
+  let shared = 0;
+  for (const token of a) if (b.has(token)) shared++;
+  const union = a.size + b.size - shared;
+  return union === 0 ? 0 : shared / union;
+}
+
+function checkPart2NearDuplicates(questions: Question[]): string[] {
+  const items = questions
+    .filter((q) => q.part === "Part 2")
+    .map((q) => ({ id: q.id, prompt: q.question, type: promptType(q.question), tokens: contentTokens(q.question) }));
+
+  const violations: string[] = [];
+  for (let i = 0; i < items.length; i++) {
+    for (let j = i + 1; j < items.length; j++) {
+      if (items[i].type !== items[j].type) continue;
+      const score = jaccard(items[i].tokens, items[j].tokens);
+      if (score < P2_DUPLICATE_THRESHOLD) continue;
+      violations.push(
+        `${items[i].id} / ${items[j].id}: prompts are ${(score * 100).toFixed(0)}% the same — "${items[i].prompt}" vs "${items[j].prompt}"`,
+      );
+    }
+  }
+  return violations;
+}
+
+/**
  * Duplicate-stem guard. For Part 2 the question text IS the spoken stem and
  * for Part 5 it is the full test sentence — exact duplicates mean the student
  * can meet the same item twice in one mock. (Other parts legitimately repeat
@@ -295,6 +380,7 @@ export function runIntegrityCheck(questions: Question[]): IntegrityReport {
   const groupStructureViolations = [
     ...checkGroupStructure(questions),
     ...checkDuplicateStems(questions),
+    ...checkPart2NearDuplicates(questions),
   ];
   const explanationAnswerMismatches = checkExplanationAnswerConsistency(questions);
   const visibleLengthLeaks = checkVisibleAnswerLengthLeaks(questions);

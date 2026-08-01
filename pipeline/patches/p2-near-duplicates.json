@@ -1,0 +1,358 @@
+{
+  "_comment": "Rewrites for redundant p2-gen prompts. The batch had 25 clusters of near-identical questions — six ways of asking 'Could you tell me where the new X is stored?' — and a topical monoculture on top: 'office' appeared in 69 of its 208 prompts, 'printer' in 33. Meeting two members of a cluster in one mock wastes a slot and inflates the score on the second. Deleting them was not an option: Part 2 holds 293 items and ten non-repeating listening mocks need 250, so cutting 42 would leave no headroom. Each redundant item is therefore rewritten onto a domain the batch never touched — travel, HR, finance, customer service, manufacturing, retail, facilities, events — keeping its id, answer letter, difficulty and skill_tag so answer balance and media paths are untouched. audioScript is derived by the applier from prompt + choices, so the recording and the screen cannot drift apart.",
+
+  "p2-gen-058": {
+    "question": "Could you book a rental car for the Osaka trip?",
+    "choices": { "A": "The car park is behind the terminal.", "B": "I'll do that once the dates are confirmed.", "C": "Yes, I've been to Osaka twice." },
+    "explanation_zh": "(B) 直接回應「訂車」的請求，說明會在日期確定後處理。(A) 重複 car 但講的是停車場，是聽到熟字就選的陷阱。(C) 重複 Osaka，回答的是「去過沒」而不是請求。",
+    "vocabulary": ["rental car", "book", "confirm"]
+  },
+  "p2-gen-074": {
+    "question": "Why has the loading bay been closed off?",
+    "choices": { "A": "It closes at seven on weekdays.", "B": "Near the service entrance.", "C": "They're resurfacing the concrete." },
+    "explanation_zh": "(C) 說明封閉原因，正面回應 Why。(A) 重複 close 的字根，答的是 When。(B) 答的是 Where。",
+    "vocabulary": ["loading bay", "close off", "resurface"]
+  },
+  "p2-gen-087": {
+    "question": "Should we hold the review by video or in person?",
+    "choices": { "A": "In person, if everyone can travel.", "B": "It was reviewed twice already.", "C": "The video quality was poor." },
+    "explanation_zh": "(A) 選了其中一項並附條件。(B) 重複 review 的字根，答的是次數。(C) 重複 video 但講的是畫質。",
+    "vocabulary": ["in person", "review", "quality"]
+  },
+  "p2-gen-089": {
+    "question": "Could you tell me when the warranty runs out?",
+    "choices": { "A": "At the dealership on Third Avenue.", "B": "It ran very smoothly.", "C": "Two years from the purchase date." },
+    "explanation_zh": "(C) 給到期時點，回應間接問句裡的 when。(A) 答的是 Where。(B) 重複 run 的過去式，取的是「運作」義。",
+    "vocabulary": ["warranty", "run out", "purchase date"]
+  },
+  "p2-gen-122": {
+    "question": "Where can I drop off my badge when I leave?",
+    "choices": { "A": "There's a box at reception.", "B": "It dropped by ten percent.", "C": "Any time before five." },
+    "explanation_zh": "(A) 給歸還地點。(B) 重複 drop 但取「下跌」義。(C) 答的是 When。",
+    "vocabulary": ["drop off", "badge", "reception"]
+  },
+  "p2-gen-125": {
+    "question": "What kind of insurance does the rental include?",
+    "choices": { "A": "Basic collision coverage.", "B": "We rented it for three days.", "C": "At the counter in Terminal Two." },
+    "explanation_zh": "(A) 說明保險種類，正面回應 What kind。(B) 重複 rent 的字根，答的是租期。(C) 答的是 Where。",
+    "vocabulary": ["insurance", "collision", "coverage"]
+  },
+  "p2-gen-139": {
+    "question": "The delivery van has a flat tyre.",
+    "choices": { "A": "It was delivered on time.", "B": "The flat is on the top floor.", "C": "I'll call roadside assistance." },
+    "explanation_zh": "(C) 對陳述提出處理方式。(A) 重複 deliver 的字根卻答非所問。(B) 重複 flat 但取英式的「公寓」義。",
+    "vocabulary": ["flat tyre", "roadside assistance", "van"]
+  },
+  "p2-gen-141": {
+    "question": "When does the lease on the branch office expire?",
+    "choices": { "A": "It's a five-year lease.", "B": "At the end of March.", "C": "On the corner of Lin Sen Road." },
+    "explanation_zh": "(B) 給到期時間。(A) 重複 lease 但答的是年限，不是到期日。(C) 答的是 Where。",
+    "vocabulary": ["lease", "expire", "branch office"]
+  },
+  "p2-gen-145": {
+    "question": "What type of container should we use for the samples?",
+    "choices": { "A": "About thirty of them.", "B": "It was contained quickly.", "C": "Something airtight, ideally glass." },
+    "explanation_zh": "(C) 說明容器類型並補上材質。(A) 答的是 How many。(B) 重複 contain 的字根但用在完全不同的意思。",
+    "vocabulary": ["container", "sample", "airtight"]
+  },
+  "p2-gen-151": {
+    "question": "Where can I leave my luggage until check-in?",
+    "choices": { "A": "The concierge will hold it.", "B": "I left at about noon.", "C": "For roughly four hours." },
+    "explanation_zh": "(A) 給寄放方式與對象。(B) 重複 leave 的過去式但取「離開」義。(C) 答的是 How long。",
+    "vocabulary": ["luggage", "concierge", "check-in"]
+  },
+  "p2-gen-166": {
+    "question": "You handed in your timesheet already, didn't you?",
+    "choices": { "A": "It's in her hands now.", "B": "Yes, on Friday afternoon.", "C": "About forty hours." },
+    "explanation_zh": "(B) 確認並補上時間。(A) 重複 hand 但取「交由某人處理」的片語義。(C) 答的是工時，不是有沒有交。",
+    "vocabulary": ["timesheet", "hand in", "hands"]
+  },
+  "p2-gen-168": {
+    "question": "The lift in the north wing is making a strange noise.",
+    "choices": { "A": "I'll put in a maintenance request.", "B": "It's a very strange building.", "C": "She lifted it by herself." },
+    "explanation_zh": "(A) 對陳述提出處理方式。(B) 重複 strange 卻答非所問。(C) 重複 lift 但取「舉起」的動詞義。",
+    "vocabulary": ["lift", "north wing", "maintenance request"]
+  },
+  "p2-gen-180": {
+    "question": "When is the safety drill taking place?",
+    "choices": { "A": "Tomorrow at eleven sharp.", "B": "In the west stairwell.", "C": "With a cordless drill." },
+    "explanation_zh": "(A) 給明確時間。(B) 答的是 Where。(C) 把 drill（演習）聽成「電鑽」，是一詞多義陷阱。",
+    "vocabulary": ["safety drill", "take place", "sharp"]
+  },
+  "p2-gen-196": {
+    "question": "You've met the new regional manager, haven't you?",
+    "choices": { "A": "The meeting starts at ten.", "B": "Not yet, she arrives Thursday.", "C": "In the Taichung branch." },
+    "explanation_zh": "(B) 否認並補上原因，是附加問句的完整回應。(A) 與 met 音近的 meeting 是誘導。(C) 答的是 Where。",
+    "vocabulary": ["regional manager", "arrive", "branch"]
+  },
+  "p2-gen-204": {
+    "question": "How many delegates are attending the summit?",
+    "choices": { "A": "Just over ninety.", "B": "They attended last year too.", "C": "At the convention centre." },
+    "explanation_zh": "(A) 給人數。(B) 重複 attend 的過去式卻答非所問。(C) 答的是 Where。",
+    "vocabulary": ["delegate", "summit", "convention centre"]
+  },
+  "p2-gen-216": {
+    "question": "You renewed the software licence last month, didn't you?",
+    "choices": { "A": "Yes, for another twelve months.", "B": "The software is quite new.", "C": "It's licensed to the head office." },
+    "explanation_zh": "(A) 確認並補上續約期間。(B) 重複 software 卻在講版本新舊。(C) 重複 licence 的字根，答的是歸屬。",
+    "vocabulary": ["renew", "licence", "head office"]
+  },
+  "p2-gen-219": {
+    "question": "Could you tell me where the nearest pharmacy is?",
+    "choices": { "A": "Two blocks past the bank.", "B": "It opens at eight thirty.", "C": "I take it twice a day." },
+    "explanation_zh": "(A) 給方位指引。(B) 答的是 When。(C) 與藥有關但回答的是服藥頻率，不是位置。",
+    "vocabulary": ["pharmacy", "nearest", "blocks"]
+  },
+  "p2-gen-078": {
+    "question": "Could you submit your travel expenses before the end of the month?",
+    "choices": { "A": "I'll upload the receipts this afternoon.", "B": "The trip lasted about three weeks.", "C": "Yes, travel is expensive these days." },
+    "explanation_zh": "(A) 以「下午上傳收據」回應報帳請求。(B) 答的是「多久」，問句沒問。(C) 重複 travel，但把請求聽成了對旅費的感想。",
+    "vocabulary": ["expenses", "submit", "receipt"]
+  },
+  "p2-gen-081": {
+    "question": "When does the shuttle to the airport leave?",
+    "choices": { "A": "Every twenty minutes.", "B": "From the north entrance.", "C": "The airport is quite far." },
+    "explanation_zh": "(A) 回答班次頻率，正面回應 When。(B) 答的是 Where。(C) 重複 airport 卻沒回答時間。",
+    "vocabulary": ["shuttle", "depart", "entrance"]
+  },
+  "p2-gen-084": {
+    "question": "Why did Ms. Alvarez turn down the transfer?",
+    "choices": { "A": "Her family didn't want to relocate.", "B": "She turned left at the corner.", "C": "The transfer takes about two hours." },
+    "explanation_zh": "(A) 說明拒絕調職的原因，正面回應 Why。(B) 重複 turn 但取字面義「轉彎」，是一詞多義陷阱。(C) 重複 transfer，答的卻是所需時間。",
+    "vocabulary": ["turn down", "transfer", "relocate"]
+  },
+  "p2-gen-090": {
+    "question": "What time do the doors open for the awards dinner?",
+    "choices": { "A": "At half past six.", "B": "In the main ballroom.", "C": "The doors are quite heavy." },
+    "explanation_zh": "(A) 直接給時間。(B) 答的是 Where。(C) 重複 doors 卻在講門的重量。",
+    "vocabulary": ["awards dinner", "ballroom", "half past"]
+  },
+  "p2-gen-093": {
+    "question": "Who approved the repairs to the loading dock?",
+    "choices": { "A": "The facilities manager did.", "B": "It was repaired last spring.", "C": "Near the rear of the building." },
+    "explanation_zh": "(A) 指出人，正面回應 Who。(B) 重複 repair 但答的是 When。(C) 答的是 Where。",
+    "vocabulary": ["loading dock", "approve", "facilities"]
+  },
+  "p2-gen-094": {
+    "question": "Why did the customer ask for a refund?",
+    "choices": { "A": "She paid by credit card.", "B": "The item arrived with a cracked lid.", "C": "Refunds take five business days." },
+    "explanation_zh": "(B) 說明退款原因（商品破損），正面回應 Why。(A) 答的是付款方式。(C) 重複 refund 卻在講處理天數。",
+    "vocabulary": ["refund", "cracked", "business days"]
+  },
+  "p2-gen-103": {
+    "question": "Who do I ask about my remaining vacation days?",
+    "choices": { "A": "Sometime in early August.", "B": "I had a wonderful vacation.", "C": "Ms. Park in personnel." },
+    "explanation_zh": "(C) 指出該找的人與部門。(A) 答的是 When。(B) 重複 vacation，但講的是自己的假期感想。",
+    "vocabulary": ["remaining", "personnel", "vacation days"]
+  },
+  "p2-gen-111": {
+    "question": "When will the assembly line be back in operation?",
+    "choices": { "A": "On the second floor of plant two.", "B": "Once the safety inspection clears.", "C": "They assembled it themselves." },
+    "explanation_zh": "(B) 用「安全檢查通過後」回答時間點——多益常以條件代替明確時間。(A) 答的是 Where。(C) 重複 assemble 的字根卻答非所問。",
+    "vocabulary": ["assembly line", "in operation", "inspection"]
+  },
+  "p2-gen-132": {
+    "question": "Where do the delivery drivers sign in?",
+    "choices": { "A": "He signed it last week.", "B": "At the gate on Miller Road.", "C": "Around six every morning." },
+    "explanation_zh": "(B) 給地點，正面回應 Where。(A) 重複 sign 但取「簽名」的另一個用法。(C) 答的是 When。",
+    "vocabulary": ["sign in", "gate", "delivery driver"]
+  },
+  "p2-gen-137": {
+    "question": "You've already counted the register, haven't you?",
+    "choices": { "A": "Yes, about an hour ago.", "B": "I can always count on him.", "C": "It's by the front door." },
+    "explanation_zh": "(A) 確認做過並補上時間，正面回應附加問句。(B) 重複 count 但用的是 count on（依靠）的片語義。(C) 答的是 Where。",
+    "vocabulary": ["register", "count on", "already"]
+  },
+  "p2-gen-138": {
+    "question": "Would you rather take the early flight or the overnight train?",
+    "choices": { "A": "The flight attendant was very helpful.", "B": "The train, if it means I can sleep.", "C": "I took it last Tuesday." },
+    "explanation_zh": "(B) 選了其中一項並給理由，是選擇疑問句的標準回應。(A) 重複 flight 但講的是空服員。(C) 答的是 When。",
+    "vocabulary": ["overnight", "would rather", "flight attendant"]
+  },
+  "p2-gen-140": {
+    "question": "Could you tell me where the fire extinguishers are kept?",
+    "choices": { "A": "There's one at each stairwell.", "B": "The fire drill went smoothly.", "C": "We keep them for three years." },
+    "explanation_zh": "(A) 說明位置，回應間接問句裡的 where。(B) 重複 fire 但講的是消防演習。(C) 重複 keep，答的卻是保存年限。",
+    "vocabulary": ["fire extinguisher", "stairwell", "fire drill"]
+  },
+  "p2-gen-148": {
+    "question": "Should we run the campaign on radio or in print?",
+    "choices": { "A": "The print shop closes at six.", "B": "It ran for about a month.", "C": "Radio reaches our customers faster." },
+    "explanation_zh": "(C) 選了 radio 並說明理由。(A) 重複 print 但指的是印刷店。(B) 重複 run 的過去式，答的是持續時間。",
+    "vocabulary": ["campaign", "in print", "reach"]
+  },
+  "p2-gen-150": {
+    "question": "When does the new intern start?",
+    "choices": { "A": "On the first of June.", "B": "In the design department.", "C": "She started the engine." },
+    "explanation_zh": "(A) 給日期，正面回應 When。(B) 答的是 Where。(C) 重複 start 但用在完全不同的情境。",
+    "vocabulary": ["intern", "department", "start"]
+  },
+  "p2-gen-152": {
+    "question": "Who signs off on purchase orders over five thousand dollars?",
+    "choices": { "A": "Usually within two working days.", "B": "The order was placed online.", "C": "Only the regional director." },
+    "explanation_zh": "(C) 指出核准權限在誰身上。(A) 答的是所需時間。(B) 重複 order 卻在講下單方式。",
+    "vocabulary": ["sign off", "purchase order", "regional"]
+  },
+  "p2-gen-158": {
+    "question": "The elevator on the west side is out of service again.",
+    "choices": { "A": "Yes, the service was excellent.", "B": "It's on the west wall.", "C": "I'll call the maintenance company." },
+    "explanation_zh": "(C) 針對故障陳述提出處理方式，是陳述句最自然的回應。(A) 重複 service 但取「服務品質」義。(B) 重複 west 卻答非所問。",
+    "vocabulary": ["out of service", "maintenance", "elevator"]
+  },
+  "p2-gen-159": {
+    "question": "Could you tell me where the registration desk is?",
+    "choices": { "A": "Just past the coat check.", "B": "Registration closes on Friday.", "C": "About two hundred people." },
+    "explanation_zh": "(A) 給方位指引。(B) 重複 registration，答的是 When。(C) 答的是 How many。",
+    "vocabulary": ["registration desk", "coat check", "past"]
+  },
+  "p2-gen-160": {
+    "question": "When is the freight scheduled to clear customs?",
+    "choices": { "A": "At the port in Kaohsiung.", "B": "Not before Wednesday, I'm afraid.", "C": "The customs form is attached." },
+    "explanation_zh": "(B) 給出時間下限，正面回應 When。(A) 答的是 Where。(C) 重複 customs 但講的是文件。",
+    "vocabulary": ["freight", "clear customs", "attach"]
+  },
+  "p2-gen-167": {
+    "question": "Do you want the interviews in the morning or after lunch?",
+    "choices": { "A": "Lunch is served in the cafeteria.", "B": "Three candidates, I believe.", "C": "Mornings work better for the panel." },
+    "explanation_zh": "(C) 選了上午並說明理由。(A) 重複 lunch 但講的是用餐地點。(B) 答的是 How many。",
+    "vocabulary": ["candidate", "panel", "cafeteria"]
+  },
+  "p2-gen-169": {
+    "question": "Could you tell me where the fitting rooms are?",
+    "choices": { "A": "It fits perfectly, thank you.", "B": "Straight back, past the shoes.", "C": "They open at ten on Sundays." },
+    "explanation_zh": "(B) 給方位指引。(A) 重複 fit 的字根但答的是合不合身。(C) 答的是 When。",
+    "vocabulary": ["fitting room", "straight back", "fit"]
+  },
+  "p2-gen-170": {
+    "question": "When can the technician come to look at the boiler?",
+    "choices": { "A": "In the basement, next to the tank.", "B": "He's a very skilled technician.", "C": "Thursday afternoon at the earliest." },
+    "explanation_zh": "(C) 給最早可行時間。(A) 答的是 Where。(B) 重複 technician 卻在評價其能力。",
+    "vocabulary": ["technician", "boiler", "at the earliest"]
+  },
+  "p2-gen-171": {
+    "question": "Where do I submit my reimbursement claim?",
+    "choices": { "A": "Through the portal under Finance.", "B": "It was reimbursed last month.", "C": "About forty dollars, I'd say." },
+    "explanation_zh": "(A) 指出提交管道，正面回應 Where。(B) 重複 reimburse 的字根，答的是 When。(C) 答的是 How much。",
+    "vocabulary": ["reimbursement", "claim", "portal"]
+  },
+  "p2-gen-172": {
+    "question": "Who set up the video conferencing in this room?",
+    "choices": { "A": "Set it on the table, please.", "B": "One of the contractors, I think.", "C": "The video was about an hour." },
+    "explanation_zh": "(B) 指出人，正面回應 Who。(A) 重複 set 但取「放置」義。(C) 重複 video 卻在講長度。",
+    "vocabulary": ["video conferencing", "contractor", "set up"]
+  },
+  "p2-gen-175": {
+    "question": "Did you get a receipt for the taxi fare?",
+    "choices": { "A": "The driver was very polite.", "B": "No, the machine wasn't working.", "C": "It's fair enough, I suppose." },
+    "explanation_zh": "(B) 否定並說明原因，是 Yes/No 問句的完整回應。(A) 與計程車有關但沒回答有沒有收據。(C) fair 與 fare 同音，是多益典型的同音字陷阱。",
+    "vocabulary": ["receipt", "fare", "polite"]
+  },
+  "p2-gen-177": {
+    "question": "Should the keynote go first or after the panel?",
+    "choices": { "A": "First, while everyone is still fresh.", "B": "In the east auditorium.", "C": "The panel was very informative." },
+    "explanation_zh": "(A) 選了其中一項並給理由。(B) 答的是 Where。(C) 重複 panel 但講的是內容評價。",
+    "vocabulary": ["keynote", "panel", "auditorium"]
+  },
+  "p2-gen-181": {
+    "question": "Where is the nearest recycling bin?",
+    "choices": { "A": "Twice a week, I believe.", "B": "By the kitchen door.", "C": "We recycle almost everything." },
+    "explanation_zh": "(B) 給位置。(A) 答的是 How often。(C) 重複 recycle 的字根卻沒回答地點。",
+    "vocabulary": ["recycling bin", "nearest", "recycle"]
+  },
+  "p2-gen-187": {
+    "question": "Would you like a refund or a replacement?",
+    "choices": { "A": "It was placed on the counter.", "B": "A replacement would be fine.", "C": "Yes, I bought it here." },
+    "explanation_zh": "(B) 選了其中一項。(A) 與 replacement 音近的 placed 是誘導。(C) 用 Yes 回答選擇疑問句，是多益常設的陷阱。",
+    "vocabulary": ["refund", "replacement", "counter"]
+  },
+  "p2-gen-188": {
+    "question": "The air conditioning in the lobby has been running all night.",
+    "choices": { "A": "The lobby is quite spacious.", "B": "I ran there this morning.", "C": "I'll ask the building manager to check it." },
+    "explanation_zh": "(C) 對陳述提出處理方式。(A) 重複 lobby 但講的是空間大小。(B) 重複 run 的過去式，取的是「跑步」義。",
+    "vocabulary": ["air conditioning", "lobby", "building manager"]
+  },
+  "p2-gen-190": {
+    "question": "When are the painters finishing the third floor?",
+    "choices": { "A": "With a roller and two brushes.", "B": "They said by Friday evening.", "C": "The paint is nearly dry." },
+    "explanation_zh": "(B) 給完工時間。(A) 答的是 How。(C) 重複 paint 的字根卻在講乾了沒。",
+    "vocabulary": ["painter", "roller", "nearly"]
+  },
+  "p2-gen-191": {
+    "question": "Where do we pick up the conference badges?",
+    "choices": { "A": "At nine in the morning.", "B": "He picked me up yesterday.", "C": "At the desk in the lobby." },
+    "explanation_zh": "(C) 給地點。(A) 答的是 When。(B) 重複 pick up 但取「接送」義。",
+    "vocabulary": ["badge", "pick up", "conference"]
+  },
+  "p2-gen-198": {
+    "question": "The parking garage is full this morning.",
+    "choices": { "A": "Try the lot across the street.", "B": "I parked it yesterday.", "C": "It's a full-time position." },
+    "explanation_zh": "(A) 對陳述提出替代方案。(B) 重複 park 卻答非所問。(C) 重複 full 但用在 full-time 這個完全不同的搭配。",
+    "vocabulary": ["parking garage", "lot", "full-time"]
+  },
+  "p2-gen-199": {
+    "question": "Could you tell me where the pallet jacks are kept?",
+    "choices": { "A": "Jack is on the loading dock.", "B": "In the bay behind the freezer.", "C": "They were delivered on Monday." },
+    "explanation_zh": "(B) 給存放位置。(A) 把 jack（油壓拖板車）聽成人名 Jack，是同形字陷阱。(C) 答的是 When。",
+    "vocabulary": ["pallet jack", "bay", "freezer"]
+  },
+  "p2-gen-201": {
+    "question": "Where should I put these returned items?",
+    "choices": { "A": "On the cart by the office.", "B": "They were returned yesterday.", "C": "About a dozen, I think." },
+    "explanation_zh": "(A) 給放置位置。(B) 重複 return，答的是 When。(C) 答的是 How many。",
+    "vocabulary": ["returned items", "cart", "a dozen"]
+  },
+  "p2-gen-202": {
+    "question": "Who handles the payroll questions now?",
+    "choices": { "A": "Every other Friday.", "B": "Mr. Ito took that over.", "C": "Please handle it with care." },
+    "explanation_zh": "(B) 指出接手的人。(A) 是薪資相關卻答 When，屬情境合理但答錯疑問詞。(C) 重複 handle 但取「搬運小心」義。",
+    "vocabulary": ["payroll", "take over", "every other"]
+  },
+  "p2-gen-205": {
+    "question": "Did you want me to call the client back?",
+    "choices": { "A": "She called on Tuesday.", "B": "Yes, please, before noon.", "C": "The client list is updated." },
+    "explanation_zh": "(B) 同意並補上時間限制。(A) 重複 call，答的是 When。(C) 重複 client 但講的是名單。",
+    "vocabulary": ["call back", "client", "before noon"]
+  },
+  "p2-gen-206": {
+    "question": "You interviewed the last candidate, didn't you?",
+    "choices": { "A": "The interview room is booked.", "B": "He was the last to leave.", "C": "No, Ms. Chen handled that one." },
+    "explanation_zh": "(C) 否認並指出實際負責的人，是附加問句的完整回應。(A) 重複 interview 但講的是場地。(B) 重複 last 卻用在不同意思。",
+    "vocabulary": ["candidate", "interview", "handle"]
+  },
+  "p2-gen-209": {
+    "question": "Could you tell me where the safety goggles are stored?",
+    "choices": { "A": "Safety is everyone's responsibility.", "B": "For about six months now.", "C": "In the cabinet by the workbench." },
+    "explanation_zh": "(C) 給存放位置。(A) 重複 safety 但講的是口號式的原則。(B) 答的是 How long。",
+    "vocabulary": ["goggles", "workbench", "cabinet"]
+  },
+  "p2-gen-211": {
+    "question": "Where is the workshop being held?",
+    "choices": { "A": "It works quite well.", "B": "In the training room upstairs.", "C": "For two hours on Saturday." },
+    "explanation_zh": "(B) 給地點。(A) 重複 work 的字根卻答非所問。(C) 答的是 How long。",
+    "vocabulary": ["workshop", "training room", "upstairs"]
+  },
+  "p2-gen-214": {
+    "question": "How many people have confirmed for the luncheon?",
+    "choices": { "A": "It was confirmed by email.", "B": "Forty-two so far.", "C": "In the private dining room." },
+    "explanation_zh": "(B) 給人數。(A) 重複 confirm，答的是 How。(C) 答的是 Where。",
+    "vocabulary": ["luncheon", "confirm", "so far"]
+  },
+  "p2-gen-215": {
+    "question": "Did you finish the draft of the press release?",
+    "choices": { "A": "The press was very interested.", "B": "It was released last quarter.", "C": "Almost, I need one more quote." },
+    "explanation_zh": "(C) 誠實回報進度並說明還缺什麼，是 Yes/No 問句的自然變化回應。(A) 重複 press 但取「媒體」義。(B) 重複 release 的字根，答的是 When。",
+    "vocabulary": ["draft", "press release", "quote"]
+  },
+  "p2-gen-220": {
+    "question": "When does the safety certification expire?",
+    "choices": { "A": "At the training centre downtown.", "B": "Not until the end of next year.", "C": "It's certified organic." },
+    "explanation_zh": "(B) 給到期時間。(A) 答的是 Where。(C) 重複 certif- 字根但用在完全不相干的搭配。",
+    "vocabulary": ["certification", "expire", "downtown"]
+  },
+  "p2-gen-224": {
+    "question": "What kind of visa do I need for the Jakarta office?",
+    "choices": { "A": "The office opens at eight.", "B": "By direct flight, about seven hours.", "C": "A business one, valid for sixty days." },
+    "explanation_zh": "(C) 說明簽證種類與效期，正面回應 What kind。(A) 重複 office 但答的是營業時間。(B) 答的是 How。",
+    "vocabulary": ["visa", "valid", "direct flight"]
+  }
+}
