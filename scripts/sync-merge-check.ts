@@ -366,7 +366,23 @@ async function main(): Promise<void> {
       { t: 5, deleted: true },
       100,
     );
-    assert.deepEqual(survive, { action: "pushLocal" }, "newer local beats old tombstone");
+    assert.deepEqual(
+      survive,
+      { action: "pushLocal", t: 100, deleted: false },
+      "newer local beats old tombstone",
+    );
+
+    const settledTombstone = reconcileKey(
+      STORAGE_KEYS.answerRecords,
+      { value: undefined, metaT: 9, metaDeleted: true },
+      { t: 9, deleted: true },
+      100,
+    );
+    assert.deepEqual(
+      settledTombstone,
+      { action: "settleMeta", t: 9 },
+      "an equal accepted tombstone must clear a leftover dirty flag",
+    );
   }
 
   // 10. reconcileKey baseline (first login): remote must never clobber local.
@@ -397,7 +413,36 @@ async function main(): Promise<void> {
       },
       100,
     );
-    assert.deepEqual(planRes, { action: "pushLocal" }, "newer local plan wins LWW");
+    assert.deepEqual(
+      planRes,
+      { action: "pushLocal", t: 100, deleted: false },
+      "newer local plan wins LWW",
+    );
+
+    const equalAccepted = reconcileKey(
+      STORAGE_KEYS.mockSeenQuestionIds,
+      { value: ["q1"], metaT: 200, metaDeleted: false },
+      { t: 200, v: JSON.stringify(["q1"]) },
+      100,
+    );
+    assert.deepEqual(
+      equalAccepted,
+      { action: "settleMeta", t: 200 },
+      "equal content at an equal timestamp is already accepted remotely",
+    );
+
+    const clockSkewMerge = reconcileKey(
+      STORAGE_KEYS.answerRecords,
+      { value: [r1], metaT: 100, metaDeleted: false },
+      { t: 10_000, v: JSON.stringify([r3]) },
+      500,
+    );
+    assert.equal(clockSkewMerge.action, "writeLocalAndPush");
+    assert.equal(
+      (clockSkewMerge as { t: number }).t,
+      10_001,
+      "a merged value must advance past a future server timestamp",
+    );
   }
 
   // 11. Malformed remote payloads never win.
@@ -408,7 +453,7 @@ async function main(): Promise<void> {
       { t: 9, v: "{not json" },
       100,
     );
-    assert.deepEqual(bad, { action: "pushLocal" });
+    assert.deepEqual(bad, { action: "pushLocal", t: 100, deleted: false });
 
     const filtered = reconcileKey(
       STORAGE_KEYS.answerRecords,
@@ -429,12 +474,19 @@ async function main(): Promise<void> {
     localStorageMock.clear();
     const KEY = STORAGE_KEYS.answerRecords;
     bumpDirty(KEY, 10);
+    const firstWriteT = readSyncMeta()[KEY]?.t as number;
+    bumpDirty(KEY, 10);
+    const secondWriteT = readSyncMeta()[KEY]?.t as number;
+    assert.ok(
+      secondWriteT > firstWriteT,
+      "two writes in the same millisecond must get distinct timestamps",
+    );
     assert.deepEqual(dirtyKeys(), [KEY]);
-    markClean(KEY, 9);
+    markClean(KEY, firstWriteT);
     assert.deepEqual(dirtyKeys(), [KEY], "stale flush must not clear dirty");
-    markClean(KEY, 10);
+    markClean(KEY, secondWriteT);
     assert.deepEqual(dirtyKeys(), [], "exact flush clears dirty");
-    assert.equal(readSyncMeta()[KEY]?.t, 10);
+    assert.equal(readSyncMeta()[KEY]?.t, secondWriteT);
 
     recordTombstone(KEY, 20);
     assert.equal(readSyncMeta()[KEY]?.deleted, true);

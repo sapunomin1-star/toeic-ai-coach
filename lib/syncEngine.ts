@@ -328,7 +328,11 @@ export async function flush(opts: { keepalive?: boolean } = {}): Promise<void> {
       for (const envelope of rejected) {
         if (isSyncKey(envelope.key)) items[envelope.key] = envelope;
       }
-      const { changed, writeFailed } = applyRemoteEnvelopes(items);
+      // POST returns only the envelopes that lost CAS. It is not a full cloud
+      // snapshot: treating absent keys as remotely missing would dirty every
+      // unrelated local key and create a retry loop.
+      const rejectedScope = Object.keys(items).filter(isSyncKey);
+      const { changed, writeFailed } = applyRemoteEnvelopes(items, rejectedScope);
       if (changed.length > 0) notifyDataChanges(changed);
       if (writeFailed) {
         // The merged value never reached localStorage, so this device is NOT
@@ -379,17 +383,33 @@ function notifyDataChanges(keys: SyncKey[]): void {
  * caller must not then claim the device is in sync, because it is holding
  * older state than the server.
  */
-function applyRemoteEnvelopes(items: Record<string, SyncEnvelope>): {
+function readLocalAnswerRecords(): AnswerRecord[] | undefined {
+  const raw = safeGetItem(STORAGE_KEYS.answerRecords);
+  if (raw === null) return undefined;
+  try {
+    const parsed: unknown = JSON.parse(raw);
+    return Array.isArray(parsed) ? (parsed as AnswerRecord[]) : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+function applyRemoteEnvelopes(
+  items: Record<string, SyncEnvelope>,
+  scope: readonly SyncKey[] = SYNC_KEYS,
+): {
   changed: SyncKey[];
   writeFailed: boolean;
 } {
   const changed: SyncKey[] = [];
   let writeFailed = false;
-  const ordered: SyncKey[] = [
-    STORAGE_KEYS.answerRecords,
-    ...SYNC_KEYS.filter((key) => key !== STORAGE_KEYS.answerRecords),
-  ];
-  let mergedRecords: AnswerRecord[] | undefined;
+  const scopedKeys = new Set(scope);
+  // SYNC_KEYS already puts answerRecords first. A partial CAS response may
+  // contain manualReviewItems without answerRecords, so seed its cross-key
+  // dependency from the current local history instead of reconciling an
+  // unrelated key.
+  const ordered = SYNC_KEYS.filter((key) => scopedKeys.has(key));
+  let mergedRecords = readLocalAnswerRecords();
 
   for (const key of ordered) {
     const remote = items[key];
@@ -423,7 +443,7 @@ function applyRemoteEnvelopes(items: Record<string, SyncEnvelope>): {
         applyRemoteMeta(key, decision.t);
         break;
       case "pushLocal":
-        markDirty(key, Date.now());
+        markDirty(key, decision.t, decision.deleted);
         break;
       case "removeLocal":
         try {
@@ -453,16 +473,7 @@ function applyRemoteEnvelopes(items: Record<string, SyncEnvelope>): {
     }
 
     if (key === STORAGE_KEYS.answerRecords) {
-      const postRaw = safeGetItem(key);
-      mergedRecords = undefined;
-      if (postRaw !== null) {
-        try {
-          const parsed: unknown = JSON.parse(postRaw);
-          if (Array.isArray(parsed)) mergedRecords = parsed as AnswerRecord[];
-        } catch {
-          mergedRecords = undefined;
-        }
-      }
+      mergedRecords = readLocalAnswerRecords();
     }
   }
   return { changed, writeFailed };

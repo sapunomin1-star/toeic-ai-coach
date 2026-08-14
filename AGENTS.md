@@ -338,7 +338,15 @@ and the app makes zero network requests.
   dirty — the flush now reschedules (bounded at 3 consecutive rejected
   flushes, then `error`) instead of reporting success; and a pull whose merged
   value could not be written to localStorage reports `error`, because that
-  device is holding older state than the server.
+  device is holding older state than the server. **CAS rejection responses are
+  partial snapshots** (2026-08-11): reconcile only the rejected keys they
+  actually contain; absent keys were accepted, not deleted remotely. A retry
+  timestamp must be at least `remote.t + 1` even when the device clock is
+  behind, local-write timestamps must advance monotonically even within one
+  millisecond, and equal content at an equal timestamp settles leftover dirty
+  meta. Push decisions explicitly carry value-vs-tombstone state so a value
+  recreated while logged out cannot inherit an old deletion. These convergence
+  cases are regression-tested in `sync-status-check.ts`.
 - **Known limits** (documented, accepted): single key payload cap 900KB
   (oversized keys — realistically only `toeic_mock_review_snapshots_v1` —
   stay local-only with a console warning until they shrink); page-hide flush
@@ -350,7 +358,11 @@ and the app makes zero network requests.
   tracking meta while disabled: that would change local-first behaviour for a
   user who never logs in, to cover a window that needs an explicit logout →
   study → log back in (the session cookie lasts 180 days). Per-entry
-  tombstones (above) already cover the reachable half of this.
+  tombstones (above) already cover the reachable half of this. Two tabs that
+  actively edit the same key at the same time have no transaction guarantee:
+  localStorage cannot atomically update the value and its separate sync-meta
+  key. A complete fix requires an async locked repository or a same-transaction
+  IndexedDB migration, not a pull-side check followed by another write.
 - **Setup**: `scripts/sync-setup.ts` (`--push-env` pushes hash+secret to
   Vercel production over stdin; `--dev` provisions the non-secret localhost
   code). The passphrase itself must never appear in code, logs, or chat.
