@@ -377,18 +377,25 @@ export default function VocabularyQuizPage() {
 
           return (
             <li key={idx}>
-              <button
-                disabled={isFeedback}
-                onClick={() => handleSelect(idx)}
-                className={cls}
-                role="radio"
-                aria-checked={isSelected}
+              <label
+                className={`${cls} block cursor-pointer has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-indigo-500 ${
+                  isFeedback ? "cursor-default" : ""
+                }`}
               >
+                <input
+                  type="radio"
+                  name={`vocabulary-answer-${current.wordId}`}
+                  value={idx}
+                  checked={isSelected}
+                  disabled={isFeedback}
+                  onChange={() => handleSelect(idx)}
+                  className="sr-only"
+                />
                 <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold text-slate-700">
                   {CHOICE_LABELS[idx]}
                 </span>
                 {choice}
-              </button>
+              </label>
             </li>
           );
         })}

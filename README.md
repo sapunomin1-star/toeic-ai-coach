@@ -2,7 +2,9 @@
 
 個人多益自學工具 — 每日 20 個新字，加上約 15–30 分鐘核心題目訓練；把練習、錯題、單字、模擬考、考後檢討與分數預測整合在一個 **local-first** 的 Next.js App 裡。所有學習資料存在瀏覽器；**可選擇登入單人帳號啟用跨裝置同步**（Upstash Redis），未登入時完全單機、零網路請求。
 
-> 題庫 1,899 題（Part 1–7）＋ 單字庫 1,500 字，全部通過資料完整性與媒體存在性自動檢查。
+> 題庫 3,303 題（Part 1–7）＋ 單字庫 1,500 字；題目結構、答案、解析與題組完整性由 pipeline 自動檢查，媒體檔另有獨立的遠端存在性檢查。
+
+產品問題、設計策略、核心學習循環與教授展示腳本整理在 [`docs/PRODUCT_CASE_STUDY.md`](docs/PRODUCT_CASE_STUDY.md)。
 
 ---
 
@@ -58,7 +60,7 @@ npm run dev                  # http://localhost:3000
 - **Language**：TypeScript（`strict` 啟用，零 `any`）
 - **UI**：React 19 Client Components + Tailwind CSS v4
 - **媒體**：Vercel Blob（音檔 / 圖片，不進 git）
-- **儲存**：瀏覽器 localStorage（無後端）
+- **儲存**：localStorage 為主；登入後可選擇用 Upstash Redis 做單人跨裝置同步
 - **題目生成**：獨立的 `pipeline/` 套件（TypeScript + tsx，離線執行）
 
 ---
@@ -169,7 +171,7 @@ toeic-ai-coach/
 
 ## 📚 題庫與技能分類
 
-- **題庫**：1,899 題。分布 — P1 78、P2 208、P3 306、P4 237、P5 488、P6 164、P7 418。
+- **題庫**：3,303 題，涵蓋 Part 1–7；實際分布與品質門檻以 `pipeline/npm run check` 的最新輸出為準，避免文件數字隨題庫擴充失真。
 - **單字庫**：1,500 字，涵蓋 30+ 商務情境分類（business / office / finance / hr / logistics …）。
 - **技能分類（19 項，single source of truth 於 `types/question.ts`）**：
   - 文法：被動語態、詞性判斷、時態、介系詞、連接詞、代名詞、關係子句

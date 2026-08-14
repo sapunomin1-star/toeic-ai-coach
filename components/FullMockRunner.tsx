@@ -593,7 +593,7 @@ export default function FullMockRunner() {
             <button
               onClick={() => goToQuestion(Math.max(sectionStart, currentIndex - 1))}
               disabled={currentIndex === sectionStart}
-              className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 disabled:opacity-30"
+              className="min-h-11 rounded-lg border border-slate-200 px-3 py-2 text-xs font-medium text-slate-600 disabled:opacity-30"
             >
               ← 上一題
             </button>
@@ -603,21 +603,21 @@ export default function FullMockRunner() {
             {currentIndex < sectionStart + SECTION_QUESTIONS - 1 ? (
               <button
                 onClick={() => goToQuestion(currentIndex + 1)}
-                className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600"
+                className="min-h-11 rounded-lg border border-slate-200 px-3 py-2 text-xs font-medium text-slate-600"
               >
                 下一題 →
               </button>
             ) : isListening ? (
               <button
                 onClick={confirmBeginReadingEarly}
-                className="rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-bold text-white"
+                className="min-h-11 rounded-lg bg-indigo-600 px-3 py-2 text-xs font-bold text-white"
               >
                 開始 Reading →
               </button>
             ) : (
               <button
                 onClick={confirmSubmit}
-                className="rounded-lg bg-slate-900 px-4 py-1.5 text-xs font-bold text-white"
+                className="min-h-11 rounded-lg bg-slate-900 px-4 py-2 text-xs font-bold text-white"
               >
                 交卷
               </button>

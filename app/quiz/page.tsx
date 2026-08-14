@@ -469,7 +469,12 @@ export default function QuizPage() {
   }
 
   if (status === "loading") {
-    return <p className="py-10 text-center text-slate-500">載入中…</p>;
+    return (
+      <section className="py-10 text-center" aria-live="polite">
+        <h1 className="sr-only">今日訓練</h1>
+        <p className="text-slate-500">正在載入訓練…</p>
+      </section>
+    );
   }
 
   if (status === "load-error") {
@@ -479,7 +484,8 @@ export default function QuizPage() {
   if (status === "no-plan") {
     return (
       <div className="space-y-4 py-6 text-center">
-        <p className="text-slate-600">目前沒有訓練計畫。</p>
+        <h1 className="text-xl font-bold text-slate-900">目前沒有訓練計畫</h1>
+        <p className="text-sm text-slate-600">先建立今天的自適應處方，再開始作答。</p>
         <Link
           href="/practice"
           className="inline-block rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white"
@@ -499,7 +505,7 @@ export default function QuizPage() {
     return (
       <div className="space-y-5 py-4">
         <div className="rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 p-6 text-white shadow-md">
-          <p className="text-sm">今日訓練完成 🎉</p>
+          <h1 className="text-lg font-bold">今日訓練完成</h1>
           <p className="mt-2 text-3xl font-bold">{accuracy}%</p>
           <p className="mt-1 text-sm text-emerald-50">
             答對 {recordedStats.correct} / {recordedStats.total} 題
@@ -534,7 +540,8 @@ export default function QuizPage() {
   if (!currentQuestion) {
     return (
       <div className="space-y-4 py-6 text-center">
-        <p className="text-slate-600">找不到題目資料。</p>
+        <h1 className="text-xl font-bold text-slate-900">找不到題目資料</h1>
+        <p className="text-sm text-slate-600">這份計畫可能已過期，請重新建立今日處方。</p>
         <Link
           href="/practice"
           className="inline-block rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white"
@@ -763,20 +770,25 @@ export default function QuizPage() {
           {visibleChoices.map((c) => {
             const isSelected = selected === c;
             return (
-              <button
+              <label
                 key={c}
-                onClick={() => setSelected(c)}
-                aria-label={`選擇答案 ${c}`}
-                role="radio"
-                aria-checked={isSelected}
-                className={`min-h-14 rounded-2xl border px-4 py-3 text-center text-base font-bold transition active:scale-[0.99] focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500 ${
+                className={`grid min-h-14 cursor-pointer place-items-center rounded-2xl border px-4 py-3 text-center text-base font-bold transition active:scale-[0.99] has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-indigo-500 ${
                   isSelected
                     ? "border-indigo-500 bg-indigo-50 text-indigo-900"
                     : "border-slate-200 bg-white text-slate-800"
                 }`}
               >
-                {c}
-              </button>
+                <input
+                  type="radio"
+                  name={`answer-${currentQuestion.id}`}
+                  value={c}
+                  checked={isSelected}
+                  onChange={() => setSelected(c)}
+                  aria-label={`選擇答案 ${c}`}
+                  className="sr-only"
+                />
+                <span aria-hidden="true">{c}</span>
+              </label>
             );
           })}
         </div>
@@ -809,18 +821,25 @@ export default function QuizPage() {
                 {choiceAudio && (
                   <AudioPlayer key={choiceAudio} src={choiceAudio} allowReplay />
                 )}
-                <button
-                  disabled={isAnswered}
-                  onClick={() => setSelected(c)}
-                  className={classes}
-                  role="radio"
-                  aria-checked={isSelected}
+                <label
+                  className={`${classes} block cursor-pointer has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-indigo-500 ${
+                    isAnswered ? "cursor-default" : ""
+                  }`}
                 >
+                  <input
+                    type="radio"
+                    name={`answer-${currentQuestion.id}`}
+                    value={c}
+                    checked={isSelected}
+                    disabled={isAnswered}
+                    onChange={() => setSelected(c)}
+                    className="sr-only"
+                  />
                   <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold text-slate-700">
                     {c}
                   </span>
                   {currentQuestion.choices[c]}
-                </button>
+                </label>
               </li>
             );
           })}

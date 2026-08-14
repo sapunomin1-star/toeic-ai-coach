@@ -233,7 +233,7 @@ export function getTomorrowRecommendation(
       primary: null,
       secondary: null,
       message:
-        "目前沒有錯題，明天繼續做一般 Part 5 訓練，保持節奏，並加強商務單字廣度。",
+        "目前還沒有足夠的近期弱點訊號。先完成一回合建立基準；若持續穩定答對，教練會維持探索題而不刻意製造弱點。",
     };
   }
 

@@ -4,8 +4,11 @@
  */
 export default function BankLoadError({ bankLabel }: { bankLabel: string }) {
   return (
-    <p className="py-10 text-center text-slate-500">
-      {bankLabel}載入失敗，請確認網路後重新整理頁面。
-    </p>
+    <section className="py-10 text-center">
+      <h1 className="text-lg font-bold text-slate-800">{bankLabel}暫時無法載入</h1>
+      <p className="mt-2 text-sm text-slate-500">
+        請確認網路後重新整理頁面；已保存的學習進度不受影響。
+      </p>
+    </section>
   );
 }

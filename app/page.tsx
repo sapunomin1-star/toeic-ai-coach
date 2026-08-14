@@ -2,12 +2,19 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { getDailyPlan, getReviewableIds } from "@/lib/storage";
+import { getWeakestSkills } from "@/lib/analysis";
+import {
+  getAnswerRecords,
+  getDailyPlan,
+  getReviewableIds,
+} from "@/lib/storage";
 import {
   buildDailySession,
   getDailySessionActivity,
   loadVocabularyBank,
 } from "@/lib/vocabularyStorage";
+import { SKILL_LABELS } from "@/types/question";
+import type { AnswerRecord } from "@/types/question";
 
 type TodayCoachState = {
   /** True when the vocabulary bank chunk failed to load — the vocabulary
@@ -22,12 +29,16 @@ type TodayCoachState = {
   practiceTotal: number;
   practiceHasPendingFeedback: boolean;
   reviewDueCount: number;
+  weeklyAnswered: number;
+  weeklyAccuracy: number | null;
+  focusLabel: string;
 };
 
 type CoachAction = {
   href: string;
   label: string;
   detail: string;
+  meta: string;
 };
 
 export default function Home() {
@@ -36,8 +47,6 @@ export default function Home() {
   useEffect(() => {
     let cancelled = false;
     void (async () => {
-      // A failed vocabulary-chunk load degrades to a practice-plan-only coach
-      // instead of an endless skeleton.
       let bankReady = true;
       try {
         await loadVocabularyBank();
@@ -46,6 +55,7 @@ export default function Home() {
         bankReady = false;
       }
       if (cancelled) return;
+
       const plan = getDailyPlan();
       const practiceState = {
         practiceCursor: plan?.cursor ?? 0,
@@ -53,10 +63,9 @@ export default function Home() {
         practiceHasPendingFeedback: Boolean(plan?.pendingFeedback),
         reviewDueCount: getReviewableIds().length,
       };
+      const pulse = buildLearningPulse(getAnswerRecords());
+
       if (!bankReady) {
-        // getDailySessionActivity reads localStorage only, so the real
-        // reviewed/validated counts survive a failed bank load; reinforcement
-        // is disabled because building its quiz needs the bank.
         const activity = getDailySessionActivity();
         setToday({
           vocabularyUnavailable: true,
@@ -66,9 +75,11 @@ export default function Home() {
           reinforcementCount: activity.reinforcementCount,
           canReinforce: false,
           ...practiceState,
+          ...pulse,
         });
         return;
       }
+
       const vocabulary = buildDailySession();
       const activity = getDailySessionActivity();
       setToday({
@@ -79,6 +90,7 @@ export default function Home() {
         reinforcementCount: activity.reinforcementCount,
         canReinforce: activity.canReinforce,
         ...practiceState,
+        ...pulse,
       });
     })();
     return () => {
@@ -86,9 +98,6 @@ export default function Home() {
     };
   }, []);
 
-  // vocabularyTotal === 0 means "nothing scheduled today" and counts as done —
-  // but ONLY when the bank actually loaded; a failed load must not read as
-  // completed (it would silently cost the user a study day).
   const vocabularyReviewed =
     today !== null &&
     !today.vocabularyUnavailable &&
@@ -107,173 +116,316 @@ export default function Home() {
     vocabularyValidated,
     practiceComplete,
   ].filter(Boolean).length;
+  const currentStep = !vocabularyReviewed
+    ? 0
+    : !vocabularyValidated
+      ? 1
+      : !practiceComplete
+        ? 2
+        : null;
   const coachAction = today
     ? getCoachAction(today, vocabularyReviewed, vocabularyValidated, practiceComplete)
     : null;
 
   return (
-    <div className="space-y-4">
-      <section className="rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-600 p-5 text-white shadow-md">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <p className="text-xs uppercase tracking-widest text-indigo-200">
-              TOEIC Personal Coach
-            </p>
-            <h1 className="mt-1.5 text-2xl font-bold leading-snug">
-              今天，穩定進步一點
-            </h1>
-          </div>
-          {today && (
-            <span className="shrink-0 rounded-full bg-white/15 px-3 py-1.5 text-xs font-semibold text-white">
-              {completedSteps} / 3 完成
-            </span>
-          )}
-        </div>
-        <p className="mt-1.5 text-sm text-indigo-100">
-          每日 20 個新字＋15–30 分鐘核心訓練。
-        </p>
+    <div className="space-y-5 sm:space-y-6">
+      <section className="relative overflow-hidden rounded-[2rem] bg-[var(--ink)] p-5 text-white shadow-[0_24px_70px_rgba(24,33,27,0.18)] sm:p-8 lg:p-10">
         <div
-          className="mt-4 h-1.5 overflow-hidden rounded-full bg-white/20"
-          role="progressbar"
-          aria-label="今日核心任務完成進度"
-          aria-valuemin={0}
-          aria-valuemax={3}
-          aria-valuenow={completedSteps}
-        >
-          <div
-            className="h-full rounded-full bg-white transition-all"
-            style={{ width: `${(completedSteps / 3) * 100}%` }}
-          />
+          aria-hidden="true"
+          className="absolute -right-20 -top-24 h-72 w-72 rounded-full bg-[var(--brand)] opacity-35 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute -bottom-28 left-1/3 h-56 w-56 rounded-full bg-[var(--signal)] opacity-10 blur-3xl"
+        />
+
+        <div className="relative grid gap-7 lg:grid-cols-[minmax(0,1.35fr)_minmax(280px,0.65fr)] lg:items-end">
+          <div>
+            <p className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-white/75">
+              <span className="h-1.5 w-1.5 rounded-full bg-[var(--signal)] shadow-[0_0_0_4px_rgba(217,245,91,0.12)]" />
+              Adaptive daily coaching
+            </p>
+            <h1 className="text-balance mt-5 max-w-2xl text-3xl font-black leading-[1.08] tracking-[-0.045em] sm:text-4xl lg:text-5xl">
+              把今天有限的時間，
+              <span className="text-[var(--signal)]">換成看得見的進步。</span>
+            </h1>
+            <p className="text-pretty mt-4 max-w-xl text-sm leading-6 text-white/65 sm:text-base">
+              不是再塞一套題庫，而是根據到期複習、近期弱點與完成進度，替你決定現在最值得做的事。
+            </p>
+
+            {coachAction ? (
+              <Link
+                href={coachAction.href}
+                className="product-interactive mt-6 flex max-w-xl items-center justify-between gap-4 rounded-2xl bg-white p-4 text-[var(--ink)] shadow-[0_14px_34px_rgba(0,0,0,0.18)] active:scale-[0.99] sm:p-5"
+              >
+                <span className="min-w-0">
+                  <span className="block text-[10px] font-black uppercase tracking-[0.18em] text-[var(--brand)]">
+                    教練處方 · {coachAction.meta}
+                  </span>
+                  <span className="mt-1 block text-lg font-black tracking-[-0.02em] sm:text-xl">
+                    {coachAction.label}
+                  </span>
+                  <span className="text-pretty mt-1 block text-xs leading-5 text-[var(--muted)] sm:text-sm">
+                    {coachAction.detail}
+                  </span>
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[var(--signal)] text-xl font-bold"
+                >
+                  →
+                </span>
+              </Link>
+            ) : (
+              <div
+                className="mt-6 h-28 max-w-xl animate-pulse rounded-2xl bg-white/10"
+                aria-label="正在產生今日建議"
+              />
+            )}
+          </div>
+
+          <aside className="rounded-3xl border border-white/12 bg-white/[0.07] p-5 backdrop-blur-sm">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <p className="text-[10px] font-black uppercase tracking-[0.18em] text-white/60">
+                  Today&apos;s loop
+                </p>
+                <p className="mt-1 text-sm font-bold text-white/85">今日核心循環</p>
+              </div>
+              <p className="number-tabular text-3xl font-black tracking-[-0.05em]">
+                {today ? completedSteps : "–"}
+                <span className="ml-1 text-sm text-white/60">/ 3</span>
+              </p>
+            </div>
+            <div
+              className="mt-5 grid grid-cols-3 gap-1.5"
+              role="progressbar"
+              aria-label="今日核心任務完成進度"
+              aria-valuemin={0}
+              aria-valuemax={3}
+              aria-valuenow={completedSteps}
+            >
+              {[0, 1, 2].map((index) => (
+                <span
+                  key={index}
+                  aria-hidden="true"
+                  className={`h-1.5 rounded-full transition-colors ${
+                    index < completedSteps ? "bg-[var(--signal)]" : "bg-white/15"
+                  }`}
+                />
+              ))}
+            </div>
+            <ol className="mt-5 space-y-3">
+              <ProgressMark label="建立記憶線索" done={vocabularyReviewed} current={currentStep === 0} />
+              <ProgressMark label="用測驗確認回想" done={vocabularyValidated} current={currentStep === 1} />
+              <ProgressMark label="依弱點完成訓練" done={practiceComplete} current={currentStep === 2} />
+            </ol>
+          </aside>
         </div>
       </section>
 
-      {coachAction ? (
-        <Link
-          href={coachAction.href}
-          className="block rounded-2xl bg-slate-900 px-5 py-4 text-white shadow-sm active:scale-[0.99]"
-        >
-          <span className="flex items-center justify-between gap-3">
-            <span>
-              <span className="block text-xs font-medium text-slate-300">
-                教練建議 · 下一步
-              </span>
-              <span className="mt-0.5 block text-lg font-semibold">
-                {coachAction.label}
-              </span>
-              <span className="mt-0.5 block text-xs text-slate-300">
-                {coachAction.detail}
-              </span>
-            </span>
-            <span aria-hidden="true" className="text-xl">
-              →
-            </span>
-          </span>
-        </Link>
-      ) : (
-        <div className="h-24 animate-pulse rounded-2xl bg-slate-200" aria-label="正在載入今日建議" />
-      )}
+      <div className="grid gap-5 lg:grid-cols-[minmax(0,1.35fr)_minmax(300px,0.65fr)]">
+        <section className="product-surface rounded-[1.75rem] p-5 sm:p-6">
+          <div className="mb-5 flex items-end justify-between gap-4">
+            <div>
+              <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--brand)]">
+                Learning route
+              </p>
+              <h2 className="mt-1.5 text-xl font-black tracking-[-0.025em] text-[var(--ink)]">
+                今天的學習路線
+              </h2>
+            </div>
+            <p className="hidden text-xs font-medium text-[var(--muted)] sm:block">
+              依進度自動帶路
+            </p>
+          </div>
+          <ol className="space-y-2.5">
+            <PlanStep
+              num="01"
+              label="建立單字記憶"
+              time="約 8 分鐘"
+              desc={
+                today
+                  ? today.vocabularyUnavailable
+                    ? "單字庫暫時無法載入，請確認網路後重試"
+                    : `${Math.min(today.reviewedCount, today.vocabularyTotal)} / ${today.vocabularyTotal} 字完成自評`
+                  : "載入今日單字…"
+              }
+              href="/vocabulary"
+              status={stepStatus(vocabularyReviewed, currentStep === 0)}
+            />
+            <PlanStep
+              num="02"
+              label="正式驗收回想"
+              time="約 5 分鐘"
+              desc={
+                today
+                  ? today.vocabularyUnavailable
+                    ? "單字庫暫時無法載入，請確認網路後重試"
+                    : `${Math.min(today.validatedCount, today.vocabularyTotal)} / ${today.vocabularyTotal} 字通過今日驗收`
+                  : "載入驗收進度…"
+              }
+              href="/vocabulary-quiz"
+              status={stepStatus(vocabularyValidated, currentStep === 1)}
+            />
+            <PlanStep
+              num="03"
+              label="完成自適應訓練"
+              time="15–30 分鐘"
+              desc={practiceDescription(today)}
+              href="/practice"
+              status={stepStatus(practiceComplete, currentStep === 2)}
+            />
+          </ol>
+        </section>
 
-      <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-        <div className="mb-3 flex items-center justify-between gap-3">
-          <h2 className="text-sm font-semibold text-slate-900">今天的學習路線</h2>
-          <span className="text-xs text-slate-400">依進度自動帶路</span>
-        </div>
-        <ol className="space-y-2">
-          <PlanStep
-            num="1"
-            label="單字自評"
-            desc={
-              today
-                ? today.vocabularyUnavailable
-                  ? "單字庫載入失敗，請確認網路後重新整理"
-                  : `${Math.min(today.reviewedCount, today.vocabularyTotal)} / ${today.vocabularyTotal} 字完成`
-                : "載入今日單字…"
-            }
-            href="/vocabulary"
-            status={stepStatus(vocabularyReviewed, completedSteps === 0)}
-          />
-          <PlanStep
-            num="2"
-            label="單字驗收"
-            desc={
-              today
-                ? today.vocabularyUnavailable
-                  ? "單字庫載入失敗，請確認網路後重新整理"
-                  : `${Math.min(today.validatedCount, today.vocabularyTotal)} / ${today.vocabularyTotal} 字完成正式驗收`
-                : "載入驗收進度…"
-            }
-            href="/vocabulary-quiz"
-            status={stepStatus(vocabularyValidated, completedSteps === 1)}
-          />
-          <PlanStep
-            num="3"
-            label="今日訓練"
-            desc={practiceDescription(today)}
-            href="/practice"
-            status={stepStatus(practiceComplete, completedSteps === 2)}
-          />
-        </ol>
-      </section>
+        <aside className="product-surface flex flex-col rounded-[1.75rem] p-5 sm:p-6">
+          <div>
+            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--brand)]">
+              Learning pulse
+            </p>
+            <h2 className="mt-1.5 text-xl font-black tracking-[-0.025em] text-[var(--ink)]">
+              近 7 日學習脈搏
+            </h2>
+          </div>
 
-      <div className="grid grid-cols-3 gap-3">
-        <QuickLink href="/vocabulary" emoji="📚" label="每日單字" />
-        <QuickLink href="/vocabulary-quiz?mode=random" emoji="✏️" label="隨機挑戰" />
-        <QuickLink href="/wrongbook" emoji="📖" label="錯題本" />
+          <div className="mt-5 grid grid-cols-2 gap-2.5">
+            <PulseMetric
+              label="有效作答"
+              value={today ? `${today.weeklyAnswered}` : "–"}
+              unit="題"
+            />
+            <PulseMetric
+              label="近期正確率"
+              value={today?.weeklyAccuracy == null ? "–" : `${today.weeklyAccuracy}`}
+              unit={today?.weeklyAccuracy == null ? "" : "%"}
+            />
+          </div>
+
+          <div className="mt-3 rounded-2xl bg-[var(--canvas)] p-4">
+            <p className="text-[10px] font-black uppercase tracking-[0.16em] text-[var(--muted)]">
+              當前優先能力
+            </p>
+            <p className="mt-1.5 text-base font-black text-[var(--ink)]">
+              {today?.focusLabel ?? "分析學習紀錄中"}
+            </p>
+            <p className="text-pretty mt-1 text-xs leading-5 text-[var(--muted)]">
+              {today && today.weeklyAnswered === 0
+                ? "先完成第一回合，教練會用實際答題結果建立你的基準。"
+                : "教練依近期錯誤率排序，而不是只看累積錯題數。"}
+            </p>
+          </div>
+
+          <Link
+            href="/dashboard"
+            className="product-interactive mt-auto flex min-h-12 items-center justify-between border-b border-[var(--line)] pt-5 text-sm font-black text-[var(--ink)]"
+          >
+            查看完整教練報告
+            <span aria-hidden="true" className="text-[var(--brand)]">↗</span>
+          </Link>
+        </aside>
       </div>
 
-      <Link
-        href="/dashboard"
-        className="block rounded-2xl border border-violet-100 bg-white px-4 py-3 text-center text-sm font-medium text-violet-700 shadow-sm active:scale-[0.99]"
-      >
-        查看個人教練報告 →
-      </Link>
-
       <section>
-        <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
-          模擬考
-        </p>
-        <Link
-          href="/full-mock"
-          aria-label="開始完整 TOEIC 模擬考"
-          className="block rounded-2xl bg-gradient-to-br from-indigo-900 to-slate-900 p-5 text-white shadow-md active:scale-[0.99]"
-        >
-          <p className="text-2xl">🎯</p>
-          <p className="mt-2 text-xl font-bold">完整 TOEIC 模擬考</p>
-          <p className="mt-1 text-sm font-medium text-indigo-100">
-            200 題 / 120 分鐘 / Listening + Reading
+        <div className="mb-3 flex items-end justify-between gap-4 px-1">
+          <div>
+            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--brand)]">
+              Extra practice
+            </p>
+            <h2 className="mt-1 text-lg font-black tracking-[-0.02em] text-[var(--ink)]">
+              想再多練一點
+            </h2>
+          </div>
+          <p className="text-xs text-[var(--muted)]">不影響今日核心完成度</p>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-3">
+          <QuickLink
+            href="/vocabulary"
+            code="WORD LAB"
+            label="複習今日單字"
+            detail="用例句重新建立記憶線索"
+          />
+          <QuickLink
+            href="/vocabulary-quiz?mode=random"
+            code="QUICK 10"
+            label="隨機單字挑戰"
+            detail="10 題快速檢查長期記憶"
+          />
+          <QuickLink
+            href="/wrongbook"
+            code="RECALL"
+            label="整理錯題本"
+            detail={today?.reviewDueCount ? `${today.reviewDueCount} 題已到複習日` : "集中處理還沒穩定的題目"}
+          />
+        </div>
+      </section>
+
+      <section className="product-surface rounded-[1.75rem] p-5 sm:p-6">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--brand)]">
+              Benchmark
+            </p>
+            <h2 className="mt-1.5 text-xl font-black tracking-[-0.025em] text-[var(--ink)]">
+              用模考確認真正的進步
+            </h2>
+          </div>
+          <p className="text-xs leading-5 text-[var(--muted)]">
+            建議在安靜、不中斷的時段進行
           </p>
-          <p className="mt-3 text-xs leading-relaxed text-slate-200">
-            最貼近真實考試的完整體驗，含 IIBC 公開換算表預測分數
-          </p>
-          <p className="mt-3 rounded-xl bg-white/10 px-3 py-2 text-xs text-indigo-100">
-            ⚠️ 建議備好水跟不被打擾的時間再開始
-          </p>
-          <span className="mt-4 block rounded-xl bg-white px-4 py-3 text-center text-sm font-semibold text-indigo-950">
-            開始完整模擬考 →
-          </span>
-        </Link>
-        <div className="grid grid-cols-2 gap-3">
+        </div>
+        <div className="mt-5 grid gap-3 lg:grid-cols-[1.25fr_0.75fr_0.75fr]">
+          <MockLink
+            href="/full-mock"
+            eyebrow="Full simulation"
+            title="完整 TOEIC 模擬考"
+            detail="200 題 · 120 分鐘 · Listening + Reading"
+            note="含非官方分數區間與逐題檢討"
+            primary
+          />
           <MockLink
             href="/mock-test"
-            ariaLabel="進入閱讀模擬考"
             eyebrow="Reading"
             title="閱讀模考"
-            detail="半套 · 100 題 · 75 分鐘"
-            parts="Part 5/6/7"
+            detail="100 題 · 75 分鐘"
+            note="Part 5 / 6 / 7"
           />
           <MockLink
             href="/listening-mock"
-            ariaLabel="進入聽力模擬考"
             eyebrow="Listening"
             title="聽力模考"
-            detail="半套 · 100 題 · 45 分鐘"
-            parts="Part 1/2/3/4"
-            indigo
+            detail="100 題 · 45 分鐘"
+            note="Part 1 / 2 / 3 / 4"
           />
         </div>
       </section>
+
+      <p className="px-2 pb-1 text-center text-[11px] leading-5 text-[var(--muted)]">
+        學習紀錄預設只保存在你的裝置；登入後才會啟用單人跨裝置同步。
+      </p>
     </div>
   );
+}
+
+function buildLearningPulse(records: AnswerRecord[]): Pick<
+  TodayCoachState,
+  "weeklyAnswered" | "weeklyAccuracy" | "focusLabel"
+> {
+  const sevenDaysAgo = Date.now() - 6 * 24 * 60 * 60 * 1000;
+  const recent = records.filter(
+    (record) =>
+      record.source !== "mock" &&
+      Date.parse(record.answeredAt) >= sevenDaysAgo,
+  );
+  const correct = recent.filter((record) => record.isCorrect).length;
+  const weakest = getWeakestSkills(records, 1)[0];
+
+  return {
+    weeklyAnswered: recent.length,
+    weeklyAccuracy:
+      recent.length === 0 ? null : Math.round((correct / recent.length) * 100),
+    focusLabel: weakest ? SKILL_LABELS[weakest.skill] : "建立學習基準",
+  };
 }
 
 function getCoachAction(
@@ -286,53 +438,60 @@ function getCoachAction(
     return {
       href: "/vocabulary",
       label: "重新載入單字",
-      detail: "單字庫載入失敗；請確認網路後重試，今日進度不受影響",
+      detail: "單字庫暫時無法使用；今日進度仍安全保留。",
+      meta: "立即重試",
     };
   }
   if (!vocabularyReviewed) {
     return {
       href: "/vocabulary",
-      label: today.reviewedCount > 0 ? "繼續單字自評" : "開始今日單字",
-      detail: `還有 ${Math.max(0, today.vocabularyTotal - today.reviewedCount)} 字，先建立記憶線索`,
+      label: today.reviewedCount > 0 ? "繼續建立單字記憶" : "從今日單字開始",
+      detail: `還有 ${Math.max(0, today.vocabularyTotal - today.reviewedCount)} 字，先用情境與例句建立記憶線索。`,
+      meta: "約 8 分鐘",
     };
   }
   if (!vocabularyValidated) {
     return {
       href: "/vocabulary-quiz",
-      label: today.validatedCount > 0 ? "繼續單字驗收" : "開始單字驗收",
-      detail: `還有 ${Math.max(0, today.vocabularyTotal - today.validatedCount)} 字，確認是否真的記住`,
+      label: today.validatedCount > 0 ? "繼續單字驗收" : "確認哪些字真的記住了",
+      detail: `還有 ${Math.max(0, today.vocabularyTotal - today.validatedCount)} 字，透過主動回想完成正式驗收。`,
+      meta: "約 5 分鐘",
     };
   }
   if (today.canReinforce) {
     return {
       href: "/vocabulary-quiz?mode=reinforcement",
       label: "加強剛才不熟的單字",
-      detail: `${today.reinforcementCount} 字短時回想，不延後正式複習日`,
+      detail: `${today.reinforcementCount} 字短時回想，不會改變正式間隔複習日。`,
+      meta: "約 4 分鐘",
     };
   }
   if (today.practiceHasPendingFeedback) {
     return {
       href: "/quiz",
-      label: "看完上一題解析",
-      detail: "答案已安全儲存，確認解析後再繼續",
+      label: "先看完上一題解析",
+      detail: "答案已安全儲存；確認錯因與解法後，再進入下一題。",
+      meta: "接續進度",
     };
   }
   if (!practiceComplete) {
     const inProgress = today.practiceTotal > 0 && today.practiceCursor > 0;
     return {
       href: "/practice",
-      label: inProgress ? "繼續今日訓練" : "開始今日訓練",
+      label: inProgress ? "繼續今日自適應訓練" : "開始今日自適應訓練",
       detail: inProgress
-        ? `已完成 ${today.practiceCursor} / ${today.practiceTotal} 題`
+        ? `已完成 ${today.practiceCursor} / ${today.practiceTotal} 題，從上次位置繼續。`
         : today.reviewDueCount > 0
-          ? `先處理 ${today.reviewDueCount} 題到期錯題，再進入新題`
-          : "依弱點安排文法、完整文章題組與聽力",
+          ? `先處理 ${today.reviewDueCount} 題到期錯題，再進入弱點與完整題組。`
+          : `今天優先聚焦「${today.focusLabel}」，再完成文章題組與聽力。`,
+      meta: "15–30 分鐘",
     };
   }
   return {
     href: "/dashboard",
     label: "今日核心任務完成",
-    detail: "查看成果與明天最值得加強的能力",
+    detail: "查看這回合留下的訊號，以及下一次最值得加強的能力。",
+    meta: "查看成果",
   };
 }
 
@@ -340,8 +499,8 @@ function practiceDescription(today: TodayCoachState | null): string {
   if (!today) return "載入訓練進度…";
   if (today.practiceTotal === 0) {
     return today.reviewDueCount > 0
-      ? `${today.reviewDueCount} 題到期複習優先＋弱點與完整題組`
-      : "弱點補強＋完整短文題組＋聽力練習";
+      ? `${today.reviewDueCount} 題到期複習優先，再進入弱點與完整題組`
+      : `依「${today.focusLabel}」安排弱點補強、閱讀題組與聽力`;
   }
   if (today.practiceHasPendingFeedback) {
     return `${today.practiceCursor} / ${today.practiceTotal} 題已作答 · 解析待確認`;
@@ -356,23 +515,58 @@ function stepStatus(done: boolean, current: boolean): StepStatus {
   return current ? "current" : "pending";
 }
 
+function ProgressMark({
+  label,
+  done,
+  current,
+}: {
+  label: string;
+  done: boolean;
+  current: boolean;
+}) {
+  return (
+    <li className={`flex items-center gap-3 text-xs ${done || current ? "text-white" : "text-white/38"}`}>
+      <span
+        aria-hidden="true"
+        className={`grid h-5 w-5 place-items-center rounded-full text-[10px] font-black ${
+          done
+            ? "bg-[var(--signal)] text-[var(--ink)]"
+            : current
+              ? "border border-white/50 bg-white/10 text-white"
+              : "border border-white/15"
+        }`}
+      >
+        {done ? "✓" : current ? "•" : ""}
+      </span>
+      <span className="font-semibold">{label}</span>
+      {current && (
+        <span className="ml-auto rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest text-white/70">
+          Now
+        </span>
+      )}
+    </li>
+  );
+}
+
 function PlanStep({
   num,
   label,
+  time,
   desc,
   href,
   status,
 }: {
   num: string;
   label: string;
+  time: string;
   desc: string;
   href: string;
   status: StepStatus;
 }) {
-  const statusClass = {
-    done: "bg-emerald-100 text-emerald-700",
-    current: "bg-indigo-100 text-indigo-700 ring-2 ring-indigo-200",
-    pending: "bg-slate-100 text-slate-500",
+  const stateClass = {
+    done: "border-emerald-200 bg-emerald-50/75",
+    current: "border-[color:rgb(49_89_223_/_0.24)] bg-[color:rgb(49_89_223_/_0.06)] shadow-[0_12px_28px_rgba(49,89,223,0.08)]",
+    pending: "border-transparent bg-[var(--canvas)]",
   }[status];
 
   return (
@@ -381,84 +575,131 @@ function PlanStep({
         href={href}
         aria-label={`${label}：${desc}`}
         aria-current={status === "current" ? "step" : undefined}
-        className={`flex items-start gap-3 rounded-xl px-1 py-1.5 active:opacity-70 ${
-          status === "pending" ? "opacity-65" : ""
-        }`}
+        className={`product-interactive grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-2xl border p-3.5 sm:p-4 ${stateClass}`}
       >
         <span
           aria-hidden="true"
-          className={`mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold ${statusClass}`}
+          className={`grid h-10 w-10 place-items-center rounded-xl text-[11px] font-black tracking-tight ${
+            status === "done"
+              ? "bg-emerald-600 text-white"
+              : status === "current"
+                ? "bg-[var(--brand)] text-white"
+                : "bg-white text-[var(--muted)]"
+          }`}
         >
           {status === "done" ? "✓" : num}
         </span>
-        <div className="min-w-0">
-          <p className="text-sm font-semibold text-slate-900">
-            {label}
+        <span className="min-w-0">
+          <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+            <span className="text-sm font-black text-[var(--ink)] sm:text-base">{label}</span>
             {status === "current" && (
-              <span className="ml-2 text-[10px] font-semibold text-indigo-600">現在</span>
+              <span className="text-[10px] font-black uppercase tracking-[0.16em] text-[var(--brand)]">
+                Current
+              </span>
             )}
-          </p>
-          <p className="text-xs text-slate-500">{desc}</p>
-        </div>
+          </span>
+          <span className="text-pretty mt-0.5 block text-xs leading-5 text-[var(--muted)]">
+            {desc}
+          </span>
+        </span>
+        <span className="hidden text-right text-[10px] font-black uppercase tracking-wider text-[var(--muted)] sm:block">
+          {time}
+        </span>
       </Link>
     </li>
   );
 }
 
+function PulseMetric({
+  label,
+  value,
+  unit,
+}: {
+  label: string;
+  value: string;
+  unit: string;
+}) {
+  return (
+    <div className="rounded-2xl border border-[var(--line)] bg-white p-3.5">
+      <p className="text-[10px] font-bold text-[var(--muted)]">{label}</p>
+      <p className="number-tabular mt-1 text-3xl font-black tracking-[-0.05em] text-[var(--ink)]">
+        {value}
+        {unit && <span className="ml-1 text-xs font-bold text-[var(--muted)]">{unit}</span>}
+      </p>
+    </div>
+  );
+}
+
 function QuickLink({
   href,
-  emoji,
+  code,
   label,
+  detail,
 }: {
   href: string;
-  emoji: string;
+  code: string;
   label: string;
+  detail: string;
 }) {
   return (
     <Link
       href={href}
-      aria-label={label}
-      className="rounded-2xl border border-slate-200 bg-white px-3 py-4 text-center shadow-sm active:scale-[0.99]"
+      className="product-surface product-interactive group rounded-2xl p-4 active:scale-[0.99]"
     >
-      <p aria-hidden="true" className="text-2xl">{emoji}</p>
-      <p className="mt-1 text-xs font-semibold">{label}</p>
+      <span className="flex items-center justify-between gap-3">
+        <span className="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--brand)]">
+          {code}
+        </span>
+        <span aria-hidden="true" className="text-[var(--muted)] transition-transform group-hover:translate-x-0.5">→</span>
+      </span>
+      <span className="mt-5 block text-sm font-black text-[var(--ink)]">{label}</span>
+      <span className="text-pretty mt-1 block text-xs leading-5 text-[var(--muted)]">{detail}</span>
     </Link>
   );
 }
 
 function MockLink({
   href,
-  ariaLabel,
   eyebrow,
   title,
   detail,
-  parts,
-  indigo = false,
+  note,
+  primary = false,
 }: {
   href: string;
-  ariaLabel: string;
   eyebrow: string;
   title: string;
   detail: string;
-  parts: string;
-  indigo?: boolean;
+  note: string;
+  primary?: boolean;
 }) {
   return (
     <Link
       href={href}
-      aria-label={ariaLabel}
-      className={`mt-3 block rounded-2xl border bg-white p-3 shadow-sm active:scale-[0.99] ${
-        indigo ? "border-indigo-100" : "border-slate-200"
+      className={`product-interactive group flex min-h-48 flex-col rounded-2xl border p-4 active:scale-[0.99] sm:p-5 ${
+        primary
+          ? "border-transparent bg-[var(--brand-deep)] text-white shadow-[0_16px_38px_rgba(30,44,88,0.2)]"
+          : "border-[var(--line)] bg-[var(--canvas)] text-[var(--ink)]"
       }`}
     >
-      <p className={`text-xs uppercase tracking-widest ${indigo ? "text-indigo-400" : "text-slate-400"}`}>
+      <span className={`text-[10px] font-black uppercase tracking-[0.2em] ${primary ? "text-[var(--signal)]" : "text-[var(--brand)]"}`}>
         {eyebrow}
-      </p>
-      <p className="mt-1 text-sm font-bold text-slate-900">{title}</p>
-      <p className="mt-1 text-[11px] text-slate-500">{detail}</p>
-      <p className={`mt-2 text-[10px] ${indigo ? "text-indigo-400" : "text-slate-400"}`}>
-        {parts}
-      </p>
+      </span>
+      <span className="text-balance mt-4 block text-lg font-black tracking-[-0.025em]">{title}</span>
+      <span className={`mt-1 block text-xs font-semibold ${primary ? "text-white/70" : "text-[var(--muted)]"}`}>
+        {detail}
+      </span>
+      <span className={`mt-auto flex items-end justify-between gap-3 pt-6 text-[11px] ${primary ? "text-white/55" : "text-[var(--muted)]"}`}>
+        {note}
+        <span
+          aria-hidden="true"
+          className={`grid h-8 w-8 shrink-0 place-items-center rounded-full transition-transform group-hover:translate-x-0.5 ${
+            primary ? "bg-[var(--signal)] text-[var(--ink)]" : "bg-white text-[var(--ink)]"
+          }`}
+        >
+          →
+        </span>
+      </span>
     </Link>
   );
 }

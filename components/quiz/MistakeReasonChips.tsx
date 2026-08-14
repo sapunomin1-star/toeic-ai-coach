@@ -45,13 +45,8 @@ function ReasonChip({
 }) {
   const label = reasonLabel(reason, part);
   return (
-    <button
-      type="button"
-      role="radio"
-      aria-checked={active}
-      aria-label={suggested && !active ? `${label}（系統建議，尚未確認）` : label}
-      onClick={() => onSelect(reason)}
-      className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500 ${
+    <label
+      className={`cursor-pointer rounded-full border px-3 py-1.5 text-xs font-semibold transition has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-indigo-500 ${
         active
           ? "border-indigo-500 bg-indigo-600 text-white shadow-sm"
           : suggested
@@ -59,11 +54,20 @@ function ReasonChip({
           : "border-slate-200 bg-white text-slate-700 hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-800"
       }`}
     >
+      <input
+        type="radio"
+        name="mistake-reason"
+        value={reason}
+        checked={active}
+        onChange={() => onSelect(reason)}
+        aria-label={suggested && !active ? `${label}（系統建議，尚未確認）` : label}
+        className="sr-only"
+      />
       {label}
       {suggested && !active && (
         <span className="ml-1 text-[10px] font-medium text-indigo-500">建議</span>
       )}
-    </button>
+    </label>
   );
 }
 

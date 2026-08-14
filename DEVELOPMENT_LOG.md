@@ -1,5 +1,125 @@
 # TOEIC AI Coach Development Log
 
+## Product Design Maturity Upgrade - 2026-08-14
+
+### Goal
+
+Move the existing, technically mature study tool from a collection of Tailwind
+feature screens toward a coherent product-design submission: one clear daily
+decision, visible personalization logic, credible progress evidence, a
+responsive desktop presentation, and a documented design rationale. The
+learning rules, question IDs, persistence keys, sync behavior, and exam pacing
+remain unchanged.
+
+### Product and experience changes
+
+- **Home**: rebuilt the first viewport around one adaptive coach prescription,
+  a visible three-step learning loop, a real seven-day activity pulse, and a
+  single current priority. Optional drills and mock exams now sit below the
+  core task instead of competing with it.
+- **Daily practice**: replaced eight equal-weight task rows with four purposeful
+  modules (precision, listening, reading transfer, and recovery). Added an
+  explicit "why this plan" explanation using the real ordering, sample, load,
+  and atomic-passage rules.
+- **Vocabulary**: changed the long expanded list into a focused one-card deck.
+  Learners recall before revealing, self-rate, and move forward automatically;
+  the full daily list remains available through progressive disclosure.
+- **Dashboard**: added a seven-day answer/accuracy trend and previous-window
+  comparison, then reordered the page as progress evidence → diagnosis →
+  action → capability profile → mock benchmarks. Insufficient data produces an
+  honest baseline state rather than a fabricated trend.
+- **Responsive shell**: mobile retains the bottom navigation; desktop now uses
+  a full top navigation and wide home/dashboard layouts while focused answer
+  flows stay constrained for reading.
+- **Design system**: introduced semantic canvas/surface/ink/brand/signal/status
+  tokens, reusable product surface and interaction treatments, improved
+  typography hierarchy, safe motion, and a bespoke Open Graph social card.
+
+### Accessibility and interaction quality
+
+- Daily and vocabulary quiz choices now use native radio inputs, providing the
+  expected arrow-key behavior and one tab stop per group.
+- Mistake-reason controls also use native radio semantics while retaining the
+  suggested-versus-confirmed distinction.
+- Mock exam previous/next/submit controls now meet the 44px mobile touch target.
+- Quiz loading, empty, finished, missing-question, and bank-error states now
+  expose real headings and clearer recovery copy.
+- Existing skip-link, focus-visible, reduced-motion, safe-area, progressbar,
+  and local-first status behavior were preserved.
+
+### Design handoff
+
+- Added `docs/PRODUCT_CASE_STUDY.md`: problem framing, target-user assumptions,
+  design principles, before/after decisions, learning-mechanism evidence,
+  honest limitations, a 3–5 participant usability-test plan, success metrics,
+  and a three-minute professor demo script.
+- Corrected README credibility gaps: current bank count is 3,303, persistence is
+  local-first with optional Upstash sync, and media existence is not conflated
+  with offline structural integrity.
+
+### Verification
+
+- `npm run lint`: passed.
+- `./node_modules/.bin/tsc --noEmit`: passed.
+- `npm test`: passed all six regression scripts; printed quota errors are the
+  tests' intentional failure-path assertions.
+- `npm run build`: passed (Next.js 16.2.12, 18 generated routes).
+- `pipeline/npm run check`: passed for 3,303 questions with every reported
+  integrity issue count at zero.
+- Production HTTP smoke: 12 primary, auth, focus, mock, and review routes all
+  returned HTTP 200.
+- `git diff --check`: passed.
+
+## Sync CAS Convergence Fix - 2026-08-11
+
+### Symptom and production evidence
+
+The live status chip changed from `同步中…` to `同步異常` even though Vercel
+showed every `GET /api/sync` and `POST /api/sync` returning HTTP 200. The
+request pattern was one pull followed by four closely spaced pushes: the
+client was reaching Redis successfully, but its strictly-newer CAS writes
+could not converge.
+
+Two client bugs combined:
+
+1. A POST rejection contains only the keys rejected by CAS, but
+   `applyRemoteEnvelopes()` treated it like a full cloud snapshot. Every local
+   key omitted from the response was mistaken for a key missing in Redis and
+   was marked dirty, including unrelated keys the same POST had just accepted.
+2. `pushLocal` kept an existing meta timestamp. After an equal or newer Redis
+   timestamp rejected it once, every retry sent the same losing timestamp;
+   after the bounded retry count the honest status indicator showed an error.
+
+### Fix
+
+- Scope POST reconciliation to the rejected envelopes only; full GET pulls
+  still reconcile all 12 sync keys.
+- Preserve the manual-review merger's answer-history dependency by reading the
+  current local answer records without reconciling an unrelated key.
+- Give re-queued local state a timestamp strictly newer than the rejecting
+  server envelope, while preserving tombstones and later concurrent writes.
+- Advance per-key local timestamps monotonically, so two writes in the same
+  millisecond remain distinguishable and an older in-flight push cannot mark a
+  later write clean.
+- Carry value-vs-tombstone state explicitly when re-queuing, so a live value
+  recreated while logged out cannot be uploaded as a stale deletion.
+- Settle equal content/equal timestamps (including tombstones) so accepted
+  dirty residue clears instead of looping.
+
+Existing dirty state self-recovers on the next full pull; no learning data or
+sync metadata needs to be cleared.
+
+### Verification
+
+- Expanded `sync-status-check.ts` from 4 to 9 cases: partial-rejection
+  isolation, equal-timestamp settlement, logout/study/login local-superset
+  recovery, clock-skewed merge convergence, and stale-tombstone recovery.
+- Added pure reconciliation assertions for equal tombstones and logical
+  timestamps beyond a future server envelope, plus same-millisecond timestamp
+  monotonicity and stale `markClean()` protection.
+- `npm test`, `npm run lint`, `tsc --noEmit`, `npm run build`,
+  `pipeline/npm run check`, and `git diff --check`: passed.
+
 ## Listening Import — Part 1 Photographs - 2026-07-29
 
 The six Part 1 items from the Eduwill mock now ship, taking the bank to

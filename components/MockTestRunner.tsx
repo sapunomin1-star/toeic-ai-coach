@@ -501,17 +501,17 @@ export default function MockTestRunner({ mode }: { mode: MockMode }) {
         <div className="sticky bottom-0 border-t border-slate-200 bg-white px-3 py-2">
           <div className="flex items-center justify-between">
             <button onClick={() => goToQuestion(Math.max(0, currentIndex - 1))} disabled={currentIndex === 0}
-              className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 disabled:opacity-30">
+              className="min-h-11 rounded-lg border border-slate-200 px-3 py-2 text-xs font-medium text-slate-600 disabled:opacity-30">
               ← 上一題
             </button>
             <span className="text-xs text-slate-400">{currentIndex + 1} / {questions.length}</span>
             {currentIndex < questions.length - 1 ? (
               <button onClick={() => goToQuestion(Math.min(questions.length - 1, currentIndex + 1))}
-                className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600">
+                className="min-h-11 rounded-lg border border-slate-200 px-3 py-2 text-xs font-medium text-slate-600">
                 下一題 →
               </button>
             ) : (
-              <button onClick={confirmSubmit} className="rounded-lg bg-slate-900 px-4 py-1.5 text-xs font-bold text-white">
+              <button onClick={confirmSubmit} className="min-h-11 rounded-lg bg-slate-900 px-4 py-2 text-xs font-bold text-white">
                 交卷
               </button>
             )}
