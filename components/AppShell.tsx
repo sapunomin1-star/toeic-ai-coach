@@ -67,7 +67,7 @@ export default function AppShell({ children }: { children: ReactNode }) {
                 <span className="block text-sm font-black tracking-[-0.02em] text-[var(--ink)]">
                   TOEIC AI
                 </span>
-                <span className="mt-1 block text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--muted)]">
+                <span className="mt-1 hidden text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--muted)] min-[380px]:block">
                   Personal coach
                 </span>
               </span>
@@ -94,7 +94,10 @@ export default function AppShell({ children }: { children: ReactNode }) {
                 );
               })}
             </nav>
-            <div className="flex min-w-0 items-center justify-end">
+            <div className="flex shrink-0 items-center justify-end gap-1 text-xs sm:gap-2 sm:text-sm">
+              <Link href="/study-plan" aria-current={pathname === "/study-plan" ? "page" : undefined} className="inline-flex min-h-11 items-center whitespace-nowrap rounded-xl px-2 text-xs font-bold text-[var(--muted)] hover:bg-white hover:text-[var(--ink)]">
+                學習目標
+              </Link>
               <SyncStatusChip />
             </div>
           </div>
