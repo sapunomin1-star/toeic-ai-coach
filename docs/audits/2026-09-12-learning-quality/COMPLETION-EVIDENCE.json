@@ -164,6 +164,58 @@
         "currentTime": 14.785959
       }
     ],
-    "audioErrors": []
+    "audioErrors": [],
+    "mockReview": {
+      "syntheticQuestions": 100,
+      "unansweredBadges": 100,
+      "incorrectBadges": 0,
+      "submittedAndReviewed": true
+    }
+  },
+  "production": {
+    "verifiedAt": "2026-09-17T14:51:07.980935+00:00",
+    "sourceCommit": "a9d89e27128b862151458eb5c6ed56bfa37a3bbe",
+    "deploymentId": "dpl_AjSoCC4sXCyc6QqeZyR9RbNDSHWo",
+    "target": "production",
+    "readyState": "READY",
+    "alias": "https://toeic-ai-coach-ten.vercel.app",
+    "deploymentUrl": "https://toeic-ai-coach-oxm6y41t8-jjjames-projects.vercel.app",
+    "routes": [
+      "/",
+      "/practice",
+      "/quiz",
+      "/wrongbook",
+      "/dashboard",
+      "/vocabulary",
+      "/vocabulary-quiz",
+      "/vocabulary-quiz?mode=backlog",
+      "/vocabulary-quiz?mode=random",
+      "/study-plan",
+      "/mock-test",
+      "/listening-mock",
+      "/full-mock"
+    ],
+    "errors": [],
+    "mobile": "390px, no horizontal overflow",
+    "newGloss": [
+      {
+        "key": "[\"enviable\",\"adjective\",\"令人羨慕的\"]",
+        "term": "enviable",
+        "questionId": "p5-xd-0239",
+        "addedAt": "2026-09-17T14:49:28.285Z",
+        "meaning_zh": "令人羨慕的",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "contentRevision": "2026-09-17T14:21:05.318Z",
+    "mediaInitialMetadata": {
+      "src": "https://wffwoer172mjjgyi.public.blob.vercel-storage.com/audio/p2-gen-116-quality-20260917.mp3",
+      "duration": 11.617439
+    },
+    "fullPlayback": {
+      "src": "https://wffwoer172mjjgyi.public.blob.vercel-storage.com/audio/p2-gen-116-quality-20260917.mp3",
+      "duration": 13.561959,
+      "ended": true
+    }
   }
 }

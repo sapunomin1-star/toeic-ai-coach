@@ -24,7 +24,11 @@ report: `docs/audits/2026-09-12-learning-quality/COMPLETION-2026-09-17.md`.
 - All ten test scripts, app/pipeline typechecks, ESLint, 19-page production
   build, pipeline integrity and 1,090 media checks pass. Local browser smoke
   covers 13 routes/modes, 390px mobile, full Part 6/7 groups, controlled Part 3
-  timing and sense-specific queues. Final release details are in the report.
+  timing and sense-specific queues. Code `a9d89e2` is pushed and deployed to
+  https://toeic-ai-coach-ten.vercel.app (Vercel deployment
+  `dpl_AjSoCC4sXCyc6QqeZyR9RbNDSHWo`, Ready/production). Independent production
+  smoke repeats 13 routes, verifies new glosses/audio/revision stamps and reports
+  zero console/page errors. Final release details are in the report.
 
 ## Learning Quality Follow-up Review - 2026-09-17
 

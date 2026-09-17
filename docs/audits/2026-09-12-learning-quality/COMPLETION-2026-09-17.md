@@ -27,11 +27,17 @@
 | `npm run check-media` | 1,090/1,090，含 4 個自訂版本網址 |
 | 獨立瀏覽器 smoke | 13 路由／模式、390 px 手機版、Part 6/7 各 4 題、Part 3 事件計時與義項佇列通過，console/pageerror 0 |
 
-新版四段音檔已於瀏覽器各完整播放到 ended，時長 13.56／14.91／15.36／14.79 秒，四題正確作答皆落盤可見／播放計時；新增 enviable 釋義可入待學並保留正確意思、不虛配 SRS 字卡。模考交卷與正式站結果在發布後記錄於下方。測試全程使用獨立瀏覽器及合成 localStorage，未操作真實帳戶的學習紀錄或雲端資料。故障注入測試會刻意產生 storage warning，並斷言介面不假報成功。
+新版四段音檔已於瀏覽器各完整播放到 ended，時長 13.56／14.91／15.36／14.79 秒，四題正確作答皆落盤可見／播放計時；新增 enviable 釋義可入待學並保留正確意思、不虛配 SRS 字卡。模考交卷與正式站結果詳見下方發布紀錄。測試全程使用獨立瀏覽器及合成 localStorage，未操作真實帳戶的學習紀錄或雲端資料。故障注入測試會刻意產生 storage warning，並斷言介面不假報成功。
 
 ## 發布紀錄
 
-本地程式、內容、四題音檔完整播放、新增詞義入列與合成 100 題閱讀模考交卷／詳解流程已通過。最後版本標記已經單元測試與瀏覽器落盤確認；100 題留白詳解有 200 個「未作答」（標章＋答案），零「答錯」標章。最新版本重新通過建置、型別、lint、十組測試。提交並推送後，部署既有 Vercel 專案；正式網址與部署資訊將補於此處。
+- 程式 commit：`a9d89e27128b862151458eb5c6ed56bfa37a3bbe`，已推送 `origin/agent/product-design-upgrade`，含先前尚未推送的 `6782adf`／`b91ad89`。
+- 2026-09-17 晚間（Asia/Taipei）執行 `vercel deploy --prod --yes`，部署 `dpl_AjSoCC4sXCyc6QqeZyR9RbNDSHWo` 已為 **Ready / production**。
+- 正式網址：[TOEIC AI Coach](https://toeic-ai-coach-ten.vercel.app)；固定部署網址：[本次版本](https://toeic-ai-coach-oxm6y41t8-jjjames-projects.vercel.app)。`vercel inspect` 確認正式別名指向上述部署。
+- 正式站以全新隔離瀏覽器重跑 13 路由／模式、Part 6/7 各四題、Part 3 計時接線、同字不同義入列／移除、390 px 手機版，console/pageerror 0。
+- 正式站 `enviable` 顯示新釋義「令人羨慕的」並可入待學；Part 2 顯示修正後選項、`quality-20260917` 音檔及 AI 語音標示，作答帶有正確 contentRevision；正式站再完整播放 p2-gen-116 至 ended，實際時長 13.561959 秒。
+- 本地四題音檔完整播放、新增詞義入列與合成 100 題閱讀模考交卷／詳解流程通過。100 題留白詳解有 200 個「未作答」（標章＋答案），零「答錯」標章。最新版本重新通過建置、型別、lint、十組測試。
+- 後續文件提交只補部署證據，不改已發布的程式或資料。
 
 ## 說明
 
