@@ -15,3 +15,5 @@ coverage
 .env*
 pipeline/.env*
 .sync-dev-store.json
+
+data/.question-bank.lock

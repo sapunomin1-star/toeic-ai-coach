@@ -2872,3 +2872,14 @@ not a confidence system and does not create fake wrong answers.
   in `getReviewableIds()` and `getWrongBookEntries()`; a correct practice answer
   removed the manual entry; an incorrect practice answer converted the item into
   a normal wrong-book entry.
+
+
+## 2026-09-17 — 題庫擴充架構重構
+
+依使用者要求整理題庫擴充的核心依賴：`data/questions.ts` 675 → 23 行組裝入口，選題與 catalog 分離；既有 11 份來源改由 manifest 登錄，新題庫可使用有版本的 JSON pack。新增 `npm run questions -- new/list/import/check/sync`，包含 Part 1–7 草稿、預覽、拒絕碰撞／不完整題組／缺釋義、明確寫入。LLM 與 JSON 共用 runtime schema，兩套 expansion promotion 共用 writer。新增 Part / ID 索引與 source filter，保留 browser lazy façade。完整操作：[docs/QUESTION_BANKS.md](docs/QUESTION_BANKS.md)。
+
+新增 `npm run verify` 與第 11 組 question-bank 回歸測試，涵蓋匯入真實暫存檔往返、生成 registry 載入、既有 ID 保護、錯誤格式、品質門檻與 client 靜態依賴邊界。root 固定使用本地安裝的 tsx，避免逐個 test 下載 runtime。
+
+對照基準 e8c5283：3,303 題內容／順序、25 seeds × 4 類計畫、篩選結果 SHA-256 完全一致。雙套件 typecheck、lint、11 suites、pipeline、build、1,090 媒體全部通過；13 個頁面／模式與完整閱讀作答、聽力計時、待學清單、閱讀模考詳解、390px 手機驗證通過。11,625 單字連結仍全支援，零債務。完整報告與 JSON 證據位於 `docs/2026-09-17-architecture-refactor.md`、`docs/2026-09-17-refactor-evidence.json`。
+
+安裝時發現既有依賴公告，更新 Next.js 16.3.5／sharp 0.35.4 及相容間接依賴；root 與 pipeline npm audit 均為零已知漏洞。沒有新增正式題目、改動 learner storage keys 或呼叫付費 AI。

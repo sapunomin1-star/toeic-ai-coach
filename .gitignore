@@ -52,3 +52,6 @@ next-env.d.ts
 
 # local dev sync backend (scripts/sync E2E without Upstash)
 .sync-dev-store.json
+
+# Local content import lock (removed on normal completion)
+/data/.question-bank.lock

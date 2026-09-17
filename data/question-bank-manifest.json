@@ -1,0 +1,68 @@
+[
+  {
+    "id": "part5",
+    "title": "核心 Part 5",
+    "file": "questions-part5.ts",
+    "exportName": "QUESTIONS_PART5"
+  },
+  {
+    "id": "part6",
+    "title": "核心 Part 6",
+    "file": "questions-part6.ts",
+    "exportName": "QUESTIONS_PART6"
+  },
+  {
+    "id": "part7",
+    "title": "核心 Part 7",
+    "file": "questions-part7.ts",
+    "exportName": "QUESTIONS_PART7"
+  },
+  {
+    "id": "listening",
+    "title": "核心聽力",
+    "file": "questions-listening.ts",
+    "exportName": "QUESTIONS_LISTENING"
+  },
+  {
+    "id": "generated",
+    "title": "生成與擴充題庫",
+    "file": "questions-generated.ts",
+    "exportName": "GENERATED_QUESTIONS"
+  },
+  {
+    "id": "imported-xd",
+    "title": "XD 閱讀題庫",
+    "file": "questions-imported-xd.ts",
+    "exportName": "IMPORTED_QUESTIONS_XD"
+  },
+  {
+    "id": "imported-ed",
+    "title": "ED 閱讀題庫",
+    "file": "questions-imported-ed.ts",
+    "exportName": "IMPORTED_QUESTIONS_ED"
+  },
+  {
+    "id": "imported-ed-listening",
+    "title": "ED 聽力題庫",
+    "file": "questions-imported-ed-listening.ts",
+    "exportName": "IMPORTED_LISTENING_ED"
+  },
+  {
+    "id": "part7-triple",
+    "title": "Part 7 三篇閱讀",
+    "file": "questions-part7-triple.ts",
+    "exportName": "QUESTIONS_PART7_TRIPLE"
+  },
+  {
+    "id": "part2-indirect",
+    "title": "Part 2 間接應答",
+    "file": "questions-part2-indirect.ts",
+    "exportName": "QUESTIONS_PART2_INDIRECT"
+  },
+  {
+    "id": "listening-extra",
+    "title": "補充聽力",
+    "file": "questions-listening-extra.ts",
+    "exportName": "QUESTIONS_LISTENING_EXTRA"
+  }
+]

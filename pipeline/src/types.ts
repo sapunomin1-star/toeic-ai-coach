@@ -1,4 +1,4 @@
-import type { SkillTag, Difficulty, Part, Choice } from "../../types/question";
+import type { Question, SkillTag, Difficulty, Part } from "../../types/question";
 
 // ─── Pattern types ──────────────────────────────────────────────────────────
 
@@ -53,35 +53,7 @@ export type PatternLibrary = {
 // ─── Generation types ───────────────────────────────────────────────────────
 
 /** Raw LLM output before validation */
-export type RawGeneratedQuestion = {
-  id: string;
-  part: Part;
-  question: string;
-  choices: {
-    A: string;
-    B: string;
-    C: string;
-    D?: string;
-  };
-  answer: Choice;
-  explanation_zh: string;
-  explanation_en?: string;
-  skill_tag: SkillTag;
-  difficulty: Difficulty;
-  vocabulary: string[];
-  transcript?: string;
-  passage?: string;
-  imageUrl?: string;
-  imageAlt?: string;
-  audioUrl?: string;
-  audioChoices?: {
-    A: string;
-    B: string;
-    C: string;
-    D?: string;
-  };
-  audioScript?: string;
-};
+export type RawGeneratedQuestion = Question & { vocabulary: string[] };
 
 export type PipelineConfig = {
   part: string[];
@@ -92,11 +64,7 @@ export type PipelineConfig = {
 
 // ─── Validation types ───────────────────────────────────────────────────────
 
-export type ValidationResult = {
-  valid: boolean;
-  errors: string[];
-  warnings: string[];
-};
+export type { ValidationResult } from "../../lib/questions/validation";
 
 // ─── Integrity check types ──────────────────────────────────────────────────
 

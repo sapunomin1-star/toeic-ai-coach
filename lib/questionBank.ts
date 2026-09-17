@@ -12,7 +12,12 @@ import { createLazyLoader } from "@/lib/lazyLoader";
  */
 
 export type QuestionBankModule = typeof import("@/data/questions");
-export type { PlanCounts, QuestionFilter } from "@/data/questions";
+export type { QuestionFilter } from "@/lib/questions/catalog";
+export type {
+  DailyPlanOptions,
+  PlanCounts,
+  PlanFocus,
+} from "@/lib/questions/dailyPlan";
 
 const questionBankLoader = createLazyLoader<QuestionBankModule>(
   () => import("@/data/questions"),

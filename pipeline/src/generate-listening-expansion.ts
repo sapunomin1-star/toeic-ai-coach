@@ -16,6 +16,7 @@ import * as path from "path";
 import { fileURLToPath } from "url";
 import OpenAI from "openai";
 
+import { appendQuestions } from "./questions-writer";
 import { QUESTIONS } from "../../data/questions";
 import type { Choice } from "../../types/question";
 import { deepseek, getLlmUsage } from "./llm-client";
@@ -25,7 +26,6 @@ import { validateQuestion, validateQuestionGroup } from "./validator";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUTPUT_DIR = path.resolve(__dirname, "../output");
-const GENERATED_DATA_PATH = path.resolve(__dirname, "../../data/questions-generated.ts");
 const GPT_MODEL = "openai/gpt-4o";
 const OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1";
 
@@ -564,16 +564,7 @@ function promote(file: string): void {
   const questions = JSON.parse(fs.readFileSync(resolved, "utf8")) as ListeningQuestion[];
   const part = questions[0]?.part.replace("Part ", "") as ListeningPart;
   validateBatch(questions, part, questions.length);
-  const currentIds = new Set(QUESTIONS.map((q) => q.id));
-  const duplicate = questions.find((q) => currentIds.has(q.id));
-  if (duplicate) throw new Error(`Duplicate ID: ${duplicate.id}`);
-  const source = fs.readFileSync(GENERATED_DATA_PATH, "utf8");
-  const close = source.lastIndexOf("\n];");
-  if (close < 0) throw new Error("Cannot find generated question array close");
-  const serialized = questions.map((q) => `  ${JSON.stringify(q, null, 2)}`).join(",\n");
-  const before = source.slice(0, close);
-  const separator = before.trimEnd().endsWith(",") ? "\n" : ",\n";
-  fs.writeFileSync(GENERATED_DATA_PATH, before + separator + serialized + source.slice(close), "utf8");
+  appendQuestions(questions);
   console.log(`Promoted ${questions.length} Part ${part} questions from ${resolved}`);
 }
 

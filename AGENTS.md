@@ -268,7 +268,7 @@ Items fixed in this pass:
 - **Escape regex special characters in user data before constructing `RegExp`.** `lib/vocabularyStorage.ts` `makeFillBlank` uses `escapeRegExp(item.word)` to prevent `.`, `+`, and other metacharacters from causing incorrect matches.
 - **Mock test plans must be exact.** `buildMockTestPlan()` must assert total=100, Part 5=30, Part 6=16, and Part 7=54. If valid Part 6/7 groups are insufficient, throw a clear error instead of returning a partial plan.
 - **Part 6 questions must have exactly 4 blanks per passage** labeled `____(A)____` through `____(D)____`.
-- **Do NOT embed generated questions inside `buildDailyPlan()` or helper functions.** Generated questions go in `data/questions-generated.ts`, imported and spread into the `QUESTIONS` array before `getQuestionsByPart`.
+- **Do NOT embed generated questions inside `buildDailyPlan()` or helper functions.** Legacy generator output goes in `data/questions-generated.ts` through `pipeline/src/questions-writer.ts`. New banks use the versioned JSON pack importer documented in `docs/QUESTION_BANKS.md`; the manifest registers both formats.
 - **Maintain answer distribution.** Target A/B/C/D each 20-30% across any new question batch.
 
 ### Performance Rules
@@ -278,7 +278,7 @@ Items fixed in this pass:
 - **No dynamic imports in hot paths — for code modules.** Example: `import("@/lib/mockStorage")` inside a click handler should be a top-level static import. Exception: the two data banks above are the one deliberate dynamic-import; event handlers await `ensureQuestionBankLoaded()` (the chunk is warmed by page/preview effects, so the await is normally instant) and must give pending/disabled feedback if they can run before the warm-up finishes.
 - **No inline IIFEs that iterate all records in JSX.** Extract to a memoized value or helper function.
 - **Use `endTime - Date.now()` for countdown timers, not `setInterval` accumulation.** This prevents drift on tab background/pause.
-- **`data/questions.ts` is already 6500+ lines.** At 1000+ questions, split into per-part files (`data/questions-part5.ts`, etc.) and import them into the main array.
+- **`data/questions.ts` is a small composition root.** Keep source registration in `data/question-bank-manifest.json`, regenerate `data/question-banks.generated.ts` with `npm run questions -- sync`, and put selection code in `lib/questions/`. Never reintroduce arrays or selection algorithms into the composition root.
 
 ### Type System Rules
 
@@ -626,3 +626,13 @@ Fixes for the 2026-09-12 review (`docs/audits/2026-09-12-learning-quality/REVIEW
 - Gloss drafts use exact question contexts, independent model review and checkpoints under ignored `pipeline/output/term-completion`. Only complete reviews can be applied. Editorial corrections and 29 spelling rules live in `pipeline/patches/term-gloss-quality.json`; canonicalization changes teaching tags only, never spoken prompts/options. Do not blindly accept reviewer rewrites.
 - General glosses are teaching notes, not new SRS cards. The full card bank remains 1,500 and new-card limits remain 20/day. Full link coverage is not a claim that all content is semantically flawless or that score gains are proven.
 - `check-media` verifies actual URL overrides as well as convention paths; root-relative overrides require `MEDIA_APP_ORIGIN`. Versioned audio is immutable and the player identifies AI synthetic speech.
+
+## Question Bank Architecture (2026-09-17 refactor)
+
+- Extension guide: `docs/QUESTION_BANKS.md`. New packs use `npm run questions -- new <id> <draft.json> --part 1..7`, then `import <draft.json>` for read-only review and `import <draft.json> --write` for addition. Do not automatically generate/publish draft content.
+- Single registry: `data/question-bank-manifest.json` → generated static imports. Preserve manifest ordering, question IDs and array ordering when moving existing sources. `predev`, `prebuild`, pipeline integrity and regression checks reject a stale registry.
+- `lib/questions/catalog.ts` indexes IDs/Parts and source ownership. `dailyPlan.ts`, `mockPlans.ts`, `groups.ts`, `selection.ts` contain content-independent logic. `createBank.ts` binds a catalog; the existing browser lazy facade remains unchanged. Source filters use `queryQuestions({ bankIds })`.
+- `lib/questions/validation.ts` validates unknown LLM/JSON values; `pipeline/src/validator.ts` is only a compatible re-export. `pack.ts` enforces the versioned import schema, stable Part-prefixed IDs, complete ordered groups and unique blanks. Keep generated/raw question types derived from `Question`.
+- `scripts/questions/service.ts` checks cross-bank collisions, combined quality and new vocabulary links before an import. A new JSON bank may not split an existing transcript/passage group. The additive importer never overwrites an existing bank; deliberate edits go through the existing content revision process.
+- `npm run verify`: root + pipeline types, lint, isolated regression suites, pipeline quality and build. `npm --prefix pipeline run check-media` remains separate for media changes. Root pins its own tsx via lockfile; tests never depend on npx downloading a runtime.
+- `scripts/question-bank-check.ts` covers malformed input, all seven templates, group completeness, source filters, import round trip/refusal, exact mocks and the static client dependency boundary. Do not weaken the bundle guard or content-quality gates for a new source.

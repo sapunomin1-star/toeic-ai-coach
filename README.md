@@ -31,7 +31,7 @@
 
 ### 環境需求
 
-- Node.js **20+**（Next.js 16 需求）
+- Node.js **20.9+**（Next.js 16 需求）
 - npm
 
 ### 安裝與啟動
@@ -225,7 +225,9 @@ toeic-ai-coach/
 
 `pipeline/` 是獨立於 Next.js build 的離線工具（自有 `package.json`，用 tsx 執行）。
 
-- `data/questions.ts`：題庫聚合 + 輔助函式（`getQuestionsByPart`、`buildDailyPlan`、`buildMockTestPlan`、`buildListeningMockPlan`）
+- `data/questions.ts`：延遲載入的相容組裝入口；查詢、日課、模考與分組位於 `lib/questions/`
+- `data/question-bank-manifest.json`：題庫登錄表；新題庫用 `npm run questions -- import <draft.json>` 預覽，加 `--write` 才寫入
+- 新增題目、各 Part 草稿、釋義／音檔規則與架構說明：[題庫擴充指南](docs/QUESTION_BANKS.md)
 - `data/questions-part5/6/7.ts`、`questions-listening.ts`、`questions-generated.ts`：拆檔題庫（避免 TS union 複雜度上限）
 - `data/vocabulary.ts`（手寫核心）+ `vocabulary-generated.ts`（AI 生成）
 
@@ -233,7 +235,7 @@ toeic-ai-coach/
 cd pipeline
 npm run check                        # 資料完整性檢查
 npm run check-media                  # 媒體存在性檢查（HEAD 驗證 Blob）
-npx tsx src/mark-groups.ts --write   # 標記 Part 6/7 passage group
+## 新 JSON 題庫使用 questions new 的題組骨架；legacy mark-groups 僅供舊資料維護
 ```
 
 ---
@@ -247,12 +249,9 @@ npm run build          # production build
 npm run lint           # ESLint
 npx tsc --noEmit       # TypeScript 型別檢查
 
-# 完整 QA（建議 push 前全跑一次）
-npm run lint
-npx tsc --noEmit
-npm run build
-cd pipeline && npm run check
-cd pipeline && npm run check-media
+# 完整 QA（根目錄；需先 npm ci 及 npm --prefix pipeline ci）
+npm run verify         # 雙套件型別、lint、11 組回歸測試、題庫品質、build
+npm --prefix pipeline run check-media  # 媒體變更時另跑
 
 # 回歸測試（備份匯入 null 崩潰）
 npx tsx scripts/repro-c1.ts
