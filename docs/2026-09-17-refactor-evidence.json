@@ -1,0 +1,84 @@
+{
+  "baselineCommit": "e8c5283",
+  "checkedAt": "2026-09-17",
+  "before": {
+    "questions": 3303,
+    "content": "4fc91da30364ae974cdd4f5168a6046817359248f8920a8fb3eef9cd77df6e80",
+    "selection": "f4440a329ab06c41742ed399f21d1930c95c3ba20e44d8d26803058cf393357f",
+    "filters": "13d4ccdc0d7e72b2bc3be761ee406798035941d3796e9db10194f85bb8910e50"
+  },
+  "after": {
+    "questions": 3303,
+    "content": "4fc91da30364ae974cdd4f5168a6046817359248f8920a8fb3eef9cd77df6e80",
+    "selection": "f4440a329ab06c41742ed399f21d1930c95c3ba20e44d8d26803058cf393357f",
+    "filters": "13d4ccdc0d7e72b2bc3be761ee406798035941d3796e9db10194f85bb8910e50"
+  },
+  "selectionScenarios": {
+    "seeds": 25,
+    "plansPerSeed": 4,
+    "description": "default daily, focused daily with review+seen IDs, reading mock with seen IDs, listening mock with seen IDs"
+  },
+  "checks": {
+    "typecheck": "passed (root + pipeline)",
+    "lint": "passed",
+    "tests": "11 suites passed",
+    "pipeline": "3303 questions, zero integrity violations, 11625 fully supported term links",
+    "media": "1090/1090",
+    "build": "Next.js 16.3.5, 19/19 generated",
+    "npmAudit": "root 0; pipeline 0"
+  },
+  "browser": {
+    "routes": 13,
+    "readingGroups": "Part 6 x4 and Part 7 x4, full persisted timing metadata",
+    "audioTiming": "conversation + question audio callbacks",
+    "queue": "contextual sense preserved; add/remove passed",
+    "mobileWidth": 390,
+    "horizontalOverflow": false,
+    "consoleErrors": [],
+    "readingMockReview": "100 questions after submit; 99 unanswered displayed separately",
+    "listeningMedia": {
+      "imageNaturalWidth": 390,
+      "audioDuration": 18.384,
+      "errors": []
+    }
+  },
+  "production": {
+    "codeCommit": "4845c2d80d70b1ee06880e876a4b8b93dcbac636",
+    "deploymentId": "dpl_2hAAsfPrUGtxMWYhKLZbvmjRJFNg",
+    "deploymentUrl": "https://toeic-ai-coach-5ns8vvrl7-jjjames-projects.vercel.app",
+    "alias": "https://toeic-ai-coach-ten.vercel.app",
+    "status": "Ready",
+    "browser": {
+      "routes": [
+        "/",
+        "/practice",
+        "/quiz",
+        "/wrongbook",
+        "/dashboard",
+        "/vocabulary",
+        "/vocabulary-quiz",
+        "/vocabulary-quiz?mode=backlog",
+        "/vocabulary-quiz?mode=random",
+        "/study-plan",
+        "/mock-test",
+        "/listening-mock",
+        "/full-mock"
+      ],
+      "consoleErrors": [],
+      "mobile": "390px, no horizontal overflow",
+      "readingGroups": [
+        {
+          "part": "Part 6",
+          "count": 4
+        },
+        {
+          "part": "Part 7",
+          "count": 4
+        }
+      ],
+      "audioRevision": "2026-09-17T14:21:05.318Z",
+      "newGloss": "enviable → 令人羨慕的",
+      "queue": "contextual sense preserved; add/remove passed"
+    }
+  }
+}

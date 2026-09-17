@@ -2,7 +2,9 @@
 
 個人多益自學工具 — 每日 20 個新字，加上約 15–30 分鐘核心題目訓練；把練習、錯題、單字、模擬考、考後檢討與分數預測整合在一個 **local-first** 的 Next.js App 裡。所有學習資料存在瀏覽器；**可選擇登入單人帳號啟用跨裝置同步**（Upstash Redis），未登入時完全單機、零網路請求。
 
-> 題庫 1,899 題（Part 1–7）＋ 單字庫 1,500 字，全部通過資料完整性與媒體存在性自動檢查。
+> 題庫 3,303 題（Part 1–7）＋ 單字庫 1,500 字；題目結構、答案、解析與題組完整性由 pipeline 自動檢查，媒體檔另有獨立的遠端存在性檢查。
+
+產品問題、設計策略、核心學習循環與教授展示腳本整理在 [`docs/PRODUCT_CASE_STUDY.md`](docs/PRODUCT_CASE_STUDY.md)。
 
 ---
 
@@ -10,6 +12,8 @@
 
 | 領域 | 功能 |
 |------|------|
+| **個人目標** | 可編輯目標分數、自填最近成績、考試日期與每段 10 / 15 / 20 / 30 分鐘；顯示倒數、考前提醒，設定包含於備份與跨裝置同步 |
+| **分段練習** | 完整日課依可用時間安排休息點，不拆散文章或聽力題組；首頁優先接續未完成練習與待確認解析 |
 | **每日練習** | 15–30 分鐘的動態今日教練：先排到期複習，再依弱點組卷；Part 6/7 使用完整文章題組，聽力配比會隨近期表現自適應調整 |
 | **錯題本** | 間隔複習（SRS：1 / 3 / 7 / 14 天），連續兩次「跨日」答對才算精熟；可手動分組複習 |
 | **單字系統** | 4 階段 SRS 閃卡（new → seen → familiar → mastered）＋ 固定 0.8x 的單字/例句語音（可不限次重播）＋ 單字測驗（英翻中 / 中翻英 / 例句填空），每日目標 20 個新字、答錯當日加強 |
@@ -27,7 +31,7 @@
 
 ### 環境需求
 
-- Node.js **20+**（Next.js 16 需求）
+- Node.js **20.9+**（Next.js 16 需求）
 - npm
 
 ### 安裝與啟動
@@ -58,7 +62,7 @@ npm run dev                  # http://localhost:3000
 - **Language**：TypeScript（`strict` 啟用，零 `any`）
 - **UI**：React 19 Client Components + Tailwind CSS v4
 - **媒體**：Vercel Blob（音檔 / 圖片，不進 git）
-- **儲存**：瀏覽器 localStorage（無後端）
+- **儲存**：localStorage 為主；登入後可選擇用 Upstash Redis 做單人跨裝置同步
 - **題目生成**：獨立的 `pipeline/` 套件（TypeScript + tsx，離線執行）
 
 ---
@@ -103,6 +107,7 @@ toeic-ai-coach/
 |-------|------|
 | `/` | 首頁、每日任務總覽 |
 | `/practice` | 今日練習計畫（預估時間、任務組成） |
+| `/study-plan` | 個人目標、考試倒數與每段訓練時間 |
 | `/quiz` | 作答流程、計時、Passage / 音檔 / 詳解、錯因標記 |
 | `/mock-test` | Reading 半套模擬考（100 題 / 75 分鐘） |
 | `/listening-mock` | Listening 半套模擬考（100 題 / 45 分鐘） |
@@ -121,7 +126,7 @@ toeic-ai-coach/
 
 ### 每日練習（自適應組卷）
 
-首頁會依「單字自評 → 單字驗收 → 今日訓練」的實際完成狀態，自動顯示下一個最佳行動。`/practice` 再依弱點建立當日計畫，預設組成：
+首頁先接回未完成的題目訓練或錯題複習（含待確認解析），沒有進行中的練習時，再依「單字自評 → 單字驗收 → 今日訓練」的完成狀態顯示下一步。`/practice` 再依弱點建立當日計畫，預設組成：
 
 - 到期錯題複習最多 3 題，排在最前面
 - 弱點補強 3 題（Part 5，依錯題分析挑最弱文法）＋ 新題 3 題（Part 5）
@@ -129,6 +134,14 @@ toeic-ai-coach/
 - 聽力 P1–4（預設 1 P1 + 2 P2 + 1 組 P3 + 1 組 P4）
 
 聽力配比會依「最近 10 題」表現自適應加強（某 Part 正確率 < 60% 且樣本足夠時自動加題），但每日聽力上限維持 12 題，避免弱點多時讓任務失控。
+
+### 學習目標與分段練習
+
+在 `/study-plan` 設定自己的目標分數、選填最近成績與考試日期，並選擇每段可用的題目訓練時間。分段只增加休息點，保留原本全部題目、順序與完整文章／聽力題組；超過時間預算的單一題組仍會完整保留。
+
+作答頁會顯示目前段落、題量與估計時間。看完段末解析可按「看完了，先休息」，首頁會從下一題接續；也可隨時暫停，已送出答案與待確認解析會保留。時間只是估計，不是強制倒數。每日 20 個新字與單字驗收仍須另外安排。
+
+目標分數不會被當成目前能力或保證達標預測。最近成績明確標示為自填；日期用裝置當地日曆計算，考前 14 天、考試日與日期已過會呈現不同提示。
 
 ### 錯題本與 SRS
 
@@ -141,8 +154,12 @@ toeic-ai-coach/
 
 - 6 階間隔：**0 / 1 / 3 / 7 / 14 / 30 天**；4 階狀態 new → seen → familiar → mastered。
 - 每日 session 分桶：今日加強（retry）/ 到期複習（due）/ 穩定複查（masteredReview）/ 新字（new）；新字固定目標 20，舊字重試最多 10、到期複習最多 5、穩定複查最多 2，避免積欠舊字擠掉新字。
-- 單字測驗三型：英翻中 / 中翻英 / 例句填空；**誘答選項優先取同詞性同情境**，避免一眼可刪。
-- 當日驗收後仍不熟的字可進入「今日加強」最多 2 輪。
+- 單字測驗三型：英翻中 / 中翻英 / 例句填空；**誘答選項優先取同詞性同情境**，避免一眼可刪。例句填空只在例句含字頭原形時出題（填回正解必須還原原句），填空誘答另排除近義字。
+- 當日驗收後仍不熟的字可進入「今日加強」最多 2 輪。首頁與單字頁分開顯示「已測／答對／待加強」，完成測驗不等於通過。
+- 「已掌握」＝連續答對 ≥3 次且**通過**排程 14 天的那次複習（不是排到 14 天就算）；三種題型都是四選一、填空沿用字卡例句，尚未測量換情境理解與不看選項的回想。
+- 到期複習每日核心課表最多 5 字（保留 20 新字偏好），超出的到期字會顯示延後數與最久延後天數，可在 `/vocabulary-quiz?mode=backlog` 分段補做。
+- 題後單字可標「這個詞我不熟，加入待學」：有字卡的字提前到今天複習（不改掌握程度），沒有字卡的字保留本題釋義列在單字頁待學清單；待學字優先排入當日 20 新字內。
+- 題後單字釋義分五層標示：本題義項（逐題覆寫）／字卡（含詞形還原）／一般釋義／組成詞／待補；未收錄的詞明確標為待補，不假裝有教學。
 
 ### 模擬考與檢討
 
@@ -155,8 +172,9 @@ toeic-ai-coach/
 
 每題答錯可標記 6 種原因之一：**不會單字 / 文法不懂 / 看不懂（聽不懂）/ 來不及 / 其實會選錯 / 用猜的**。系統會：
 
-- 依作答時間與弱字自動推測原因（可由使用者覆寫）。
-- 在 Dashboard 產生單句 headline（例如「你最近 X% 的錯其實是來不及」），並對「文法」類錯誤提供同類型新題補救。
+- 依新版分段計時（扣除離開分頁、聽力扣音檔）與已學過但不穩的字提出「系統猜測」，未經使用者點選不列入任何統計；沒有紀錄的字不算不會。
+- Dashboard 的「自述錯因」只統計最近 30 天使用者自己確認的錯題，滿 8 題才顯示描述句（「最近 30 天你標註的 N 題錯題中，M 題（P%）標為「X」」），並對「文法」類錯誤提供同考點新題補救；補救卡與弱點卡共用同一份證據（只算首次作答的新題）。
+- 配速卡只用新版計時，各 Part 未滿 8 筆顯示資料不足；閱讀門檻為常見備考建議（非 ETS 官方），聽力只報音檔結束後的作答時間、不警示。
 
 ### 分數預測
 
@@ -169,7 +187,7 @@ toeic-ai-coach/
 
 ## 📚 題庫與技能分類
 
-- **題庫**：1,899 題。分布 — P1 78、P2 208、P3 306、P4 237、P5 488、P6 164、P7 418。
+- **題庫**：3,303 題，涵蓋 Part 1–7；實際分布與品質門檻以 `pipeline/npm run check` 的最新輸出為準，避免文件數字隨題庫擴充失真。
 - **單字庫**：1,500 字，涵蓋 30+ 商務情境分類（business / office / finance / hr / logistics …）。
 - **技能分類（19 項，single source of truth 於 `types/question.ts`）**：
   - 文法：被動語態、詞性判斷、時態、介系詞、連接詞、代名詞、關係子句
@@ -184,6 +202,7 @@ toeic-ai-coach/
 
 | Key | 用途 |
 |-----|------|
+| `toeic_study_profile_v1` | 目標分數、自填成績、考試日期、每段訓練時間 |
 | `toeic_answer_records_v1` | 作答紀錄 |
 | `toeic_daily_plan_v1` | 每日練習計畫 |
 | `toeic_wrong_status_v1` | 錯題本狀態 |
@@ -206,7 +225,9 @@ toeic-ai-coach/
 
 `pipeline/` 是獨立於 Next.js build 的離線工具（自有 `package.json`，用 tsx 執行）。
 
-- `data/questions.ts`：題庫聚合 + 輔助函式（`getQuestionsByPart`、`buildDailyPlan`、`buildMockTestPlan`、`buildListeningMockPlan`）
+- `data/questions.ts`：延遲載入的相容組裝入口；查詢、日課、模考與分組位於 `lib/questions/`
+- `data/question-bank-manifest.json`：題庫登錄表；新題庫用 `npm run questions -- import <draft.json>` 預覽，加 `--write` 才寫入
+- 新增題目、各 Part 草稿、釋義／音檔規則與架構說明：[題庫擴充指南](docs/QUESTION_BANKS.md)
 - `data/questions-part5/6/7.ts`、`questions-listening.ts`、`questions-generated.ts`：拆檔題庫（避免 TS union 複雜度上限）
 - `data/vocabulary.ts`（手寫核心）+ `vocabulary-generated.ts`（AI 生成）
 
@@ -214,7 +235,7 @@ toeic-ai-coach/
 cd pipeline
 npm run check                        # 資料完整性檢查
 npm run check-media                  # 媒體存在性檢查（HEAD 驗證 Blob）
-npx tsx src/mark-groups.ts --write   # 標記 Part 6/7 passage group
+## 新 JSON 題庫使用 questions new 的題組骨架；legacy mark-groups 僅供舊資料維護
 ```
 
 ---
@@ -228,12 +249,9 @@ npm run build          # production build
 npm run lint           # ESLint
 npx tsc --noEmit       # TypeScript 型別檢查
 
-# 完整 QA（建議 push 前全跑一次）
-npm run lint
-npx tsc --noEmit
-npm run build
-cd pipeline && npm run check
-cd pipeline && npm run check-media
+# 完整 QA（根目錄；需先 npm ci 及 npm --prefix pipeline ci）
+npm run verify         # 雙套件型別、lint、11 組回歸測試、題庫品質、build
+npm --prefix pipeline run check-media  # 媒體變更時另跑
 
 # 回歸測試（備份匯入 null 崩潰）
 npx tsx scripts/repro-c1.ts

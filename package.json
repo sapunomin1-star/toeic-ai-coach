@@ -7,12 +7,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "npx tsx scripts/repro-c1.ts && npx tsx scripts/review-regression-check.ts && npx tsx scripts/integrity-guard-check.ts && npx tsx scripts/sync-merge-check.ts && npx tsx scripts/sync-status-check.ts && npx tsx scripts/sync-server-check.ts"
+    "test": "tsx scripts/run-checks.ts",
+    "questions": "tsx scripts/questions.ts",
+    "predev": "npm run questions -- check",
+    "prebuild": "npm run questions -- check",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p pipeline/tsconfig.json",
+    "verify": "npm run typecheck && npm run lint && npm test && npm --prefix pipeline run check && npm run build"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.0",
     "jose": "^6.2.4",
-    "next": "^16.2.12",
+    "next": "^16.3.3",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
@@ -22,14 +27,15 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.2.12",
+    "eslint-config-next": "^16.3.5",
     "tailwindcss": "^4",
+    "tsx": "^4.23.13",
     "typescript": "^5"
   },
   "overrides": {
     "next": {
       "postcss": "8.5.25"
     },
-    "sharp": "0.35.3"
+    "sharp": "0.35.4"
   }
 }

@@ -1,6 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 import { fileURLToPath } from "url";
+import { validateQuestion } from "./validator";
 import { QUESTIONS } from "../../data/questions";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -8,7 +9,7 @@ const __dirname = path.dirname(__filename);
 
 const GENERATED_QUESTIONS_PATH = path.resolve(
   __dirname,
-  "../../data/questions-generated.ts"
+  "../../data/questions-generated.ts",
 );
 
 const GENERATED_EXPORT_MARKER = "export const GENERATED_QUESTIONS";
@@ -43,10 +44,7 @@ export function getMaxExistingIdNumber(prefix: string): number {
 }
 
 /** Allocate IDs strictly above the highest existing suffix. */
-export function generateNextIds(
-  prefix: string,
-  count: number
-): string[] {
+export function generateNextIds(prefix: string, count: number): string[] {
   const maxExistingId = getMaxExistingIdNumber(prefix);
   return Array.from({ length: count }, (_, i) => {
     const num = (maxExistingId + i + 1).toString().padStart(3, "0");
@@ -56,7 +54,7 @@ export function generateNextIds(
 
 function extractIds(raw: string): Set<string> {
   return new Set(
-    [...raw.matchAll(/(?:"id"|id):\s*"([^"]+)"/g)].map((match) => match[1])
+    [...raw.matchAll(/(?:"id"|id):\s*"([^"]+)"/g)].map((match) => match[1]),
   );
 }
 
@@ -73,10 +71,14 @@ function assertNoIdCollisions(
       throw new Error("Generated question is missing a valid string id");
     }
     if (existingIds.has(question.id)) {
-      throw new Error(`Refusing to append duplicate question id: ${question.id}`);
+      throw new Error(
+        `Refusing to append duplicate question id: ${question.id}`,
+      );
     }
     if (incomingIds.has(question.id)) {
-      throw new Error(`Generated batch contains duplicate question id: ${question.id}`);
+      throw new Error(
+        `Generated batch contains duplicate question id: ${question.id}`,
+      );
     }
     incomingIds.add(question.id);
   }
@@ -85,20 +87,22 @@ function assertNoIdCollisions(
 /** Append approved reading questions to data/questions-generated.ts. */
 export function appendQuestions(
   newQuestions: Record<string, unknown>[],
-  dryRun = false
+  dryRun = false,
 ): void {
   if (newQuestions.length === 0) {
     console.log("No questions to append.");
     return;
   }
 
+  const errors = newQuestions.flatMap(
+    (question, index) => validateQuestion(question, index).errors,
+  );
+  if (errors.length) throw new Error(errors.join("\n"));
   const raw = fs.readFileSync(GENERATED_QUESTIONS_PATH, "utf-8");
   assertNoIdCollisions(newQuestions, raw);
 
   if (dryRun) {
-    console.log(
-      `[DRY RUN] Would append ${newQuestions.length} questions:`
-    );
+    console.log(`[DRY RUN] Would append ${newQuestions.length} questions:`);
     for (const q of newQuestions) {
       const id = q.id ?? "?";
       const qText =
@@ -108,31 +112,44 @@ export function appendQuestions(
     return;
   }
 
+  fs.writeFileSync(
+    GENERATED_QUESTIONS_PATH,
+    renderGeneratedAppend(raw, newQuestions),
+    "utf-8",
+  );
+  console.log(
+    `Appended ${newQuestions.length} questions to data/questions-generated.ts`,
+  );
+}
+
+/** Pure formatter shared by all generated-bank promotion paths. */
+export function renderGeneratedAppend(
+  raw: string,
+  newQuestions: Record<string, unknown>[],
+): string {
+  if (newQuestions.length === 0) return raw;
   const closeIdx = findGeneratedArrayClose(raw);
   const newEntries = newQuestions
     .map((question) =>
       JSON.stringify(question, null, 2)
         .split("\n")
         .map((line) => `  ${line}`)
-        .join("\n")
+        .join("\n"),
     )
     .join(",\n");
 
   const prefix = raw.slice(0, closeIdx);
   const suffix = raw.slice(closeIdx);
-  const separator = prefix.trimEnd().endsWith(",") ? "\n" : ",\n";
-  const updated = `${prefix}${separator}${newEntries}${suffix}`;
-
-  fs.writeFileSync(GENERATED_QUESTIONS_PATH, updated, "utf-8");
-  console.log(
-    `Appended ${newQuestions.length} questions to data/questions-generated.ts`
-  );
+  const trimmed = prefix.trimEnd();
+  const separator =
+    trimmed.endsWith(",") || trimmed.endsWith("[") ? "\n" : ",\n";
+  return `${prefix}${separator}${newEntries}${suffix}`;
 }
 
 /** Save questions to a JSON file in pipeline/output/ as backup. */
 export function saveToJson(
   questions: Record<string, unknown>[],
-  filename: string
+  filename: string,
 ): void {
   const outputDir = path.resolve(__dirname, "../output");
   if (!fs.existsSync(outputDir)) {
@@ -141,7 +158,7 @@ export function saveToJson(
   fs.writeFileSync(
     path.join(outputDir, filename),
     JSON.stringify(questions, null, 2),
-    "utf-8"
+    "utf-8",
   );
   console.log(`Saved ${questions.length} questions to output/${filename}`);
 }

@@ -1709,7 +1709,7 @@ export const QUESTIONS_LISTENING: Question[] = [
       "airport",
       "counter",
       "suitcases",
-      "checkin"
+      "check-in"
     ],
     "imageAlt": "Several travelers are standing in line at an airport check-in counter with suitcases, waiting to speak with an airline agent.",
     "audioScript": "(A) The travelers are boarding the airplane.\n(B) The travelers are at a train station platform.\n(C) The travelers are eating at an airport restaurant.\n(D) The travelers are standing at the airport check-in counter."
@@ -1803,7 +1803,7 @@ export const QUESTIONS_LISTENING: Question[] = [
     "vocabulary": [
       "customer",
       "cashier",
-      "creditcard",
+      "credit card",
       "counter",
       "retail"
     ],
@@ -1828,8 +1828,8 @@ export const QUESTIONS_LISTENING: Question[] = [
       "hotel",
       "guest",
       "reception",
-      "frontdesk",
-      "checkingin"
+      "front desk",
+      "checking in"
     ],
     "imageAlt": "A hotel guest is standing at the front desk reception counter while a receptionist behind the counter is checking information on a computer monitor.",
     "audioScript": "(A) A guest is checking in at the hotel front desk reception counter.\n(B) A guest is carrying heavy luggage up the hotel staircase.\n(C) The receptionist is cleaning the hotel lobby floor with a mop.\n(D) The guest has already left the hotel reception area entirely."
@@ -1874,7 +1874,7 @@ export const QUESTIONS_LISTENING: Question[] = [
     "difficulty": "B1",
     "vocabulary": [
       "presenter",
-      "laserpointer",
+      "laser pointer",
       "screen",
       "conference",
       "chart"
@@ -1946,7 +1946,7 @@ export const QUESTIONS_LISTENING: Question[] = [
     "difficulty": "B1",
     "vocabulary": [
       "passengers",
-      "jetbridge",
+      "jet bridge",
       "airplane",
       "boarding",
       "tarmac"
@@ -1994,7 +1994,7 @@ export const QUESTIONS_LISTENING: Question[] = [
     "difficulty": "B2",
     "vocabulary": [
       "crane",
-      "steelbeam",
+      "steel beam",
       "construction",
       "highrise",
       "lifting"
@@ -2042,7 +2042,7 @@ export const QUESTIONS_LISTENING: Question[] = [
     "difficulty": "B2",
     "vocabulary": [
       "colleagues",
-      "shakinghands",
+      "shaking hands",
       "conference",
       "table",
       "suits"
@@ -2066,7 +2066,7 @@ export const QUESTIONS_LISTENING: Question[] = [
     "difficulty": "B1",
     "vocabulary": [
       "housekeeper",
-      "cleaningcart",
+      "cleaning cart",
       "corridor",
       "hotel",
       "towels"
@@ -2089,11 +2089,11 @@ export const QUESTIONS_LISTENING: Question[] = [
     "skill_tag": "listening_photo",
     "difficulty": "A2",
     "vocabulary": [
-      "busdriver",
-      "steeringwheel",
+      "bus driver",
+      "steering wheel",
       "uniform",
       "windshield",
-      "citybus"
+      "city bus"
     ],
     "imageAlt": "A bus driver in a blue uniform is sitting behind the steering wheel of a parked city bus, looking forward through the large front windshield.",
     "audioScript": "(A) A bus driver is sitting behind the steering wheel of a city bus.\n(B) The bus driver is helping passengers get off the bus.\n(C) Several passengers are getting on the bus together.\n(D) The bus driver sat behind the steering wheel of the bus."
@@ -2115,7 +2115,7 @@ export const QUESTIONS_LISTENING: Question[] = [
     "vocabulary": [
       "whiteboard",
       "diagrams",
-      "stickynotes",
+      "sticky notes",
       "colleagues",
       "discussing"
     ],
@@ -2187,7 +2187,7 @@ export const QUESTIONS_LISTENING: Question[] = [
     "vocabulary": [
       "security",
       "screening",
-      "xray",
+      "x-ray",
       "baggage",
       "airport"
     ],
@@ -2234,7 +2234,7 @@ export const QUESTIONS_LISTENING: Question[] = [
     "difficulty": "B2",
     "vocabulary": [
       "measuring",
-      "tapemeasure",
+      "tape measure",
       "construction",
       "worker",
       "stakes"
@@ -2259,7 +2259,7 @@ export const QUESTIONS_LISTENING: Question[] = [
     "vocabulary": [
       "employee",
       "restocking",
-      "cannedgoods",
+      "canned goods",
       "shelves",
       "store"
     ],
@@ -2283,7 +2283,7 @@ export const QUESTIONS_LISTENING: Question[] = [
     "vocabulary": [
       "unloading",
       "truck",
-      "loadingdock",
+      "loading dock",
       "warehouse",
       "handcart"
     ],
@@ -2504,7 +2504,7 @@ export const QUESTIONS_LISTENING: Question[] = [
       "forward",
       "email",
       "department",
-      "rightaway"
+      "right away"
     ],
     "audioScript": "Q: Could you please forward the email to the HR department?\n(A) The HR office is on the second floor.\n(B) I forwarded it to them yesterday.\n(C) Sure, I will do that right away."
   },
@@ -2697,7 +2697,7 @@ export const QUESTIONS_LISTENING: Question[] = [
       "client",
       "deadline",
       "tough",
-      "figureout",
+      "figure out",
       "called"
     ],
     "audioScript": "Q: The client just called and they want to move up the deadline by a week.\n(A) The client is from the headquarters in Tokyo.\n(B) That is tough, but we will try to make it work somehow.\n(C) I called the client earlier this morning about the proposal."
@@ -2739,7 +2739,7 @@ export const QUESTIONS_LISTENING: Question[] = [
     "difficulty": "B1",
     "vocabulary": [
       "policy",
-      "takeseffect",
+      "takes effect",
       "guidelines",
       "monday"
     ],
@@ -2938,7 +2938,7 @@ export const QUESTIONS_LISTENING: Question[] = [
       "financial",
       "review",
       "scheduled",
-      "pushedback"
+      "pushed back"
     ],
     "audioScript": "Q: Is the quarterly financial review still scheduled for this Friday afternoon?\n(A) The financial report was due last Friday.\n(B) The quarterly review is on the third Friday of every month.\n(C) Actually, it has been pushed back to next Monday morning instead."
   },
@@ -3089,7 +3089,7 @@ export const QUESTIONS_LISTENING: Question[] = [
     "difficulty": "B1",
     "vocabulary": [
       "catering",
-      "allhands",
+      "all-hands",
       "meeting",
       "restaurant",
       "arranged"
@@ -3112,8 +3112,8 @@ export const QUESTIONS_LISTENING: Question[] = [
     "vocabulary": [
       "contact",
       "payroll",
-      "humanresources",
-      "reachout",
+      "human resources",
+      "reach out",
       "system"
     ],
     "audioScript": "Q: Who should I contact if there is a problem with the new payroll system?\n(A) The payroll is processed on the last Friday of every month.\n(B) I think the new system is more reliable than the old one.\n(C) You should reach out to Karen in the human resources department."
@@ -3135,7 +3135,7 @@ export const QUESTIONS_LISTENING: Question[] = [
       "server",
       "maintenance",
       "midnight",
-      "loggedoff"
+      "logged off"
     ],
     "audioScript": "Q: The server maintenance is at midnight, so we should save our work by then.\n(A) The server room is on the basement level of the building.\n(B) I have already saved everything and logged off for the day.\n(C) We need to order a new server for the development team."
   },
@@ -3156,7 +3156,7 @@ export const QUESTIONS_LISTENING: Question[] = [
       "graphic",
       "designer",
       "freelance",
-      "costeffective",
+      "cost-effective",
       "hire"
     ],
     "audioScript": "Q: Should we hire a full-time graphic designer or just work with a freelance agency?\n(A) I think hiring a freelancer would be more cost-effective for now.\n(B) The graphic design team is on the fifth floor.\n(C) We just hired a new accountant for the finance department."
@@ -3244,7 +3244,7 @@ export const QUESTIONS_LISTENING: Question[] = [
       "proposals",
       "committee",
       "approve",
-      "budgetconscious",
+      "budget-conscious",
       "upfront"
     ],
     "audioScript": "Q: Which proposal do you think the steering committee is most likely to approve?\n(A) The steering committee meets once every two weeks on Tuesdays.\n(B) The one with the lowest cost, since they are very budget-conscious now.\n(C) I submitted all three proposals to the committee late last Friday."
@@ -3267,7 +3267,7 @@ export const QUESTIONS_LISTENING: Question[] = [
       "logistics",
       "international",
       "shipping",
-      "reachout"
+      "reach out"
     ],
     "audioScript": "Q: Would you mind working with the logistics team to arrange international shipping?\n(A) I would be glad to, I will contact them first thing tomorrow.\n(B) The logistics team is handling the domestic shipments this week.\n(C) The new product line was launched in the European market last quarter."
   },
@@ -3311,7 +3311,7 @@ export const QUESTIONS_LISTENING: Question[] = [
       "projections",
       "fiscal",
       "supporting",
-      "followup"
+      "follow-up"
     ],
     "audioScript": "Q: The board was not convinced by our revenue projections for the upcoming fiscal year.\n(A) The board meeting lasted much longer than we had originally expected.\n(B) In that case, we should gather more data and schedule another presentation.\n(C) The revenue projections were completed by the finance team."
   },

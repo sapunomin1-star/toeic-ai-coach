@@ -1,0 +1,60 @@
+{
+  "_comment": "APPLIED 2026-09-17. Four ambiguous Part 2 distractors rewritten, independently transcribed versioned audio released at audio/<id>-quality-20260917.mp3. IDs, key text/letter, difficulty and skill tags retained. See COMPLETION-2026-09-17.md. To replay text use src/apply-p2-uniqueness-patch.ts; future audio revisions must use a NEW --version and be verified before updating audioUrl/revisedAt. Never overwrite live audio before deploying matching text.",
+  "p2-gen-179": {
+    "question": "Where are the replacement printer cartridges kept?",
+    "choices": {
+      "A": "They need to be ordered by Friday.",
+      "B": "The printer was replaced last month.",
+      "C": "The cartridges are stored in the supply closet."
+    },
+    "explanation_zh": "Where 問句問替換墨水匣放在哪裡。(C) 直接說出位置：存放在用品儲藏室。(A) 回答的是何時要訂購，答非所問。(B) 用 printer、replaced 這些和問句相近的字（replacement／printer）製造聯想，但講的是印表機上個月換新了，沒有回答地點，是典型的相似字陷阱。",
+    "vocabulary": [
+      "printer",
+      "cartridges",
+      "supply closet",
+      "replacement"
+    ]
+  },
+  "p2-gen-116": {
+    "question": "Did the new office chairs arrive yet?",
+    "choices": {
+      "A": "Yes, they were delivered this morning.",
+      "B": "The chairs are adjustable.",
+      "C": "They're for the new meeting room."
+    },
+    "explanation_zh": "Yes/No 問句問新辦公椅到了沒。(A) 直接回答：到了，今天早上送達。(B) 重複 chairs，講的是椅子可調整，沒有回答到貨與否。(C) 講的是椅子要放在哪個會議室，回答了「用途」而不是「到了沒」。",
+    "vocabulary": [
+      "arrive",
+      "delivered",
+      "adjustable"
+    ]
+  },
+  "p2-gen-136": {
+    "question": "Did you order more office supplies for the team yet?",
+    "choices": {
+      "A": "The supply catalog has a blue cover.",
+      "B": "The team meeting is on Thursday.",
+      "C": "Yes, I've just placed the order."
+    },
+    "explanation_zh": "問句詢問是否已替團隊加訂辦公用品。(C) 說「是，我剛下單」，直接回答訂購狀態。(A) 說用品目錄的封面是藍色，只描述目錄外觀，無法推斷有沒有下單。(B) 說團隊會議在週四，沒有回答訂購狀態。注意：若選項說「用品昨天到了」，反而可能暗示已訂購，因此不能拿這種間接肯定當錯誤答案。",
+    "vocabulary": [
+      "order",
+      "supplies",
+      "team"
+    ]
+  },
+  "p2-gen-186": {
+    "question": "The shipment arrived on time, didn't it?",
+    "choices": {
+      "A": "Yes, it was delivered this morning.",
+      "B": "The shipping label uses a large font.",
+      "C": "The ship leaves from Pier 4."
+    },
+    "explanation_zh": "附加問句尋求確認這批貨是否準時到達。(A) 以 Yes 確認，再補充今天早上送達，是恰當回應。(B) 描述運送標籤的字體大小，沒有提供到貨時間或是否準時的資訊。(C) 說船從四號碼頭出發，沒有回應貨物是否準時到達。這題的錯誤選項是內容不相關，並不是因為沒有使用 Yes 或 No；間接確認、否定或表示不確定，本來都可能是正確的日常回應。",
+    "vocabulary": [
+      "shipment",
+      "arrived",
+      "delivered"
+    ]
+  }
+}

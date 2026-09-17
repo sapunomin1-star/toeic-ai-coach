@@ -7,6 +7,8 @@ type AudioPlayerProps = {
   autoPlay?: boolean;
   allowReplay?: boolean;
   onPlaybackStart?: () => void;
+  /** Actual audible state; optional instrumentation, independent of mock consumption. */
+  onPlaybackChange?: (playing: boolean) => void;
   onEnded?: () => void;
   onError?: () => void;
 };
@@ -18,10 +20,13 @@ export default function AudioPlayer({
   autoPlay = false,
   allowReplay = false,
   onPlaybackStart,
+  onPlaybackChange,
   onEnded,
   onError,
 }: AudioPlayerProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const playbackChangeRef = useRef(onPlaybackChange);
+  useEffect(() => { playbackChangeRef.current = onPlaybackChange; }, [onPlaybackChange]);
   const teardownTimer = useRef<number | null>(null);
   const [status, setStatus] = useState<AudioStatus>("idle");
   const [progress, setProgress] = useState(0);
@@ -40,6 +45,7 @@ export default function AudioPlayer({
     return () => {
       teardownTimer.current = window.setTimeout(() => {
         if (!audio) return;
+        playbackChangeRef.current?.(false);
         audio.pause();
         audio.removeAttribute("src");
         audio.load();
@@ -66,6 +72,7 @@ export default function AudioPlayer({
       setStatus("playing");
     } catch {
       setStatus("error");
+      playbackChangeRef.current?.(false);
     }
   }
 
@@ -91,11 +98,14 @@ export default function AudioPlayer({
         }}
         onPlaying={() => {
           setStatus("playing");
+          playbackChangeRef.current?.(true);
           onPlaybackStart?.();
         }}
-        onWaiting={() => setStatus("buffering")}
+        onWaiting={() => { setStatus("buffering"); playbackChangeRef.current?.(false); }}
+        onPause={() => playbackChangeRef.current?.(false)}
         onError={() => {
           setStatus("error");
+          playbackChangeRef.current?.(false);
           onError?.();
         }}
         onTimeUpdate={(event) => {
@@ -106,6 +116,7 @@ export default function AudioPlayer({
         onEnded={() => {
           setStatus("ended");
           setProgress(100);
+          playbackChangeRef.current?.(false);
           onEnded?.();
         }}
       />
@@ -151,6 +162,7 @@ export default function AudioPlayer({
                   : isReplayBlocked
                     ? "音檔已播放完畢"
                     : "聽力音檔"}
+              <span className="ml-2">AI 合成語音</span>
             </p>
           )}
         </div>

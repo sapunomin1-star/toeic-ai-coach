@@ -1,17 +1,27 @@
 import Link from "next/link";
 import type { VocabularyQuizStats } from "@/lib/vocabularyStorage";
+import type { QuizQuestionType } from "@/types/vocabulary";
 import { StatCard, VocabularyQuizSummary } from "./cards";
+
+function typeSummary(stats: VocabularyQuizStats | undefined): string {
+  const attempts = (stats?.totalCorrect ?? 0) + (stats?.totalWrong ?? 0);
+  return attempts > 0 ? `${attempts} 題 · ${stats?.accuracy ?? 0}%` : "尚無";
+}
 
 export function VocabQuizSection({
   quizStats,
   dailyQuizStats,
   randomQuizStats,
   reinforcementQuizStats,
+  backlogQuizStats,
+  typeStats,
 }: {
   quizStats: VocabularyQuizStats | null;
   dailyQuizStats: VocabularyQuizStats | null;
   randomQuizStats: VocabularyQuizStats | null;
   reinforcementQuizStats: VocabularyQuizStats | null;
+  backlogQuizStats: VocabularyQuizStats | null;
+  typeStats: Record<QuizQuestionType, VocabularyQuizStats> | null;
 }) {
   if (!quizStats) return null;
 
@@ -69,7 +79,20 @@ export function VocabQuizSection({
       <div className="mt-4 divide-y divide-slate-100 border-y border-slate-100 text-sm">
         <VocabularyQuizSummary label="隨機挑戰" stats={randomQuizStats} />
         <VocabularyQuizSummary label="今日加強" stats={reinforcementQuizStats} />
+        <VocabularyQuizSummary label="到期補做" stats={backlogQuizStats} />
       </div>
+      {typeStats && (
+        <div className="mt-3 rounded-xl bg-slate-50 p-3 text-xs leading-relaxed text-slate-600">
+          <p className="font-semibold text-slate-700">目前測到的是什麼（依題型）</p>
+          <p className="mt-1">
+            英→中辨識 {typeSummary(typeStats["en-to-zh"])} · 中→英回想{" "}
+            {typeSummary(typeStats["zh-to-en"])} · 例句填空 {typeSummary(typeStats["fill-blank"])}
+          </p>
+          <p className="mt-1 text-slate-500">
+            三種都是四選一；填空沿用字卡例句。換情境理解與不看選項的回想尚未測量，「已掌握」只代表通過了這些測驗的長間隔複習。
+          </p>
+        </div>
+      )}
       {quizStats.totalCorrect + quizStats.totalWrong > 0 && (
         <p className="mt-3 text-xs text-slate-400">
           累積全部測驗（含改版前紀錄）：答對 {quizStats.totalCorrect}、答錯{" "}

@@ -14494,24 +14494,25 @@ export const GENERATED_QUESTIONS: Question[] = [
     "audioScript": "Q: What kind of paper do we need to order for the printers?\n(A) We should check the printer settings first.\n(B) The new paper will be delivered tomorrow.\n(C) We need more A4 paper."
   },
   {
+    "id": "p2-gen-116",
+    "part": "Part 2",
     "question": "Did the new office chairs arrive yet?",
     "choices": {
       "A": "Yes, they were delivered this morning.",
       "B": "The chairs are adjustable.",
-      "C": "They should arrive by the end of the month."
+      "C": "They're for the new meeting room."
     },
     "answer": "A",
-    "explanation_zh": "問題是詢問新辦公椅是否已經到達，選項A表示椅子今天早上已經送到，是正確的回答。選項B提到椅子是可調整的，使用了共同的詞“chairs”，但沒有回答椅子是否到達的問題。選項C則回答了不同的問題類型，並非直接回答是否已經到達。",
+    "explanation_zh": "Yes/No 問句問新辦公椅到了沒。(A) 直接回答：到了，今天早上送達。(B) 重複 chairs，講的是椅子可調整，沒有回答到貨與否。(C) 講的是椅子要放在哪個會議室，回答了「用途」而不是「到了沒」。",
+    "skill_tag": "listening_response",
     "difficulty": "A2",
     "vocabulary": [
       "arrive",
       "delivered",
       "adjustable"
     ],
-    "part": "Part 2",
-    "skill_tag": "listening_response",
-    "id": "p2-gen-116",
-    "audioScript": "Q: Did the new office chairs arrive yet?\n(A) Yes, they were delivered this morning.\n(B) The chairs are adjustable.\n(C) They should arrive by the end of the month."
+    "audioScript": "Q: Did the new office chairs arrive yet?\n(A) Yes, they were delivered this morning.\n(B) The chairs are adjustable.\n(C) They're for the new meeting room.",
+    "audioUrl": "https://wffwoer172mjjgyi.public.blob.vercel-storage.com/audio/p2-gen-116-quality-20260917.mp3"
   },
   {
     "question": "Do you want the new computers delivered today or tomorrow?",
@@ -14740,24 +14741,25 @@ export const GENERATED_QUESTIONS: Question[] = [
     "audioScript": "Q: What size envelopes do we need for the marketing event invitations?\n(A) The marketing event is next Thursday.\n(B) We need the A5 size envelopes.\n(C) We have plenty of envelopes in the storage."
   },
   {
+    "id": "p2-gen-136",
+    "part": "Part 2",
     "question": "Did you order more office supplies for the team yet?",
     "choices": {
-      "A": "The supplies arrived yesterday.",
-      "B": "I think the order was processed last week.",
+      "A": "The supply catalog has a blue cover.",
+      "B": "The team meeting is on Thursday.",
       "C": "Yes, I've just placed the order."
     },
     "answer": "C",
-    "explanation_zh": "問題詢問是否已經訂購更多的辦公用品。選項A提到“supplies”並說明用品已經到達，這並沒有回答訂購的問題，因此無法回答提問。選項B提到訂單可能在上週處理，但這不是最直接肯定的回答。選項C表示肯定，證實訂購已經完成，因此是正確答案。",
+    "explanation_zh": "問句詢問是否已替團隊加訂辦公用品。(C) 說「是，我剛下單」，直接回答訂購狀態。(A) 說用品目錄的封面是藍色，只描述目錄外觀，無法推斷有沒有下單。(B) 說團隊會議在週四，沒有回答訂購狀態。注意：若選項說「用品昨天到了」，反而可能暗示已訂購，因此不能拿這種間接肯定當錯誤答案。",
+    "skill_tag": "listening_response",
     "difficulty": "B1",
     "vocabulary": [
       "order",
       "supplies",
       "team"
     ],
-    "id": "p2-gen-136",
-    "part": "Part 2",
-    "skill_tag": "listening_response",
-    "audioScript": "Q: Did you order more office supplies for the team yet?\n(A) The supplies arrived yesterday.\n(B) I think the order was processed last week.\n(C) Yes, I've just placed the order."
+    "audioScript": "Q: Did you order more office supplies for the team yet?\n(A) The supply catalog has a blue cover.\n(B) The team meeting is on Thursday.\n(C) Yes, I've just placed the order.",
+    "audioUrl": "https://wffwoer172mjjgyi.public.blob.vercel-storage.com/audio/p2-gen-136-quality-20260917.mp3"
   },
   {
     "id": "p2-gen-137",
@@ -17244,26 +17246,27 @@ export const GENERATED_QUESTIONS: Question[] = [
   "audioScript": "Q: The shipment of office supplies was delayed again.\n(A) The supplies should arrive tomorrow morning.\n(B) That's frustrating. I'll contact the supplier.\n(C) When did you place the order?"
 },
   {
-  "question": "Where are the replacement printer cartridges kept?",
-  "choices": {
-    "A": "They need to be ordered by Friday.",
-    "B": "I'll check the supply closet for you.",
-    "C": "The cartridges are stored in the supply closet."
+    "id": "p2-gen-179",
+    "part": "Part 2",
+    "question": "Where are the replacement printer cartridges kept?",
+    "choices": {
+      "A": "They need to be ordered by Friday.",
+      "B": "The printer was replaced last month.",
+      "C": "The cartridges are stored in the supply closet."
+    },
+    "answer": "C",
+    "explanation_zh": "Where 問句問替換墨水匣放在哪裡。(C) 直接說出位置：存放在用品儲藏室。(A) 回答的是何時要訂購，答非所問。(B) 用 printer、replaced 這些和問句相近的字（replacement／printer）製造聯想，但講的是印表機上個月換新了，沒有回答地點，是典型的相似字陷阱。",
+    "skill_tag": "listening_response",
+    "difficulty": "A2",
+    "vocabulary": [
+      "printer",
+      "cartridges",
+      "supply closet",
+      "replacement"
+    ],
+    "audioScript": "Q: Where are the replacement printer cartridges kept?\n(A) They need to be ordered by Friday.\n(B) The printer was replaced last month.\n(C) The cartridges are stored in the supply closet.",
+    "audioUrl": "https://wffwoer172mjjgyi.public.blob.vercel-storage.com/audio/p2-gen-179-quality-20260917.mp3"
   },
-  "answer": "C",
-  "explanation_zh": "答案 C: 問句詢問墨盒存放處，C選項 'The cartridges are stored in the supply closet.' 清楚提供位置。A選項 'They need to be ordered by Friday.' 和 B選項 'I'll check the supply closet for you.' 不是位置的直接回答。",
-  "difficulty": "A2",
-  "vocabulary": [
-    "printer",
-    "cartridges",
-    "supply closet",
-    "replacement"
-  ],
-  "id": "p2-gen-179",
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "audioScript": "Q: Where are the replacement printer cartridges kept?\n(A) They need to be ordered by Friday.\n(B) I'll check the supply closet for you.\n(C) The cartridges are stored in the supply closet."
-},
   {
     "id": "p2-gen-180",
     "part": "Part 2",
@@ -17388,25 +17391,26 @@ export const GENERATED_QUESTIONS: Question[] = [
   "audioScript": "Q: Is the new shipment of office supplies expected to arrive today?\n(A) The office supplies are in the storage room.\n(B) It was supposed to arrive last week.\n(C) Yes, it should be here by this afternoon."
 },
   {
-  "question": "The shipment arrived on time, didn't it?",
-  "choices": {
-    "A": "Yes, it was delivered this morning.",
-    "B": "The shipment is for next week.",
-    "C": "I haven't checked the shipment yet."
+    "id": "p2-gen-186",
+    "part": "Part 2",
+    "question": "The shipment arrived on time, didn't it?",
+    "choices": {
+      "A": "Yes, it was delivered this morning.",
+      "B": "The shipping label uses a large font.",
+      "C": "The ship leaves from Pier 4."
+    },
+    "answer": "A",
+    "explanation_zh": "附加問句尋求確認這批貨是否準時到達。(A) 以 Yes 確認，再補充今天早上送達，是恰當回應。(B) 描述運送標籤的字體大小，沒有提供到貨時間或是否準時的資訊。(C) 說船從四號碼頭出發，沒有回應貨物是否準時到達。這題的錯誤選項是內容不相關，並不是因為沒有使用 Yes 或 No；間接確認、否定或表示不確定，本來都可能是正確的日常回應。",
+    "skill_tag": "listening_response",
+    "difficulty": "B1",
+    "vocabulary": [
+      "shipment",
+      "arrived",
+      "delivered"
+    ],
+    "audioScript": "Q: The shipment arrived on time, didn't it?\n(A) Yes, it was delivered this morning.\n(B) The shipping label uses a large font.\n(C) The ship leaves from Pier 4.",
+    "audioUrl": "https://wffwoer172mjjgyi.public.blob.vercel-storage.com/audio/p2-gen-186-quality-20260917.mp3"
   },
-  "answer": "A",
-  "explanation_zh": "選項A直接回答了問題，確認貨物按時到達。選項B雖然提到了“shipment”這個關鍵詞，但談論的是不同的時間，因此無法回答此確認問題。選項C則表達了未檢查的意思，並未回答問題。",
-  "difficulty": "B1",
-  "vocabulary": [
-    "shipment",
-    "arrived",
-    "delivered"
-  ],
-  "part": "Part 2",
-  "skill_tag": "listening_response",
-  "id": "p2-gen-186",
-  "audioScript": "Q: The shipment arrived on time, didn't it?\n(A) Yes, it was delivered this morning.\n(B) The shipment is for next week.\n(C) I haven't checked the shipment yet."
-},
   {
     "id": "p2-gen-187",
     "part": "Part 2",

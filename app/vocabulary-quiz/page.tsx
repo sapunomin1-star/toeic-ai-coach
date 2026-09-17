@@ -7,6 +7,7 @@ import {
   buildVocabularyQuiz,
   completeReinforcementRound,
   getDailySessionActivity,
+  getDueBacklog,
   loadVocabularyBank,
   saveVocabularyQuizResult,
 } from "@/lib/vocabularyStorage";
@@ -19,7 +20,7 @@ import type {
 } from "@/types/vocabulary";
 
 type QuizState = "loading" | "answering" | "feedback" | "finished" | "load-error";
-type QuizMode = "today" | "random" | "reinforcement";
+type QuizMode = "today" | "random" | "reinforcement" | "backlog";
 
 const TYPE_LABEL: Record<VocabularyQuizQuestion["type"], string> = {
   "en-to-zh": "英文選中文",
@@ -65,6 +66,7 @@ export default function VocabularyQuizPage() {
   const [mode, setMode] = useState<QuizMode>("today");
   const [sessionChanges, setSessionChanges] = useState<SessionChange[]>([]);
   const [dailyActivity, setDailyActivity] = useState<DailySessionActivity | null>(null);
+  const [backlogRemaining, setBacklogRemaining] = useState(0);
   const [saveError, setSaveError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -84,11 +86,14 @@ export default function VocabularyQuizPage() {
           ? "random"
           : requestedMode === "reinforcement"
             ? "reinforcement"
-            : "today";
+            : requestedMode === "backlog"
+              ? "backlog"
+              : "today";
       setMode(quizMode);
       const qs = buildVocabularyQuiz(quizMode);
       setQuestions(qs);
       setDailyActivity(getDailySessionActivity());
+      setBacklogRemaining(getDueBacklog().length);
       setQuizState(qs.length === 0 ? "finished" : "answering");
     })();
     return () => {
@@ -100,13 +105,14 @@ export default function VocabularyQuizPage() {
   const isFeedback = quizState === "feedback";
   const isRandom = mode === "random";
   const isReinforcement = mode === "reinforcement";
+  const isBacklog = mode === "backlog";
 
   function handleSelect(index: number) {
     if (quizState !== "answering" || !current) return;
     const isCorrect = index === current.correctIndex;
     const source: VocabularyQuizSource =
       mode === "today" ? "daily" : mode;
-    const change = saveVocabularyQuizResult(current.wordId, isCorrect, source);
+    const change = saveVocabularyQuizResult(current.wordId, isCorrect, source, current.type);
     if (!change.persisted) {
       // Scoring an answer whose SRS row was never written would show progress
       // the next session cannot see. Stay on the question instead.
@@ -136,6 +142,7 @@ export default function VocabularyQuizPage() {
           ? completeReinforcementRound()
           : getDailySessionActivity()
       );
+      setBacklogRemaining(getDueBacklog().length);
       setQuizState("finished");
     } else {
       setCursor(next);
@@ -170,10 +177,17 @@ export default function VocabularyQuizPage() {
       questions.length === 0 &&
       dailyActivity !== null &&
       !dailyActivity.canReinforce;
-    const showCompletionCard = dailyAlreadyComplete || reinforcementExhausted;
+    const backlogEmpty = isBacklog && questions.length === 0;
+    const showCompletionCard = dailyAlreadyComplete || reinforcementExhausted || backlogEmpty;
     const grade =
       isReinforcement
         ? "今日加強只協助重新記住內容；到期驗收答對後，複習間隔才會延長。"
+        : isBacklog
+          ? backlogEmpty
+            ? "目前沒有延後的到期字。"
+            : backlogRemaining > 0
+              ? `這 ${score.total} 個到期字已依實際答題結果更新間隔；還有 ${backlogRemaining} 個到期字可以再補做一輪。`
+              : `這 ${score.total} 個到期字已依實際答題結果更新間隔；到期複習已全部補齊。`
         : dailyAlreadyComplete
           ? "今日正式驗收已完成；請等待下一次到期複習。"
         : pct >= 90
@@ -220,10 +234,14 @@ export default function VocabularyQuizPage() {
           {showCompletionCard ? (
             <>
               <p className="text-sm">
-                {dailyAlreadyComplete ? "今日驗收已完成" : "今日加強已完成"}
+                {dailyAlreadyComplete ? "今日驗收已完成" : backlogEmpty ? "到期複習" : "今日加強已完成"}
               </p>
               <p className="mt-2 text-xl font-bold">
-                {dailyAlreadyComplete ? "本日正式驗收已完成" : "今日加強到此為止"}
+                {dailyAlreadyComplete
+                  ? "本日正式驗收已完成"
+                  : backlogEmpty
+                    ? "沒有延後的到期字"
+                    : "今日加強到此為止"}
               </p>
             </>
           ) : (
@@ -233,7 +251,9 @@ export default function VocabularyQuizPage() {
                   ? "隨機挑戰完成"
                   : isReinforcement
                     ? "今日加強完成"
-                    : "今日驗收完成"}
+                    : isBacklog
+                      ? "到期複習補做完成"
+                      : "今日驗收完成"}
               </p>
               <p className="mt-2 text-4xl font-bold">
                 {score.correct} / {score.total}
@@ -248,7 +268,16 @@ export default function VocabularyQuizPage() {
         </div>
 
         <div className="space-y-3">
+          {isBacklog && backlogRemaining > 0 && (
+            <a
+              href="/vocabulary-quiz?mode=backlog"
+              className="block w-full rounded-2xl bg-amber-600 px-5 py-4 text-center text-base font-semibold text-white"
+            >
+              再補做一輪到期複習（剩 {backlogRemaining} 字）→
+            </a>
+          )}
           {!isRandom &&
+            !isBacklog &&
             dailyActivity?.canReinforce &&
             (mode === "today" || isReinforcement) && (
               <a
@@ -300,7 +329,7 @@ export default function VocabularyQuizPage() {
       {/* Header */}
       <header className="flex items-center justify-between">
         <h1 className="text-lg font-bold">
-          {isRandom ? "隨機挑戰" : isReinforcement ? "今日加強" : "今日單字驗收"}
+          {isRandom ? "隨機挑戰" : isReinforcement ? "今日加強" : isBacklog ? "到期複習補做" : "今日單字驗收"}
         </h1>
         <Link href="/vocabulary" className="text-xs text-slate-500 underline underline-offset-2">
           離開
@@ -377,18 +406,25 @@ export default function VocabularyQuizPage() {
 
           return (
             <li key={idx}>
-              <button
-                disabled={isFeedback}
-                onClick={() => handleSelect(idx)}
-                className={cls}
-                role="radio"
-                aria-checked={isSelected}
+              <label
+                className={`${cls} block cursor-pointer has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-indigo-500 ${
+                  isFeedback ? "cursor-default" : ""
+                }`}
               >
+                <input
+                  type="radio"
+                  name={`vocabulary-answer-${current.wordId}`}
+                  value={idx}
+                  checked={isSelected}
+                  disabled={isFeedback}
+                  onChange={() => handleSelect(idx)}
+                  className="sr-only"
+                />
                 <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold text-slate-700">
                   {CHOICE_LABELS[idx]}
                 </span>
                 {choice}
-              </button>
+              </label>
             </li>
           );
         })}

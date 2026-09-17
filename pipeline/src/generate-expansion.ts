@@ -17,12 +17,11 @@ import { generatePart5 } from "./generator-part5";
 import { generatePart6 } from "./generator-part6";
 import { generatePart7 } from "./generator-part7";
 import { deepseek, getLlmUsage, parseGeneratedJson } from "./llm-client";
-import { saveToJson } from "./questions-writer";
+import { appendQuestions, saveToJson } from "./questions-writer";
 import type { Pattern, PatternLibrary, RawGeneratedQuestion } from "./types";
 import { validateQuestion, validateQuestionGroup } from "./validator";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const GENERATED_DATA_PATH = path.resolve(__dirname, "../../data/questions-generated.ts");
 
 type SupportedPart = "1" | "3" | "4" | "5" | "6" | "7";
 type ExpansionQuestion = RawGeneratedQuestion & {
@@ -897,16 +896,7 @@ function promote(filePath: string): void {
   const resolved = path.resolve(process.cwd(), filePath);
   const parsed = JSON.parse(fs.readFileSync(resolved, "utf8")) as ExpansionQuestion[];
   validateBatch(parsed);
-  const existing = fs.readFileSync(GENERATED_DATA_PATH, "utf8");
-  const closeIndex = existing.lastIndexOf("\n];");
-  if (closeIndex < 0) throw new Error("Cannot find GENERATED_QUESTIONS array terminator");
-  const serialized = parsed.map((question) => `  ${JSON.stringify(question, null, 2)}`).join(",\n");
-  const beforeClose = existing.slice(0, closeIndex);
-  const trimmed = beforeClose.trimEnd();
-  const separator = trimmed.endsWith("[") || trimmed.endsWith(",") ? "\n" : ",\n";
-  const next =
-    beforeClose + separator + serialized + existing.slice(closeIndex);
-  fs.writeFileSync(GENERATED_DATA_PATH, next, "utf8");
+  appendQuestions(parsed);
   console.log(`Promoted ${parsed.length} validated questions from ${resolved}`);
 }
 

@@ -9,14 +9,20 @@ export function TomorrowRecommendation({
   recommendation: DashboardMetrics["recommendation"];
 }) {
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-      <h2 className="mb-2 text-sm font-semibold">明日建議</h2>
-      <p className="text-sm leading-relaxed text-slate-700">
+    <section className="product-surface h-full rounded-[1.75rem] p-5 sm:p-6">
+      <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--brand)]">
+        Coach diagnosis
+      </p>
+      <h2 className="mt-1.5 text-xl font-black tracking-[-0.025em] text-[var(--ink)]">
+        下一步診斷
+      </h2>
+      <p className="text-pretty mt-4 text-sm leading-6 text-[var(--muted)]">
         {recommendation.message}
       </p>
       {recommendation.secondary && (
-        <p className="mt-1.5 text-xs text-slate-500">
-          第二優先：{recommendation.secondary.label}
+        <p className="mt-4 rounded-2xl bg-[var(--canvas)] px-4 py-3 text-xs text-[var(--muted)]">
+          <span className="font-black text-[var(--ink)]">第二優先</span>
+          <span className="ml-2">{recommendation.secondary.label}</span>
         </p>
       )}
     </section>
@@ -25,7 +31,7 @@ export function TomorrowRecommendation({
 
 export function FullMockEntry({ result }: { result: FullMockResult | null }) {
   return (
-    <section className="rounded-2xl bg-gradient-to-br from-indigo-900 to-slate-900 p-4 text-white shadow-md">
+    <section className="h-full rounded-[1.5rem] bg-[var(--brand-deep)] p-5 text-white shadow-[0_16px_40px_rgba(30,44,88,0.16)]">
       <p className="text-xs uppercase tracking-widest text-indigo-200">Full TOEIC Mock Test</p>
       <h2 className="mt-1 text-lg font-bold">完整 TOEIC 模擬考</h2>
       <p className="mt-1 text-xs text-slate-200">
@@ -61,7 +67,7 @@ export function FullMockEntry({ result }: { result: FullMockResult | null }) {
                   : Math.round((item.correct / item.total) * 100);
               return (
                 <div key={part} className="rounded bg-white/10 p-1">
-                  <p className="text-[9px] text-indigo-100">{part.replace("Part ", "P")}</p>
+                  <p className="text-[10px] text-indigo-100">{part.replace("Part ", "P")}</p>
                   <p className="text-[10px] font-bold">{pct}%</p>
                 </div>
               );
@@ -107,7 +113,7 @@ export function FullMockEntry({ result }: { result: FullMockResult | null }) {
 
 export function ReadingMockEntry({ result }: { result: MockTestResult | null }) {
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+    <section className="product-surface h-full rounded-[1.5rem] p-5">
       <h2 className="mb-2 text-sm font-semibold">閱讀模擬考</h2>
       <p className="text-xs text-slate-500">
         100 題 · 75 分鐘 · Part 5/6/7 完整閱讀測驗
@@ -176,7 +182,7 @@ export function ReadingMockEntry({ result }: { result: MockTestResult | null }) 
 
 export function ListeningMockEntry({ result }: { result: MockTestResult | null }) {
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+    <section className="product-surface h-full rounded-[1.5rem] p-5">
       <h2 className="mb-2 text-sm font-semibold">聽力模擬考</h2>
       <p className="text-xs text-slate-500">
         100 題 · 45 分鐘 · Part 1/2/3/4 完整聽力測驗

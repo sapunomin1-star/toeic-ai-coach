@@ -132,6 +132,34 @@ export const MISTAKE_REASON_LABELS: Record<MistakeReason, string> = {
   guess: "用猜的",
 };
 
+/**
+ * Timing split (review F05). `responseTimeMs` is wall-clock from first display
+ * to submit and mixes audio playback, passage reading and time in a hidden
+ * tab, so it cannot support pacing claims. This breakdown can:
+ * - `activeMs`  visible time only (hidden-tab time removed)
+ * - `audioMs`   version 2: visible time overlapping actual audible playback
+ *               (including replays/stem audio, excluding buffering).
+ * - `groupIndex/groupSize` passage & transcript groups: index 0 carries the
+ *               reading/listening cost for the whole group
+ */
+export type AnswerTiming = {
+  version?: 2;
+  activeMs: number;
+  hiddenMs: number;
+  audioMs?: number;
+  groupIndex?: number;
+  groupSize?: number;
+  /** A stable content group and one traversal, never inferred from ordering. */
+  groupId?: string;
+  sessionId?: string;
+};
+
+/** How the attempt came about (review F06). `first` = never answered before. */
+export type AttemptInfo = {
+  first: boolean;
+  plan: "daily" | "wrongbook" | "grammar-variant";
+};
+
 export type AnswerRecord = {
   questionId: string;
   userAnswer: Choice;
@@ -139,8 +167,13 @@ export type AnswerRecord = {
   isCorrect: boolean;
   skill_tag: SkillTag;
   answeredAt: string;
+  /** Content version actually answered; absent on older clients. */
+  contentRevision?: string;
   responseTimeMs?: number;
   source?: "daily" | "mock";
+  /** Optional, additive: legacy records without them stay valid. */
+  timing?: AnswerTiming;
+  attempt?: AttemptInfo;
   /**
    * Mistake Reason System (Phase 1). Only meaningful when `isCorrect === false`.
    * Optional + additive: legacy records without these stay valid (= unlabeled).

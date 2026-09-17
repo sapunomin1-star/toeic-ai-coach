@@ -1,0 +1,19 @@
+# Build from source; exclude local dependencies, generated output and QA media.
+.git
+.next
+node_modules
+pipeline/node_modules
+pipeline/output
+pipeline/dist
+output/playwright
+.playwright-cli
+coverage
+*.tsbuildinfo
+*.log
+
+# Production configuration comes from Vercel, never from local secrets or data.
+.env*
+pipeline/.env*
+.sync-dev-store.json
+
+data/.question-bank.lock

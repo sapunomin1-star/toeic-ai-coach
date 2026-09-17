@@ -13,8 +13,8 @@
  *   Part 3:   per-question narrated stem audio/<id>-q.mp3
  *
  * Questions with an explicit audioUrl/imageUrl override are not expected at
- * the convention path (the app uses the override instead); they are listed
- * separately so overrides never silently mask a missing file.
+ * the convention path (the app uses the override instead); their actual URLs are checked too, so overrides never mask a missing file.
+ * Root-relative overrides require MEDIA_APP_ORIGIN (the app deployment URL).
  *
  * Each path is HEAD-checked against NEXT_PUBLIC_BLOB_BASE_URL (public URLs,
  * no token required). Exits 1 if anything is missing.
@@ -70,12 +70,12 @@ function buildExpectations(questions: Question[]): {
   for (const q of questions) {
     if (q.part === "Part 1") {
       if (q.imageUrl) overridden.push(`${q.id} (imageUrl)`);
-      else add({ pathname: `images/${q.id}.jpg`, questionId: q.id, kind: "image" });
+      add({ pathname: q.imageUrl ?? `images/${q.id}.jpg`, questionId: q.id, kind: "image" });
       if (q.audioUrl) overridden.push(`${q.id} (audioUrl)`);
-      else add({ pathname: `audio/${q.id}.mp3`, questionId: q.id, kind: "item-audio" });
+      add({ pathname: q.audioUrl ?? `audio/${q.id}.mp3`, questionId: q.id, kind: "item-audio" });
     } else if (q.part === "Part 2") {
       if (q.audioUrl) overridden.push(`${q.id} (audioUrl)`);
-      else add({ pathname: `audio/${q.id}.mp3`, questionId: q.id, kind: "item-audio" });
+      add({ pathname: q.audioUrl ?? `audio/${q.id}.mp3`, questionId: q.id, kind: "item-audio" });
     } else if (q.part === "Part 3" || q.part === "Part 4") {
       const group = p34Groups.get(groupKey(q)) ?? [];
       group.push(q);
@@ -89,18 +89,22 @@ function buildExpectations(questions: Question[]): {
   for (const group of p34Groups.values()) {
     const owner = [...group].sort((a, b) => a.id.localeCompare(b.id))[0];
     if (owner.audioUrl) overridden.push(`${owner.id} (audioUrl, group owner)`);
-    else add({ pathname: `audio/${owner.id}.mp3`, questionId: owner.id, kind: "group-audio" });
+    add({ pathname: owner.audioUrl ?? `audio/${owner.id}.mp3`, questionId: owner.id, kind: "group-audio" });
   }
 
   return { expected: [...byPathname.values()], overridden };
 }
 
 async function headCheck(baseUrl: string, item: ExpectedMedia): Promise<CheckResult> {
+  const url = /^https:\/\//.test(item.pathname) ? item.pathname
+    : item.pathname.startsWith("/")
+      ? new URL(item.pathname, process.env.MEDIA_APP_ORIGIN).href
+      : `${baseUrl}/${item.pathname}`;
   let lastStatus: number | string = "not checked";
 
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
     try {
-      const response = await fetch(`${baseUrl}/${item.pathname}`, {
+      const response = await fetch(url, {
         method: "HEAD",
         signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
       });
@@ -168,7 +172,7 @@ async function main() {
   console.log(`Questions:      ${QUESTIONS.length}`);
   console.log(`Expected paths: ${expected.length} (${countByKind(expected)})`);
   if (overridden.length > 0) {
-    console.log(`URL overrides (not checked): ${overridden.join(", ")}`);
+    console.log(`URL overrides (included in checks): ${overridden.join(", ")}`);
   }
   console.log(`HEAD-checking against ${baseUrl} (concurrency ${CONCURRENCY})...`);
 

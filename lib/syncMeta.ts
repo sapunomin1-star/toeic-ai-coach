@@ -14,6 +14,10 @@ import { SYNC_KEYS, isSyncKey, type SyncKey } from "@/lib/syncShared";
 export type SyncMetaEntry = { t: number; dirty?: true; deleted?: true };
 export type SyncMeta = Partial<Record<SyncKey, SyncMetaEntry>>;
 
+function nextLocalTimestamp(entry: SyncMetaEntry | undefined, proposedT: number): number {
+  return Math.max(proposedT, (entry?.t ?? 0) + 1);
+}
+
 export function readSyncMeta(): SyncMeta {
   if (!isBrowser()) return {};
   try {
@@ -51,14 +55,18 @@ function writeSyncMeta(meta: SyncMeta): void {
 /** A local value write happened: remember its time and queue it for push. */
 export function bumpDirty(key: SyncKey, t: number): void {
   const meta = readSyncMeta();
-  meta[key] = { t, dirty: true };
+  meta[key] = { t: nextLocalTimestamp(meta[key], t), dirty: true };
   writeSyncMeta(meta);
 }
 
 /** A user-intent removal happened: queue a tombstone for push. */
 export function recordTombstone(key: SyncKey, t: number): void {
   const meta = readSyncMeta();
-  meta[key] = { t, dirty: true, deleted: true };
+  meta[key] = {
+    t: nextLocalTimestamp(meta[key], t),
+    dirty: true,
+    deleted: true,
+  };
   writeSyncMeta(meta);
 }
 
@@ -79,13 +87,19 @@ export function markClean(key: SyncKey, expectedT: number): void {
 }
 
 /**
- * Queue the key's CURRENT state for push without touching its timestamp
- * (pull-side decision "local is newer / remote unusable → push ours").
+ * Queue the key's CURRENT state at a reconciliation-supplied timestamp. The
+ * caller explicitly identifies whether current state is a value or tombstone;
+ * this is critical after logout, when a live value may coexist with stale
+ * `deleted` meta from an earlier synchronized removal.
  */
-export function markDirty(key: SyncKey, fallbackT: number): void {
+export function markDirty(key: SyncKey, t: number, deleted: boolean): void {
   const meta = readSyncMeta();
   const entry = meta[key];
-  meta[key] = entry ? { ...entry, dirty: true } : { t: fallbackT, dirty: true };
+  meta[key] = {
+    t: Math.max(entry?.t ?? 0, t),
+    dirty: true,
+    ...(deleted ? { deleted: true as const } : {}),
+  };
   writeSyncMeta(meta);
 }
 

@@ -1,0 +1,3662 @@
+{
+  "auditedAt": "2026-09-12T15:28:58.070Z",
+  "method": "Current source functions, full bank exact-match scan, isolated in-memory synthetic histories; no real learner records accessed. Assertions document current defects, not desired regression behavior.",
+  "bank": {
+    "questions": 3303,
+    "vocabulary": 1500,
+    "skills": 19
+  },
+  "vocabularyCoverage": {
+    "total": {
+      "questions": 3303,
+      "withTerms": 3303,
+      "noTerms": 0,
+      "termReferences": 11625,
+      "matchedReferences": 3803,
+      "missingReferences": 7822,
+      "zeroMatchesWithTerms": 1112,
+      "partialMatches": 2035,
+      "allTermsMatched": 156
+    },
+    "byPart": {
+      "Part 1": {
+        "questions": 84,
+        "withTerms": 84,
+        "noTerms": 0,
+        "termReferences": 410,
+        "matchedReferences": 73,
+        "missingReferences": 337,
+        "zeroMatchesWithTerms": 36,
+        "partialMatches": 48,
+        "allTermsMatched": 0
+      },
+      "Part 2": {
+        "questions": 293,
+        "withTerms": 293,
+        "noTerms": 0,
+        "termReferences": 959,
+        "matchedReferences": 319,
+        "missingReferences": 640,
+        "zeroMatchesWithTerms": 99,
+        "partialMatches": 177,
+        "allTermsMatched": 17
+      },
+      "Part 3": {
+        "questions": 396,
+        "withTerms": 396,
+        "noTerms": 0,
+        "termReferences": 1338,
+        "matchedReferences": 640,
+        "missingReferences": 698,
+        "zeroMatchesWithTerms": 59,
+        "partialMatches": 277,
+        "allTermsMatched": 60
+      },
+      "Part 4": {
+        "questions": 303,
+        "withTerms": 303,
+        "noTerms": 0,
+        "termReferences": 1126,
+        "matchedReferences": 420,
+        "missingReferences": 706,
+        "zeroMatchesWithTerms": 77,
+        "partialMatches": 213,
+        "allTermsMatched": 13
+      },
+      "Part 5": {
+        "questions": 1081,
+        "withTerms": 1081,
+        "noTerms": 0,
+        "termReferences": 3484,
+        "matchedReferences": 724,
+        "missingReferences": 2760,
+        "zeroMatchesWithTerms": 544,
+        "partialMatches": 528,
+        "allTermsMatched": 9
+      },
+      "Part 6": {
+        "questions": 184,
+        "withTerms": 184,
+        "noTerms": 0,
+        "termReferences": 868,
+        "matchedReferences": 466,
+        "missingReferences": 402,
+        "zeroMatchesWithTerms": 25,
+        "partialMatches": 149,
+        "allTermsMatched": 10
+      },
+      "Part 7": {
+        "questions": 962,
+        "withTerms": 962,
+        "noTerms": 0,
+        "termReferences": 3440,
+        "matchedReferences": 1161,
+        "missingReferences": 2279,
+        "zeroMatchesWithTerms": 272,
+        "partialMatches": 643,
+        "allTermsMatched": 47
+      }
+    },
+    "uniqueTerms": 4813,
+    "uniqueMissingTerms": 4186,
+    "topMissingTerms": [
+      {
+        "term": "scheduled",
+        "count": 48,
+        "examples": [
+          "p5-pr-001",
+          "p5-ext-021",
+          "p5-ext-087"
+        ]
+      },
+      {
+        "term": "replacement",
+        "count": 43,
+        "examples": [
+          "p5-pv-017",
+          "p3-ext-007",
+          "p3-ext-008"
+        ]
+      },
+      {
+        "term": "meeting",
+        "count": 43,
+        "examples": [
+          "p5-ext-048",
+          "p5-ext-089",
+          "p5-pr-019"
+        ]
+      },
+      {
+        "term": "confirmation",
+        "count": 34,
+        "examples": [
+          "p7-ext-025",
+          "p3-ext-001",
+          "p7-gen-106"
+        ]
+      },
+      {
+        "term": "contact",
+        "count": 29,
+        "examples": [
+          "p5-cj-005",
+          "p4-mi-002",
+          "p2-gen-038"
+        ]
+      },
+      {
+        "term": "productivity",
+        "count": 27,
+        "examples": [
+          "p5-rc-005",
+          "p6-gen-009",
+          "p6-gen-010"
+        ]
+      },
+      {
+        "term": "inferred",
+        "count": 26,
+        "examples": [
+          "p7-gen-009",
+          "p7-gen-027",
+          "p7-gen-036"
+        ]
+      },
+      {
+        "term": "arrive",
+        "count": 24,
+        "examples": [
+          "p5-pr-002",
+          "p3-ext-018",
+          "p3-ext-027"
+        ]
+      },
+      {
+        "term": "requirement",
+        "count": 24,
+        "examples": [
+          "p5-pron-018",
+          "p7-gen-047",
+          "p7-gen-048"
+        ]
+      },
+      {
+        "term": "guidelines",
+        "count": 24,
+        "examples": [
+          "p5-adv-008",
+          "p7-ext-040",
+          "p7-ext-041"
+        ]
+      },
+      {
+        "term": "rescheduled",
+        "count": 24,
+        "examples": [
+          "p4-ext-010",
+          "p7-gen-016",
+          "p7-gen-017"
+        ]
+      },
+      {
+        "term": "report",
+        "count": 23,
+        "examples": [
+          "p5-wf-010",
+          "p5-ext-005",
+          "p5-ext-062"
+        ]
+      },
+      {
+        "term": "quarterly",
+        "count": 23,
+        "examples": [
+          "p3-ext-028",
+          "p2-gen-004",
+          "p2-gen-030"
+        ]
+      },
+      {
+        "term": "projector",
+        "count": 23,
+        "examples": [
+          "p2-gen-067",
+          "p3-gen-127",
+          "p3-gen-128"
+        ]
+      },
+      {
+        "term": "employees",
+        "count": 22,
+        "examples": [
+          "p5-pv-001",
+          "p5-pv-007",
+          "p5-bv-003"
+        ]
+      },
+      {
+        "term": "project",
+        "count": 21,
+        "examples": [
+          "p5-pv-025",
+          "p5-ext-001",
+          "p5-ext-092"
+        ]
+      },
+      {
+        "term": "registration",
+        "count": 20,
+        "examples": [
+          "p7-ext-038",
+          "p7-ext-044",
+          "p3-ext-013"
+        ]
+      },
+      {
+        "term": "infer",
+        "count": 20,
+        "examples": [
+          "p7-gen-021",
+          "p7-gen-080",
+          "p7-gen-122"
+        ]
+      },
+      {
+        "term": "conference room",
+        "count": 19,
+        "examples": [
+          "p5-pv-004",
+          "p5-pron-014",
+          "p7-ext-002"
+        ]
+      },
+      {
+        "term": "experience",
+        "count": 19,
+        "examples": [
+          "p5-ext-015",
+          "p5-ext-117",
+          "p5-rc-004"
+        ]
+      },
+      {
+        "term": "inform",
+        "count": 19,
+        "examples": [
+          "p4-ext-012",
+          "p6-gen-057",
+          "p6-gen-058"
+        ]
+      },
+      {
+        "term": "entrance",
+        "count": 19,
+        "examples": [
+          "p4-ext-030",
+          "p2-gen-016",
+          "p4-gen-012"
+        ]
+      },
+      {
+        "term": "email",
+        "count": 19,
+        "examples": [
+          "p2-gen-009",
+          "p3-gen-015",
+          "p3-gen-030"
+        ]
+      },
+      {
+        "term": "manager",
+        "count": 18,
+        "examples": [
+          "p5-ts-003",
+          "p5-ext-001",
+          "p5-ext-072"
+        ]
+      },
+      {
+        "term": "applicant",
+        "count": 18,
+        "examples": [
+          "p5-ext-027",
+          "p5-rc-024",
+          "p7-gen-254"
+        ]
+      },
+      {
+        "term": "office",
+        "count": 17,
+        "examples": [
+          "p5-pv-006",
+          "p5-ext-059",
+          "p1-gen-001"
+        ]
+      },
+      {
+        "term": "technician",
+        "count": 17,
+        "examples": [
+          "p5-ext-024",
+          "p5-ext-063",
+          "p7-sp-201"
+        ]
+      },
+      {
+        "term": "flexibility",
+        "count": 17,
+        "examples": [
+          "p6-gen-001",
+          "p6-gen-002",
+          "p6-gen-004"
+        ]
+      },
+      {
+        "term": "facilities",
+        "count": 17,
+        "examples": [
+          "p4-gen-022",
+          "p4-gen-023",
+          "p4-gen-024"
+        ]
+      },
+      {
+        "term": "designated",
+        "count": 17,
+        "examples": [
+          "p6-gen-037",
+          "p6-gen-038",
+          "p6-gen-040"
+        ]
+      },
+      {
+        "term": "approval",
+        "count": 16,
+        "examples": [
+          "p5-wf-027",
+          "p5-rc-017",
+          "p7-ext-012"
+        ]
+      },
+      {
+        "term": "candidate",
+        "count": 16,
+        "examples": [
+          "p5-ext-015",
+          "p5-pron-018",
+          "p5-adv-002"
+        ]
+      },
+      {
+        "term": "marketing team",
+        "count": 14,
+        "examples": [
+          "p5-wf-001",
+          "p5-wf-017",
+          "p5-bv-002"
+        ]
+      },
+      {
+        "term": "expected",
+        "count": 14,
+        "examples": [
+          "p5-ext-040",
+          "p5-ext-065",
+          "p7-gen-074"
+        ]
+      },
+      {
+        "term": "availability",
+        "count": 14,
+        "examples": [
+          "p3-ext-017",
+          "p4-ext-013",
+          "p4-ext-015"
+        ]
+      },
+      {
+        "term": "quarterly report",
+        "count": 13,
+        "examples": [
+          "p5-pv-003",
+          "p5-ts-013",
+          "p5-gen-006"
+        ]
+      },
+      {
+        "term": "expertise",
+        "count": 13,
+        "examples": [
+          "p5-bv-007",
+          "p5-gen-036",
+          "p6-gen-061"
+        ]
+      },
+      {
+        "term": "quarter",
+        "count": 13,
+        "examples": [
+          "p5-ext-029",
+          "p5-ext-128",
+          "p5-rc-001"
+        ]
+      },
+      {
+        "term": "shipping",
+        "count": 13,
+        "examples": [
+          "p2-gen-012",
+          "p2-gen-045",
+          "p3-gen-005"
+        ]
+      },
+      {
+        "term": "adjustment",
+        "count": 13,
+        "examples": [
+          "p6-gen-025",
+          "p6-gen-026",
+          "p6-gen-028"
+        ]
+      }
+    ],
+    "duplicateBankWords": [],
+    "example": {
+      "id": "p5-ext-032",
+      "part": "Part 5",
+      "terms": [
+        "specializes",
+        "it solutions",
+        "small businesses"
+      ],
+      "matched": [],
+      "missing": [
+        "specializes",
+        "it solutions",
+        "small businesses"
+      ]
+    }
+  },
+  "skillCounts": {
+    "passive_voice": 105,
+    "word_form": 285,
+    "tense": 121,
+    "preposition": 161,
+    "conjunction": 143,
+    "pronoun": 88,
+    "relative_clause": 49,
+    "business_vocabulary": 231,
+    "listening_photo": 84,
+    "listening_response": 293,
+    "listening_main_idea": 213,
+    "listening_inference": 167,
+    "listening_next_action": 164,
+    "listening_detail": 155,
+    "reading_main_idea": 216,
+    "reading_detail": 565,
+    "reading_inference": 200,
+    "reading_vocab": 26,
+    "sentence_insertion": 37
+  },
+  "clozeGeneration": {
+    "eligibleExamples": 1423,
+    "fallBackToTranslation": 77,
+    "changedSurfaceFormCandidates": [
+      {
+        "id": "vocab-022",
+        "word": "expense",
+        "partOfSpeech": "noun",
+        "original": "Please keep all receipts for business expenses.",
+        "matched": "expenses",
+        "filledWithMarkedCorrectAnswer": "Please keep all receipts for business expense."
+      },
+      {
+        "id": "vocab-025",
+        "word": "require",
+        "partOfSpeech": "verb",
+        "original": "This position requires strong communication skills.",
+        "matched": "requires",
+        "filledWithMarkedCorrectAnswer": "This position require strong communication skills."
+      },
+      {
+        "id": "vocab-045",
+        "word": "attendee",
+        "partOfSpeech": "noun",
+        "original": "All attendees will receive a copy of the presentation slides after the meeting.",
+        "matched": "attendees",
+        "filledWithMarkedCorrectAnswer": "All attendee will receive a copy of the presentation slides after the meeting."
+      },
+      {
+        "id": "vocab-049",
+        "word": "procedure",
+        "partOfSpeech": "noun",
+        "original": "All staff must follow the safety procedures when using the equipment.",
+        "matched": "procedures",
+        "filledWithMarkedCorrectAnswer": "All staff must follow the safety procedure when using the equipment."
+      },
+      {
+        "id": "vocab-050",
+        "word": "document",
+        "partOfSpeech": "noun",
+        "original": "Please make sure all documents are signed before submitting them.",
+        "matched": "documents",
+        "filledWithMarkedCorrectAnswer": "Please make sure all document are signed before submitting them."
+      },
+      {
+        "id": "vocab-062",
+        "word": "cancellation",
+        "partOfSpeech": "noun",
+        "original": "Cancellations made within 24 hours of the booking will receive a full refund.",
+        "matched": "Cancellations",
+        "filledWithMarkedCorrectAnswer": "cancellation made within 24 hours of the booking will receive a full refund."
+      },
+      {
+        "id": "vocab-064",
+        "word": "complaint",
+        "partOfSpeech": "noun",
+        "original": "The customer service team handles all complaints within 48 hours.",
+        "matched": "complaints",
+        "filledWithMarkedCorrectAnswer": "The customer service team handles all complaint within 48 hours."
+      },
+      {
+        "id": "vocab-089",
+        "word": "recipient",
+        "partOfSpeech": "noun",
+        "original": "All recipients of the email are requested to confirm their availability.",
+        "matched": "recipients",
+        "filledWithMarkedCorrectAnswer": "All recipient of the email are requested to confirm their availability."
+      },
+      {
+        "id": "vocab-178",
+        "word": "cubicle",
+        "partOfSpeech": "noun",
+        "original": "Most employees in the open-plan office work in individual cubicles.",
+        "matched": "cubicles",
+        "filledWithMarkedCorrectAnswer": "Most employees in the open-plan office work in individual cubicle."
+      },
+      {
+        "id": "vocab-185",
+        "word": "utensil",
+        "partOfSpeech": "noun",
+        "original": "Please wash your used utensils and place them in the drying rack.",
+        "matched": "utensils",
+        "filledWithMarkedCorrectAnswer": "Please wash your used utensil and place them in the drying rack."
+      },
+      {
+        "id": "vocab-213",
+        "word": "booking",
+        "partOfSpeech": "noun",
+        "original": "All flight bookings must be made through the corporate travel portal.",
+        "matched": "bookings",
+        "filledWithMarkedCorrectAnswer": "All flight booking must be made through the corporate travel portal."
+      },
+      {
+        "id": "vocab-230",
+        "word": "fare",
+        "partOfSpeech": "noun",
+        "original": "Economy class fares have increased significantly for the peak travel season.",
+        "matched": "fares",
+        "filledWithMarkedCorrectAnswer": "Economy class fare have increased significantly for the peak travel season."
+      },
+      {
+        "id": "vocab-323",
+        "word": "fixture",
+        "partOfSpeech": "noun",
+        "original": "The store is updating its lighting fixtures to improve product visibility.",
+        "matched": "fixtures",
+        "filledWithMarkedCorrectAnswer": "The store is updating its lighting fixture to improve product visibility."
+      },
+      {
+        "id": "vocab-339",
+        "word": "beverage",
+        "partOfSpeech": "noun",
+        "original": "The menu includes a wide selection of hot and cold beverages.",
+        "matched": "beverages",
+        "filledWithMarkedCorrectAnswer": "The menu includes a wide selection of hot and cold beverage."
+      },
+      {
+        "id": "vocab-343",
+        "word": "ingredient",
+        "partOfSpeech": "noun",
+        "original": "All our dishes are made with fresh, locally sourced ingredients.",
+        "matched": "ingredients",
+        "filledWithMarkedCorrectAnswer": "All our dishes are made with fresh, locally sourced ingredient."
+      },
+      {
+        "id": "vocab-346",
+        "word": "condiment",
+        "partOfSpeech": "noun",
+        "original": "The table is already set with various condiments like salt, pepper, and ketchup.",
+        "matched": "condiments",
+        "filledWithMarkedCorrectAnswer": "The table is already set with various condiment like salt, pepper, and ketchup."
+      },
+      {
+        "id": "vocab-370",
+        "word": "patron",
+        "partOfSpeech": "noun",
+        "original": "Regular patrons receive a discount on their birthday.",
+        "matched": "patrons",
+        "filledWithMarkedCorrectAnswer": "Regular patron receive a discount on their birthday."
+      },
+      {
+        "id": "vocab-381",
+        "word": "obligation",
+        "partOfSpeech": "noun",
+        "original": "The contract clearly outlines the financial obligations of each partner.",
+        "matched": "obligations",
+        "filledWithMarkedCorrectAnswer": "The contract clearly outlines the financial obligation of each partner."
+      },
+      {
+        "id": "vocab-385",
+        "word": "term",
+        "partOfSpeech": "noun",
+        "original": "Please review the payment terms specified in the third section of the contract.",
+        "matched": "terms",
+        "filledWithMarkedCorrectAnswer": "Please review the payment term specified in the third section of the contract."
+      },
+      {
+        "id": "vocab-392",
+        "word": "stipulate",
+        "partOfSpeech": "verb",
+        "original": "The agreement stipulates that all disputes will be settled through arbitration.",
+        "matched": "stipulates",
+        "filledWithMarkedCorrectAnswer": "The agreement stipulate that all disputes will be settled through arbitration."
+      },
+      {
+        "id": "vocab-414",
+        "word": "parameter",
+        "partOfSpeech": "noun",
+        "original": "The research report defines the key parameters used in the data analysis.",
+        "matched": "parameters",
+        "filledWithMarkedCorrectAnswer": "The research report defines the key parameter used in the data analysis."
+      },
+      {
+        "id": "vocab-419",
+        "word": "statistic",
+        "partOfSpeech": "noun",
+        "original": "The marketing report uses compelling statistics to demonstrate market share growth.",
+        "matched": "statistics",
+        "filledWithMarkedCorrectAnswer": "The marketing report uses compelling statistic to demonstrate market share growth."
+      },
+      {
+        "id": "vocab-427",
+        "word": "benchmark",
+        "partOfSpeech": "noun",
+        "original": "The performance report compares our results against industry benchmarks.",
+        "matched": "benchmarks",
+        "filledWithMarkedCorrectAnswer": "The performance report compares our results against industry benchmark."
+      },
+      {
+        "id": "vocab-433",
+        "word": "insight",
+        "partOfSpeech": "noun",
+        "original": "The consultant's report provided valuable insights into customer behavior.",
+        "matched": "insights",
+        "filledWithMarkedCorrectAnswer": "The consultant's report provided valuable insight into customer behavior."
+      },
+      {
+        "id": "vocab-463",
+        "word": "session",
+        "partOfSpeech": "noun",
+        "original": "The training workshop consists of four sessions spread over two days.",
+        "matched": "sessions",
+        "filledWithMarkedCorrectAnswer": "The training workshop consists of four session spread over two days."
+      },
+      {
+        "id": "vocab-473",
+        "word": "interact",
+        "partOfSpeech": "verb",
+        "original": "Our team interacts with hundreds of customers every day.",
+        "matched": "interacts",
+        "filledWithMarkedCorrectAnswer": "Our team interact with hundreds of customers every day."
+      },
+      {
+        "id": "vocab-519",
+        "word": "fabricate",
+        "partOfSpeech": "verb",
+        "original": "The company fabricates custom metal components for industrial clients.",
+        "matched": "fabricates",
+        "filledWithMarkedCorrectAnswer": "The company fabricate custom metal components for industrial clients."
+      },
+      {
+        "id": "vocab-522",
+        "word": "raw material",
+        "partOfSpeech": "phrase",
+        "original": "The cost of raw materials directly impacts the final product price.",
+        "matched": "raw materials",
+        "filledWithMarkedCorrectAnswer": "The cost of raw material directly impacts the final product price."
+      },
+      {
+        "id": "vocab-532",
+        "word": "oversee",
+        "partOfSpeech": "verb",
+        "original": "The manager oversees the entire production process from start to finish.",
+        "matched": "oversees",
+        "filledWithMarkedCorrectAnswer": "The manager oversee the entire production process from start to finish."
+      },
+      {
+        "id": "vocab-534",
+        "word": "safety protocol",
+        "partOfSpeech": "phrase",
+        "original": "All employees must follow strict safety protocols on the factory floor.",
+        "matched": "safety protocols",
+        "filledWithMarkedCorrectAnswer": "All employees must follow strict safety protocol on the factory floor."
+      },
+      {
+        "id": "vocab-548",
+        "word": "tariff",
+        "partOfSpeech": "noun",
+        "original": "The new trade agreement may affect the import tariffs for these goods.",
+        "matched": "tariffs",
+        "filledWithMarkedCorrectAnswer": "The new trade agreement may affect the import tariff for these goods."
+      },
+      {
+        "id": "vocab-550",
+        "word": "pallet",
+        "partOfSpeech": "noun",
+        "original": "Please ensure all goods are securely stacked on the wooden pallets.",
+        "matched": "pallets",
+        "filledWithMarkedCorrectAnswer": "Please ensure all goods are securely stacked on the wooden pallet."
+      },
+      {
+        "id": "vocab-590",
+        "word": "layoff",
+        "partOfSpeech": "noun",
+        "original": "The economic downturn led to a series of layoffs across the industry.",
+        "matched": "layoffs",
+        "filledWithMarkedCorrectAnswer": "The economic downturn led to a series of layoff across the industry."
+      },
+      {
+        "id": "vocab-593",
+        "word": "evaluation",
+        "partOfSpeech": "noun",
+        "original": "Annual performance evaluations are conducted every December.",
+        "matched": "evaluations",
+        "filledWithMarkedCorrectAnswer": "Annual performance evaluation are conducted every December."
+      },
+      {
+        "id": "vocab-603",
+        "word": "impulse buy",
+        "partOfSpeech": "phrase",
+        "original": "Candy placed near the register encourages impulse buys.",
+        "matched": "impulse buys",
+        "filledWithMarkedCorrectAnswer": "Candy placed near the register encourages impulse buy."
+      },
+      {
+        "id": "vocab-674",
+        "word": "backup",
+        "partOfSpeech": "noun",
+        "original": "It is crucial to perform regular backups of all important files.",
+        "matched": "backups",
+        "filledWithMarkedCorrectAnswer": "It is crucial to perform regular backup of all important files."
+      },
+      {
+        "id": "vocab-693",
+        "word": "allegation",
+        "partOfSpeech": "noun",
+        "original": "The firm is investigating the serious allegations made in the complaint.",
+        "matched": "allegations",
+        "filledWithMarkedCorrectAnswer": "The firm is investigating the serious allegation made in the complaint."
+      },
+      {
+        "id": "vocab-709",
+        "word": "treatment",
+        "partOfSpeech": "noun",
+        "original": "The new outpatient clinic offers a wide range of treatments for chronic conditions.",
+        "matched": "treatments",
+        "filledWithMarkedCorrectAnswer": "The new outpatient clinic offers a wide range of treatment for chronic conditions."
+      },
+      {
+        "id": "vocab-715",
+        "word": "symptom",
+        "partOfSpeech": "noun",
+        "original": "Please report any unusual symptoms to your healthcare provider immediately.",
+        "matched": "symptoms",
+        "filledWithMarkedCorrectAnswer": "Please report any unusual symptom to your healthcare provider immediately."
+      },
+      {
+        "id": "vocab-728",
+        "word": "complication",
+        "partOfSpeech": "noun",
+        "original": "The surgery was successful, with no post-operative complications.",
+        "matched": "complications",
+        "filledWithMarkedCorrectAnswer": "The surgery was successful, with no post-operative complication."
+      },
+      {
+        "id": "vocab-733",
+        "word": "disorder",
+        "partOfSpeech": "noun",
+        "original": "The clinic specializes in treating sleep disorders.",
+        "matched": "disorders",
+        "filledWithMarkedCorrectAnswer": "The clinic specializes in treating sleep disorder."
+      },
+      {
+        "id": "vocab-759",
+        "word": "peril",
+        "partOfSpeech": "noun",
+        "original": "Standard property insurance often covers perils like fire, lightning, and windstorms.",
+        "matched": "perils",
+        "filledWithMarkedCorrectAnswer": "Standard property insurance often covers peril like fire, lightning, and windstorms."
+      },
+      {
+        "id": "vocab-762",
+        "word": "tenant",
+        "partOfSpeech": "noun",
+        "original": "The building manager addressed the tenants' concerns about security.",
+        "matched": "tenants",
+        "filledWithMarkedCorrectAnswer": "The building manager addressed the tenant' concerns about security."
+      },
+      {
+        "id": "vocab-808",
+        "word": "credential",
+        "partOfSpeech": "noun",
+        "original": "Applicants must possess the necessary professional credentials.",
+        "matched": "credentials",
+        "filledWithMarkedCorrectAnswer": "Applicants must possess the necessary professional credential."
+      },
+      {
+        "id": "vocab-812",
+        "word": "module",
+        "partOfSpeech": "noun",
+        "original": "The course is divided into several self-contained modules.",
+        "matched": "modules",
+        "filledWithMarkedCorrectAnswer": "The course is divided into several self-contained module."
+      },
+      {
+        "id": "vocab-821",
+        "word": "simulation",
+        "partOfSpeech": "noun",
+        "original": "Pilots undergo rigorous flight simulations as part of their ongoing training.",
+        "matched": "simulations",
+        "filledWithMarkedCorrectAnswer": "Pilots undergo rigorous flight simulation as part of their ongoing training."
+      },
+      {
+        "id": "vocab-858",
+        "word": "incident",
+        "partOfSpeech": "noun",
+        "original": "All security incidents must be logged and investigated promptly.",
+        "matched": "incidents",
+        "filledWithMarkedCorrectAnswer": "All security incident must be logged and investigated promptly."
+      },
+      {
+        "id": "vocab-859",
+        "word": "precaution",
+        "partOfSpeech": "noun",
+        "original": "We took extra precautions by backing up all data before the system migration.",
+        "matched": "precautions",
+        "filledWithMarkedCorrectAnswer": "We took extra precaution by backing up all data before the system migration."
+      },
+      {
+        "id": "vocab-864",
+        "word": "prohibit",
+        "partOfSpeech": "verb",
+        "original": "Company policy strictly prohibits the use of personal USB drives at work.",
+        "matched": "prohibits",
+        "filledWithMarkedCorrectAnswer": "Company policy strictly prohibit the use of personal USB drives at work."
+      },
+      {
+        "id": "vocab-898",
+        "word": "peripheral",
+        "partOfSpeech": "noun",
+        "original": "All necessary peripherals, like printers and scanners, are provided.",
+        "matched": "peripherals",
+        "filledWithMarkedCorrectAnswer": "All necessary peripheral, like printers and scanners, are provided."
+      },
+      {
+        "id": "vocab-934",
+        "word": "blueprint",
+        "partOfSpeech": "noun",
+        "original": "The architect presented the final blueprints for the office renovation.",
+        "matched": "blueprints",
+        "filledWithMarkedCorrectAnswer": "The architect presented the final blueprint for the office renovation."
+      },
+      {
+        "id": "vocab-935",
+        "word": "dwelling",
+        "partOfSpeech": "noun",
+        "original": "The new regulations affect all residential dwellings in the historic district.",
+        "matched": "dwellings",
+        "filledWithMarkedCorrectAnswer": "The new regulations affect all residential dwelling in the historic district."
+      },
+      {
+        "id": "vocab-938",
+        "word": "tenant improvement",
+        "partOfSpeech": "phrase",
+        "original": "The lease includes an allowance for tenant improvements to the office layout.",
+        "matched": "tenant improvements",
+        "filledWithMarkedCorrectAnswer": "The lease includes an allowance for tenant improvement to the office layout."
+      },
+      {
+        "id": "vocab-940",
+        "word": "common area",
+        "partOfSpeech": "phrase",
+        "original": "Maintenance fees cover the cleaning and upkeep of all common areas.",
+        "matched": "common areas",
+        "filledWithMarkedCorrectAnswer": "Maintenance fees cover the cleaning and upkeep of all common area."
+      },
+      {
+        "id": "vocab-1056",
+        "word": "arrangement",
+        "partOfSpeech": "noun",
+        "original": "We made special seating arrangements for the VIP guests.",
+        "matched": "arrangements",
+        "filledWithMarkedCorrectAnswer": "We made special seating arrangement for the VIP guests."
+      },
+      {
+        "id": "vocab-1058",
+        "word": "guest",
+        "partOfSpeech": "noun",
+        "original": "All guests are invited to the welcome reception this evening.",
+        "matched": "guests",
+        "filledWithMarkedCorrectAnswer": "All guest are invited to the welcome reception this evening."
+      },
+      {
+        "id": "vocab-1078",
+        "word": "stakeholder",
+        "partOfSpeech": "noun",
+        "original": "We must consider the interests of all stakeholders in this decision.",
+        "matched": "stakeholders",
+        "filledWithMarkedCorrectAnswer": "We must consider the interests of all stakeholder in this decision."
+      },
+      {
+        "id": "vocab-1086",
+        "word": "cover",
+        "partOfSpeech": "verb",
+        "original": "This policy covers fire damage but not flooding.",
+        "matched": "covers",
+        "filledWithMarkedCorrectAnswer": "This policy cover fire damage but not flooding."
+      },
+      {
+        "id": "vocab-1090",
+        "word": "exclude",
+        "partOfSpeech": "verb",
+        "original": "The policy excludes pre-existing conditions from coverage.",
+        "matched": "excludes",
+        "filledWithMarkedCorrectAnswer": "The policy exclude pre-existing conditions from coverage."
+      },
+      {
+        "id": "vocab-1095",
+        "word": "errand",
+        "partOfSpeech": "noun",
+        "original": "She had to run several errands after work, including picking up dry cleaning.",
+        "matched": "errands",
+        "filledWithMarkedCorrectAnswer": "She had to run several errand after work, including picking up dry cleaning."
+      },
+      {
+        "id": "vocab-1097",
+        "word": "chore",
+        "partOfSpeech": "noun",
+        "original": "Washing dishes is one of my least favorite chores.",
+        "matched": "chores",
+        "filledWithMarkedCorrectAnswer": "Washing dishes is one of my least favorite chore."
+      },
+      {
+        "id": "vocab-1108",
+        "word": "position",
+        "partOfSpeech": "verb",
+        "original": "The company positions itself as a provider of luxury goods.",
+        "matched": "positions",
+        "filledWithMarkedCorrectAnswer": "The company position itself as a provider of luxury goods."
+      },
+      {
+        "id": "vocab-1146",
+        "word": "foster",
+        "partOfSpeech": "verb",
+        "original": "The school fosters a love of reading by maintaining a well-stocked library.",
+        "matched": "fosters",
+        "filledWithMarkedCorrectAnswer": "The school foster a love of reading by maintaining a well-stocked library."
+      },
+      {
+        "id": "vocab-1164",
+        "word": "contravene",
+        "partOfSpeech": "verb",
+        "original": "Any action that contravenes the contract will result in penalties.",
+        "matched": "contravenes",
+        "filledWithMarkedCorrectAnswer": "Any action that contravene the contract will result in penalties."
+      },
+      {
+        "id": "vocab-1170",
+        "word": "screen",
+        "partOfSpeech": "verb",
+        "original": "The HR manager screens all applications before scheduling interviews.",
+        "matched": "screens",
+        "filledWithMarkedCorrectAnswer": "The HR manager screen all applications before scheduling interviews."
+      },
+      {
+        "id": "vocab-1181",
+        "word": "depart",
+        "partOfSpeech": "verb",
+        "original": "Our flight departs from gate 12 at 3:30 p.m.",
+        "matched": "departs",
+        "filledWithMarkedCorrectAnswer": "Our flight depart from gate 12 at 3:30 p.m."
+      },
+      {
+        "id": "vocab-1195",
+        "word": "item",
+        "partOfSpeech": "noun",
+        "original": "We have five items on the agenda for today's meeting.",
+        "matched": "items",
+        "filledWithMarkedCorrectAnswer": "We have five item on the agenda for today's meeting."
+      },
+      {
+        "id": "vocab-1237",
+        "word": "prospect",
+        "partOfSpeech": "noun",
+        "original": "The sales team is calling on several new prospects this week.",
+        "matched": "prospects",
+        "filledWithMarkedCorrectAnswer": "The sales team is calling on several new prospect this week."
+      },
+      {
+        "id": "vocab-1286",
+        "word": "handpick",
+        "partOfSpeech": "verb",
+        "original": "Our buyer handpicks each item to ensure the highest quality.",
+        "matched": "handpicks",
+        "filledWithMarkedCorrectAnswer": "Our buyer handpick each item to ensure the highest quality."
+      },
+      {
+        "id": "vocab-1287",
+        "word": "serve",
+        "partOfSpeech": "verb",
+        "original": "The hotel serves breakfast from 6 AM to 10 AM.",
+        "matched": "serves",
+        "filledWithMarkedCorrectAnswer": "The hotel serve breakfast from 6 AM to 10 AM."
+      },
+      {
+        "id": "vocab-1336",
+        "word": "peer",
+        "partOfSpeech": "noun",
+        "original": "Collaborating with peers can enhance the learning experience.",
+        "matched": "peers",
+        "filledWithMarkedCorrectAnswer": "Collaborating with peer can enhance the learning experience."
+      },
+      {
+        "id": "vocab-1350",
+        "word": "action item",
+        "partOfSpeech": "phrase",
+        "original": "Each team member left the meeting with clear action items to complete by Friday.",
+        "matched": "action items",
+        "filledWithMarkedCorrectAnswer": "Each team member left the meeting with clear action item to complete by Friday."
+      },
+      {
+        "id": "vocab-1356",
+        "word": "supervise",
+        "partOfSpeech": "verb",
+        "original": "She supervises a team of ten customer service representatives.",
+        "matched": "supervises",
+        "filledWithMarkedCorrectAnswer": "She supervise a team of ten customer service representatives."
+      },
+      {
+        "id": "vocab-1368",
+        "word": "subsidize",
+        "partOfSpeech": "verb",
+        "original": "The government subsidizes transportation costs for low-income workers.",
+        "matched": "subsidizes",
+        "filledWithMarkedCorrectAnswer": "The government subsidize transportation costs for low-income workers."
+      },
+      {
+        "id": "vocab-1439",
+        "word": "finding",
+        "partOfSpeech": "noun",
+        "original": "One of the key findings in the report is the need for better communication.",
+        "matched": "findings",
+        "filledWithMarkedCorrectAnswer": "One of the key finding in the report is the need for better communication."
+      },
+      {
+        "id": "vocab-1442",
+        "word": "plate",
+        "partOfSpeech": "verb",
+        "original": "The kitchen staff carefully plates each dish before serving it to customers.",
+        "matched": "plates",
+        "filledWithMarkedCorrectAnswer": "The kitchen staff carefully plate each dish before serving it to customers."
+      },
+      {
+        "id": "vocab-1446",
+        "word": "complement",
+        "partOfSpeech": "verb",
+        "original": "The recommended wine perfectly complements the grilled salmon.",
+        "matched": "complements",
+        "filledWithMarkedCorrectAnswer": "The recommended wine perfectly complement the grilled salmon."
+      },
+      {
+        "id": "vocab-1485",
+        "word": "sample",
+        "partOfSpeech": "noun",
+        "original": "The store offers free samples of its new perfume at the entrance.",
+        "matched": "samples",
+        "filledWithMarkedCorrectAnswer": "The store offers free sample of its new perfume at the entrance."
+      }
+    ]
+  },
+  "reproductions": {
+    "allCorrectSpeed": {
+      "inputs": [
+        {
+          "questionId": "p3-audit-1",
+          "userAnswer": "A",
+          "correctAnswer": "A",
+          "isCorrect": true,
+          "skill_tag": "listening_detail",
+          "source": "daily",
+          "answeredAt": "2026-09-01T00:40:00.000Z",
+          "responseTimeMs": 90000
+        },
+        {
+          "questionId": "p5-audit-41",
+          "userAnswer": "A",
+          "correctAnswer": "A",
+          "isCorrect": true,
+          "skill_tag": "word_form",
+          "source": "daily",
+          "answeredAt": "2026-09-01T00:41:00.000Z",
+          "responseTimeMs": 20000
+        }
+      ],
+      "slowCount": 1,
+      "slowestSkill": "listening_detail",
+      "averageMs": 55000
+    },
+    "repeatedItem": {
+      "initialUniqueWrongQuestions": 20,
+      "correctRepeatsOfOneQuestion": 20,
+      "beforeWeakness": [
+        {
+          "skill": "word_form",
+          "mistakes": 20
+        }
+      ],
+      "afterWeakness": [],
+      "grammarWeaknessAfter": [
+        {
+          "skill": "word_form",
+          "wrongCount": 20
+        }
+      ]
+    },
+    "singleWrongWeakness": [
+      {
+        "skill": "word_form",
+        "mistakes": 1
+      }
+    ],
+    "confirmedReasonDenominator": {
+      "confirmedOnly": "你最近 100% 的錯集中在文法觀念。與其多寫題，不如先補對應觀念。",
+      "sameConfirmedWith20ExcludedInferred": "你的錯誤原因蠻分散的，持續累積資料會更準。",
+      "countsWithInferred": {
+        "vocab": 0,
+        "grammar": 8,
+        "comprehension": 0,
+        "speed": 0,
+        "careless": 0,
+        "guess": 0
+      },
+      "oneConfirmedSevenInferred": "你的錯誤原因蠻分散的，持續累積資料會更準。"
+    },
+    "coldStartVocabularySuggestions": {
+      "hypotheticalWrongAt20Seconds": 3303,
+      "suggestsVocab": 2191
+    },
+    "allDailyWordsWrong": {
+      "words": 20,
+      "validatedCount": 20,
+      "reinforcementCount": 20,
+      "actualCorrect": 0
+    },
+    "masterySchedule": [
+      {
+        "date": "2026-09-01",
+        "previousIntervalDays": 0,
+        "status": "familiar",
+        "scheduledNextIntervalDays": 1
+      },
+      {
+        "date": "2026-09-02",
+        "previousIntervalDays": 1,
+        "status": "familiar",
+        "scheduledNextIntervalDays": 3
+      },
+      {
+        "date": "2026-09-05",
+        "previousIntervalDays": 3,
+        "status": "familiar",
+        "scheduledNextIntervalDays": 7
+      },
+      {
+        "date": "2026-09-12",
+        "previousIntervalDays": 7,
+        "status": "mastered",
+        "scheduledNextIntervalDays": 14
+      },
+      {
+        "date": "2026-09-26",
+        "previousIntervalDays": 14,
+        "status": "mastered",
+        "scheduledNextIntervalDays": 30
+      }
+    ],
+    "actualGeneratedCloze": {
+      "type": "fill-blank",
+      "wordId": "vocab-025",
+      "prompt": "This position ______ strong communication skills.",
+      "choices": [
+        "approve",
+        "deliver",
+        "increase",
+        "require"
+      ],
+      "correctIndex": 3,
+      "explanation": {
+        "word": "require",
+        "meaning_zh": "要求；需要",
+        "example": "This position requires strong communication skills."
+      }
+    },
+    "twentyDueWords": {
+      "dueAvailable": 20,
+      "selectedDue": 5,
+      "newSelected": 20,
+      "warnings": {
+        "newSuppressed": false,
+        "retryDeferred": 0
+      },
+      "deferredDue": 15
+    }
+  },
+  "polysemyInspectionCandidates": [
+    {
+      "word": "schedule",
+      "bank": {
+        "id": "vocab-002",
+        "word": "schedule",
+        "partOfSpeech": "noun",
+        "meaning_zh": "行程表；時間表",
+        "example": "The manager changed the meeting schedule.",
+        "example_zh": "經理更改了會議時間表。",
+        "collocations": [
+          "meeting schedule",
+          "busy schedule"
+        ],
+        "difficulty": "A2",
+        "category": "meeting"
+      },
+      "questions": [
+        {
+          "id": "p5-ext-026",
+          "part": "Part 5",
+          "question": "The _____ of the annual conference has been confirmed for June.",
+          "choices": {
+            "A": "scheduled",
+            "B": "scheduler",
+            "C": "scheduling",
+            "D": "schedule"
+          },
+          "answer": "D",
+          "explanation_zh": "定詞 the 後需要名詞 schedule（行程表）。scheduled 是形容詞/過去分詞，scheduling 是動名詞，scheduler 是排程人員。",
+          "skill_tag": "word_form",
+          "difficulty": "B1",
+          "vocabulary": [
+            "schedule",
+            "annual",
+            "conference",
+            "confirmed"
+          ]
+        },
+        {
+          "id": "p5-ext-061",
+          "part": "Part 5",
+          "question": "The work schedule _____ next week to accommodate the holiday.",
+          "choices": {
+            "A": "will adjust",
+            "B": "will be adjusted",
+            "C": "adjusts",
+            "D": "is adjusting"
+          },
+          "answer": "B",
+          "explanation_zh": "schedule 是被調整的，應用被動語態 will be adjusted。next week 提示未來時間。",
+          "skill_tag": "passive_voice",
+          "difficulty": "B1",
+          "vocabulary": [
+            "adjusted",
+            "schedule",
+            "accommodate",
+            "holiday"
+          ]
+        },
+        {
+          "id": "p3-ext-002",
+          "part": "Part 3",
+          "question": "What can be inferred about the man?",
+          "choices": {
+            "A": "He works in the marketing department",
+            "B": "He has never met Mr. Tanaka",
+            "C": "He is canceling the meeting entirely",
+            "D": "He is running late for the meeting"
+          },
+          "answer": "A",
+          "explanation_zh": "細節推論題。男士自我介紹時說 'this is David Chen from marketing'，可知他在行銷部門工作。",
+          "skill_tag": "listening_inference",
+          "difficulty": "B1",
+          "vocabulary": [
+            "marketing",
+            "schedule",
+            "available",
+            "updated"
+          ],
+          "transcript": "Woman: Hello, Mr. Tanaka's office.\nMan: Hi, this is David Chen from marketing. I have a meeting scheduled with Mr. Tanaka at 2 p.m. tomorrow, but I need to reschedule. An urgent client issue has come up.\nWoman: I see. Let me check his calendar. He's available on Thursday at 10 a.m. or Friday at 3 p.m.\nMan: Thursday at 10 would be perfect.\nWoman: OK, I've updated the schedule. I'll send you a confirmation email."
+        },
+        {
+          "id": "p3-ext-003",
+          "part": "Part 3",
+          "question": "What will the woman most likely do next?",
+          "choices": {
+            "A": "Call the client",
+            "B": "Reschedule for Friday",
+            "C": "Send a confirmation email",
+            "D": "Inform Mr. Tanaka directly"
+          },
+          "answer": "C",
+          "explanation_zh": "下一步行動題。女士最後說 'I'll send you a confirmation email'，所以她接下來會寄確認信。",
+          "skill_tag": "listening_next_action",
+          "difficulty": "B1",
+          "vocabulary": [
+            "confirmation email",
+            "updated",
+            "schedule",
+            "perfect"
+          ],
+          "transcript": "Woman: Hello, Mr. Tanaka's office.\nMan: Hi, this is David Chen from marketing. I have a meeting scheduled with Mr. Tanaka at 2 p.m. tomorrow, but I need to reschedule. An urgent client issue has come up.\nWoman: I see. Let me check his calendar. He's available on Thursday at 10 a.m. or Friday at 3 p.m.\nMan: Thursday at 10 would be perfect.\nWoman: OK, I've updated the schedule. I'll send you a confirmation email."
+        },
+        {
+          "id": "p6-gen-057",
+          "part": "Part 6",
+          "question": "____(A)____",
+          "choices": {
+            "A": "problem",
+            "B": "delay",
+            "C": "adjustment",
+            "D": "warning"
+          },
+          "answer": "C",
+          "explanation_zh": "此處需要表示‘變更’的正面詞彙。'adjustment'意為調整，符合通知服務變更的禮貌語氣；'problem'（問題）和'warning'（警告）語氣負面，'delay'（延誤）不合適。",
+          "skill_tag": "business_vocabulary",
+          "difficulty": "A2",
+          "vocabulary": [
+            "valued",
+            "inform",
+            "schedule",
+            "apologize",
+            "inconvenience",
+            "customer service"
+          ],
+          "passage": "Dear Valued Customers,\n\nWe are writing to inform you of an important ____(A)____ to our store hours. Starting next Monday, our store will open at 9:00 AM instead of 8:00 AM. ____(B)____, we will now close at 8:00 PM instead of 7:00 PM. ____(C)____ This change allows our staff to prepare better before opening. We understand this may affect your schedule, and we apologize for any inconvenience. ____(D)____ you have any questions, please contact our customer service team. Thank you for your understanding.\n\nBest regards,\nStore Management",
+          "passage_group_id": "p6-015",
+          "question_order": 1
+        },
+        {
+          "id": "p6-gen-058",
+          "part": "Part 6",
+          "question": "____(B)____",
+          "choices": {
+            "A": "However",
+            "B": "Therefore",
+            "C": "For example",
+            "D": "Additionally"
+          },
+          "answer": "D",
+          "explanation_zh": "此處需要表示附加信息的連接詞。前句提到開門時間變化，後句補充關門時間變化，'Additionally'（此外）符合並列關係；'However'表轉折，'Therefore'表因果，'For example'表舉例，均不合適。",
+          "skill_tag": "conjunction",
+          "difficulty": "A2",
+          "vocabulary": [
+            "valued",
+            "inform",
+            "schedule",
+            "apologize",
+            "inconvenience",
+            "customer service"
+          ],
+          "passage": "Dear Valued Customers,\n\nWe are writing to inform you of an important ____(A)____ to our store hours. Starting next Monday, our store will open at 9:00 AM instead of 8:00 AM. ____(B)____, we will now close at 8:00 PM instead of 7:00 PM. ____(C)____ This change allows our staff to prepare better before opening. We understand this may affect your schedule, and we apologize for any inconvenience. ____(D)____ you have any questions, please contact our customer service team. Thank you for your understanding.\n\nBest regards,\nStore Management",
+          "passage_group_id": "p6-015",
+          "question_order": 2
+        },
+        {
+          "id": "p6-gen-060",
+          "part": "Part 6",
+          "question": "____(D)____",
+          "choices": {
+            "A": "Must",
+            "B": "Should",
+            "C": "Would",
+            "D": "Could"
+          },
+          "answer": "B",
+          "explanation_zh": "此處需要表示條件的情態動詞。'Should you have any questions'是正式條件句，相當於‘如果您有任何問題’，符合禮貌通知語氣；'Must'表必須，'Would'和'Could'不用於條件句引導。",
+          "skill_tag": "tense",
+          "difficulty": "A2",
+          "vocabulary": [
+            "valued",
+            "inform",
+            "schedule",
+            "apologize",
+            "inconvenience",
+            "customer service"
+          ],
+          "passage": "Dear Valued Customers,\n\nWe are writing to inform you of an important ____(A)____ to our store hours. Starting next Monday, our store will open at 9:00 AM instead of 8:00 AM. ____(B)____, we will now close at 8:00 PM instead of 7:00 PM. ____(C)____ This change allows our staff to prepare better before opening. We understand this may affect your schedule, and we apologize for any inconvenience. ____(D)____ you have any questions, please contact our customer service team. Thank you for your understanding.\n\nBest regards,\nStore Management",
+          "passage_group_id": "p6-015",
+          "question_order": 4
+        },
+        {
+          "id": "p2-gen-059",
+          "part": "Part 2",
+          "question": "Could you tell me when the meeting room will be available?",
+          "choices": {
+            "A": "The meeting is about quarterly results.",
+            "B": "The room is on the second floor.",
+            "C": "It should be free after 3 PM."
+          },
+          "answer": "C",
+          "explanation_zh": "問題詢問何時會議室可用，答案C正確地提供了時間資訊。選項A提到會議內容，但未回答會議室何時可用。選項B提到會議室的位置，沒有回答時間問題。選項A的\"meeting\"是陷阱字，未能回答\"何時可用\"這個問題。",
+          "skill_tag": "listening_response",
+          "difficulty": "B1",
+          "vocabulary": [
+            "available",
+            "meeting",
+            "room",
+            "schedule"
+          ],
+          "audioScript": "Q: Could you tell me when the meeting room will be available?\n(A) The meeting is about quarterly results.\n(B) The room is on the second floor.\n(C) It should be free after 3 PM."
+        }
+      ]
+    },
+    {
+      "word": "order",
+      "bank": {
+        "id": "vocab-031",
+        "word": "order",
+        "partOfSpeech": "noun",
+        "meaning_zh": "訂單",
+        "example": "We received your order and will process it within 24 hours.",
+        "example_zh": "我們已收到您的訂單，將在 24 小時內處理。",
+        "collocations": [
+          "place an order",
+          "order confirmation",
+          "cancel an order"
+        ],
+        "difficulty": "A2",
+        "category": "business"
+      },
+      "questions": [
+        {
+          "id": "p5-ext-093",
+          "part": "Part 5",
+          "question": "We sincerely apologize _____ the delay in processing your order.",
+          "choices": {
+            "A": "with",
+            "B": "about",
+            "C": "for",
+            "D": "at"
+          },
+          "answer": "C",
+          "explanation_zh": "apologize for（為...道歉）是固定搭配。apologize about/with/at 都不正確。",
+          "skill_tag": "preposition",
+          "difficulty": "B1",
+          "vocabulary": [
+            "apologize for",
+            "delay",
+            "processing",
+            "order"
+          ]
+        },
+        {
+          "id": "p3-ext-004",
+          "part": "Part 3",
+          "question": "What is the purpose of the woman's call?",
+          "choices": {
+            "A": "To place a new order",
+            "B": "To check the delivery date",
+            "C": "To report missing items in a shipment",
+            "D": "To change the shipping address"
+          },
+          "answer": "C",
+          "explanation_zh": "主旨題。女士說 'some items are missing'（有些物品不見了），所以她打來是要回報缺貨。",
+          "skill_tag": "listening_main_idea",
+          "difficulty": "B1",
+          "vocabulary": [
+            "shipment",
+            "missing",
+            "items",
+            "order",
+            "warehouse"
+          ],
+          "transcript": "Man: Hello, ABC Supplies. How can I help you?\nWoman: Hi, this is Lisa Wang from TechCorp. I'm calling about order number 4582. We received the shipment this morning, but some items are missing.\nMan: I'm sorry to hear that. Can you tell me which items are missing?\nWoman: The order was for 50 laptop stands, but only 30 arrived.\nMan: Let me check our warehouse. Please hold for a moment."
+        },
+        {
+          "id": "p3-ext-015",
+          "part": "Part 3",
+          "question": "What does the woman ask the man to do?",
+          "choices": {
+            "A": "Fill out the registration form",
+            "B": "Bring food to the picnic",
+            "C": "Help organize the games",
+            "D": "Arrive early on Saturday"
+          },
+          "answer": "A",
+          "explanation_zh": "下一步行動題。女士說 'make sure you fill out the registration form online'，要求男士上網填報名表。",
+          "skill_tag": "listening_next_action",
+          "difficulty": "B1",
+          "vocabulary": [
+            "registration form",
+            "online",
+            "fill out",
+            "order"
+          ],
+          "transcript": "Woman: Hi everyone. As you know, our annual company picnic is coming up next Saturday. We need to finalize the number of attendees by tomorrow.\nMan: I'll be there, and I'll bring my wife and two kids.\nWoman: Great, please make sure you fill out the registration form online so we can order enough food.\nMan: Is there a barbecue this year?\nWoman: Yes, and there will also be games for children and a talent show."
+        },
+        {
+          "id": "p2-gen-011",
+          "part": "Part 2",
+          "question": "Should we order lunch for the team or let everyone eat on their own?",
+          "choices": {
+            "A": "I think ordering in would be more efficient for the team.",
+            "B": "The lunch break is usually at twelve o'clock here.",
+            "C": "Everyone already ate their lunch much earlier this morning."
+          },
+          "answer": "A",
+          "explanation_zh": "這是一個選擇問句，提供「訂餐」或「各自用餐」兩個選項，(A) 選擇訂餐並給出理由為正確回應。(B) 回答午餐時間，但並未在兩個選項中做出選擇。(C) 的時態錯誤，用餐尚未發生。",
+          "skill_tag": "listening_response",
+          "difficulty": "A2",
+          "vocabulary": [
+            "order",
+            "lunch",
+            "efficient",
+            "team"
+          ],
+          "audioScript": "Q: Should we order lunch for the team or let everyone eat on their own?\n(A) I think ordering in would be more efficient for the team.\n(B) The lunch break is usually at twelve o'clock here.\n(C) Everyone already ate their lunch much earlier this morning."
+        },
+        {
+          "id": "p2-gen-027",
+          "part": "Part 2",
+          "question": "Why do we need to order more toner cartridges for the office printers already?",
+          "choices": {
+            "A": "The printer is located near the copy machine.",
+            "B": "Because we have been printing a lot of training manuals this month.",
+            "C": "I already placed the order for new toner this morning."
+          },
+          "answer": "B",
+          "explanation_zh": "問題問的是需要再訂購碳粉匣的「原因」，(B) 回答因為本月印了大量訓練手冊為正確回應。(A) 回答印表機的位置而非原因。(C) 的時態錯誤，使用過去式表示已訂購，而非解釋為何需要訂購。",
+          "skill_tag": "listening_response",
+          "difficulty": "B1",
+          "vocabulary": [
+            "toner",
+            "cartridges",
+            "printing",
+            "manuals",
+            "order"
+          ],
+          "audioScript": "Q: Why do we need to order more toner cartridges for the office printers already?\n(A) The printer is located near the copy machine.\n(B) Because we have been printing a lot of training manuals this month.\n(C) I already placed the order for new toner this morning."
+        },
+        {
+          "id": "p3-gen-004",
+          "part": "Part 3",
+          "question": "What is the conversation mainly about?",
+          "choices": {
+            "A": "Placing a new order with Summit Supplies",
+            "B": "Returning damaged items from a recent shipment",
+            "C": "Negotiating a long-term delivery contract",
+            "D": "Checking on the status of a delayed delivery order"
+          },
+          "answer": "D",
+          "explanation_zh": "對話中 David 致電詢問未準時送達的訂單狀況，客服人員查詢後告知延遲原因及預計送達時間，因此 (D) 正確。(A) 的「下新訂單」與對話內容相反，是查詢既有訂單。(B) 的「退貨」未在對話中提及。(C) 的「協商合約」與對話主題無關。",
+          "skill_tag": "listening_main_idea",
+          "difficulty": "A2",
+          "vocabulary": [
+            "order",
+            "delayed",
+            "delivery",
+            "shipment",
+            "tracking"
+          ],
+          "transcript": "M: Hello, this is David from Summit Supplies. I am calling about order number four five two one. It was supposed to arrive yesterday, but we have not received anything yet.\nW: I apologize for the delay, Mr. Davis. Let me check the tracking for you now. It looks like the shipment was held at the distribution center due to a system error with the shipping labels.\nM: I see. When can we expect delivery then?\nW: They have already corrected the issue. Your order should arrive by tomorrow afternoon at the latest.\nM: All right, thank you for looking into it."
+        },
+        {
+          "id": "p7-gen-106",
+          "part": "Part 7",
+          "question": "According to Text 1, what was the total cost of order #GT-4521?",
+          "choices": {
+            "A": "$2,400",
+            "B": "$3,000",
+            "C": "$2,550",
+            "D": "$2,500"
+          },
+          "answer": "D",
+          "explanation_zh": "根據文本1，訂單總金額明確標註為“Total: $2,500”。計算：10塊面板×$150 = $1,500，5個逆變器×$200 = $1,000，合計$2,500。A選項$2,400是如果數量互換的錯誤計算；C和B無依據。",
+          "skill_tag": "reading_detail",
+          "difficulty": "B2",
+          "vocabulary": [
+            "total",
+            "cost",
+            "order",
+            "confirmation"
+          ],
+          "passage": "Text 1\nFrom: orders@greentech.com\nTo: james.chen@client.com\nSubject: Order Confirmation #GT-4521\nDate: March 1, 2024\n\nDear Mr. Chen,\n\nThank you for your order #GT-4521 placed on February 28, 2024. We are pleased to confirm the following items:\n- 10 units of EcoSolar Panel Model S200 (Item Code: ESP-200) at $150 each\n- 5 units of EcoSolar Inverter Model I75 (Item Code: ESI-075) at $200 each\n\nTotal: $2,500. Shipping address: 88 Innovation Drive, Taipei. Estimated delivery: March 15, 2024. Payment has been processed.\n\nBest regards,\nLisa Wang\nCustomer Service Manager\n\nText 2\nFrom: james.chen@client.com\nTo: support@greentech.com\nSubject: Urgent: Order #GT-4521 Discrepancy\nDate: March 18, 2024\n\nDear Greentech Support,\n\nI am writing to report an issue with order #GT-4521. I received the shipment on March 17, 2024. However, the package contained 8 units of the EcoSolar Panel Model S200 and 6 units of the EcoSolar Inverter Model I75. This is incorrect—I ordered 10 panels and 5 inverters. Additionally, the invoice in the box lists the items as ordered, but the quantities differ. Please advise on how to resolve this. I need the correct items urgently for a project.\n\nRegards,\nJames Chen\n\nText 3\nFrom: support@greentech.com\nTo: james.chen@client.com\nSubject: Re: Urgent: Order #GT-4521 Discrepancy\nDate: March 20, 2024\n\nDear Mr. Chen,\n\nWe apologize for the error in your order #GT-4521. Upon investigation, it appears that our warehouse mistakenly swapped quantities for the panels and inverters. We are shipping the missing 2 panels (Item Code: ESP-200) today via express delivery, with an estimated arrival by March 22, 2024. You may keep the extra inverter at no charge as compensation. Please disregard the invoice included; a corrected one will follow. We have also credited your account $50 for the inconvenience.\n\nSincerely,\nLisa Wang\nCustomer Service Manager",
+          "passage_group_id": "p7-triple-002",
+          "passage_group_type": "triple",
+          "question_order": 2
+        },
+        {
+          "id": "p7-gen-225",
+          "part": "Part 7",
+          "question": "What is the main issue described in the first email?",
+          "choices": {
+            "A": "The customer was charged twice for the same order.",
+            "B": "The customer received a different product than what was ordered.",
+            "C": "The customer received a damaged product.",
+            "D": "The customer's package was delivered late."
+          },
+          "answer": "B",
+          "explanation_zh": "答案是 B。第一封郵件中，莎拉明確寫道「我訂購的是無線耳機（型號 WM-200），但收到的包裹裡是有線耳機（型號 WH-100）」，這直接對應選項 B「客戶收到的商品與訂購的不同」。選項 C「收到損壞商品」、A「被重複收費」、D「包裹延遲送達」均未在郵件中被提及。",
+          "skill_tag": "reading_main_idea",
+          "difficulty": "B1",
+          "vocabulary": [
+            "order",
+            "wireless earbuds",
+            "wired headset",
+            "replacement"
+          ],
+          "passage": "Email 1\nFrom: Sarah Jenkins <sjenkins@example.com>\nTo: support@quickmart.com\nSubject: Wrong item received – order #78432\nDate: October 15, 2024 09:23 AM\n\nDear QuickMart Customer Service,\n\nI am writing to report an issue with my recent order. I placed order #78432 on October 10 for a pair of wireless earbuds (model WM-200). However, when I received the package yesterday, it contained a wired headset (model WH-100). This is not what I ordered, and I am disappointed as I needed the earbuds for my daily commute.\n\nI have attached a photo of the item received and the original order confirmation. Please arrange for a replacement of the correct item or a full refund. I would appreciate a prompt response as I rely on these for work.\n\nThank you for your attention to this matter.\n\nBest regards,\nSarah Jenkins\n\nEmail 2\nFrom: Peter Chen <peter.chen@quickmart.com>\nTo: Sarah Jenkins <sjenkins@example.com>\nSubject: RE: Wrong item received – order #78432\nDate: October 15, 2024 02:15 PM\n\nDear Ms. Jenkins,\n\nThank you for contacting us. I apologize for the error with your order #78432. I have reviewed our records and confirmed that the warehouse mistakenly picked the wrong item.\n\nTo resolve this, we will ship the correct wireless earbuds (WM-200) to you today via express delivery at no extra cost. You should receive them within 2 business days. Additionally, we have issued a full refund for the original order, and you may keep the wired headset as a gesture of apology.\n\nIf you have any further questions, please do not hesitate to reply to this email.\n\nSincerely,\nPeter Chen\nQuickMart Customer Service",
+          "passage_group_id": "p7-exp-007",
+          "passage_group_type": "double",
+          "question_order": 1
+        }
+      ]
+    },
+    {
+      "word": "address",
+      "bank": {
+        "id": "vocab-132",
+        "word": "address",
+        "partOfSpeech": "verb",
+        "meaning_zh": "處理，解決；在郵件上寫地址",
+        "example": "She will address your concerns directly in her follow-up email.",
+        "example_zh": "她將在她的後續郵件中直接處理你的疑慮。",
+        "collocations": [
+          "address an issue",
+          "address the team",
+          "properly addressed"
+        ],
+        "difficulty": "B1",
+        "category": "email"
+      },
+      "questions": [
+        {
+          "id": "p7-gen-123",
+          "part": "Part 7",
+          "question": "What must Mr. Smith do to receive the replacement?",
+          "choices": {
+            "A": "Pay for express shipping.",
+            "B": "Confirm his current shipping address.",
+            "C": "Place a new order for the correct item.",
+            "D": "Return the wrong item first."
+          },
+          "answer": "B",
+          "explanation_zh": "在第二封郵件中，Linda Chen要求史密斯先生確認當前收貨地址，以便處理更換事宜。",
+          "skill_tag": "reading_main_idea",
+          "difficulty": "B1",
+          "vocabulary": [
+            "replacement",
+            "confirm",
+            "address",
+            "process"
+          ],
+          "passage": "Email 1:\nTo: support@greentech.com\nFrom: j.smith@email.com\nSubject: Incorrect item received\n\nDear GreenTech Customer Service,\n\nI am writing to report an issue with my recent order (#GT-7842). I ordered the EcoCharge Pro portable battery pack, but I received the EcoCharge Mini instead. This is the second time this has happened with your company. I need the correct product for an upcoming business trip next week. Please send the right item as soon as possible or issue a full refund. I expect a prompt response.\n\nSincerely,\nJames Smith\n\nEmail 2:\nTo: j.smith@email.com\nFrom: support@greentech.com\nSubject: Re: Incorrect item received\n\nDear Mr. Smith,\n\nThank you for contacting us about your order. We sincerely apologize for the error. I have checked our inventory and we can ship the correct EcoCharge Pro to you today via express delivery, which should arrive within two business days. As compensation for your inconvenience, we would like to offer you a 20% discount on your next purchase. Please confirm your current shipping address so we can process the replacement.\n\nBest regards,\nLinda Chen\nCustomer Service Manager",
+          "passage_group_id": "p7-double-006",
+          "passage_group_type": "double",
+          "question_order": 5
+        },
+        {
+          "id": "p7-gen-188",
+          "part": "Part 7",
+          "question": "Which skill mentioned in the job posting does Jane Doe specifically address in her application?",
+          "choices": {
+            "A": "Knowledge of market research",
+            "B": "Understanding of consumer behavior",
+            "C": "Proficiency in Tableau",
+            "D": "Experience in team management"
+          },
+          "answer": "C",
+          "explanation_zh": "招聘廣告要求熟練使用Tableau等數據可視化工具，而Jane Doe在郵件中明確提到自己使用Tableau創建了儀表盤，提升了ROI，因此她專門提到了Tableau技能，選項C正確。",
+          "skill_tag": "reading_main_idea",
+          "difficulty": "B2",
+          "vocabulary": [
+            "proficiency",
+            "specifically",
+            "address",
+            "skill"
+          ],
+          "passage": "Text 1: Job Advertisement\n\nPosition: Senior Marketing Analyst\n\nLocation: Chicago, IL\n\nCompany: MarketPro Solutions\n\nWe are seeking a highly motivated Senior Marketing Analyst to join our dynamic team. The ideal candidate will have a minimum of 5 years of experience in marketing analytics, proficiency in data visualization tools (e.g., Tableau), and a strong understanding of consumer behavior. Key responsibilities include analyzing campaign performance, generating insights for strategy optimization, and presenting findings to senior management. To apply, please submit your resume and a cover letter detailing your relevant experience to careers@marketpro.com by March 15, 2024. Only shortlisted candidates will be contacted.\n\nText 2: Application Email\n\nTo: careers@marketpro.com\nFrom: jane.doe@email.com\nSubject: Application for Senior Marketing Analyst Position\n\nDear Hiring Manager,\n\nI am writing to express my strong interest in the Senior Marketing Analyst position at MarketPro Solutions, as advertised on your website. With over 6 years of experience in marketing analytics, I have effectively used Tableau to create dashboards that improved campaign ROI by 20%. My background includes analyzing customer data to identify trends and presenting actionable insights to cross-functional teams. I am excited about the opportunity to contribute to MarketPro's growth. Please find my resume attached. I look forward to discussing my application further.\n\nBest regards,\nJane Doe",
+          "passage_group_id": "p7-double-010",
+          "passage_group_type": "double",
+          "question_order": 5
+        },
+        {
+          "id": "p7-gen-400",
+          "part": "Part 7",
+          "passage": "Job Posting: Marketing Coordinator\n\nCompany: GreenLeaf Solutions Inc.\nLocation: Chicago, IL (Hybrid)\n\nGreenLeaf Solutions is seeking a Marketing Coordinator to join our growing team. The ideal candidate will have at least two years of experience in digital marketing, strong project management skills, and proficiency in social media analytics tools.\n\nResponsibilities include:\n- Managing social media accounts and content calendars\n- Analyzing campaign performance using Google Analytics and Hootsuite\n- Coordinating with external vendors for promotional materials\n- Assisting in the development of quarterly marketing reports\n\nTo apply, send your resume and a cover letter to careers@greenleafsolutions.com. Applications should highlight experience with SEO and content creation. Deadline: October 15, 2023.\n\n---\n\nApplication Email\n\nFrom: Sarah Chen\nTo: careers@greenleafsolutions.com\nSubject: Application for Marketing Coordinator\n\nDear Hiring Team,\n\nI am writing to apply for the Marketing Coordinator position at GreenLeaf Solutions. I have three years of experience as a digital marketing assistant at Horizon Media, where I managed social media campaigns and used tools like Google Analytics to track performance. I also hold a certificate in Content Marketing from Coursera.\n\nI have attached my resume and cover letter as requested. I am particularly excited about GreenLeaf's focus on sustainability and believe my skills in content creation and SEO align well with this role.\n\nThank you for your consideration.\n\nBest regards,\nSarah Chen",
+          "question": "Based on the job posting and application, which of the following is a requirement from the posting that Sarah does NOT clearly address in her email?",
+          "choices": {
+            "A": "Experience with SEO",
+            "B": "Proficiency in social media analytics tools",
+            "C": "Strong project management skills",
+            "D": "Content creation experience"
+          },
+          "answer": "C",
+          "explanation_zh": "答案是 C。職位說明要求「strong project management skills」，但 Sarah 的求職信中完全沒有提到任何與專案管理相關的經驗或技能。選項 A（SEO 經驗）和選項 D（內容創作經驗）她在信中都有提及，選項 B（社交媒體分析工具熟練度）她也提到了使用 Google Analytics。",
+          "skill_tag": "reading_inference",
+          "difficulty": "B2",
+          "vocabulary": [
+            "requirement",
+            "proficiency",
+            "project management",
+            "address"
+          ],
+          "passage_group_type": "double",
+          "question_order": 4,
+          "passage_group_id": "p7-exp-054"
+        },
+        {
+          "id": "p5-xd-0191",
+          "part": "Part 5",
+          "question": "The president, _______ comments in a press conference last week aroused considerable criticism, will again address the media today.",
+          "choices": {
+            "A": "who",
+            "B": "that",
+            "C": "whose",
+            "D": "what"
+          },
+          "answer": "C",
+          "explanation_zh": "空格後的名詞片語「comments in a press conference」是主詞「The president」的所屬物，因此需用所有格關係代名詞「whose」來連接，表示「其評論」。",
+          "skill_tag": "relative_clause",
+          "difficulty": "B2",
+          "vocabulary": [
+            "press conference",
+            "address",
+            "criticism"
+          ]
+        },
+        {
+          "id": "p5-xd-0246",
+          "part": "Part 5",
+          "question": "121. We would like to inform our employees that any complaints should be _______ to their union representative at first.",
+          "choices": {
+            "A": "outlined",
+            "B": "addressed",
+            "C": "focused",
+            "D": "applied"
+          },
+          "answer": "B",
+          "explanation_zh": "本題考動詞搭配。句意為「投訴應首先『提交給』工會代表」，只有 addressed 有「向…提出（問題或投訴）」的用法，常與 to 連用。outlined 是「概述」，focused 是「專注」，applied 是「申請」，皆不符合語境。",
+          "skill_tag": "business_vocabulary",
+          "difficulty": "B1",
+          "vocabulary": [
+            "complaint",
+            "union representative",
+            "address"
+          ]
+        },
+        {
+          "id": "p7-xd-0002",
+          "part": "Part 7",
+          "question": "Which of the following is NOT mentioned in the guideline?",
+          "choices": {
+            "A": "Find out how you should address the host family",
+            "B": "Always be prepared for the unexpected",
+            "C": "Be prompt during meal times",
+            "D": "Establish a rapport with the host family"
+          },
+          "answer": "C",
+          "explanation_zh": "指南中提到「如果不確定如何稱呼寄宿家庭，可以詢問」，也提到「帶照片打破僵局」以建立關係，但完全沒有提到「準時用餐」。選項C是唯一未提及的內容。",
+          "skill_tag": "reading_detail",
+          "difficulty": "B1",
+          "vocabulary": [
+            "address",
+            "rapport",
+            "prompt"
+          ],
+          "passage": "\"HOMESTAY NETWORK\" STUDENT GUIDELINES\n\nOn arrival at your new home:\n\n• Try to remember the names of your host family. If unsure about how to address them, it is okay to ask how they would like to be called. For example, if it is impolite in your country to call someone elder by their first name, ask if it's okay to add Mr. or Mrs. in front of their names. Some Americans do not like to be addressed this way because it makes them feel old.\n\n• Show your family that you are grateful for being your host. But do not give expensive gifts. It is, however, considered appropriate to bring inexpensive handcrafts from your country or a small gift for the children of the host family.\n\n• Your host family will be curious to know more about you. Bring photos of your family and friends to share with them. This is also a great way to break the ice with them.\n\n• After you get settled, your host family will help you make a call to your parents to assure them that you have arrived safely.\n\n• After you've had dinner, you may ask the host family to be excused early. They will be fully aware of the fact that you might be jetlagged, so feel free to ask them.\n\nOn your first day of school:\n\n• On your first day of school, your host family will take you to school and help you with the necessary registration paperwork.\n\n• Your host family will also make sure that you know your way to and from school. They will also teach you how to use public transportation.\n\n• When traveling alone, you should at all times carry a map and the phone number of your host family.\n\n• In case you are lost and cannot get in touch with your host family, you can contact the \"Homestay Network\".",
+          "passage_group_id": "p7-xd-0-25-156-157-158-159",
+          "passage_group_type": "single",
+          "question_order": 2
+        },
+        {
+          "id": "p7-xd-0290",
+          "part": "Part 7",
+          "question": "What is scheduled to happen following the president's address?",
+          "choices": {
+            "A": "Participants will enjoy some Chinese cuisine.",
+            "B": "The attendees will listen to an opening speech by Jack Thornton.",
+            "C": "New employees will participate in group activities.",
+            "D": "Staff members will check the list by the front entrance."
+          },
+          "answer": "A",
+          "explanation_zh": "根據行程表，總裁（CEO Leslie Gown）的演講時間是11:00-11:45，而接下來的12:00-1:30是午餐，地點在上海中國餐廳，因此正確選項是「Participants will enjoy some Chinese cuisine」。其他選項與時間順序不符。",
+          "skill_tag": "reading_detail",
+          "difficulty": "B1",
+          "vocabulary": [
+            "address",
+            "cuisine",
+            "president"
+          ],
+          "passage": "Straton Life Assurance\nNew Employee Training\n\nTheme: New Beginnings, New Challenges\n\n7:00-8:00 A.M.    Pick up orientation materials and name tags at the desk at the entrance of the Grand Hall. (Please wear your nametag at all times so that others can recognize your name and the branch office you work in.)\n\n8:00-9:00 A.M.    Buffet-style breakfast at the main floor restaurant.\n\n9:15-9:45 A.M.    Opening speech outlining the company's history by Vice President Jack Thornton.\n\n10:00-10:45 A.M.   \"Your Role and How You Can Make a Difference,\" by General Sales Manager Mr. Sam Bowe.\n\n11:00-11:45 A.M.   \"Straton Life in 2007\" address by CEO Leslie Gown.\n\n12:00-1:30 P.M.    Lunch at the Shanghai Chinese Restaurant on the first basement floor.\n\n1:30-2:00 P.M.     Small group activities and role playing. (You will be assigned to a group. The list will be posted at the entrance when you return from lunch.)\n\n2:15-4:15 P.M.     Question and Answer session with the management staff.\n\n4:30-5:00 P.M.     A motivational speech by last year's rookie of the year, Mr. Harry Sinclair.\n\n5:10-5:20 P.M.     Closing comments from the event coordinator, Ms. Teresa Penn.\n\n* Please do not forget to write a report to be submitted to your managers when you return to your branch offices.",
+          "passage_group_id": "p7-xd-6-217-172-173-174-175",
+          "passage_group_type": "single",
+          "question_order": 1
+        },
+        {
+          "id": "p7-xd-0350",
+          "part": "Part 7",
+          "question": "Which question did NOT address the relationship aspect of the managers and employees?",
+          "choices": {
+            "A": "Question 1",
+            "B": "Question 2",
+            "C": "Question 3",
+            "D": "Question 4"
+          },
+          "answer": "B",
+          "explanation_zh": "問題2詢問「與高階主管開會討論進度與專案的頻率」，屬於工作流程與溝通頻率的調查，而非直接探討關係本質。其他問題1、3、4分別問關係風格、稱呼方式、期望被看待的角色，都直接涉及關係層面。",
+          "skill_tag": "reading_detail",
+          "difficulty": "B1",
+          "vocabulary": [
+            "address",
+            "progress",
+            "correspondence"
+          ],
+          "passage": "We are working to improve the overall working dynamics within our company, in particular employees' attitudes towards the relationships with senior management, a primary factor influencing the core human relations in the workplace. Please read below, and circle one answer only.\n\n1. Please describe your working relationship style with your direct senior manager.\nA) Casual\t\t\tB) Very casual\t\tC) Formal\t\tD) Very formal\n\n2. How often do you meet with your senior manager to discuss your progress and projects in general?\nA) Once a week\t\tB) Once a month\t\tC) Once a year\t\tD) Never\n\n3. How do you address your senior manager in correspondence?\nA) By first name\tB) By last name\t\tC) By full title\t\tD) Flexible — depends on topic\n\n4. How would you prefer that your senior manager view you?\nA) As an employee\tB) As a colleague\t\tC) As a friend\t\tD) As a trainee\n\n5. How satisfied are you with your relationship with your senior manager?\nA) Very satisfied\tB) Satisfied\t\tC) Somewhat satisfied\tD) Not satisfied\n\nResults\n\n1. A) Casual 53%\t\t\tB) Very casual 7%\n   C) Formal 26%\t\t\tD) Very formal 14%\n\n2. A) Once a week 48%\t\tB) Once a month 25%\n   C) Once a year 19%\t\tD) Never 8%\n\n3. A) By first name 45%\t\tB) By last name 30%\n   C) By full title 10%\t\tD) Flexible — depends on topic 15%\n\n4. A) As an employee 23%\tB) As a colleague 47%\n   C) As a friend 25%\t\tD) As a trainee 5%\n\n5. A) Very satisfied 63%\tB) Satisfied 28%\n   C) Somewhat satisfied 7%\tD) Not satisfied 2%\n\nAnalysis\n\nAfter reviewing the study results, we conclude that a large number of staff relationships with their senior managers are increasingly casual, which corresponds to the nationwide trends of effective workforce relationships. Interaction and communication with management is therefore more frequent and natural. Correspondence and other written communication are also more friendly and casual, with almost half of respondents feeling comfortable using a first name basis only.\n\nEmployees want and enjoy a co-working relationship view with their senior managers, preferring to be viewed as a colleague. With a staggering 63% \"very satisfied\" with their relationships and another 28% \"satisfied\", the present relations in our company's staff with management seem to indicate a surprisingly content team of people.\n\nOf course, we will recommend making effort to increasing the overall satisfaction in all relationships for everyone.",
+          "passage_group_id": "p7-xd-7-255-186-187-188-189-190",
+          "passage_group_type": "double",
+          "question_order": 2
+        }
+      ]
+    },
+    {
+      "word": "charge",
+      "bank": null,
+      "questions": [
+        {
+          "id": "p7-xd-0262",
+          "part": "Part 7",
+          "question": "How much will Ms. Parker pay for domestic long distance calls?",
+          "choices": {
+            "A": "$0.00",
+            "B": "$8.55",
+            "C": "$15.60",
+            "D": "$24.15"
+          },
+          "answer": "B",
+          "explanation_zh": "題目詢問市內長途電話費用，帳單中「Direct Dialing Domestic (Out of City) Calls」項目金額為 $8.55，即為正確答案。",
+          "skill_tag": "reading_detail",
+          "difficulty": "A2",
+          "vocabulary": [
+            "domestic",
+            "long distance",
+            "charge"
+          ],
+          "passage": "Sun Telecommunications\nwww.suntelecoms.com\n(010) 245-8888\n\nStatement period: 1st June - 30 June, 2010\nTotal due: $59.15\nPayment due date: July 15, 2010\n\nAccount: 988 332 2006\nAccount name: Angelina Parker\n477 White House Drive\nCalifornia, CA 08451\n\nAccount Summary\n\nBasic Subscription\t$10.00\nCity Calls to City Cell Phones\t$0.00\nDirect Dialing Domestic (Out of City) Calls\t$8.55\nDirect Dialing International Long Distance Calls\t$15.60\nSuper Surfer Internet Access\t$25.00\n\nTotal: $59.15\n\nDirect Dialing Call Details\n\nDomestic\t\tInternational\nNumber\tDuration\tCharge\tNumber\tCountry\tDuration\tCharge\n212 181 0081\t32 min.\t$4.80\t(82) 2 2606 1234\tS. Korea\t7 min.\t$6.78\n502 000 3317\t15 min.\t$2.25\t(27) 3 555 3456\tS. Africa\t8 min.\t$8.82\n502 000 3317\t10 min.\t$1.50\n\nANNOUNCEMENT\n\nWe would like to announce a change in rates effective July 1, 2010. We have summarized how it will affect you in the following table.\n\nService Type\tOld Rate\tNew Rate\nBasic Subscription\t$10.00\t$12.00\nCity Calls to City Cell Phones\t$0.11 per minute\t$0.14 per minute\nDirect Dialing Domestic Calls\t$0.15 per minute\t$0.13 per minute\nSuper Surfer Internet Access\t$25.00 per month\t$30.00 per month\n\nThere will be an increase of an average 0.5% per minute for Direct Dialing International Calls. The country listing is available at www.suntelecoms/DDintl.\n\nOther updates as of July 1, 2010:\n\n- Users of our Super Surfer Service can now enjoy an average increase of 60% in Internet bandwidth due to our equipment upgrading.\n- We have increased our technical staffing to improve our response time for any service calls.\n- Billing information and statements for the past 12 months are now available on the website with user login. Please apply for your logon today at www.suntelecoms.com/login.",
+          "passage_group_id": "p7-xd-5-193-191-192-193-194-195",
+          "passage_group_type": "double",
+          "question_order": 1
+        },
+        {
+          "id": "p7-xd-0408",
+          "part": "Part 7",
+          "question": "How much would it cost to use the computer for two hours?",
+          "choices": {
+            "A": "$15.00",
+            "B": "$20.00",
+            "C": "$35.00",
+            "D": "$40.00"
+          },
+          "answer": "C",
+          "explanation_zh": "收費說明指出電腦使用第一小時20美元，之後每小時15美元，因此兩小時總費用為20 + 15 = 35美元。",
+          "skill_tag": "reading_detail",
+          "difficulty": "A2",
+          "vocabulary": [
+            "usage",
+            "subsequent",
+            "charge"
+          ],
+          "passage": "Boulevard Hotel Business Lounge\n\nHere at the Boulevard Hotel, our Business Lounge is dedicated to put all your business needs and services at your fingertips. Internet access is available on all our Macintosh and PC computers. You can be assured that we meet all your computing needs with color printers, digital scanners, digital cameras, fax machines, and photocopying machines available.\n\nOur Business Lounge is open every day from 8:00 AM to 10:00 PM. Here are our charges:\n\n• Usage of computer - $20 for first hour and $15 for all subsequent hours.\n• Usage of color printer - $1.50 per page.\n• Usage of fax machines (per page rate) - $2 for local faxes, $4 for national long distance faxes, $10 for international long distance faxes.\n• Usage of photocopying machines (per page rate)- $0.10 for black and white, $0.20 for color.\n• Usage of scanner and camera - $20 per hour.\n\nBeginning from July 1, phone rental services will also available in our business lounge. Phone models and prices will be available when the service is launched.",
+          "passage_group_id": "p7-xd-9-304-155-156-157",
+          "passage_group_type": "single",
+          "question_order": 3
+        },
+        {
+          "id": "p7-xd-0422",
+          "part": "Part 7",
+          "question": "How much does Best Office Stationery charge for delivery?",
+          "choices": {
+            "A": "$25.00",
+            "B": "$60.00",
+            "C": "$160.00",
+            "D": "$397.00"
+          },
+          "answer": "A",
+          "explanation_zh": "報價單中明確列出「Shipping and Handling $25」，因此運費為25美元。",
+          "skill_tag": "reading_detail",
+          "difficulty": "A2",
+          "vocabulary": [
+            "shipping and handling",
+            "delivery",
+            "charge"
+          ],
+          "passage": "Best Office Stationery\n432, Oxford Road\nJurong, Hong Kong 459222\n\nJuly 28, 2010\n\nMr. Harry Long\n278 Botanical Gardens Road\nFifth Avenue, Hong Kong 628288\n\nDear Mr. Long,\n\nThank you for your interest in our products. We are pleased to provide a quotation for the following:\n\n_____________________________________________________________\n(2) Toner Cartridges for Canon Bubblejet Printer (Model BJ452) ($76 each)      $152\n(3) Reams of Hewlett Packard A4 Printing Paper ($20 each)                     $60\n(2) Stacks of ACE CDR disks (50 disks per stack) ($80 each)                   $160\n---------------------------------------------------------------\n\nShipping and Handling                                                       $25\nTotal                                                                        $397\n\n---------------------------------------------------------------\n\nOrder ID: 10032\n\nAs we have records and information details about your company, we will be able to send the shipment to you within 24 hours of obtaining your order confirmation. An invoice with transaction details will be provided along with the shipment with the amount charged to your company account.\n\nI would like to take this opportunity to introduce our loyalty program to you. For customers who have purchased more than $2,000 worth of products with us, you qualify to join our Premier Club membership. This membership will allow you to have a further 10% discount on all products purchased. Adding to that, you will enjoy other discounts and promotions just for our Premier Club Members.\n\nFrom your purchase history, I realized that you purchased a total of $1,848 worth of products earlier this year. This would qualify you as a Premier Member for all of your future purchase should you decide to proceed with this order.\n\nWe value your business!\n\nJohn Owens\n\nBest Office Stationery",
+          "passage_group_id": "p7-xd-9-309-167-168-169-170-171",
+          "passage_group_type": "double",
+          "question_order": 5
+        }
+      ]
+    },
+    {
+      "word": "present",
+      "bank": null,
+      "questions": [
+        {
+          "id": "p5-pv-012",
+          "part": "Part 5",
+          "question": "The company's financial results _______ to investors at the quarterly briefing.",
+          "choices": {
+            "A": "is presenting",
+            "B": "will be presented",
+            "C": "presented",
+            "D": "will present"
+          },
+          "answer": "B",
+          "explanation_zh": "財務結果是被呈報的，未來被動：will be presented。主詞 results 被呈報，不是自己呈報。",
+          "skill_tag": "passive_voice",
+          "difficulty": "B1",
+          "vocabulary": [
+            "financial results",
+            "investors",
+            "quarterly briefing",
+            "present"
+          ]
+        },
+        {
+          "id": "p7-ext-009",
+          "part": "Part 7",
+          "question": "What can be inferred about a customer using the advertisement discount?",
+          "choices": {
+            "A": "They need a membership card",
+            "B": "They must be making their first purchase",
+            "C": "They must be existing loyalty members",
+            "D": "They can combine it with the furniture discount"
+          },
+          "answer": "B",
+          "explanation_zh": "推論題：廣告說「Offer valid for new customers only」，因此使用此折扣的顧客一定是首次購物的新客戶。",
+          "skill_tag": "reading_inference",
+          "difficulty": "B1",
+          "vocabulary": [
+            "present",
+            "additional",
+            "valid",
+            "combined",
+            "promotions"
+          ],
+          "passage": "GRAND OPENING SALE\nMeridian Office Supplies – Now Open!\n\nWe are thrilled to announce the grand opening of Meridian Office Supplies, your one-stop shop for all business and stationery needs!\n\nFrom September 1–15, enjoy:\n- 20% OFF all furniture items\n- 10% OFF printer cartridges and paper\n- FREE delivery on orders over $150\n\nVisit us at 88 Commerce Street, Downtown Business District, or shop online at www.meridianoffice.com.\n\nPresent this advertisement to receive an additional 5% discount on your first purchase. Offer valid for new customers only. Cannot be combined with other promotions.\n\nPresent this advertisement to receive an additional 5% discount on your first purchase. Offer valid for new customers only. Cannot be combined with other promotions.\n\nOpen Monday–Saturday, 9:00 A.M. to 7:00 P.M.",
+          "passage_group_id": "p7-single-004",
+          "passage_group_type": "single",
+          "question_order": 1
+        },
+        {
+          "id": "p5-xd-0123",
+          "part": "Part 5",
+          "question": "If you wish to take advantage of our special gift offers, please _______ your sales receipts to one of our employees at the promotions counter on the third floor.",
+          "choices": {
+            "A": "guard",
+            "B": "record",
+            "C": "consider",
+            "D": "present"
+          },
+          "answer": "D",
+          "explanation_zh": "句意為將收據「出示」給員工以兌換贈品。「present」有提交、出示之意，符合商務場景。",
+          "skill_tag": "business_vocabulary",
+          "difficulty": "B1",
+          "vocabulary": [
+            "sales receipt",
+            "promotions counter",
+            "present"
+          ]
+        },
+        {
+          "id": "p2-ind-023",
+          "part": "Part 2",
+          "question": "Would you rather present first or last?",
+          "choices": {
+            "A": "The first floor, I think.",
+            "B": "Does it make a difference to you?",
+            "C": "She presented very clearly."
+          },
+          "answer": "B",
+          "explanation_zh": "【間接回應・反問型】正解 (B)：把選擇丟回給對方，是選擇疑問句常見的間接回應。(A) 重複 first，但回答的是樓層；(C) 重複 present，但評論的是別人的表現。",
+          "skill_tag": "listening_response",
+          "difficulty": "B2",
+          "vocabulary": [
+            "present",
+            "running order"
+          ],
+          "audioScript": "Q: Would you rather present first or last?\n(A) The first floor, I think.\n(B) Does it make a difference to you?\n(C) She presented very clearly."
+        },
+        {
+          "id": "p2-ind-055",
+          "part": "Part 2",
+          "question": "Are you free to take notes in the meeting?",
+          "choices": {
+            "A": "I'm presenting the first half.",
+            "B": "The notes were very detailed.",
+            "C": "It's free to attend."
+          },
+          "answer": "A",
+          "explanation_zh": "【間接回應・婉拒型】正解 (A)：自己要上台報告，暗示無法兼顧記錄。(B) 重複 note，但評論的是別人的記錄；(C) free 當「免費」的語意陷阱。",
+          "skill_tag": "listening_response",
+          "difficulty": "B1",
+          "vocabulary": [
+            "take notes",
+            "present"
+          ],
+          "audioScript": "Q: Are you free to take notes in the meeting?\n(A) I'm presenting the first half.\n(B) The notes were very detailed.\n(C) It's free to attend."
+        }
+      ]
+    },
+    {
+      "word": "issue",
+      "bank": {
+        "id": "vocab-413",
+        "word": "issue",
+        "partOfSpeech": "verb",
+        "meaning_zh": "發布；發行",
+        "example": "The department will issue a public report on environmental impact next month.",
+        "example_zh": "該部門將於下個月發布一份關於環境影響的公開報告。",
+        "collocations": [
+          "issue a report",
+          "issue a statement",
+          "recently issued",
+          "officially issue"
+        ],
+        "difficulty": "B1",
+        "category": "report"
+      },
+      "questions": [
+        {
+          "id": "p5-pv-010",
+          "part": "Part 5",
+          "question": "New employee ID cards _______ at the reception desk on the first day of work.",
+          "choices": {
+            "A": "have issued",
+            "B": "are issued",
+            "C": "is issuing",
+            "D": "issue"
+          },
+          "answer": "B",
+          "explanation_zh": "ID 卡是被發放的，現在式被動（表示慣例）：are issued。主詞 ID cards 是複數，所以用 are。",
+          "skill_tag": "passive_voice",
+          "difficulty": "A2",
+          "vocabulary": [
+            "employee ID cards",
+            "reception desk",
+            "issue"
+          ]
+        },
+        {
+          "id": "p7-sp-001",
+          "part": "Part 7",
+          "question": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?\n\"New cards may be picked up from the Human Resources office between April 29 and May 3.\"",
+          "choices": {
+            "A": "[1]",
+            "B": "[2]",
+            "C": "[3]",
+            "D": "[4]"
+          },
+          "answer": "B",
+          "explanation_zh": "插入句講「領取新卡的時間與地點」。[2] 前句說舊卡 5/3 失效、後句說「屆時尚未領卡的員工」要去警衛台，插入句正好補上領卡方式，並讓 'by that time' 有所指。",
+          "skill_tag": "sentence_insertion",
+          "difficulty": "B2",
+          "vocabulary": [
+            "pick up",
+            "badge",
+            "issue"
+          ],
+          "passage": "Subject: New Office Access System\nFrom: IT Security Team\nTo: All Employees\n\nDear Colleagues,\n\nBeginning Monday, May 6, Hadley & Co. will replace all magnetic-stripe employee badges with contactless smart cards. — [1] — The new cards unlock doors when held within five centimeters of a reader, so swiping is no longer necessary.\n\nCurrent badges will stop working at 6:00 P.M. on Friday, May 3. — [2] — Employees who have not collected their new card by that time should report to the security desk in the main lobby, where temporary one-day passes will be issued.\n\nThe smart cards also serve as payment cards in the staff cafeteria. — [3] — Simply load funds onto the card at one of the kiosks located beside the elevators.\n\nIf your card is lost or damaged, notify IT Security immediately so it can be deactivated. — [4] — A replacement fee of $15 will apply in such cases.\n\nThank you for your cooperation.\nIT Security Team",
+          "passage_group_id": "p7-single-037",
+          "passage_group_type": "single",
+          "question_order": 1
+        },
+        {
+          "id": "p3-ext-007",
+          "part": "Part 3",
+          "question": "Why is the man calling customer service?",
+          "choices": {
+            "A": "To ask about store hours",
+            "B": "To complain about a faulty product",
+            "C": "To check the price of a laptop",
+            "D": "To extend the return period"
+          },
+          "answer": "B",
+          "explanation_zh": "主旨題。男士說 laptop 螢幕有 flickering issue（閃爍問題），所以他是來抱怨產品故障。",
+          "skill_tag": "listening_main_idea",
+          "difficulty": "B1",
+          "vocabulary": [
+            "flickering",
+            "issue",
+            "receipt",
+            "return period",
+            "replacement"
+          ],
+          "transcript": "Woman: Good afternoon, customer service. This is Sarah.\nMan: Yes, I purchased a laptop from your store last week, but the screen has developed a strange flickering issue.\nWoman: I'm sorry about that, sir. Do you still have the receipt?\nMan: Yes, I do. I have it right here.\nWoman: Great. Since it's within the 14-day return period, you can bring it back for a replacement or a full refund. Which would you prefer?\nMan: I'd like a replacement, please."
+        },
+        {
+          "id": "p7-gen-108",
+          "part": "Part 7",
+          "question": "Why did James Chen send the email in Text 2?",
+          "choices": {
+            "A": "To report a discrepancy in the delivered items.",
+            "B": "To request a cancellation of the order.",
+            "C": "To confirm his order details.",
+            "D": "To inquire about the shipping status."
+          },
+          "answer": "A",
+          "explanation_zh": "文本2中，James Chen明確寫道“I am writing to report an issue with order #GT-4521”，並描述了收到錯誤數量的物品。因此，他發郵件是為了報告數量不一致的問題。選項C（確認訂單）已在文本1完成；B（取消訂單）未提及；D（詢問配送狀態）不準確，因為貨物已收到。",
+          "skill_tag": "reading_detail",
+          "difficulty": "B2",
+          "vocabulary": [
+            "discrepancy",
+            "report",
+            "issue",
+            "urgent"
+          ],
+          "passage": "Text 1\nFrom: orders@greentech.com\nTo: james.chen@client.com\nSubject: Order Confirmation #GT-4521\nDate: March 1, 2024\n\nDear Mr. Chen,\n\nThank you for your order #GT-4521 placed on February 28, 2024. We are pleased to confirm the following items:\n- 10 units of EcoSolar Panel Model S200 (Item Code: ESP-200) at $150 each\n- 5 units of EcoSolar Inverter Model I75 (Item Code: ESI-075) at $200 each\n\nTotal: $2,500. Shipping address: 88 Innovation Drive, Taipei. Estimated delivery: March 15, 2024. Payment has been processed.\n\nBest regards,\nLisa Wang\nCustomer Service Manager\n\nText 2\nFrom: james.chen@client.com\nTo: support@greentech.com\nSubject: Urgent: Order #GT-4521 Discrepancy\nDate: March 18, 2024\n\nDear Greentech Support,\n\nI am writing to report an issue with order #GT-4521. I received the shipment on March 17, 2024. However, the package contained 8 units of the EcoSolar Panel Model S200 and 6 units of the EcoSolar Inverter Model I75. This is incorrect—I ordered 10 panels and 5 inverters. Additionally, the invoice in the box lists the items as ordered, but the quantities differ. Please advise on how to resolve this. I need the correct items urgently for a project.\n\nRegards,\nJames Chen\n\nText 3\nFrom: support@greentech.com\nTo: james.chen@client.com\nSubject: Re: Urgent: Order #GT-4521 Discrepancy\nDate: March 20, 2024\n\nDear Mr. Chen,\n\nWe apologize for the error in your order #GT-4521. Upon investigation, it appears that our warehouse mistakenly swapped quantities for the panels and inverters. We are shipping the missing 2 panels (Item Code: ESP-200) today via express delivery, with an estimated arrival by March 22, 2024. You may keep the extra inverter at no charge as compensation. Please disregard the invoice included; a corrected one will follow. We have also credited your account $50 for the inconvenience.\n\nSincerely,\nLisa Wang\nCustomer Service Manager",
+          "passage_group_id": "p7-triple-002",
+          "passage_group_type": "triple",
+          "question_order": 4
+        },
+        {
+          "question": "What problem is mentioned in the message?",
+          "choices": {
+            "A": "The website is down.",
+            "B": "The office hours have changed.",
+            "C": "Higher than usual wait times.",
+            "D": "The phone lines are closed."
+          },
+          "answer": "C",
+          "explanation_zh": "選擇C：錄音清楚指出『我們的服務線路目前正在經歷比平常更高的等待時間』。選項A、B和D都未被提及或不符合現實。",
+          "difficulty": "B1",
+          "vocabulary": [
+            "technical",
+            "issue",
+            "wait times"
+          ],
+          "skill_tag": "listening_detail",
+          "id": "p4-gen-089",
+          "part": "Part 4",
+          "transcript": "Thank you for calling Grandview Electronics Customer Service. Due to an unexpected technical issue, our service lines are currently experiencing higher than usual wait times. We apologize for any inconvenience this may cause. For immediate assistance, please visit our website, grandview-electronics.com, where you can chat live with an agent. Our offices are open Monday to Friday, from 8 AM to 6 PM. We appreciate your patience and understanding as we work to resolve this matter promptly. Thank you for choosing Grandview Electronics.",
+          "question_order": 2
+        },
+        {
+          "question": "What is the main topic of the conversation?",
+          "choices": {
+            "A": "A projector malfunction",
+            "B": "Scheduling a presentation",
+            "C": "Purchasing new equipment",
+            "D": "Changing a meeting location"
+          },
+          "answer": "A",
+          "explanation_zh": "選擇A是正確的，因為對話的主要內容是關於投影機的故障，女方提到投影機無法開啟，並且男方提議聯絡技術支持。其他選項如安排演示、購買新設備或更改會議地點均未在對話中提及。",
+          "difficulty": "A2",
+          "vocabulary": [
+            "projector",
+            "presentation",
+            "issue"
+          ],
+          "skill_tag": "listening_main_idea",
+          "id": "p3-gen-157",
+          "part": "Part 3",
+          "transcript": "W: Hi, I’m having trouble with the projector we need for tomorrow’s presentation. It won’t turn on.\nM: Oh no, that’s not good. Did you check if it’s plugged in properly?\nW: Yes, I checked the power cable and it’s connected securely.\nM: In that case, it might be an internal issue. I’ll call the tech support right away.\nW: Can you ask them to fix it by today? The presentation is scheduled for 9 a.m. tomorrow.\nM: I’ll emphasize the urgency. If they can’t fix it, we might need to rent one.\nW: Renting sounds like a backup plan. Let’s hope they fix it soon.\nM: I’ll let you know their response as soon as possible.",
+          "question_order": 1
+        },
+        {
+          "question": "What specific issue does the woman mention?",
+          "choices": {
+            "A": "The workshop is full on Wednesday.",
+            "B": "She needs a refund.",
+            "C": "She cannot attend on Thursday.",
+            "D": "She lost her registration details."
+          },
+          "answer": "C",
+          "explanation_zh": "選擇C是正確的，因為女方明確提到她無法在星期四參加工作坊，這是她需要更改註冊的原因。其他選項如星期三課程已滿、需要退款或遺失註冊詳情均未在對話中提及。",
+          "difficulty": "B1",
+          "vocabulary": [
+            "issue",
+            "availability",
+            "confirmation"
+          ],
+          "skill_tag": "listening_detail",
+          "id": "p3-gen-161",
+          "part": "Part 3",
+          "transcript": "W: I need to change my registration for the marketing conference next week.\nM: Sure, what's the issue?\nW: I initially registered for the workshop on Thursday, but I can only attend on Wednesday now.\nM: Let me check if there's availability for you on Wednesday.\nW: Thanks, I hope there’s space.\nM: You’re in luck! There are still openings for the Wednesday session.\nW: Great, will there be any additional fees?\nM: No extra charges for changing the day.\nW: Perfect, could you send me a confirmation email?\nM: Absolutely, I’ll forward that to you shortly.",
+          "question_order": 2
+        },
+        {
+          "question": "What is the main topic of the conversation?",
+          "choices": {
+            "A": "Scheduling a meeting",
+            "B": "Discussing a new product",
+            "C": "Correcting a customer order",
+            "D": "Planning a conference"
+          },
+          "answer": "C",
+          "explanation_zh": "C - The main topic of the conversation is correcting a customer order. The woman states there was an issue with her order: she received red chairs instead of blue ones, and the man confirms a warehouse mix-up. Distractors are about meeting scheduling, discussing new products, or planning a conference, which are not the focus here.",
+          "difficulty": "B1",
+          "vocabulary": [
+            "order",
+            "issue",
+            "warehouse"
+          ],
+          "skill_tag": "listening_main_idea",
+          "id": "p3-gen-163",
+          "part": "Part 3",
+          "transcript": "W: Hello, I received my order today, but there was an issue. I ordered a set of blue chairs, but you sent red ones instead.\nM: I'm sorry for the inconvenience. Let me check your order details. Yes, you're right. It seems there was a mix-up at our warehouse.\nW: Can this be corrected soon? We need the blue chairs for a conference next Friday.\nM: Certainly. We'll expedite the correct order at no extra charge and have it delivered by Wednesday.\nW: Thank you. Do I need to return the red chairs?\nM: No, keep them for now. We'll arrange a pickup.\nW: Great, I appreciate your help.\nM: My pleasure. Feel free to contact us if there's anything else.",
+          "question_order": 1
+        }
+      ]
+    },
+    {
+      "word": "subject",
+      "bank": {
+        "id": "vocab-101",
+        "word": "subject",
+        "partOfSpeech": "noun",
+        "meaning_zh": "主題；主旨",
+        "example": "Please use a clear subject line so I can prioritize your email.",
+        "example_zh": "請使用清晰的主旨，以便我能優先處理你的郵件。",
+        "collocations": [
+          "subject line",
+          "change the subject",
+          "relevant subject"
+        ],
+        "difficulty": "A2",
+        "category": "email"
+      },
+      "questions": [
+        {
+          "id": "p7-xd-0085",
+          "part": "Part 7",
+          "question": "What do Julie and Dr. Steiner have in common?",
+          "choices": {
+            "A": "Both are interested in the same subject.",
+            "B": "Both have lived overseas in the past.",
+            "C": "Both are writing books.",
+            "D": "Both work in the same university."
+          },
+          "answer": "A",
+          "explanation_zh": "Dr. Steiner的文章主題是跨文化溝通，而Julie來信表示對此領域深感興趣並想專攻，因此兩人都對跨文化溝通這個主題感興趣。選項「Both are interested in the same subject」正確。",
+          "skill_tag": "reading_inference",
+          "difficulty": "B1",
+          "vocabulary": [
+            "common",
+            "subject",
+            "cross-cultural communication"
+          ],
+          "passage": "Cross-cultural Communication in Business Negotiations\n\nBusiness Weekly by Dr. Rod Steiner    November 2006\n\nThe importance of effective cross-cultural communication during business conferences or negotiations is often unappreciated. And yet it is not just the immediate outcome of the negotiation which is at stake but also the possibility of a positive, ongoing business relationship.\nHere's a simple example: \"don't mix business and pleasure,\" we say, thinking ourselves to be efficient and \"virtuous.\" But trying to negotiate with that attitude in some other cultures may well cause consternation in your host. This in turn will result in cross-cultural irritation and may well put future relationships under a cloud. So, the first rule should be to study the culture of the people with whom you are going to negotiate.\n\nDr. Rod Steiner, assistant lecturer, Department of Business Studies, South Australian Institute of Technology.\n\nSouth Australian Institute of Technology\nDepartment of Business Studies\n\n44 Berwick St.\nAdelaide, Australia 5066\n\nNovember 24, 2006\n\nDear Dr. Steiner,\n\nI read your article \"Cross-cultural Communication in Business Negotiations\" with a great deal of interest. I am a postgraduate language/business student at the University of Adelaide, and I have also had some experience living and studying in Japan.\n\nYou are absolutely right when you highlight possible \"cross-cultural irritation\". In our culture, we would never associate business transactions of any type with drinking alcohol and going to nightclubs. However, that's more or less the normal way of doing things in Japan.\n\nI hope to specialize in this area of study — I mean, in cross-cultural communication — and that's why I have chosen also to study some foreign languages. If you have any suggestions for further reading, could you please let me know?\n\nThanks for your attention.\n\nJulie Luddon",
+          "passage_group_id": "p7-xd-1-73-196-197-198-199-200",
+          "passage_group_type": "double",
+          "question_order": 5
+        }
+      ]
+    },
+    {
+      "word": "contract",
+      "bank": {
+        "id": "vocab-077",
+        "word": "contract",
+        "partOfSpeech": "noun",
+        "meaning_zh": "合約",
+        "example": "Please review the contract carefully before signing it.",
+        "example_zh": "簽署合約前請仔細審閱。",
+        "collocations": [
+          "sign a contract",
+          "contract renewal",
+          "employment contract"
+        ],
+        "difficulty": "B1",
+        "category": "business"
+      },
+      "questions": [
+        {
+          "id": "p5-ext-044",
+          "part": "Part 5",
+          "question": "The contract _____ by the legal team before it was signed.",
+          "choices": {
+            "A": "was reviewing",
+            "B": "was reviewed",
+            "C": "has reviewed",
+            "D": "reviewed"
+          },
+          "answer": "B",
+          "explanation_zh": "contract 是被審閱的，應用被動語態 was reviewed。before it was signed 提示過去時間。",
+          "skill_tag": "passive_voice",
+          "difficulty": "B1",
+          "vocabulary": [
+            "reviewed",
+            "contract",
+            "legal team",
+            "signed"
+          ]
+        },
+        {
+          "id": "p5-ext-116",
+          "part": "Part 5",
+          "question": "_____ the results are satisfactory, we will renew the contract.",
+          "choices": {
+            "A": "Provided that",
+            "B": "Unless",
+            "C": "Although",
+            "D": "While"
+          },
+          "answer": "A",
+          "explanation_zh": "Provided that（如果/假設）引導條件子句，表示續約的條件。Unless 是「除非不」否定條件，Although/While 是轉折。",
+          "skill_tag": "conjunction",
+          "difficulty": "B2",
+          "vocabulary": [
+            "provided that",
+            "satisfactory",
+            "renew",
+            "contract"
+          ]
+        },
+        {
+          "id": "p5-ext-121",
+          "part": "Part 5",
+          "question": "_____ the contract, both parties must sign the agreement.",
+          "choices": {
+            "A": "In addition to",
+            "B": "Because of",
+            "C": "According to",
+            "D": "In spite of"
+          },
+          "answer": "C",
+          "explanation_zh": "According to（根據）表示依照合約內容。Because of 是原因，In spite of 是轉折，In addition to 是附加。",
+          "skill_tag": "preposition",
+          "difficulty": "B2",
+          "vocabulary": [
+            "according to",
+            "contract",
+            "parties",
+            "sign"
+          ]
+        },
+        {
+          "id": "p5-ext-126",
+          "part": "Part 5",
+          "question": "We need to _____ the contract before the end of the fiscal year.",
+          "choices": {
+            "A": "sign out",
+            "B": "sign off",
+            "C": "sign up",
+            "D": "sign"
+          },
+          "answer": "D",
+          "explanation_zh": "sign a contract（簽署合約）是常用商務搭配。sign up 是註冊，sign off 是結束通訊，sign out 是登出。",
+          "skill_tag": "business_vocabulary",
+          "difficulty": "B1",
+          "vocabulary": [
+            "sign",
+            "contract",
+            "fiscal year"
+          ]
+        },
+        {
+          "id": "p5-pr-026",
+          "part": "Part 5",
+          "question": "The contract was signed _______ the new fiscal year.",
+          "choices": {
+            "A": "regardless of",
+            "B": "in addition to",
+            "C": "in response to",
+            "D": "as of"
+          },
+          "answer": "D",
+          "explanation_zh": "答案為 D。「as of」表示「自…起生效」。A「regardless of」表示「不管」；B「in addition to」表示「除了…之外」；C「in response to」表示「回應」，均不符合語境。",
+          "skill_tag": "preposition",
+          "difficulty": "B2",
+          "vocabulary": [
+            "contract",
+            "signed",
+            "fiscal",
+            "year"
+          ]
+        },
+        {
+          "id": "p7-ch-101",
+          "part": "Part 7",
+          "question": "At 2:08 P.M., what does Mr. Reed most likely mean when he writes, \"Tell me about it\"?",
+          "choices": {
+            "A": "He shares Ms. Nair's concern about the delay.",
+            "B": "He wants more details about the contract.",
+            "C": "He has not heard about the kickoff date.",
+            "D": "He needs Ms. Nair to explain the payment schedule."
+          },
+          "answer": "A",
+          "explanation_zh": "意圖題：'Tell me about it' 是口語的附和用法，表示「可不是嗎、我完全有同感」，呼應他已寄了兩次信仍無回音的無奈，並非字面上要求對方說明。",
+          "skill_tag": "reading_inference",
+          "difficulty": "B2",
+          "vocabulary": [
+            "contract",
+            "kickoff",
+            "follow-up"
+          ],
+          "passage": "Priya Nair [2:05 P.M.]\nHi Daniel, quick question — did we ever get the signed contract back from Hollis Media?\n\nDaniel Reed [2:06 P.M.]\nNot yet. Their legal team had questions about the payment schedule.\n\nPriya Nair [2:07 P.M.]\nThat was two weeks ago. The project kickoff is on Monday.\n\nDaniel Reed [2:08 P.M.]\nTell me about it. I've emailed them twice this week already.\n\nPriya Nair [2:10 P.M.]\nMaybe a phone call would work better? You could try their operations director.\n\nDaniel Reed [2:11 P.M.]\nGood idea. I'll ring her right after my 3 o'clock meeting and copy you on the follow-up.",
+          "passage_group_id": "p7-single-041",
+          "passage_group_type": "single",
+          "question_order": 1
+        },
+        {
+          "id": "p5-gen-138",
+          "part": "Part 5",
+          "question": "The contract will be signed _______ both parties agree to the revised terms.",
+          "choices": {
+            "A": "provided that",
+            "B": "despite",
+            "C": "unless",
+            "D": "although"
+          },
+          "answer": "A",
+          "explanation_zh": "答案為A。Provided that 是連接詞片語，表示「只要」，引導條件子句 both parties agree...，符合句意「只要雙方同意就會簽約」。Despite 後需接名詞；Unless 表「除非」；Although 表轉折，均不符。",
+          "skill_tag": "conjunction",
+          "difficulty": "B1",
+          "vocabulary": [
+            "contract",
+            "signed",
+            "parties",
+            "agree to",
+            "revised terms"
+          ]
+        },
+        {
+          "id": "p5-xd-0010",
+          "part": "Part 5",
+          "question": "The majority of the contract _______ that took place during the year were handled by lawyers from a local law firm.",
+          "choices": {
+            "A": "negotiate",
+            "B": "negotiations",
+            "C": "negotiable",
+            "D": "negotiator"
+          },
+          "answer": "B",
+          "explanation_zh": "空格前有「the majority of the contract」，後有「that took place」，因此空格需填入名詞作為主詞。選項「negotiations」為複數名詞，意為「協商」，符合句意。",
+          "skill_tag": "word_form",
+          "difficulty": "B1",
+          "vocabulary": [
+            "majority",
+            "contract",
+            "negotiation",
+            "law firm"
+          ]
+        }
+      ]
+    },
+    {
+      "word": "book",
+      "bank": {
+        "id": "vocab-456",
+        "word": "book",
+        "partOfSpeech": "verb",
+        "meaning_zh": "預訂，安排",
+        "example": "I will book a conference room for our strategy meeting next Tuesday.",
+        "example_zh": "我將為我們下週二的策略會議預訂一間會議室。",
+        "collocations": [
+          "book a time",
+          "book in advance",
+          "fully booked"
+        ],
+        "difficulty": "A2",
+        "category": "schedule"
+      },
+      "questions": [
+        {
+          "id": "p5-pron-014",
+          "part": "Part 5",
+          "question": "These conference rooms are too small; we need to book larger _______.",
+          "choices": {
+            "A": "one",
+            "B": "them",
+            "C": "those",
+            "D": "ones"
+          },
+          "answer": "D",
+          "explanation_zh": "ones 代替複數名詞 conference rooms，用來避免重複。one 代替單數名詞，those 是指示代名詞（那些），them 是人稱代名詞受格。",
+          "skill_tag": "pronoun",
+          "difficulty": "B2",
+          "vocabulary": [
+            "conference room",
+            "book"
+          ]
+        },
+        {
+          "id": "p3-ext-012",
+          "part": "Part 3",
+          "question": "What will the man do next?",
+          "choices": {
+            "A": "Book a car for the airport pickup",
+            "B": "Send a list of hotels",
+            "C": "Confirm the flight time",
+            "D": "Cancel the hotel reservation"
+          },
+          "answer": "A",
+          "explanation_zh": "下一步行動題。男士說 'I'll book a driver for you'，所以他接下來會預訂機場接駁車。",
+          "skill_tag": "listening_next_action",
+          "difficulty": "B1",
+          "vocabulary": [
+            "book",
+            "driver",
+            "pick up",
+            "airport"
+          ],
+          "transcript": "Man: Ms. Chen, about your trip to Shanghai next month — I've booked your flight for the 15th.\nWoman: Thank you. Were you able to find a hotel near the convention center?\nMan: Yes, the Riverside Hotel. It's a 10-minute walk from the venue.\nWoman: That sounds good. Could you also arrange a car to pick me up at the airport?\nMan: Of course. I'll book a driver for you. Your flight arrives at 2 p.m., correct?"
+        },
+        {
+          "id": "p3-gen-036",
+          "part": "Part 3",
+          "question": "What will the man most likely do next?",
+          "choices": {
+            "A": "Call the IT team to reschedule the installation",
+            "B": "Reserve the fourth-floor meeting room",
+            "C": "Move his cubicle to a quieter area",
+            "D": "Postpone his conference call with the client"
+          },
+          "answer": "B",
+          "explanation_zh": "下一步行動題：男士說「好主意，我現在就去預訂，免得被人搶走」，因此他會去預訂四樓會議室。選項B正確。A「打電話給IT團隊重新安排安裝」、C「搬移隔間」、D「推遲電話會議」均未在對話中支持。",
+          "skill_tag": "listening_next_action",
+          "difficulty": "B1",
+          "vocabulary": [
+            "reserve",
+            "book",
+            "meeting room",
+            "cubicle",
+            "conference call",
+            "installation"
+          ],
+          "transcript": "W: Have you seen the memo about the new printer installation? The IT team will be working on the third floor from 2 PM to 5 PM today.\nM: Yes, I saw it. But I'm worried about the noise. I have a client conference call scheduled at 3 PM, and the printer room is right next to my cubicle.\nW: That could be a problem. I heard they'll be using power tools for the setup. Maybe you could use the small meeting room on the fourth floor for your call. It's usually empty in the afternoon.\nM: Good idea. I'll book it right now before someone else takes it."
+        },
+        {
+          "id": "p2-gen-058",
+          "part": "Part 2",
+          "question": "Could you book a rental car for the Osaka trip?",
+          "choices": {
+            "A": "The car park is behind the terminal.",
+            "B": "I'll do that once the dates are confirmed.",
+            "C": "Yes, I've been to Osaka twice."
+          },
+          "answer": "B",
+          "explanation_zh": "(B) 直接回應「訂車」的請求，說明會在日期確定後處理。(A) 重複 car 但講的是停車場，是聽到熟字就選的陷阱。(C) 重複 Osaka，回答的是「去過沒」而不是請求。",
+          "skill_tag": "listening_response",
+          "difficulty": "B1",
+          "vocabulary": [
+            "rental car",
+            "book",
+            "confirm"
+          ],
+          "audioScript": "Q: Could you book a rental car for the Osaka trip?\n(A) The car park is behind the terminal.\n(B) I'll do that once the dates are confirmed.\n(C) Yes, I've been to Osaka twice."
+        },
+        {
+          "id": "p2-gen-067",
+          "part": "Part 2",
+          "question": "Should we book the meeting room for Wednesday or Friday?",
+          "choices": {
+            "A": "Yes, we need the projector for that.",
+            "B": "Friday works better for most of us.",
+            "C": "The meeting room is on the second floor."
+          },
+          "answer": "B",
+          "explanation_zh": "問題問我們應該將會議室預訂在星期三還是星期五。選項B直接回答了這個選擇性問題，指出星期五更適合大多數人。選項A雖然提到投影機，但並沒有回答會議應該訂在什麼時候。選項C提到 'meeting room' 但只是描述其位置，並沒有回答問題中的時間選擇。",
+          "skill_tag": "listening_response",
+          "difficulty": "A2",
+          "vocabulary": [
+            "book",
+            "meeting",
+            "projector"
+          ],
+          "audioScript": "Q: Should we book the meeting room for Wednesday or Friday?\n(A) Yes, we need the projector for that.\n(B) Friday works better for most of us.\n(C) The meeting room is on the second floor."
+        }
+      ]
+    },
+    {
+      "word": "place",
+      "bank": null,
+      "questions": []
+    },
+    {
+      "word": "request",
+      "bank": {
+        "id": "vocab-004",
+        "word": "request",
+        "partOfSpeech": "noun",
+        "meaning_zh": "請求；要求",
+        "example": "Your request has been sent to the finance department.",
+        "example_zh": "你的請求已送到財務部門。",
+        "collocations": [
+          "make a request",
+          "special request"
+        ],
+        "difficulty": "A2",
+        "category": "office"
+      },
+      "questions": [
+        {
+          "id": "p5-ext-138",
+          "part": "Part 5",
+          "question": "The order _____ department will handle your request.",
+          "choices": {
+            "A": "proceeding",
+            "B": "providing",
+            "C": "processing",
+            "D": "producing"
+          },
+          "answer": "C",
+          "explanation_zh": "order processing department（訂單處理部門）是常見部門名稱。proceeding 是進行中的，producing 是生產的，providing 是提供的。",
+          "skill_tag": "business_vocabulary",
+          "difficulty": "B2",
+          "vocabulary": [
+            "order processing",
+            "department",
+            "handle",
+            "request"
+          ]
+        },
+        {
+          "id": "p5-pr-020",
+          "part": "Part 5",
+          "question": "The manager's email was sent _______ the urgent request from the client.",
+          "choices": {
+            "A": "on behalf of",
+            "B": "in response to",
+            "C": "regardless of",
+            "D": "in addition to"
+          },
+          "answer": "B",
+          "explanation_zh": "答案為 B。「in response to」表示「回應…」。A「on behalf of」表示「代表」；C「regardless of」表示「不管」；D「in addition to」表示「除了…之外」，均不符合語境。",
+          "skill_tag": "preposition",
+          "difficulty": "B2",
+          "vocabulary": [
+            "manager",
+            "sent",
+            "urgent",
+            "request",
+            "client"
+          ]
+        },
+        {
+          "id": "p7-gen-063",
+          "part": "Part 7",
+          "question": "How did David Chen's response address Sarah Jenkins's request for the correct item to be sent?",
+          "choices": {
+            "A": "He ignored the request and only offered a refund.",
+            "B": "He asked her to place a new order for the correct item.",
+            "C": "He sent the correct item but charged an additional fee.",
+            "D": "He initiated a replacement shipment for the correct item."
+          },
+          "answer": "D",
+          "explanation_zh": "Sarah Jenkins要求儘快發送正確的商品。David Chen在回覆中表示他已經啟動了正確商品的補發，這與她的請求一致。",
+          "skill_tag": "reading_main_idea",
+          "difficulty": "B1",
+          "vocabulary": [
+            "initiated",
+            "replacement",
+            "shipment",
+            "request",
+            "response"
+          ],
+          "passage": "Email 1\nFrom: Sarah Jenkins <sarah.jenkins@email.com>\nTo: Customer Service <support@greenleafonline.com>\nSubject: Incorrect item received\n\nDear GreenLeaf Customer Service,\n\nI am writing to express my disappointment with my recent order (Order #GL-8842). I ordered a set of four bamboo kitchen storage jars, but I received a set of plastic containers instead. The packaging slip inside the box lists the correct item, so I believe the warehouse made an error. I have attached photos of the items received and the packing slip for your reference. I would appreciate it if you could arrange for the correct item to be sent to me as soon as possible. Please also advise on how to return the incorrect items at your cost. I look forward to your prompt response.\n\nSincerely,\nSarah Jenkins\n\nEmail 2\nFrom: David Chen <david.chen@greenleafonline.com>\nTo: Sarah Jenkins <sarah.jenkins@email.com>\nSubject: Re: Incorrect item received\n\nDear Ms. Jenkins,\n\nThank you for contacting us regarding your order. I sincerely apologize for the error. I have reviewed your order and the photos you provided. It appears that our packing team mistakenly selected the wrong product from the shelf. I have already initiated a replacement shipment for the correct bamboo kitchen storage jars, which will arrive within 3-5 business days. Additionally, I have arranged for a prepaid return label for the plastic containers. You can drop off the package at any authorized shipping location. As a gesture of goodwill, we have also applied a 10% discount to your next purchase. Please do not hesitate to contact me if you have any further questions.\n\nBest regards,\nDavid Chen\nCustomer Service Manager\nGreenLeaf Online",
+          "passage_group_id": "p7-double-002",
+          "passage_group_type": "double",
+          "question_order": 5
+        },
+        {
+          "id": "p7-gen-120",
+          "part": "Part 7",
+          "question": "According to the complaint email, what did Mr. Smith request?",
+          "choices": {
+            "A": "Express delivery of the correct item.",
+            "B": "A call from the customer service manager.",
+            "C": "A replacement battery pack or a full refund.",
+            "D": "A 20% discount on his next purchase."
+          },
+          "answer": "C",
+          "explanation_zh": "在第一封郵件中，史密斯先生要求要麼儘快發送正確的商品，要麼全額退款。",
+          "skill_tag": "reading_detail",
+          "difficulty": "B1",
+          "vocabulary": [
+            "request",
+            "replacement",
+            "refund",
+            "prompt"
+          ],
+          "passage": "Email 1:\nTo: support@greentech.com\nFrom: j.smith@email.com\nSubject: Incorrect item received\n\nDear GreenTech Customer Service,\n\nI am writing to report an issue with my recent order (#GT-7842). I ordered the EcoCharge Pro portable battery pack, but I received the EcoCharge Mini instead. This is the second time this has happened with your company. I need the correct product for an upcoming business trip next week. Please send the right item as soon as possible or issue a full refund. I expect a prompt response.\n\nSincerely,\nJames Smith\n\nEmail 2:\nTo: j.smith@email.com\nFrom: support@greentech.com\nSubject: Re: Incorrect item received\n\nDear Mr. Smith,\n\nThank you for contacting us about your order. We sincerely apologize for the error. I have checked our inventory and we can ship the correct EcoCharge Pro to you today via express delivery, which should arrive within two business days. As compensation for your inconvenience, we would like to offer you a 20% discount on your next purchase. Please confirm your current shipping address so we can process the replacement.\n\nBest regards,\nLinda Chen\nCustomer Service Manager",
+          "passage_group_id": "p7-double-006",
+          "passage_group_type": "double",
+          "question_order": 2
+        },
+        {
+          "id": "p6-si-009",
+          "part": "Part 6",
+          "question": "____(C)____ — 選出最適合填入空格的句子",
+          "choices": {
+            "A": "Requests under that amount will continue to follow the current process.",
+            "B": "The finance office will be closed for renovations throughout the summer.",
+            "C": "Travel to conferences is now unlimited for every department in the company.",
+            "D": "Receipts are no longer necessary for any purchase made by members of staff."
+          },
+          "answer": "A",
+          "explanation_zh": "前文規定超過 $500 的差旅費須走新簽核系統，正解補充「未達門檻的申請維持原流程」，劃清新制適用範圍。其他選項與簽核制度無關或違背常理。",
+          "skill_tag": "sentence_insertion",
+          "difficulty": "B2",
+          "vocabulary": [
+            "threshold",
+            "process",
+            "request"
+          ],
+          "passage": "Dear Team,\n\nPlease be advised that the company is implementing a new ____(A)____ approval system for all travel expenses exceeding $500. This change is necessary to improve cost control and ensure compliance with our budget guidelines. ____(B)____, starting next Monday, all such requests must be submitted through the updated online portal. ____(C)____\n\nWe encourage you to familiarize yourself with the new procedure by reviewing the attached document. Your department manager will provide further details during the next staff meeting. If you have any questions, please do not hesitate to contact the finance office.\n\nWe appreciate your cooperation as we work to streamline our operations. This adjustment ____(D)____ our commitment to financial responsibility.",
+          "passage_group_id": "p6-009",
+          "question_order": 3
+        },
+        {
+          "id": "p6-si-017",
+          "part": "Part 6",
+          "question": "____(C)____ — 選出最適合填入空格的句子",
+          "choices": {
+            "A": "The new form eliminates this problem by recording every request in a shared calendar.",
+            "B": "Team leads will no longer hold weekly meetings with the members of their groups.",
+            "C": "Most employees prefer working on weekends rather than during the standard week.",
+            "D": "The HR department has moved to the third floor of the newly renovated east wing."
+          },
+          "answer": "A",
+          "explanation_zh": "前句指出舊制度常造成排程衝突，正解說明「新表單如何解決此問題」，this problem 直接回指前句。其他選項無法銜接因果。",
+          "skill_tag": "sentence_insertion",
+          "difficulty": "B2",
+          "vocabulary": [
+            "eliminate",
+            "shared calendar",
+            "request"
+          ],
+          "passage": "Dear Team,\n\nI am writing to inform you of a policy update regarding our remote work arrangement. Starting June 1, all employees must submit a formal request for any day they plan to work from home. This new ____(A)____ is designed to improve team coordination and ensure adequate office coverage.\n\n____(B)____, the previous system allowed for informal approval by team leads, which often led to scheduling conflicts. ____(C)____ To avoid confusion, we have created a standardized online form that must be filled out at least 48 hours in advance.\n\nPlease note that managers will review each request and may ask you to adjust your schedule if necessary. All employees are expected ____(D)____ to this procedure immediately. Your cooperation is greatly appreciated.\n\nBest regards,\nSarah Jenkins\nHR Department",
+          "passage_group_id": "p6-017",
+          "question_order": 3
+        },
+        {
+          "id": "p5-gen-108",
+          "part": "Part 5",
+          "question": "_______ the manager approved the request, the employee decided to proceed with the plan.",
+          "choices": {
+            "A": "Once",
+            "B": "As long as",
+            "C": "Because of",
+            "D": "Despite"
+          },
+          "answer": "A",
+          "explanation_zh": "答案為A。Once 引導時間副詞子句，表示「一旦經理批准了請求」，與主要子句「員工決定繼續執行計畫」形成時間順序關係。As long as 表示條件；Because of 是介係詞片語；Despite 表示讓步，均不適用。",
+          "skill_tag": "conjunction",
+          "difficulty": "B1",
+          "vocabulary": [
+            "manager",
+            "approved",
+            "request",
+            "employee",
+            "proceed"
+          ]
+        },
+        {
+          "id": "p7-gen-386",
+          "part": "Part 7",
+          "passage": "Email 1\nTo: support@greenleaf.com\nFrom: maria.chen@example.com\nSubject: Incorrect order received\n\nDear GreenLeaf Support,\n\nI am writing to express my disappointment with my recent order (Order #GL-4782) placed on November 5. I ordered a set of four ceramic planters in the \"Sage Green\" color, but the package I received today contains only three planters, and they are in \"Terracotta Orange.\" This is not what I ordered, and I need this resolved quickly as I am decorating my new café, which opens next week. Please advise on how to proceed with a return or replacement.\n\nBest regards,\nMaria Chen\n\nEmail 2\nTo: maria.chen@example.com\nFrom: support@greenleaf.com\nSubject: Re: Incorrect order received\n\nDear Ms. Chen,\n\nThank you for contacting us. We sincerely apologize for the mix-up with your order. We have checked our inventory and will send you the correct set of four Sage Green planters immediately via express shipping. You should receive them by November 12. Please keep the Terracotta planters as a gesture of our apology. We have also issued a full refund for the shipping cost. We hope this resolves the issue to your satisfaction.\n\nIf you have any further questions, please do not hesitate to reply.\n\nSincerely,\nDavid Lee\nCustomer Service Manager\nGreenLeaf Home & Garden",
+          "question": "How does the resolution offered by David Lee differ from what Maria requested in her original email?",
+          "choices": {
+            "A": "Maria asked for advice on returning the items, while David told her to keep them.",
+            "B": "Maria asked for a full refund, but David offered her a replacement.",
+            "C": "Maria wanted express shipping, but David used standard delivery instead.",
+            "D": "Maria requested a discount, and David gave her a complete refund."
+          },
+          "answer": "A",
+          "explanation_zh": "大衛·李提供的解決方案與瑪麗亞原始郵件中的要求有何不同？答案是A。瑪麗亞在Email 1中要求：「請告知如何進行退貨或換貨。」她詢問如何退回商品。而大衛在Email 2中回覆：「請保留陶土橙花盆。」他告訴她保留商品，而非退回。選項B（瑪麗亞要求退款，大衛提供換貨）不準確，因為瑪麗亞並未要求退款，而是詢問退貨或換貨流程；大衛則提供了換貨（寄送正確商品）並退款運費。選項C（瑪麗亞要求快遞，大衛使用標準配送）錯誤，大衛使用了快遞。選項D（瑪麗亞要求折扣，大衛提供全額退款）錯誤，瑪麗亞未要求折扣。",
+          "skill_tag": "reading_detail",
+          "difficulty": "B1",
+          "vocabulary": [
+            "resolution",
+            "request",
+            "compensation",
+            "policy"
+          ],
+          "passage_group_type": "double",
+          "question_order": 5,
+          "passage_group_id": "p7-exp-051"
+        }
+      ]
+    },
+    {
+      "word": "update",
+      "bank": {
+        "id": "vocab-005",
+        "word": "update",
+        "partOfSpeech": "verb",
+        "meaning_zh": "更新",
+        "example": "Please update the client list before the meeting.",
+        "example_zh": "請在會議前更新客戶名單。",
+        "collocations": [
+          "update a file",
+          "update information"
+        ],
+        "difficulty": "A2",
+        "category": "office"
+      },
+      "questions": [
+        {
+          "id": "p5-pv-014",
+          "part": "Part 5",
+          "question": "The factory's safety procedures _______ after the incident last month.",
+          "choices": {
+            "A": "is updating",
+            "B": "were updated",
+            "C": "has updated",
+            "D": "update"
+          },
+          "answer": "B",
+          "explanation_zh": "last month 是過去時間，程序是被更新的，過去式被動：were updated。",
+          "skill_tag": "passive_voice",
+          "difficulty": "B1",
+          "vocabulary": [
+            "safety procedures",
+            "incident",
+            "update"
+          ]
+        },
+        {
+          "id": "p5-pron-010",
+          "part": "Part 5",
+          "question": "The company updated _______ employee handbook to reflect the latest labor regulations.",
+          "choices": {
+            "A": "their",
+            "B": "its",
+            "C": "it's",
+            "D": "its'"
+          },
+          "answer": "B",
+          "explanation_zh": "its 是所有格（它的），空格後有名詞 employee handbook，所以用所有格 its。it's 是 it is 的縮寫，its' 根本不存在，their 用於複數主詞。",
+          "skill_tag": "pronoun",
+          "difficulty": "B1",
+          "vocabulary": [
+            "employee handbook",
+            "labor regulations",
+            "update"
+          ]
+        },
+        {
+          "id": "p7-ch-203",
+          "part": "Part 7",
+          "question": "What will Mr. Martin send to Ms. Liu?",
+          "choices": {
+            "A": "The caterer's invoice",
+            "B": "A list of speakers",
+            "C": "The updated run sheet",
+            "D": "Directions to Marino's"
+          },
+          "answer": "C",
+          "explanation_zh": "細節題：Grace 說 'Send me the new run sheet when it's ready.'，Leo 更新後會把新的流程表傳給她。",
+          "skill_tag": "reading_detail",
+          "difficulty": "B1",
+          "vocabulary": [
+            "run sheet",
+            "update",
+            "timing"
+          ],
+          "passage": "Leo Martin [4:40 P.M.]\nHi Grace, the caterer just called. They can't deliver the buffet before 6 tomorrow.\n\nGrace Liu [4:41 P.M.]\nThe reception starts at 5:30!\n\nLeo Martin [4:42 P.M.]\nExactly. Should we push the food back or find another vendor?\n\nGrace Liu [4:44 P.M.]\nIt's too late to rebook. Let's serve drinks and appetizers first — I can pick some up from Marino's on my way in.\n\nLeo Martin [4:45 P.M.]\nThat works. I'll update the run sheet and let the speakers know about the new timing.\n\nGrace Liu [4:46 P.M.]\nThanks. Send me the new run sheet when it's ready.",
+          "passage_group_id": "p7-single-042",
+          "passage_group_type": "single",
+          "question_order": 3
+        },
+        {
+          "id": "p3-rs-001",
+          "part": "Part 3",
+          "question": "Why is the woman calling?",
+          "choices": {
+            "A": "To request a refund",
+            "B": "To complain about a delivery",
+            "C": "To change a delivery address",
+            "D": "To track a missing package"
+          },
+          "answer": "C",
+          "explanation_zh": "Reason / purpose 題：女生說 'I'd like to update the delivery address on my order'，這就是來電目的 → 改地址。",
+          "skill_tag": "listening_inference",
+          "difficulty": "B1",
+          "vocabulary": [
+            "delivery address",
+            "order number",
+            "new address",
+            "applied within the next hour",
+            "update"
+          ],
+          "transcript": "W: Hi, I'd like to update the delivery address on my order. The order number is 88421.\nM: Of course. May I have the new address, please?\nW: Yes, it's 220 Riverside Avenue, Suite 5.\nM: Got it. The change will be applied within the next hour.",
+          "question_order": 1
+        },
+        {
+          "id": "p3-rs-002",
+          "part": "Part 3",
+          "question": "What information does the man ask the woman for?",
+          "choices": {
+            "A": "Her order number",
+            "B": "Her new address",
+            "C": "Her payment method",
+            "D": "Her telephone number"
+          },
+          "answer": "B",
+          "explanation_zh": "細節題：男生說 'May I have the new address, please?'，他要的是新地址。(A) 訂單編號是女生主動提供的，不是男生問的——這是典型「資訊出現過但對應錯誤」的干擾選項。",
+          "skill_tag": "listening_detail",
+          "difficulty": "B1",
+          "vocabulary": [
+            "order number",
+            "new address",
+            "update",
+            "delivery"
+          ],
+          "transcript": "W: Hi, I'd like to update the delivery address on my order. The order number is 88421.\nM: Of course. May I have the new address, please?\nW: Yes, it's 220 Riverside Avenue, Suite 5.\nM: Got it. The change will be applied within the next hour.",
+          "question_order": 2
+        },
+        {
+          "id": "p4-ext-011",
+          "part": "Part 4",
+          "question": "What are department heads asked to prepare?",
+          "choices": {
+            "A": "A budget proposal",
+            "B": "A presentation for clients",
+            "C": "A list of new projects",
+            "D": "An update on their team's progress"
+          },
+          "answer": "D",
+          "explanation_zh": "細節題。留言說 'prepare a brief update on your team's progress'，各部門主管需準備團隊進度報告。",
+          "skill_tag": "listening_inference",
+          "difficulty": "B1",
+          "vocabulary": [
+            "update",
+            "progress",
+            "team",
+            "department heads"
+          ],
+          "transcript": "Hello, this is a message for all department heads. The monthly strategy meeting has been rescheduled from this Thursday to next Tuesday, May 16th, at 10 a.m. in Conference Room B. Please prepare a brief update on your team's progress for the past month. If you are unable to attend, please inform my assistant, Kelly, by tomorrow. The agenda will be circulated later today. Thank you."
+        },
+        {
+          "id": "p2-gen-020",
+          "part": "Part 2",
+          "question": "What exactly is the new software update supposed to fix?",
+          "choices": {
+            "A": "The software company is based in California.",
+            "B": "It should resolve the data syncing issues we have been having.",
+            "C": "I updated the software on my computer last night."
+          },
+          "answer": "B",
+          "explanation_zh": "問題問的是軟體更新要「修復什麼」，(B) 回答要解決資料同步問題為正確回應。(A) 回答軟體公司的所在地而非更新內容。(C) 提到昨晚更新了軟體，但未說明更新修復了什麼。",
+          "skill_tag": "listening_response",
+          "difficulty": "B1",
+          "vocabulary": [
+            "software",
+            "update",
+            "resolve",
+            "syncing",
+            "issues"
+          ],
+          "audioScript": "Q: What exactly is the new software update supposed to fix?\n(A) The software company is based in California.\n(B) It should resolve the data syncing issues we have been having.\n(C) I updated the software on my computer last night."
+        },
+        {
+          "id": "p5-gen-038",
+          "part": "Part 5",
+          "question": "The software update, _______ was released last week, has improved system performance.",
+          "choices": {
+            "A": "which",
+            "B": "who",
+            "C": "that",
+            "D": "whom"
+          },
+          "answer": "A",
+          "explanation_zh": "答案為A。關係代名詞which引導非限定形容詞子句，修飾事物the software update，在子句中作主詞。B who用於人；C that不可用於非限定子句；D whom為受格。",
+          "skill_tag": "relative_clause",
+          "difficulty": "B1",
+          "vocabulary": [
+            "software",
+            "update",
+            "released",
+            "improved",
+            "performance"
+          ]
+        }
+      ]
+    },
+    {
+      "word": "purchase",
+      "bank": {
+        "id": "vocab-011",
+        "word": "purchase",
+        "partOfSpeech": "verb",
+        "meaning_zh": "購買",
+        "example": "The office purchased new chairs for the conference room.",
+        "example_zh": "辦公室為會議室購買了新椅子。",
+        "collocations": [
+          "purchase equipment",
+          "purchase online"
+        ],
+        "difficulty": "B1",
+        "category": "shopping"
+      },
+      "questions": [
+        {
+          "id": "p4-ext-021",
+          "part": "Part 4",
+          "question": "What can customers do during the first week of sales?",
+          "choices": {
+            "A": "Receive a 15 percent discount",
+            "B": "Get a free replacement filter",
+            "C": "Preorder next month's model",
+            "D": "Attend a product demonstration"
+          },
+          "answer": "A",
+          "explanation_zh": "下一步行動題。介紹中說 'for the first week, we are offering a 15 percent discount'，所以第一週購買可享 15% 折扣。",
+          "skill_tag": "listening_next_action",
+          "difficulty": "B1",
+          "vocabulary": [
+            "first week",
+            "discount",
+            "purchase",
+            "retail locations"
+          ],
+          "transcript": "Welcome everyone. Today I'm excited to introduce our latest product, the EcoSmart Water Bottle. This bottle is made from 100 percent recycled materials and keeps your drinks cold for up to 24 hours. It also has a built-in filter system, making it perfect for travelers. The EcoSmart will be available for purchase starting next Monday at all our retail locations and on our website. The price is $29.99, and for the first week, we are offering a 15 percent discount."
+        },
+        {
+          "question": "What is the main purpose of this announcement?",
+          "choices": {
+            "A": "To announce a new product line",
+            "B": "To introduce a new store location",
+            "C": "To inform about a store promotion",
+            "D": "To highlight a customer feedback program"
+          },
+          "answer": "C",
+          "explanation_zh": "根據公告內容，主要目的是宣佈店內促銷活動：「We're excited to announce our special promotion at Maple Leaf Store.」可排除其他選項。",
+          "difficulty": "A2",
+          "vocabulary": [
+            "promotion",
+            "discount",
+            "purchase"
+          ],
+          "skill_tag": "listening_main_idea",
+          "id": "p4-gen-139",
+          "part": "Part 4",
+          "transcript": "Hello, shoppers! We're excited to announce our special promotion at Maple Leaf Store. From November 1st to November 15th, enjoy a 20% discount on all clothing items. Please note, this offer is valid only for in-store purchases and cannot be combined with other discounts or promotions. Remember, store hours are from 9 AM to 9 PM daily. Don't miss out on this opportunity to refresh your wardrobe for less. If you have any questions, feel free to ask our friendly staff. Happy shopping!",
+          "question_order": 1
+        },
+        {
+          "question": "What is the most likely immediate next action for a shopper interested in the promotion?",
+          "choices": {
+            "A": "Visit the store to make a purchase",
+            "B": "Sign up for a newsletter",
+            "C": "Call customer service for more information",
+            "D": "Check the store’s website for online deals"
+          },
+          "answer": "A",
+          "explanation_zh": "由於促銷活動僅限於店內購買，因此最可能的行動是去商店購物：「this offer is valid only for in-store purchases」。",
+          "difficulty": "B1",
+          "vocabulary": [
+            "purchase",
+            "store",
+            "wardrobe"
+          ],
+          "skill_tag": "listening_next_action",
+          "id": "p4-gen-141",
+          "part": "Part 4",
+          "transcript": "Hello, shoppers! We're excited to announce our special promotion at Maple Leaf Store. From November 1st to November 15th, enjoy a 20% discount on all clothing items. Please note, this offer is valid only for in-store purchases and cannot be combined with other discounts or promotions. Remember, store hours are from 9 AM to 9 PM daily. Don't miss out on this opportunity to refresh your wardrobe for less. If you have any questions, feel free to ask our friendly staff. Happy shopping!",
+          "question_order": 3
+        },
+        {
+          "question": "What can loyalty cardholders do during the sale?",
+          "choices": {
+            "A": "Get a free gift",
+            "B": "Shop outside regular hours",
+            "C": "Access a private sale",
+            "D": "Receive an additional discount"
+          },
+          "answer": "D",
+          "explanation_zh": "答案是 D。公告指出忠誠卡持有者在購物時可享受額外 10% 的折扣。選項 A、B 和 C 並未在公告中提及。",
+          "difficulty": "B1",
+          "vocabulary": [
+            "loyalty card",
+            "extra",
+            "purchase"
+          ],
+          "skill_tag": "listening_inference",
+          "id": "p4-gen-186",
+          "part": "Part 4",
+          "transcript": "Hello shoppers! Welcome to Greenfield Mall. We are excited to announce our annual Spring Sale happening from March 15th to March 21st. During this week, enjoy discounts of up to 50% on selected items across our stores. Please note, this offer excludes electronics and already discounted merchandise. Additionally, loyalty cardholders can enjoy an extra 10% off on all purchases. Don’t miss out on these incredible deals! Visit us during regular mall hours from 10 AM to 9 PM. Thank you for shopping with us.",
+          "question_order": 3
+        },
+        {
+          "id": "p5-xd-0034",
+          "part": "Part 5",
+          "question": "The new, expensive software was purchased to help keep better _______ of the clients we have here at our company.",
+          "choices": {
+            "A": "records",
+            "B": "states",
+            "C": "points",
+            "D": "marks"
+          },
+          "answer": "A",
+          "explanation_zh": "keep records of 是固定片語，表示「記錄…」，符合購買軟體以追蹤客戶資料的語境。",
+          "skill_tag": "business_vocabulary",
+          "difficulty": "B1",
+          "vocabulary": [
+            "keep records",
+            "purchase"
+          ]
+        },
+        {
+          "id": "p7-xd-0294",
+          "part": "Part 7",
+          "question": "Who would most likely be reading this pamphlet?",
+          "choices": {
+            "A": "People who are thinking of buying a video camera",
+            "B": "Anyone who is interested in taking pictures",
+            "C": "People who have just purchased the video camera",
+            "D": "Any individual taking a photography course at school"
+          },
+          "answer": "C",
+          "explanation_zh": "文章開頭寫道「恭喜您購買了Akira QuikMotion數位攝影機」，並在後續提供使用指南，因此這份手冊的目標讀者是剛購買此攝影機的人。選項「People who have just purchased the video camera」與此意相符。",
+          "skill_tag": "reading_main_idea",
+          "difficulty": "A2",
+          "vocabulary": [
+            "pamphlet",
+            "purchase",
+            "guidelines"
+          ],
+          "passage": "Akira QuikMotion QM-208 Safety Guide\n\nCongratulations on your purchase of an Akira QuikMotion Digital Video Camera. With due care and proper maintenance, your video camera will provide you with good and clear video images for many years to come. Please read the following guidelines to ensure maximum usage of your video camera:\n\n• Lithium-ion batteries (LI-808) have been specifically configured for this model. Use only these batteries, and, should you need replacement batteries, contact your local Akira dealer. Disposal of batteries should be in accordance with your local safety regulations.\n\n• The bundled charging unit (CH-99) and power cord (CO-22) should be the only charger used to recharge the battery. If you observe a deterioration in battery performance, allow it to be fully discharged before charging again. You should charge the battery for the full 8 hours for maximum battery life before using it again.\n\n• Wet conditions are not suitable for your video camera to operate. In the event that your camera becomes wet, you should stop using it and store the camera in a dry environment with the battery removed for 24 hours before re-using it again.\n\n• The camera and battery should be kept, stored, and operated in an environment with a temperature ranging from 0 to 40°C (32 and 104°F).\n\n• Do not dismantle the camera parts under any situation or circumstances. This may pose a possible health hazard as the camera may cause an electrical shock to the handler. Consult your local Akira dealer for any technical assistance.\n\nShould you have any further queries or require support, contact your local Akira dealer, or email us at: info@akira.com.",
+          "passage_group_id": "p7-xd-6-219-176-177-178",
+          "passage_group_type": "single",
+          "question_order": 1
+        },
+        {
+          "id": "p7-xd-0304",
+          "part": "Part 7",
+          "question": "According to the ad, how much would it cost to purchase a 4-man tent and a sleeping bag?",
+          "choices": {
+            "A": "$130",
+            "B": "$150",
+            "C": "$238",
+            "D": "$285"
+          },
+          "answer": "C",
+          "explanation_zh": "廣告中4人帳篷特價$130，睡袋特價$108，兩者相加為$238。",
+          "skill_tag": "reading_detail",
+          "difficulty": "A2",
+          "vocabulary": [
+            "purchase",
+            "cost",
+            "sleeping bag"
+          ],
+          "passage": "Adventurer's Camping Equipment\n\nNationwide Sale!\n\nLet's take a look at some good deals:\n\n20% OFF on\nall items!!!\n\nFrom now till\nJune 30th!!!\n\nCamping Tent\n\nEasi-lite 4-man Tent - (was $150) Now just $130!\nEasi-deluxe 8-man Tent - (was $300) Now just $240!\n\nCamping Accessories\n\nKelty Sleeping Bag - (was $135) Now just $108!\nKelty Cooking Stove - (was $30) Now just $24!\n\nWaterproof Clothing\n\nREI Men's Jacket - (was $180) Now just $144!\nREI Men's Pants - (was $60) Now just $48!\n\nJune 25, 2010\n\nAdventurer's Camping Equipment\nDivision Headquarters\nNew York, NY 10025\n\nDear Adventurer's Camping Equipment,\n\nI went to the Irvine store located on Harrison Street last Friday after I saw the sales ad on the paper and was hoping to pick up some items for my summer camping trip. (I have attached the ad to verify the validity of the sales promotion on a nationwide level.) I wanted to spend some time shopping at your store, so I left my office early. But to my dismay, instead of a wonderful shopping experience, I found the promotion ad not entirely valid and a poor customer service store attendant.\n\nFrom the printed ad, I was led to believe that every item in the store was 20% off the regular price. Unfortunately, I discovered that items that were on discount applied only to those that were labeled with a \"SALE\" sticker in the store. In this case, not more than ten items were on sale. I thought this contradicted to the ad published. I therefore challenged the store attendant with a copy of the ad I had brought. To my surprise, I was told that the discount on all items was not applicable to the store on Harrison Street. I was then referred to the store manager after insisting that the ad mentioned a nationwide sale. The manager did not bother to resolve the issue but insisted, with a very unwilling attitude, that the ad was a mistake! I left the store fuming without a single purchase.\n\nI have been a faithful customer of your store for a very long time, but the experience I had, along with my encounter with the staff at the store on Harrison Street, is just not acceptable.\n\nJohn Waikinson\n512 Dough Ave.\nIrvine, CA 92697",
+          "passage_group_id": "p7-xd-6-223-186-187-188-189-190",
+          "passage_group_type": "double",
+          "question_order": 2
+        },
+        {
+          "id": "p7-xd-0314",
+          "part": "Part 7",
+          "question": "What can be inferred from the invoice?",
+          "choices": {
+            "A": "Mr. Lee is a regular customer.",
+            "B": "The company only sends shipments to China.",
+            "C": "The company provides a discount on purchases of over $500.",
+            "D": "The shipment will arrive at its point of destination on December 10, 2010."
+          },
+          "answer": "C",
+          "explanation_zh": "發票的 Comments 欄位明確寫道「I am able to offer a 8% discount since your total purchase is above $500」，表示當總購買金額超過 500 美元時會提供折扣，因此可推斷出選項「The company provides a discount on purchases of over $500」是正確的。",
+          "skill_tag": "reading_inference",
+          "difficulty": "B1",
+          "vocabulary": [
+            "discount",
+            "purchase",
+            "infer"
+          ],
+          "passage": "COMMERCIAL INVOICE\n\nDate: December 10, 2006                          Invoice No.: D15454978E\nPurchase Order No.: 8928                         Bill of Lading/Air Waybill No.: 2309456703W\n\nSHIPPER                                         CONSIGNEE\nContact name:        Dan Richman                 Contact name:       Lee Hao Jie\nCompany name:        Scan Technology, Ltd.      Company name:       First Computers Co.\nCompany address:     2, South Wabash          Company address:    35 HeDong Road\n                     Chicago, IL 60637                             Beijing, China\nTelephone number:(1) 319 554 811                 Telephone number:(86) 134591102\nE-mail: danrichman@scantech.com                  E-mail: haojie@firstcom.com.cn\n\nGoods Description                 Model            Quantity    Country       Unit Value    Total Value\n                                  Number                           of Origin\n\n80211 Handheld Scanner            8021101         3           USA           $120.00       $360.00\n80211 Base Communicator           8021183         1           USA           $200.00       $200.00\n80211 Cables and Connectors       8021111         3           USA           $30.50        $91.50\n\nComments: Mr. Lee, I am able to offer a 8% \ndiscount since your total purchase is above\n$500. We value your business and are looking\nforward to more opportunities with you.\n\nShipper's signature:    Dan Richman\n\nInvoice Sub Total                                    $651.50\nDiscount                                            -$52.12\nInsurance                                            $0.00\nInvoice Total                                       $599.38\n\nNumber of Packages                                  1\nTotal Weight                                        5.15 kg\n\nMEMO\n\nTo: Debbie Hu\nFrom: Lee Hao Jie\nSubject: Handheld Scanners\n\nDebbie, I received the parcel from Scan Technology in 1 piece. The scanner model they sent is correct, and\nthe quantity is right. However, I discovered the cables and connectors are all wrong. They are not suitable for\nthe model 8021101.\n\nCan you do me a small favor and go through the product information website and see if the cables and\nconnectors are still compatible with the 8021101 scanners? I have no wish to unpack the cables and\nconnectors and try connecting them to the scanners. I believe we will have problem asking for an exchange if\nthe cables and connectors are not compatible. If the website suggests an incompatibility, please contact\nDan Richman, and request an exchange for the correct model. (Refer to the invoice for his email address.)\n\nI will only use the scanners for our project once we have resolved the exchange issue. We should not proceed\nunless we get confirmation on their compatibility. I am looking to resolve this in the shortest possible time\nas it would be disastrous to wait for this exchange without making progress on the project.\n\nHao Jie",
+          "passage_group_id": "p7-xd-6-227-196-197-198-199-200",
+          "passage_group_type": "double",
+          "question_order": 2
+        }
+      ]
+    },
+    {
+      "word": "process",
+      "bank": null,
+      "questions": [
+        {
+          "id": "p7-gen-123",
+          "part": "Part 7",
+          "question": "What must Mr. Smith do to receive the replacement?",
+          "choices": {
+            "A": "Pay for express shipping.",
+            "B": "Confirm his current shipping address.",
+            "C": "Place a new order for the correct item.",
+            "D": "Return the wrong item first."
+          },
+          "answer": "B",
+          "explanation_zh": "在第二封郵件中，Linda Chen要求史密斯先生確認當前收貨地址，以便處理更換事宜。",
+          "skill_tag": "reading_main_idea",
+          "difficulty": "B1",
+          "vocabulary": [
+            "replacement",
+            "confirm",
+            "address",
+            "process"
+          ],
+          "passage": "Email 1:\nTo: support@greentech.com\nFrom: j.smith@email.com\nSubject: Incorrect item received\n\nDear GreenTech Customer Service,\n\nI am writing to report an issue with my recent order (#GT-7842). I ordered the EcoCharge Pro portable battery pack, but I received the EcoCharge Mini instead. This is the second time this has happened with your company. I need the correct product for an upcoming business trip next week. Please send the right item as soon as possible or issue a full refund. I expect a prompt response.\n\nSincerely,\nJames Smith\n\nEmail 2:\nTo: j.smith@email.com\nFrom: support@greentech.com\nSubject: Re: Incorrect item received\n\nDear Mr. Smith,\n\nThank you for contacting us about your order. We sincerely apologize for the error. I have checked our inventory and we can ship the correct EcoCharge Pro to you today via express delivery, which should arrive within two business days. As compensation for your inconvenience, we would like to offer you a 20% discount on your next purchase. Please confirm your current shipping address so we can process the replacement.\n\nBest regards,\nLinda Chen\nCustomer Service Manager",
+          "passage_group_id": "p7-double-006",
+          "passage_group_type": "double",
+          "question_order": 5
+        },
+        {
+          "id": "p7-gen-131",
+          "part": "Part 7",
+          "question": "What is the main purpose of the job posting?",
+          "choices": {
+            "A": "To advertise a job opening and invite applications",
+            "B": "To announce a new department at the company",
+            "C": "To request feedback on the hiring process",
+            "D": "To describe the company's data analysis projects"
+          },
+          "answer": "A",
+          "explanation_zh": "招聘啟事的主要目的是發佈職位空缺並邀請申請，文中包含了職位、要求、職責和申請方式。",
+          "skill_tag": "reading_main_idea",
+          "difficulty": "B2",
+          "vocabulary": [
+            "purpose",
+            "advertise",
+            "opening",
+            "application",
+            "process"
+          ],
+          "passage": "Text A: Job Advertisement\n\nPosition: Senior Data Analyst\nCompany: FinCore Solutions\nLocation: New York, NY\n\nFinCore Solutions is seeking a Senior Data Analyst to join our analytics team. The ideal candidate will have a minimum of 3 years of experience in data analysis, proficiency in SQL and Python, and a strong understanding of statistical modeling. Responsibilities include developing data dashboards, presenting insights to management, and collaborating with cross-functional teams to drive business decisions. A bachelor’s degree in a related field is required; a master’s degree is preferred. To apply, please submit your resume and a cover letter detailing your relevant experience to careers@fincore.com by March 15.\n\nText B: Cover Letter\n\nDear Hiring Manager,\n\nI am writing to apply for the Senior Data Analyst position at FinCore Solutions, as advertised on your website. With a Master of Science in Data Science from Columbia University and over four years of experience as a data analyst at TechBridge Inc., I am confident in my ability to contribute to your team. In my current role, I have developed interactive dashboards using Tableau and SQL, and I regularly present findings to senior leadership. I also have advanced Python skills for data manipulation and statistical analysis. I am particularly drawn to FinCore’s focus on data-driven decision-making. My resume is attached for your review. Thank you for considering my application.\n\nSincerely,\nJane Smith",
+          "passage_group_id": "p7-double-007",
+          "passage_group_type": "double",
+          "question_order": 5
+        },
+        {
+          "id": "p3-gen-041",
+          "part": "Part 3",
+          "question": "What can be inferred about the store's return policy?",
+          "choices": {
+            "A": "A full refund is always given.",
+            "B": "The box is required for any return.",
+            "C": "Store credit is offered when packaging is missing.",
+            "D": "Returns are only allowed within three days."
+          },
+          "answer": "C",
+          "explanation_zh": "從店員說『沒有盒子只能提供商店信用額度而非全額退款』可推斷，缺少包裝時會以商店信用額度處理。答案為C。選項A（總是全額退款）與對話矛盾；B（任何退貨都需要盒子）錯誤，因店員仍可處理；D（僅限三天內退貨）未提及。",
+          "skill_tag": "listening_inference",
+          "difficulty": "B2",
+          "vocabulary": [
+            "policy",
+            "process",
+            "refund",
+            "store credit",
+            "packaging"
+          ],
+          "transcript": "W: Good afternoon, I’d like to return this laptop I bought last week. The keyboard has a few sticky keys, and I think it’s a manufacturing defect.\nM: I understand your concern. Do you have the receipt and the original packaging?\nW: Yes, I have the receipt here, but I threw away the box. Is that a problem?\nM: It’s not ideal, but we can still process the return. However, without the box, we can only offer a store credit instead of a full refund.\nW: That’s fine. I’ll just use the credit to buy a different model.\nM: Let me start the paperwork. Please wait a moment."
+        },
+        {
+          "id": "p3-gen-042",
+          "part": "Part 3",
+          "question": "What will the man do next?",
+          "choices": {
+            "A": "Give the woman a full refund.",
+            "B": "Ask for the woman's ID card.",
+            "C": "Check the laptop's screen.",
+            "D": "Begin the return paperwork."
+          },
+          "answer": "D",
+          "explanation_zh": "店員最後說『Let me start the paperwork. Please wait a moment.』，表示他接下來要開始辦理退貨文件。答案為D。選項A（全額退款）與政策不符；B（要求身分證）未提及；C（檢查螢幕）非下一步動作。",
+          "skill_tag": "listening_next_action",
+          "difficulty": "B1",
+          "vocabulary": [
+            "paperwork",
+            "process",
+            "return",
+            "store credit"
+          ],
+          "transcript": "W: Good afternoon, I’d like to return this laptop I bought last week. The keyboard has a few sticky keys, and I think it’s a manufacturing defect.\nM: I understand your concern. Do you have the receipt and the original packaging?\nW: Yes, I have the receipt here, but I threw away the box. Is that a problem?\nM: It’s not ideal, but we can still process the return. However, without the box, we can only offer a store credit instead of a full refund.\nW: That’s fine. I’ll just use the credit to buy a different model.\nM: Let me start the paperwork. Please wait a moment."
+        },
+        {
+          "id": "p4-gen-030",
+          "part": "Part 4",
+          "question": "What should the customer do next?",
+          "choices": {
+            "A": "Call 24/7 support to negotiate the fee",
+            "B": "Wait for the license to expire automatically",
+            "C": "Cancel the online request",
+            "D": "Send a reply agreeing to the upgrade"
+          },
+          "answer": "D",
+          "explanation_zh": "錄音最後要求客戶『reply to this message with your approval』，因此客戶應回覆同意升級。選項A『致電協商費用』、B『等待授權自動到期』、C『取消線上申請』皆非正確下一步。",
+          "skill_tag": "listening_next_action",
+          "difficulty": "B1",
+          "vocabulary": [
+            "approval",
+            "process",
+            "upgrade",
+            "reply",
+            "account"
+          ],
+          "transcript": "Good afternoon, this is Sarah from CityTech Support. I received your online request to upgrade your company’s software license to the premium plan. Before I process it, I need to confirm a few details. First, your current license expires on June 30th, so the upgrade would take effect on July 1st. Also, the premium plan includes 24/7 phone support and cloud backup. However, there is an additional fee of $500 per month. Could you please reply to this message with your approval? Once I have it, I’ll update your account within 24 hours. Thank you."
+        },
+        {
+          "id": "p6-si-009",
+          "part": "Part 6",
+          "question": "____(C)____ — 選出最適合填入空格的句子",
+          "choices": {
+            "A": "Requests under that amount will continue to follow the current process.",
+            "B": "The finance office will be closed for renovations throughout the summer.",
+            "C": "Travel to conferences is now unlimited for every department in the company.",
+            "D": "Receipts are no longer necessary for any purchase made by members of staff."
+          },
+          "answer": "A",
+          "explanation_zh": "前文規定超過 $500 的差旅費須走新簽核系統，正解補充「未達門檻的申請維持原流程」，劃清新制適用範圍。其他選項與簽核制度無關或違背常理。",
+          "skill_tag": "sentence_insertion",
+          "difficulty": "B2",
+          "vocabulary": [
+            "threshold",
+            "process",
+            "request"
+          ],
+          "passage": "Dear Team,\n\nPlease be advised that the company is implementing a new ____(A)____ approval system for all travel expenses exceeding $500. This change is necessary to improve cost control and ensure compliance with our budget guidelines. ____(B)____, starting next Monday, all such requests must be submitted through the updated online portal. ____(C)____\n\nWe encourage you to familiarize yourself with the new procedure by reviewing the attached document. Your department manager will provide further details during the next staff meeting. If you have any questions, please do not hesitate to contact the finance office.\n\nWe appreciate your cooperation as we work to streamline our operations. This adjustment ____(D)____ our commitment to financial responsibility.",
+          "passage_group_id": "p6-009",
+          "question_order": 3
+        },
+        {
+          "id": "p6-si-013",
+          "part": "Part 6",
+          "question": "____(C)____ — 選出最適合填入空格的句子",
+          "choices": {
+            "A": "Requests submitted after the monthly deadline will not be processed until the following cycle.",
+            "B": "Office attendance is no longer recorded by any of the department supervisors here.",
+            "C": "Supervisors may work remotely without restriction for as long as they wish.",
+            "D": "The company cafeteria now offers vegetarian options at both the breakfast and lunch counters."
+          },
+          "answer": "A",
+          "explanation_zh": "前句規定每月開始前須取得主管核准，正解說明「逾期申請的處理方式」，補完申請時程規範。其他選項與遠距申請流程無關。",
+          "skill_tag": "sentence_insertion",
+          "difficulty": "B2",
+          "vocabulary": [
+            "deadline",
+            "process",
+            "cycle"
+          ],
+          "passage": "To: All Staff\nFrom: Human Resources Department\nDate: November 15, 2024\nSubject: Updated Remote Work Policy\n\nDear Team,\n\nWe are writing to inform you of an important ____(A)____ to our Remote Work Policy. After a thorough review of current practices and productivity data, we have decided to implement a more structured approach.\n\nEffective January 1, 2025, all employees must submit a formal remote work request form. This form will require you to specify your intended work location and schedule. ____(B)____, you will need to have your request approved by your direct supervisor before the start of each month. ____(C)____\n\nWe believe this change will increase transparency and help us comply with our new data security guidelines. Please note that failure to submit a request will result in your remote work status being ____(D)____ until proper documentation is received.\n\nThank you for your cooperation.\n\nBest regards,\nHuman Resources Department",
+          "passage_group_id": "p6-013",
+          "question_order": 3
+        },
+        {
+          "id": "p2-gen-065",
+          "part": "Part 2",
+          "question": "How should we handle the shipping delays with our supplier?",
+          "choices": {
+            "A": "The shipping department is on the second floor.",
+            "B": "We should address it in the next meeting.",
+            "C": "By contacting the supplier directly to expedite the process."
+          },
+          "answer": "C",
+          "explanation_zh": "問題是問“我們應該如何處理供應商的運輸延遲？”，其中關鍵字是“shipping”。選項A提到“shipping department”，但並未回答“如何處理運輸延遲”的問題，因此不正確。選項B是關於會議的討論，並未提供具體的處理方法。選項C提供了具體的處理方法，即“直接聯繫供應商以加快流程”，因此是正確的回答。",
+          "skill_tag": "listening_response",
+          "difficulty": "B1",
+          "vocabulary": [
+            "handle",
+            "shipping",
+            "supplier",
+            "expedite",
+            "process"
+          ],
+          "audioScript": "Q: How should we handle the shipping delays with our supplier?\n(A) The shipping department is on the second floor.\n(B) We should address it in the next meeting.\n(C) By contacting the supplier directly to expedite the process."
+        }
+      ]
+    },
+    {
+      "word": "conduct",
+      "bank": {
+        "id": "vocab-1460",
+        "word": "conduct",
+        "partOfSpeech": "verb",
+        "meaning_zh": "進行；實施",
+        "example": "The HR department will conduct a training session next week.",
+        "example_zh": "人力資源部將在下週進行一次培訓課程。",
+        "collocations": [
+          "conduct a meeting",
+          "conduct research",
+          "conduct an interview"
+        ],
+        "difficulty": "B1",
+        "category": "hr"
+      },
+      "questions": [
+        {
+          "id": "p5-xd-0262",
+          "part": "Part 5",
+          "question": "A small group of contestants has been selected following a nationwide search _______ over the last six months.",
+          "choices": {
+            "A": "alerted",
+            "B": "engaged",
+            "C": "protected",
+            "D": "conducted"
+          },
+          "answer": "D",
+          "explanation_zh": "a nationwide search 後需要過去分詞表示被動的動作，conducted over the last six months 表示「在過去六個月內進行的全國搜尋」。其他選項：alerted（被警覺）、engaged（被參與）、protected（被保護）語意不符。",
+          "skill_tag": "passive_voice",
+          "difficulty": "B1",
+          "vocabulary": [
+            "contestant",
+            "nationwide search",
+            "conduct",
+            "over the last six months"
+          ]
+        }
+      ]
+    },
+    {
+      "word": "staff",
+      "bank": {
+        "id": "vocab-1059",
+        "word": "staff",
+        "partOfSpeech": "noun",
+        "meaning_zh": "員工； staff",
+        "example": "The hotel staff is trained to handle guest complaints professionally.",
+        "example_zh": "飯店員工受過專業處理客人投訴的訓練。",
+        "collocations": [
+          "hotel staff",
+          "staff training",
+          "staff meeting"
+        ],
+        "difficulty": "A2",
+        "category": "hospitality"
+      },
+      "questions": [
+        {
+          "id": "p5-wf-018",
+          "part": "Part 5",
+          "question": "Staff are expected to maintain a _______ appearance when meeting with clients.",
+          "choices": {
+            "A": "professional",
+            "B": "profession",
+            "C": "professionally",
+            "D": "professionalism"
+          },
+          "answer": "A",
+          "explanation_zh": "a + 形容詞 + 名詞（appearance），需要形容詞。professional（專業的）修飾 appearance。",
+          "skill_tag": "word_form",
+          "difficulty": "A2",
+          "vocabulary": [
+            "professional appearance",
+            "meet with clients",
+            "staff"
+          ]
+        },
+        {
+          "id": "p6-si-019",
+          "part": "Part 6",
+          "question": "____(C)____ — 選出最適合填入空格的句子",
+          "choices": {
+            "A": "The training program has been canceled and will not be rescheduled this year.",
+            "B": "Our store is relocating to a new city at the end of the current lease term.",
+            "C": "Additional staff will be on duty each evening to keep checkout lines short.",
+            "D": "Gift cards may not be used on weekends or during any promotional period."
+          },
+          "answer": "C",
+          "explanation_zh": "前句宣布延長晚間營業，正解補充「晚間將加派人手縮短結帳等候」，延續「更好地服務顧客」的承諾。(A) 與前文員工訓練的理由矛盾。",
+          "skill_tag": "sentence_insertion",
+          "difficulty": "B2",
+          "vocabulary": [
+            "on duty",
+            "checkout",
+            "staff"
+          ],
+          "passage": "Dear Valued Customers,\n\nWe are writing to inform you of a temporary ____(A)____ to our store hours. Starting next Monday, our store will open at 9:30 AM instead of 9:00 AM. This change is necessary for staff training. ____(B)____, we will extend our evening hours until 8:00 PM to better serve you. ____(C)____ We appreciate your understanding and cooperation during this adjustment period. For any urgent inquiries, please contact our customer service team. We ____(D)____ you to visit us during our new hours.\n\nThank you for your continued support.\n\nBest regards,\nThe Management",
+          "passage_group_id": "p6-019",
+          "question_order": 3
+        },
+        {
+          "id": "p4-gen-051",
+          "part": "Part 4",
+          "question": "What should shoppers do if they need more details?",
+          "choices": {
+            "A": "Visit the store website.",
+            "B": "Check the flyers.",
+            "C": "Ask the staff.",
+            "D": "Call customer service."
+          },
+          "answer": "C",
+          "explanation_zh": "選擇C：公告建議消費者若需要更多細節，可以詢問店內的友善員工。選項A、B、D在公告中均未提及提供更多詳情的方式。",
+          "skill_tag": "listening_next_action",
+          "difficulty": "B1",
+          "vocabulary": [
+            "details",
+            "staff",
+            "ask"
+          ],
+          "transcript": "Hello shoppers, thank you for visiting QuickSave Mart today! We’re thrilled to announce our special promotion starting from March 15th until March 25th. You can enjoy a 20% discount on all electronics, but remember, this offer is only valid in-store and excludes clearance items. Visit our electronics section on the second floor to take advantage of these amazing savings. For more details, feel free to ask any of our friendly staff. Don’t miss this opportunity to upgrade your gadgets at a great price!",
+          "question_order": 3
+        },
+        {
+          "question": "What is the most likely immediate next action?",
+          "choices": {
+            "A": "Informing office staff about the change",
+            "B": "Ordering new office chairs",
+            "C": "Adjusting the staff's work hours",
+            "D": "Canceling all scheduled meetings"
+          },
+          "answer": "A",
+          "explanation_zh": "答案：A。對話中提到\"我會通知辦公室工作人員有關變更\"，顯示最可能的下一步行動是通知員工。選項B、C、D不符合對話內容。",
+          "difficulty": "B1",
+          "vocabulary": [
+            "inform",
+            "schedule",
+            "staff"
+          ],
+          "skill_tag": "listening_next_action",
+          "id": "p3-gen-141",
+          "part": "Part 3",
+          "transcript": "W: I just received an update that the shipment of office chairs won't arrive today as planned.\nM: That's unfortunate. Did they mention why there's a delay?\nW: Yes, the supplier said there was a problem at the distribution center.\nM: Do we have a new delivery date?\nW: They are aiming for Thursday instead.\nM: Alright, I'll inform the office staff about the change.\nW: Could you also check if we need to adjust any meetings?\nM: Sure, I'll review the schedule and make necessary changes.\nW: Thanks, let's hope this doesn't cause too much disruption.",
+          "question_order": 3
+        },
+        {
+          "id": "p5-gen-085",
+          "part": "Part 5",
+          "question": "All new employee handbooks _______ to the staff by the end of this week.",
+          "choices": {
+            "A": "have distributed",
+            "B": "will be distributed",
+            "C": "are distributing",
+            "D": "distribute"
+          },
+          "answer": "B",
+          "explanation_zh": "答案為B。被動語態「will be distributed」表示「將被分發」，主詞「handbooks」是動作承受者，且「by the end of this week」指未來時間。A「have distributed」為主動完成，C「are distributing」為現在進行主動，D「distribute」為現在式主動，皆不正確。",
+          "skill_tag": "passive_voice",
+          "difficulty": "B1",
+          "vocabulary": [
+            "employee handbooks",
+            "staff",
+            "distributed",
+            "by the end of"
+          ]
+        },
+        {
+          "id": "p5-gen-113",
+          "part": "Part 5",
+          "question": "The director asked _______ staff to submit the budget proposals by Friday.",
+          "choices": {
+            "A": "she",
+            "B": "her",
+            "C": "hers",
+            "D": "herself"
+          },
+          "answer": "B",
+          "explanation_zh": "答案為B。空格後有名詞 staff，需用所有格代名詞 her 修飾，表示「她的員工」。A she（主格）、C hers（獨立所有格）、D herself（反身代名詞）均無法修飾名詞。",
+          "skill_tag": "pronoun",
+          "difficulty": "B1",
+          "vocabulary": [
+            "director",
+            "staff",
+            "budget proposals"
+          ]
+        },
+        {
+          "id": "p5-xd-0340",
+          "part": "Part 5",
+          "question": "The director _______ has often been seen to take his lunch in the staff canteen along with the other workers.",
+          "choices": {
+            "A": "him",
+            "B": "his",
+            "C": "himself",
+            "D": "he"
+          },
+          "answer": "C",
+          "explanation_zh": "空格前的主詞是 The director，後方動詞 has been seen 為被動語態，因此需要反身代名詞 himself 來強調主詞本身，表示「主任本人」。選項 him 是受格、his 是所有格、he 是主格，均不符合此處的強調用法。",
+          "skill_tag": "pronoun",
+          "difficulty": "B1",
+          "vocabulary": [
+            "director",
+            "canteen",
+            "staff"
+          ]
+        },
+        {
+          "id": "p7-xd-0409",
+          "part": "Part 7",
+          "question": "For whom is this memorandum intended?",
+          "choices": {
+            "A": "Cleaners",
+            "B": "Caretakers",
+            "C": "Employees",
+            "D": "Managers"
+          },
+          "answer": "C",
+          "explanation_zh": "備忘錄開頭寫「To: ALL STAFF」，且內容提到「We appreciate your co-operation」，可知收件對象是全體員工。",
+          "skill_tag": "reading_main_idea",
+          "difficulty": "A2",
+          "vocabulary": [
+            "memorandum",
+            "staff",
+            "co-operation"
+          ],
+          "passage": "To: ALL STAFF\nSubject: Recycling Campaign\nDate: July 1,2007\n......................................................................................\n\nIn an on-going, earth-friendly effort to recycle more waste for a better environment,\nrecycling now has been made easier to you. We hope to achieve an average of 5\nfewer bags of waste per day.\n\nWe have placed a recycling bin for paper besides all printers. In the pantry and\ncanteen areas, waste collection bins are provided for soft drink cans, glass bottles of\nall types and colors, plastic materials, and waste paper.\n\nThe waste collection bins will be cleared once a day every night. In the event\nthat the bins are filled up in the day, please inform our janitors for assistance. We\nappreciate your co-operation and understanding.",
+          "passage_group_id": "p7-xd-9-305-158-159-160",
+          "passage_group_type": "single",
+          "question_order": 1
+        }
+      ]
+    }
+  ]
+}

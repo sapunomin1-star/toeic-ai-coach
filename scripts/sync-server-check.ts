@@ -25,7 +25,7 @@ async function main(): Promise<void> {
   process.env.UPSTASH_DISABLE_TELEMETRY = "1";
 
   const { SYNC_KEYS } = await import("../lib/syncShared");
-  assert.equal(SYNC_KEYS.length, 12, "the fixture must cover every synced key");
+  assert(SYNC_KEYS.length >= 3, "fixture needs distinct value, tombstone, and missing-data keys");
 
   const tombstoneKey = SYNC_KEYS[SYNC_KEYS.length - 2];
   const missingDataKey = SYNC_KEYS[SYNC_KEYS.length - 1];

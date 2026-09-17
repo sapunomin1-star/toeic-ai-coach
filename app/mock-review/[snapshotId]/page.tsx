@@ -98,12 +98,14 @@ function ReviewItem({
         </div>
         <span
           className={`rounded-full px-3 py-1 text-xs font-semibold ${
-            item.isCorrect
-              ? "bg-emerald-100 text-emerald-700"
-              : "bg-rose-100 text-rose-700"
+            !item.userAnswer
+              ? "bg-slate-100 text-slate-600"
+              : item.isCorrect
+                ? "bg-emerald-100 text-emerald-700"
+                : "bg-rose-100 text-rose-700"
           }`}
         >
-          {item.isCorrect ? "答對" : "答錯"}
+          {!item.userAnswer ? "未作答" : item.isCorrect ? "答對" : "答錯"}
         </span>
       </div>
 

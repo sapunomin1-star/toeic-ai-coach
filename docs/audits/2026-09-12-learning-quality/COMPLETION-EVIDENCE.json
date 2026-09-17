@@ -1,0 +1,221 @@
+{
+  "createdAt": "2026-09-17T14:27:15.147187+00:00",
+  "scope": "Question-term teaching support and four revised Part 2 recordings. Coverage measures support availability, not universal semantic accuracy or learning effectiveness.",
+  "vocabulary": {
+    "inputTerms": 3150,
+    "reviewedTerms": 3150,
+    "batches": 105,
+    "writerModels": [
+      "deepseek-flash"
+    ],
+    "reviewModels": [
+      "openai/gpt-4o"
+    ],
+    "reviewerSuggestions": 456,
+    "actualModelDefinitionChanges": 206,
+    "editorialDefinitions": 53,
+    "canonicalSpellingRules": 29,
+    "completedGlossEntries": 3144,
+    "inputsSha256": "1995674121dd36a55550efb40626bcf8f3caa8e737fa13c46842072546373b6c",
+    "completedFileSha256": "c924b41f91200e2a179708c597505b8c01cdd58ca7523d95307529a4aee78582",
+    "editorialPatchSha256": "88beb59b5c96c8300981dd9196faecb8c8019781a9d3292552bd32f74b3994f0"
+  },
+  "audio": {
+    "provider": "openrouter",
+    "ttsModel": "hexgrad/kokoro-82m",
+    "transcriptionModel": "openai/whisper-1",
+    "note": "Kokoro US/UK voices; requested CA accent uses the existing US fallback. Audio is AI generated. ASR run without reference-text hints. Catalog/catalogue is the sole spelling difference.",
+    "verification": [
+      {
+        "id": "p2-gen-116",
+        "url": "https://wffwoer172mjjgyi.public.blob.vercel-storage.com/audio/p2-gen-116-quality-20260917.mp3",
+        "audioSha256": "04b83c9970e3ae32d762c936fa275f93230621c2654f5e487fe000eca57dea7e",
+        "duration": 13.586,
+        "expected": "Did the new office chairs arrive yet? Letter A. Yes, they were delivered this morning. Letter B. The chairs are adjustable. Letter C. They're for the new meeting room.",
+        "transcript": "Did the new office chairs arrive yet? Letter A. Yes, they were delivered this morning. Letter B. The chairs are adjustable. Letter C. They're for the new meeting room.",
+        "wordErrorRate": 0,
+        "passed": true
+      },
+      {
+        "id": "p2-gen-136",
+        "url": "https://wffwoer172mjjgyi.public.blob.vercel-storage.com/audio/p2-gen-136-quality-20260917.mp3",
+        "audioSha256": "3d7b54280ef30e6c1b711ceb5b24d70b8e0f993bd694dce3d83f5242520ae058",
+        "duration": 14.93,
+        "expected": "Did you order more office supplies for the team yet? Letter A. The supply catalog has a blue cover. Letter B. The team meeting is on Thursday. Letter C. Yes, I've just placed the order.",
+        "transcript": "Did you order more office supplies for the team yet? Letter A. The supply catalogue has a blue cover. Letter B. The team meeting is on Thursday. Letter C. Yes, I've just placed the order.",
+        "wordErrorRate": 0.027777777777777776,
+        "passed": true
+      },
+      {
+        "id": "p2-gen-179",
+        "url": "https://wffwoer172mjjgyi.public.blob.vercel-storage.com/audio/p2-gen-179-quality-20260917.mp3",
+        "audioSha256": "4232909b6ae858470cea94f48ba75ab329c48efca77d68dae1f0a5530aeba721",
+        "duration": 15.386,
+        "expected": "Where are the replacement printer cartridges kept? Letter A. They need to be ordered by Friday. Letter B. The printer was replaced last month. Letter C. The cartridges are stored in the supply closet.",
+        "transcript": "Where are the replacement printer cartridges kept? Letter A. They need to be ordered by Friday. Letter B. The printer was replaced last month. Letter C. The cartridges are stored in the supply closet.",
+        "wordErrorRate": 0,
+        "passed": true
+      },
+      {
+        "id": "p2-gen-186",
+        "url": "https://wffwoer172mjjgyi.public.blob.vercel-storage.com/audio/p2-gen-186-quality-20260917.mp3",
+        "audioSha256": "94a745d9fdb243ac70c49aac1f80daf40370f7398ae367363759af8e18bebbcb",
+        "duration": 14.81,
+        "expected": "The shipment arrived on time, didn't it? Letter A. Yes, it was delivered this morning. Letter B. The shipping label uses a large font. Letter C. The ship leaves from Pier 4.",
+        "transcript": "The shipment arrived on time, didn't it? Letter A. Yes, it was delivered this morning. Letter B. The shipping label uses a large font. Letter C. The ship leaves from Pier 4.",
+        "wordErrorRate": 0,
+        "passed": true
+      }
+    ]
+  },
+  "linkCoverage": {
+    "questions": 3303,
+    "termReferences": 11625,
+    "fullySupported": 11625,
+    "debtBefore": 3532,
+    "debtAfter": 0,
+    "questionsWithoutSupport": 0,
+    "combinedGlossEntries": 3859,
+    "vocabularyCards": 1500
+  },
+  "localBrowser": {
+    "routes": [
+      "/",
+      "/practice",
+      "/quiz",
+      "/wrongbook",
+      "/dashboard",
+      "/vocabulary",
+      "/vocabulary-quiz",
+      "/vocabulary-quiz?mode=backlog",
+      "/vocabulary-quiz?mode=random",
+      "/study-plan",
+      "/mock-test",
+      "/listening-mock",
+      "/full-mock"
+    ],
+    "errors": [],
+    "mobile": "390px, no horizontal overflow",
+    "readingGroups": [
+      {
+        "part": "Part 6",
+        "count": 4,
+        "timing": {
+          "version": 2,
+          "activeMs": 76.7999999821186,
+          "hiddenMs": 0,
+          "groupId": "p6-gen-001,p6-gen-002,p6-gen-004,p6-si-001",
+          "groupIndex": 0,
+          "groupSize": 4,
+          "sessionId": "25112056-3a7a-400c-a082-a146911cf2a9"
+        }
+      },
+      {
+        "part": "Part 7",
+        "count": 4,
+        "timing": {
+          "version": 2,
+          "activeMs": 59,
+          "hiddenMs": 0,
+          "groupId": "p7-ext-001,p7-ext-002,p7-ext-003,p7-vc-001",
+          "groupIndex": 0,
+          "groupSize": 4,
+          "sessionId": "6e3c0a11-7f15-4f4e-acdb-51071a9dcaf1"
+        }
+      }
+    ],
+    "controlledPart3Timing": {
+      "version": 2,
+      "activeMs": 835.0999999940395,
+      "hiddenMs": 0,
+      "audioMs": 413.39999997615814,
+      "groupId": "p3-ext-007,p3-ext-008,p3-ext-009",
+      "groupIndex": 0,
+      "groupSize": 3,
+      "sessionId": "690d9f99-86b3-4a8f-87b3-dcefb51ae80d"
+    },
+    "realAudioPlayback": [
+      {
+        "id": "p2-gen-116",
+        "src": "https://wffwoer172mjjgyi.public.blob.vercel-storage.com/audio/p2-gen-116-quality-20260917.mp3",
+        "duration": 13.561959,
+        "ended": true,
+        "currentTime": 13.561959
+      },
+      {
+        "id": "p2-gen-136",
+        "src": "https://wffwoer172mjjgyi.public.blob.vercel-storage.com/audio/p2-gen-136-quality-20260917.mp3",
+        "duration": 14.905959,
+        "ended": true,
+        "currentTime": 14.905959
+      },
+      {
+        "id": "p2-gen-179",
+        "src": "https://wffwoer172mjjgyi.public.blob.vercel-storage.com/audio/p2-gen-179-quality-20260917.mp3",
+        "duration": 15.361959,
+        "ended": true,
+        "currentTime": 15.361959
+      },
+      {
+        "id": "p2-gen-186",
+        "src": "https://wffwoer172mjjgyi.public.blob.vercel-storage.com/audio/p2-gen-186-quality-20260917.mp3",
+        "duration": 14.785959,
+        "ended": true,
+        "currentTime": 14.785959
+      }
+    ],
+    "audioErrors": [],
+    "mockReview": {
+      "syntheticQuestions": 100,
+      "unansweredBadges": 100,
+      "incorrectBadges": 0,
+      "submittedAndReviewed": true
+    }
+  },
+  "production": {
+    "verifiedAt": "2026-09-17T14:51:07.980935+00:00",
+    "sourceCommit": "a9d89e27128b862151458eb5c6ed56bfa37a3bbe",
+    "deploymentId": "dpl_AjSoCC4sXCyc6QqeZyR9RbNDSHWo",
+    "target": "production",
+    "readyState": "READY",
+    "alias": "https://toeic-ai-coach-ten.vercel.app",
+    "deploymentUrl": "https://toeic-ai-coach-oxm6y41t8-jjjames-projects.vercel.app",
+    "routes": [
+      "/",
+      "/practice",
+      "/quiz",
+      "/wrongbook",
+      "/dashboard",
+      "/vocabulary",
+      "/vocabulary-quiz",
+      "/vocabulary-quiz?mode=backlog",
+      "/vocabulary-quiz?mode=random",
+      "/study-plan",
+      "/mock-test",
+      "/listening-mock",
+      "/full-mock"
+    ],
+    "errors": [],
+    "mobile": "390px, no horizontal overflow",
+    "newGloss": [
+      {
+        "key": "[\"enviable\",\"adjective\",\"令人羨慕的\"]",
+        "term": "enviable",
+        "questionId": "p5-xd-0239",
+        "addedAt": "2026-09-17T14:49:28.285Z",
+        "meaning_zh": "令人羨慕的",
+        "partOfSpeech": "adjective"
+      }
+    ],
+    "contentRevision": "2026-09-17T14:21:05.318Z",
+    "mediaInitialMetadata": {
+      "src": "https://wffwoer172mjjgyi.public.blob.vercel-storage.com/audio/p2-gen-116-quality-20260917.mp3",
+      "duration": 11.617439
+    },
+    "fullPlayback": {
+      "src": "https://wffwoer172mjjgyi.public.blob.vercel-storage.com/audio/p2-gen-116-quality-20260917.mp3",
+      "duration": 13.561959,
+      "ended": true
+    }
+  }
+}
