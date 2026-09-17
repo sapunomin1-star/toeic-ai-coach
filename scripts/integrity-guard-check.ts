@@ -1,6 +1,7 @@
 import { strict as assert } from "node:assert";
 import type { Choice, Question } from "../types/question";
 import { runIntegrityCheck } from "../pipeline/src/integrity";
+import { buildVocabularyLinkReport } from "../pipeline/src/vocabulary-links";
 
 /**
  * Regression cover for the integrity guards themselves.
@@ -293,4 +294,25 @@ function part2(id: string, prompt: string): Question {
   assert.equal(report.passed, false);
 }
 
-console.log("Integrity guard regression checks passed (7 guards, 15 cases)");
+// ─── question-term teaching links (review F02) ──────────────────────────────
+
+{
+  const items: Question[] = [
+    // "scheduled" is an inflection of the card "schedule"; "zzqqx" is unknown.
+    question({ id: "link-0001", vocabulary: ["scheduled", "zzqqx"] }),
+    // A term the bank lacks but the gloss overlay covers.
+    question({ id: "link-0002", vocabulary: ["conference room"] }),
+  ];
+  const fresh = buildVocabularyLinkReport(items, new Set());
+  assert.equal(fresh.tiers.cardInflection, 1, "inflected forms must resolve to their card");
+  assert.equal(fresh.tiers.glossExact, 1, "gloss overlay must count as support");
+  assert.deepEqual(fresh.debt, ["link-0001 :: zzqqx"], "only the unknown term is debt");
+  assert.equal(fresh.passed, false, "debt not in the baseline must fail the check");
+  assert.deepEqual(fresh.newDebt, ["link-0001 :: zzqqx"]);
+  const known = buildVocabularyLinkReport(items, new Set(["link-0001 :: zzqqx", "old-0001 :: gone"]));
+  assert.equal(known.passed, true, "baseline debt is tolerated");
+  assert.deepEqual(known.retiredDebt, ["old-0001 :: gone"], "resolved baseline rows are reported as retired");
+  assert.equal(buildVocabularyLinkReport(items, null).passed, false, "no baseline file = not passed until recorded");
+}
+
+console.log("Integrity guard regression checks passed (8 guards, 19 cases)");

@@ -156,7 +156,11 @@ Vocabulary data must satisfy:
 - Correct TOEIC answers do not automatically mark related vocabulary as mastered.
 - Vocabulary flashcard self-rating is capped at `familiar`; it never produces `mastered`.
 - Vocabulary quiz answers are authoritative for SRS advancement and lapse handling.
-- Vocabulary `mastered` requires repeated quiz recall at sufficiently long review intervals.
+- Vocabulary `mastered` requires repeated quiz recall at sufficiently long review intervals — concretely, PASSING a review whose scheduled interval was already ≥ 14 days (`advanceSchedule` checks the interval being completed, not the next one; review F11).
+- Daily vocabulary validation distinguishes TESTED from PASSED: `validatedCount` is words tested, `validatedCorrectCount` / `validatedWrongCount` are outcomes. Never render "N / N 通過" from `validatedCount` (review F07).
+- Coaching evidence is FIRST attempts only: `partitionAttempts` in `lib/analysis.ts` marks the chronological first record per question; weakness ranking, tomorrow's recommendation, the home focus and grammar remediation all read `getSkillEvidence` (one table: the most recent 20 fresh non-mock attempts per skill, `confidence: "insufficient"` under 5). Repeats are evidence about that question's memory, never about the skill (review F06).
+- Pacing reads only records with the timing split (`AnswerRecord.timing`: `activeMs` excludes hidden-tab time, `audioMs` separates playback, `groupIndex` / `groupSize` mark passage groups). Legacy `responseTimeMs` is never a speed signal; `lib/pacing.ts` reports 資料不足 below 8 usable records per part and never flags listening (review F05).
+- Analysis inputs come from `getEvidenceRecords()` (drops attempts that predate a question's `revisedAt` in `data/question-revisions.ts`); plan bookkeeping keeps using `getAnswerRecords()`. Disputed questions are excluded from every selection pool by `queryQuestions` unless `includeDisputed` is passed (review F04).
 - Wrong questions remain reviewable until dismissed or improved through repeated correct answers.
 - Part 6 and Part 7 use `passage`; Part 3 and Part 4 use `transcript`.
 - Part 6 questions are identified by question ID prefix `p6-` in analytics (they use `reading_detail` skill_tag).
@@ -325,7 +329,7 @@ and the app makes zero network requests.
   plus `dismissedAt` tombstone preservation (newest dismissal across both
   sides wins unless the entry was re-added later);
   results/snapshots id-union capped 20; transient plan/session keys whole-key
-  LWW. The 12 synced keys = `BACKUP_KEYS` exactly (test-enforced); the 3
+  LWW. The 14 synced keys = `BACKUP_KEYS` exactly (test-enforced; `vocabularyQueue` merges as a union with dismissal tombstones); the 3
   in-progress mock session keys stay device-local.
 - **UI**: `SyncProvider` in AppShell — children always render (hydration),
   overlay ≤2.5s over the initial pull, epoch-remount on pulled changes,
@@ -373,13 +377,16 @@ and the app makes zero network requests.
 - The daily item IDs are persisted for the date so flashcard study and today's quiz validate the same words.
 - Daily progress distinguishes flashcard `reviewedIds` from quiz `validatedIds`; only validation completes the formal task.
 - Quiz is the authority for status transitions; flashcard self-rating is capped at `familiar`.
-- `mastered` requires `consecutiveCorrect >= 3` and `intervalDays >= 14`.
+- `mastered` requires `consecutiveCorrect >= 3` and that the review just PASSED had `intervalDays >= 14` (the interval being completed, not the next one scheduled). With the 0/1/3/7/14/30 ladder that is the fifth consecutive pass (review F11).
 - Correct quiz practice before `nextReviewDate` records the result but does not advance SRS; a wrong answer applies a lapse immediately.
 - A wrong daily validation adds the word to today's reinforcement queue. Reinforcement is limited to two rounds and never advances SRS on a same-day correct answer.
 - A wrong quiz answer lowers `mastered` to `familiar` with `intervalDays = 0`, and lowers `familiar` to `seen`; daily validation lapses are added to immediate reinforcement.
 - Quiz statistics are recorded by source: `daily`, `random`, and `reinforcement`; dashboard metrics must not mix them as formal daily performance.
 - Scheduling follows retry today, then 1, 3, 7, 14, and 30 day intervals.
 - The learner explicitly prefers 20 new words per daily session. Review buckets are capped separately (`retry` 10, `due` 5, `masteredReview` 2) so backlog never suppresses the target. Same-day sessions created under the former 8-word rule are expanded to 20 while preserving reviewed/validated and reinforcement state.
+- What the caps defer is visible, not silent (review F12): `buildDailySession` picks the most-overdue due words first and reports `warnings.dueDeferred` / `masteredReviewDeferred` / `oldestDeferredDays`; `getDueBacklog()` is the live list of due words outside today's session; `/vocabulary-quiz?mode=backlog` serves them 20 at a time with `VocabularyQuizSource = "backlog"` (advances SRS like `daily`, reported separately). The home coach offers the backlog after the core tasks.
+- Words the learner flags on a question (`enqueueQuestionTerm`; 待學佇列 in `lib/vocabularyQueue.ts`, key `toeic_vocabulary_queue_v1`) take new-word slots INSIDE the 20-word target (`warnings.queuedPrioritized`), and a flagged word with a card gets its `nextReviewDate` pulled to today — status / interval / streak untouched. Card-less terms keep the gloss they were shown and stay listed as 尚無字卡 (review F10).
+- Quiz results also tally `quizByType` (英→中 / 中→英 / 例句填空) so the report can say which measurement passed. A cloze is generated only when the example contains the headword in dictionary form (`makeFillBlank`); cloze distractors share the part of speech and exclude near-synonyms (review F01).
 - Migration backfills SRS fields based on legacy vocabulary status without changing `toeic_vocabulary_progress_v1`.
 
 ## Architecture Conventions (2026-05-30 Refactor)
@@ -427,14 +434,14 @@ from "re-feed the skill you miss" toward cause-specific remediation. Phase 1 is
 
 ### Inference (suggest, never auto-commit)
 - `inferMistakeReason(question, record, isWeakWord?)` in `lib/analysis.ts` returns a visually distinct suggestion in the chip UI, or `null` when there is no clear signal. A suggestion is not an answered radio option.
-- **speed: reading parts only (Part 5/6/7).** In `/quiz` the listening `responseTimeMs` includes audio playback, so it is NOT a usable speed signal — never infer speed for Part 1–4. Thresholds: `SLOW_THRESHOLD_MS` and `FAST_FLOOR_MS` (reading parts only).
-- **vocab is injected, not coupled.** `inferMistakeReason` takes an `isWeakWord?` predicate so `analysis.ts` stays pure (no `vocabularyStorage` import). The quiz page builds the predicate: weak word = in the bank AND SRS status `new`/`seen`/none (familiar/mastered are NOT weak).
+- **speed: reading parts only, timing split only.** `inferMistakeReason` reads `record.timing.activeMs` (hidden-tab time removed) against `READING_BUDGET_MS × 1.6` from `lib/pacing.ts`, and never on the first question of a passage group (it carries the reading). Legacy `responseTimeMs` never yields a speed hint; listening never does (review F05).
+- **vocab is injected, not coupled.** `inferMistakeReason` takes an `isWeakWord?` predicate so `analysis.ts` stays pure. The quiz page builds the predicate: weak word = resolves to a card (inflections allowed via `findVocabularyCardForTerm`) AND has a progress row with status `new` / `seen`. **A word with no record is unknown, not weak** — the former "none counts as weak" rule suggested 不會單字 on 66% of the bank for a new learner (review F08).
 - Priority when several apply: **speed > vocab > careless.**
 
 ### Capture UX (do NOT make it block or nag)
 - Chips appear **only in `/quiz`, only on wrong answers**, after the explanation card. `/quiz` is never a mock, so no mock gating is needed — and the mock runners must never show inline reason chips (protects timing).
 - Never blocks navigation: not choosing a chip still advances and writes no reason. Only an explicit chip tap persists `reasonSource: "user"` and may route a vocabulary item into review. Historical `reasonSource: "inferred"` records remain readable but are excluded from coaching prescriptions.
-- `MistakeReasonChips` uses progressive disclosure (≤3 primary + "其他原因" details), `role="radiogroup"`, and a Part-aware `comprehension` label ("聽不懂" for listening, "看不懂" for reading).
+- `MistakeReasonChips` shows all six reasons (no fold), ordered by the item's skill category (`reasonOrderFor`: grammar items lead with 文法不懂, listening with 聽不懂), with the system guess first and labelled 系統猜測; `role="radiogroup"`; Part-aware `comprehension` label ("聽不懂" for listening, "看不懂" for reading) (review F08).
 - `responseTimeMs` for inference must come from the existing `handleSubmit` value — do not call `Date.now()` a second time.
 
 ### Writeback + vocab routing
@@ -442,7 +449,7 @@ from "re-feed the skill you miss" toward cause-specific remediation. Phase 1 is
 - vocab reason routes weak words into review via `bumpWordsToDueByWords(words)` in `lib/vocabularyStorage.ts`. **Safety red line:** it only pulls `seen`/`familiar` words' `nextReviewDate` *earlier* to today; it never touches `new`/`mastered`, never changes `status`/`intervalDays`/`consecutiveCorrect`, and is a no-op when nothing matches. Use the local `todayStr()` (not UTC `toISOString`).
 
 ### Display
-- `countMistakesByReason` (mock-excluded, confirmed wrongs only; old inferred labels excluded) and `getReasonInsight` (headline + careless over-use guard; returns `null` under `MIN_LABELED_FOR_INSIGHT`) live in `lib/analysis.ts`; surfaced via `useDashboardMetrics` (`reasonBreakdown`, `reasonInsight`) and `components/dashboard/ReasonBreakdownSection.tsx`. The headline insight is the highest-value output — it is what turns the "measuring instrument" into a "coach".
+- `countMistakesByReason(records, now)` and `getReasonInsight(records, now)` share ONE filter: mock-excluded, confirmed wrongs only (inferred excluded), inside `REASON_WINDOW_DAYS` (30). `getReasonInsight` returns a `ReasonInsight` object (`labeled`, `wrongInWindow`, `required`, `top`, `message`, `carelessGuard`); `message` is null under `MIN_LABELED_FOR_INSIGHT` (8 confirmed) and is always descriptive ("最近 30 天你標註的 N 題錯題中，M 題（P%）標為「X」"), never a score promise. Surfaced via `useDashboardMetrics` and `components/dashboard/ReasonBreakdownSection.tsx` (review F08).
 
 ## Grammar Variant Remediation (Phase 2, 2026-05-31)
 
@@ -451,16 +458,19 @@ errors cluster around a skill, the dashboard can launch a short practice set of
 same-skill **new variant questions** instead of asking the student to memorize
 the original wrong item.
 
-- `getGrammarWeakSkills(records)` in `lib/analysis.ts` looks only at wrong
-  records where `mistakeReason === "grammar"` and the skill category is
-  grammar. It sorts by severity.
+- `getGrammarWeakSkills(records)` in `lib/analysis.ts` reads the same
+  `getSkillEvidence` window as the weakness card: grammar-category skills with
+  ≥ 1 confirmed grammar-reason wrong among recent FRESH attempts and a recent
+  error rate ≥ `GRAMMAR_REMEDIATION_MIN_ERROR_RATE` (0.2). A skill retires once
+  new-question accuracy recovers; lifetime counts are never used (review F06).
 - `buildGrammarVariantPlan(records, { maxQuestions = 5 })` in
   `lib/grammarRemediation.ts` uses `queryQuestions` to select same-skill
   questions while excluding every question ID the learner has already attempted.
   It round-robins across weak grammar skills so one dominant skill does not
   consume the whole plan.
 - `startGrammarVariantPractice(questionIds)` in `lib/storage.ts` writes the
-  existing wrong-practice plan key. It returns `false` for an empty plan and does
+  existing wrong-practice plan key with `kind: "grammar-variant"` (so each
+  attempt records `attempt.plan`). It returns `false` for an empty plan and does
   not create a broken quiz session.
 - Dashboard wiring lives in `components/dashboard/ReasonBreakdownSection.tsx`
   and `app/dashboard/page.tsx`: show the CTA only when grammar weak skills exist;
@@ -577,3 +587,34 @@ If a student navigates away **before** audio starts playing, they have heard not
 - **All pages should have a way to navigate home.** Some pages (quiz, mock-test during testing) lack home links — this is acceptable for focused flows but should be documented.
 
 `AGENTS.md` is the source of truth for future coding-agent instructions in this repository.
+
+
+## Study Goals and Session Breaks (2026-09-12)
+
+- `/study-plan` edits `StudyProfile` through `lib/studyProfile.ts`. Target score
+  is user-selected; current score and exam date are optional. Never treat a
+  self-reported score as an app-derived prediction. Calendar dates are local
+  date-only values and must round-trip to reject impossible dates.
+- `STORAGE_KEYS.studyProfile` is included in backup, import validation, clear-all
+  and `SYNC_KEYS`. It merges by whole-key LWW with symmetric equal-time ties.
+- `lib/studySegments.ts` suggests breaks in the existing quiz plan; it never
+  removes or reorders questions. Shared Part 3/4 transcripts and Part 6/7
+  passage groups must not cross a break, including non-adjacent legacy items.
+  Oversized individual groups stay whole and estimates may exceed the budget.
+- Segment minutes describe question training only. Daily 20-new-word study and
+  vocabulary validation still take additional time. Neither study mode nor
+  mock timers are changed by goal settings.
+- Home recommendations in `lib/todayCoach.ts` prioritize the active quiz source
+  returned by `getQuizPlan`, including wrongbook and pending final explanations.
+  A completed daily cursor with pending feedback is not a completed task.
+- New persistence/pacing/resume regressions live in `scripts/study-coach-check.ts`.
+
+## Learning-Quality Remediation (2026-09-16)
+
+Fixes for the 2026-09-12 review (`docs/audits/2026-09-12-learning-quality/REVIEW.md`, findings F01–F12). Decisions: `docs/2026-09-16-學習品質修正決策.md`; delivery report: `docs/audits/2026-09-12-learning-quality/REMEDIATION.md`. Rules that live nowhere else:
+
+- **Question-term teaching links.** `lib/termResolution.ts` resolves a `vocabulary` term through five labelled tiers (per-question sense → card exact / inflection → general gloss → phrase components → missing). `data/question-senses.ts` overrides the card's sense for one question (136 entries), `data/term-glosses.ts` holds general glosses (717); both load with the vocabulary bank chunk — never import them statically from client code. `components/quiz/QuestionVocabulary.tsx` labels every tier, ranks terms found in the key option / stem as 本題關鍵, and says 待補 for missing terms instead of "先依上下文理解".
+- **Link-debt ratchet.** `cd pipeline && npm run check` also runs `src/vocabulary-links.ts`: every `components` / `missing` link is debt; `pipeline/baselines/vocabulary-link-debt.json` is the known debt (3,532 on 2026-09-16, down from 7,822 unresolved links); a link NOT in the baseline fails the check. Fix new debt with a gloss, a sense or a card; only for retired debt run `npm run check -- --update-baseline`. Never add debt to the baseline by hand.
+- **Disputed and revised questions.** `data/question-revisions.ts` is tiny and statically imported. `DISPUTED_QUESTIONS` (two defensible answers, audio already recorded: p2-gen-179 / 116 / 136 / 186) are excluded from plans and mocks until `pipeline/patches/p2-answer-uniqueness.json` is applied (`src/apply-p2-uniqueness-patch.ts`) AND their audio is regenerated; `QUESTION_REVISIONS` record `revisedAt` (p5-ext-032) so older attempts leave the evidence set.
+- **Plan focus.** `buildDailyPlan({ focusSkills })` orders group pools unseen-focus → unseen → seen-focus → seen and returns `focus` (`matched`, `baseline`, `note`); `/practice` shows the note and `/quiz` shows it as 選題理由. A plan built without weakness evidence is labelled 建立基準, never 弱點補強 (review F09).
+- **Regression guard.** `scripts/learning-quality-check.ts` (in `npm test`) asserts the desired behaviour for all twelve findings with synthetic records; `scripts/audit-learning-quality.ts` re-runs the audit instruments and writes `evidence-after.json` (report only, no assertions).

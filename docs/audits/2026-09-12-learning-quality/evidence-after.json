@@ -1,0 +1,338 @@
+{
+  "auditedAt": "2026-09-17T10:35:31.492Z",
+  "method": "Post-remediation re-run of the 2026-09-12 audit with the same instruments: full-bank term resolution through lib/termResolution, cloze generation, and isolated in-memory synthetic histories. No real learner records accessed. Numbers describe current behaviour; regression guards live in scripts/learning-quality-check.ts.",
+  "bank": {
+    "questions": 3303,
+    "vocabulary": 1500,
+    "skills": 19,
+    "glosses": 717,
+    "senses": 136
+  },
+  "vocabularyCoverage": {
+    "total": {
+      "questions": 3303,
+      "references": 11625,
+      "sense": 136,
+      "cardExact": 3668,
+      "cardInflection": 637,
+      "glossExact": 3183,
+      "glossInflection": 469,
+      "components": 1518,
+      "missing": 2014,
+      "fullyResolved": 8093,
+      "fullyResolvedRate": 0.6961720430107526,
+      "zeroSupportQuestions": 308
+    },
+    "byPart": {
+      "Part 1": {
+        "questions": 84,
+        "references": 410,
+        "sense": 8,
+        "cardExact": 65,
+        "cardInflection": 49,
+        "glossExact": 122,
+        "glossInflection": 38,
+        "components": 34,
+        "missing": 94,
+        "fullyResolved": 282,
+        "fullyResolvedRate": 0.6878048780487804,
+        "zeroSupportQuestions": 1
+      },
+      "Part 2": {
+        "questions": 293,
+        "references": 959,
+        "sense": 24,
+        "cardExact": 295,
+        "cardInflection": 73,
+        "glossExact": 258,
+        "glossInflection": 41,
+        "components": 90,
+        "missing": 178,
+        "fullyResolved": 691,
+        "fullyResolvedRate": 0.7205422314911366,
+        "zeroSupportQuestions": 29
+      },
+      "Part 3": {
+        "questions": 396,
+        "references": 1338,
+        "sense": 18,
+        "cardExact": 622,
+        "cardInflection": 45,
+        "glossExact": 440,
+        "glossInflection": 24,
+        "components": 81,
+        "missing": 108,
+        "fullyResolved": 1149,
+        "fullyResolvedRate": 0.8587443946188341,
+        "zeroSupportQuestions": 6
+      },
+      "Part 4": {
+        "questions": 303,
+        "references": 1126,
+        "sense": 23,
+        "cardExact": 397,
+        "cardInflection": 76,
+        "glossExact": 347,
+        "glossInflection": 60,
+        "components": 109,
+        "missing": 114,
+        "fullyResolved": 903,
+        "fullyResolvedRate": 0.8019538188277087,
+        "zeroSupportQuestions": 17
+      },
+      "Part 5": {
+        "questions": 1081,
+        "references": 3484,
+        "sense": 33,
+        "cardExact": 692,
+        "cardInflection": 200,
+        "glossExact": 805,
+        "glossInflection": 137,
+        "components": 769,
+        "missing": 848,
+        "fullyResolved": 1867,
+        "fullyResolvedRate": 0.5358783008036739,
+        "zeroSupportQuestions": 172
+      },
+      "Part 6": {
+        "questions": 184,
+        "references": 868,
+        "sense": 0,
+        "cardExact": 466,
+        "cardInflection": 32,
+        "glossExact": 223,
+        "glossInflection": 50,
+        "components": 52,
+        "missing": 45,
+        "fullyResolved": 771,
+        "fullyResolvedRate": 0.8882488479262672,
+        "zeroSupportQuestions": 16
+      },
+      "Part 7": {
+        "questions": 962,
+        "references": 3440,
+        "sense": 30,
+        "cardExact": 1131,
+        "cardInflection": 162,
+        "glossExact": 988,
+        "glossInflection": 119,
+        "components": 383,
+        "missing": 627,
+        "fullyResolved": 2430,
+        "fullyResolvedRate": 0.7063953488372093,
+        "zeroSupportQuestions": 67
+      }
+    }
+  },
+  "clozeGeneration": {
+    "eligibleExamples": 1343,
+    "fallBackToMeaning": 157,
+    "answerDoesNotReproduceExample": 0
+  },
+  "reproductions": {
+    "legacyTimingIsNotPacing": {
+      "rows": [
+        {
+          "part": "Part 1",
+          "sample": 0,
+          "medianMs": null,
+          "budgetMs": null,
+          "status": "insufficient",
+          "legacyExcluded": 0
+        },
+        {
+          "part": "Part 2",
+          "sample": 0,
+          "medianMs": null,
+          "budgetMs": null,
+          "status": "insufficient",
+          "legacyExcluded": 0
+        },
+        {
+          "part": "Part 3",
+          "sample": 0,
+          "medianMs": null,
+          "budgetMs": null,
+          "status": "insufficient",
+          "legacyExcluded": 0
+        },
+        {
+          "part": "Part 4",
+          "sample": 0,
+          "medianMs": null,
+          "budgetMs": null,
+          "status": "insufficient",
+          "legacyExcluded": 0
+        },
+        {
+          "part": "Part 5",
+          "sample": 0,
+          "medianMs": null,
+          "budgetMs": 25000,
+          "status": "insufficient",
+          "legacyExcluded": 0
+        },
+        {
+          "part": "Part 6",
+          "sample": 0,
+          "medianMs": null,
+          "budgetMs": 35000,
+          "status": "insufficient",
+          "legacyExcluded": 0
+        },
+        {
+          "part": "Part 7",
+          "sample": 0,
+          "medianMs": null,
+          "budgetMs": 60000,
+          "status": "insufficient",
+          "legacyExcluded": 0
+        }
+      ],
+      "usableRecords": 0,
+      "legacyRecords": 2,
+      "minSample": 8,
+      "budgetSource": "常見備考配速建議（非 ETS 官方標準）"
+    },
+    "legacySpeedHints": {
+      "hypotheticalWrongAt120Seconds": 3303,
+      "suggestsSpeed": 0
+    },
+    "repeatedItem": {
+      "initialUniqueWrongQuestions": 20,
+      "correctRepeatsOfOneQuestion": 20,
+      "partition": {
+        "fresh": 20,
+        "repeats": 20
+      },
+      "weaknessAfter": [
+        {
+          "skill": "word_form",
+          "mistakes": 20,
+          "attempts": 20,
+          "errorRate": 1,
+          "confidence": "ok"
+        }
+      ],
+      "grammarWeaknessAfter": [
+        {
+          "skill": "word_form",
+          "wrongCount": 20,
+          "attempts": 20,
+          "errorRate": 1,
+          "confidence": "ok"
+        }
+      ]
+    },
+    "singleWrongWeakness": [
+      {
+        "skill": "word_form",
+        "mistakes": 1,
+        "attempts": 1,
+        "errorRate": 1,
+        "confidence": "insufficient"
+      }
+    ],
+    "confirmedReasonDenominator": {
+      "confirmedOnly": {
+        "windowDays": 30,
+        "labeled": 8,
+        "wrongInWindow": 8,
+        "required": 8,
+        "top": {
+          "reason": "grammar",
+          "count": 8,
+          "share": 1
+        },
+        "message": "最近 30 天你標註的 8 題錯題中，8 題（100%）標為「文法不懂」。文法補強會用同考點的新題練習，不重做原題。",
+        "carelessGuard": false
+      },
+      "sameConfirmedWith20ExcludedInferred": {
+        "windowDays": 30,
+        "labeled": 8,
+        "wrongInWindow": 28,
+        "required": 8,
+        "top": {
+          "reason": "grammar",
+          "count": 8,
+          "share": 1
+        },
+        "message": "最近 30 天你標註的 8 題錯題中，8 題（100%）標為「文法不懂」。文法補強會用同考點的新題練習，不重做原題。",
+        "carelessGuard": false
+      },
+      "countsWithInferred": {
+        "vocab": 0,
+        "grammar": 8,
+        "comprehension": 0,
+        "speed": 0,
+        "careless": 0,
+        "guess": 0
+      },
+      "oneConfirmedSevenInferred": {
+        "windowDays": 30,
+        "labeled": 1,
+        "wrongInWindow": 8,
+        "required": 8,
+        "top": null,
+        "message": null,
+        "carelessGuard": false
+      }
+    },
+    "coldStartVocabularySuggestions": {
+      "hypotheticalWrongAt20Seconds": 3303,
+      "suggestsVocab": 0
+    },
+    "allDailyWordsWrong": {
+      "words": 20,
+      "validatedCount": 20,
+      "validatedCorrectCount": 0,
+      "validatedWrongCount": 20,
+      "reinforcementCount": 20
+    },
+    "masterySchedule": [
+      {
+        "date": "2026-09-01",
+        "previousIntervalDays": 0,
+        "status": "familiar",
+        "scheduledNextIntervalDays": 1
+      },
+      {
+        "date": "2026-09-02",
+        "previousIntervalDays": 1,
+        "status": "familiar",
+        "scheduledNextIntervalDays": 3
+      },
+      {
+        "date": "2026-09-05",
+        "previousIntervalDays": 3,
+        "status": "familiar",
+        "scheduledNextIntervalDays": 7
+      },
+      {
+        "date": "2026-09-12",
+        "previousIntervalDays": 7,
+        "status": "familiar",
+        "scheduledNextIntervalDays": 14
+      },
+      {
+        "date": "2026-09-26",
+        "previousIntervalDays": 14,
+        "status": "mastered",
+        "scheduledNextIntervalDays": 30
+      }
+    ],
+    "twentyDueWords": {
+      "dueAvailable": 20,
+      "selectedDue": 5,
+      "newSelected": 20,
+      "warnings": {
+        "newSuppressed": false,
+        "retryDeferred": 0,
+        "dueDeferred": 15,
+        "masteredReviewDeferred": 0,
+        "oldestDeferredDays": 0
+      },
+      "backlogVisible": 15
+    }
+  }
+}

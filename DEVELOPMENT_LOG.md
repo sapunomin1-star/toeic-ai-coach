@@ -1,5 +1,181 @@
 # TOEIC AI Coach Development Log
 
+## Learning Quality Remediation - 2026-09-16
+
+Fixes for all twelve findings of the 2026-09-12 learning-quality review
+(`docs/audits/2026-09-12-learning-quality/REVIEW.md`). Decisions are recorded
+in `docs/2026-09-16-學習品質修正決策.md`; the delivery report with evidence is
+`docs/audits/2026-09-12-learning-quality/REMEDIATION.md`.
+
+### Answers and content (F01, F04)
+
+- Cloze questions are generated only when the example holds the headword in
+  dictionary form; the marked answer therefore always reproduces the example
+  (1,343 eligible examples, 0 mismatches). Cloze distractors share the part of
+  speech and exclude near-synonyms.
+- p5-ext-032 gained `currently` and an option-by-option explanation; its
+  `revisedAt` drops earlier attempts from coaching evidence. Four generated
+  Part 2 items with two defensible responses (p2-gen-179/116/136/186) got honest
+  explanations, are excluded from new plans and mocks (`DISPUTED_QUESTIONS`),
+  and have an unapplied rewrite in `pipeline/patches/p2-answer-uniqueness.json`
+  because their audio must be regenerated first.
+
+### Question-term teaching (F02, F03, F10)
+
+- `lib/termResolution.ts` resolves terms through per-question senses (136),
+  cards with conservative inflection, 717 general glosses, phrase components,
+  or an explicit "missing". Fully resolved links rose from 32.7% to 69.6% and
+  questions with no teaching support fell from 1,112 to 308.
+- `cd pipeline && npm run check` now ratchets link debt against
+  `pipeline/baselines/vocabulary-link-debt.json` (3,532 links); new debt fails.
+- The post-answer panel labels every tier, ranks key-option terms first, and
+  offers "這個詞我不熟，加入待學". The queue (`toeic_vocabulary_queue_v1`,
+  backed up and synced with a union + tombstone merge) prioritizes flagged
+  words inside the 20-new-word target and pulls flagged cards to today.
+
+### Timing, evidence and reasons (F05, F06, F08)
+
+- `AnswerRecord.timing` (visible time, hidden-tab time, audio time, group
+  position) and `attempt` (first attempt, plan kind) are recorded by `/quiz`.
+  `lib/pacing.ts` reads only timed records, spreads passage reading across the
+  group, never flags listening, and reports 資料不足 under 8 records per part.
+  The "最慢 Skill" card and all wall-clock averages were removed.
+- Skill evidence is first attempts only (`partitionAttempts`,
+  `getSkillEvidence`); weakness, recommendation, home focus and grammar
+  remediation read the same table and show sample size and confidence.
+- Reason statistics count only learner-confirmed labels within 30 days; the
+  headline is descriptive and the chips show all six reasons ordered by the
+  item's skill category. A word with no record is no longer "weak".
+
+### Vocabulary system (F07, F11, F12)
+
+- Daily validation reports tested / correct / needs-work instead of "通過".
+- `mastered` now requires passing the 14-day review, not scheduling it; the
+  advice copy describes the real schedule; quiz results are tallied per type.
+- Deferred due reviews are visible (`dueDeferred`, `oldestDeferredDays`) and
+  can be made up in `/vocabulary-quiz?mode=backlog`; the coach offers this
+  after the core tasks.
+
+### Plan focus (F09)
+
+- `buildDailyPlan({ focusSkills })` prefers unseen groups containing the
+  focus skill and returns a `focus` note shown in `/practice` and `/quiz`;
+  a plan without evidence is labelled 建立基準.
+
+### Verification
+
+- All six gates passed on 2026-09-17: `tsc --noEmit`, `eslint .`,
+  `next build`, `npm test` (now including `scripts/learning-quality-check.ts`,
+  which covers all twelve findings), `pipeline npm run check` (integrity +
+  link ratchet), `check-media` (1,090 / 1,090).
+- Not done: production deployment, applying the Part 2 patch and regenerating
+  its four audio files, and any real-learner efficacy study.
+
+## Learning Quality Audit - 2026-09-12
+
+- Reviewed educational validity, response-time metrics, skill evidence,
+  question-linked vocabulary, quiz generation and SRS workload. Product code
+  and the production deployment were not changed during this audit.
+- Added `scripts/audit-learning-quality.ts`: full-bank linkage scan and
+  reproducible scenarios using isolated in-memory learner records only.
+- Saved the report, per-question linkage data, synthetic evidence and a local
+  browser screenshot in `docs/audits/2026-09-12-learning-quality/`.
+- Confirmed 7,822 of 11,625 question-term links do not resolve, a generated
+  cloze can mark an ungrammatical word form correct, repeated items can erase
+  weakness evidence, and all-wrong daily validation is described as passed.
+- Audit script execution, targeted ESLint, TypeScript and diff whitespace
+  checks passed. These checks reproduce current defects; they do not certify
+  teaching quality. No real learner records or cloud state were accessed.
+
+## Production Deployment - 2026-09-12
+
+- Deployed the personal study goals, segmented practice and resume improvements
+  to the existing Vercel production project with `vercel deploy --prod --yes`.
+- Production alias: https://toeic-ai-coach-ten.vercel.app
+- Deployment ID: `dpl_FhhZMHYfpJkYf9aiqLepPGCwuaYw` (`READY`).
+- Added `.vercelignore` to explicitly exclude local environment files,
+  `.sync-dev-store.json`, dependency/build caches and browser QA artifacts.
+  Production environment variables remain managed by Vercel.
+- Vercel production build and TypeScript validation passed. All 13 checked
+  page routes returned HTTP 200, including the new `/study-plan` page.
+- Isolated production-browser check: goal and 10-minute preference saved and
+  survived reload; 390px viewport had no horizontal overflow or page errors.
+  No production account login or cloud learner-data mutation was needed.
+
+## Personal Study Goals and Resumable Study Segments - 2026-09-12
+
+### User-facing changes
+
+- Added `/study-plan` with editable TOEIC target, optional self-reported recent
+  score and exam date, and 10 / 15 / 20 / 30 minute question-study segments.
+  New users receive no invented target or baseline. Date-only validation rejects
+  impossible calendar dates; the countdown follows the learner's local day,
+  including across daylight-saving changes. Goal cards appear on home/practice,
+  and the header provides a persistent settings entry.
+- Added estimated study segments to daily and wrongbook quizzes. Breaks only
+  occur between complete passage/audio groups. The full plan, question order,
+  daily question counts and 20-new-word target are preserved. A single group
+  may exceed the time budget; the UI labels times as estimates. Vocabulary
+  study and validation are explicitly additional time.
+- The quiz shows the current segment and offers both a general pause link and
+  a post-explanation segment break. Accepting a break persists the next cursor;
+  home now prioritizes the active daily/wrongbook quiz or pending explanation,
+  even when vocabulary has not been studied or its chunk is unavailable.
+- Quiz feedback advancement and practice/fresh-plan creation now check write
+  success before moving on. Starting a fresh plan no longer clears the existing
+  plan before successfully saving its replacement. Plan launch shows a pending
+  state and reports failures. Final-question feedback resumes as an explanation,
+  rather than showing a nonexistent next question in the practice CTA.
+- Home's seven-day pulse includes the entire first local calendar day and
+  excludes future-dated attempts and mock records.
+- Narrow-screen header labels remain on one line; the English subtitle is
+  hidden only on the narrowest screens to leave room for goal/sync controls.
+
+### Persistence and architecture
+
+- New `STORAGE_KEYS.studyProfile` (`toeic_study_profile_v1`) participates in
+  validation, backup/import, clear-all and optional sync. It uses deterministic
+  whole-key last-write-wins merging with the existing symmetric tie-break.
+  The sync/backup set now has 13 keys; in-progress mock sessions remain local.
+- `lib/studyProfile.ts`: typed settings, validation, local-day countdown and
+  stage guidance; `lib/studySegments.ts`: pure atomic-group segmentation;
+  `lib/todayCoach.ts`: independently testable pulse and resume prioritization.
+- Added `scripts/study-coach-check.ts` to `npm test`. Removed the old server
+  fixture's hard-coded 12-key assumption; it still creates and checks a real
+  Upstash response fixture for every registered sync key.
+- README and product case study describe the implemented behavior and retain
+  explicit limits: target scores do not yet select difficulty, self-reported
+  scores are not predictions, and learning efficacy has not been established
+  through a user study.
+
+### Verification
+
+- `npm run lint`, `./node_modules/.bin/tsc --noEmit`, `npm run build` and
+  `git diff --check`: passed. Production build generated 19 routes/pages.
+- `npm test`: all seven regression scripts passed. New checks cover invalid
+  scores/dates, quota failure preserving old goals, backup restore, sync merge
+  ordering/ties, countdowns in Taipei/New York/Honolulu, resume precedence,
+  final-answer feedback, complete segmentation over 15 generated daily plans
+  at all four budgets, and vocabulary session/quiz contracts (1,500 unique IDs,
+  20 new words, fixed daily items, 10 random questions, four distinct choices,
+  valid answers and all three quiz types).
+- `pipeline/npm run check`: passed, 3,303 questions; all reported integrity
+  counters are zero. Question/word data and media were not modified.
+- Production browser smoke: 13 routes returned HTTP 200 and rendered with no
+  JavaScript page errors. Ten primary screens at both 320px and 390px had no
+  horizontal overflow; home was also checked at 768px and 1440px.
+- Real browser flow: saved/reloaded a goal; submitted a wrong answer, refreshed
+  and resumed its explanation without a duplicate; injected a failed plan
+  write and verified advancement stopped; answered through a 13-question
+  segment, paused, and resumed question 14 with exactly 13 records.
+- Completed and submitted a fresh reading mock in an isolated test browser
+  (one attempted question, 99 blanks). Its 100-question review snapshot opened
+  successfully and only the attempted wrong answer entered answer history.
+- Browser QA used isolated synthetic local data, not the learner's existing
+  browser records. Sync contracts and the real Redis SDK's mocked HTTP boundary
+  were tested; no production account login or cloud deployment was performed.
+- Screenshots are local, ignored artifacts under `output/playwright/`.
+
 ## Product Design Maturity Upgrade - 2026-08-14
 
 ### Goal

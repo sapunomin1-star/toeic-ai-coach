@@ -5,12 +5,14 @@ import type { Choice } from "@/types/question";
  * Never rename a value without a migration: existing user data is keyed by it.
  */
 export const STORAGE_KEYS = {
+  studyProfile: "toeic_study_profile_v1",
   answerRecords: "toeic_answer_records_v1",
   dailyPlan: "toeic_daily_plan_v1",
   wrongStatus: "toeic_wrong_status_v1",
   wrongPracticePlan: "toeic_wrong_practice_plan_v1",
   vocabularyProgress: "toeic_vocabulary_progress_v1",
   vocabularyDailySession: "toeic_vocabulary_daily_session_v1",
+  vocabularyQueue: "toeic_vocabulary_queue_v1",
   readingMockSession: "toeic_mock_session_v1",
   readingMockResults: "toeic_mock_results_v1",
   listeningMockSession: "toeic_listening_mock_session_v1",

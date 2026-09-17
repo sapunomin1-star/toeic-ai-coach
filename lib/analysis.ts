@@ -7,10 +7,12 @@ import type {
 } from "@/types/question";
 import {
   MISTAKE_REASONS,
+  MISTAKE_REASON_LABELS,
   SKILL_LABELS,
   SKILL_TAG_LIST,
   getSkillCategory,
 } from "@/types/question";
+import { READING_BUDGET_MS } from "@/lib/pacing";
 
 export const LISTENING_SKILLS: SkillTag[] = [
   "listening_photo",
@@ -31,6 +33,22 @@ export const READING_SKILLS: SkillTag[] = [
 
 function excludeMock(records: AnswerRecord[]): AnswerRecord[] {
   return records.filter((r) => r.source !== "mock");
+}
+
+/**
+ * Drop attempts recorded before a question's content revision: the item the
+ * learner answered no longer exists in that form, so its outcome says nothing
+ * about the current one (review F04). Pure; `lib/storage.getEvidenceRecords`
+ * supplies the revision map so this module stays free of data imports.
+ */
+export function excludeRecordsBeforeRevision(
+  records: AnswerRecord[],
+  revisedAt: Readonly<Record<string, string>>,
+): AnswerRecord[] {
+  return records.filter((r) => {
+    const at = revisedAt[r.questionId];
+    return at === undefined || r.answeredAt >= at;
+  });
 }
 
 export function calculateAccuracy(records: AnswerRecord[]): number {
@@ -55,126 +73,181 @@ export function countMistakesBySkill(
   return init;
 }
 
-/** Sliding window per skill for weakness ranking (most-recent attempts). */
-const SKILL_RECENT_WINDOW = 20;
-/** Below this many attempts in the window, a skill's error rate is noise (1/1 = 100%). */
-const MIN_SKILL_ATTEMPTS_FOR_RATE = 5;
+/** Sliding window per skill for weakness ranking (most-recent FRESH attempts). */
+export const SKILL_RECENT_WINDOW = 20;
+/** Below this many fresh attempts in the window, a skill's error rate is noise (1/1 = 100%). */
+export const MIN_SKILL_ATTEMPTS_FOR_RATE = 5;
+
+function recordIdentity(r: AnswerRecord): string {
+  return `${r.questionId} ${r.answeredAt} ${r.userAnswer}`;
+}
 
 /**
- * Rank skills by recent ERROR RATE, not lifetime mistake count — a skill
- * practiced 100 times with 20 misses must not outrank one missed 4/5.
- * Mirrors getNextDayListeningMix: only the most-recent attempts count, and a
- * skill needs a minimum sample before its rate is trusted. Skills with wrongs
- * but too few attempts rank after the qualified ones (by wrong count) so a
- * new user still gets recommendations instead of an empty list.
+ * Split the history into first attempts and repeats. A learner's 20th correct
+ * answer to the same question is evidence about that question's memory, not
+ * about the skill — so weakness ranking, recommendations and grammar
+ * remediation only read `fresh`. Derived chronologically from the records
+ * themselves (the optional `attempt.first` flag on new records is
+ * informational), so legacy and merged multi-device histories get the same
+ * treatment. (REVIEW F06)
  */
-export function getWeakestSkills(
-  records: AnswerRecord[],
-  topN = 3,
-  part?: number
-): { skill: SkillTag; mistakes: number }[] {
+export function partitionAttempts(records: AnswerRecord[]): {
+  fresh: AnswerRecord[];
+  repeats: AnswerRecord[];
+} {
+  const chronological = records.slice().sort((a, b) => a.answeredAt.localeCompare(b.answeredAt));
+  const seenQuestions = new Set<string>();
+  const firstIds = new Set<string>();
+  for (const record of chronological) {
+    if (seenQuestions.has(record.questionId)) continue;
+    seenQuestions.add(record.questionId);
+    firstIds.add(recordIdentity(record));
+  }
+  const fresh: AnswerRecord[] = [];
+  const repeats: AnswerRecord[] = [];
+  for (const record of records) {
+    (firstIds.has(recordIdentity(record)) ? fresh : repeats).push(record);
+  }
+  return { fresh, repeats };
+}
+
+export type SkillEvidence = {
+  skill: SkillTag;
+  /** Fresh, non-mock attempts inside the window (the most recent SKILL_RECENT_WINDOW). */
+  attempts: number;
+  wrong: number;
+  errorRate: number;
+  /** "insufficient" below MIN_SKILL_ATTEMPTS_FOR_RATE: worth re-checking, not a verdict. */
+  confidence: "ok" | "insufficient";
+  /** ISO timestamps bounding the window, for 期間 labels. */
+  from: string | null;
+  to: string | null;
+  /** Wrong answers in the window the learner confirmed as a grammar problem. */
+  confirmedGrammarWrong: number;
+  /** Repeat attempts (same question again) that were left out of the numbers above. */
+  repeatsExcluded: number;
+};
+
+/**
+ * ONE evidence table for every skill card. The weakness ranking, the
+ * tomorrow recommendation and the grammar-remediation card all read this, so
+ * they can never quote different numbers for the same skill (REVIEW F06).
+ */
+export function getSkillEvidence(records: AnswerRecord[], part?: number): SkillEvidence[] {
   const pool = part != null
     ? records.filter((r) => r.questionId.startsWith(`p${part}-`))
     : records;
-  const filtered = excludeMock(pool)
-    .slice()
-    .sort((a, b) => b.answeredAt.localeCompare(a.answeredAt));
+  const { fresh, repeats } = partitionAttempts(excludeMock(pool));
+  const repeatsBySkill = new Map<SkillTag, number>();
+  for (const r of repeats) repeatsBySkill.set(r.skill_tag, (repeatsBySkill.get(r.skill_tag) ?? 0) + 1);
 
+  const newestFirst = fresh.slice().sort((a, b) => b.answeredAt.localeCompare(a.answeredAt));
   const recentBySkill = new Map<SkillTag, AnswerRecord[]>();
-  for (const record of filtered) {
+  for (const record of newestFirst) {
     const recent = recentBySkill.get(record.skill_tag) ?? [];
     if (recent.length >= SKILL_RECENT_WINDOW) continue;
     recent.push(record);
     recentBySkill.set(record.skill_tag, recent);
   }
 
-  type Rated = { skill: SkillTag; mistakes: number; errorRate: number };
-  const qualified: Rated[] = [];
-  const lowSample: Rated[] = [];
+  const evidence: SkillEvidence[] = [];
   for (const [skill, recent] of recentBySkill) {
-    const mistakes = recent.filter((r) => !r.isCorrect).length;
-    if (mistakes === 0) continue;
-    const rated = { skill, mistakes, errorRate: mistakes / recent.length };
-    if (recent.length >= MIN_SKILL_ATTEMPTS_FOR_RATE) qualified.push(rated);
-    else lowSample.push(rated);
+    const wrong = recent.filter((r) => !r.isCorrect).length;
+    evidence.push({
+      skill,
+      attempts: recent.length,
+      wrong,
+      errorRate: wrong / recent.length,
+      confidence: recent.length >= MIN_SKILL_ATTEMPTS_FOR_RATE ? "ok" : "insufficient",
+      from: recent[recent.length - 1]?.answeredAt ?? null,
+      to: recent[0]?.answeredAt ?? null,
+      confirmedGrammarWrong: recent.filter(
+        (r) => !r.isCorrect && r.mistakeReason === "grammar" && r.reasonSource !== "inferred",
+      ).length,
+      repeatsExcluded: repeatsBySkill.get(skill) ?? 0,
+    });
   }
-
-  qualified.sort((a, b) => b.errorRate - a.errorRate || b.mistakes - a.mistakes);
-  lowSample.sort((a, b) => b.mistakes - a.mistakes);
-
-  return [...qualified, ...lowSample]
-    .slice(0, topN)
-    .map(({ skill, mistakes }) => ({ skill, mistakes }));
+  return evidence;
 }
 
-export function getGrammarWeakSkills(
+export type WeakSkill = {
+  skill: SkillTag;
+  mistakes: number;
+  attempts: number;
+  errorRate: number;
+  confidence: SkillEvidence["confidence"];
+};
+
+/**
+ * Rank skills by recent ERROR RATE on fresh attempts, not lifetime mistake
+ * count — a skill practiced 100 times with 20 misses must not outrank one
+ * missed 4/5, and re-doing one question 20 times must not erase 19 other
+ * misses. Skills with wrongs but too few attempts rank after the qualified
+ * ones (by wrong count) and carry `confidence: "insufficient"` so the UI can
+ * say "值得再確認" instead of "最弱".
+ */
+export function getWeakestSkills(
   records: AnswerRecord[],
-): { skill: SkillTag; wrongCount: number }[] {
-  const counts = new Map<SkillTag, number>();
+  topN = 3,
+  part?: number
+): WeakSkill[] {
+  const evidence = getSkillEvidence(records, part).filter((e) => e.wrong > 0);
+  const qualified = evidence
+    .filter((e) => e.confidence === "ok")
+    .sort((a, b) => b.errorRate - a.errorRate || b.wrong - a.wrong);
+  const lowSample = evidence
+    .filter((e) => e.confidence === "insufficient")
+    .sort((a, b) => b.wrong - a.wrong);
+  return [...qualified, ...lowSample].slice(0, topN).map((e) => ({
+    skill: e.skill,
+    mistakes: e.wrong,
+    attempts: e.attempts,
+    errorRate: e.errorRate,
+    confidence: e.confidence,
+  }));
+}
 
-  for (const record of excludeMock(records)) {
-    if (
-      record.isCorrect ||
-      record.mistakeReason !== "grammar" ||
-      // Only a chip the user actually tapped is evidence of WHY they missed it.
-      // Historical inferred labels stay readable but never drive prescriptions
-      // (AGENTS.md, mistake-reason section) — getReasonInsight already
-      // excludes them, and this card must agree.
-      record.reasonSource === "inferred" ||
-      getSkillCategory(record.skill_tag) !== "grammar"
-    ) {
-      continue;
-    }
-    counts.set(record.skill_tag, (counts.get(record.skill_tag) ?? 0) + 1);
-  }
+/** A grammar skill leaves remediation once its recent fresh error rate drops below this. */
+export const GRAMMAR_REMEDIATION_MIN_ERROR_RATE = 0.2;
 
-  return [...counts.entries()]
-    .map(([skill, wrongCount]) => ({ skill, wrongCount }))
-    .sort((a, b) => b.wrongCount - a.wrongCount);
+export type GrammarWeakSkill = {
+  skill: SkillTag;
+  /** Confirmed grammar-reason wrongs inside the same window the weakness card uses. */
+  wrongCount: number;
+  attempts: number;
+  errorRate: number;
+  confidence: SkillEvidence["confidence"];
+};
+
+/**
+ * Grammar skills still failing on fresh attempts where the learner confirmed
+ * a grammar cause. Reads the same evidence window as getWeakestSkills, so the
+ * two cards agree, and retires a skill once recent new-question accuracy has
+ * recovered — lifetime counts never did. Only a chip the user actually tapped
+ * is evidence of WHY they missed it; inferred labels never count.
+ */
+export function getGrammarWeakSkills(records: AnswerRecord[]): GrammarWeakSkill[] {
+  return getSkillEvidence(records)
+    .filter(
+      (e) =>
+        getSkillCategory(e.skill) === "grammar" &&
+        e.confirmedGrammarWrong > 0 &&
+        e.errorRate >= GRAMMAR_REMEDIATION_MIN_ERROR_RATE,
+    )
+    .sort((a, b) => b.confirmedGrammarWrong - a.confirmedGrammarWrong || b.errorRate - a.errorRate)
+    .map((e) => ({
+      skill: e.skill,
+      wrongCount: e.confirmedGrammarWrong,
+      attempts: e.attempts,
+      errorRate: e.errorRate,
+      confidence: e.confidence,
+    }));
 }
 
 // ─── Time analytics ────────────────────────────────────────────────────────
-
-export function calculateAvgResponseTime(records: AnswerRecord[]): number {
-  const filtered = excludeMock(records);
-  const withTime = filtered.filter((r) => r.responseTimeMs !== undefined);
-  if (withTime.length === 0) return 0;
-  const total = withTime.reduce((s, r) => s + (r.responseTimeMs ?? 0), 0);
-  return Math.round(total / withTime.length);
-}
-
-export function calculatePart5AvgTime(records: AnswerRecord[]): number {
-  return calculateAvgResponseTime(excludeMock(records).filter((r) => isPart5Record(r)));
-}
-
-export function countSlowQuestions(
-  records: AnswerRecord[],
-  thresholdMs = 40_000
-): number {
-  return excludeMock(records).filter((r) => (r.responseTimeMs ?? 0) > thresholdMs).length;
-}
-
-export function getSlowestSkill(records: AnswerRecord[]): SkillTag | null {
-  const filtered = excludeMock(records);
-  const bySkill: Record<string, { total: number; count: number }> = {};
-  for (const r of filtered) {
-    if (!r.responseTimeMs) continue;
-    if (!bySkill[r.skill_tag])
-      bySkill[r.skill_tag] = { total: 0, count: 0 };
-    bySkill[r.skill_tag].total += r.responseTimeMs;
-    bySkill[r.skill_tag].count += 1;
-  }
-  let slowest: SkillTag | null = null;
-  let maxAvg = 0;
-  for (const [skill, { total, count }] of Object.entries(bySkill)) {
-    const avg = total / count;
-    if (avg > maxAvg) {
-      maxAvg = avg;
-      slowest = skill as SkillTag;
-    }
-  }
-  return slowest;
-}
+// Pacing lives in lib/pacing.ts and only reads the timing split; the former
+// averages over `responseTimeMs` (audio + reading + hidden tab) were removed
+// because they could not support any pacing claim (REVIEW F05).
 
 // ─── Today stats ───────────────────────────────────────────────────────────
 
@@ -244,9 +317,14 @@ export function getTomorrowRecommendation(
     ? { skill: weak[1].skill, label: SKILL_LABELS[weak[1].skill] }
     : null;
 
+  const lead = weak[0];
+  const evidenceNote =
+    lead.confidence === "ok"
+      ? `（近 ${lead.attempts} 題新題錯 ${lead.mistakes}，${Math.round(lead.errorRate * 100)}%）`
+      : `（只有 ${lead.attempts} 題新題樣本，先當作值得再確認）`;
   const advice =
-    (primary && SKILL_ADVICE[primary.skill]) ??
-    `明天請優先練 ${primary?.label}，加強相關題型。`;
+    ((primary && SKILL_ADVICE[primary.skill]) ??
+      `明天請優先練 ${primary?.label}，加強相關題型。`) + evidenceNote;
 
   // If primary weakness is reading_detail, add Part 6-specific suggestion
   const dailyRecords = excludeMock(records);
@@ -380,19 +458,6 @@ export function countPart6Mistakes(records: AnswerRecord[]): number {
   return excludeMock(records).filter((r) => !r.isCorrect && isPart6Record(r)).length;
 }
 
-export function calculatePart6AvgTime(records: AnswerRecord[]): number {
-  return calculateAvgResponseTime(excludeMock(records).filter((r) => isPart6Record(r)));
-}
-
-export function calculateListeningAvgTime(records: AnswerRecord[]): number {
-  return calculateAvgResponseTime(
-    excludeMock(records).filter((r) => (LISTENING_SKILLS as SkillTag[]).includes(r.skill_tag))
-  );
-}
-
-export function calculateReadingAvgTime(records: AnswerRecord[]): number {
-  return calculateAvgResponseTime(excludeMock(records).filter((r) => isPart7Record(r)));
-}
 
 export function countPart7MistakesBySkill(
   records: AnswerRecord[]
@@ -600,43 +665,49 @@ export function getNextDayListeningMix(records: AnswerRecord[]): NextDayListenin
 // reasons for the dashboard, and produce the headline insight sentence. No
 // storage / UI / vocab-SRS coupling — vocab is injected via a predicate.
 
-/** Slower than this (reading parts) + wrong → infer "speed" (ran out of time). */
-export const SLOW_THRESHOLD_MS: Partial<Record<Part, number>> = {
-  "Part 5": 40_000,
-  "Part 6": 50_000,
-  "Part 7": 75_000,
-};
-
-/** Faster than this (reading parts) + wrong → infer "careless" (too quick to think). */
+/** Faster than this (reading parts) + wrong → hint "careless" (too quick to think). */
 export const FAST_FLOOR_MS: Partial<Record<Part, number>> = {
   "Part 5": 5_000,
   "Part 6": 6_000,
   "Part 7": 10_000,
 };
 
+/** Wrong + visible answering time above this multiple of the part's pacing budget → hint "speed". */
+const SLOW_BUDGET_MULTIPLIER = 1.6;
+
 /**
  * Suggest a mistake reason for a wrong answer, to pre-select in the chip UI.
  * Best-effort and pure: returns null when there is no clear signal (let the
- * learner decide).
+ * learner decide). A suggestion is a HINT the learner must confirm; it never
+ * enters any statistic on its own.
  *
- * - speed: reading parts only (listening time includes audio playback).
- * - vocab: only when an `isWeakWord` predicate is supplied (kept decoupled from
- *   vocabularyStorage so this stays a pure function; wired in a later step).
- * - careless: very fast + wrong, reading parts only (where "fast" is meaningful).
+ * - speed: reading parts only, and only from the timing split (visible time,
+ *   hidden tab removed) on a question that did not also carry the passage
+ *   reading for its group. Legacy `responseTimeMs` mixes audio, reading and
+ *   background time and is never a speed signal (REVIEW F05).
+ * - vocab: only when an `isWeakWord` predicate is supplied; the caller decides
+ *   what "weak" means — a word with no record is unknown, not weak (F08).
+ * - careless: very fast + wrong, reading parts only.
  *
  * Priority when several could apply: speed > vocab > careless.
  */
 export function inferMistakeReason(
   question: Pick<Question, "part" | "vocabulary">,
-  record: Pick<AnswerRecord, "isCorrect" | "responseTimeMs">,
+  record: Pick<AnswerRecord, "isCorrect" | "responseTimeMs" | "timing">,
   isWeakWord?: (word: string) => boolean,
 ): MistakeReason | null {
   if (record.isCorrect) return null;
 
-  const ms = record.responseTimeMs;
-
-  const slow = SLOW_THRESHOLD_MS[question.part];
-  if (slow !== undefined && ms !== undefined && ms > slow) {
+  const timing = record.timing;
+  const budget = READING_BUDGET_MS[question.part];
+  const carriesGroupReading =
+    timing !== undefined && (timing.groupSize ?? 1) > 1 && (timing.groupIndex ?? 0) === 0;
+  if (
+    budget !== undefined &&
+    timing !== undefined &&
+    !carriesGroupReading &&
+    timing.activeMs > budget * SLOW_BUDGET_MULTIPLIER
+  ) {
     return "speed";
   }
 
@@ -647,101 +718,144 @@ export function inferMistakeReason(
   }
 
   const floor = FAST_FLOOR_MS[question.part];
-  if (floor !== undefined && ms !== undefined && ms < floor) {
+  const fastMs = timing?.activeMs ?? record.responseTimeMs;
+  if (floor !== undefined && fastMs !== undefined && fastMs < floor) {
     return "careless";
   }
 
   return null;
 }
 
+/** The reason chart and the headline read the same recent window. */
+export const REASON_WINDOW_DAYS = 30;
+/** Minimum confirmed wrong answers in the window before a headline is shown (avoids 1/1 = 100%). */
+export const MIN_LABELED_FOR_INSIGHT = 8;
+/** A reason at or above this share of confirmed wrongs counts as dominant. */
+const DOMINANT_REASON_RATIO = 0.35;
+/** "careless" confirmed at least this many times triggers the over-use guard. */
+const CARELESS_ABUSE_MIN = 5;
+
+/** A wrong answer whose reason the learner tapped (legacy labels without a source count as confirmed). */
+function isConfirmedWrong(record: AnswerRecord): boolean {
+  return (
+    !record.isCorrect && record.mistakeReason !== undefined && record.reasonSource !== "inferred"
+  );
+}
+
+function withinDays(record: AnswerRecord, now: Date, days: number): boolean {
+  const at = Date.parse(record.answeredAt);
+  return (
+    !Number.isNaN(at) &&
+    at >= now.getTime() - days * 86_400_000 &&
+    at <= now.getTime() + 60_000
+  );
+}
+
 /**
- * Count wrong answers by confirmed mistake reason (mock excluded). Old
- * auto-inferred labels are deliberately excluded from coaching prescriptions;
- * a heuristic suggestion must never be treated as the learner's diagnosis.
- * Legacy labeled records without a source remain accepted for compatibility.
+ * Confirmed wrong answers per reason in the last REASON_WINDOW_DAYS days (mock
+ * excluded). Old auto-inferred labels never count: a heuristic suggestion is
+ * not the learner's diagnosis. Same filter as getReasonInsight, so the chart
+ * and the headline can never disagree about the denominator (REVIEW F08).
  */
 export function countMistakesByReason(
   records: AnswerRecord[],
+  now: Date = new Date(),
 ): Record<MistakeReason, number> {
-  const filtered = excludeMock(records);
   const counts = {} as Record<MistakeReason, number>;
-  for (const reason of MISTAKE_REASONS) {
-    counts[reason] = 0;
-  }
-  for (const r of filtered) {
-    if (!r.isCorrect && r.mistakeReason && r.reasonSource !== "inferred") {
-      counts[r.mistakeReason] = (counts[r.mistakeReason] ?? 0) + 1;
+  for (const reason of MISTAKE_REASONS) counts[reason] = 0;
+  for (const r of excludeMock(records)) {
+    if (isConfirmedWrong(r) && withinDays(r, now, REASON_WINDOW_DAYS) && r.mistakeReason) {
+      counts[r.mistakeReason] += 1;
     }
   }
   return counts;
 }
 
-/** Minimum labeled wrong answers before an insight is shown (avoids 1/1 = 100%). */
-const MIN_LABELED_FOR_INSIGHT = 8;
-/** A reason at or above this share of labeled wrongs counts as dominant. */
-const DOMINANT_REASON_RATIO = 0.35;
-/** "careless" tagged at least this many times triggers the over-use guard. */
-const CARELESS_ABUSE_MIN = 5;
+export type ReasonInsight = {
+  windowDays: number;
+  /** Confirmed (learner-tapped) wrong answers in the window — the denominator of every share. */
+  labeled: number;
+  /** Every wrong answer in the window, so the UI can say how many are still unlabeled. */
+  wrongInWindow: number;
+  /** Confirmed answers needed before a headline is shown. */
+  required: number;
+  top: { reason: MistakeReason; count: number; share: number } | null;
+  /** Descriptive sentence about the learner's OWN labels, or null below `required`. */
+  message: string | null;
+  carelessGuard: boolean;
+};
 
-/** Prescription clause appended after "你最近 N% 的錯…". */
-const REASON_PRESCRIPTION: Record<MistakeReason, string> = {
-  speed: "其實是「來不及」，不是不會。重心放在配速，分數最快上升。",
-  vocab: "卡在單字。先把弱字背起來，正確率會明顯回升。",
-  grammar: "集中在文法觀念。與其多寫題，不如先補對應觀念。",
-  comprehension: "是「看懂字卻抓不到意思」。重點在整段理解，不是單字量。",
-  careless: "是粗心。放慢一點、看完整句再作答，是最快的進步。",
-  guess: "是用猜的，代表底層觀念還沒建立，建議回頭把基礎補起來。",
+/** Neutral follow-up per reason — what to check next, not a promise about scores. */
+const REASON_FOLLOW_UP: Record<MistakeReason, string> = {
+  speed: "是否真的配速不足，請對照配速卡的新版計時；讀題慢也可能是單字或文法卡住。",
+  vocab: "把這些題的關鍵字加入待學，下次到期再用新題確認。",
+  grammar: "文法補強會用同考點的新題練習，不重做原題。",
+  comprehension: "重點放在段落理解與同義改寫，不是單字量。",
+  careless: "放慢、看完整句再作答；若同類型持續錯，可能不是粗心。",
+  guess: "代表底層觀念還沒建立，先回到該考點的解析與新題。",
 };
 
 /**
- * Build the single dashboard headline from mistake-reason data, or null when
- * there isn't enough labeled data to be meaningful.
- *
- * Priority:
- *  1. fewer than MIN_LABELED_FOR_INSIGHT labeled wrongs → null
- *  2. "careless" over-use guard (self-deception) → corrective insight
- *  3. a dominant reason (>= 35%) → its prescription, with live percentage
- *  4. otherwise → neutral "spread out" message
+ * Headline about the learner's self-reported reasons in the recent window.
+ * Every number is "what you labeled", never an objective diagnosis:
+ *  1. fewer than MIN_LABELED_FOR_INSIGHT confirmed wrongs → no message
+ *  2. "careless" over-use guard (many careless labels, same skills still failing)
+ *  3. a dominant reason (>= 35% of confirmed wrongs) → descriptive sentence
+ *  4. otherwise → "spread out"
  */
-export function getReasonInsight(records: AnswerRecord[]): string | null {
-  const filtered = excludeMock(records);
-  const labeledWrong = filtered.filter((r) => !r.isCorrect && r.mistakeReason);
-  if (labeledWrong.length < MIN_LABELED_FOR_INSIGHT) return null;
+export function getReasonInsight(records: AnswerRecord[], now: Date = new Date()): ReasonInsight {
+  const inWindow = excludeMock(records).filter(
+    (r) => !r.isCorrect && withinDays(r, now, REASON_WINDOW_DAYS),
+  );
+  const confirmed = inWindow.filter(isConfirmedWrong);
+  const base: ReasonInsight = {
+    windowDays: REASON_WINDOW_DAYS,
+    labeled: confirmed.length,
+    wrongInWindow: inWindow.length,
+    required: MIN_LABELED_FOR_INSIGHT,
+    top: null,
+    message: null,
+    carelessGuard: false,
+  };
+  if (confirmed.length < MIN_LABELED_FOR_INSIGHT) return base;
 
-  const counts = countMistakesByReason(records);
+  const counts = countMistakesByReason(records, now);
 
-  // (2) Over-use guard: many "careless" tags, but those skills still fail a lot.
   if (counts.careless >= CARELESS_ABUSE_MIN) {
     const skills = new Set(
-      labeledWrong
-        .filter((r) => r.mistakeReason === "careless")
-        .map((r) => r.skill_tag),
+      confirmed.filter((r) => r.mistakeReason === "careless").map((r) => r.skill_tag),
     );
-    const onSkills = filtered.filter((r) => skills.has(r.skill_tag));
+    const onSkills = excludeMock(records).filter(
+      (r) => skills.has(r.skill_tag) && withinDays(r, now, REASON_WINDOW_DAYS),
+    );
     const accuracy =
-      onSkills.length === 0
-        ? 1
-        : onSkills.filter((r) => r.isCorrect).length / onSkills.length;
+      onSkills.length === 0 ? 1 : onSkills.filter((r) => r.isCorrect).length / onSkills.length;
     if (accuracy < 0.5) {
-      return "你把不少題標成「粗心」，但同類型一直錯——也許其實是觀念盲點？";
+      return {
+        ...base,
+        carelessGuard: true,
+        message: `最近 ${REASON_WINDOW_DAYS} 天你把 ${counts.careless} 題標成「粗心」，但同類型仍持續答錯——也許其實是觀念盲點？`,
+      };
     }
   }
 
-  // (3) Dominant reason.
-  const total = labeledWrong.length;
-  let topReason: MistakeReason | null = null;
-  let topCount = 0;
+  let top: ReasonInsight["top"] = null;
   for (const reason of MISTAKE_REASONS) {
-    if (counts[reason] > topCount) {
-      topCount = counts[reason];
-      topReason = reason;
+    if (counts[reason] > (top?.count ?? 0)) {
+      top = { reason, count: counts[reason], share: counts[reason] / confirmed.length };
     }
   }
-  if (topReason && topCount / total >= DOMINANT_REASON_RATIO) {
-    const pct = Math.round((topCount / total) * 100);
-    return `你最近 ${pct}% 的錯${REASON_PRESCRIPTION[topReason]}`;
+  if (top && top.share >= DOMINANT_REASON_RATIO) {
+    const pct = Math.round(top.share * 100);
+    return {
+      ...base,
+      top,
+      message: `最近 ${REASON_WINDOW_DAYS} 天你標註的 ${confirmed.length} 題錯題中，${top.count} 題（${pct}%）標為「${MISTAKE_REASON_LABELS[top.reason]}」。${REASON_FOLLOW_UP[top.reason]}`,
+    };
   }
-
-  // (4) Spread out.
-  return "你的錯誤原因蠻分散的，持續累積資料會更準。";
+  return {
+    ...base,
+    top,
+    message: `最近 ${REASON_WINDOW_DAYS} 天你標註的 ${confirmed.length} 題錯題原因分散，沒有單一主因。`,
+  };
 }

@@ -2678,7 +2678,7 @@ export const QUESTIONS_PART5: Question[] = [
   {
     "id": "p5-ext-032",
     "part": "Part 5",
-    "question": "Our company _____ in providing IT solutions for small businesses.",
+    "question": "Our company currently _____ in providing IT solutions for small businesses.",
     "choices": {
       "A": "specialized",
       "B": "specialization",
@@ -2686,11 +2686,11 @@ export const QUESTIONS_PART5: Question[] = [
       "D": "special"
     },
     "answer": "C",
-    "explanation_zh": "主詞 company 是第三人稱單數，需要動詞 specializes（專門從事）。specialization 是名詞，specialized 是過去分詞/形容詞，special 是形容詞。",
+    "explanation_zh": "空格是句子的主要動詞，主詞 Our company 是第三人稱單數，而 currently（目前）把時間限定在現在，因此要用現在式單數動詞 specializes（專門從事；specialize in＝專精於）。(A) specialized 若當一般過去式在文法上可以成句，但 currently 排除了過去的讀法；當形容詞（專門的）又缺少 be 動詞。(B) specialization 是名詞，放在主詞後會缺少動詞。(D) special 是形容詞，同樣沒有動詞可用。",
     "skill_tag": "word_form",
     "difficulty": "B1",
     "vocabulary": [
-      "specializes",
+      "specialize",
       "IT solutions",
       "small businesses"
     ]

@@ -14501,7 +14501,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "C": "They should arrive by the end of the month."
     },
     "answer": "A",
-    "explanation_zh": "問題是詢問新辦公椅是否已經到達，選項A表示椅子今天早上已經送到，是正確的回答。選項B提到椅子是可調整的，使用了共同的詞“chairs”，但沒有回答椅子是否到達的問題。選項C則回答了不同的問題類型，並非直接回答是否已經到達。",
+    "explanation_zh": "Yes/No 問句問新辦公椅到了沒。答案鍵 (A) 直接回答：到了，今天早上送達。(B) 重複 chairs，但講的是椅子可調整，沒有回答到貨與否。(C)「應該月底才會到」在真實 TOEIC 裡是常見的間接否定回應（＝還沒到），只是與 (A) 互相衝突；本題以直接確認的 (A) 為答案鍵，但這代表干擾項設計不夠嚴謹，已列入待修清單，暫不排入新課表。練習時請記住：「還沒，預計…」這類回應可以是正解。",
     "difficulty": "A2",
     "vocabulary": [
       "arrive",
@@ -14747,7 +14747,7 @@ export const GENERATED_QUESTIONS: Question[] = [
       "C": "Yes, I've just placed the order."
     },
     "answer": "C",
-    "explanation_zh": "問題詢問是否已經訂購更多的辦公用品。選項A提到“supplies”並說明用品已經到達，這並沒有回答訂購的問題，因此無法回答提問。選項B提到訂單可能在上週處理，但這不是最直接肯定的回答。選項C表示肯定，證實訂購已經完成，因此是正確答案。",
+    "explanation_zh": "Yes/No 問句問「你訂了更多辦公用品沒」。答案鍵 (C) 直接肯定：是，我剛下單。(A) 重複 supplies，講的是用品已送達，沒有回答「你有沒有訂」。(B)「我想訂單上週就處理了」其實也可以理解為間接的肯定回答，與 (C) 並不衝突，因此本題的干擾項不夠嚴謹，已列入待修清單，暫不排入新課表；請以 (C) 這種明確回應為準，但別把「間接回答」一律視為錯。",
     "difficulty": "B1",
     "vocabulary": [
       "order",
@@ -17251,7 +17251,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "C": "The cartridges are stored in the supply closet."
   },
   "answer": "C",
-  "explanation_zh": "答案 C: 問句詢問墨盒存放處，C選項 'The cartridges are stored in the supply closet.' 清楚提供位置。A選項 'They need to be ordered by Friday.' 和 B選項 'I'll check the supply closet for you.' 不是位置的直接回答。",
+  "explanation_zh": "Where 問句問替換墨水匣放在哪裡。(C) 直接說出位置：存放在用品儲藏室，是最佳答案。(B)「我幫你查一下儲藏室」是自然的間接回應，重複了 supply closet 但沒有給出位置；本題同時有 (C) 這種直接提供資訊的選項，所以 (C) 優先。要注意：在沒有直接答案的題目裡，「我幫你確認」這類回應本身常常就是正解，不能把間接回應一律當成錯。(A) 回答的是何時要訂購，答非所問。本題的 (B) 與 (C) 過於接近，已列入待修清單，暫不排入新課表。",
   "difficulty": "A2",
   "vocabulary": [
     "printer",
@@ -17395,7 +17395,7 @@ export const GENERATED_QUESTIONS: Question[] = [
     "C": "I haven't checked the shipment yet."
   },
   "answer": "A",
-  "explanation_zh": "選項A直接回答了問題，確認貨物按時到達。選項B雖然提到了“shipment”這個關鍵詞，但談論的是不同的時間，因此無法回答此確認問題。選項C則表達了未檢查的意思，並未回答問題。",
+  "explanation_zh": "附加問句（…, didn't it?）尋求確認。答案鍵 (A) 直接確認：是，今天早上送達了。(B) 重複 shipment，但講的是下週的貨，答非所問。(C)「我還沒查」在真實 TOEIC 裡是典型的可接受回應（表示無法確認），與 (A) 並不互斥，所以本題有兩個可辯護的答案；已列入待修清單，暫不排入新課表。練習時記住：對確認問句回答「我不確定／還沒查」可以是正解。",
   "difficulty": "B1",
   "vocabulary": [
     "shipment",

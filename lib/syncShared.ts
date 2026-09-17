@@ -6,12 +6,14 @@ import { STORAGE_KEYS } from "@/lib/storageCore";
  * In-progress mock sessions stay device-local on purpose.
  */
 export const SYNC_KEYS = [
+  STORAGE_KEYS.studyProfile,
   STORAGE_KEYS.answerRecords,
   STORAGE_KEYS.dailyPlan,
   STORAGE_KEYS.wrongStatus,
   STORAGE_KEYS.wrongPracticePlan,
   STORAGE_KEYS.vocabularyProgress,
   STORAGE_KEYS.vocabularyDailySession,
+  STORAGE_KEYS.vocabularyQueue,
   STORAGE_KEYS.readingMockResults,
   STORAGE_KEYS.listeningMockResults,
   STORAGE_KEYS.fullMockResults,

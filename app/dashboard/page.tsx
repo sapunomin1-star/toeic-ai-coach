@@ -13,11 +13,11 @@ import {
 } from "@/components/dashboard/MockSections";
 import {
   OverviewStats,
+  PacingSection,
   PartAccuracySummary,
   PartPerformanceSection,
   ReadingPerformanceSection,
   SkillErrorChart,
-  SpeedSection,
   VocabProgressSection,
   WeaknessSection,
 } from "@/components/dashboard/PerformanceSections";
@@ -32,7 +32,7 @@ import { getMockResults } from "@/lib/mockStorage";
 import {
   clearAllProgress,
   exportAllData,
-  getAnswerRecords,
+  getEvidenceRecords,
   importAllData,
   startGrammarVariantPractice,
 } from "@/lib/storage";
@@ -40,13 +40,14 @@ import {
   getTodayVocabulary,
   getVocabularyProgress,
   getVocabularyQuizStats,
+  getVocabularyQuizTypeStats,
   loadVocabularyBank,
 } from "@/lib/vocabularyStorage";
 import { ensureQuestionBankLoaded } from "@/lib/questionBank";
 import type { VocabularyQuizStats } from "@/lib/vocabularyStorage";
 import type { FullMockResult, MockReviewSnapshot, MockTestResult } from "@/types/mock";
 import type { AnswerRecord } from "@/types/question";
-import type { VocabularyItem, VocabularyProgress } from "@/types/vocabulary";
+import type { QuizQuestionType, VocabularyItem, VocabularyProgress } from "@/types/vocabulary";
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -60,6 +61,9 @@ export default function DashboardPage() {
   const [randomQuizStats, setRandomQuizStats] = useState<VocabularyQuizStats | null>(null);
   const [reinforcementQuizStats, setReinforcementQuizStats] =
     useState<VocabularyQuizStats | null>(null);
+  const [backlogQuizStats, setBacklogQuizStats] = useState<VocabularyQuizStats | null>(null);
+  const [typeStats, setTypeStats] =
+    useState<Record<QuizQuestionType, VocabularyQuizStats> | null>(null);
   const [recentMockResult, setRecentMockResult] = useState<MockTestResult | null>(null);
   const [recentListeningMockResult, setRecentListeningMockResult] =
     useState<MockTestResult | null>(null);
@@ -81,13 +85,15 @@ export default function DashboardPage() {
         vocabularyBankReady = false;
       }
       if (cancelled) return;
-      setRecords(getAnswerRecords());
+      setRecords(getEvidenceRecords());
       setTodayVocabulary(vocabularyBankReady ? getTodayVocabulary() : []);
       setVocabularyProgress(getVocabularyProgress());
       setQuizStats(getVocabularyQuizStats());
       setDailyQuizStats(getVocabularyQuizStats("daily"));
       setRandomQuizStats(getVocabularyQuizStats("random"));
       setReinforcementQuizStats(getVocabularyQuizStats("reinforcement"));
+      setBacklogQuizStats(getVocabularyQuizStats("backlog"));
+      setTypeStats(getVocabularyQuizTypeStats());
       setRecentMockResult(getMockResults("reading").at(-1) ?? null);
       setRecentListeningMockResult(getMockResults("listening").at(-1) ?? null);
       setRecentFullMockResult(getFullMockResults().at(-1) ?? null);
@@ -123,6 +129,8 @@ export default function DashboardPage() {
     setDailyQuizStats(getVocabularyQuizStats("daily"));
     setRandomQuizStats(getVocabularyQuizStats("random"));
     setReinforcementQuizStats(getVocabularyQuizStats("reinforcement"));
+    setBacklogQuizStats(getVocabularyQuizStats("backlog"));
+    setTypeStats(getVocabularyQuizTypeStats());
     setRecentMockResult(null);
     setRecentListeningMockResult(null);
     setRecentFullMockResult(null);
@@ -258,7 +266,10 @@ export default function DashboardPage() {
             <OverviewStats stats={metrics.stats} />
             <PartAccuracySummary metrics={metrics} />
           </div>
-          <SkillErrorChart metrics={metrics} limit={5} title="目前優先弱點 · Top 5" />
+          <div className="space-y-5">
+            <WeaknessSection metrics={metrics} />
+            <SkillErrorChart metrics={metrics} limit={5} title="累積錯題 Top 5（含重做，非能力排序）" />
+          </div>
         </div>
       </section>
 
@@ -291,14 +302,15 @@ export default function DashboardPage() {
         <div className="grid gap-5 border-t border-[var(--line)] p-4 sm:p-5 lg:grid-cols-2">
           <PartPerformanceSection metrics={metrics} />
           <ReadingPerformanceSection metrics={metrics} />
-          <SpeedSection metrics={metrics} />
-          <WeaknessSection metrics={metrics} />
+          <PacingSection metrics={metrics} />
           <VocabProgressSection metrics={metrics} />
           <VocabQuizSection
             quizStats={quizStats}
             dailyQuizStats={dailyQuizStats}
             randomQuizStats={randomQuizStats}
             reinforcementQuizStats={reinforcementQuizStats}
+            backlogQuizStats={backlogQuizStats}
+            typeStats={typeStats}
           />
           <ReasonBreakdownSection
             reasonBreakdown={metrics.reasonBreakdown}

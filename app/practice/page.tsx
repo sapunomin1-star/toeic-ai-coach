@@ -13,11 +13,15 @@ import {
   clearWrongPracticePlan,
   getAnswerRecords,
   getDailyPlan,
+  getEvidenceRecords,
   getReviewableIds,
   saveDailyPlan,
 } from "@/lib/storage";
 import { getNextDayListeningMix, getWeakestSkills } from "@/lib/analysis";
-import type { NextDayListeningMix } from "@/lib/analysis";
+import type { NextDayListeningMix, WeakSkill } from "@/lib/analysis";
+import StudyGoalCard from "@/components/StudyGoalCard";
+import { getStudyProfile, type StudyProfile } from "@/lib/studyProfile";
+import { SKILL_LABELS } from "@/types/question";
 
 const WEAK_COUNT = 3;
 const NEW_COUNT = 3;
@@ -46,14 +50,22 @@ const DEFAULT_LISTENING_MIX: NextDayListeningMix = {
 
 export default function PracticePage() {
   const router = useRouter();
+  const [profile, setProfile] = useState<StudyProfile | null>(null);
+  const [isStarting, setIsStarting] = useState(false);
+  const [startError, setStartError] = useState<string | null>(null);
   const [reviewCount, setReviewCount] = useState(0);
   const [hasInProgress, setHasInProgress] = useState(false);
+  const [hasPendingFeedback, setHasPendingFeedback] = useState(false);
   const [progressIndex, setProgressIndex] = useState(0);
   const [progressTotal, setProgressTotal] = useState(0);
   const [planCounts, setPlanCounts] = useState<PlanCounts | null>(null);
   const [listeningMix, setListeningMix] = useState<NextDayListeningMix>(
     DEFAULT_LISTENING_MIX,
   );
+  // Focus = skills worth re-checking across ALL parts (first attempts only);
+  // part5Weak = the subset the Part 5 weak block can act on directly.
+  const [focusSkills, setFocusSkills] = useState<WeakSkill[]>([]);
+  const [part5Weak, setPart5Weak] = useState<WeakSkill[]>([]);
   // The current bank always has Part 6 groups; default to true so the task
   // list does not flash while the lazily loaded bank confirms it. This state
   // is display-only — startNewPlan re-derives availability from the loaded
@@ -71,6 +83,7 @@ export default function PracticePage() {
         console.error("[practice] failed to load question bank:", error);
       }
       if (cancelled) return;
+      setProfile(getStudyProfile());
       try {
         setHasPart6Questions(
           questionBank().getQuestionsByPart("Part 6").length >=
@@ -82,7 +95,10 @@ export default function PracticePage() {
       const reviewIds = getReviewableIds();
       setReviewCount(Math.min(reviewIds.length, REVIEW_MAX));
 
-      setListeningMix(getNextDayListeningMix(getAnswerRecords()));
+      const evidence = getEvidenceRecords();
+      setListeningMix(getNextDayListeningMix(evidence));
+      setFocusSkills(getWeakestSkills(evidence, 2));
+      setPart5Weak(getWeakestSkills(evidence, 2, 5));
 
       const existing = getDailyPlan();
       if (
@@ -90,6 +106,7 @@ export default function PracticePage() {
         (existing.cursor < existing.questionIds.length || existing.pendingFeedback)
       ) {
         setHasInProgress(true);
+        setHasPendingFeedback(Boolean(existing.pendingFeedback));
         setProgressIndex(existing.cursor);
         setProgressTotal(existing.questionIds.length);
       }
@@ -128,17 +145,20 @@ export default function PracticePage() {
   async function startNewPlan() {
     if (startingPlan.current) return;
     startingPlan.current = true;
+    setIsStarting(true);
+    setStartError(null);
     try {
       if (!(await ensureQuestionBankLoaded())) return;
       const part6Ready =
         questionBank().getQuestionsByPart("Part 6").length >=
         PART6_QUESTIONS_PER_GROUP;
       setHasPart6Questions(part6Ready);
-      clearWrongPracticePlan();
       const reviewIds = getReviewableIds().slice(0, REVIEW_MAX);
       const records = getAnswerRecords();
-      const weakSkillTags = getWeakestSkills(records, 2, 5).map((w) => w.skill);
-      const mix = getNextDayListeningMix(records);
+      const evidence = getEvidenceRecords();
+      const weakSkillTags = getWeakestSkills(evidence, 2, 5).map((w) => w.skill);
+      const focus = getWeakestSkills(evidence, 2).map((w) => w.skill);
+      const mix = getNextDayListeningMix(evidence);
       setListeningMix(mix);
       const plan = questionBank().buildDailyPlan({
         weakCount: WEAK_COUNT,
@@ -152,17 +172,28 @@ export default function PracticePage() {
         reviewIds,
         reviewCount: REVIEW_MAX,
         weakSkillTags,
+        focusSkills: focus,
         answeredIds: new Set(records.map((r) => r.questionId)),
       });
       setPlanCounts(plan.counts);
-      saveDailyPlan({
+      const saved = saveDailyPlan({
         questionIds: plan.questions.map((q) => q.id),
         createdAt: new Date().toISOString(),
         cursor: 0,
+        focusNote: plan.focus.note,
       });
+      if (!saved) {
+        setStartError("課表尚未儲存，請確認瀏覽器儲存空間後重試。");
+        return;
+      }
+      clearWrongPracticePlan();
       router.push("/quiz");
+    } catch (error) {
+      console.error("[practice] failed to start plan:", error);
+      setStartError("暫時無法建立課表，請稍後重試。原有進度仍保留。");
     } finally {
       startingPlan.current = false;
+      setIsStarting(false);
     }
   }
 
@@ -199,6 +230,8 @@ export default function PracticePage() {
           </div>
         </div>
       </section>
+
+      <StudyGoalCard profile={profile} />
 
       {hasInProgress && (
         <div
@@ -244,7 +277,15 @@ export default function PracticePage() {
             description="把最常失分的文法，放進新句型與完整短文重新判斷。"
             tone="blue"
             tasks={[
-              { label: "弱點補強", detail: `${counts.weak} 題 · 依近期錯誤率挑選` },
+              part5Weak.length > 0
+                ? {
+                    label: "弱點補強",
+                    detail: `${counts.weak} 題 · 依近期新題錯誤率挑選（${part5Weak.map((w) => SKILL_LABELS[w.skill]).join("、")}）`,
+                  }
+                : {
+                    label: "建立基準",
+                    detail: `${counts.weak} 題 · 尚無弱點證據，先用預設考點（詞性判斷／被動語態）建立基準`,
+                  },
               { label: "Part 5 新題", detail: `${counts.new} 題 · 避免只記住舊答案` },
               ...(counts.part6 > 0
                 ? [{ label: "Part 6 短文填空", detail: `1 組 · ${counts.part6} 題 · 保留完整上下文` }]
@@ -321,10 +362,21 @@ export default function PracticePage() {
           <p className="mt-2">
             Part 6 與 Part 7 固定保留完整文章題組，避免為了壓低題數而破壞上下文。
           </p>
+          <p className="mt-2">
+            {focusSkills.length > 0
+              ? `本次待確認考點：${focusSkills
+                  .map(
+                    (w) =>
+                      `${SKILL_LABELS[w.skill]}（近 ${w.attempts} 題新題錯 ${w.mistakes}${w.confidence === "insufficient" ? "，樣本不足" : ""}）`,
+                  )
+                  .join("；")}。題組會優先挑含這些考點的未見題；若沒有可用新題，課表會註明改為一般抽題，不算專項補強。`
+              : "尚無弱點證據（只算首次作答的新題）：本次為建立基準的一般抽題。"}
+          </p>
         </div>
       </details>
 
       <section className="product-surface rounded-[1.75rem] p-4 sm:p-5">
+        {startError && <p role="alert" className="mb-4 rounded-xl bg-rose-50 p-3 text-sm text-rose-700">{startError}</p>}
         <div className="grid gap-3 sm:grid-cols-[1fr_auto] sm:items-center">
           <div>
             <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--brand)]">
@@ -332,7 +384,9 @@ export default function PracticePage() {
             </p>
             <p className="mt-1 text-sm font-bold text-[var(--muted)]">
               {hasInProgress
-                ? `接續第 ${progressIndex + 1} 題，不會重寫已完成紀錄。`
+                ? hasPendingFeedback
+                  ? "先看完上一題解析，已儲存的答案不用重答。"
+                  : `接續第 ${progressIndex + 1} 題，不會重寫已完成紀錄。`
                 : "開始後每題都會立即保存，離開也能從原位繼續。"}
             </p>
           </div>
@@ -347,17 +401,19 @@ export default function PracticePage() {
                 </button>
                 <button
                   onClick={startNewPlan}
+                  disabled={isStarting}
                   className="min-h-11 w-full rounded-xl border border-[var(--line)] bg-white px-5 py-2.5 text-xs font-bold text-[var(--muted)] active:scale-[0.99]"
                 >
-                  重新建立今日處方
+                  {isStarting ? "正在建立課表…" : "重新建立今日處方"}
                 </button>
               </>
             ) : (
               <button
                 onClick={startNewPlan}
+                disabled={isStarting}
                 className="product-interactive min-h-12 w-full rounded-xl bg-[var(--ink)] px-5 py-3 text-sm font-black text-white shadow-sm active:scale-[0.99]"
               >
-                開始今日訓練 →
+                {isStarting ? "正在建立課表…" : "開始今日訓練 →"}
               </button>
             )}
           </div>

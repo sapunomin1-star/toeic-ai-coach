@@ -5,7 +5,8 @@ import type {
   SkillCategory,
   Difficulty,
 } from "@/types/question";
-import { getSkillCategory } from "@/types/question";
+import { SKILL_LABELS, getSkillCategory } from "@/types/question";
+import { isDisputedQuestion } from "./question-revisions";
 import { QUESTIONS_PART5 } from "./questions-part5";
 import { QUESTIONS_PART6 } from "./questions-part6";
 import { QUESTIONS_PART7 } from "./questions-part7";
@@ -38,6 +39,13 @@ export type QuestionFilter = {
   categories?: SkillCategory[];
   difficulties?: Difficulty[];
   excludeIds?: Iterable<string>;
+  /**
+   * Disputed items (data/question-revisions) are left out of every selection
+   * pool by default so a learner is not graded on a question with two
+   * defensible answers. Only lookups that must render existing records
+   * (wrongbook, review) should pass true.
+   */
+  includeDisputed?: boolean;
 };
 
 /**
@@ -53,6 +61,7 @@ export function queryQuestions(filter: QuestionFilter = {}): Question[] {
   const difficulties = filter.difficulties ? new Set(filter.difficulties) : null;
 
   return QUESTIONS.filter((q) => {
+    if (!filter.includeDisputed && isDisputedQuestion(q.id)) return false;
     if (exclude?.has(q.id)) return false;
     if (parts && !parts.has(q.part)) return false;
     if (skills && !skills.has(q.skill_tag)) return false;
@@ -91,6 +100,96 @@ export type PlanCounts = {
   review: number;
 };
 
+/**
+ * What the plan did about the coach's focus (review F09): which focus skills
+ * actually landed in the plan, and an honest note when none could — so the
+ * practice page never calls a general draw "弱點補強".
+ */
+export type PlanFocus = {
+  skills: SkillTag[];
+  /** Non-review questions in the plan per focus skill. */
+  matched: Partial<Record<SkillTag, number>>;
+  /** True when no weakness evidence existed and Part 5 fell back to the baseline skills. */
+  baseline: boolean;
+  note: string;
+};
+
+/** Part 5 skills used to build a first baseline when there is no weakness evidence yet. */
+export const BASELINE_WEAK_SKILLS: SkillTag[] = ["word_form", "passive_voice"];
+
+function hasFocusSkill(question: Question, focusSkills: ReadonlySet<SkillTag>): boolean {
+  return focusSkills.has(question.skill_tag);
+}
+
+/**
+ * Plan ordering for single-question pools: unseen focus questions, then the
+ * other unseen ones, then seen focus, then seen. Each tier stays shuffled so
+ * the focus preference never makes the same item reappear day after day.
+ */
+function orderPoolForPlan(
+  pool: Question[],
+  seenIds: ReadonlySet<string>,
+  focusSkills: ReadonlySet<SkillTag>,
+): Question[] {
+  const ordered = shuffleUnseenFirst(pool, seenIds);
+  if (focusSkills.size === 0) return ordered;
+  const unseen = ordered.filter((q) => !seenIds.has(q.id));
+  const seen = ordered.filter((q) => seenIds.has(q.id));
+  const split = (items: Question[]) => [
+    ...items.filter((q) => hasFocusSkill(q, focusSkills)),
+    ...items.filter((q) => !hasFocusSkill(q, focusSkills)),
+  ];
+  return [...split(unseen), ...split(seen)];
+}
+
+/** Same idea for groups: a group counts as focus when ANY member tests a focus skill. */
+function orderGroupsForPlan(
+  groups: Question[][],
+  seenIds: ReadonlySet<string>,
+  focusSkills: ReadonlySet<SkillTag>,
+): Question[][] {
+  const ordered = shuffleUnseenGroupsFirst(groups, seenIds);
+  if (focusSkills.size === 0) return ordered;
+  const isUnseen = (group: Question[]) => group.every((q) => !seenIds.has(q.id));
+  const isFocus = (group: Question[]) => group.some((q) => hasFocusSkill(q, focusSkills));
+  const split = (items: Question[][]) => [...items.filter(isFocus), ...items.filter((g) => !isFocus(g))];
+  return [...split(ordered.filter(isUnseen)), ...split(ordered.filter((g) => !isUnseen(g)))];
+}
+
+function describeFocus(
+  focusSkills: SkillTag[],
+  planned: Question[],
+  baseline: boolean,
+  weakSkillTags: SkillTag[],
+): PlanFocus {
+  const matched: PlanFocus["matched"] = {};
+  for (const skill of focusSkills) {
+    matched[skill] = planned.filter((q) => q.skill_tag === skill).length;
+  }
+  const label = (skills: SkillTag[]) => skills.map((skill) => SKILL_LABELS[skill]).join("、");
+  let note: string;
+  if (focusSkills.length === 0) {
+    note = baseline
+      ? `尚無弱點證據：Part 5 以預設考點（${label(weakSkillTags)}）建立基準，不算弱點補強；其餘依一般比例抽題。`
+      : "本次沒有指定考點，依一般比例抽題。";
+  } else {
+    const hits = focusSkills.filter((skill) => (matched[skill] ?? 0) > 0);
+    const misses = focusSkills.filter((skill) => (matched[skill] ?? 0) === 0);
+    const hitTotal = hits.reduce((sum, skill) => sum + (matched[skill] ?? 0), 0);
+    if (hits.length === 0) {
+      note = `「${label(focusSkills)}」目前沒有可用的未見新題，本次改為一般抽題，不算專項補強。`;
+    } else {
+      note =
+        `針對「${label(hits)}」排入 ${hitTotal} 題新題` +
+        (misses.length > 0
+          ? `；「${label(misses)}」目前沒有可用的未見新題，這部分改為一般抽題，不算專項補強`
+          : "") +
+        "。";
+    }
+  }
+  return { skills: focusSkills, matched, baseline, note };
+}
+
 export function buildDailyPlan(options?: {
   weakCount?: number;
   newCount?: number;
@@ -108,13 +207,20 @@ export function buildDailyPlan(options?: {
   reviewCount?: number;
   weakSkillTags?: SkillTag[];
   /**
+   * Skills the coach is targeting today (any part). Group-based parts pick
+   * unseen groups containing one of these skills before other unseen groups,
+   * so a "閱讀推論待確認" recommendation actually reaches the plan; the
+   * returned `focus` says what was matched, or that nothing could be (F09).
+   */
+  focusSkills?: SkillTag[];
+  /**
    * Question ids the user has answered before (any source). Pools prefer
    * unanswered material and only fall back to repeats when a pool runs dry —
    * otherwise "新題" silently re-serves old questions and the daily accuracy
    * measures recall instead of ability. Mirrors the mock seen-ids mechanism.
    */
   answeredIds?: ReadonlySet<string>;
-}): { questions: Question[]; counts: PlanCounts } {
+}): { questions: Question[]; counts: PlanCounts; focus: PlanFocus } {
   const weakCount = options?.weakCount ?? 3;
   const newCount = options?.newCount ?? 3;
   // Passage-based parts are indivisible learning units. Legacy positive
@@ -135,10 +241,11 @@ export function buildDailyPlan(options?: {
   // NB: ?? does not catch empty arrays. A caller passing [] (e.g. a new user
   // whose history has no P5 wrong answers yet) must still get a usable default,
   // otherwise weakPool filter returns [] and we silently lose the weak block.
-  const weakSkillTags =
-    options?.weakSkillTags && options.weakSkillTags.length > 0
-      ? options.weakSkillTags
-      : ["word_form", "passive_voice"];
+  const hasWeakEvidence = Boolean(options?.weakSkillTags && options.weakSkillTags.length > 0);
+  const weakSkillTags: SkillTag[] = hasWeakEvidence
+    ? (options?.weakSkillTags as SkillTag[])
+    : BASELINE_WEAK_SKILLS;
+  const focusSkills = new Set<SkillTag>(options?.focusSkills ?? []);
   const reviewIdSet = new Set(reviewIds);
   const answeredIds = options?.answeredIds ?? new Set<string>();
 
@@ -172,9 +279,10 @@ export function buildDailyPlan(options?: {
   }
 
   // Part 1 (photo questions, single items)
-  const part1Pool = shuffleUnseenFirst(
+  const part1Pool = orderPoolForPlan(
     getQuestionsByPart("Part 1").filter((q) => !reviewIdSet.has(q.id)),
-    answeredIds
+    answeredIds,
+    focusSkills,
   );
   const part1Qs = part1Pool.slice(0, part1Count);
   if (part1Qs.length < part1Count) {
@@ -184,9 +292,10 @@ export function buildDailyPlan(options?: {
   }
 
   // Part 2 (single Q+A items)
-  const part2Pool = shuffleUnseenFirst(
+  const part2Pool = orderPoolForPlan(
     getQuestionsByPart("Part 2").filter((q) => !reviewIdSet.has(q.id)),
-    answeredIds
+    answeredIds,
+    focusSkills,
   );
   const part2Qs = part2Pool.slice(0, part2Count);
   if (part2Qs.length < part2Count) {
@@ -199,7 +308,7 @@ export function buildDailyPlan(options?: {
   const part3Groups = groupByTranscript(getQuestionsByPart("Part 3"))
     .filter((group) => group.length === 3)
     .filter((group) => group.every((q) => !reviewIdSet.has(q.id)));
-  const selectedP3Groups = shuffleUnseenGroupsFirst(part3Groups, answeredIds).slice(
+  const selectedP3Groups = orderGroupsForPlan(part3Groups, answeredIds, focusSkills).slice(
     0,
     part3GroupCount
   );
@@ -214,7 +323,7 @@ export function buildDailyPlan(options?: {
   const part4Groups = groupByTranscript(getQuestionsByPart("Part 4"))
     .filter((group) => group.length === 3)
     .filter((group) => group.every((q) => !reviewIdSet.has(q.id)));
-  const selectedP4Groups = shuffleUnseenGroupsFirst(part4Groups, answeredIds).slice(
+  const selectedP4Groups = orderGroupsForPlan(part4Groups, answeredIds, focusSkills).slice(
     0,
     part4GroupCount
   );
@@ -231,9 +340,10 @@ export function buildDailyPlan(options?: {
   const part6Groups = groupByPassage(getQuestionsByPart("Part 6"))
     .filter((group) => group.length === 4)
     .filter((group) => group.every((q) => !reviewIdSet.has(q.id)));
-  const selectedPart6Groups = shuffleUnseenGroupsFirst(
+  const selectedPart6Groups = orderGroupsForPlan(
     part6Groups,
     answeredIds,
+    focusSkills,
   ).slice(0, part6GroupCount);
   const part6Qs = selectedPart6Groups.flat();
   if (selectedPart6Groups.length < part6GroupCount) {
@@ -253,9 +363,10 @@ export function buildDailyPlan(options?: {
         group.every((q) => q.passage_group_type === "single"),
     )
     .filter((group) => group.every((q) => !reviewIdSet.has(q.id)));
-  const selectedReadingGroups = shuffleUnseenGroupsFirst(
+  const selectedReadingGroups = orderGroupsForPlan(
     readingGroups,
     answeredIds,
+    focusSkills,
   ).slice(0, readingGroupCount);
   const readingQs = selectedReadingGroups.flat();
   if (selectedReadingGroups.length < readingGroupCount) {
@@ -267,6 +378,13 @@ export function buildDailyPlan(options?: {
   const reviewQs = reviewIds
     .map((id) => getQuestionById(id))
     .filter((q): q is Question => Boolean(q));
+
+  const focus = describeFocus(
+    [...focusSkills],
+    [...weakQs, ...newQs, ...part6Qs, ...part1Qs, ...part2Qs, ...part3Qs, ...part4Qs, ...readingQs],
+    !hasWeakEvidence,
+    weakSkillTags,
+  );
 
   return {
     questions: [
@@ -293,6 +411,7 @@ export function buildDailyPlan(options?: {
       reading: readingQs.length,
       review: reviewQs.length,
     },
+    focus,
   };
 }
 

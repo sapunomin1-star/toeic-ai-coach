@@ -41,7 +41,12 @@ export type VocabularyItem = {
 };
 
 export type VocabularyStatus = "new" | "seen" | "familiar" | "mastered";
-export type VocabularyQuizSource = "daily" | "random" | "reinforcement";
+/**
+ * `backlog` = formal due reviews that did not fit today's core session
+ * (MAX_DUE_ITEMS) and were made up separately. They advance SRS like `daily`
+ * but are reported apart so the daily card stays the 20-word session.
+ */
+export type VocabularyQuizSource = "daily" | "random" | "reinforcement" | "backlog";
 
 export type VocabularyQuizSourceStats = {
   correct: number;
@@ -63,6 +68,12 @@ export type VocabularyProgress = {
   quizWrongCount?: number;
   lastQuizAt?: string;
   quizBySource?: Partial<Record<VocabularyQuizSource, VocabularyQuizSourceStats>>;
+  /**
+   * Tallies per question form, so the report can say WHICH measurement a word
+   * passed (recognition, recall, cloze in the card's own example) instead of
+   * folding them into one "mastered". Optional: legacy rows lack it.
+   */
+  quizByType?: Partial<Record<QuizQuestionType, VocabularyQuizSourceStats>>;
 };
 
 export type DailySessionBucket = "retry" | "due" | "masteredReview" | "new";
@@ -84,12 +95,24 @@ export type DailySession = {
   warnings: {
     newSuppressed: boolean;
     retryDeferred: number;
+    /** Due seen/familiar words beyond MAX_DUE_ITEMS when the session was built. */
+    dueDeferred?: number;
+    /** Due mastered words beyond MAX_MASTERED_REVIEW_ITEMS when the session was built. */
+    masteredReviewDeferred?: number;
+    /** Longest overdue (days past nextReviewDate) among the deferred words. */
+    oldestDeferredDays?: number;
+    /** Words from the 待學佇列 that took new-word slots ahead of the bank order. */
+    queuedPrioritized?: number;
   };
 };
 
 export type DailySessionActivity = {
   reviewedCount: number;
+  /** Words that were TESTED today — not words that passed. */
   validatedCount: number;
+  /** Of validatedCount, how many were answered correctly / wrongly. */
+  validatedCorrectCount: number;
+  validatedWrongCount: number;
   reinforcementCount: number;
   reinforcementRound: number;
   canReinforce: boolean;

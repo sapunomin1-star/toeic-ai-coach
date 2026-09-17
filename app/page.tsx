@@ -2,46 +2,30 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { getWeakestSkills } from "@/lib/analysis";
+import StudyGoalCard from "@/components/StudyGoalCard";
+import { getStudyProfile, type StudyProfile } from "@/lib/studyProfile";
 import {
-  getAnswerRecords,
+  BASELINE_FOCUS_LABEL,
+  buildLearningPulse,
+  getCoachAction,
+  getResumeAction,
+  type TodayCoachState,
+} from "@/lib/todayCoach";
+import {
   getDailyPlan,
+  getEvidenceRecords,
+  getQuizPlan,
   getReviewableIds,
 } from "@/lib/storage";
 import {
   buildDailySession,
   getDailySessionActivity,
+  getDueBacklog,
   loadVocabularyBank,
 } from "@/lib/vocabularyStorage";
-import { SKILL_LABELS } from "@/types/question";
-import type { AnswerRecord } from "@/types/question";
-
-type TodayCoachState = {
-  /** True when the vocabulary bank chunk failed to load — the vocabulary
-   * steps must then read as unavailable, never as completed. */
-  vocabularyUnavailable: boolean;
-  vocabularyTotal: number;
-  reviewedCount: number;
-  validatedCount: number;
-  reinforcementCount: number;
-  canReinforce: boolean;
-  practiceCursor: number;
-  practiceTotal: number;
-  practiceHasPendingFeedback: boolean;
-  reviewDueCount: number;
-  weeklyAnswered: number;
-  weeklyAccuracy: number | null;
-  focusLabel: string;
-};
-
-type CoachAction = {
-  href: string;
-  label: string;
-  detail: string;
-  meta: string;
-};
 
 export default function Home() {
+  const [profile, setProfile] = useState<StudyProfile | null>(null);
   const [today, setToday] = useState<TodayCoachState | null>(null);
 
   useEffect(() => {
@@ -56,14 +40,16 @@ export default function Home() {
       }
       if (cancelled) return;
 
+      setProfile(getStudyProfile());
       const plan = getDailyPlan();
       const practiceState = {
+        resumeAction: getResumeAction(getQuizPlan()),
         practiceCursor: plan?.cursor ?? 0,
         practiceTotal: plan?.questionIds.length ?? 0,
         practiceHasPendingFeedback: Boolean(plan?.pendingFeedback),
         reviewDueCount: getReviewableIds().length,
       };
-      const pulse = buildLearningPulse(getAnswerRecords());
+      const pulse = buildLearningPulse(getEvidenceRecords());
 
       if (!bankReady) {
         const activity = getDailySessionActivity();
@@ -72,8 +58,11 @@ export default function Home() {
           vocabularyTotal: 0,
           reviewedCount: activity.reviewedCount,
           validatedCount: activity.validatedCount,
+          validatedCorrectCount: activity.validatedCorrectCount,
+          validatedWrongCount: activity.validatedWrongCount,
           reinforcementCount: activity.reinforcementCount,
           canReinforce: false,
+          dueBacklogCount: 0,
           ...practiceState,
           ...pulse,
         });
@@ -87,8 +76,11 @@ export default function Home() {
         vocabularyTotal: vocabulary.items.length,
         reviewedCount: activity.reviewedCount,
         validatedCount: activity.validatedCount,
+        validatedCorrectCount: activity.validatedCorrectCount,
+        validatedWrongCount: activity.validatedWrongCount,
         reinforcementCount: activity.reinforcementCount,
         canReinforce: activity.canReinforce,
+        dueBacklogCount: getDueBacklog().length,
         ...practiceState,
         ...pulse,
       });
@@ -116,8 +108,10 @@ export default function Home() {
     vocabularyValidated,
     practiceComplete,
   ].filter(Boolean).length;
-  const currentStep = !vocabularyReviewed
-    ? 0
+  const currentStep = today?.resumeAction
+    ? today.resumeAction.source === "daily" ? 2 : null
+    : !vocabularyReviewed
+      ? 0
     : !vocabularyValidated
       ? 1
       : !practiceComplete
@@ -224,6 +218,8 @@ export default function Home() {
         </div>
       </section>
 
+      {today && <StudyGoalCard profile={profile} />}
+
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1.35fr)_minmax(300px,0.65fr)]">
         <section className="product-surface rounded-[1.75rem] p-5 sm:p-6">
           <div className="mb-5 flex items-end justify-between gap-4">
@@ -262,7 +258,7 @@ export default function Home() {
                 today
                   ? today.vocabularyUnavailable
                     ? "單字庫暫時無法載入，請確認網路後重試"
-                    : `${Math.min(today.validatedCount, today.vocabularyTotal)} / ${today.vocabularyTotal} 字通過今日驗收`
+                    : validationDescription(today)
                   : "載入驗收進度…"
               }
               href="/vocabulary-quiz"
@@ -304,15 +300,16 @@ export default function Home() {
 
           <div className="mt-3 rounded-2xl bg-[var(--canvas)] p-4">
             <p className="text-[10px] font-black uppercase tracking-[0.16em] text-[var(--muted)]">
-              當前優先能力
+              待確認考點
             </p>
             <p className="mt-1.5 text-base font-black text-[var(--ink)]">
               {today?.focusLabel ?? "分析學習紀錄中"}
             </p>
             <p className="text-pretty mt-1 text-xs leading-5 text-[var(--muted)]">
-              {today && today.weeklyAnswered === 0
-                ? "先完成第一回合，教練會用實際答題結果建立你的基準。"
-                : "教練依近期錯誤率排序，而不是只看累積錯題數。"}
+              {today ? today.focusDetail : "整理近期新題紀錄…"}
+            </p>
+            <p className="mt-1 text-[10px] leading-4 text-[var(--muted)]">
+              只算首次作答的新題，不含重做；樣本不足時只標記值得再確認。
             </p>
           </div>
 
@@ -407,100 +404,21 @@ export default function Home() {
   );
 }
 
-function buildLearningPulse(records: AnswerRecord[]): Pick<
-  TodayCoachState,
-  "weeklyAnswered" | "weeklyAccuracy" | "focusLabel"
-> {
-  const sevenDaysAgo = Date.now() - 6 * 24 * 60 * 60 * 1000;
-  const recent = records.filter(
-    (record) =>
-      record.source !== "mock" &&
-      Date.parse(record.answeredAt) >= sevenDaysAgo,
-  );
-  const correct = recent.filter((record) => record.isCorrect).length;
-  const weakest = getWeakestSkills(records, 1)[0];
-
-  return {
-    weeklyAnswered: recent.length,
-    weeklyAccuracy:
-      recent.length === 0 ? null : Math.round((correct / recent.length) * 100),
-    focusLabel: weakest ? SKILL_LABELS[weakest.skill] : "建立學習基準",
-  };
-}
-
-function getCoachAction(
-  today: TodayCoachState,
-  vocabularyReviewed: boolean,
-  vocabularyValidated: boolean,
-  practiceComplete: boolean,
-): CoachAction {
-  if (today.vocabularyUnavailable) {
-    return {
-      href: "/vocabulary",
-      label: "重新載入單字",
-      detail: "單字庫暫時無法使用；今日進度仍安全保留。",
-      meta: "立即重試",
-    };
-  }
-  if (!vocabularyReviewed) {
-    return {
-      href: "/vocabulary",
-      label: today.reviewedCount > 0 ? "繼續建立單字記憶" : "從今日單字開始",
-      detail: `還有 ${Math.max(0, today.vocabularyTotal - today.reviewedCount)} 字，先用情境與例句建立記憶線索。`,
-      meta: "約 8 分鐘",
-    };
-  }
-  if (!vocabularyValidated) {
-    return {
-      href: "/vocabulary-quiz",
-      label: today.validatedCount > 0 ? "繼續單字驗收" : "確認哪些字真的記住了",
-      detail: `還有 ${Math.max(0, today.vocabularyTotal - today.validatedCount)} 字，透過主動回想完成正式驗收。`,
-      meta: "約 5 分鐘",
-    };
-  }
-  if (today.canReinforce) {
-    return {
-      href: "/vocabulary-quiz?mode=reinforcement",
-      label: "加強剛才不熟的單字",
-      detail: `${today.reinforcementCount} 字短時回想，不會改變正式間隔複習日。`,
-      meta: "約 4 分鐘",
-    };
-  }
-  if (today.practiceHasPendingFeedback) {
-    return {
-      href: "/quiz",
-      label: "先看完上一題解析",
-      detail: "答案已安全儲存；確認錯因與解法後，再進入下一題。",
-      meta: "接續進度",
-    };
-  }
-  if (!practiceComplete) {
-    const inProgress = today.practiceTotal > 0 && today.practiceCursor > 0;
-    return {
-      href: "/practice",
-      label: inProgress ? "繼續今日自適應訓練" : "開始今日自適應訓練",
-      detail: inProgress
-        ? `已完成 ${today.practiceCursor} / ${today.practiceTotal} 題，從上次位置繼續。`
-        : today.reviewDueCount > 0
-          ? `先處理 ${today.reviewDueCount} 題到期錯題，再進入弱點與完整題組。`
-          : `今天優先聚焦「${today.focusLabel}」，再完成文章題組與聽力。`,
-      meta: "15–30 分鐘",
-    };
-  }
-  return {
-    href: "/dashboard",
-    label: "今日核心任務完成",
-    detail: "查看這回合留下的訊號，以及下一次最值得加強的能力。",
-    meta: "查看成果",
-  };
+/** Tested is not passed: the step reports both, never "N / N 通過" (REVIEW F07). */
+function validationDescription(today: TodayCoachState): string {
+  const tested = Math.min(today.validatedCount, today.vocabularyTotal);
+  if (tested === 0) return `0 / ${today.vocabularyTotal} 字已測`;
+  return `${tested} / ${today.vocabularyTotal} 字已測 · 答對 ${today.validatedCorrectCount} · 待加強 ${today.validatedWrongCount}`;
 }
 
 function practiceDescription(today: TodayCoachState | null): string {
   if (!today) return "載入訓練進度…";
   if (today.practiceTotal === 0) {
     return today.reviewDueCount > 0
-      ? `${today.reviewDueCount} 題到期複習優先，再進入弱點與完整題組`
-      : `依「${today.focusLabel}」安排弱點補強、閱讀題組與聽力`;
+      ? `${Math.min(3, today.reviewDueCount)} 題到期複習優先，再進入弱點與完整題組`
+      : today.focusLabel === BASELINE_FOCUS_LABEL
+        ? "先用預設考點建立基準，再進入閱讀題組與聽力"
+        : `優先確認「${today.focusLabel}」，再進入閱讀題組與聽力`;
   }
   if (today.practiceHasPendingFeedback) {
     return `${today.practiceCursor} / ${today.practiceTotal} 題已作答 · 解析待確認`;

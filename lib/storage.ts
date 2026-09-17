@@ -19,6 +19,10 @@ import {
   isChoice,
 } from "@/lib/storageCore";
 import { MISTAKE_REASONS, SKILL_TAG_LIST } from "@/types/question";
+import { isStudyProfile } from "@/lib/studyProfile";
+import { excludeRecordsBeforeRevision } from "@/lib/analysis";
+import { isVocabularyQueueEntry } from "@/lib/vocabularyQueue";
+import { QUESTION_REVISED_AT } from "@/data/question-revisions";
 
 const ANSWER_KEY = STORAGE_KEYS.answerRecords;
 const DAILY_PLAN_KEY = STORAGE_KEYS.dailyPlan;
@@ -31,6 +35,25 @@ const DAILY_PLAN_TTL_MS = 24 * 60 * 60 * 1000;
 
 function isSkillTag(value: unknown): value is SkillTag {
   return typeof value === "string" && SKILL_TAG_LIST.includes(value as SkillTag);
+}
+
+function isAnswerTiming(value: unknown): boolean {
+  if (!isPlainObject(value)) return false;
+  return (
+    typeof value.activeMs === "number" &&
+    typeof value.hiddenMs === "number" &&
+    (value.audioMs === undefined || typeof value.audioMs === "number") &&
+    (value.groupIndex === undefined || typeof value.groupIndex === "number") &&
+    (value.groupSize === undefined || typeof value.groupSize === "number")
+  );
+}
+
+function isAttemptInfo(value: unknown): boolean {
+  if (!isPlainObject(value)) return false;
+  return (
+    typeof value.first === "boolean" &&
+    (value.plan === "daily" || value.plan === "wrongbook" || value.plan === "grammar-variant")
+  );
 }
 
 function isAnswerRecord(value: unknown): value is AnswerRecord {
@@ -49,7 +72,10 @@ function isAnswerRecord(value: unknown): value is AnswerRecord {
     (r.mistakeReason === undefined || MISTAKE_REASONS.includes(r.mistakeReason)) &&
     (r.reasonSource === undefined ||
       r.reasonSource === "user" ||
-      r.reasonSource === "inferred")
+      r.reasonSource === "inferred") &&
+    // Timing split / attempt provenance (review F05/F06): optional, shape-checked.
+    (r.timing === undefined || isAnswerTiming(r.timing)) &&
+    (r.attempt === undefined || isAttemptInfo(r.attempt))
   );
 }
 
@@ -66,6 +92,16 @@ function isStringArray(value: unknown): value is string[] {
 export function getAnswerRecords(): AnswerRecord[] {
   const records = readJSON<unknown>(ANSWER_KEY, []);
   return Array.isArray(records) ? records.filter(isAnswerRecord) : [];
+}
+
+/**
+ * The answer history as EVIDENCE about the learner: attempts that predate a
+ * question's content revision are excluded (review F04). Use this for every
+ * coaching computation; keep `getAnswerRecords` for plan bookkeeping and
+ * "already answered" checks, where the full history is what matters.
+ */
+export function getEvidenceRecords(): AnswerRecord[] {
+  return excludeRecordsBeforeRevision(getAnswerRecords(), QUESTION_REVISED_AT);
 }
 
 export function saveAnswer(record: AnswerRecord): boolean {
@@ -103,6 +139,7 @@ export function updateLatestReason(
 
 export function clearAllProgress(): void {
   if (!isBrowser()) return;
+  removeJSON(STORAGE_KEYS.studyProfile);
   removeJSON(ANSWER_KEY);
   removeJSON(DAILY_PLAN_KEY);
   removeJSON(WRONG_STATUS_KEY);
@@ -111,6 +148,7 @@ export function clearAllProgress(): void {
   removeJSON(MOCK_SEEN_KEY);
   removeJSON(STORAGE_KEYS.vocabularyProgress);
   removeJSON(STORAGE_KEYS.vocabularyDailySession);
+  removeJSON(STORAGE_KEYS.vocabularyQueue);
   clearAllMockData();
   clearAllFullMockData();
   clearMockReviewSnapshots();
@@ -119,12 +157,14 @@ export function clearAllProgress(): void {
 // ─── Backup / Restore ────────────────────────────────────────────────────────
 
 export const BACKUP_KEYS = [
+  STORAGE_KEYS.studyProfile,
   ANSWER_KEY,
   DAILY_PLAN_KEY,
   WRONG_STATUS_KEY,
   WRONG_PRACTICE_PLAN_KEY,
   STORAGE_KEYS.vocabularyProgress,
   STORAGE_KEYS.vocabularyDailySession,
+  STORAGE_KEYS.vocabularyQueue,
   STORAGE_KEYS.readingMockResults,
   STORAGE_KEYS.listeningMockResults,
   STORAGE_KEYS.fullMockResults,
@@ -265,6 +305,8 @@ export function sanitizeBackupValue(
   if (value === null || value === undefined) return undefined;
 
   switch (key) {
+    case STORAGE_KEYS.studyProfile:
+      return isStudyProfile(value) ? value : undefined;
     case ANSWER_KEY:
       return Array.isArray(value) ? value.filter(isAnswerRecord) : undefined;
     case DAILY_PLAN_KEY:
@@ -282,6 +324,8 @@ export function sanitizeBackupValue(
       return Array.isArray(value) ? value.filter(hasStringField("wordId")) : undefined;
     case STORAGE_KEYS.vocabularyDailySession:
       return isPlainObject(value) ? value : undefined;
+    case STORAGE_KEYS.vocabularyQueue:
+      return Array.isArray(value) ? value.filter(isVocabularyQueueEntry) : undefined;
     case STORAGE_KEYS.readingMockResults:
     case STORAGE_KEYS.listeningMockResults:
     case STORAGE_KEYS.fullMockResults:
@@ -756,6 +800,10 @@ export type DailyPlan = {
   questionIds: string[];
   createdAt: string;
   cursor: number;
+  /** Set for grammar-variant remediation plans (stored under the wrong-practice key). */
+  kind?: "grammar-variant";
+  /** Why the coach picked these questions (data/questions PlanFocus.note), shown in /quiz. */
+  focusNote?: string;
   autoPlayedListeningGroups?: string[];
   /**
    * The submitted question whose explanation is still on screen. The cursor
@@ -791,6 +839,8 @@ function isDailyPlan(value: unknown): value is DailyPlan {
     cursor !== undefined &&
     cursor >= 0 &&
     cursor <= plan.questionIds.length &&
+    (plan.kind === undefined || plan.kind === "grammar-variant") &&
+    (plan.focusNote === undefined || typeof plan.focusNote === "string") &&
     (plan.autoPlayedListeningGroups === undefined ||
       (Array.isArray(plan.autoPlayedListeningGroups) &&
         plan.autoPlayedListeningGroups.every((key) => typeof key === "string"))) &&
@@ -843,6 +893,7 @@ export function startGrammarVariantPractice(questionIds: string[]): boolean {
     questionIds,
     createdAt: new Date().toISOString(),
     cursor: 0,
+    kind: "grammar-variant",
   });
 }
 

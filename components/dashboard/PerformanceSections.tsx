@@ -1,7 +1,8 @@
-import { LISTENING_SKILLS, READING_SKILLS } from "@/lib/analysis";
+import { LISTENING_SKILLS, MIN_SKILL_ATTEMPTS_FOR_RATE, READING_SKILLS } from "@/lib/analysis";
 import type { DashboardMetrics } from "@/lib/dashboardMetrics";
+import type { PacingRow } from "@/lib/pacing";
 import { SKILL_LABELS } from "@/types/question";
-import { fmtMs, SpeedCell, StatCard } from "./cards";
+import { fmtMs, StatCard } from "./cards";
 
 export function OverviewStats({ stats }: { stats: DashboardMetrics["stats"] }) {
   return (
@@ -109,7 +110,6 @@ export function PartPerformanceSection({ metrics }: { metrics: DashboardMetrics 
     part5Total,
     part6Accuracy,
     part6Total,
-    part6AvgTime,
     part6WrongCount,
     listeningAccuracy,
     listeningTotal,
@@ -188,7 +188,7 @@ export function PartPerformanceSection({ metrics }: { metrics: DashboardMetrics 
       {part6Total > 0 && (
         <div className="mt-3 rounded-xl bg-teal-50 p-3">
           <p className="text-xs font-medium text-teal-700">
-            Part 6 段落填空 · 均速 {fmtMs(part6AvgTime)} · {part6Total} 題
+            Part 6 段落填空 · {part6Total} 題
             {part6WrongCount > 0
               ? ` · 錯 ${part6WrongCount} 題`
               : " · 全對！"}
@@ -376,95 +376,96 @@ export function VocabProgressSection({ metrics }: { metrics: DashboardMetrics })
   );
 }
 
-export function SpeedSection({ metrics }: { metrics: DashboardMetrics }) {
-  const {
-    avgTime,
-    part5AvgTime,
-    part6AvgTime,
-    listeningAvgTime,
-    readingAvgTime,
-    slowCount,
-    slowestSkill,
-  } = metrics;
+const PACING_STATUS_LABEL: Record<PacingRow["status"], string> = {
+  insufficient: "資料不足",
+  within: "在建議配速內",
+  over: "超過建議配速",
+  listening: "音檔後作答",
+};
+
+const PACING_STATUS_CLASS: Record<PacingRow["status"], string> = {
+  insufficient: "bg-slate-100 text-slate-500",
+  within: "bg-emerald-100 text-emerald-700",
+  over: "bg-amber-100 text-amber-800",
+  listening: "bg-sky-100 text-sky-700",
+};
+
+/**
+ * Learning time and pacing observations (review F05). Only records carrying
+ * the timing split count; a part without enough of them says 資料不足 rather
+ * than borrowing wall-clock times that include audio, passage reading and
+ * hidden-tab time. Listening is never flagged — the recording sets its pace.
+ */
+export function PacingSection({ metrics }: { metrics: DashboardMetrics }) {
+  const { pacing } = metrics;
 
   return (
     <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-      <h2 className="mb-3 text-sm font-semibold">作答速度</h2>
-      <div className="space-y-2">
-        <div className="grid grid-cols-3 gap-2 text-center">
-          <SpeedCell label="平均每題" value={fmtMs(avgTime)} />
-          <SpeedCell
-            label="Part 5"
-            value={fmtMs(part5AvgTime)}
-            warn={part5AvgTime > 40_000}
-          />
-          <SpeedCell
-            label="Part 6"
-            value={fmtMs(part6AvgTime)}
-            warn={part6AvgTime > 50_000}
-          />
-        </div>
-        <div className="grid grid-cols-3 gap-2 text-center">
-          <SpeedCell
-            label="聽力"
-            value={fmtMs(listeningAvgTime)}
-            warn={listeningAvgTime > 50_000}
-          />
-          <SpeedCell
-            label="Part 7"
-            value={fmtMs(readingAvgTime)}
-            warn={readingAvgTime > 60_000}
-          />
-          <SpeedCell
-            label="超 40 秒"
-            value={`${slowCount} 題`}
-            warn={slowCount > 0}
-          />
-        </div>
-      </div>
-      {slowestSkill && (
-        <p className="mt-3 text-xs text-slate-500">
-          最慢 skill：
-          <span className="font-semibold text-slate-700">
-            {SKILL_LABELS[slowestSkill]}
-          </span>
-        </p>
-      )}
+      <h2 className="mb-1 text-sm font-semibold">學習用時與配速觀察</h2>
+      <p className="mb-3 text-[11px] leading-relaxed text-slate-500">
+        只計算新版分段計時的作答：離開分頁的時間已扣除、聽力只算音檔結束後的作答時間、文章題組的閱讀時間平均分攤到整組。每個 Part 至少 {pacing.minSample} 筆才顯示中位數。
+      </p>
+      <ul className="divide-y divide-slate-100">
+        {pacing.rows.map((row) => (
+          <li key={row.part} className="flex items-center justify-between gap-3 py-2 text-xs">
+            <span className="w-14 shrink-0 font-medium text-slate-700">{row.part}</span>
+            <span className="min-w-0 flex-1 text-slate-600">
+              {row.medianMs === null
+                ? `資料不足（${row.sample} / ${pacing.minSample} 筆）`
+                : row.status === "listening"
+                  ? `音檔結束後作答中位數 ${fmtMs(row.medianMs)} · ${row.sample} 筆`
+                  : `中位數 ${fmtMs(row.medianMs)} · 建議 ${fmtMs(row.budgetMs ?? 0)} 內 · ${row.sample} 筆`}
+            </span>
+            <span
+              className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold ${PACING_STATUS_CLASS[row.status]}`}
+            >
+              {PACING_STATUS_LABEL[row.status]}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-3 text-[11px] leading-relaxed text-slate-400">
+        {pacing.legacyRecords > 0
+          ? `${pacing.legacyRecords} 筆舊紀錄沒有分段計時，不列入配速。`
+          : ""}
+        閱讀門檻為{pacing.budgetSource}；超過只是一項觀察，不代表考場來不及。
+      </p>
     </section>
   );
 }
 
+/**
+ * Skills worth re-checking (review F06): fresh attempts only, recent window,
+ * sample size shown, and a low-sample badge instead of a verdict.
+ */
 export function WeaknessSection({ metrics }: { metrics: DashboardMetrics }) {
-  const { weakestSkill, slowestSkill, skillMistakes } = metrics;
+  const { weakSkills } = metrics;
 
-  if (!weakestSkill && !slowestSkill) return null;
+  if (weakSkills.length === 0) return null;
 
   return (
-    <section className="grid grid-cols-2 gap-3">
-      {weakestSkill && (
-        <div className="rounded-2xl border border-rose-100 bg-rose-50 p-3">
-          <p className="text-[10px] uppercase tracking-wider text-rose-500">
-            最弱 Skill
-          </p>
-          <p className="mt-1 text-sm font-bold text-rose-800">
-            {SKILL_LABELS[weakestSkill]}
-          </p>
-          <p className="mt-0.5 text-xs text-rose-600">
-            {skillMistakes[weakestSkill]} 題錯
-          </p>
-        </div>
-      )}
-      {slowestSkill && (
-        <div className="rounded-2xl border border-amber-100 bg-amber-50 p-3">
-          <p className="text-[10px] uppercase tracking-wider text-amber-500">
-            最慢 Skill
-          </p>
-          <p className="mt-1 text-sm font-bold text-amber-800">
-            {SKILL_LABELS[slowestSkill]}
-          </p>
-          <p className="mt-0.5 text-xs text-amber-600">反應較慢</p>
-        </div>
-      )}
+    <section className="rounded-2xl border border-rose-100 bg-rose-50 p-4">
+      <p className="text-[10px] uppercase tracking-wider text-rose-500">待確認考點</p>
+      <ul className="mt-2 space-y-2">
+        {weakSkills.map((skill) => (
+          <li key={skill.skill} className="flex items-start justify-between gap-3">
+            <div>
+              <p className="text-sm font-bold text-rose-800">{SKILL_LABELS[skill.skill]}</p>
+              <p className="mt-0.5 text-xs text-rose-700">
+                近 {skill.attempts} 題新題錯 {skill.mistakes}（{Math.round(skill.errorRate * 100)}%）
+              </p>
+            </div>
+            {skill.confidence === "insufficient" && (
+              <span className="shrink-0 rounded-full bg-white px-2 py-0.5 text-[10px] font-semibold text-rose-600">
+                樣本不足
+              </span>
+            )}
+          </li>
+        ))}
+      </ul>
+      <p className="mt-3 text-[11px] leading-relaxed text-rose-600">
+        只算首次作答的新題（重做不計）；未滿 {MIN_SKILL_ATTEMPTS_FOR_RATE} 題只標記為值得再確認，不下結論。
+      </p>
     </section>
   );
 }
@@ -472,7 +473,7 @@ export function WeaknessSection({ metrics }: { metrics: DashboardMetrics }) {
 export function SkillErrorChart({
   metrics,
   limit,
-  title = "各 Skill 錯題分佈",
+  title = "累積錯題分佈（含重做，非能力排序）",
 }: {
   metrics: DashboardMetrics;
   /** When set, show only the top N skills with at least one mistake. */

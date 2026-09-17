@@ -7,12 +7,18 @@ import VocabularySpeechButton from "@/components/VocabularySpeechButton";
 import {
   buildDailySession,
   getDailySessionActivity,
+  getDueBacklog,
   getVocabularyProgress,
   loadVocabularyBank,
   markWordAgain,
   markWordFamiliar,
   markWordKnown,
 } from "@/lib/vocabularyStorage";
+import {
+  dismissVocabularyQueueTerm,
+  getVocabularyQueue,
+  type VocabularyQueueEntry,
+} from "@/lib/vocabularyQueue";
 import type {
   DailySession,
   DailySessionActivity,
@@ -56,9 +62,13 @@ export default function VocabularyPage() {
   const [progress, setProgress] = useState<VocabularyProgress[]>([]);
   const [revealedIds, setRevealedIds] = useState<Set<string>>(new Set());
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [backlogCount, setBacklogCount] = useState(0);
+  const [queue, setQueue] = useState<VocabularyQueueEntry[]>([]);
   const [activity, setActivity] = useState<DailySessionActivity>({
     reviewedCount: 0,
     validatedCount: 0,
+    validatedCorrectCount: 0,
+    validatedWrongCount: 0,
     reinforcementCount: 0,
     reinforcementRound: 0,
     canReinforce: false,
@@ -82,6 +92,8 @@ export default function VocabularyPage() {
       setSession(buildDailySession());
       setProgress(getVocabularyProgress());
       setActivity(getDailySessionActivity());
+      setBacklogCount(getDueBacklog().length);
+      setQueue(getVocabularyQueue());
     })();
     return () => {
       cancelled = true;
@@ -97,6 +109,12 @@ export default function VocabularyPage() {
     setProgress(getVocabularyProgress());
     setSession(buildDailySession());
     setActivity(getDailySessionActivity());
+    setBacklogCount(getDueBacklog().length);
+    setQueue(getVocabularyQueue());
+  }
+
+  function handleDismissQueued(term: string): void {
+    if (dismissVocabularyQueueTerm(term)) setQueue(getVocabularyQueue());
   }
 
   function toggleReveal(wordId: string): void {
@@ -229,15 +247,51 @@ export default function VocabularyPage() {
             ),
           )}
         </div>
-        {(session.warnings.newSuppressed || session.warnings.retryDeferred > 0) && (
+        {(session.warnings.newSuppressed ||
+          session.warnings.retryDeferred > 0 ||
+          (session.warnings.dueDeferred ?? 0) > 0 ||
+          (session.warnings.masteredReviewDeferred ?? 0) > 0) && (
           <div className="mt-3 rounded-2xl bg-amber-50 px-4 py-3 text-xs leading-5 text-amber-800">
             {session.warnings.newSuppressed && (
               <p>到期與重試項目較多，今天先不加入新字。</p>
             )}
             {session.warnings.retryDeferred > 0 && (
-              <p>{session.warnings.retryDeferred} 個加強項目已排入明日複習。</p>
+              <p>{session.warnings.retryDeferred} 個加強項目超過今日上限，未排入核心課表。</p>
+            )}
+            {(session.warnings.dueDeferred ?? 0) > 0 && (
+              <p>
+                到期複習共 {session.counts.due + (session.warnings.dueDeferred ?? 0)} 字：核心課表安排{" "}
+                {session.counts.due} 字，延後 {session.warnings.dueDeferred} 字
+                {(session.warnings.oldestDeferredDays ?? 0) > 0
+                  ? `（最久已延後 ${session.warnings.oldestDeferredDays} 天）`
+                  : ""}
+                。
+              </p>
+            )}
+            {(session.warnings.masteredReviewDeferred ?? 0) > 0 && (
+              <p>{session.warnings.masteredReviewDeferred} 個已掌握字的到期複查延後。</p>
             )}
           </div>
+        )}
+        {(session.warnings.queuedPrioritized ?? 0) > 0 && (
+          <p className="mt-3 rounded-2xl bg-indigo-50 px-4 py-3 text-xs leading-5 text-indigo-800">
+            {session.warnings.queuedPrioritized} 個你在題目裡標記不熟的字，已優先排入今日新字。
+          </p>
+        )}
+        {backlogCount > 0 && (
+          <Link
+            href="/vocabulary-quiz?mode=backlog"
+            className="product-interactive mt-3 flex min-h-12 w-full items-center justify-between rounded-xl border border-amber-300 bg-amber-50 px-4 text-sm font-black text-amber-900 active:scale-[0.99]"
+          >
+            補做 {backlogCount} 個延後的到期複習（可分段）
+            <span aria-hidden="true">→</span>
+          </Link>
+        )}
+        {validatedCount > 0 && (
+          <p className="mt-3 text-xs font-bold text-[var(--muted)]">
+            今日已測 {validatedCount} 字：答對 {activity.validatedCorrectCount} · 待加強{" "}
+            {activity.validatedWrongCount}
+          </p>
         )}
         {totalItems > 0 && !dailyValidationDone && (
           <Link
@@ -443,6 +497,62 @@ export default function VocabularyPage() {
             })}
           </ol>
         </details>
+      )}
+
+      {queue.length > 0 && (
+        <section className="product-surface rounded-[1.5rem] p-4 sm:p-5">
+          <div className="flex items-end justify-between gap-3">
+            <div>
+              <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--brand)]">
+                Flagged in questions
+              </p>
+              <h2 className="mt-1 text-lg font-black tracking-[-0.02em] text-[var(--ink)]">
+                待學清單 · {queue.length} 個
+              </h2>
+            </div>
+            <p className="max-w-[16rem] text-right text-[11px] leading-4 text-[var(--muted)]">
+              有字卡的字會提前到今天複習；沒有字卡的字只保留本題釋義，記住了就移除。
+            </p>
+          </div>
+          <ul className="mt-4 divide-y divide-[var(--line)]">
+            {queue.map((entry) => {
+              const status = entry.wordId ? (progressMap.get(entry.wordId)?.status ?? "new") : null;
+              return (
+                <li key={entry.key} className="flex items-start justify-between gap-3 py-3">
+                  <div className="min-w-0">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="text-sm font-black text-[var(--ink)]">{entry.term}</span>
+                      {entry.partOfSpeech && (
+                        <span className="rounded-full bg-[var(--canvas)] px-2 py-0.5 text-[10px] font-bold text-[var(--muted)]">
+                          {PART_LABELS[entry.partOfSpeech as VocabularyItem["partOfSpeech"]] ?? entry.partOfSpeech}
+                        </span>
+                      )}
+                      {status ? (
+                        <span className={`rounded-full px-2 py-0.5 text-[10px] font-black ${STATUS_CLASS[status]}`}>
+                          {STATUS_LABEL[status]}
+                        </span>
+                      ) : (
+                        <span className="rounded-full bg-rose-100 px-2 py-0.5 text-[10px] font-black text-rose-700">
+                          尚無字卡
+                        </span>
+                      )}
+                    </div>
+                    <p className="mt-1 text-xs leading-5 text-[var(--muted)]">
+                      {entry.meaning_zh ?? "本題未提供釋義，請回到題目解析確認。"}
+                      <span className="ml-1 text-[10px]">（來源：{entry.questionId}）</span>
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => handleDismissQueued(entry.term)}
+                    className="min-h-9 shrink-0 rounded-lg border border-[var(--line)] bg-white px-3 text-xs font-bold text-[var(--muted)]"
+                  >
+                    記住了，移除
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
       )}
 
       <div className="flex items-center justify-center gap-5 pb-1 text-xs font-bold text-[var(--muted)]">
