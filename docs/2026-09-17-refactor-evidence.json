@@ -41,5 +41,44 @@
       "audioDuration": 18.384,
       "errors": []
     }
+  },
+  "production": {
+    "codeCommit": "4845c2d80d70b1ee06880e876a4b8b93dcbac636",
+    "deploymentId": "dpl_2hAAsfPrUGtxMWYhKLZbvmjRJFNg",
+    "deploymentUrl": "https://toeic-ai-coach-5ns8vvrl7-jjjames-projects.vercel.app",
+    "alias": "https://toeic-ai-coach-ten.vercel.app",
+    "status": "Ready",
+    "browser": {
+      "routes": [
+        "/",
+        "/practice",
+        "/quiz",
+        "/wrongbook",
+        "/dashboard",
+        "/vocabulary",
+        "/vocabulary-quiz",
+        "/vocabulary-quiz?mode=backlog",
+        "/vocabulary-quiz?mode=random",
+        "/study-plan",
+        "/mock-test",
+        "/listening-mock",
+        "/full-mock"
+      ],
+      "consoleErrors": [],
+      "mobile": "390px, no horizontal overflow",
+      "readingGroups": [
+        {
+          "part": "Part 6",
+          "count": 4
+        },
+        {
+          "part": "Part 7",
+          "count": 4
+        }
+      ],
+      "audioRevision": "2026-09-17T14:21:05.318Z",
+      "newGloss": "enviable → 令人羨慕的",
+      "queue": "contextual sense preserved; add/remove passed"
+    }
   }
 }

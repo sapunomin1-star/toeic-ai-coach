@@ -2883,3 +2883,5 @@ not a confidence system and does not create fake wrong answers.
 對照基準 e8c5283：3,303 題內容／順序、25 seeds × 4 類計畫、篩選結果 SHA-256 完全一致。雙套件 typecheck、lint、11 suites、pipeline、build、1,090 媒體全部通過；13 個頁面／模式與完整閱讀作答、聽力計時、待學清單、閱讀模考詳解、390px 手機驗證通過。11,625 單字連結仍全支援，零債務。完整報告與 JSON 證據位於 `docs/2026-09-17-architecture-refactor.md`、`docs/2026-09-17-refactor-evidence.json`。
 
 安裝時發現既有依賴公告，更新 Next.js 16.3.5／sharp 0.35.4 及相容間接依賴；root 與 pipeline npm audit 均為零已知漏洞。沒有新增正式題目、改動 learner storage keys 或呼叫付費 AI。
+
+部署補記：程式 commit `4845c2d` 已推送，Vercel `dpl_2hAAsfPrUGtxMWYhKLZbvmjRJFNg` Ready，正式 alias 為 `https://toeic-ai-coach-ten.vercel.app`。線上 13 個頁面／模式、閱讀完整作答、聽力計時、待學清單、新釋義與 Part 2 revision stamp 全通過，零 console error；本次建立的本機 QA server 與測試瀏覽器已關閉。

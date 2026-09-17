@@ -36,3 +36,9 @@
 ## 範圍與取捨
 
 這次聚焦於阻礙題庫擴充的實際依賴，沒有為了縮短檔案任意拆開已驗證的 SRS 或同步狀態機。歷史 PDF 擷取與一次性資料修補工具保留；往後的新題庫可直接走統一 JSON 入口。CLI 檢查不取代人工審題或媒體驗證，也沒有呼叫付費 AI 服務。
+
+## 已部署
+
+2026-09-17 已推送程式 commit `4845c2d`，Vercel deployment `dpl_2hAAsfPrUGtxMWYhKLZbvmjRJFNg` 為 Ready，正式網址 [toeic-ai-coach-ten.vercel.app](https://toeic-ai-coach-ten.vercel.app)。雲端同樣通過題庫預檢、TypeScript 與正式建置。
+
+上線後以全新測試瀏覽器走過 13 個頁面／模式、P6/P7 完整作答、P3 計時、待學加入／移除、新釋義與 Part 2 內容版本標記，console errors 為零；390px 手機無橫向溢出。測試未登入同步，不影響使用者資料。
