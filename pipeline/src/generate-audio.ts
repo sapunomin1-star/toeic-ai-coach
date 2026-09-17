@@ -20,12 +20,16 @@
  *   --id-from <id>          Process matching IDs lexically at or after this ID.
  *   --group-primary         For Part 3/4 main audio, generate only the first question per transcript.
  *   --dry-run               Show plan only, no API calls.
+ *   --version <release>     Immutable versioned URL + local checkpoint; cannot combine with --force.
  *   --force                 Re-generate even if Blob already has audio/<id>.mp3.
  *   --voice <name>          Override voice rotation (alloy|echo|fable|onyx|nova|shimmer).
  *   --provider <name>       "openai" (default) or "openrouter".
  *   --question-audio        Generate narrated Part 3 question stems at audio/<id>-q.mp3.
  */
 import "dotenv/config";
+import { createHash } from "node:crypto";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 import OpenAI from "openai";
 import { del, head, put } from "@vercel/blob";
 
@@ -79,6 +83,8 @@ type Args = {
   questionAudio: boolean;
   provider: Provider;
   voiceOverride?: Voice;
+  /** Immutable release suffix: publish new text and its audio in one deployment. */
+  version?: string;
 };
 
 function parseArgs(argv: string[]): Args {
@@ -102,6 +108,7 @@ function parseArgs(argv: string[]): Args {
     else if (a === "--group-primary") out.groupPrimary = true;
     else if (a === "--voice") out.voiceOverride = parseVoice(argv[++i]);
     else if (a === "--provider") out.provider = parseProvider(argv[++i]);
+    else if (a === "--version") out.version = argv[++i];
     else if (a === "--help") {
       printHelp();
       process.exit(0);
@@ -112,6 +119,10 @@ function parseArgs(argv: string[]): Args {
   if (out.limit !== undefined && (!Number.isInteger(out.limit) || out.limit < 1)) {
     throw new Error("--limit must be a positive integer");
   }
+  if (out.version !== undefined && !/^[a-z0-9][a-z0-9-]{0,39}$/.test(out.version)) {
+    throw new Error("--version must be 1–40 lowercase letters, digits or hyphens");
+  }
+  if (out.version && out.force) throw new Error("Versioned audio is immutable; choose a new --version instead of --force");
   return out;
 }
 
@@ -499,7 +510,8 @@ function selectQuestions(args: Args): Question[] {
 }
 
 function audioPathname(q: Question, args: Args): string {
-  return args.questionAudio ? `audio/${q.id}-q.mp3` : `audio/${q.id}.mp3`;
+  const suffix = args.version ? `-${args.version}` : "";
+  return `audio/${q.id}${args.questionAudio ? "-q" : ""}${suffix}.mp3`;
 }
 
 // ─── Main ────────────────────────────────────────────────────────────────
@@ -538,6 +550,7 @@ async function main() {
   const estCostUsd = (totalChars / 1_000_000) * costPerMillion;
   console.log(`Total chars to TTS: ${totalChars.toLocaleString()}`);
   console.log(`Provider:           ${args.provider}`);
+  if (args.version) console.log(`Immutable version:  ${args.version}`);
   console.log(`TTS requests:       ${requestCount.toLocaleString()}`);
   console.log(
     `Audio paths:        single=${pathCounts.single} p2-multi=${pathCounts["p2-multi"]} p3-multi=${pathCounts["p3-multi"]} p3-question=${pathCounts["p3-question"]}`,
@@ -587,10 +600,15 @@ async function main() {
       }
 
       const t0 = Date.now();
-      const buf =
+      const sourceHash = createHash("sha256").update(JSON.stringify({ plan, provider: args.provider })).digest("hex");
+      const localDir = args.version ? fileURLToPath(new URL(`../output/audio-revisions/${args.version}/`, import.meta.url)) : null;
+      if (localDir) mkdirSync(localDir, { recursive: true });
+      const localFile = localDir ? `${localDir}${q.id}-${sourceHash.slice(0, 12)}.mp3` : null;
+      const buf = localFile && existsSync(localFile) ? readFileSync(localFile) :
         plan.segments.length === 1
           ? await generateSingleVoice(openai, plan.segments[0], args.provider, waitForRequestSlot)
           : await generateMultiVoiceAudio(openai, plan.segments, args.provider, waitForRequestSlot);
+      if (localFile) writeFileSync(localFile, buf);
 
       const blob = await put(pathname, buf, {
         access: "public",
@@ -600,6 +618,12 @@ async function main() {
       });
 
       const ms = Date.now() - t0;
+      if (localDir) writeFileSync(`${localDir}${q.id}.json`, JSON.stringify({
+        id: q.id, pathname, url: blob.url, localFile, sourceHash,
+        audioSha256: createHash("sha256").update(buf).digest("hex"),
+        bytes: buf.length, provider: args.provider, version: args.version,
+        generatedAt: new Date().toISOString(), segments: plan.segments,
+      }, null, 2));
       console.log(
         `[${i + 1}/${plans.length}] OK   ${q.id} ${describeAudioPlan(plan, args.provider)} ${buf.length}B ${ms}ms -> ${blob.url}`,
       );
@@ -620,6 +644,7 @@ async function main() {
   if (args.provider === "openrouter") {
     console.log(`Kokoro model fallbacks: ${getTtsFallbackCount()}`);
   }
+  if (failed > 0) process.exitCode = 1;
 }
 
 main().catch((e) => {

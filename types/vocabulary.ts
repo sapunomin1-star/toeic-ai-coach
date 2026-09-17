@@ -59,6 +59,8 @@ export type VocabularyProgress = {
   status: VocabularyStatus;
   intervalDays: number; // 0=retry today, then 1 / 3 / 7 / 14 / 30
   nextReviewDate: string; // YYYY-MM-DD
+  /** Original SRS due date when a learner requests extra practice early. */
+  scheduledReviewDate?: string;
   consecutiveCorrect: number;
   reviewedAt: string;
   selfCheckCount: number;

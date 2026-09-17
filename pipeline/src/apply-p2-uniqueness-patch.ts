@@ -9,7 +9,8 @@
  * audioScript is derived from prompt + choices so screen and recording agree.
  *
  * AFTER applying: regenerate audio for every rewritten id
- * (`npx tsx src/generate-audio.ts --question <id> --force`) and remove the id
+ * (`npx tsx src/generate-audio.ts --question <id> --version <release>`)
+ * then verify the public audio and set audioUrl + revisedAt before removing the id
  * from DISPUTED_QUESTIONS in data/question-revisions.ts. Idempotent.
  */
 import { readFileSync, writeFileSync } from "node:fs";
@@ -94,6 +95,7 @@ for (const [id, patch] of Object.entries(patches)) {
   }
 
   const next: Item = {
+    ...current,
     id: current.id,
     part: current.part,
     question: patch.question,
@@ -127,7 +129,7 @@ const total = Object.keys(patches).filter((k) => !k.startsWith("_")).length;
 console.log(`rewrote ${rewritten} of ${total} items (${alreadyDone} already rewritten)`);
 if (rewrittenIds.length > 0) {
   console.log(
-    `next: regenerate audio —\n  ${rewrittenIds.map((id) => `npx tsx src/generate-audio.ts --question ${id} --force`).join("\n  ")}\nthen remove ${rewrittenIds.join(", ")} from DISPUTED_QUESTIONS in data/question-revisions.ts`,
+    `next: regenerate audio —\n  ${rewrittenIds.map((id) => `npx tsx src/generate-audio.ts --question ${id} --version <new-release>`).join("\n  ")}\nthen remove ${rewrittenIds.join(", ")} from DISPUTED_QUESTIONS in data/question-revisions.ts`,
   );
 }
 if (skipped.length > 0) console.log(`skipped:\n  ${skipped.join("\n  ")}`);

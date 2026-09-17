@@ -1,4 +1,5 @@
 import type { TermGloss, TermGlossPartOfSpeech } from "@/lib/termResolution";
+import { COMPLETED_TERM_GLOSSES } from "./term-glosses-completed";
 
 /**
  * General glosses for question `vocabulary` terms the vocabulary bank does not
@@ -746,7 +747,8 @@ const PHRASES: Array<[string, string]> = [
   ["cash register", "收銀機"],
 ];
 
-export const TERM_GLOSSES: TermGloss[] = [
+export const TERM_GLOSSES: TermGloss[] = [...new Map<string, TermGloss>([
   ...WORDS.map(([term, pos, meaning_zh]) => ({ term, partOfSpeech: POS[pos], meaning_zh })),
   ...PHRASES.map(([term, meaning_zh]) => ({ term, partOfSpeech: POS.phr, meaning_zh })),
-];
+  ...COMPLETED_TERM_GLOSSES,
+].map(entry => [entry.term, entry])).values()];

@@ -1,5 +1,6 @@
-import type { AnswerRecord, Part } from "@/types/question";
+import type { AnswerRecord, AnswerTiming, Part, Question } from "@/types/question";
 import { PART_LIST, getPartSection } from "@/types/question";
+import { partitionAttempts } from "@/lib/attemptEvidence";
 
 /**
  * Pacing evidence (review F05). Only records that carry the timing split
@@ -12,7 +13,8 @@ import { PART_LIST, getPartSection } from "@/types/question";
  * section (≈ 10 min / 30 Part 5, ≈ 8 min / 16 Part 6, ≈ 55 min / 54 Part 7);
  * ETS publishes the section times, not per-question targets, so these are
  * labelled as advice, never as an official standard. Listening is paced by
- * the recording: we report the answer time AFTER the audio and never flag it.
+ * the recording: we report visible non-playback time (not reaction time) and
+ * never flag it. Only first attempts contribute evidence.
  */
 export const READING_BUDGET_MS: Partial<Record<Part, number>> = {
   "Part 5": 25_000,
@@ -25,9 +27,28 @@ export const PACING_BUDGET_SOURCE = "常見備考配速建議（非 ETS 官方�
 /** Fewer usable records than this per part → "資料不足", no verdict. */
 export const PACING_MIN_SAMPLE = 8;
 
+/** Full-bank size prevents an isolated wrongbook item from becoming a complete passage. */
+export function studyGroupTiming(question: Question, bank: Question[], plan: Question[]):
+  Pick<AnswerTiming, "groupId" | "groupSize" | "groupIndex"> {
+  const key = (q: Question): string => {
+    if (q.part === "Part 3" || q.part === "Part 4") return `${q.part}:${q.transcript ?? q.id}`;
+    if (q.part === "Part 6" || q.part === "Part 7") return `${q.part}:${q.passage_group_id ?? q.passage ?? q.id}`;
+    return q.id;
+  };
+  const group = bank.filter((q) => key(q) === key(question));
+  if (group.length <= 1) return {};
+  const planned = plan.filter((q) => key(q) === key(question));
+  const ordered = planned.length === group.length ? planned : group;
+  return {
+    groupId: group.map((q) => q.id).sort().join(","),
+    groupIndex: ordered.findIndex((q) => q.id === question.id),
+    groupSize: group.length,
+  };
+}
+
 export type PacingRow = {
   part: Part;
-  /** Usable (timed, non-mock) attempts. */
+  /** Usable (timed, fresh, non-mock) attempts. */
   sample: number;
   /** Median per-question time in ms, or null when the sample is too small. */
   medianMs: number | null;
@@ -44,6 +65,7 @@ export type PacingReport = {
   legacyRecords: number;
   minSample: number;
   budgetSource: string;
+  repeatsExcluded: number;
 };
 
 function partOf(record: AnswerRecord): Part | null {
@@ -62,7 +84,8 @@ function median(values: number[]): number | null {
 
 /**
  * Per-question times for one part. Passage/transcript groups are rebuilt from
- * consecutive timed records (groupIndex 0 … groupSize-1) and their total time
+ * consecutive first attempts with matching group and session identities
+ * (groupIndex 0 … groupSize-1), and their total time
  * is spread evenly across the group, so the first question does not look slow
  * for having carried the reading. Incomplete groups are skipped.
  */
@@ -79,12 +102,12 @@ function perQuestionTimes(records: AnswerRecord[]): { times: number[]; skipped: 
       continue;
     }
     const size = timing.groupSize ?? 1;
-    if (size <= 1 || timing.groupIndex === undefined) {
+    if (size <= 1) {
       times.push(answerTime(record));
       index += 1;
       continue;
     }
-    if (timing.groupIndex !== 0) {
+    if (timing.groupIndex !== 0 || !timing.groupId || !timing.sessionId) {
       // Orphaned member (its group start is missing or out of order).
       skipped += 1;
       index += 1;
@@ -93,7 +116,8 @@ function perQuestionTimes(records: AnswerRecord[]): { times: number[]; skipped: 
     const group = ordered.slice(index, index + size);
     const complete =
       group.length === size &&
-      group.every((member, offset) => member.timing?.groupIndex === offset && member.timing?.groupSize === size);
+      group.every((member, offset) => member.timing?.groupIndex === offset && member.timing?.groupSize === size &&
+        member.timing?.groupId === timing.groupId && member.timing?.sessionId === timing.sessionId);
     if (!complete) {
       skipped += 1;
       index += 1;
@@ -122,8 +146,17 @@ export function buildPacingReport(
   options: { minSample?: number } = {},
 ): PacingReport {
   const minSample = options.minSample ?? PACING_MIN_SAMPLE;
-  const nonMock = records.filter((record) => record.source !== "mock");
-  const timed = nonMock.filter((record) => record.timing !== undefined);
+  const partitioned = partitionAttempts(records);
+  const nonMock = partitioned.fresh.filter((record) => record.source !== "mock");
+  const timed = nonMock.filter((record) => {
+    const timing = record.timing;
+    const part = partOf(record);
+    return timing !== undefined && Number.isFinite(timing.activeMs) && timing.activeMs >= 0 &&
+      (part !== "Part 6" && part !== "Part 7" || (timing.groupSize ?? 0) > 1) &&
+      (part === null || getPartSection(part) !== "listening" ||
+        (timing.version === 2 && timing.audioMs !== undefined && Number.isFinite(timing.audioMs) &&
+          timing.audioMs >= 0 && timing.audioMs <= timing.activeMs));
+  });
   const rows: PacingRow[] = PART_LIST.map((part) => {
     const partRecords = timed.filter((record) => partOf(record) === part);
     const { times, skipped } = perQuestionTimes(partRecords);
@@ -139,9 +172,10 @@ export function buildPacingReport(
   });
   return {
     rows,
-    usableRecords: timed.length,
+    usableRecords: rows.reduce((sum, row) => sum + row.sample, 0),
     legacyRecords: nonMock.length - timed.length,
     minSample,
     budgetSource: PACING_BUDGET_SOURCE,
+    repeatsExcluded: partitioned.repeats.filter((record) => record.source !== "mock").length,
   };
 }

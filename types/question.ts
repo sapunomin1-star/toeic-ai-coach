@@ -137,17 +137,21 @@ export const MISTAKE_REASON_LABELS: Record<MistakeReason, string> = {
  * to submit and mixes audio playback, passage reading and time in a hidden
  * tab, so it cannot support pacing claims. This breakdown can:
  * - `activeMs`  visible time only (hidden-tab time removed)
- * - `audioMs`   listening: time until the audio finished; the answer time is
- *               `activeMs - audioMs`
+ * - `audioMs`   version 2: visible time overlapping actual audible playback
+ *               (including replays/stem audio, excluding buffering).
  * - `groupIndex/groupSize` passage & transcript groups: index 0 carries the
  *               reading/listening cost for the whole group
  */
 export type AnswerTiming = {
+  version?: 2;
   activeMs: number;
   hiddenMs: number;
   audioMs?: number;
   groupIndex?: number;
   groupSize?: number;
+  /** A stable content group and one traversal, never inferred from ordering. */
+  groupId?: string;
+  sessionId?: string;
 };
 
 /** How the attempt came about (review F06). `first` = never answered before. */
@@ -163,6 +167,8 @@ export type AnswerRecord = {
   isCorrect: boolean;
   skill_tag: SkillTag;
   answeredAt: string;
+  /** Content version actually answered; absent on older clients. */
+  contentRevision?: string;
   responseTimeMs?: number;
   source?: "daily" | "mock";
   /** Optional, additive: legacy records without them stay valid. */

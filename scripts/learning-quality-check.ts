@@ -277,8 +277,8 @@ async function main(): Promise<void> {
     }
     if (terms.length > 0 && hits === 0) questionsWithoutSupport += 1;
   }
-  assert.ok(supported / references >= 0.65, `fully resolved links regressed to ${(supported / references * 100).toFixed(1)}% (audit baseline 32.7%, after fix 69.6%)`);
-  assert.ok(questionsWithoutSupport <= 350, `questions with zero teaching support regressed to ${questionsWithoutSupport} (audit 1,112; after fix 308)`);
+  assert.equal(supported, references, "every question-term link must have a full definition");
+  assert.equal(questionsWithoutSupport, 0, "no question may lack vocabulary support");
   const { rankQuestionTerms } = await import("../components/quiz/QuestionVocabulary");
   const p5ext032 = QUESTIONS.find((q) => q.id === "p5-ext-032");
   assert.ok(p5ext032);
@@ -312,13 +312,13 @@ async function main(): Promise<void> {
   const slowPart5 = Array.from({ length: 10 }, () => record({ timing: { activeMs: 45_000, hiddenMs: 0 } }));
   assert.equal(part5Row(slowPart5)?.status, "over");
   const listening = Array.from({ length: 10 }, (_, i) =>
-    record({ questionId: `p3-lq-${i}`, skill_tag: "listening_detail", timing: { activeMs: 90_000, hiddenMs: 0, audioMs: 80_000 } }),
+    record({ questionId: `p3-lq-${i}`, skill_tag: "listening_detail", timing: { version: 2, activeMs: 90_000, hiddenMs: 0, audioMs: 80_000 } }),
   );
   const part3Row = buildPacingReport(listening).rows.find((row) => row.part === "Part 3");
   assert.deepEqual([part3Row?.status, part3Row?.medianMs], ["listening", 10_000], "a fully played 80-second recording is not slow answering");
   const groups = Array.from({ length: 9 }, (_, g) =>
     [150_000, 10_000, 10_000].map((activeMs, index) =>
-      record({ questionId: `p7-lq-${g}-${index}`, skill_tag: "reading_detail", timing: { activeMs, hiddenMs: 0, groupIndex: index, groupSize: 3 } }),
+      record({ questionId: `p7-lq-${g}-${index}`, skill_tag: "reading_detail", timing: { activeMs, hiddenMs: 0, groupIndex: index, groupSize: 3, groupId: `passage-${g}`, sessionId: "fixture" } }),
     ),
   ).flat();
   const part7Row = buildPacingReport(groups).rows.find((row) => row.part === "Part 7");
@@ -409,7 +409,7 @@ async function main(): Promise<void> {
     [localDate(0), "familiar", 7, 2],
     "flagging pulls the review to today without touching status, interval or streak",
   );
-  assert.equal(queue.getVocabularyQueue().find((entry) => entry.key === "scheduled")?.wordId, "vocab-002");
+  assert.equal(queue.getVocabularyQueue().find((entry) => entry.term === "scheduled")?.wordId, "vocab-002");
   memory.clear();
   assert.ok(vocab.enqueueQuestionTerm("stakeholder", "p7-lq-flag"));
   const prioritized = vocab.buildDailySession();
@@ -417,7 +417,7 @@ async function main(): Promise<void> {
   assert.equal(prioritized.warnings.queuedPrioritized, 1);
   assert.ok(prioritized.items.some((entry) => entry.item.word === "stakeholder" && entry.bucket === "new"), "a flagged new word is served today instead of waiting for the bank order");
   assert.ok(queue.dismissVocabularyQueueTerm("stakeholder"));
-  assert.equal(queue.getVocabularyQueue().some((entry) => entry.key === "stakeholder"), false);
+  assert.equal(queue.getVocabularyQueue().some((entry) => entry.term === "stakeholder"), false);
   assert.ok(BACKUP_KEYS.includes(STORAGE_KEYS.vocabularyQueue) && SYNC_KEYS.includes(STORAGE_KEYS.vocabularyQueue), "the queue is backed up and synced");
   const alpha = { key: "alpha", term: "alpha", questionId: "q1", addedAt: "2026-09-01T00:00:00.000Z" };
   const beta = { key: "beta", term: "beta", questionId: "q2", addedAt: "2026-09-02T00:00:00.000Z" };

@@ -23,7 +23,7 @@ import {
   type TermResolution,
   type TermResolver,
 } from "@/lib/termResolution";
-import { queuedWordIds, upsertVocabularyQueueEntry } from "@/lib/vocabularyQueue";
+import { getVocabularyQueue, upsertVocabularyQueueEntry, vocabularyQueueKey } from "@/lib/vocabularyQueue";
 
 const VOCABULARY_PROGRESS_KEY = STORAGE_KEYS.vocabularyProgress;
 const DAILY_SESSION_KEY = STORAGE_KEYS.vocabularyDailySession;
@@ -226,6 +226,7 @@ function migrateEntry(raw: unknown): VocabularyProgress | null {
     wordId: p.wordId as string,
     status,
     ...schedule,
+    ...(isDateString(p.scheduledReviewDate) ? { scheduledReviewDate: p.scheduledReviewDate as string } : {}),
     reviewedAt: p.reviewedAt as string,
     selfCheckCount:
       typeof p.selfCheckCount === "number" ? p.selfCheckCount : 0,
@@ -309,6 +310,7 @@ export function advanceSchedule(
   today = todayStr()
 ): VocabularyProgress {
   const next = { ...progress };
+  delete next.scheduledReviewDate;
 
   if (!isCorrect) {
     next.consecutiveCorrect = 0;
@@ -387,9 +389,19 @@ export function resolveQuestionTerm(term: string, questionId?: string): TermReso
 }
 
 /** The vocabulary card a term maps to, accepting inflected forms (scheduled → schedule). */
-export function findVocabularyCardForTerm(term: string): VocabularyItem | null {
+export function findVocabularyCardForTerm(term: string, questionId?: string): VocabularyItem | null {
   if (typeof term !== "string") return null;
-  return resolutionCard(resolveQuestionTerm(term));
+  return resolutionCard(resolveQuestionTerm(term, questionId));
+}
+
+/** Hide legacy links to a card whose meaning differs from the saved request. */
+export function getVocabularyStudyQueue() {
+  return getVocabularyQueue().map((entry) => {
+    const card = entry.wordId ? requireVocabularyById().get(entry.wordId) : undefined;
+    const matches = card && entry.partOfSpeech === card.partOfSpeech &&
+      entry.meaning_zh === card.meaning_zh;
+    return matches ? entry : { ...entry, wordId: undefined };
+  });
 }
 
 /**
@@ -398,9 +410,10 @@ export function findVocabularyCardForTerm(term: string): VocabularyItem | null {
  * card's next review is pulled to today so the word shows up in the due
  * bucket (or the backlog) instead of waiting for its scheduled date. Status,
  * interval and streak are never changed — a flag is a request to study, not
- * evidence of forgetting. Returns false when nothing could be persisted.
+ * evidence of forgetting. Returns false when either persistence step fails;
+ * the caller must reread the queue to distinguish partial success.
  */
-export function enqueueQuestionTerm(term: string, questionId: string): boolean {
+function questionTermQueueInput(term: string, questionId: string) {
   const resolution = resolveQuestionTerm(term, questionId);
   const card = resolutionCard(resolution);
   const meaning =
@@ -415,19 +428,29 @@ export function enqueueQuestionTerm(term: string, questionId: string): boolean {
       : resolution.kind === "gloss"
         ? resolution.gloss.partOfSpeech
         : card?.partOfSpeech;
-  const queued = upsertVocabularyQueueEntry({
+  return {
     term,
     questionId,
     ...(card ? { wordId: card.id } : {}),
     ...(meaning ? { meaning_zh: meaning } : {}),
     ...(partOfSpeech ? { partOfSpeech } : {}),
-  });
+  };
+}
+
+export function questionTermQueueKey(term: string, questionId: string): string {
+  return vocabularyQueueKey(questionTermQueueInput(term, questionId));
+}
+
+export function enqueueQuestionTerm(term: string, questionId: string): boolean {
+  const input = questionTermQueueInput(term, questionId);
+  const queued = upsertVocabularyQueueEntry(input);
   if (!queued) return false;
-  if (card) {
+  if (input.wordId) {
     const today = todayStr();
     const progress = getVocabularyProgress();
-    const entry = progress.find((p) => p.wordId === card.id);
+    const entry = progress.find((p) => p.wordId === input.wordId);
     if (entry && entry.nextReviewDate > today) {
+      entry.scheduledReviewDate ??= entry.nextReviewDate;
       entry.nextReviewDate = today;
       return writeProgress(progress);
     }
@@ -435,13 +458,13 @@ export function enqueueQuestionTerm(term: string, questionId: string): boolean {
   return true;
 }
 
-export function bumpWordsToDueByWords(words: string[]): void {
+export function bumpWordsToDueByWords(words: string[], questionId?: string): void {
   if (!Array.isArray(words) || words.length === 0) return;
 
   const wordIds = new Set<string>();
   for (const word of words) {
     if (typeof word !== "string") continue;
-    const item = findVocabularyCardForTerm(word);
+    const item = findVocabularyCardForTerm(word, questionId);
     if (item) wordIds.add(item.id);
   }
   if (wordIds.size === 0) return;
@@ -455,6 +478,7 @@ export function bumpWordsToDueByWords(words: string[]): void {
     if (entry.status !== "seen" && entry.status !== "familiar") continue;
     if (entry.nextReviewDate <= today) continue;
 
+    entry.scheduledReviewDate ??= entry.nextReviewDate;
     entry.nextReviewDate = today;
     changed = true;
   }
@@ -816,7 +840,7 @@ export function buildDailySession(): DailySession {
   let newAdded = 0;
   // Words the learner flagged on a question (待學佇列) take new-word slots
   // first — inside the 20-word target, never on top of it (REVIEW F10).
-  const queuedIds = queuedWordIds();
+  const queuedIds = new Set(getVocabularyStudyQueue().flatMap((entry) => entry.wordId ? [entry.wordId] : []));
   let queuedPrioritized = 0;
   for (const item of VOCABULARY) {
     if (result.length >= MAX_DAILY_ITEMS || newAdded >= MAX_NEW_ITEMS) break;
@@ -1185,9 +1209,17 @@ export function saveVocabularyQuizResult(
   // A wrong answer always proves a lapse and is applied immediately.
   const shouldApplySchedule =
     source !== "reinforcement" &&
-    (!isCorrect || current.nextReviewDate <= todayStr());
+    (!isCorrect || (current.scheduledReviewDate ?? current.nextReviewDate) <= todayStr());
   const after =
     shouldApplySchedule ? advanceSchedule(withQuizCounts, isCorrect) : withQuizCounts;
+  if (isCorrect && !shouldApplySchedule && (current.scheduledReviewDate ?? current.nextReviewDate) > todayStr()) {
+    // Recall today restarts the same gap; restoring a nearer old due date
+    // would later certify a 14-day interval after only a few unpractised days.
+    const scheduled = current.scheduledReviewDate ?? current.nextReviewDate;
+    const spaced = addDays(todayStr(), current.intervalDays);
+    after.nextReviewDate = scheduled > spaced ? scheduled : spaced;
+    delete after.scheduledReviewDate;
+  }
   if (index >= 0) progress[index] = after;
   else progress.push(after);
   // The SRS row is the source of truth; the session bookkeeping below only

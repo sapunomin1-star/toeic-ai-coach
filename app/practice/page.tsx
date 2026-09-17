@@ -14,6 +14,7 @@ import {
   getAnswerRecords,
   getDailyPlan,
   getEvidenceRecords,
+  getMockSeenQuestionIds,
   getReviewableIds,
   saveDailyPlan,
 } from "@/lib/storage";
@@ -173,7 +174,7 @@ export default function PracticePage() {
         reviewCount: REVIEW_MAX,
         weakSkillTags,
         focusSkills: focus,
-        answeredIds: new Set(records.map((r) => r.questionId)),
+        answeredIds: new Set([...records.map((r) => r.questionId), ...getMockSeenQuestionIds()]),
       });
       setPlanCounts(plan.counts);
       const saved = saveDailyPlan({

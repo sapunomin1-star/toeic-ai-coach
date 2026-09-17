@@ -13,7 +13,9 @@
     "generate-part7-single-reading": "npx tsx src/generate-part7-single-reading.ts",
     "generate-images": "npx tsx src/generate-images.ts",
     "generate-vocabulary": "npx tsx src/generate-vocabulary.ts",
-    "recompress-images": "npx tsx src/recompress-images.ts"
+    "recompress-images": "npx tsx src/recompress-images.ts",
+    "complete-terms": "tsx src/complete-term-glosses.ts",
+    "verify-revised-audio": "tsx src/verify-revised-audio.ts"
   },
   "dependencies": {
     "@vercel/blob": "^2.5.0",

@@ -380,7 +380,7 @@ const PACING_STATUS_LABEL: Record<PacingRow["status"], string> = {
   insufficient: "資料不足",
   within: "在建議配速內",
   over: "超過建議配速",
-  listening: "音檔後作答",
+  listening: "非播放用時",
 };
 
 const PACING_STATUS_CLASS: Record<PacingRow["status"], string> = {
@@ -403,7 +403,7 @@ export function PacingSection({ metrics }: { metrics: DashboardMetrics }) {
     <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
       <h2 className="mb-1 text-sm font-semibold">學習用時與配速觀察</h2>
       <p className="mb-3 text-[11px] leading-relaxed text-slate-500">
-        只計算新版分段計時的作答：離開分頁的時間已扣除、聽力只算音檔結束後的作答時間、文章題組的閱讀時間平均分攤到整組。每個 Part 至少 {pacing.minSample} 筆才顯示中位數。
+        只計算首次作答的有效計時：離開分頁與實際音檔播放的時間已扣除。聽力的其餘用時仍可能包含載入與思考，不代表反應速度；閱讀只合併同次練習的完整題組。每個 Part 至少 {pacing.minSample} 筆才顯示中位數。
       </p>
       <ul className="divide-y divide-slate-100">
         {pacing.rows.map((row) => (
@@ -413,7 +413,7 @@ export function PacingSection({ metrics }: { metrics: DashboardMetrics }) {
               {row.medianMs === null
                 ? `資料不足（${row.sample} / ${pacing.minSample} 筆）`
                 : row.status === "listening"
-                  ? `音檔結束後作答中位數 ${fmtMs(row.medianMs)} · ${row.sample} 筆`
+                  ? `非播放用時中位數 ${fmtMs(row.medianMs)} · ${row.sample} 筆`
                   : `中位數 ${fmtMs(row.medianMs)} · 建議 ${fmtMs(row.budgetMs ?? 0)} 內 · ${row.sample} 筆`}
             </span>
             <span
@@ -426,8 +426,9 @@ export function PacingSection({ metrics }: { metrics: DashboardMetrics }) {
       </ul>
       <p className="mt-3 text-[11px] leading-relaxed text-slate-400">
         {pacing.legacyRecords > 0
-          ? `${pacing.legacyRecords} 筆舊紀錄沒有分段計時，不列入配速。`
+          ? `${pacing.legacyRecords} 筆紀錄缺少可靠計時，不列入配速。`
           : ""}
+        {pacing.repeatsExcluded > 0 ? `另排除 ${pacing.repeatsExcluded} 筆重做。` : ""}
         閱讀門檻為{pacing.budgetSource}；超過只是一項觀察，不代表考場來不及。
       </p>
     </section>

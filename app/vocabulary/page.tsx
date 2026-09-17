@@ -9,6 +9,7 @@ import {
   getDailySessionActivity,
   getDueBacklog,
   getVocabularyProgress,
+  getVocabularyStudyQueue,
   loadVocabularyBank,
   markWordAgain,
   markWordFamiliar,
@@ -16,7 +17,6 @@ import {
 } from "@/lib/vocabularyStorage";
 import {
   dismissVocabularyQueueTerm,
-  getVocabularyQueue,
   type VocabularyQueueEntry,
 } from "@/lib/vocabularyQueue";
 import type {
@@ -93,7 +93,7 @@ export default function VocabularyPage() {
       setProgress(getVocabularyProgress());
       setActivity(getDailySessionActivity());
       setBacklogCount(getDueBacklog().length);
-      setQueue(getVocabularyQueue());
+      setQueue(getVocabularyStudyQueue());
     })();
     return () => {
       cancelled = true;
@@ -110,11 +110,11 @@ export default function VocabularyPage() {
     setSession(buildDailySession());
     setActivity(getDailySessionActivity());
     setBacklogCount(getDueBacklog().length);
-    setQueue(getVocabularyQueue());
+    setQueue(getVocabularyStudyQueue());
   }
 
   function handleDismissQueued(term: string): void {
-    if (dismissVocabularyQueueTerm(term)) setQueue(getVocabularyQueue());
+    if (dismissVocabularyQueueTerm(term)) setQueue(getVocabularyStudyQueue());
   }
 
   function toggleReveal(wordId: string): void {
@@ -501,7 +501,7 @@ export default function VocabularyPage() {
 
       {queue.length > 0 && (
         <section className="product-surface rounded-[1.5rem] p-4 sm:p-5">
-          <div className="flex items-end justify-between gap-3">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--brand)]">
                 Flagged in questions
@@ -510,7 +510,7 @@ export default function VocabularyPage() {
                 待學清單 · {queue.length} 個
               </h2>
             </div>
-            <p className="max-w-[16rem] text-right text-[11px] leading-4 text-[var(--muted)]">
+            <p className="text-[11px] leading-4 text-[var(--muted)] sm:max-w-[16rem] sm:text-right">
               有字卡的字會提前到今天複習；沒有字卡的字只保留本題釋義，記住了就移除。
             </p>
           </div>
@@ -533,7 +533,7 @@ export default function VocabularyPage() {
                         </span>
                       ) : (
                         <span className="rounded-full bg-rose-100 px-2 py-0.5 text-[10px] font-black text-rose-700">
-                          尚無字卡
+                          此義項尚無字卡
                         </span>
                       )}
                     </div>
@@ -543,7 +543,7 @@ export default function VocabularyPage() {
                     </p>
                   </div>
                   <button
-                    onClick={() => handleDismissQueued(entry.term)}
+                    onClick={() => handleDismissQueued(entry.key)}
                     className="min-h-9 shrink-0 rounded-lg border border-[var(--line)] bg-white px-3 text-xs font-bold text-[var(--muted)]"
                   >
                     記住了，移除

@@ -1,5 +1,58 @@
 # TOEIC AI Coach Development Log
 
+## Learning Quality Completion - 2026-09-17
+
+Completed the remaining work after the user resumed the paused task. Release
+report: `docs/audits/2026-09-12-learning-quality/COMPLETION-2026-09-17.md`.
+
+- Filled the 3,532 unsupported links through 3,150 context-backed draft terms,
+  105 complete independent model reviews, 53 subsequent editorial definitions
+  and 29 teaching-tag spelling fixes. Canonical completion bank: 3,144 entries;
+  combined general glosses: 3,859. All 11,625 links now fully resolve; zero
+  questions lack support. These are glosses, not extra SRS cards.
+- Shrunk the link baseline to zero and prevented `--update-baseline` from
+  accepting new debt. Tightened coverage assertions to 100% and added a tenth
+  test script covering the released content/audio and editorial evidence.
+- Rewrote and released four Part 2 distractors with matching immutable
+  `quality-20260917` Blob audio URLs and revision timestamps. Public bytes,
+  full decode and independent Whisper transcripts agree. Old assets and
+  learner records remain intact; superseded attempts leave coaching evidence.
+  Explicit answer content-version stamps prevent late submissions from cached
+  old pages from being mistaken for the revised items. Backup/sync retain them.
+- Media checks now include custom URLs; the audio player discloses AI speech.
+  Mock review now labels unanswered items as unanswered instead of incorrect.
+- All ten test scripts, app/pipeline typechecks, ESLint, 19-page production
+  build, pipeline integrity and 1,090 media checks pass. Local browser smoke
+  covers 13 routes/modes, 390px mobile, full Part 6/7 groups, controlled Part 3
+  timing and sense-specific queues. Final release details are in the report.
+
+## Learning Quality Follow-up Review - 2026-09-17
+
+Independently rechecked `6782adf` / `b91ad89`. Baseline typecheck and all
+eight existing test scripts passed, but nine additional defect reproductions
+failed. The previous delivery report now links to the corrective follow-up:
+`docs/audits/2026-09-12-learning-quality/FOLLOWUP-2026-09-17.md`.
+
+- Fixed question-sense/card mismatches, separate queue entries per meaning,
+  legacy identity normalization, equal-time sync dismissal and partial-save
+  feedback. Kept all 14 backup/sync keys unchanged.
+- Preserved original due eligibility when pulling SRS cards forward; early
+  correct recall records practice and restarts the same gap, without granting
+  mastery or advancing interval/streak. Real due reviews and lapses still work.
+- Recorded actual visible playback overlap, including Part 3 stem narration,
+  with timing version 2; captured real Part 6/7 group identities and sizes.
+  Pacing uses first attempts and complete same-session groups only.
+- Partitioned mock exposure before coaching source filtering; excluded
+  disputed items from evidence. Daily plans include mock-seen IDs and no
+  longer describe exhausted-pool repeats as new focus questions.
+- Added `remediation-review-check.ts` (17 cases) as the ninth npm test script.
+  Typecheck, lint, production build (19 pages), all test scripts, pipeline
+  integrity/debt (3,532, no new debt), and media HEAD checks (1,090/1,090) pass.
+- Isolated production-browser smoke covers normal practice, complete reading
+  groups, controlled listening events, sense-specific queues, 13 routes/modes,
+  mobile layout and a newly submitted synthetic reading mock review. No real
+  learning storage or cloud state used. No generation, push or deployment.
+
 ## Learning Quality Remediation - 2026-09-16
 
 Fixes for all twelve findings of the 2026-09-12 learning-quality review

@@ -205,6 +205,12 @@ export function isFullyResolved(resolution: TermResolution): boolean {
 /** The card behind a resolution, when there is one (exact or inflected). */
 export function resolutionCard(resolution: TermResolution): VocabularyItem | null {
   if (resolution.kind === "card") return resolution.card;
-  if (resolution.kind === "sense") return resolution.card;
+  if (resolution.kind === "sense") {
+    const { sense, card } = resolution;
+    // An unrelated card may be shown as another meaning, but its SRS cannot
+    // measure this sense. Unverified equivalence stays a contextual study note.
+    return card && card.partOfSpeech === sense.partOfSpeech &&
+      normalizeTerm(card.meaning_zh) === normalizeTerm(sense.meaning_zh) ? card : null;
+  }
   return null;
 }

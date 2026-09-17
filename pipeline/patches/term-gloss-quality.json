@@ -1,0 +1,354 @@
+{
+  "_comment": "Post-model editorial corrections based on actual question context, 2026-09-17. Spellings change vocabulary tags only; question IDs, prompts, choices and recordings are unchanged. Definitions apply after canonical spelling and supersede model output.",
+  "spellings": {
+    "allhands": "all-hands",
+    "budgetconscious": "budget-conscious",
+    "busdriver": "bus driver",
+    "cannedgoods": "canned goods",
+    "checkin": "check-in",
+    "checkingin": "checking in",
+    "citybus": "city bus",
+    "cleaningcart": "cleaning cart",
+    "costeffective": "cost-effective",
+    "creditcard": "credit card",
+    "figureout": "figure out",
+    "followup": "follow-up",
+    "frontdesk": "front desk",
+    "humanresources": "human resources",
+    "jetbridge": "jet bridge",
+    "laserpointer": "laser pointer",
+    "loadingdock": "loading dock",
+    "loggedoff": "logged off",
+    "log-in": "log in",
+    "pushedback": "pushed back",
+    "reachout": "reach out",
+    "rightaway": "right away",
+    "shakinghands": "shaking hands",
+    "steelbeam": "steel beam",
+    "steeringwheel": "steering wheel",
+    "stickynotes": "sticky notes",
+    "takeseffect": "takes effect",
+    "tapemeasure": "tape measure",
+    "xray": "x-ray"
+  },
+  "definitions": [
+    {
+      "term": "acquiring",
+      "partOfSpeech": "verb",
+      "meaning_zh": "取得；獲得（acquire 的現在分詞）",
+      "reason": "acquire 不等於開發"
+    },
+    {
+      "term": "bay",
+      "partOfSpeech": "noun",
+      "meaning_zh": "（裝卸或停放用的）分隔區；停放區",
+      "reason": "依 pallet jack 存放區語境，不泛稱儲藏室"
+    },
+    {
+      "term": "black tie",
+      "partOfSpeech": "noun",
+      "meaning_zh": "正式晚宴服裝規範（男士通常穿無尾晚禮服、繫黑色領結）",
+      "reason": "著裝規範不只是一條領結"
+    },
+    {
+      "term": "blocks",
+      "partOfSpeech": "noun",
+      "meaning_zh": "街區（複數）",
+      "reason": "不能把 two blocks 的數量寫入 blocks 本身"
+    },
+    {
+      "term": "by a certain date",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "最遲在某個日期；不晚於該日",
+      "reason": "by 含截止日"
+    },
+    {
+      "term": "by friday",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "最遲在週五；不晚於週五",
+      "reason": "by 不排除週五當天"
+    },
+    {
+      "term": "by next friday",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "最遲在下週五",
+      "reason": "避免和 until 的持續語義混淆"
+    },
+    {
+      "term": "by the end of next month",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "最遲在下個月底",
+      "reason": "by 含截止日"
+    },
+    {
+      "term": "chaperone",
+      "partOfSpeech": "noun",
+      "meaning_zh": "陪同監督者（如帶領學生參加活動的成人）",
+      "reason": "不是法定監護人的同義詞"
+    },
+    {
+      "term": "contract proposal",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "合約提案",
+      "reason": "採台灣自然用語，移除審稿誤稱合同較常用"
+    },
+    {
+      "term": "devoted",
+      "partOfSpeech": "adjective",
+      "meaning_zh": "專門用於……的；致力於……的",
+      "reason": "journal devoted to a subject"
+    },
+    {
+      "term": "direct",
+      "partOfSpeech": "verb",
+      "meaning_zh": "將……轉交或引導至……；指示",
+      "reason": "enquiries directed to secretary"
+    },
+    {
+      "term": "directory",
+      "partOfSpeech": "noun",
+      "meaning_zh": "名錄；通訊錄；目錄",
+      "reason": "保留電話旁通訊錄的義項"
+    },
+    {
+      "term": "employee id",
+      "partOfSpeech": "noun",
+      "meaning_zh": "員工識別證；員工編號",
+      "reason": "ID 卡片或識別編號，非國民身分證"
+    },
+    {
+      "term": "employee id cards",
+      "partOfSpeech": "noun",
+      "meaning_zh": "員工識別證（複數）",
+      "reason": "避免員工身分證的誤解"
+    },
+    {
+      "term": "financial results",
+      "partOfSpeech": "noun",
+      "meaning_zh": "財務成果；經營業績",
+      "reason": "成果不等同財務報告文件"
+    },
+    {
+      "term": "fire extinguisher",
+      "partOfSpeech": "noun",
+      "meaning_zh": "滅火器",
+      "reason": "消防器材是上位概念，不能等同"
+    },
+    {
+      "term": "first day",
+      "partOfSpeech": "noun",
+      "meaning_zh": "第一天；首日",
+      "reason": "不是所有第一天都是開幕日"
+    },
+    {
+      "term": "first week",
+      "partOfSpeech": "noun",
+      "meaning_zh": "第一週；首週",
+      "reason": "不是所有第一週都是開幕週"
+    },
+    {
+      "term": "first floor",
+      "partOfSpeech": "noun",
+      "meaning_zh": "美式：一樓；英式：地面層上方的一層（台灣所稱二樓）",
+      "reason": "補足英美樓層差異"
+    },
+    {
+      "term": "freelance",
+      "partOfSpeech": "adjective",
+      "meaning_zh": "自由接案的；獨立工作的",
+      "reason": "台灣自然用語"
+    },
+    {
+      "term": "getaway",
+      "partOfSpeech": "noun",
+      "meaning_zh": "短期度假；度假去處",
+      "reason": "不限制旅行距離"
+    },
+    {
+      "term": "gift voucher",
+      "partOfSpeech": "noun",
+      "meaning_zh": "禮券",
+      "reason": "台灣自然用語"
+    },
+    {
+      "term": "go out of business",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "歇業；倒閉；停止經營",
+      "reason": "避免誤教為暫時停業"
+    },
+    {
+      "term": "in agreement",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "意見一致；同意",
+      "reason": "介系詞片語不能當單一形容詞教"
+    },
+    {
+      "term": "in charge of",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "負責；掌管",
+      "reason": "介系詞片語"
+    },
+    {
+      "term": "in high demand",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "需求量大；很搶手",
+      "reason": "介系詞片語"
+    },
+    {
+      "term": "in detail",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "詳細地",
+      "reason": "介系詞片語具有副詞功能"
+    },
+    {
+      "term": "in general terms",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "概括地；大體而言",
+      "reason": "介系詞片語具有副詞功能"
+    },
+    {
+      "term": "logged off",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "已登出",
+      "reason": "have logged off 是片語動詞的完成式"
+    },
+    {
+      "term": "mining sector",
+      "partOfSpeech": "noun",
+      "meaning_zh": "採礦業；礦業",
+      "reason": "sector 在此指產業，非組織部門"
+    },
+    {
+      "term": "momentum",
+      "partOfSpeech": "noun",
+      "meaning_zh": "動力；發展勢頭；（物理）動量",
+      "reason": "商業語境保留成長勢頭，不是慣性"
+    },
+    {
+      "term": "multiple choice questions",
+      "partOfSpeech": "noun",
+      "meaning_zh": "選擇題（從數個選項中選答案）",
+      "reason": "避免誤認為複選題"
+    },
+    {
+      "term": "original delivery",
+      "partOfSpeech": "noun",
+      "meaning_zh": "原定交貨；最初的交貨",
+      "reason": "原文比較 original delivery date，原定是相關義"
+    },
+    {
+      "term": "percent off",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "減價百分之……（例如 40 percent off 為六折）",
+      "reason": "釐清折扣比例與折後價格"
+    },
+    {
+      "term": "perusal",
+      "partOfSpeech": "noun",
+      "meaning_zh": "仔細閱讀；審閱",
+      "reason": "閱讀不等同稽核審查"
+    },
+    {
+      "term": "problem-solving",
+      "partOfSpeech": "noun",
+      "meaning_zh": "解決問題（的過程）",
+      "reason": "題目 approach to problem-solving，不能僅限能力"
+    },
+    {
+      "term": "reach out",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "主動聯繫；接觸",
+      "reason": "片語動詞，非名詞"
+    },
+    {
+      "term": "shop",
+      "partOfSpeech": "verb",
+      "meaning_zh": "購物；逛商店",
+      "reason": "題目 shoppers 的動詞基底，非把 shop 譯成購物者"
+    },
+    {
+      "term": "straight back",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "一直往後；直接返回",
+      "reason": "避免丟掉 back 的方向或返回意義"
+    },
+    {
+      "term": "subject to",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "視……而定；須經……；可能受到……",
+      "reason": "同時涵蓋 availability 與 delay 語境"
+    },
+    {
+      "term": "temporary exhibition",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "短期展覽；特展",
+      "reason": "temporary 非必然臨時決定"
+    },
+    {
+      "term": "thank for",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "為……而感謝（thank someone for something）",
+      "reason": "保留 for 的搭配教學"
+    },
+    {
+      "term": "toner cartridges",
+      "partOfSpeech": "noun",
+      "meaning_zh": "碳粉匣（複數）",
+      "reason": "雷射碳粉不等於墨水"
+    },
+    {
+      "term": "unbeatable price",
+      "partOfSpeech": "noun",
+      "meaning_zh": "最優惠的價格；無可匹敵的低價",
+      "reason": "不是價格越高越好"
+    },
+    {
+      "term": "underground parking",
+      "partOfSpeech": "noun",
+      "meaning_zh": "地下停車空間；地下停車場",
+      "reason": "名詞，依設施語境"
+    },
+    {
+      "term": "up for",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "即將面臨；預定要（如 up for renewal 即將到期續訂）",
+      "reason": "題目考續訂期限，非願意做某事"
+    },
+    {
+      "term": "used to",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "used to + 原形動詞：過去常常；be used to + 名詞或 V-ing：習慣於",
+      "reason": "分清兩個不同句型"
+    },
+    {
+      "term": "sterilization",
+      "partOfSpeech": "noun",
+      "meaning_zh": "滅菌；殺菌處理",
+      "reason": "不和較低程度的消毒混為一談"
+    },
+    {
+      "term": "tuxedo",
+      "partOfSpeech": "noun",
+      "meaning_zh": "男士無尾晚禮服",
+      "reason": "tuxedo 不是有燕尾的 tailcoat"
+    },
+    {
+      "term": "pushed back",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "延後；推遲（push back 的過去式或過去分詞）",
+      "reason": "修正不正確連寫提示"
+    },
+    {
+      "term": "log in",
+      "partOfSpeech": "phrase",
+      "meaning_zh": "登入",
+      "reason": "動詞用兩字 log in"
+    },
+    {
+      "term": "canned goods",
+      "partOfSpeech": "noun",
+      "meaning_zh": "罐頭食品",
+      "reason": "刪除審稿不必要泛化"
+    }
+  ]
+}

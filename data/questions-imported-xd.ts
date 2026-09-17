@@ -1694,7 +1694,7 @@ export const IMPORTED_QUESTIONS_XD: Question[] = [
     "difficulty": "B1",
     "vocabulary": [
       "register",
-      "log-in",
+      "log in",
       "preferences"
     ]
   },

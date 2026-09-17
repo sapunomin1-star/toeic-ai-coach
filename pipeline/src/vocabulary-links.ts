@@ -149,7 +149,7 @@ export function checkVocabularyLinks(
 ): VocabularyLinkReport {
   const baseline = readVocabularyLinkBaseline(options.baselinePath);
   let report = buildVocabularyLinkReport(questions, baseline);
-  if (options.updateBaseline) {
+  if (options.updateBaseline && (baseline === null || report.newDebt.length === 0)) {
     writeVocabularyLinkBaseline(options.baselinePath, report.debt);
     report = buildVocabularyLinkReport(questions, new Set(report.debt));
     console.log(`  (baseline rewritten: ${report.debt.length} links)`);

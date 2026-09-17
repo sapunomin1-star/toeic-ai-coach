@@ -21,8 +21,8 @@ import {
 import { MISTAKE_REASONS, SKILL_TAG_LIST } from "@/types/question";
 import { isStudyProfile } from "@/lib/studyProfile";
 import { excludeRecordsBeforeRevision } from "@/lib/analysis";
-import { isVocabularyQueueEntry } from "@/lib/vocabularyQueue";
-import { QUESTION_REVISED_AT } from "@/data/question-revisions";
+import { isVocabularyQueueEntry, normalizeQueueEntry } from "@/lib/vocabularyQueue";
+import { QUESTION_REVISED_AT, REVISION_TAG_REQUIRED, isDisputedQuestion } from "@/data/question-revisions";
 
 const ANSWER_KEY = STORAGE_KEYS.answerRecords;
 const DAILY_PLAN_KEY = STORAGE_KEYS.dailyPlan;
@@ -39,12 +39,15 @@ function isSkillTag(value: unknown): value is SkillTag {
 
 function isAnswerTiming(value: unknown): boolean {
   if (!isPlainObject(value)) return false;
+  const nonnegative = (n: unknown): n is number => typeof n === "number" && Number.isFinite(n) && n >= 0;
   return (
-    typeof value.activeMs === "number" &&
-    typeof value.hiddenMs === "number" &&
-    (value.audioMs === undefined || typeof value.audioMs === "number") &&
-    (value.groupIndex === undefined || typeof value.groupIndex === "number") &&
-    (value.groupSize === undefined || typeof value.groupSize === "number")
+    nonnegative(value.activeMs) && nonnegative(value.hiddenMs) &&
+    (value.version === undefined || value.version === 2) &&
+    (value.audioMs === undefined || (nonnegative(value.audioMs) && value.audioMs <= value.activeMs)) &&
+    (value.groupIndex === undefined || (nonnegative(value.groupIndex) && Number.isInteger(value.groupIndex))) &&
+    (value.groupSize === undefined || (nonnegative(value.groupSize) && Number.isInteger(value.groupSize) && value.groupSize > 0)) &&
+    (value.groupId === undefined || typeof value.groupId === "string") &&
+    (value.sessionId === undefined || typeof value.sessionId === "string")
   );
 }
 
@@ -67,6 +70,7 @@ function isAnswerRecord(value: unknown): value is AnswerRecord {
     isSkillTag(r.skill_tag) &&
     typeof r.answeredAt === "string" &&
     !Number.isNaN(Date.parse(r.answeredAt)) &&
+    (r.contentRevision === undefined || typeof r.contentRevision === "string") &&
     (r.responseTimeMs === undefined || typeof r.responseTimeMs === "number") &&
     // Mistake Reason System (Phase 1): optional — undefined passes, bad values rejected.
     (r.mistakeReason === undefined || MISTAKE_REASONS.includes(r.mistakeReason)) &&
@@ -101,12 +105,15 @@ export function getAnswerRecords(): AnswerRecord[] {
  * "already answered" checks, where the full history is what matters.
  */
 export function getEvidenceRecords(): AnswerRecord[] {
-  return excludeRecordsBeforeRevision(getAnswerRecords(), QUESTION_REVISED_AT);
+  return excludeRecordsBeforeRevision(getAnswerRecords(), QUESTION_REVISED_AT)
+    .filter((record) => !isDisputedQuestion(record.questionId) &&
+      (!REVISION_TAG_REQUIRED.has(record.questionId) || record.contentRevision === QUESTION_REVISED_AT[record.questionId]));
 }
 
 export function saveAnswer(record: AnswerRecord): boolean {
   const all = getAnswerRecords();
-  all.push(record);
+  const revision = record.contentRevision ?? QUESTION_REVISED_AT[record.questionId];
+  all.push(revision ? { ...record, contentRevision: revision } : record);
   if (!writeJSON(ANSWER_KEY, all)) return false;
 
   // Update spaced repetition status
@@ -325,7 +332,7 @@ export function sanitizeBackupValue(
     case STORAGE_KEYS.vocabularyDailySession:
       return isPlainObject(value) ? value : undefined;
     case STORAGE_KEYS.vocabularyQueue:
-      return Array.isArray(value) ? value.filter(isVocabularyQueueEntry) : undefined;
+      return Array.isArray(value) ? value.filter(isVocabularyQueueEntry).map(normalizeQueueEntry) : undefined;
     case STORAGE_KEYS.readingMockResults:
     case STORAGE_KEYS.listeningMockResults:
     case STORAGE_KEYS.fullMockResults:

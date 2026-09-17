@@ -18,6 +18,7 @@ import {
   clearWrongPracticePlan,
   getAnswerRecords,
   getEvidenceRecords,
+  getMockSeenQuestionIds,
   getQuizPlan,
   getReviewableIds,
   markQuizPlanListeningGroupAutoPlayed,
@@ -32,6 +33,8 @@ import {
   inferMistakeReason,
 } from "@/lib/analysis";
 import { getAudioUrl, getImageUrl, getQuestionAudioUrl, hasMediaSupport } from "@/lib/media";
+import { createStudyClock } from "@/lib/studyClock";
+import { studyGroupTiming } from "@/lib/pacing";
 import { getGroupPosition } from "@/lib/mockShared";
 import {
   bumpWordsToDueByWords,
@@ -146,37 +149,28 @@ export default function QuizPage() {
   const startingFreshPlan = useRef(false);
   const submittedQuestionIds = useRef(new Set<string>());
   const questionStartTime = useRef<number>(0);
-  // Timing split (review F05): hidden-tab time and audio playback are tracked
-  // per question so pacing can read visible answering time only.
-  const hiddenMsRef = useRef(0);
-  const hiddenSinceRef = useRef<number | null>(null);
-  const audioEndedAtRef = useRef<number | null>(null);
+  const studyClock = useRef(createStudyClock());
+  const timingSessionId = useRef<string>("");
   const [planSource, setPlanSource] = useState<QuizPlanSource>("daily");
   const [planKind, setPlanKind] = useState<AttemptInfo["plan"]>("daily");
   const [focusNote, setFocusNote] = useState<string | null>(null);
 
   function resetQuestionClock() {
     questionStartTime.current = Date.now();
-    hiddenMsRef.current = 0;
-    hiddenSinceRef.current =
-      typeof document !== "undefined" && document.hidden ? Date.now() : null;
-    audioEndedAtRef.current = null;
+    studyClock.current.start(performance.now(), document.hidden);
+    timingSessionId.current ||= crypto.randomUUID();
   }
 
   useEffect(() => {
+    const clock = studyClock.current;
     function onVisibilityChange() {
-      if (document.hidden) {
-        hiddenSinceRef.current = Date.now();
-      } else if (hiddenSinceRef.current !== null) {
-        hiddenMsRef.current += Date.now() - hiddenSinceRef.current;
-        hiddenSinceRef.current = null;
-      }
+      clock.setHidden(document.hidden, performance.now());
     }
     document.addEventListener("visibilitychange", onVisibilityChange);
     return () => document.removeEventListener("visibilitychange", onVisibilityChange);
   }, []);
 
-  function buildIsWeakWord(): (word: string) => boolean {
+  function buildIsWeakWord(questionId: string): (word: string) => boolean {
     if (!vocabAvailable) return () => false;
     const statusByWordId = new Map(
       getVocabularyProgress().map((progress) => [progress.wordId, progress.status]),
@@ -185,7 +179,7 @@ export default function QuizPage() {
     // signal. A word with no record is unknown, not weak: on a cold start the
     // old rule suggested 不會單字 on two thirds of the bank (review F08).
     return (word) => {
-      const item = findVocabularyCardForTerm(word);
+      const item = findVocabularyCardForTerm(word, questionId);
       if (!item) return false;
       const status = statusByWordId.get(item.id);
       return status === "new" || status === "seen";
@@ -354,7 +348,6 @@ export default function QuizPage() {
   }
 
   function handleGroupedAudioSettled(questionId: string, groupKey: string) {
-    audioEndedAtRef.current = Date.now();
     markListeningGroupAutoPlayed(groupKey);
     setActiveAutoConversationGroup((activeGroup) =>
       activeGroup === groupKey ? null : activeGroup,
@@ -377,40 +370,19 @@ export default function QuizPage() {
     }
     submittedQuestionIds.current.add(currentQuestion.id);
     setSaveError(null);
-    const now = Date.now();
-    const startedAt = questionStartTime.current || now;
-    const responseTimeMs = Math.max(0, now - startedAt);
+    const submittedAt = performance.now();
+    const elapsed = studyClock.current.snapshot(submittedAt);
+    const responseTimeMs = elapsed.wallMs;
     const isCorrect = selected === currentQuestion.answer;
-
-    // Timing split: visible time only, audio playback separated, group
-    // position recorded so the first question of a passage is not read as slow.
-    const hiddenMs = Math.min(
-      responseTimeMs,
-      hiddenMsRef.current + (hiddenSinceRef.current !== null ? now - hiddenSinceRef.current : 0),
-    );
-    const activeMs = Math.max(0, responseTimeMs - hiddenMs);
-    const timing: AnswerTiming = { activeMs, hiddenMs };
-    if (getPartSection(currentQuestion.part) === "listening") {
-      const groupKey = getListeningGroupKey(currentQuestion);
-      const groupAlreadyPlayed =
-        groupKey !== null &&
-        autoPlayedListeningGroups.has(groupKey) &&
-        activeAutoConversationGroup !== groupKey;
-      if (audioEndedAtRef.current !== null) {
-        timing.audioMs = Math.min(activeMs, Math.max(0, audioEndedAtRef.current - startedAt));
-      } else if (groupAlreadyPlayed) {
-        timing.audioMs = 0; // the group's audio finished on an earlier question
-      } else {
-        timing.audioMs = activeMs; // answered while the audio was still playing
-      }
-    }
-    const position = getGroupPosition(planQuestions, currentQuestion);
-    if (position) {
-      timing.groupIndex = position.index - 1;
-      timing.groupSize = position.total;
-    }
+    const timing: AnswerTiming = {
+      version: 2, activeMs: elapsed.activeMs, hiddenMs: elapsed.hiddenMs,
+      ...(getPartSection(currentQuestion.part) === "listening" ? { audioMs: elapsed.audioMs } : {}),
+      ...studyGroupTiming(currentQuestion, questionBank().getQuestionsByPart(currentQuestion.part), planQuestions),
+      sessionId: timingSessionId.current,
+    };
     const attempt: AttemptInfo = {
-      first: !getAnswerRecords().some((record) => record.questionId === currentQuestion.id),
+      first: !getEvidenceRecords().some((record) => record.questionId === currentQuestion.id) &&
+        !getMockSeenQuestionIds().has(currentQuestion.id) && planKind !== "wrongbook",
       plan: planKind,
     };
 
@@ -431,6 +403,7 @@ export default function QuizPage() {
       setSaveError("答案尚未儲存，請確認瀏覽器儲存空間後再試一次。");
       return;
     }
+    studyClock.current.finish(submittedAt);
 
     const quizPlan = getQuizPlan();
     if (
@@ -450,7 +423,7 @@ export default function QuizPage() {
       setSaveError("答案已儲存，但進度暫時無法寫入；重新開啟時會自動修復。");
     }
     if (!isCorrect) {
-      const isWeakWord = buildIsWeakWord();
+      const isWeakWord = buildIsWeakWord(currentQuestion.id);
       const inferred = inferMistakeReason(
         { part: currentQuestion.part, vocabulary: currentQuestion.vocabulary },
         { isCorrect: false, responseTimeMs, timing },
@@ -551,7 +524,7 @@ export default function QuizPage() {
         part2Count: mix.part2Count,
         part3GroupCount: mix.part3GroupCount,
         part4GroupCount: mix.part4GroupCount,
-        answeredIds: new Set(records.map((r) => r.questionId)),
+        answeredIds: new Set([...records.map((r) => r.questionId), ...getMockSeenQuestionIds()]),
       });
       const saved = saveDailyPlan({
         questionIds: plan.questions.map((q) => q.id),
@@ -578,7 +551,7 @@ export default function QuizPage() {
     setSelectedReason(reason);
     updateLatestReason(currentQuestion.id, reason, "user");
     if (reason === "vocab" && vocabAvailable) {
-      bumpWordsToDueByWords(currentQuestion.vocabulary ?? []);
+      bumpWordsToDueByWords(currentQuestion.vocabulary ?? [], currentQuestion.id);
     }
   }
 
@@ -791,6 +764,7 @@ export default function QuizPage() {
           <AudioPlayer
             key={audioUrl}
             src={audioUrl}
+            onPlaybackChange={(playing) => studyClock.current.setAudioPlaying(audioUrl, playing, performance.now())}
             autoPlay={!groupAutoPlayed}
             allowReplay={groupAutoPlayed || audioFailed}
             onPlaybackStart={() =>
@@ -813,10 +787,8 @@ export default function QuizPage() {
         <AudioPlayer
           key={audioUrl}
           src={audioUrl}
+          onPlaybackChange={(playing) => studyClock.current.setAudioPlaying(audioUrl, playing, performance.now())}
           autoPlay
-          onEnded={() => {
-            audioEndedAtRef.current = Date.now();
-          }}
           onError={() =>
             setFailedAudioIds((ids) => new Set(ids).add(currentQuestion.id))
           }
@@ -842,6 +814,7 @@ export default function QuizPage() {
           <AudioPlayer
             key={questionAudioUrl}
             src={questionAudioUrl}
+            onPlaybackChange={(playing) => studyClock.current.setAudioPlaying(questionAudioUrl, playing, performance.now())}
             autoPlay
             allowReplay
             onPlaybackStart={() =>

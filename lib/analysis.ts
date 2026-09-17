@@ -12,6 +12,7 @@ import {
   SKILL_TAG_LIST,
   getSkillCategory,
 } from "@/types/question";
+import { partitionAttempts } from "@/lib/attemptEvidence";
 import { READING_BUDGET_MS } from "@/lib/pacing";
 
 export const LISTENING_SKILLS: SkillTag[] = [
@@ -78,38 +79,7 @@ export const SKILL_RECENT_WINDOW = 20;
 /** Below this many fresh attempts in the window, a skill's error rate is noise (1/1 = 100%). */
 export const MIN_SKILL_ATTEMPTS_FOR_RATE = 5;
 
-function recordIdentity(r: AnswerRecord): string {
-  return `${r.questionId} ${r.answeredAt} ${r.userAnswer}`;
-}
-
-/**
- * Split the history into first attempts and repeats. A learner's 20th correct
- * answer to the same question is evidence about that question's memory, not
- * about the skill — so weakness ranking, recommendations and grammar
- * remediation only read `fresh`. Derived chronologically from the records
- * themselves (the optional `attempt.first` flag on new records is
- * informational), so legacy and merged multi-device histories get the same
- * treatment. (REVIEW F06)
- */
-export function partitionAttempts(records: AnswerRecord[]): {
-  fresh: AnswerRecord[];
-  repeats: AnswerRecord[];
-} {
-  const chronological = records.slice().sort((a, b) => a.answeredAt.localeCompare(b.answeredAt));
-  const seenQuestions = new Set<string>();
-  const firstIds = new Set<string>();
-  for (const record of chronological) {
-    if (seenQuestions.has(record.questionId)) continue;
-    seenQuestions.add(record.questionId);
-    firstIds.add(recordIdentity(record));
-  }
-  const fresh: AnswerRecord[] = [];
-  const repeats: AnswerRecord[] = [];
-  for (const record of records) {
-    (firstIds.has(recordIdentity(record)) ? fresh : repeats).push(record);
-  }
-  return { fresh, repeats };
-}
+export { partitionAttempts } from "@/lib/attemptEvidence";
 
 export type SkillEvidence = {
   skill: SkillTag;
@@ -137,7 +107,9 @@ export function getSkillEvidence(records: AnswerRecord[], part?: number): SkillE
   const pool = part != null
     ? records.filter((r) => r.questionId.startsWith(`p${part}-`))
     : records;
-  const { fresh, repeats } = partitionAttempts(excludeMock(pool));
+  const partitioned = partitionAttempts(pool);
+  const fresh = excludeMock(partitioned.fresh);
+  const repeats = excludeMock(partitioned.repeats);
   const repeatsBySkill = new Map<SkillTag, number>();
   for (const r of repeats) repeatsBySkill.set(r.skill_tag, (repeatsBySkill.get(r.skill_tag) ?? 0) + 1);
 

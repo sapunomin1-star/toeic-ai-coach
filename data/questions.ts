@@ -107,7 +107,7 @@ export type PlanCounts = {
  */
 export type PlanFocus = {
   skills: SkillTag[];
-  /** Non-review questions in the plan per focus skill. */
+  /** Previously unseen, non-review questions in the plan per focus skill. */
   matched: Partial<Record<SkillTag, number>>;
   /** True when no weakness evidence existed and Part 5 fell back to the baseline skills. */
   baseline: boolean;
@@ -161,10 +161,11 @@ function describeFocus(
   planned: Question[],
   baseline: boolean,
   weakSkillTags: SkillTag[],
+  seenIds: ReadonlySet<string>,
 ): PlanFocus {
   const matched: PlanFocus["matched"] = {};
   for (const skill of focusSkills) {
-    matched[skill] = planned.filter((q) => q.skill_tag === skill).length;
+    matched[skill] = planned.filter((q) => q.skill_tag === skill && !seenIds.has(q.id)).length;
   }
   const label = (skills: SkillTag[]) => skills.map((skill) => SKILL_LABELS[skill]).join("、");
   let note: string;
@@ -384,6 +385,7 @@ export function buildDailyPlan(options?: {
     [...weakQs, ...newQs, ...part6Qs, ...part1Qs, ...part2Qs, ...part3Qs, ...part4Qs, ...readingQs],
     !hasWeakEvidence,
     weakSkillTags,
+    answeredIds,
   );
 
   return {

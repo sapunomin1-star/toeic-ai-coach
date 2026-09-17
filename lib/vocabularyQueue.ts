@@ -9,14 +9,14 @@ import { normalizeTerm, type TermGlossPartOfSpeech } from "@/lib/termResolution"
  * not hold keep a snapshot of the gloss they were shown, so they stay visible
  * as 尚無字卡 instead of vanishing.
  *
- * Storage: `toeic_vocabulary_queue_v1`, one entry per normalized term, with
+ * Storage: `toeic_vocabulary_queue_v1`, one entry per term + meaning, with
  * `dismissedAt` tombstones (learned / removed) so the cross-device union
  * merge cannot resurrect a dismissed word — same design as manualReviewItems.
  * This module reads only storageCore, so vocabularyStorage may import it
  * without a cycle.
  */
 export type VocabularyQueueEntry = {
-  /** Normalized term — the entry's identity across devices. */
+  /** Normalized term + part of speech + meaning — identity across devices. */
   key: string;
   /** The term as it appeared in the question. */
   term: string;
@@ -60,13 +60,26 @@ export function isVocabularyQueueEntry(value: unknown): value is VocabularyQueue
 
 /** True while the entry has not been dismissed since it was last added. */
 export function isActiveQueueEntry(entry: VocabularyQueueEntry): boolean {
-  return entry.dismissedAt === undefined || entry.dismissedAt < entry.addedAt;
+  return entry.dismissedAt === undefined || Date.parse(entry.dismissedAt) < Date.parse(entry.addedAt);
+}
+
+/** Different senses of one spelling must remain independent study requests. */
+export function vocabularyQueueKey(input: Pick<VocabularyQueueEntry, "term" | "partOfSpeech" | "meaning_zh">): string {
+  const term = normalizeTerm(input.term);
+  return input.meaning_zh
+    ? JSON.stringify([term, input.partOfSpeech ?? "", normalizeTerm(input.meaning_zh)])
+    : term;
+}
+
+/** Normalize legacy term-only keys on reads, imports and both sides of a merge. */
+export function normalizeQueueEntry(entry: VocabularyQueueEntry): VocabularyQueueEntry {
+  return { ...entry, key: vocabularyQueueKey(entry) };
 }
 
 /** Every stored row, tombstones included — the write path and the merge need them. */
 export function readAllVocabularyQueueEntries(): VocabularyQueueEntry[] {
   const raw = readJSON<unknown>(QUEUE_KEY, []);
-  return Array.isArray(raw) ? raw.filter(isVocabularyQueueEntry) : [];
+  return Array.isArray(raw) ? raw.filter(isVocabularyQueueEntry).map(normalizeQueueEntry) : [];
 }
 
 /** The queue as the learner sees it: active entries, newest first. */
@@ -78,7 +91,7 @@ export function getVocabularyQueue(): VocabularyQueueEntry[] {
 
 export function isTermQueued(term: string): boolean {
   const key = normalizeTerm(term);
-  return getVocabularyQueue().some((entry) => entry.key === key);
+  return getVocabularyQueue().some((entry) => normalizeTerm(entry.term) === key);
 }
 
 /** Card ids of active entries — the daily session prioritizes these as new words. */
@@ -104,14 +117,18 @@ function pruneTombstones(entries: VocabularyQueueEntry[]): VocabularyQueueEntry[
 export function upsertVocabularyQueueEntry(
   input: Omit<VocabularyQueueEntry, "key" | "addedAt" | "dismissedAt">,
 ): boolean {
-  const key = normalizeTerm(input.term);
-  if (!key) return false;
-  const entries = readAllVocabularyQueueEntries().filter((entry) => entry.key !== key);
+  if (!normalizeTerm(input.term)) return false;
+  const key = vocabularyQueueKey(input);
+  const stored = readAllVocabularyQueueEntries();
+  const previous = stored.find((entry) => entry.key === key);
+  const entries = stored.filter((entry) => entry.key !== key);
+  const addedMs = Math.max(Date.now(), previous ? Date.parse(previous.addedAt) + 1 : 0,
+    previous?.dismissedAt ? Date.parse(previous.dismissedAt) + 1 : 0);
   const next: VocabularyQueueEntry = {
     key,
     term: input.term.trim(),
     questionId: input.questionId,
-    addedAt: new Date().toISOString(),
+    addedAt: new Date(addedMs).toISOString(),
     ...(input.wordId ? { wordId: input.wordId } : {}),
     ...(input.meaning_zh ? { meaning_zh: input.meaning_zh } : {}),
     ...(input.partOfSpeech ? { partOfSpeech: input.partOfSpeech } : {}),
@@ -121,11 +138,13 @@ export function upsertVocabularyQueueEntry(
 }
 
 /** Mark an entry learned / removed. Kept as a tombstone for the merge. */
-export function dismissVocabularyQueueTerm(term: string): boolean {
-  const key = normalizeTerm(term);
+export function dismissVocabularyQueueTerm(termOrKey: string): boolean {
   const entries = readAllVocabularyQueueEntries();
-  const index = entries.findIndex((entry) => entry.key === key);
+  const exact = entries.findIndex((entry) => entry.key === termOrKey);
+  // Retain term-only callers for unambiguous legacy entries. UI passes keys.
+  const candidates = entries.filter((entry) => normalizeTerm(entry.term) === normalizeTerm(termOrKey));
+  const index = exact >= 0 ? exact : candidates.length === 1 ? entries.indexOf(candidates[0]) : -1;
   if (index < 0) return false;
-  entries[index] = { ...entries[index], dismissedAt: new Date().toISOString() };
+  entries[index] = { ...entries[index], dismissedAt: new Date(Math.max(Date.now(), Date.parse(entries[index].addedAt))).toISOString() };
   return writeJSON(QUEUE_KEY, pruneTombstones(entries));
 }

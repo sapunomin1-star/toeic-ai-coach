@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import VocabularySpeechButton from "@/components/VocabularySpeechButton";
-import { normalizeTerm, type TermGlossPartOfSpeech, type TermResolution } from "@/lib/termResolution";
+import { type TermGlossPartOfSpeech, type TermResolution } from "@/lib/termResolution";
 import { dismissVocabularyQueueTerm, getVocabularyQueue } from "@/lib/vocabularyQueue";
-import { enqueueQuestionTerm, resolveQuestionTerm } from "@/lib/vocabularyStorage";
+import { enqueueQuestionTerm, resolveQuestionTerm, questionTermQueueKey } from "@/lib/vocabularyStorage";
 import type { Question } from "@/types/question";
 
 const PART_LABELS: Record<TermGlossPartOfSpeech, string> = {
@@ -184,19 +184,26 @@ export default function QuestionVocabulary({
   defaultOpen?: boolean;
 }) {
   const entries = rankQuestionTerms(question);
-  // 待學佇列 membership, keyed by normalized term (review F10).
+  // Membership is per spelling + part of speech + meaning, across questions.
   const [queued, setQueued] = useState<Set<string>>(
     () => new Set(getVocabularyQueue().map((entry) => entry.key)),
   );
   const [queueError, setQueueError] = useState<string | null>(null);
 
   function toggleQueued(term: string) {
-    const key = normalizeTerm(term);
-    const persisted = queued.has(key)
-      ? dismissVocabularyQueueTerm(term)
+    const key = questionTermQueueKey(term, question.id);
+    const removing = queued.has(key);
+    const persisted = removing
+      ? dismissVocabularyQueueTerm(key)
       : enqueueQuestionTerm(term, question.id);
     if (!persisted) {
-      setQueueError("待學清單暫時無法儲存，請確認瀏覽器儲存空間後再試。");
+      const saved = new Set(getVocabularyQueue().map((entry) => entry.key));
+      setQueued(saved);
+      setQueueError(removing
+        ? "移除尚未儲存，這個義項仍保留在待學清單，請稍後再試。"
+        : saved.has(key)
+          ? "待學內容已儲存，但複習日期尚未更新，請確認瀏覽器儲存空間。"
+          : "待學清單暫時無法儲存，請確認瀏覽器儲存空間後再試。");
       return;
     }
     setQueueError(null);
@@ -235,7 +242,7 @@ export default function QuestionVocabulary({
         {entries.map(({ term, key, resolution }) => {
           const pos = partOfSpeech(resolution);
           const word = displayWord(resolution);
-          const isQueued = queued.has(normalizeTerm(term));
+          const isQueued = queued.has(questionTermQueueKey(term, question.id));
           return (
             <li key={term} className="rounded-xl bg-white p-3 shadow-sm">
               <div className="flex items-start gap-3">
@@ -272,7 +279,7 @@ export default function QuestionVocabulary({
         </p>
       )}
       <p className="border-t border-sky-100 px-4 py-2 text-[11px] leading-relaxed text-slate-500">
-        加入待學：有字卡的詞會提前到今天複習（不改變已掌握程度）；還沒有字卡的詞會列在單字頁的待學清單，附上本題的釋義。
+        加入待學會保留本題義項。義項相符的字卡可安排練習；尚無對應字卡的義項保留在待學清單，不套用其他意思的掌握程度。新字使用每日 20 字名額，已建立的課表會在下一次安排時優先考慮。
       </p>
     </details>
   );
